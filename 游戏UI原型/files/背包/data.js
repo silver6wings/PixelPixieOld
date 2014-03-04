@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"背包.html",
-  "generationDate":new Date(1393776258083.52),
+  "generationDate":new Date(1393973830089.35),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1427,7 +1427,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u44.png"}},
+            "normal~":"images/选择道具/u44.png"}},
 {
           "id":"89165e5f7427436ea8837ab4774d2422",
           "label":"",
@@ -1501,7 +1501,7 @@
                       "linkType":"current"}]}]}},
           "tabbable":true,
           "images":{
-            "normal~":"images/背包/u46.png"}},
+            "normal~":"images/选择道具/u46.png"}},
 {
           "id":"2a32dd7384c44378a649d8b068b5364d",
           "label":"",
@@ -1577,7 +1577,7 @@
                       "linkType":"current"}]}]}},
           "tabbable":true,
           "images":{
-            "normal~":"images/背包/u48.png"}}]}},
+            "normal~":"images/选择道具/u48.png"}}]}},
   "masters":{
 },
   "objectPaths":{

@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"选择融合宠物.html",
-  "generationDate":new Date(1393776255144.35),
+  "generationDate":new Date(1393973825908.11),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1534,6 +1534,9 @@
             "fill":{
               "fillType":"solid",
               "color":0xFF000000},
+            "location":{
+              "x":0,
+              "y":40},
             "size":{
               "width":640,
               "height":1150}},
@@ -1551,6 +1554,9 @@
                 "fill":{
                   "fillType":"solid",
                   "color":0xFF000000},
+                "location":{
+                  "x":0,
+                  "y":40},
                 "size":{
                   "width":640,
                   "height":1150}},
@@ -1620,7 +1626,7 @@
               "color":0xFF00CC66},
             "location":{
               "x":220,
-              "y":500},
+              "y":580},
             "size":{
               "width":200,
               "height":40},
@@ -1642,7 +1648,7 @@
                   "color":0xFF00CC66},
                 "location":{
                   "x":220,
-                  "y":500},
+                  "y":580},
                 "size":{
                   "width":200,
                   "height":40},
@@ -1678,11 +1684,11 @@
               "fillType":"solid",
               "color":0xFF00CC66},
             "location":{
-              "x":220,
-              "y":555},
+              "x":180,
+              "y":460},
             "size":{
-              "width":200,
-              "height":40},
+              "width":270,
+              "height":100},
             "borderWidth":"5",
             "cornerRadiusTopLeft":"10"},
           "adaptiveStyles":{
@@ -1699,17 +1705,17 @@
                   "fillType":"solid",
                   "color":0xFF00CC66},
                 "location":{
-                  "x":220,
-                  "y":555},
+                  "x":180,
+                  "y":460},
                 "size":{
-                  "width":200,
-                  "height":40},
+                  "width":270,
+                  "height":100},
                 "borderWidth":"5",
                 "cornerRadiusTopLeft":"10"},
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/选择融合宠物/u56.png"}},
+            "normal~":"images/选择融合宠物/u58.png"}},
 {
           "id":"47c5a5a412734251b85207aa14fb4a60",
           "label":"",
@@ -1722,7 +1728,7 @@
               "color":0xFF00CC66},
             "location":{
               "x":220,
-              "y":620},
+              "y":719},
             "size":{
               "width":200,
               "height":40},
@@ -1746,7 +1752,7 @@
                   "color":0xFF00CC66},
                 "location":{
                   "x":220,
-                  "y":620},
+                  "y":719},
                 "size":{
                   "width":200,
                   "height":40},
@@ -1773,7 +1779,65 @@
                       "linkType":"current"}]}]}},
           "tabbable":true,
           "images":{
-            "normal~":"images/选择融合宠物/u60.png"}}]}},
+            "normal~":"images/选择融合宠物/u60.png"}},
+{
+          "id":"d700e814e4614747b5635e3c397448b0",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF00CC66},
+            "location":{
+              "x":220,
+              "y":650},
+            "size":{
+              "width":200,
+              "height":40},
+            "borderWidth":"5",
+            "cornerRadiusTopLeft":"10"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"dae9a948fe794ea5b49c0f796354da58",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF00CC66},
+                "location":{
+                  "x":220,
+                  "y":650},
+                "size":{
+                  "width":200,
+                  "height":40},
+                "borderWidth":"5",
+                "cornerRadiusTopLeft":"10"},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"在 当前窗口 打开 已选择一只怪物（道具融合）",
+                      "target":{
+                        "targetType":"page",
+                        "url":"已选择一只怪物（道具融合）.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/选择融合宠物/u56.png"}}]}},
   "masters":{
 },
   "objectPaths":{
@@ -1900,4 +1964,8 @@
     "47c5a5a412734251b85207aa14fb4a60":{
       "scriptId":"u60"},
     "66fa51e33e1f4c5c926ed9ac827e84a7":{
-      "scriptId":"u61"}}});
+      "scriptId":"u61"},
+    "d700e814e4614747b5635e3c397448b0":{
+      "scriptId":"u62"},
+    "dae9a948fe794ea5b49c0f796354da58":{
+      "scriptId":"u63"}}});

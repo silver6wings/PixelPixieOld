@@ -962,7 +962,7 @@
 }
 #u70 {
   position:absolute;
-  left:221px;
+  left:106px;
   top:395px;
   width:200px;
   height:105px;
@@ -1241,5 +1241,26 @@
   left:2px;
   top:17px;
   width:96px;
+  word-wrap:break-word;
+}
+#u96 {
+  position:absolute;
+  left:336px;
+  top:395px;
+  width:200px;
+  height:105px;
+}
+#u96_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:200px;
+  height:105px;
+}
+#u97 {
+  position:absolute;
+  left:2px;
+  top:44px;
+  width:196px;
   word-wrap:break-word;
 }

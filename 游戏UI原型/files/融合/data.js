@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"融合.html",
-  "generationDate":new Date(1393776254879.33),
+  "generationDate":new Date(1393973825643.09),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

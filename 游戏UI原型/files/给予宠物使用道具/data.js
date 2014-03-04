@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"给予宠物使用道具.html",
-  "generationDate":new Date(1393776258777.55),
+  "generationDate":new Date(1393973830755.38),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

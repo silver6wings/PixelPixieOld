@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"未封印宠物更换出场顺序1.html",
-  "generationDate":new Date(1393776254010.28),
+  "generationDate":new Date(1393973824814.04),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

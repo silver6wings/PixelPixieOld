@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"查看技能说明.html",
-  "generationDate":new Date(1393776257182.46),
+  "generationDate":new Date(1393973829322.3),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -2027,7 +2027,7 @@
               "fillType":"solid",
               "color":0xFF666666},
             "location":{
-              "x":221,
+              "x":106,
               "y":395},
             "size":{
               "width":200,
@@ -2051,7 +2051,7 @@
                   "fillType":"solid",
                   "color":0xFF666666},
                 "location":{
-                  "x":221,
+                  "x":106,
                   "y":395},
                 "size":{
                   "width":200,
@@ -2522,7 +2522,56 @@
                       "linkType":"current"}]}]}},
           "tabbable":true,
           "images":{
-            "normal~":"images/怪物-进化树/u50.png"}}]}},
+            "normal~":"images/怪物-进化树/u50.png"}},
+{
+          "id":"1e9cab07267740ecbc1ea53220397cc6",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF666666},
+            "location":{
+              "x":336,
+              "y":395},
+            "size":{
+              "width":200,
+              "height":105},
+            "borderWidth":"5",
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFF000000},
+            "cornerRadiusTopLeft":"10"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"6c1cde9846a44440af9bd68fda97d8bf",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF666666},
+                "location":{
+                  "x":336,
+                  "y":395},
+                "size":{
+                  "width":200,
+                  "height":105},
+                "borderWidth":"5",
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF000000},
+                "cornerRadiusTopLeft":"10"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/查看技能说明/u70.png"}}]}},
   "masters":{
 },
   "objectPaths":{
@@ -2717,4 +2766,8 @@
     "d1e6cc4ea2fd41b2868880812a22eddf":{
       "scriptId":"u94"},
     "90394a5bebba4261aa5e1107d1ab3316":{
-      "scriptId":"u95"}}});
+      "scriptId":"u95"},
+    "1e9cab07267740ecbc1ea53220397cc6":{
+      "scriptId":"u96"},
+    "6c1cde9846a44440af9bd68fda97d8bf":{
+      "scriptId":"u97"}}});

@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"已选择一只怪物.html",
-  "generationDate":new Date(1393776255356.36),
+  "generationDate":new Date(1393973826125.12),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

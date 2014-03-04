@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"退出副本确认.html",
-  "generationDate":new Date(1393776262020.74),
+  "generationDate":new Date(1393973833684.55),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -500,7 +500,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u20.png"}},
+            "normal~":"images/退出副本确认/u18.png"}},
 {
           "id":"24b08d5df1bd4727b60d98a2118116e7",
           "label":"",
@@ -533,7 +533,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u22.png"}},
+            "normal~":"images/退出副本确认/u20.png"}},
 {
           "id":"84187b3761ab4297a535fdd49c26d1f1",
           "label":"",
@@ -566,7 +566,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u24.png"}},
+            "normal~":"images/战斗页面/u52.png"}},
 {
           "id":"4ac3b1a9c4b3492f9d910388334d178b",
           "label":"",
@@ -599,7 +599,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u26.png"}},
+            "normal~":"images/退出副本确认/u24.png"}},
 {
           "id":"ffee9380264746f38afcbba49fd8928b",
           "label":"",
@@ -632,7 +632,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u28.png"}},
+            "normal~":"images/退出副本确认/u26.png"}},
 {
           "id":"e7b532e320f04a49908301ed3e35ff3d",
           "label":"",
@@ -665,7 +665,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u26.png"}},
+            "normal~":"images/退出副本确认/u24.png"}},
 {
           "id":"219216bb427a45d68482bc44ab548075",
           "label":"",
@@ -698,7 +698,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u28.png"}},
+            "normal~":"images/退出副本确认/u26.png"}},
 {
           "id":"1a3033219d984c67ba95813bd246a05e",
           "label":"",
@@ -932,10 +932,9 @@
                   "isNewIfGroup":false,
                   "actions":[{
                       "action":"linkWindow",
-                      "description":"在 当前窗口 打开 暂停界面",
+                      "description":"在 当前窗口 打开 链接",
                       "target":{
                         "targetType":"page",
-                        "url":"暂停界面.html",
                         "includeVariables":true},
                       "linkType":"current"}]}]}},
           "tabbable":true,

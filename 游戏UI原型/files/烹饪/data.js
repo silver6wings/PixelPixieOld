@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"烹饪.html",
-  "generationDate":new Date(1393776259306.58),
+  "generationDate":new Date(1393973831268.41),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1352,7 +1352,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u44.png"}},
+            "normal~":"images/选择道具/u44.png"}},
 {
           "id":"2a32dd7384c44378a649d8b068b5364d",
           "label":"",
@@ -1413,7 +1413,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u48.png"}},
+            "normal~":"images/选择道具/u48.png"}},
 {
           "id":"89165e5f7427436ea8837ab4774d2422",
           "label":"",
@@ -1472,7 +1472,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u46.png"}},
+            "normal~":"images/选择道具/u46.png"}},
 {
           "id":"7e0f797f8ae74b838df93e25e90b3f11",
           "label":"",
@@ -1568,7 +1568,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u48.png"}},
+            "normal~":"images/选择道具/u48.png"}},
 {
           "id":"997ba0f5fdce4e04bf7f8c18d386d7f1",
           "label":"",

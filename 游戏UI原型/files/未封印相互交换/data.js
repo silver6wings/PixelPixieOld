@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"未封印相互交换.html",
-  "generationDate":new Date(1393776254314.3),
+  "generationDate":new Date(1393973825097.06),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1541,6 +1541,21 @@
                 "cornerRadiusTopLeft":"10"},
               "adaptiveStyles":{
 }}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"在 当前窗口 打开 未封印宠物更换出场顺序1",
+                      "target":{
+                        "targetType":"page",
+                        "url":"未封印宠物更换出场顺序1.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
           "images":{
             "normal~":"images/怪物编队/u48.png"}},
 {

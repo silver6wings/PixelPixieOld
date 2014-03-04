@@ -760,7 +760,7 @@
 #u58 {
   position:absolute;
   left:220px;
-  top:500px;
+  top:604px;
   width:200px;
   height:40px;
   opacity:0.9;
@@ -781,29 +781,29 @@
 }
 #u60 {
   position:absolute;
-  left:220px;
-  top:555px;
-  width:200px;
-  height:40px;
+  left:190px;
+  top:460px;
+  width:260px;
+  height:110px;
 }
 #u60_img {
   position:absolute;
   left:0px;
   top:0px;
-  width:200px;
-  height:40px;
+  width:260px;
+  height:110px;
 }
 #u61 {
   position:absolute;
   left:2px;
-  top:12px;
-  width:196px;
+  top:47px;
+  width:256px;
   word-wrap:break-word;
 }
 #u62 {
   position:absolute;
   left:220px;
-  top:620px;
+  top:669px;
   width:200px;
   height:40px;
 }

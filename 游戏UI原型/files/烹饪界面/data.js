@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"烹饪界面.html",
-  "generationDate":new Date(1393776259791.61),
+  "generationDate":new Date(1393973831745.44),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1427,7 +1427,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u44.png"}},
+            "normal~":"images/选择道具/u44.png"}},
 {
           "id":"2a32dd7384c44378a649d8b068b5364d",
           "label":"",
@@ -1726,7 +1726,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u48.png"}},
+            "normal~":"images/选择道具/u48.png"}},
 {
           "id":"7b18e3e8a50d4830a86e0cf97f31e736",
           "label":"",

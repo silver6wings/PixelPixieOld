@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"进入游戏.html",
-  "generationDate":new Date(1393776251170.12),
+  "generationDate":new Date(1393973822209.9),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

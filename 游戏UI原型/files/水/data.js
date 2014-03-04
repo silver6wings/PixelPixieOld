@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"水.html",
-  "generationDate":new Date(1393776251657.15),
+  "generationDate":new Date(1393973822742.93),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

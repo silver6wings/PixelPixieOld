@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"商城.html",
-  "generationDate":new Date(1393776262239.75),
+  "generationDate":new Date(1393973833883.56),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1711,7 +1711,7 @@
                       "linkType":"current"}]}]}},
           "tabbable":true,
           "images":{
-            "normal~":"images/背包/u46.png"}},
+            "normal~":"images/选择道具/u46.png"}},
 {
           "id":"1f789920c9154b808d7f0ec734139c11",
           "label":"",
@@ -1787,7 +1787,7 @@
                       "linkType":"current"}]}]}},
           "tabbable":true,
           "images":{
-            "normal~":"images/背包/u48.png"}},
+            "normal~":"images/选择道具/u48.png"}},
 {
           "id":"b13b8134e4f3461b9c8c589ed4f90215",
           "label":"",

@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"贩卖物品确认.html",
-  "generationDate":new Date(1393776263477.82),
+  "generationDate":new Date(1393973835214.64),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1602,7 +1602,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u48.png"}},
+            "normal~":"images/选择道具/u48.png"}},
 {
           "id":"c044191b6286450098c479fecdb99eba",
           "label":"",
@@ -1661,7 +1661,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u46.png"}},
+            "normal~":"images/选择道具/u46.png"}},
 {
           "id":"e50f76e61b9242c9961f1f6db762de2d",
           "label":"",
@@ -2019,7 +2019,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u48.png"}}]}},
+            "normal~":"images/选择道具/u48.png"}}]}},
   "masters":{
 },
   "objectPaths":{

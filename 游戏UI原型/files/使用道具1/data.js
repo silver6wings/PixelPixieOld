@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"使用道具1.html",
-  "generationDate":new Date(1393776259041.57),
+  "generationDate":new Date(1393973831013.4),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

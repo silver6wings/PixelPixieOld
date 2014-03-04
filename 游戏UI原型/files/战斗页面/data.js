@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"战斗页面.html",
-  "generationDate":new Date(1393776261596.72),
+  "generationDate":new Date(1393973833212.52),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -66,210 +66,6 @@
 }}],
           "images":{
             "normal~":"images/怪物1/u0.png"}},
-{
-          "id":"a967c149001548c2ae60f651e32c3fad",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":true,
-          "style":{
-            "opacity":"0.9",
-            "fill":{
-              "fillType":"solid",
-              "color":0xFF990099},
-            "location":{
-              "x":1,
-              "y":0},
-            "size":{
-              "width":640,
-              "height":40}},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"4b4b9b0100f247d88f9097d4bc1fdac3",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "opacity":"0.9",
-                "fill":{
-                  "fillType":"solid",
-                  "color":0xFF990099},
-                "location":{
-                  "x":1,
-                  "y":0},
-                "size":{
-                  "width":640,
-                  "height":40}},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/第一次登陆/u4.png"}},
-{
-          "id":"d3df5a84e3164c6ba3a34c919b24c6ba",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":true,
-          "style":{
-            "fill":{
-              "fillType":"solid",
-              "color":0xFF666666},
-            "location":{
-              "x":1,
-              "y":40},
-            "size":{
-              "width":640,
-              "height":100},
-            "borderWidth":"5",
-            "borderFill":{
-              "fillType":"solid",
-              "color":0xFF333333},
-            "cornerRadiusTopLeft":"5"},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"c52eea33a3db47f1ba3ba307a248b4c3",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "fill":{
-                  "fillType":"solid",
-                  "color":0xFF666666},
-                "location":{
-                  "x":1,
-                  "y":40},
-                "size":{
-                  "width":640,
-                  "height":100},
-                "borderWidth":"5",
-                "borderFill":{
-                  "fillType":"solid",
-                  "color":0xFF333333},
-                "cornerRadiusTopLeft":"5"},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/主菜单/u4.png"}},
-{
-          "id":"eab38bfd43f046b5999083013fe2d36d",
-          "label":"",
-          "type":"flowShape",
-          "styleType":"flowShape",
-          "visible":true,
-          "style":{
-            "fontName":"'Arial Negreta', 'Arial'",
-            "fontWeight":"700",
-            "foreGroundFill":{
-              "fillType":"solid",
-              "color":0xFF666666,
-              "opacity":1},
-            "fill":{
-              "fillType":"linearGradient",
-              "colors":[{
-                  "color":0xFFCCCC33},
-{
-                  "color":0xFFCCCC33},
-{
-                  "color":0xFFE4E4E4},
-{
-                  "color":0xFFE4E4E4}]},
-            "location":{
-              "x":106,
-              "y":75},
-            "size":{
-              "width":200,
-              "height":30},
-            "borderWidth":"5",
-            "borderFill":{
-              "fillType":"solid",
-              "color":0xFF333333}},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"2da0be48de5c498d9842a3ade6821900",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "fontName":"'Arial Negreta', 'Arial'",
-                "fontWeight":"700",
-                "foreGroundFill":{
-                  "fillType":"solid",
-                  "color":0xFF666666,
-                  "opacity":1},
-                "fill":{
-                  "fillType":"linearGradient",
-                  "colors":[{
-                      "color":0xFFCCCC33},
-{
-                      "color":0xFFCCCC33},
-{
-                      "color":0xFFE4E4E4},
-{
-                      "color":0xFFE4E4E4}]},
-                "location":{
-                  "x":106,
-                  "y":75},
-                "size":{
-                  "width":200,
-                  "height":30},
-                "borderWidth":"5",
-                "borderFill":{
-                  "fillType":"solid",
-                  "color":0xFF333333}},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/主菜单/u6.png"}},
-{
-          "id":"c60846f77ea6450ead89a6da59e7d835",
-          "label":"水",
-          "type":"imageBox",
-          "styleType":"imageBox",
-          "visible":true,
-          "style":{
-            "location":{
-              "x":36,
-              "y":68},
-            "size":{
-              "width":45,
-              "height":45},
-            "rotation":"0",
-            "textRotation":"0",
-            "borderWidth":"0",
-            "cornerRadiusTopLeft":"0"},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"a91575d3536f4c1ba64407e25ddb5eb4",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "location":{
-                  "x":36,
-                  "y":68},
-                "size":{
-                  "width":45,
-                  "height":45},
-                "rotation":"0",
-                "textRotation":"0",
-                "borderWidth":"0",
-                "cornerRadiusTopLeft":"0"},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/第一次选择宠物/水_u22.png"}},
 {
           "id":"a20ff0c79beb4d36afc66f531bc51a38",
           "label":"",
@@ -353,18 +149,57 @@
           "images":{
             "normal~":"images/主菜单/u24.png"}},
 {
-          "id":"404e1acebece4d89a012b116e1daadbb",
+          "id":"ea911512bf8946dda7ee416ef75c40b2",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF999999},
+            "location":{
+              "x":0,
+              "y":138},
+            "size":{
+              "width":640,
+              "height":860}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"dbd1ea449b334b618673ef59f5e38725",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF999999},
+                "location":{
+                  "x":0,
+                  "y":138},
+                "size":{
+                  "width":640,
+                  "height":860}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u6.png"}},
+{
+          "id":"24701599699e4de1bf6b546513c9ae13",
           "label":"",
           "type":"imageBox",
           "styleType":"imageBox",
           "visible":true,
           "style":{
             "location":{
-              "x":336,
-              "y":68},
+              "x":0,
+              "y":956},
             "size":{
-              "width":45,
-              "height":45},
+              "width":180,
+              "height":180},
             "rotation":"0",
             "textRotation":"0",
             "borderWidth":"0",
@@ -372,7 +207,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"ab4277ee7ef544458d9176536d929a66",
+              "id":"ae3e84349f634018ba7e725c5e6aace2",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -380,11 +215,11 @@
               "visible":true,
               "style":{
                 "location":{
-                  "x":336,
-                  "y":68},
+                  "x":0,
+                  "y":956},
                 "size":{
-                  "width":45,
-                  "height":45},
+                  "width":180,
+                  "height":180},
                 "rotation":"0",
                 "textRotation":"0",
                 "borderWidth":"0",
@@ -392,82 +227,650 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/主菜单/u36.png"}},
+            "normal~":"images/战斗页面/u8.png"}},
 {
-          "id":"e1ea6eadcf62465ca68a23e9ceef9463",
+          "id":"301cee2e091745898d47ec11a6eb7f3a",
           "label":"",
-          "type":"flowShape",
-          "styleType":"flowShape",
+          "type":"imageBox",
+          "styleType":"imageBox",
           "visible":true,
           "style":{
-            "fontName":"'Arial Negreta', 'Arial'",
-            "fontWeight":"700",
-            "foreGroundFill":{
-              "fillType":"solid",
-              "color":0xFF666666,
-              "opacity":1},
-            "fill":{
-              "fillType":"linearGradient",
-              "colors":[{
-                  "color":0xFFCCCC33},
-{
-                  "color":0xFFCCCC33},
-{
-                  "color":0xFFE4E4E4},
-{
-                  "color":0xFFE4E4E4}]},
             "location":{
-              "x":401,
-              "y":75},
+              "x":460,
+              "y":0},
             "size":{
-              "width":200,
-              "height":30},
-            "borderWidth":"5",
-            "borderFill":{
-              "fillType":"solid",
-              "color":0xFF333333}},
+              "width":180,
+              "height":180},
+            "rotation":"0",
+            "textRotation":"0",
+            "borderWidth":"0",
+            "cornerRadiusTopLeft":"0"},
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"c8e8f8d8681349769a0b3d635159e63c",
+              "id":"db6e80a71b5947d9a54a656b533e55af",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
               "styleType":"paragraph",
               "visible":true,
               "style":{
-                "fontName":"'Arial Negreta', 'Arial'",
-                "fontWeight":"700",
-                "foreGroundFill":{
-                  "fillType":"solid",
-                  "color":0xFF666666,
-                  "opacity":1},
-                "fill":{
-                  "fillType":"linearGradient",
-                  "colors":[{
-                      "color":0xFFCCCC33},
-{
-                      "color":0xFFCCCC33},
-{
-                      "color":0xFFE4E4E4},
-{
-                      "color":0xFFE4E4E4}]},
                 "location":{
-                  "x":401,
-                  "y":75},
+                  "x":460,
+                  "y":0},
                 "size":{
-                  "width":200,
-                  "height":30},
-                "borderWidth":"5",
-                "borderFill":{
-                  "fillType":"solid",
-                  "color":0xFF333333}},
+                  "width":180,
+                  "height":180},
+                "rotation":"0",
+                "textRotation":"0",
+                "borderWidth":"0",
+                "cornerRadiusTopLeft":"0"},
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/主菜单/u6.png"}},
+            "normal~":"images/战斗页面/u10.png"}},
 {
-          "id":"7b2b1df8e5ba4f63bd61c521c999189e",
+          "id":"44ddc18ab3c14a1291c13dd0909b33b2",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFFFFFF00},
+            "location":{
+              "x":350,
+              "y":270},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"4dec10d243a64507b4402a05634bf9cd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFF00},
+                "location":{
+                  "x":350,
+                  "y":270},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u12.png"}},
+{
+          "id":"07aed11762c343f1bd159ef7fbfb47b3",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "opacity":"0.4",
+            "location":{
+              "x":157,
+              "y":877},
+            "size":{
+              "width":106,
+              "height":106}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"165372e2c7e1484f8396c91bf49ec9af",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "opacity":"0.4",
+                "location":{
+                  "x":157,
+                  "y":877},
+                "size":{
+                  "width":106,
+                  "height":106}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u14.png"}},
+{
+          "id":"3f7f6d13f5d2496b99d6ae043b63a00c",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":180,
+              "y":900},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"0307e1fa83464d5593825bab7e42fb01",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":180,
+                  "y":900},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u16.png"}},
+{
+          "id":"86241f3238164dfba572c6164ce7ee7a",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":273,
+              "y":390},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"916da5f98ccb4be8a22a8bcb0ac6bb84",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":273,
+                  "y":390},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u16.png"}},
+{
+          "id":"d957df083c6f46f18960734111f2e33a",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF006600},
+            "location":{
+              "x":320,
+              "y":538},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b528830cf96f40a3b761e2ac71fa70a7",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF006600},
+                "location":{
+                  "x":320,
+                  "y":538},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u20.png"}},
+{
+          "id":"016fc576928c408eb7a87699c02cf019",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFFFFFF00},
+            "location":{
+              "x":203,
+              "y":450},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"50d37af3aefc40348206aea74a14b239",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFF00},
+                "location":{
+                  "x":203,
+                  "y":450},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u12.png"}},
+{
+          "id":"c4f604cb628d427a93073e3ca0a18d9e",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF00FFFF},
+            "location":{
+              "x":120,
+              "y":520},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"e6453ec78c724941bb073a1720ee1c75",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF00FFFF},
+                "location":{
+                  "x":120,
+                  "y":520},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u24.png"}},
+{
+          "id":"7093586145ab4359bf5e762bf6ff1edd",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF993300},
+            "location":{
+              "x":450,
+              "y":460},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"9125c9f20002484d819f745e84844254",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF993300},
+                "location":{
+                  "x":450,
+                  "y":460},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u26.png"}},
+{
+          "id":"9caec3f3810b45ffb59746d425f94f21",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFFFF0000},
+            "location":{
+              "x":203,
+              "y":270},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"afa1317f78854b828196e4128461c841",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFFFF0000},
+                "location":{
+                  "x":203,
+                  "y":270},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u28.png"}},
+{
+          "id":"1bdcbe30d34d4cfab67a5ce9456d3d64",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF006600},
+            "location":{
+              "x":70,
+              "y":350},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"3d9698dbac46496a9450c29f08245b39",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF006600},
+                "location":{
+                  "x":70,
+                  "y":350},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u20.png"}},
+{
+          "id":"605b11178b5142849d1611f4bc536cb8",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFFFF0000},
+            "location":{
+              "x":140,
+              "y":650},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"2c2ecc7b8a3149379974587fa129db3b",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFFFF0000},
+                "location":{
+                  "x":140,
+                  "y":650},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u28.png"}},
+{
+          "id":"7f4e62dee9fb45a3b8a35c08ad033493",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF00FFFF},
+            "location":{
+              "x":480.000030517578,
+              "y":600},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"1c7885ac635c4ae3a0d128b545c7a36e",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF00FFFF},
+                "location":{
+                  "x":480.000030517578,
+                  "y":600},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u24.png"}},
+{
+          "id":"4fa6d07f06c24365a469662b5e855e5b",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF993300},
+            "location":{
+              "x":320,
+              "y":710},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"e4169caec17f4f5391becd6f9464dc8f",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF993300},
+                "location":{
+                  "x":320,
+                  "y":710},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u26.png"}},
+{
+          "id":"1407116aa9a14843b09f96fe0ee40d67",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fontSize":"20px",
+            "location":{
+              "x":400,
+              "y":180},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"d4cf6259b75e4d31afef4635a085bfcf",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontSize":"20px",
+                "location":{
+                  "x":400,
+                  "y":180},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u16.png"}},
+{
+          "id":"59d299f2b43c4da5a975d14e99391fb0",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":400,
+              "y":640},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"e683536861ad4572857dce42efa2ab29",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":400,
+                  "y":640},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u16.png"}},
+{
+          "id":"3990f89d03d54b8f844799efa6d9564a",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":99,
+              "y":0},
+            "size":{
+              "width":361,
+              "height":90},
+            "rotation":"0",
+            "textRotation":"0",
+            "borderWidth":"0",
+            "cornerRadiusTopLeft":"0"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"ffeb3048acd2443ba4dd8bd3fbf98784",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":99,
+                  "y":0},
+                "size":{
+                  "width":361,
+                  "height":90},
+                "rotation":"0",
+                "textRotation":"0",
+                "borderWidth":"0",
+                "cornerRadiusTopLeft":"0"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u42.png"}},
+{
+          "id":"2ae0584059f7492e8d6f098fa22a014c",
           "label":"",
           "type":"buttonShape",
           "styleType":"buttonShape",
@@ -475,14 +878,14 @@
           "style":{
             "location":{
               "x":0,
-              "y":537},
+              "y":90},
             "size":{
-              "width":640,
-              "height":640}},
+              "width":209,
+              "height":52}},
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"07d4fcd315b7458594f376f2ecd3ecbc",
+              "id":"91c366df15924e8799d7d01362fd6817",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -491,27 +894,27 @@
               "style":{
                 "location":{
                   "x":0,
-                  "y":537},
+                  "y":90},
                 "size":{
-                  "width":640,
-                  "height":640}},
+                  "width":209,
+                  "height":52}},
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u18.png"}},
+            "normal~":"images/战斗页面/u44.png"}},
 {
-          "id":"1e3b5ccfd650489b8a506cdbb59224c6",
+          "id":"ff9c857df11042b6b34496c31b59fe2a",
           "label":"",
           "type":"imageBox",
           "styleType":"imageBox",
           "visible":true,
           "style":{
             "location":{
-              "x":0,
-              "y":138},
+              "x":179,
+              "y":1048},
             "size":{
-              "width":640,
-              "height":400},
+              "width":351,
+              "height":82},
             "rotation":"0",
             "textRotation":"0",
             "borderWidth":"0",
@@ -519,7 +922,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"9689afb11dd04e249d2790be8731aefd",
+              "id":"cfb7980d29f0491691c1c8cd12cd0a25",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -527,11 +930,11 @@
               "visible":true,
               "style":{
                 "location":{
-                  "x":0,
-                  "y":138},
+                  "x":179,
+                  "y":1048},
                 "size":{
-                  "width":640,
-                  "height":400},
+                  "width":351,
+                  "height":82},
                 "rotation":"0",
                 "textRotation":"0",
                 "borderWidth":"0",
@@ -539,9 +942,75 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u20.png"}},
+            "normal~":"images/战斗页面/u42.png"}},
 {
-          "id":"24b08d5df1bd4727b60d98a2118116e7",
+          "id":"7f5cf0342ae54c8ea5e5595441ea9f07",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":431,
+              "y":998.000061035156},
+            "size":{
+              "width":209,
+              "height":50}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"504378a6c7dc46e58d65daefdc1a644e",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":431,
+                  "y":998.000061035156},
+                "size":{
+                  "width":209,
+                  "height":50}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u48.png"}},
+{
+          "id":"a312e15a608e4d74931548a481dd0b92",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":209,
+              "y":90},
+            "size":{
+              "width":250,
+              "height":50}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b8c61de71d8142948e599655d7cc109c",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":209,
+                  "y":90},
+                "size":{
+                  "width":250,
+                  "height":50}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/战斗页面/u50.png"}},
+{
+          "id":"b34eacdaf87c491ebd78fe3d5e0054ce",
           "label":"",
           "type":"imageBox",
           "styleType":"imageBox",
@@ -549,14 +1018,14 @@
           "style":{
             "location":{
               "x":0,
-              "y":537},
+              "y":-16},
             "size":{
-              "width":640,
-              "height":640}},
+              "width":106,
+              "height":106}},
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"34f24cb06f634efead03490f361750c9",
+              "id":"e0e26126e19d41588d926595b99fb049",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -565,14 +1034,62 @@
               "style":{
                 "location":{
                   "x":0,
-                  "y":537},
+                  "y":-16},
                 "size":{
-                  "width":640,
-                  "height":640}},
+                  "width":106,
+                  "height":106}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"在 当前窗口 打开 暂停页面",
+                      "target":{
+                        "targetType":"page",
+                        "url":"暂停页面.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/战斗页面/u52.png"}},
+{
+          "id":"bb621e6d226544ee880c83e3eab11c29",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":180,
+              "y":998},
+            "size":{
+              "width":250,
+              "height":50}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"ad937fda5a5c4e759f764a19e7407f1b",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":180,
+                  "y":998},
+                "size":{
+                  "width":250,
+                  "height":50}},
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/战斗页面/u22.png"}},
+            "normal~":"images/战斗页面/u50.png"}},
 {
           "id":"84187b3761ab4297a535fdd49c26d1f1",
           "label":"",
@@ -581,11 +1098,11 @@
           "visible":true,
           "style":{
             "location":{
-              "x":280,
-              "y":138},
+              "x":534,
+              "y":1036},
             "size":{
-              "width":64,
-              "height":60}},
+              "width":106,
+              "height":104}},
           "adaptiveStyles":{
 },
           "objects":[{
@@ -597,11 +1114,11 @@
               "visible":true,
               "style":{
                 "location":{
-                  "x":280,
-                  "y":138},
+                  "x":534,
+                  "y":1036},
                 "size":{
-                  "width":64,
-                  "height":60}},
+                  "width":106,
+                  "height":104}},
               "adaptiveStyles":{
 }}],
           "interactionMap":{
@@ -612,147 +1129,15 @@
                   "isNewIfGroup":false,
                   "actions":[{
                       "action":"linkWindow",
-                      "description":"在 当前窗口 打开 暂停界面",
+                      "description":"在 当前窗口 打开 暂停页面",
                       "target":{
                         "targetType":"page",
-                        "url":"暂停界面.html",
+                        "url":"暂停页面.html",
                         "includeVariables":true},
                       "linkType":"current"}]}]}},
           "tabbable":true,
           "images":{
-            "normal~":"images/战斗页面/u24.png"}},
-{
-          "id":"4ac3b1a9c4b3492f9d910388334d178b",
-          "label":"",
-          "type":"imageBox",
-          "styleType":"imageBox",
-          "visible":true,
-          "style":{
-            "location":{
-              "x":10,
-              "y":478},
-            "size":{
-              "width":51,
-              "height":49}},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"146a4c0cac3d408c9455eda6f36be14e",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "location":{
-                  "x":10,
-                  "y":478},
-                "size":{
-                  "width":51,
-                  "height":49}},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/战斗页面/u26.png"}},
-{
-          "id":"ffee9380264746f38afcbba49fd8928b",
-          "label":"",
-          "type":"imageBox",
-          "styleType":"imageBox",
-          "visible":true,
-          "style":{
-            "location":{
-              "x":71,
-              "y":478},
-            "size":{
-              "width":56,
-              "height":49}},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"ae445ff8ecc3481fb37db0491bdd6dae",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "location":{
-                  "x":71,
-                  "y":478},
-                "size":{
-                  "width":56,
-                  "height":49}},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/战斗页面/u28.png"}},
-{
-          "id":"e7b532e320f04a49908301ed3e35ff3d",
-          "label":"",
-          "type":"imageBox",
-          "styleType":"imageBox",
-          "visible":true,
-          "style":{
-            "location":{
-              "x":513,
-              "y":161},
-            "size":{
-              "width":51,
-              "height":49}},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"301e2167b66d402d80306a8a232ff9dc",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "location":{
-                  "x":513,
-                  "y":161},
-                "size":{
-                  "width":51,
-                  "height":49}},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/战斗页面/u26.png"}},
-{
-          "id":"219216bb427a45d68482bc44ab548075",
-          "label":"",
-          "type":"imageBox",
-          "styleType":"imageBox",
-          "visible":true,
-          "style":{
-            "location":{
-              "x":574,
-              "y":161},
-            "size":{
-              "width":56,
-              "height":49}},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"ef59e0d0337c498d97984509c3ac099d",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "location":{
-                  "x":574,
-                  "y":161},
-                "size":{
-                  "width":56,
-                  "height":49}},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/战斗页面/u28.png"}}]}},
+            "normal~":"images/战斗页面/u52.png"}}]}},
   "masters":{
 },
   "objectPaths":{
@@ -760,67 +1145,115 @@
       "scriptId":"u0"},
     "b9d119321f86417c9c89f418782b1b01":{
       "scriptId":"u1"},
-    "a967c149001548c2ae60f651e32c3fad":{
-      "scriptId":"u2"},
-    "4b4b9b0100f247d88f9097d4bc1fdac3":{
-      "scriptId":"u3"},
-    "d3df5a84e3164c6ba3a34c919b24c6ba":{
-      "scriptId":"u4"},
-    "c52eea33a3db47f1ba3ba307a248b4c3":{
-      "scriptId":"u5"},
-    "eab38bfd43f046b5999083013fe2d36d":{
-      "scriptId":"u6"},
-    "2da0be48de5c498d9842a3ade6821900":{
-      "scriptId":"u7"},
-    "c60846f77ea6450ead89a6da59e7d835":{
-      "scriptId":"u8"},
-    "a91575d3536f4c1ba64407e25ddb5eb4":{
-      "scriptId":"u9"},
     "a20ff0c79beb4d36afc66f531bc51a38":{
-      "scriptId":"u10"},
+      "scriptId":"u2"},
     "97cb91ee461047d29a0cbc30c29b3d66":{
-      "scriptId":"u11"},
+      "scriptId":"u3"},
     "6d05e91faba24f7d99ed7e33f772fa85":{
-      "scriptId":"u12"},
+      "scriptId":"u4"},
     "8f11f7841eda4985b29b040c64b0eadf":{
+      "scriptId":"u5"},
+    "ea911512bf8946dda7ee416ef75c40b2":{
+      "scriptId":"u6"},
+    "dbd1ea449b334b618673ef59f5e38725":{
+      "scriptId":"u7"},
+    "24701599699e4de1bf6b546513c9ae13":{
+      "scriptId":"u8"},
+    "ae3e84349f634018ba7e725c5e6aace2":{
+      "scriptId":"u9"},
+    "301cee2e091745898d47ec11a6eb7f3a":{
+      "scriptId":"u10"},
+    "db6e80a71b5947d9a54a656b533e55af":{
+      "scriptId":"u11"},
+    "44ddc18ab3c14a1291c13dd0909b33b2":{
+      "scriptId":"u12"},
+    "4dec10d243a64507b4402a05634bf9cd":{
       "scriptId":"u13"},
-    "404e1acebece4d89a012b116e1daadbb":{
+    "07aed11762c343f1bd159ef7fbfb47b3":{
       "scriptId":"u14"},
-    "ab4277ee7ef544458d9176536d929a66":{
+    "165372e2c7e1484f8396c91bf49ec9af":{
       "scriptId":"u15"},
-    "e1ea6eadcf62465ca68a23e9ceef9463":{
+    "3f7f6d13f5d2496b99d6ae043b63a00c":{
       "scriptId":"u16"},
-    "c8e8f8d8681349769a0b3d635159e63c":{
+    "0307e1fa83464d5593825bab7e42fb01":{
       "scriptId":"u17"},
-    "7b2b1df8e5ba4f63bd61c521c999189e":{
+    "86241f3238164dfba572c6164ce7ee7a":{
       "scriptId":"u18"},
-    "07d4fcd315b7458594f376f2ecd3ecbc":{
+    "916da5f98ccb4be8a22a8bcb0ac6bb84":{
       "scriptId":"u19"},
-    "1e3b5ccfd650489b8a506cdbb59224c6":{
+    "d957df083c6f46f18960734111f2e33a":{
       "scriptId":"u20"},
-    "9689afb11dd04e249d2790be8731aefd":{
+    "b528830cf96f40a3b761e2ac71fa70a7":{
       "scriptId":"u21"},
-    "24b08d5df1bd4727b60d98a2118116e7":{
+    "016fc576928c408eb7a87699c02cf019":{
       "scriptId":"u22"},
-    "34f24cb06f634efead03490f361750c9":{
+    "50d37af3aefc40348206aea74a14b239":{
       "scriptId":"u23"},
-    "84187b3761ab4297a535fdd49c26d1f1":{
+    "c4f604cb628d427a93073e3ca0a18d9e":{
       "scriptId":"u24"},
-    "57ff4715a452478fa9810d73a1492bb4":{
+    "e6453ec78c724941bb073a1720ee1c75":{
       "scriptId":"u25"},
-    "4ac3b1a9c4b3492f9d910388334d178b":{
+    "7093586145ab4359bf5e762bf6ff1edd":{
       "scriptId":"u26"},
-    "146a4c0cac3d408c9455eda6f36be14e":{
+    "9125c9f20002484d819f745e84844254":{
       "scriptId":"u27"},
-    "ffee9380264746f38afcbba49fd8928b":{
+    "9caec3f3810b45ffb59746d425f94f21":{
       "scriptId":"u28"},
-    "ae445ff8ecc3481fb37db0491bdd6dae":{
+    "afa1317f78854b828196e4128461c841":{
       "scriptId":"u29"},
-    "e7b532e320f04a49908301ed3e35ff3d":{
+    "1bdcbe30d34d4cfab67a5ce9456d3d64":{
       "scriptId":"u30"},
-    "301e2167b66d402d80306a8a232ff9dc":{
+    "3d9698dbac46496a9450c29f08245b39":{
       "scriptId":"u31"},
-    "219216bb427a45d68482bc44ab548075":{
+    "605b11178b5142849d1611f4bc536cb8":{
       "scriptId":"u32"},
-    "ef59e0d0337c498d97984509c3ac099d":{
-      "scriptId":"u33"}}});
+    "2c2ecc7b8a3149379974587fa129db3b":{
+      "scriptId":"u33"},
+    "7f4e62dee9fb45a3b8a35c08ad033493":{
+      "scriptId":"u34"},
+    "1c7885ac635c4ae3a0d128b545c7a36e":{
+      "scriptId":"u35"},
+    "4fa6d07f06c24365a469662b5e855e5b":{
+      "scriptId":"u36"},
+    "e4169caec17f4f5391becd6f9464dc8f":{
+      "scriptId":"u37"},
+    "1407116aa9a14843b09f96fe0ee40d67":{
+      "scriptId":"u38"},
+    "d4cf6259b75e4d31afef4635a085bfcf":{
+      "scriptId":"u39"},
+    "59d299f2b43c4da5a975d14e99391fb0":{
+      "scriptId":"u40"},
+    "e683536861ad4572857dce42efa2ab29":{
+      "scriptId":"u41"},
+    "3990f89d03d54b8f844799efa6d9564a":{
+      "scriptId":"u42"},
+    "ffeb3048acd2443ba4dd8bd3fbf98784":{
+      "scriptId":"u43"},
+    "2ae0584059f7492e8d6f098fa22a014c":{
+      "scriptId":"u44"},
+    "91c366df15924e8799d7d01362fd6817":{
+      "scriptId":"u45"},
+    "ff9c857df11042b6b34496c31b59fe2a":{
+      "scriptId":"u46"},
+    "cfb7980d29f0491691c1c8cd12cd0a25":{
+      "scriptId":"u47"},
+    "7f5cf0342ae54c8ea5e5595441ea9f07":{
+      "scriptId":"u48"},
+    "504378a6c7dc46e58d65daefdc1a644e":{
+      "scriptId":"u49"},
+    "a312e15a608e4d74931548a481dd0b92":{
+      "scriptId":"u50"},
+    "b8c61de71d8142948e599655d7cc109c":{
+      "scriptId":"u51"},
+    "b34eacdaf87c491ebd78fe3d5e0054ce":{
+      "scriptId":"u52"},
+    "e0e26126e19d41588d926595b99fb049":{
+      "scriptId":"u53"},
+    "bb621e6d226544ee880c83e3eab11c29":{
+      "scriptId":"u54"},
+    "ad937fda5a5c4e759f764a19e7407f1b":{
+      "scriptId":"u55"},
+    "84187b3761ab4297a535fdd49c26d1f1":{
+      "scriptId":"u56"},
+    "57ff4715a452478fa9810d73a1492bb4":{
+      "scriptId":"u57"}}});

@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"喂食与使用道具的副本1.html",
-  "generationDate":new Date(1393776258572.54),
+  "generationDate":new Date(1393973830552.37),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

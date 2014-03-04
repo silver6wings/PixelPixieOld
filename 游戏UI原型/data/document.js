@@ -97,13 +97,33 @@
                                     "type":"Wireframe",
                                     "url":"已选怪物融合.html",
                                     "children":[{
+                                        "pageName":"融合确定",
+                                        "type":"Wireframe",
+                                        "url":"融合确定.html"},
+{
                                         "pageName":"更换另一只怪物",
                                         "type":"Wireframe",
                                         "url":"更换另一只怪物.html"},
 {
                                         "pageName":"生成新怪物",
                                         "type":"Wireframe",
-                                        "url":"生成新怪物.html"}]}]}]}]}]}]},
+                                        "url":"生成新怪物.html"}]}]}]}]},
+{
+                        "pageName":"已选择一只怪物（道具融合）",
+                        "type":"Wireframe",
+                        "url":"已选择一只怪物（道具融合）.html",
+                        "children":[{
+                            "pageName":"选择道具",
+                            "type":"Wireframe",
+                            "url":"选择道具.html",
+                            "children":[{
+                                "pageName":"道具融合",
+                                "type":"Wireframe",
+                                "url":"道具融合.html"},
+{
+                                "pageName":"道具融合确定",
+                                "type":"Wireframe",
+                                "url":"道具融合确定.html"}]}]}]}]},
 {
                 "pageName":"进化树",
                 "type":"Wireframe",
@@ -185,9 +205,9 @@
                         "type":"Wireframe",
                         "url":"战斗页面.html",
                         "children":[{
-                            "pageName":"暂停界面",
+                            "pageName":"暂停页面",
                             "type":"Wireframe",
-                            "url":"暂停界面.html"},
+                            "url":"暂停页面.html"},
 {
                             "pageName":"退出副本确认",
                             "type":"Wireframe",

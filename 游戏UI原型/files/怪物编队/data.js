@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"怪物编队.html",
-  "generationDate":new Date(1393776253694.26),
+  "generationDate":new Date(1393973824513.03),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

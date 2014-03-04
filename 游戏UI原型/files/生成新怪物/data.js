@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"生成新怪物.html",
-  "generationDate":new Date(1393776256455.42),
+  "generationDate":new Date(1393973827574.2),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

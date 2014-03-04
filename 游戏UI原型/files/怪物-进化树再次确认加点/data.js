@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"怪物-进化树再次确认加点.html",
-  "generationDate":new Date(1393776257861.5),
+  "generationDate":new Date(1393973829884.33),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

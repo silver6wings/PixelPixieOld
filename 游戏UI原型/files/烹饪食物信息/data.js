@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"烹饪食物信息.html",
-  "generationDate":new Date(1393776260055.63),
+  "generationDate":new Date(1393973832004.46),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1352,7 +1352,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u44.png"}},
+            "normal~":"images/选择道具/u44.png"}},
 {
           "id":"2a32dd7384c44378a649d8b068b5364d",
           "label":"",
@@ -1651,7 +1651,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u48.png"}},
+            "normal~":"images/选择道具/u48.png"}},
 {
           "id":"fbb8b13d5222416486d68995437f3bb8",
           "label":"",

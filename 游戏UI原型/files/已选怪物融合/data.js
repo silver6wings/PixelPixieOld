@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"已选怪物融合.html",
-  "generationDate":new Date(1393776256035.4),
+  "generationDate":new Date(1393973826809.16),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1973,10 +1973,10 @@
                   "isNewIfGroup":false,
                   "actions":[{
                       "action":"linkWindow",
-                      "description":"在 当前窗口 打开 生成新怪物",
+                      "description":"在 当前窗口 打开 融合确定",
                       "target":{
                         "targetType":"page",
-                        "url":"生成新怪物.html",
+                        "url":"融合确定.html",
                         "includeVariables":true},
                       "linkType":"current"}]}]}},
           "tabbable":true,

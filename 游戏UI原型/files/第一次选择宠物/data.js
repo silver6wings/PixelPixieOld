@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"第一次选择宠物.html",
-  "generationDate":new Date(1393776251482.14),
+  "generationDate":new Date(1393973822566.92),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

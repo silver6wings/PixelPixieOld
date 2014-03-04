@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"收回背包.html",
-  "generationDate":new Date(1393776262440.76),
+  "generationDate":new Date(1393973834085.57),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

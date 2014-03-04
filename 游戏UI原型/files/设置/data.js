@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"设置.html",
-  "generationDate":new Date(1393776263677.83),
+  "generationDate":new Date(1393973835404.65),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1457,7 +1457,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/暂停界面/u36.png"}},
+            "normal~":"images/暂停页面/u62.png"}},
 {
           "id":"a831fcfd0c89400d9581f04e7cec8254",
           "label":"",
@@ -1508,7 +1508,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/暂停界面/u38.png"}},
+            "normal~":"images/暂停页面/u64.png"}},
 {
           "id":"bbcea4091d7e41c29efde7f5a0ddf460",
           "label":"",
@@ -1559,7 +1559,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/暂停界面/u38.png"}},
+            "normal~":"images/暂停页面/u64.png"}},
 {
           "id":"d7ee4f99d6b94b499258e1ac7a6b1451",
           "label":"",
@@ -1579,7 +1579,7 @@
           "images":{
             "start~":"resources/images/transparent.gif",
             "end~":"resources/images/transparent.gif",
-            "line~":"images/暂停界面/u42_line.png"}},
+            "line~":"images/暂停页面/u68_line.png"}},
 {
           "id":"e6136a3da19f471dad10b3d793021340",
           "label":"",
@@ -1626,7 +1626,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/暂停界面/u43.png"}},
+            "normal~":"images/暂停页面/u69.png"}},
 {
           "id":"54cab9ebc18a4e60936a4442359ee3b5",
           "label":"",
@@ -1677,7 +1677,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/暂停界面/u38.png"}},
+            "normal~":"images/暂停页面/u64.png"}},
 {
           "id":"c5bc7f5ae4a044df8ec0898d652172ab",
           "label":"",
@@ -1728,7 +1728,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/暂停界面/u38.png"}},
+            "normal~":"images/暂停页面/u64.png"}},
 {
           "id":"9ab8a64076ff4c79bc16fa9fa43ca176",
           "label":"",
@@ -1779,7 +1779,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/暂停界面/u38.png"}}]}},
+            "normal~":"images/暂停页面/u64.png"}}]}},
   "masters":{
 },
   "objectPaths":{

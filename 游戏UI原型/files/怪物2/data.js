@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"怪物2.html",
-  "generationDate":new Date(1393776253093.23),
+  "generationDate":new Date(1393973823983),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1572,10 +1572,10 @@
                   "isNewIfGroup":false,
                   "actions":[{
                       "action":"linkWindow",
-                      "description":"在 当前窗口 打开 怪物1",
+                      "description":"在 当前窗口 打开 主菜单",
                       "target":{
                         "targetType":"page",
-                        "url":"怪物1.html",
+                        "url":"主菜单.html",
                         "includeVariables":true},
                       "linkType":"current"}]}]}},
           "tabbable":true,

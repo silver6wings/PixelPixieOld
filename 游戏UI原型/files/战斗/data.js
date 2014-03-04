@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"战斗.html",
-  "generationDate":new Date(1393776260560.66),
+  "generationDate":new Date(1393973832449.48),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

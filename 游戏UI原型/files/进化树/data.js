@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"进化树.html",
-  "generationDate":new Date(1393776256653.43),
+  "generationDate":new Date(1393973828805.27),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

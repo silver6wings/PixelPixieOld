@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"木.html",
-  "generationDate":new Date(1393776251830.16),
+  "generationDate":new Date(1393973822923.94),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

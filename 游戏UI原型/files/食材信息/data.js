@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"食材信息.html",
-  "generationDate":new Date(1393776259574.6),
+  "generationDate":new Date(1393973831535.43),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1352,7 +1352,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u44.png"}},
+            "normal~":"images/选择道具/u44.png"}},
 {
           "id":"2a32dd7384c44378a649d8b068b5364d",
           "label":"",
@@ -1651,7 +1651,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/背包/u48.png"}},
+            "normal~":"images/选择道具/u48.png"}},
 {
           "id":"fbb8b13d5222416486d68995437f3bb8",
           "label":"",

@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"怪物-进化树.html",
-  "generationDate":new Date(1393776256878.45),
+  "generationDate":new Date(1393973829021.29),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

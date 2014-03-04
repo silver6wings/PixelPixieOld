@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"选择融合宠物2.html",
-  "generationDate":new Date(1393776255816.39),
+  "generationDate":new Date(1393973826580.15),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1669,7 +1669,7 @@
               "color":0xFF00CC66},
             "location":{
               "x":220,
-              "y":500},
+              "y":604},
             "size":{
               "width":200,
               "height":40},
@@ -1691,7 +1691,7 @@
                   "color":0xFF00CC66},
                 "location":{
                   "x":220,
-                  "y":500},
+                  "y":604},
                 "size":{
                   "width":200,
                   "height":40},
@@ -1727,11 +1727,11 @@
               "fillType":"solid",
               "color":0xFF00CC66},
             "location":{
-              "x":220,
-              "y":555},
+              "x":190,
+              "y":460},
             "size":{
-              "width":200,
-              "height":40},
+              "width":260,
+              "height":110},
             "borderWidth":"5",
             "cornerRadiusTopLeft":"10"},
           "adaptiveStyles":{
@@ -1748,17 +1748,17 @@
                   "fillType":"solid",
                   "color":0xFF00CC66},
                 "location":{
-                  "x":220,
-                  "y":555},
+                  "x":190,
+                  "y":460},
                 "size":{
-                  "width":200,
-                  "height":40},
+                  "width":260,
+                  "height":110},
                 "borderWidth":"5",
                 "cornerRadiusTopLeft":"10"},
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/选择融合宠物/u56.png"}},
+            "normal~":"images/选择融合宠物2/u60.png"}},
 {
           "id":"47c5a5a412734251b85207aa14fb4a60",
           "label":"",
@@ -1771,7 +1771,7 @@
               "color":0xFF00CC66},
             "location":{
               "x":220,
-              "y":620},
+              "y":669},
             "size":{
               "width":200,
               "height":40},
@@ -1795,7 +1795,7 @@
                   "color":0xFF00CC66},
                 "location":{
                   "x":220,
-                  "y":620},
+                  "y":669},
                 "size":{
                   "width":200,
                   "height":40},
