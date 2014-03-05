@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1BD40DD5-8F26-49F7-BE7E-725D8C1FBAA2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PixePixie</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1778E997-7249-42C3-A763-48D46D87A102</key>
+		<string>https://github.com/silver6wings/PixelPixie.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PixePixie/PixePixie.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1778E997-7249-42C3-A763-48D46D87A102</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/silver6wings/PixelPixie.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1778E997-7249-42C3-A763-48D46D87A102</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1778E997-7249-42C3-A763-48D46D87A102</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PixelPixie</string>
+		</dict>
+	</array>
+</dict>
+</plist>
