@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 190BF48B18C6C818006B0AE6 /* MyScene.m */; };
+		190BF48F18C6C873006B0AE6 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 190BF48E18C6C873006B0AE6 /* Spaceship.png */; };
 		19F6ED9C18C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
 		19F6ED9E18C6C09900BFFF9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */; };
 		19F6EDA018C6C09900BFFF9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9F18C6C09900BFFF9A /* UIKit.framework */; };
@@ -14,29 +16,15 @@
 		19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */; };
 		19F6EDAA18C6C09900BFFF9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDA918C6C09900BFFF9A /* main.m */; };
 		19F6EDAE18C6C09900BFFF9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDAD18C6C09900BFFF9A /* AppDelegate.m */; };
-		19F6EDB118C6C09900BFFF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDAF18C6C09900BFFF9A /* Main.storyboard */; };
 		19F6EDB418C6C09900BFFF9A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDB318C6C09900BFFF9A /* ViewController.m */; };
-		19F6EDB718C6C09900BFFF9A /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDB618C6C09900BFFF9A /* MyScene.m */; };
-		19F6EDB918C6C09900BFFF9A /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDB818C6C09900BFFF9A /* Spaceship.png */; };
 		19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDBA18C6C09900BFFF9A /* Images.xcassets */; };
-		19F6EDC218C6C09900BFFF9A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6EDC118C6C09900BFFF9A /* XCTest.framework */; };
-		19F6EDC318C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
-		19F6EDC418C6C09900BFFF9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9F18C6C09900BFFF9A /* UIKit.framework */; };
-		19F6EDCC18C6C09900BFFF9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDCA18C6C09900BFFF9A /* InfoPlist.strings */; };
-		19F6EDCE18C6C09900BFFF9A /* PixePixieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDCD18C6C09900BFFF9A /* PixePixieTests.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		19F6EDC518C6C09900BFFF9A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19F6ED9018C6C09900BFFF9A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19F6ED9718C6C09900BFFF9A;
-			remoteInfo = PixePixie;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		190BF48A18C6C818006B0AE6 /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyScene.h; path = Scenes/MyScene.h; sourceTree = "<group>"; };
+		190BF48B18C6C818006B0AE6 /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyScene.m; path = Scenes/MyScene.m; sourceTree = "<group>"; };
+		190BF48E18C6C873006B0AE6 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Resource/Image/Spaceship.png; sourceTree = "<group>"; };
+		190BF49018C6C9E4006B0AE6 /* Scenes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Scenes.h; path = Scenes/Scenes.h; sourceTree = "<group>"; };
 		19F6ED9818C6C09900BFFF9A /* PixePixie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixePixie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F6ED9B18C6C09900BFFF9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,18 +36,10 @@
 		19F6EDAB18C6C09900BFFF9A /* PixePixie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixePixie-Prefix.pch"; sourceTree = "<group>"; };
 		19F6EDAC18C6C09900BFFF9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		19F6EDAD18C6C09900BFFF9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		19F6EDB018C6C09900BFFF9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19F6EDB218C6C09900BFFF9A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		19F6EDB318C6C09900BFFF9A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		19F6EDB518C6C09900BFFF9A /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		19F6EDB618C6C09900BFFF9A /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		19F6EDB818C6C09900BFFF9A /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		19F6EDC018C6C09900BFFF9A /* PixePixieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixePixieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		19F6EDC918C6C09900BFFF9A /* PixePixieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PixePixieTests-Info.plist"; sourceTree = "<group>"; };
-		19F6EDCB18C6C09900BFFF9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		19F6EDCD18C6C09900BFFF9A /* PixePixieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixePixieTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,24 +54,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19F6EDBD18C6C09900BFFF9A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19F6EDC218C6C09900BFFF9A /* XCTest.framework in Frameworks */,
-				19F6EDC418C6C09900BFFF9A /* UIKit.framework in Frameworks */,
-				19F6EDC318C6C09900BFFF9A /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190BF48918C6C7DB006B0AE6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				190BF49018C6C9E4006B0AE6 /* Scenes.h */,
+				190BF48A18C6C818006B0AE6 /* MyScene.h */,
+				190BF48B18C6C818006B0AE6 /* MyScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		190BF48D18C6C85C006B0AE6 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				190BF48E18C6C873006B0AE6 /* Spaceship.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		19F6ED8F18C6C09900BFFF9A = {
 			isa = PBXGroup;
 			children = (
 				19F6EDA318C6C09900BFFF9A /* PixePixie */,
-				19F6EDC718C6C09900BFFF9A /* PixePixieTests */,
+				19F6EDD718C6C65900BFFF9A /* Resource */,
 				19F6ED9A18C6C09900BFFF9A /* Frameworks */,
 				19F6ED9918C6C09900BFFF9A /* Products */,
 			);
@@ -101,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				19F6ED9818C6C09900BFFF9A /* PixePixie.app */,
-				19F6EDC018C6C09900BFFF9A /* PixePixieTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,13 +110,9 @@
 			children = (
 				19F6EDAC18C6C09900BFFF9A /* AppDelegate.h */,
 				19F6EDAD18C6C09900BFFF9A /* AppDelegate.m */,
-				19F6EDAF18C6C09900BFFF9A /* Main.storyboard */,
 				19F6EDB218C6C09900BFFF9A /* ViewController.h */,
 				19F6EDB318C6C09900BFFF9A /* ViewController.m */,
-				19F6EDB518C6C09900BFFF9A /* MyScene.h */,
-				19F6EDB618C6C09900BFFF9A /* MyScene.m */,
-				19F6EDB818C6C09900BFFF9A /* Spaceship.png */,
-				19F6EDBA18C6C09900BFFF9A /* Images.xcassets */,
+				190BF48918C6C7DB006B0AE6 /* Scenes */,
 				19F6EDA418C6C09900BFFF9A /* Supporting Files */,
 			);
 			path = PixePixie;
@@ -138,30 +121,21 @@
 		19F6EDA418C6C09900BFFF9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				19F6EDA518C6C09900BFFF9A /* PixePixie-Info.plist */,
-				19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */,
 				19F6EDA918C6C09900BFFF9A /* main.m */,
+				19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */,
+				19F6EDA518C6C09900BFFF9A /* PixePixie-Info.plist */,
 				19F6EDAB18C6C09900BFFF9A /* PixePixie-Prefix.pch */,
+				19F6EDBA18C6C09900BFFF9A /* Images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		19F6EDC718C6C09900BFFF9A /* PixePixieTests */ = {
+		19F6EDD718C6C65900BFFF9A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				19F6EDCD18C6C09900BFFF9A /* PixePixieTests.m */,
-				19F6EDC818C6C09900BFFF9A /* Supporting Files */,
+				190BF48D18C6C85C006B0AE6 /* Image */,
 			);
-			path = PixePixieTests;
-			sourceTree = "<group>";
-		};
-		19F6EDC818C6C09900BFFF9A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				19F6EDC918C6C09900BFFF9A /* PixePixieTests-Info.plist */,
-				19F6EDCA18C6C09900BFFF9A /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,24 +158,6 @@
 			productReference = 19F6ED9818C6C09900BFFF9A /* PixePixie.app */;
 			productType = "com.apple.product-type.application";
 		};
-		19F6EDBF18C6C09900BFFF9A /* PixePixieTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 19F6EDD418C6C09900BFFF9A /* Build configuration list for PBXNativeTarget "PixePixieTests" */;
-			buildPhases = (
-				19F6EDBC18C6C09900BFFF9A /* Sources */,
-				19F6EDBD18C6C09900BFFF9A /* Frameworks */,
-				19F6EDBE18C6C09900BFFF9A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				19F6EDC618C6C09900BFFF9A /* PBXTargetDependency */,
-			);
-			name = PixePixieTests;
-			productName = PixePixieTests;
-			productReference = 19F6EDC018C6C09900BFFF9A /* PixePixieTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,11 +166,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Psyches;
-				TargetAttributes = {
-					19F6EDBF18C6C09900BFFF9A = {
-						TestTargetID = 19F6ED9718C6C09900BFFF9A;
-					};
-				};
 			};
 			buildConfigurationList = 19F6ED9318C6C09900BFFF9A /* Build configuration list for PBXProject "PixePixie" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -230,7 +181,6 @@
 			projectRoot = "";
 			targets = (
 				19F6ED9718C6C09900BFFF9A /* PixePixie */,
-				19F6EDBF18C6C09900BFFF9A /* PixePixieTests */,
 			);
 		};
 /* End PBXProject section */
@@ -241,17 +191,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */,
+				190BF48F18C6C873006B0AE6 /* Spaceship.png in Resources */,
 				19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */,
-				19F6EDB918C6C09900BFFF9A /* Spaceship.png in Resources */,
-				19F6EDB118C6C09900BFFF9A /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19F6EDBE18C6C09900BFFF9A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19F6EDCC18C6C09900BFFF9A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,52 +203,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F6EDB718C6C09900BFFF9A /* MyScene.m in Sources */,
+				190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */,
 				19F6EDB418C6C09900BFFF9A /* ViewController.m in Sources */,
 				19F6EDAE18C6C09900BFFF9A /* AppDelegate.m in Sources */,
 				19F6EDAA18C6C09900BFFF9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19F6EDBC18C6C09900BFFF9A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19F6EDCE18C6C09900BFFF9A /* PixePixieTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		19F6EDC618C6C09900BFFF9A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 19F6ED9718C6C09900BFFF9A /* PixePixie */;
-			targetProxy = 19F6EDC518C6C09900BFFF9A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				19F6EDA718C6C09900BFFF9A /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		19F6EDAF18C6C09900BFFF9A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				19F6EDB018C6C09900BFFF9A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		19F6EDCA18C6C09900BFFF9A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				19F6EDCB18C6C09900BFFF9A /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -397,6 +306,7 @@
 				INFOPLIST_FILE = "PixePixie/PixePixie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -411,49 +321,8 @@
 				INFOPLIST_FILE = "PixePixie/PixePixie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		19F6EDD518C6C09900BFFF9A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PixePixie.app/PixePixie";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PixePixie/PixePixie-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "PixePixieTests/PixePixieTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		19F6EDD618C6C09900BFFF9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PixePixie.app/PixePixie";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PixePixie/PixePixie-Prefix.pch";
-				INFOPLIST_FILE = "PixePixieTests/PixePixieTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -476,14 +345,7 @@
 				19F6EDD318C6C09900BFFF9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		19F6EDD418C6C09900BFFF9A /* Build configuration list for PBXNativeTarget "PixePixieTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19F6EDD518C6C09900BFFF9A /* Debug */,
-				19F6EDD618C6C09900BFFF9A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

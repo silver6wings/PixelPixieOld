@@ -7,14 +7,26 @@
 //
 
 #import "ViewController.h"
-#import "MyScene.h"
+#import "Scenes.h"
 
 @implementation ViewController
+
+-(void)loadView{
+    [super loadView];
+    
+    SKView * skView = [[SKView alloc] initWithFrame:CGRectZero];
+    self.view = skView;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+}
+
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
@@ -31,15 +43,6 @@
 - (BOOL)shouldAutorotate
 {
     return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
 }
 
 - (void)didReceiveMemoryWarning
