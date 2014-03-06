@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 190BF48B18C6C818006B0AE6 /* MyScene.m */; };
 		190BF48F18C6C873006B0AE6 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 190BF48E18C6C873006B0AE6 /* Spaceship.png */; };
+		1917DFF718C8551300E54F02 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917DFF618C8551300E54F02 /* Element.m */; };
 		19F6ED9C18C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
 		19F6ED9E18C6C09900BFFF9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */; };
 		19F6EDA018C6C09900BFFF9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9F18C6C09900BFFF9A /* UIKit.framework */; };
@@ -25,6 +26,9 @@
 		190BF48B18C6C818006B0AE6 /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyScene.m; path = Scenes/MyScene.m; sourceTree = "<group>"; };
 		190BF48E18C6C873006B0AE6 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Resource/Image/Spaceship.png; sourceTree = "<group>"; };
 		190BF49018C6C9E4006B0AE6 /* Scenes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Scenes.h; path = Scenes/Scenes.h; sourceTree = "<group>"; };
+		1917DFF518C8551300E54F02 /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Element.h; path = Models/Element.h; sourceTree = "<group>"; };
+		1917DFF618C8551300E54F02 /* Element.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Element.m; path = Models/Element.m; sourceTree = "<group>"; };
+		1917DFF818C85D8D00E54F02 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
 		19F6ED9818C6C09900BFFF9A /* PixePixie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixePixie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F6ED9B18C6C09900BFFF9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,6 +79,16 @@
 			name = Image;
 			sourceTree = "<group>";
 		};
+		1917DFF418C8545200E54F02 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1917DFF818C85D8D00E54F02 /* Models.h */,
+				1917DFF518C8551300E54F02 /* Element.h */,
+				1917DFF618C8551300E54F02 /* Element.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		19F6ED8F18C6C09900BFFF9A = {
 			isa = PBXGroup;
 			children = (
@@ -108,12 +122,13 @@
 		19F6EDA318C6C09900BFFF9A /* PixePixie */ = {
 			isa = PBXGroup;
 			children = (
+				19F6EDA418C6C09900BFFF9A /* Supporting Files */,
 				19F6EDAC18C6C09900BFFF9A /* AppDelegate.h */,
 				19F6EDAD18C6C09900BFFF9A /* AppDelegate.m */,
 				19F6EDB218C6C09900BFFF9A /* ViewController.h */,
 				19F6EDB318C6C09900BFFF9A /* ViewController.m */,
 				190BF48918C6C7DB006B0AE6 /* Scenes */,
-				19F6EDA418C6C09900BFFF9A /* Supporting Files */,
+				1917DFF418C8545200E54F02 /* Models */,
 			);
 			path = PixePixie;
 			sourceTree = "<group>";
@@ -205,6 +220,7 @@
 			files = (
 				190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */,
 				19F6EDB418C6C09900BFFF9A /* ViewController.m in Sources */,
+				1917DFF718C8551300E54F02 /* Element.m in Sources */,
 				19F6EDAE18C6C09900BFFF9A /* AppDelegate.m in Sources */,
 				19F6EDAA18C6C09900BFFF9A /* main.m in Sources */,
 			);

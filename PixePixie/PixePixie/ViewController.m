@@ -8,8 +8,16 @@
 
 #import "ViewController.h"
 #import "Scenes.h"
+#import "Element.h"
 
 @implementation ViewController
+
+-(id)init{
+    
+    if (self = [super init]) {
+    }
+    return self;
+}
 
 -(void)loadView{
     [super loadView];
