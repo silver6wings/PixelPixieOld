@@ -9,28 +9,30 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, ElementType) {
-    ElementNone,        // 无
-    ElementMetal,       // 金
-    ElementSteel,       // 钢
-    ElementPlant,       // 木
-    ElementPosion,      // 毒
-    ElementWater,       // 水
-    ElementIce,         // 冰
-    ElementFire,        // 火
-    ElementBlaze,       // 炎
-    ElementEarth,       // 土
-    ElementRock,        // 岩
-    ElementBurst,       // 爆
-    ElementSand,        // 沙
-    ElementThunder,     // 雷
-    ElementGrowth,      // 霖
-    ElementFlame,       // 焰
-    ElementWind,        // 风
-    ElementFantasy      // 幻
+    ElementTypeNone,        // 无
+    ElementTypeMetal,       // 金
+    ElementTypeSteel,       // 钢
+    ElementTypePlant,       // 木
+    ElementTypePosion,      // 毒
+    ElementTypeWater,       // 水
+    ElementTypeIce,         // 冰
+    ElementTypeFire,        // 火
+    ElementTypeBlaze,       // 炎
+    ElementTypeEarth,       // 土
+    ElementTypeRock,        // 岩
+    ElementTypeBurst,       // 爆
+    ElementTypeSand,        // 沙
+    ElementTypeThunder,     // 雷
+    ElementTypeGrowth,      // 霖
+    ElementTypeFlame,       // 焰
+    ElementTypeWind,        // 风
+    ElementTypeFantasy      // 幻
 };
 
-@interface Element : NSObject{
-}
+@interface Element : NSObject
+
++(float)Self:(ElementType)attack
+        Beat:(ElementType)defend;
 
 @end
 
