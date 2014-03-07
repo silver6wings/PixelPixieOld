@@ -1,2 +1,2 @@
 #import "PPElement.h"
-#import "Pixie.h"
+#import "PPPixie.h"

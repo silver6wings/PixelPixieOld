@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "ViewController.h"
+#import "PPAppDelegate.h"
+#import "PPViewController.h"
 
-@implementation AppDelegate
+@implementation PPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     
-    ViewController * viewController = [[ViewController alloc] init];
+    PPViewController * viewController = [[PPViewController alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = viewController;

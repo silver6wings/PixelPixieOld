@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "Scenes.h"
+#import "PPViewController.h"
+#import "PPScenes.h"
 #import "PPElement.h"
 
-@implementation ViewController
+@implementation PPViewController
 
 -(id)init{
     

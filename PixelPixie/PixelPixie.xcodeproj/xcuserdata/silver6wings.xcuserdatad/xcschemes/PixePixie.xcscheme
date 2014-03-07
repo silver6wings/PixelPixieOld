@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "19F6ED9718C6C09900BFFF9A"
                BuildableName = "PixePixie.app"
-               BlueprintName = "PixePixie"
-               ReferencedContainer = "container:PixePixie.xcodeproj">
+               BlueprintName = "PixelPixie"
+               ReferencedContainer = "container:PixelPixie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "19F6EDBF18C6C09900BFFF9A"
                BuildableName = "PixePixieTests.xctest"
                BlueprintName = "PixePixieTests"
-               ReferencedContainer = "container:PixePixie.xcodeproj">
+               ReferencedContainer = "container:PixelPixie.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "19F6ED9718C6C09900BFFF9A"
             BuildableName = "PixePixie.app"
-            BlueprintName = "PixePixie"
-            ReferencedContainer = "container:PixePixie.xcodeproj">
+            BlueprintName = "PixelPixie"
+            ReferencedContainer = "container:PixelPixie.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "19F6ED9718C6C09900BFFF9A"
             BuildableName = "PixePixie.app"
-            BlueprintName = "PixePixie"
-            ReferencedContainer = "container:PixePixie.xcodeproj">
+            BlueprintName = "PixelPixie"
+            ReferencedContainer = "container:PixelPixie.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "19F6ED9718C6C09900BFFF9A"
             BuildableName = "PixePixie.app"
-            BlueprintName = "PixePixie"
-            ReferencedContainer = "container:PixePixie.xcodeproj">
+            BlueprintName = "PixelPixie"
+            ReferencedContainer = "container:PixelPixie.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

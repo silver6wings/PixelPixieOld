@@ -1,13 +1,14 @@
 //
-//  Pixie.m
+//  Pixie.h
 //  PixePixie
 //
 //  Created by silver6wings on 14-3-7.
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
-#import "Pixie.h"
+#import <Foundation/Foundation.h>
+#import "PPModels.h"
 
-@implementation Pixie
+@interface PPPixie : NSObject
 
 @end
