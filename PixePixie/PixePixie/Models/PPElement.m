@@ -6,10 +6,11 @@
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
-#import "Element.h"
+#import "PPElement.h"
+
 
 // 属性相克数值策划表
-static float inhibition[16][16] = {
+static float inhibition[PPElementTypeMax+1][PPElementTypeMax+1] = {
     {0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f},
     {0.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f},
     {0.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f, 1.00f},
@@ -29,7 +30,7 @@ static float inhibition[16][16] = {
 };
 
 // 属性融合策划表
-static int fusion[10][10] = {
+static int fusion[PPElementTypeMax+1][PPElementTypeMax+1] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
@@ -42,20 +43,26 @@ static int fusion[10][10] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
 };
 
-@implementation Element
+@implementation PPElement
 
 // 返回属性加成的系数
-+(float)Self:(ElementType)attacker
-        Beat:(ElementType)defender{
++(float)Self:(PPElementType)attacker
+        Beat:(PPElementType)defender{
 
+    if (attacker < 0 || attacker > PPElementTypeMax) return -1.00f;
+    if (defender < 0 || defender > PPElementTypeMax) return -1.00f;
+    
     return inhibition[attacker][defender];
 }
 
 // 返回宠物融合的属性
-+(ElementType)Fusion:(ElementType)element1
-                With:(ElementType)element2{
++(PPElementType)Fusion:(PPElementType)element1
+                With:(PPElementType)element2{
     
-    return fusion[element1][element2];
+    if (element1 < 0 || element1 > PPElementTypeMax) return PPElementTypeNone;
+    if (element2 < 0 || element2 > PPElementTypeMax) return PPElementTypeNone;
+    
+    return fusion[element1][element2] < 0 ? PPElementTypeNone : fusion[element1][element2];
 }
 
 @end

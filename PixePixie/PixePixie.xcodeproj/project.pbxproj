@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 190BF48B18C6C818006B0AE6 /* MyScene.m */; };
 		190BF48F18C6C873006B0AE6 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 190BF48E18C6C873006B0AE6 /* Spaceship.png */; };
-		1917DFF718C8551300E54F02 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917DFF618C8551300E54F02 /* Element.m */; };
+		1917DFF718C8551300E54F02 /* PPElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917DFF618C8551300E54F02 /* PPElement.m */; };
 		196C688718C96405003F7DEB /* Pixie.m in Sources */ = {isa = PBXBuildFile; fileRef = 196C688618C96405003F7DEB /* Pixie.m */; };
 		19F6ED9C18C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
 		19F6ED9E18C6C09900BFFF9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */; };
@@ -27,8 +27,8 @@
 		190BF48B18C6C818006B0AE6 /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyScene.m; path = Scenes/MyScene.m; sourceTree = "<group>"; };
 		190BF48E18C6C873006B0AE6 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Resource/Image/Spaceship.png; sourceTree = "<group>"; };
 		190BF49018C6C9E4006B0AE6 /* Scenes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Scenes.h; path = Scenes/Scenes.h; sourceTree = "<group>"; };
-		1917DFF518C8551300E54F02 /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Element.h; path = Models/Element.h; sourceTree = "<group>"; };
-		1917DFF618C8551300E54F02 /* Element.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Element.m; path = Models/Element.m; sourceTree = "<group>"; };
+		1917DFF518C8551300E54F02 /* PPElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPElement.h; path = Models/PPElement.h; sourceTree = "<group>"; };
+		1917DFF618C8551300E54F02 /* PPElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPElement.m; path = Models/PPElement.m; sourceTree = "<group>"; };
 		1917DFF818C85D8D00E54F02 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
 		196C688518C96405003F7DEB /* Pixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pixie.h; sourceTree = "<group>"; };
 		196C688618C96405003F7DEB /* Pixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pixie.m; sourceTree = "<group>"; };
@@ -86,8 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				1917DFF818C85D8D00E54F02 /* Models.h */,
-				1917DFF518C8551300E54F02 /* Element.h */,
-				1917DFF618C8551300E54F02 /* Element.m */,
+				1917DFF518C8551300E54F02 /* PPElement.h */,
+				1917DFF618C8551300E54F02 /* PPElement.m */,
 				196C688518C96405003F7DEB /* Pixie.h */,
 				196C688618C96405003F7DEB /* Pixie.m */,
 			);
@@ -225,7 +225,7 @@
 			files = (
 				190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */,
 				19F6EDB418C6C09900BFFF9A /* ViewController.m in Sources */,
-				1917DFF718C8551300E54F02 /* Element.m in Sources */,
+				1917DFF718C8551300E54F02 /* PPElement.m in Sources */,
 				196C688718C96405003F7DEB /* Pixie.m in Sources */,
 				19F6EDAE18C6C09900BFFF9A /* AppDelegate.m in Sources */,
 				19F6EDAA18C6C09900BFFF9A /* main.m in Sources */,
