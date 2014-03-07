@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 static const int PPElementTypeMax = 15;
 
 typedef NS_ENUM(NSInteger, PPElementType)
