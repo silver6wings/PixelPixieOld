@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
-#import "PPAppDelegate.h"
+#import "AppDelegate.h"
 #import "ViewController.h"
 
-@implementation PPAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     

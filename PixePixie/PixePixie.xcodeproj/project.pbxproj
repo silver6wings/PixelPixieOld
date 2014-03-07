@@ -7,37 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 190BF48B18C6C818006B0AE6 /* MyScene.m */; };
 		190BF48F18C6C873006B0AE6 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 190BF48E18C6C873006B0AE6 /* Spaceship.png */; };
-<<<<<<< HEAD
 		1917DFF718C8551300E54F02 /* PPElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917DFF618C8551300E54F02 /* PPElement.m */; };
 		196C688718C96405003F7DEB /* Pixie.m in Sources */ = {isa = PBXBuildFile; fileRef = 196C688618C96405003F7DEB /* Pixie.m */; };
-=======
->>>>>>> FETCH_HEAD
 		19F6ED9C18C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
 		19F6ED9E18C6C09900BFFF9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */; };
 		19F6EDA018C6C09900BFFF9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9F18C6C09900BFFF9A /* UIKit.framework */; };
 		19F6EDA218C6C09900BFFF9A /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6EDA118C6C09900BFFF9A /* SpriteKit.framework */; };
 		19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */; };
 		19F6EDAA18C6C09900BFFF9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDA918C6C09900BFFF9A /* main.m */; };
-		19F6EDAE18C6C09900BFFF9A /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */; };
+		19F6EDAE18C6C09900BFFF9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDAD18C6C09900BFFF9A /* AppDelegate.m */; };
+		19F6EDB418C6C09900BFFF9A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDB318C6C09900BFFF9A /* ViewController.m */; };
 		19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDBA18C6C09900BFFF9A /* Images.xcassets */; };
-		A5822F1518C9DE2C006D80F5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = A5822F1318C9DE2C006D80F5 /* Element.m */; };
-		A5822F1818C9DE6E006D80F5 /* Pixie.m in Sources */ = {isa = PBXBuildFile; fileRef = A5822F1718C9DE6E006D80F5 /* Pixie.m */; };
-		A5822F1B18C9DE81006D80F5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5822F1A18C9DE81006D80F5 /* ViewController.m */; };
-		A5822F1F18C9DEC1006D80F5 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A5822F1D18C9DEC1006D80F5 /* MyScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190BF48A18C6C818006B0AE6 /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyScene.h; path = Scenes/MyScene.h; sourceTree = "<group>"; };
+		190BF48B18C6C818006B0AE6 /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyScene.m; path = Scenes/MyScene.m; sourceTree = "<group>"; };
 		190BF48E18C6C873006B0AE6 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Resource/Image/Spaceship.png; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		190BF49018C6C9E4006B0AE6 /* Scenes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Scenes.h; path = Scenes/Scenes.h; sourceTree = "<group>"; };
 		1917DFF518C8551300E54F02 /* PPElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPElement.h; path = Models/PPElement.h; sourceTree = "<group>"; };
 		1917DFF618C8551300E54F02 /* PPElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPElement.m; path = Models/PPElement.m; sourceTree = "<group>"; };
 		1917DFF818C85D8D00E54F02 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
 		196C688518C96405003F7DEB /* Pixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pixie.h; sourceTree = "<group>"; };
 		196C688618C96405003F7DEB /* Pixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pixie.m; sourceTree = "<group>"; };
-=======
->>>>>>> FETCH_HEAD
 		19F6ED9818C6C09900BFFF9A /* PixePixie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixePixie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F6ED9B18C6C09900BFFF9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,20 +41,12 @@
 		19F6EDA718C6C09900BFFF9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		19F6EDA918C6C09900BFFF9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19F6EDAB18C6C09900BFFF9A /* PixePixie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixePixie-Prefix.pch"; sourceTree = "<group>"; };
-		19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
-		19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPAppDelegate.m; sourceTree = "<group>"; };
+		19F6EDAC18C6C09900BFFF9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		19F6EDAD18C6C09900BFFF9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		19F6EDB218C6C09900BFFF9A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		19F6EDB318C6C09900BFFF9A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		A5822F1218C9DE2C006D80F5 /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
-		A5822F1318C9DE2C006D80F5 /* Element.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Element.m; sourceTree = "<group>"; };
-		A5822F1418C9DE2C006D80F5 /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
-		A5822F1618C9DE6E006D80F5 /* Pixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pixie.h; sourceTree = "<group>"; };
-		A5822F1718C9DE6E006D80F5 /* Pixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pixie.m; sourceTree = "<group>"; };
-		A5822F1918C9DE81006D80F5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A5822F1A18C9DE81006D80F5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A5822F1C18C9DEC1006D80F5 /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		A5822F1D18C9DEC1006D80F5 /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		A5822F1E18C9DEC1006D80F5 /* Scenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scenes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +64,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190BF48918C6C7DB006B0AE6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				190BF49018C6C9E4006B0AE6 /* Scenes.h */,
+				190BF48A18C6C818006B0AE6 /* MyScene.h */,
+				190BF48B18C6C818006B0AE6 /* MyScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		190BF48D18C6C85C006B0AE6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +82,6 @@
 			name = Image;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		1917DFF418C8545200E54F02 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +94,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-=======
->>>>>>> FETCH_HEAD
 		19F6ED8F18C6C09900BFFF9A = {
 			isa = PBXGroup;
 			children = (
@@ -134,14 +127,13 @@
 		19F6EDA318C6C09900BFFF9A /* PixePixie */ = {
 			isa = PBXGroup;
 			children = (
-				A5822F1018C9DD88006D80F5 /* System */,
-				A5822F1118C9DE2C006D80F5 /* Models */,
-				A5822F0B18C9DCCF006D80F5 /* ViewControllers */,
-				A5822F0C18C9DCDB006D80F5 /* Views */,
-				A5822F0F18C9DCE2006D80F5 /* Utility */,
 				19F6EDA418C6C09900BFFF9A /* Supporting Files */,
-				19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */,
-				19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */,
+				19F6EDAC18C6C09900BFFF9A /* AppDelegate.h */,
+				19F6EDAD18C6C09900BFFF9A /* AppDelegate.m */,
+				19F6EDB218C6C09900BFFF9A /* ViewController.h */,
+				19F6EDB318C6C09900BFFF9A /* ViewController.m */,
+				190BF48918C6C7DB006B0AE6 /* Scenes */,
+				1917DFF418C8545200E54F02 /* Models */,
 			);
 			path = PixePixie;
 			sourceTree = "<group>";
@@ -164,67 +156,6 @@
 				190BF48D18C6C85C006B0AE6 /* Image */,
 			);
 			name = Resource;
-			sourceTree = "<group>";
-		};
-		A5822F0B18C9DCCF006D80F5 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				A5822F1918C9DE81006D80F5 /* ViewController.h */,
-				A5822F1A18C9DE81006D80F5 /* ViewController.m */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		A5822F0C18C9DCDB006D80F5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A5822F0D18C9DCDB006D80F5 /* Scenes */,
-				A5822F0E18C9DCDB006D80F5 /* Views */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		A5822F0D18C9DCDB006D80F5 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				A5822F1C18C9DEC1006D80F5 /* MyScene.h */,
-				A5822F1D18C9DEC1006D80F5 /* MyScene.m */,
-				A5822F1E18C9DEC1006D80F5 /* Scenes.h */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		A5822F0E18C9DCDB006D80F5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		A5822F0F18C9DCE2006D80F5 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		A5822F1018C9DD88006D80F5 /* System */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = System;
-			sourceTree = "<group>";
-		};
-		A5822F1118C9DE2C006D80F5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A5822F1218C9DE2C006D80F5 /* Element.h */,
-				A5822F1318C9DE2C006D80F5 /* Element.m */,
-				A5822F1618C9DE6E006D80F5 /* Pixie.h */,
-				A5822F1718C9DE6E006D80F5 /* Pixie.m */,
-				A5822F1418C9DE2C006D80F5 /* Models.h */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,19 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */,
 				19F6EDB418C6C09900BFFF9A /* ViewController.m in Sources */,
 				1917DFF718C8551300E54F02 /* PPElement.m in Sources */,
 				196C688718C96405003F7DEB /* Pixie.m in Sources */,
 				19F6EDAE18C6C09900BFFF9A /* AppDelegate.m in Sources */,
-=======
-				A5822F1B18C9DE81006D80F5 /* ViewController.m in Sources */,
-				19F6EDAE18C6C09900BFFF9A /* PPAppDelegate.m in Sources */,
-				A5822F1818C9DE6E006D80F5 /* Pixie.m in Sources */,
-				A5822F1518C9DE2C006D80F5 /* Element.m in Sources */,
-				A5822F1F18C9DEC1006D80F5 /* MyScene.m in Sources */,
->>>>>>> FETCH_HEAD
 				19F6EDAA18C6C09900BFFF9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
