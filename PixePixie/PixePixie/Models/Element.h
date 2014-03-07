@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, ElementType) {
+typedef NS_ENUM(NSInteger, ElementType)
+{
     ElementTypeNone,        // 无
     ElementTypeMetal,       // 金
     ElementTypeSteel,       // 钢
@@ -33,6 +34,9 @@ typedef NS_ENUM(NSInteger, ElementType) {
 
 +(float)Self:(ElementType)attack
         Beat:(ElementType)defend;
+
++(ElementType)Fusion:(ElementType)element1
+                With:(ElementType)element2;
 
 @end
 
