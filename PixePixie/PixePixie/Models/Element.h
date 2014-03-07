@@ -24,10 +24,8 @@ typedef NS_ENUM(NSInteger, ElementType)
     ElementTypeBurst,       // 爆
     ElementTypeSand,        // 沙
     ElementTypeThunder,     // 雷
-    ElementTypeGrowth,      // 霖
-    ElementTypeFlame,       // 焰
-    ElementTypeWind,        // 风
-    ElementTypeFantasy      // 幻
+    ElementTypeGrowth,      // 芽
+    ElementTypeWind         // 风
 };
 
 @interface Element : NSObject
