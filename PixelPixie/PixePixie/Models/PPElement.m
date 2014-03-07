@@ -30,7 +30,7 @@ static float inhibition[PPElementTypeMax+1][PPElementTypeMax+1] = {
 };
 
 // 属性融合策划表
-static int fusion[PPElementTypeMax+1][PPElementTypeMax+1] = {
+static int mix[PPElementTypeMax+1][PPElementTypeMax+1] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
@@ -56,13 +56,13 @@ static int fusion[PPElementTypeMax+1][PPElementTypeMax+1] = {
 }
 
 // 返回宠物融合的属性
-+(PPElementType)Fusion:(PPElementType)element1
-                With:(PPElementType)element2{
++(PPElementType)Mix:(PPElementType)element1
+                 To:(PPElementType)element2{
     
     if (element1 < 0 || element1 > PPElementTypeMax) return PPElementTypeNone;
     if (element2 < 0 || element2 > PPElementTypeMax) return PPElementTypeNone;
     
-    return fusion[element1][element2] < 0 ? PPElementTypeNone : fusion[element1][element2];
+    return mix[element1][element2] < 0 ? PPElementTypeNone : mix[element1][element2];
 }
 
 @end

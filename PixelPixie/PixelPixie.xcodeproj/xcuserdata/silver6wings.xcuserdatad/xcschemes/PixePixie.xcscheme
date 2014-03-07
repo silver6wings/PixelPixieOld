@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "19F6ED9718C6C09900BFFF9A"
-               BuildableName = "PixePixie.app"
+               BuildableName = "PixelPixie.app"
                BlueprintName = "PixelPixie"
                ReferencedContainer = "container:PixelPixie.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "19F6ED9718C6C09900BFFF9A"
-            BuildableName = "PixePixie.app"
+            BuildableName = "PixelPixie.app"
             BlueprintName = "PixelPixie"
             ReferencedContainer = "container:PixelPixie.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "19F6ED9718C6C09900BFFF9A"
-            BuildableName = "PixePixie.app"
+            BuildableName = "PixelPixie.app"
             BlueprintName = "PixelPixie"
             ReferencedContainer = "container:PixelPixie.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "19F6ED9718C6C09900BFFF9A"
-            BuildableName = "PixePixie.app"
+            BuildableName = "PixelPixie.app"
             BlueprintName = "PixelPixie"
             ReferencedContainer = "container:PixelPixie.xcodeproj">
          </BuildableReference>

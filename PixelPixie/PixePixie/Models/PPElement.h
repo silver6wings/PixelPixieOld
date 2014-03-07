@@ -36,8 +36,8 @@ typedef NS_ENUM(NSInteger, PPElementType)
 +(float)Self:(PPElementType)attack
         Beat:(PPElementType)defend;
 
-+(PPElementType)Fusion:(PPElementType)element1
-                With:(PPElementType)element2;
++(PPElementType)Mix:(PPElementType)element1
+                 To:(PPElementType)element2;
 
 @end
 
