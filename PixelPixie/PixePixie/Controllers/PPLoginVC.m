@@ -7,7 +7,6 @@
 //
 
 #import "PPLoginVC.h"
-#import "PPSelectPixieVC.h"
 
 static const NSInteger validNameLength = 6;
 

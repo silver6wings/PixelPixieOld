@@ -7,8 +7,6 @@
 //
 
 #import "PPRootVC.h"
-#import "PPControllers.h"
-#import "Configuration.h"
 
 @interface PPRootVC ()
 @end
@@ -19,7 +17,6 @@
 {
     [super viewDidLoad];
 
-    
 	if ([ConfigData instance].launchWithVC) {
 		[self launchWithLoginVC];
 	} else {
