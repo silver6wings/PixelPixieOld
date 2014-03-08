@@ -7,10 +7,10 @@
 //
 
 #import "PPRootVC.h"
-#import "PPLoginVC.h"
+#import "PPControllers.h"
+#import "Configuration.h"
 
 @interface PPRootVC ()
-
 @end
 
 @implementation PPRootVC
@@ -18,16 +18,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	//make system setting
-	BOOL setting = YES;
-	if (setting) {
+
+    
+	if ([ConfigData instance].launchWithVC) {
 		[self launchWithLoginVC];
 	} else {
 		//TODO:launch with mainVC
 	}
 }
 
+// 启动时显示LoginViewController
 - (void)launchWithLoginVC {
+    
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PPStoryboard" bundle:nil];
 	PPLoginVC *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"PPLoginVC"];
 	loginVC.view.frame = self.view.bounds;
