@@ -7,18 +7,11 @@
 //
 
 #import "PPAppDelegate.h"
-#import "PPViewController.h"
 
 @implementation PPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    
-    PPViewController * viewController = [[PPViewController alloc] init];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = viewController;
-    [self.window makeKeyAndVisible];
-    return YES;
+	return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application{}
