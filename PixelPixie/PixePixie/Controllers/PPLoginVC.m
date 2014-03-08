@@ -9,6 +9,8 @@
 #import "PPLoginVC.h"
 #import "PPSelectPixieVC.h"
 
+static const NSInteger validNameLength = 6;
+
 @interface PPLoginVC () <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
@@ -23,9 +25,8 @@
     [super viewDidLoad];
 }
 
-// ##
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-	if (textField.text.length >= 6) { // ## 6 这个hardcode问题写个常数变量
+	if (textField.text.length >= validNameLength) {
 		self.confirmBtn.enabled = YES;
 	} else {
 		self.confirmBtn.enabled = NO;
@@ -33,7 +34,6 @@
 	return YES;
 }
 
-// ##
 - (IBAction)confirmToPixieVC:(UIButton *)sender {
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"像素精灵", @"")
                                                     message:NSLocalizedString(@"用这个名字去征服它们吗？",@"")
@@ -43,7 +43,6 @@
 	[alert show];
 }
 
-// ##
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"确定", @"")]) {
 		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PPStoryboard" bundle:nil];
@@ -52,7 +51,6 @@
 	}
 }
 
-//##
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[self.textField resignFirstResponder];
 }
