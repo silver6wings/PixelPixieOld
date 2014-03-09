@@ -7,13 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "PlaneViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    ViewController * vc = [[ViewController alloc] init];
+    UIViewController * vc = [[PlaneViewController alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = vc;

@@ -1,12 +1,13 @@
 //
-//  MyScene.m
+//  BattleScene.m
 //  SpriteKitSimpleGame
 //
 //  Created by silver6wings on 14-2-25.
 //  Copyright (c) 2014年 silver6wings. All rights reserved.
 //
 
-#import "Scenes.h"
+#import "PlaneScene.h"
+#import "GameOverScene.h"
 
 static const uint32_t projectileCategory     =  0x1 << 0;
 static const uint32_t monsterCategory        =  0x1 << 1;
@@ -34,7 +35,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
 }
 
 
-@interface MyScene () <SKPhysicsContactDelegate>
+@interface PlaneScene () <SKPhysicsContactDelegate>
 
 @property (nonatomic) int monstersDestroyed;
 @property (nonatomic) SKSpriteNode * player;
@@ -44,7 +45,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
 
 @end
 
-@implementation MyScene
+@implementation PlaneScene
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {

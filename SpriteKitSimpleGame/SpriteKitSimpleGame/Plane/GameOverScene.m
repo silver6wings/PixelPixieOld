@@ -6,7 +6,8 @@
 //  Copyright (c) 2014年 silver6wings. All rights reserved.
 //
 
-#import "Scenes.h"
+#import "GameOverScene.h"
+#import "PlaneScene.h"
 
 @implementation GameOverScene
 
@@ -36,15 +37,16 @@
         [self runAction:
          [SKAction sequence:@[
                               [SKAction waitForDuration:3.0],
-                              [SKAction runBlock:^{
-             // 5
-             SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
-             SKScene * myScene = [[MyScene alloc] initWithSize:self.size];
-             [self.view presentScene:myScene transition: reveal];
-         }]
-                              ]]
+                              [SKAction runBlock:
+                               ^{
+                                   SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
+                                   SKScene * myScene = [[PlaneScene alloc] initWithSize:self.size];
+                                   [self.view presentScene:myScene transition: reveal];
+                               }
+                               ]
+                              ]
+          ]
          ];
-        
     } 
     return self; 
 }

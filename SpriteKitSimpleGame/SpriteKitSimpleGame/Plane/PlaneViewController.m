@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 silver6wings. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "Scenes.h"
+#import "PlaneViewController.h"
+#import "PlaneScene.h"
 
-@implementation ViewController
+@implementation PlaneViewController
 
 -(void)loadView{
     [super loadView];
@@ -24,7 +24,7 @@
     SKView * skView = (SKView *)self.view;
     //如果skView没有scene
     if(!skView.scene){
-        SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
+        SKScene * scene = [PlaneScene sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         [skView presentScene:scene];

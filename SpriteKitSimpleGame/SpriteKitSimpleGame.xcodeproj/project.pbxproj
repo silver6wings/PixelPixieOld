@@ -14,13 +14,15 @@
 		190F55DC18BC8C4A00965C67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 190F55DA18BC8C4A00965C67 /* InfoPlist.strings */; };
 		190F55DE18BC8C4A00965C67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 190F55DD18BC8C4A00965C67 /* main.m */; };
 		190F55E218BC8C4A00965C67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 190F55E118BC8C4A00965C67 /* AppDelegate.m */; };
-		190F55E818BC8C4A00965C67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190F55E718BC8C4A00965C67 /* ViewController.m */; };
 		190F55EF18BC8C4A00965C67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 190F55EE18BC8C4A00965C67 /* Images.xcassets */; };
 		194007FC18BF078D007DCE3D /* battery.png in Resources */ = {isa = PBXBuildFile; fileRef = 194007F918BF078D007DCE3D /* battery.png */; };
 		194007FD18BF078D007DCE3D /* bomb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194007FA18BF078D007DCE3D /* bomb.jpg */; };
 		194007FE18BF078D007DCE3D /* plane.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194007FB18BF078D007DCE3D /* plane.jpg */; };
-		19477B5118C81BF100A3973D /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19477B4E18C81BF100A3973D /* GameOverScene.m */; };
-		19477B5218C81BF100A3973D /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19477B5018C81BF100A3973D /* MyScene.m */; };
+		19EA6A5C18CC539400200CD4 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5718CC539400200CD4 /* GameOverScene.m */; };
+		19EA6A5D18CC539400200CD4 /* PlaneScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5918CC539400200CD4 /* PlaneScene.m */; };
+		19EA6A5E18CC539400200CD4 /* PlaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5B18CC539400200CD4 /* PlaneViewController.m */; };
+		19EA6A6118CC539E00200CD4 /* BallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A6018CC539E00200CD4 /* BallViewController.m */; };
+		19EA6A6418CC5B0E00200CD4 /* BallScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A6318CC5B0E00200CD4 /* BallScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,18 +37,21 @@
 		190F55DF18BC8C4A00965C67 /* SpriteKitSimpleGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpriteKitSimpleGame-Prefix.pch"; sourceTree = "<group>"; };
 		190F55E018BC8C4A00965C67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		190F55E118BC8C4A00965C67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		190F55E618BC8C4A00965C67 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		190F55E718BC8C4A00965C67 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		190F55EE18BC8C4A00965C67 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		190F55F518BC8C4A00965C67 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		194007F918BF078D007DCE3D /* battery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battery.png; path = Resource/battery.png; sourceTree = "<group>"; };
 		194007FA18BF078D007DCE3D /* bomb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bomb.jpg; path = Resource/bomb.jpg; sourceTree = "<group>"; };
 		194007FB18BF078D007DCE3D /* plane.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = plane.jpg; path = Resource/plane.jpg; sourceTree = "<group>"; };
-		19477B4D18C81BF100A3973D /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Scene/GameOverScene.h; sourceTree = "<group>"; };
-		19477B4E18C81BF100A3973D /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Scene/GameOverScene.m; sourceTree = "<group>"; };
-		19477B4F18C81BF100A3973D /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyScene.h; path = Scene/MyScene.h; sourceTree = "<group>"; };
-		19477B5018C81BF100A3973D /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyScene.m; path = Scene/MyScene.m; sourceTree = "<group>"; };
-		19477B5318C81C0200A3973D /* Scenes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Scenes.h; path = Scene/Scenes.h; sourceTree = "<group>"; };
+		19EA6A5618CC539400200CD4 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Plane/GameOverScene.h; sourceTree = "<group>"; };
+		19EA6A5718CC539400200CD4 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Plane/GameOverScene.m; sourceTree = "<group>"; };
+		19EA6A5818CC539400200CD4 /* PlaneScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaneScene.h; path = Plane/PlaneScene.h; sourceTree = "<group>"; };
+		19EA6A5918CC539400200CD4 /* PlaneScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaneScene.m; path = Plane/PlaneScene.m; sourceTree = "<group>"; };
+		19EA6A5A18CC539400200CD4 /* PlaneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaneViewController.h; path = Plane/PlaneViewController.h; sourceTree = "<group>"; };
+		19EA6A5B18CC539400200CD4 /* PlaneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaneViewController.m; path = Plane/PlaneViewController.m; sourceTree = "<group>"; };
+		19EA6A5F18CC539E00200CD4 /* BallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BallViewController.h; path = Ball/BallViewController.h; sourceTree = "<group>"; };
+		19EA6A6018CC539E00200CD4 /* BallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BallViewController.m; path = Ball/BallViewController.m; sourceTree = "<group>"; };
+		19EA6A6218CC5B0E00200CD4 /* BallScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BallScene.h; path = Ball/BallScene.h; sourceTree = "<group>"; };
+		19EA6A6318CC5B0E00200CD4 /* BallScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BallScene.m; path = Ball/BallScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +104,10 @@
 			children = (
 				190F55E018BC8C4A00965C67 /* AppDelegate.h */,
 				190F55E118BC8C4A00965C67 /* AppDelegate.m */,
-				190F55E618BC8C4A00965C67 /* ViewController.h */,
-				190F55E718BC8C4A00965C67 /* ViewController.m */,
-				19477B4C18C81BE100A3973D /* Scene */,
-				190F55EE18BC8C4A00965C67 /* Images.xcassets */,
+				19477B4C18C81BE100A3973D /* Plane */,
+				19EA6A5218CC52BC00200CD4 /* Ball */,
 				190F55D818BC8C4A00965C67 /* Supporting Files */,
+				190F55EE18BC8C4A00965C67 /* Images.xcassets */,
 			);
 			path = SpriteKitSimpleGame;
 			sourceTree = "<group>";
@@ -119,16 +123,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		19477B4C18C81BE100A3973D /* Scene */ = {
+		19477B4C18C81BE100A3973D /* Plane */ = {
 			isa = PBXGroup;
 			children = (
-				19477B5318C81C0200A3973D /* Scenes.h */,
-				19477B4F18C81BF100A3973D /* MyScene.h */,
-				19477B5018C81BF100A3973D /* MyScene.m */,
-				19477B4D18C81BF100A3973D /* GameOverScene.h */,
-				19477B4E18C81BF100A3973D /* GameOverScene.m */,
+				19EA6A5A18CC539400200CD4 /* PlaneViewController.h */,
+				19EA6A5B18CC539400200CD4 /* PlaneViewController.m */,
+				19EA6A5818CC539400200CD4 /* PlaneScene.h */,
+				19EA6A5918CC539400200CD4 /* PlaneScene.m */,
+				19EA6A5618CC539400200CD4 /* GameOverScene.h */,
+				19EA6A5718CC539400200CD4 /* GameOverScene.m */,
 			);
-			name = Scene;
+			name = Plane;
+			sourceTree = "<group>";
+		};
+		19EA6A5218CC52BC00200CD4 /* Ball */ = {
+			isa = PBXGroup;
+			children = (
+				19EA6A5F18CC539E00200CD4 /* BallViewController.h */,
+				19EA6A6018CC539E00200CD4 /* BallViewController.m */,
+				19EA6A6218CC5B0E00200CD4 /* BallScene.h */,
+				19EA6A6318CC5B0E00200CD4 /* BallScene.m */,
+			);
+			name = Ball;
 			sourceTree = "<group>";
 		};
 		19F8317318BE248F0022868D /* Resource */ = {
@@ -208,11 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				190F55E818BC8C4A00965C67 /* ViewController.m in Sources */,
-				19477B5218C81BF100A3973D /* MyScene.m in Sources */,
 				190F55E218BC8C4A00965C67 /* AppDelegate.m in Sources */,
-				19477B5118C81BF100A3973D /* GameOverScene.m in Sources */,
+				19EA6A6418CC5B0E00200CD4 /* BallScene.m in Sources */,
+				19EA6A5D18CC539400200CD4 /* PlaneScene.m in Sources */,
+				19EA6A5C18CC539400200CD4 /* GameOverScene.m in Sources */,
 				190F55DE18BC8C4A00965C67 /* main.m in Sources */,
+				19EA6A5E18CC539400200CD4 /* PlaneViewController.m in Sources */,
+				19EA6A6118CC539E00200CD4 /* BallViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
