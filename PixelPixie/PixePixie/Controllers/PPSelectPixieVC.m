@@ -9,7 +9,7 @@
 #import "PPSelectPixieVC.h"
 #import "iCarousel.h"
 
-@interface PPSelectPixieVC ()<iCarouselDataSource,iCarouselDelegate>
+@interface PPSelectPixieVC () <iCarouselDataSource, iCarouselDelegate>
 
 @property (weak, nonatomic) IBOutlet iCarousel *iCarousel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -24,7 +24,9 @@
     [super viewDidLoad];
 	self.iCarousel.type = iCarouselTypeRotary;
 }
-#pragma iCarouselDelegate&DataSource
+
+#pragma iCarouselDelegate & DataSource
+
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
 	return 5;
 }
