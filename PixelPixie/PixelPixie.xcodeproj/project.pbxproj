@@ -24,6 +24,7 @@
 		19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDBA18C6C09900BFFF9A /* Images.xcassets */; };
 		A5A2944618CAABD2002F866D /* PPPixie.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A2944518CAABD2002F866D /* PPPixie.m */; };
 		A5A2944918CAACBF002F866D /* PPStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A2944818CAACBF002F866D /* PPStoryboard.storyboard */; };
+		A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C318CBFE8F00D3E50B /* iCarousel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		A5A2944418CAABD2002F866D /* PPPixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPixie.h; path = Models/PPPixie.h; sourceTree = "<group>"; };
 		A5A2944518CAABD2002F866D /* PPPixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPixie.m; path = Models/PPPixie.m; sourceTree = "<group>"; };
 		A5A2944818CAACBF002F866D /* PPStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PPStoryboard.storyboard; sourceTree = "<group>"; };
+		A5B786C218CBFE8F00D3E50B /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = iCarousel/iCarousel.h; sourceTree = "<group>"; };
+		A5B786C318CBFE8F00D3E50B /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +183,8 @@
 				A5A2944718CAAC84002F866D /* Controllers */,
 				19F2FEF718CAF4E900E3F446 /* Views */,
 				1917DFF418C8545200E54F02 /* Models */,
+				A5B786C118CBFE5A00D3E50B /* Library */,
 				190BF48918C6C7DB006B0AE6 /* Scenes */,
-				A5A2944A18CAAE71002F866D /* Library */,
 				19F6EDA418C6C09900BFFF9A /* Supporting Files */,
 			);
 			path = PixePixie;
@@ -224,12 +227,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		A5A2944A18CAAE71002F866D /* Library */ = {
+		A5B786C118CBFE5A00D3E50B /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A5B786C218CBFE8F00D3E50B /* iCarousel.h */,
+				A5B786C318CBFE8F00D3E50B /* iCarousel.m */,
 			);
-			name = Library;
-			path = System;
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F2FF0418CAF54600E3F446 /* PPLoginVC.m in Sources */,
+				A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */,
 				190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */,
 				19F2FF0618CAF54600E3F446 /* PPSelectPixieVC.m in Sources */,
 				A5A2944618CAABD2002F866D /* PPPixie.m in Sources */,
