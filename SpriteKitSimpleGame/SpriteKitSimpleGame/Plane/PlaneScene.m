@@ -50,7 +50,7 @@ static inline CGPoint rwNormalize(CGPoint a) {
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         
-        self.physicsWorld.gravity = CGVectorMake(0,0);
+        self.physicsWorld.gravity = CGVectorMake(0, -1);
         self.physicsWorld.contactDelegate = self;
         
         self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
@@ -89,7 +89,9 @@ static inline CGPoint rwNormalize(CGPoint a) {
     int rangeDuration = maxDuration - minDuration;
     int actualDuration = (arc4random() % rangeDuration) + minDuration;
     
-    SKAction * actionMove = [SKAction moveTo:CGPointMake(-monster.size.width/2, actualY) duration:actualDuration];
+    SKAction * actionMove = [SKAction moveByX:-self.frame.size.width-monster.size.width
+                                            y:300
+                                     duration:actualDuration];
     SKAction * actionMoveDone = [SKAction removeFromParent];
     
     SKAction * loseAction = [SKAction runBlock:^{

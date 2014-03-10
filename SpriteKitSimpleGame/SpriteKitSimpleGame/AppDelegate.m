@@ -8,12 +8,14 @@
 
 #import "AppDelegate.h"
 #import "PlaneViewController.h"
+#import "BallViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UIViewController * vc = [[PlaneViewController alloc] init];
+    UIViewController * vc = [[BallViewController alloc] init];
+//    UIViewController * vc = [[PlaneViewController alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = vc;
