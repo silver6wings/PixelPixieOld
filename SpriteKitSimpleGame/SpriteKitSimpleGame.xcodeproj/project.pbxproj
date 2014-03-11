@@ -18,6 +18,7 @@
 		194007FC18BF078D007DCE3D /* battery.png in Resources */ = {isa = PBXBuildFile; fileRef = 194007F918BF078D007DCE3D /* battery.png */; };
 		194007FD18BF078D007DCE3D /* bomb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194007FA18BF078D007DCE3D /* bomb.jpg */; };
 		194007FE18BF078D007DCE3D /* plane.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194007FB18BF078D007DCE3D /* plane.jpg */; };
+		197DD53818CF19210056EDAC /* crystalball.png in Resources */ = {isa = PBXBuildFile; fileRef = 197DD53718CF19210056EDAC /* crystalball.png */; };
 		199EE54F18CDB56A00A18324 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 199EE54E18CDB56A00A18324 /* ball.png */; };
 		19EA6A5C18CC539400200CD4 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5718CC539400200CD4 /* GameOverScene.m */; };
 		19EA6A5D18CC539400200CD4 /* PlaneScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5918CC539400200CD4 /* PlaneScene.m */; };
@@ -43,6 +44,7 @@
 		194007F918BF078D007DCE3D /* battery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battery.png; path = Resource/battery.png; sourceTree = "<group>"; };
 		194007FA18BF078D007DCE3D /* bomb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bomb.jpg; path = Resource/bomb.jpg; sourceTree = "<group>"; };
 		194007FB18BF078D007DCE3D /* plane.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = plane.jpg; path = Resource/plane.jpg; sourceTree = "<group>"; };
+		197DD53718CF19210056EDAC /* crystalball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crystalball.png; sourceTree = "<group>"; };
 		199EE54E18CDB56A00A18324 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		19EA6A5618CC539400200CD4 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Plane/GameOverScene.h; sourceTree = "<group>"; };
 		19EA6A5718CC539400200CD4 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Plane/GameOverScene.m; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		19F8317318BE248F0022868D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				197DD53718CF19210056EDAC /* crystalball.png */,
 				199EE54E18CDB56A00A18324 /* ball.png */,
 				194007F918BF078D007DCE3D /* battery.png */,
 				194007FA18BF078D007DCE3D /* bomb.jpg */,
@@ -214,6 +217,7 @@
 			files = (
 				190F55DC18BC8C4A00965C67 /* InfoPlist.strings in Resources */,
 				194007FD18BF078D007DCE3D /* bomb.jpg in Resources */,
+				197DD53818CF19210056EDAC /* crystalball.png in Resources */,
 				199EE54F18CDB56A00A18324 /* ball.png in Resources */,
 				194007FE18BF078D007DCE3D /* plane.jpg in Resources */,
 				194007FC18BF078D007DCE3D /* battery.png in Resources */,
