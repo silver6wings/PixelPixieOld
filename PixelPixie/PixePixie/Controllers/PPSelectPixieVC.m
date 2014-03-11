@@ -44,6 +44,24 @@
 	self.textView.text = [NSString stringWithFormat:@"%d小精灵",index];
 }
 
+- (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
+	self.textView.text = [NSString stringWithFormat:@"%d小精灵",carousel.currentItemIndex];
+}
+
+- (IBAction)confirmToHomeVC:(UIButton *)sender {
+	PPHomeVC *home = [[PPHomeVC alloc] init];
+	home.view.frame = self.view.bounds;
+	home.view.alpha = 0.f;
+	[self addChildViewController:home];
+	[self.view addSubview:home.view];
+	[home didMoveToParentViewController:self];
+	
+	[UIView animateWithDuration:2.f animations:^{
+		home.view.alpha = 1.f;
+	}];
+}
+
+
 - (void)dealloc {
 	_iCarousel.delegate = nil;
 	_iCarousel.dataSource = nil;
