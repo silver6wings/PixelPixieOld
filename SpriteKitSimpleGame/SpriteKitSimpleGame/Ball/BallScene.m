@@ -47,13 +47,13 @@ static const uint32_t GroundCategory     =  0x1 << 1;
         [self setAsGround:groundRight.physicsBody];
         [self addChild:groundRight];
         
-        self.ball = [SKSpriteNode spriteNodeWithImageNamed:@"crystalball.png"];
+        self.ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball.png"];
         self.ball.color = [SKColor whiteColor];
         self.ball.size = CGSizeMake(40, 40);
         self.ball.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
         
         self.ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.ball.size];
-        self.ball.physicsBody.friction = 0.0;       // 表面摩擦力
+        self.ball.physicsBody.friction = 0.1;       // 表面摩擦力
         self.ball.physicsBody.restitution = 0.7;    // 弹性恢复系数
         self.ball.physicsBody.dynamic = YES;        // 说明物体是动态的
         self.ball.physicsBody.usesPreciseCollisionDetection = YES; // 使用快速运动检测碰撞
@@ -82,7 +82,7 @@ static const uint32_t GroundCategory     =  0x1 << 1;
 - (void)setAsGround:(SKPhysicsBody *)pb{
     pb.affectedByGravity = NO;
     pb.dynamic = NO;
-    pb.friction = 0.0;
+    pb.friction = 0.1;
     pb.categoryBitMask = GroundCategory;
     pb.contactTestBitMask = BallCategory;
     //pb.collisionBitMask = 0;
