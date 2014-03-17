@@ -41,17 +41,20 @@ static const NSInteger validNameLength = 6;
                                           otherButtonTitles:NSLocalizedString(@"确定", @""), nil];
 	[alert show];
 }
-
+//取消第一响应，发送通知addChildVC。
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"确定", @"")]) {
-		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PPStoryboard" bundle:nil];
-		PPSelectPixieVC *pixieVC = [storyboard instantiateViewControllerWithIdentifier:@"PPSelectPixieVC"];
-		[self.navigationController pushViewController:pixieVC animated:YES];
+		[self.textField resignFirstResponder];
+		[[NSNotificationCenter defaultCenter] postNotificationName:kPPSelectPixieVCWillMoveToParentVC object:nil];
 	}
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[self.textField resignFirstResponder];
+}
+
+- (void)dealloc {
+	NSLog(@"dealloc LoginVC");
 }
 
 - (void)didReceiveMemoryWarning
