@@ -26,14 +26,12 @@
 - (void)viewDidLayoutSubviews {
 	[super viewDidLayoutSubviews];
 	
-	self.tabBarController.view.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - 80, CGRectGetWidth(self.view.frame), 80);
+	self.tabBarController.view.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - 70, CGRectGetWidth(self.view.frame), 70);
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	self.view.backgroundColor = [UIColor redColor];
 	
 	[self addChildViewController:self.tabBarController];
 	[self.view addSubview:self.tabBarController.view];
