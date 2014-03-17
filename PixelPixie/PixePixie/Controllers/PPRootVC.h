@@ -6,6 +6,9 @@
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
+extern NSString *const kPPSelectPixieVCWillMoveToParentVC;
+extern NSString *const kPPHomeVCWillMoveToParentVC;
+
 @interface PPRootVC : UIViewController
 
 @end
