@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWd-sx-ULb" userLabel="contentView">
-                    <rect key="frame" x="10" y="498" width="300" height="50"/>
+                    <rect key="frame" x="10" y="508" width="300" height="50"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -27,7 +27,7 @@
             <constraints>
                 <constraint firstItem="dWd-sx-ULb" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="HuT-9D-spV"/>
                 <constraint firstAttribute="trailing" secondItem="dWd-sx-ULb" secondAttribute="trailing" constant="10" id="UvN-Hz-mDg"/>
-                <constraint firstAttribute="bottom" secondItem="dWd-sx-ULb" secondAttribute="bottom" constant="20" id="hdE-aJ-OHt"/>
+                <constraint firstAttribute="bottom" secondItem="dWd-sx-ULb" secondAttribute="bottom" constant="10" id="hdE-aJ-OHt"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
