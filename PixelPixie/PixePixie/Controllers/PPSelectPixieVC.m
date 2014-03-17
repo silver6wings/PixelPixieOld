@@ -49,22 +49,13 @@
 }
 
 - (IBAction)confirmToHomeVC:(UIButton *)sender {
-	PPHomeVC *home = [[PPHomeVC alloc] init];
-	home.view.frame = self.view.bounds;
-	home.view.alpha = 0.f;
-	[self addChildViewController:home];
-	[self.view addSubview:home.view];
-	[home didMoveToParentViewController:self];
-	
-	[UIView animateWithDuration:2.f animations:^{
-		home.view.alpha = 1.f;
-	}];
+	[[NSNotificationCenter defaultCenter] postNotificationName:kPPHomeVCWillMoveToParentVC object:nil];
 }
-
 
 - (void)dealloc {
 	_iCarousel.delegate = nil;
 	_iCarousel.dataSource = nil;
+	NSLog(@"dealloc PixieVC");
 }
 
 - (void)didReceiveMemoryWarning

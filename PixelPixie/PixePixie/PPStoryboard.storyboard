@@ -214,13 +214,87 @@
                     <view key="view" contentMode="scaleToFill" id="psD-fN-egO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Lm8-TD-Rf7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfl-Lz-0YX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="241" y="-21"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="3Kx-Lo-kdi">
+            <objects>
+                <viewController storyboardIdentifier="PPHomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="clP-dd-pr3" customClass="PPHomeVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MoL-aN-fU6"/>
+                        <viewControllerLayoutGuide type="bottom" id="fro-0y-Cvu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ehx-FR-al7" userLabel="ContentView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEZ-Ai-1X6" userLabel="HomeTopView">
+                                <rect key="frame" x="5" y="30" width="310" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v9D-IN-bUY" userLabel="PixieImageView">
+                                        <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="JXl-pE-sXF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字是什么" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSL-pp-Tnb">
+                                        <rect key="frame" x="50" y="14" width="85" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NYL-Yb-8ya" userLabel="GoldImageView">
+                                        <rect key="frame" x="155" y="10" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="0kF-NI-380"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金币的数量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WN1-Yy-ONP">
+                                        <rect key="frame" x="195" y="14" width="85" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="NYL-Yb-8ya" firstAttribute="leading" secondItem="VSL-pp-Tnb" secondAttribute="trailing" constant="20" id="3PO-y8-dwH"/>
+                                    <constraint firstItem="WN1-Yy-ONP" firstAttribute="top" secondItem="TEZ-Ai-1X6" secondAttribute="top" constant="14" id="7gh-3H-RAq"/>
+                                    <constraint firstAttribute="bottom" secondItem="WN1-Yy-ONP" secondAttribute="bottom" constant="15" id="E7E-lo-guU"/>
+                                    <constraint firstItem="NYL-Yb-8ya" firstAttribute="top" secondItem="TEZ-Ai-1X6" secondAttribute="top" constant="10" id="Ncf-mb-HH6"/>
+                                    <constraint firstItem="WN1-Yy-ONP" firstAttribute="leading" secondItem="NYL-Yb-8ya" secondAttribute="trailing" constant="10" id="YF0-ng-jOS"/>
+                                    <constraint firstAttribute="height" constant="50" id="b5T-DG-0Hc"/>
+                                    <constraint firstAttribute="bottom" secondItem="v9D-IN-bUY" secondAttribute="bottom" constant="10" id="eAz-NK-IaG"/>
+                                    <constraint firstItem="VSL-pp-Tnb" firstAttribute="leading" secondItem="v9D-IN-bUY" secondAttribute="trailing" constant="10" id="jbR-iZ-NPX"/>
+                                    <constraint firstItem="VSL-pp-Tnb" firstAttribute="top" secondItem="TEZ-Ai-1X6" secondAttribute="top" constant="14" id="l0P-Cp-Jsa"/>
+                                    <constraint firstAttribute="bottom" secondItem="NYL-Yb-8ya" secondAttribute="bottom" constant="10" id="qu3-hh-vV5"/>
+                                    <constraint firstItem="v9D-IN-bUY" firstAttribute="top" secondItem="TEZ-Ai-1X6" secondAttribute="top" constant="10" id="rAG-ND-sZB"/>
+                                    <constraint firstItem="v9D-IN-bUY" firstAttribute="leading" secondItem="TEZ-Ai-1X6" secondAttribute="leading" constant="10" id="sd7-4M-n67"/>
+                                    <constraint firstAttribute="bottom" secondItem="VSL-pp-Tnb" secondAttribute="bottom" constant="15" id="wef-M2-47T"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="TEZ-Ai-1X6" firstAttribute="top" secondItem="MoL-aN-fU6" secondAttribute="bottom" constant="10" id="ahL-bO-qQN"/>
+                            <constraint firstItem="TEZ-Ai-1X6" firstAttribute="leading" secondItem="ehx-FR-al7" secondAttribute="leading" constant="5" id="lch-zA-53n"/>
+                            <constraint firstAttribute="trailing" secondItem="TEZ-Ai-1X6" secondAttribute="trailing" constant="5" id="ncD-xR-GkR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbA-50-PS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241" y="738"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
