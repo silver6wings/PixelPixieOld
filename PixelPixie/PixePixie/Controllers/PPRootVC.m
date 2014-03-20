@@ -29,7 +29,7 @@ NSString *const kPPHomeVCWillMoveToParentVC = @"kPPHomeVCWillMoveToParentVC";
 	if (!_loginVC) {
 		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PPStoryboard" bundle:nil];
 		PPLoginVC *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"PPLoginVC"];
-		loginVC.view.frame = self.contentView.bounds;
+		loginVC.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), CGRectGetHeight(self.contentView.bounds));
 		_loginVC = loginVC;
 	}
 	return _loginVC;
@@ -68,6 +68,10 @@ NSString *const kPPHomeVCWillMoveToParentVC = @"kPPHomeVCWillMoveToParentVC";
 	}
 }
 
+- (void)viewDidLayoutSubviews {
+	[super viewDidLayoutSubviews];
+	self.loginVC.view.frame = self.contentView.bounds;
+}
 // 首次启动时显示LoginViewController
 - (void)launchWithLoginVC {
 	[self addChildViewController:self.loginVC];
