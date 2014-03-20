@@ -32,12 +32,12 @@
                         <viewControllerLayoutGuide type="top" id="1Ot-Qc-K2f"/>
                         <viewControllerLayoutGuide type="bottom" id="zmn-P8-d0X"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kbz-ig-Es8">
+                    <view key="view" contentMode="scaleToFill" id="kbz-ig-Es8" userLabel="ContentView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-ct-Jv1">
-                                <rect key="frame" x="40" y="205" width="240" height="148"/>
+                                <rect key="frame" x="40" y="80" width="240" height="148"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下面请告诉我你的名字" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a85-Tr-edH">
@@ -93,8 +93,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="gYa-ct-Jv1" firstAttribute="top" secondItem="1Ot-Qc-K2f" secondAttribute="bottom" constant="80" id="01a-uJ-TWZ"/>
                             <constraint firstAttribute="trailing" secondItem="gYa-ct-Jv1" secondAttribute="trailing" constant="40" id="4m5-hS-EHH"/>
-                            <constraint firstItem="zmn-P8-d0X" firstAttribute="top" secondItem="gYa-ct-Jv1" secondAttribute="bottom" constant="215" id="WzD-By-qqd"/>
                             <constraint firstItem="gYa-ct-Jv1" firstAttribute="leading" secondItem="kbz-ig-Es8" secondAttribute="leading" constant="40" id="t9i-Sh-72r"/>
                         </constraints>
                     </view>
@@ -102,6 +102,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="confirmBtn" destination="8G4-vU-S0V" id="F9i-a4-T6H"/>
+                        <outlet property="contentViewTopLayoutConstraint" destination="01a-uJ-TWZ" id="EA4-Ph-K59"/>
                         <outlet property="textField" destination="d17-4h-4jx" id="JZ8-bO-gX0"/>
                         <segue destination="txK-G6-zfe" kind="push" identifier="confirmToPixie" id="gfW-Q7-ldK"/>
                     </connections>
@@ -118,16 +119,16 @@
                         <viewControllerLayoutGuide type="top" id="osO-OD-JwG"/>
                         <viewControllerLayoutGuide type="bottom" id="MEa-pS-n1B"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DZN-Ua-orI">
+                    <view key="view" contentMode="scaleToFill" id="DZN-Ua-orI" userLabel="ContentView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJ5-Go-H84" customClass="iCarousel">
-                                <rect key="frame" x="5" y="20" width="310" height="200"/>
+                                <rect key="frame" x="5" y="20" width="310" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="CJE-II-aXK"/>
+                                    <constraint firstAttribute="height" constant="180" id="CJE-II-aXK"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="txK-G6-zfe" id="iLv-8F-H61"/>
@@ -135,11 +136,11 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oy-ZC-ql1">
-                                <rect key="frame" x="20" y="300" width="280" height="248"/>
+                                <rect key="frame" x="20" y="240" width="280" height="308"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否选择此怪物作为你的伙伴" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDi-LD-pFB">
-                                        <rect key="frame" x="20" y="215" width="195" height="18"/>
+                                        <rect key="frame" x="20" y="275" width="195" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="4R0-QW-Dm2"/>
@@ -148,7 +149,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOq-7y-uFr">
-                                        <rect key="frame" x="225" y="208" width="35" height="30"/>
+                                        <rect key="frame" x="225" y="268" width="35" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="确认">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,11 +158,11 @@
                                             <action selector="confirmToHomeVC:" destination="txK-G6-zfe" eventType="touchUpInside" id="p2d-Oe-STq"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GG3-wT-QZK">
-                                        <rect key="frame" x="20" y="30" width="240" height="160"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GG3-wT-QZK">
+                                        <rect key="frame" x="20" y="30" width="240" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" red="1" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="0.6201611024" blue="0.75914920549999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -187,7 +188,7 @@
                             <constraint firstAttribute="trailing" secondItem="5oy-ZC-ql1" secondAttribute="trailing" constant="20" id="Gli-Ek-oj1"/>
                             <constraint firstItem="MEa-pS-n1B" firstAttribute="top" secondItem="5oy-ZC-ql1" secondAttribute="bottom" constant="20" id="LfK-LP-e28"/>
                             <constraint firstItem="dJ5-Go-H84" firstAttribute="top" secondItem="osO-OD-JwG" secondAttribute="bottom" constant="20" id="eGB-6K-A1P"/>
-                            <constraint firstItem="5oy-ZC-ql1" firstAttribute="top" secondItem="osO-OD-JwG" secondAttribute="bottom" constant="300" id="uDF-zR-wZV"/>
+                            <constraint firstItem="5oy-ZC-ql1" firstAttribute="top" secondItem="dJ5-Go-H84" secondAttribute="bottom" constant="40" id="tjN-yd-LqC"/>
                             <constraint firstItem="5oy-ZC-ql1" firstAttribute="leading" secondItem="DZN-Ua-orI" secondAttribute="leading" constant="20" id="zbn-qR-Xds"/>
                         </constraints>
                     </view>
@@ -211,7 +212,7 @@
                         <viewControllerLayoutGuide type="top" id="13B-Jn-Gm5"/>
                         <viewControllerLayoutGuide type="bottom" id="Sjb-yo-wHk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="psD-fN-egO">
+                    <view key="view" contentMode="scaleToFill" id="psD-fN-egO" userLabel="RootView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
