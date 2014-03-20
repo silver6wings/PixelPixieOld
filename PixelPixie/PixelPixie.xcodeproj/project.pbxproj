@@ -25,7 +25,6 @@
 		A50D272718DA8B2600641430 /* PPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D272018DA8B2600641430 /* PPTabBarController.m */; };
 		A50D272818DA8B2600641430 /* PPTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50D272118DA8B2600641430 /* PPTabBarController.xib */; };
 		A50D272C18DA982000641430 /* PPMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D272B18DA982000641430 /* PPMenuVC.m */; };
-		A50D277918DAC1AD00641430 /* PPMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D277818DAC1AD00641430 /* PPMenuScene.m */; };
 		A50D277B18DAD45E00641430 /* PPMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50D277A18DAD45E00641430 /* PPMenuVC.xib */; };
 		A50D277E18DADF1A00641430 /* PPMenuPixieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D277D18DADF1A00641430 /* PPMenuPixieVC.m */; };
 		A50D278118DADF6F00641430 /* PPMenuPackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D278018DADF6F00641430 /* PPMenuPackVC.m */; };
@@ -76,8 +75,6 @@
 		A50D272A18DA982000641430 /* PPMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuVC.h; sourceTree = "<group>"; };
 		A50D272B18DA982000641430 /* PPMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuVC.m; sourceTree = "<group>"; };
 		A50D277618DAC19200641430 /* PPScenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPScenes.h; sourceTree = "<group>"; };
-		A50D277718DAC1AD00641430 /* PPMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuScene.h; sourceTree = "<group>"; };
-		A50D277818DAC1AD00641430 /* PPMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuScene.m; sourceTree = "<group>"; };
 		A50D277A18DAD45E00641430 /* PPMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPMenuVC.xib; sourceTree = "<group>"; };
 		A50D277C18DADF1A00641430 /* PPMenuPixieVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuPixieVC.h; sourceTree = "<group>"; };
 		A50D277D18DADF1A00641430 /* PPMenuPixieVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuPixieVC.m; sourceTree = "<group>"; };
@@ -275,8 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				A50D277618DAC19200641430 /* PPScenes.h */,
-				A50D277718DAC1AD00641430 /* PPMenuScene.h */,
-				A50D277818DAC1AD00641430 /* PPMenuScene.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -385,7 +380,6 @@
 				1938054918CB0CAB00EF8691 /* ConfigData.m in Sources */,
 				19F6EDAE18C6C09900BFFF9A /* PPAppDelegate.m in Sources */,
 				19F6EDAA18C6C09900BFFF9A /* main.m in Sources */,
-				A50D277918DAC1AD00641430 /* PPMenuScene.m in Sources */,
 				A50D272218DA8B2600641430 /* PPHomeVC.m in Sources */,
 				A50D272318DA8B2600641430 /* PPLoginVC.m in Sources */,
 				A50D272518DA8B2600641430 /* PPRootVC.m in Sources */,
