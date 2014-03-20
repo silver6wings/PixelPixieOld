@@ -268,11 +268,11 @@
                         <viewControllerLayoutGuide type="top" id="MoL-aN-fU6"/>
                         <viewControllerLayoutGuide type="bottom" id="fro-0y-Cvu"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ehx-FR-al7" userLabel="ContentView">
+                    <view key="view" contentMode="scaleToFill" id="ehx-FR-al7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEZ-Ai-1X6" userLabel="HomeTopView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEZ-Ai-1X6" userLabel="TopView">
                                 <rect key="frame" x="5" y="0.0" width="310" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -321,15 +321,39 @@
                                     <constraint firstAttribute="bottom" secondItem="VSL-pp-Tnb" secondAttribute="bottom" constant="15" id="wef-M2-47T"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lv3-q9-VBN" userLabel="TabBarView">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vJx-Wc-YDe"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aje-3r-c0s" userLabel="ContentView">
+                                <rect key="frame" x="0.0" y="50" width="320" height="474"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="fro-0y-Cvu" firstAttribute="top" secondItem="Lv3-q9-VBN" secondAttribute="bottom" id="BNv-fC-2Ex"/>
+                            <constraint firstItem="Aje-3r-c0s" firstAttribute="leading" secondItem="ehx-FR-al7" secondAttribute="leading" id="CMH-iV-UaG"/>
+                            <constraint firstAttribute="trailing" secondItem="Lv3-q9-VBN" secondAttribute="trailing" id="CUm-DU-neM"/>
+                            <constraint firstItem="Lv3-q9-VBN" firstAttribute="leading" secondItem="ehx-FR-al7" secondAttribute="leading" id="Hu3-Cc-HOv"/>
+                            <constraint firstItem="Aje-3r-c0s" firstAttribute="top" secondItem="TEZ-Ai-1X6" secondAttribute="bottom" id="OIJ-dl-YUj"/>
+                            <constraint firstAttribute="trailing" secondItem="Aje-3r-c0s" secondAttribute="trailing" id="PvY-dv-MkO"/>
                             <constraint firstItem="TEZ-Ai-1X6" firstAttribute="top" secondItem="MoL-aN-fU6" secondAttribute="bottom" id="ahL-bO-qQN"/>
                             <constraint firstItem="TEZ-Ai-1X6" firstAttribute="leading" secondItem="ehx-FR-al7" secondAttribute="leading" constant="5" id="lch-zA-53n"/>
                             <constraint firstAttribute="trailing" secondItem="TEZ-Ai-1X6" secondAttribute="trailing" constant="5" id="ncD-xR-GkR"/>
+                            <constraint firstItem="Lv3-q9-VBN" firstAttribute="top" secondItem="Aje-3r-c0s" secondAttribute="bottom" id="vY9-Oi-tPE"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="contentView" destination="Aje-3r-c0s" id="MjH-O9-T8e"/>
+                        <outlet property="tabBarView" destination="Lv3-q9-VBN" id="0Qo-2G-iQS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbA-50-PS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
