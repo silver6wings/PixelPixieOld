@@ -11,9 +11,6 @@
 		190BF48F18C6C873006B0AE6 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 190BF48E18C6C873006B0AE6 /* Spaceship.png */; };
 		1917DFF718C8551300E54F02 /* PPElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917DFF618C8551300E54F02 /* PPElement.m */; };
 		1938054918CB0CAB00EF8691 /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1938054818CB0CAB00EF8691 /* ConfigData.m */; };
-		19F2FF0418CAF54600E3F446 /* PPLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F2FEFE18CAF54600E3F446 /* PPLoginVC.m */; };
-		19F2FF0518CAF54600E3F446 /* PPRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F2FF0018CAF54600E3F446 /* PPRootVC.m */; };
-		19F2FF0618CAF54600E3F446 /* PPSelectPixieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F2FF0218CAF54600E3F446 /* PPSelectPixieVC.m */; };
 		19F6ED9C18C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
 		19F6ED9E18C6C09900BFFF9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */; };
 		19F6EDA018C6C09900BFFF9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9F18C6C09900BFFF9A /* UIKit.framework */; };
@@ -22,11 +19,15 @@
 		19F6EDAA18C6C09900BFFF9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDA918C6C09900BFFF9A /* main.m */; };
 		19F6EDAE18C6C09900BFFF9A /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */; };
 		19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDBA18C6C09900BFFF9A /* Images.xcassets */; };
-		A514985718D6A61700AF20D6 /* PPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A514985618D6A61700AF20D6 /* PPTabBarController.m */; };
-		A514985918D6A6C900AF20D6 /* PPTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A514985818D6A6C900AF20D6 /* PPTabBarController.xib */; };
+		A50D272218DA8B2600641430 /* PPHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271618DA8B2600641430 /* PPHomeVC.m */; };
+		A50D272318DA8B2600641430 /* PPLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271818DA8B2600641430 /* PPLoginVC.m */; };
+		A50D272418DA8B2600641430 /* PPMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271A18DA8B2600641430 /* PPMenuVC.m */; };
+		A50D272518DA8B2600641430 /* PPRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271C18DA8B2600641430 /* PPRootVC.m */; };
+		A50D272618DA8B2600641430 /* PPSelectPixieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271E18DA8B2600641430 /* PPSelectPixieVC.m */; };
+		A50D272718DA8B2600641430 /* PPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D272018DA8B2600641430 /* PPTabBarController.m */; };
+		A50D272818DA8B2600641430 /* PPTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50D272118DA8B2600641430 /* PPTabBarController.xib */; };
 		A591A21818CEF36B00219E86 /* PPReversibleAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */; };
 		A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */; };
-		A591A21E18CF0C8C00219E86 /* PPHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21D18CF0C8C00219E86 /* PPHomeVC.m */; };
 		A5A2944618CAABD2002F866D /* PPPixie.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A2944518CAABD2002F866D /* PPPixie.m */; };
 		A5A2944918CAACBF002F866D /* PPStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A2944818CAACBF002F866D /* PPStoryboard.storyboard */; };
 		A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C318CBFE8F00D3E50B /* iCarousel.m */; };
@@ -44,13 +45,6 @@
 		1938054718CB0CAB00EF8691 /* ConfigData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigData.h; path = Configurations/ConfigData.h; sourceTree = "<group>"; };
 		1938054818CB0CAB00EF8691 /* ConfigData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigData.m; path = Configurations/ConfigData.m; sourceTree = "<group>"; };
 		19906B8E18CB061D00C05BA3 /* Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Configuration.h; path = Configurations/Configuration.h; sourceTree = "<group>"; };
-		19F2FEFB18CAF54600E3F446 /* PPControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPControllers.h; path = PixePixie/Controllers/PPControllers.h; sourceTree = SOURCE_ROOT; };
-		19F2FEFD18CAF54600E3F446 /* PPLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPLoginVC.h; path = PixePixie/Controllers/PPLoginVC.h; sourceTree = SOURCE_ROOT; };
-		19F2FEFE18CAF54600E3F446 /* PPLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPLoginVC.m; path = PixePixie/Controllers/PPLoginVC.m; sourceTree = SOURCE_ROOT; };
-		19F2FEFF18CAF54600E3F446 /* PPRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPRootVC.h; path = PixePixie/Controllers/PPRootVC.h; sourceTree = SOURCE_ROOT; };
-		19F2FF0018CAF54600E3F446 /* PPRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPRootVC.m; path = PixePixie/Controllers/PPRootVC.m; sourceTree = SOURCE_ROOT; };
-		19F2FF0118CAF54600E3F446 /* PPSelectPixieVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSelectPixieVC.h; path = PixePixie/Controllers/PPSelectPixieVC.h; sourceTree = SOURCE_ROOT; };
-		19F2FF0218CAF54600E3F446 /* PPSelectPixieVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSelectPixieVC.m; path = PixePixie/Controllers/PPSelectPixieVC.m; sourceTree = SOURCE_ROOT; };
 		19F6ED9818C6C09900BFFF9A /* PixelPixie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPixie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F6ED9B18C6C09900BFFF9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,15 +58,24 @@
 		19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPAppDelegate.m; sourceTree = "<group>"; };
 		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		A514985518D6A61700AF20D6 /* PPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPTabBarController.h; path = PixePixie/Controllers/PPTabBarController.h; sourceTree = SOURCE_ROOT; };
-		A514985618D6A61700AF20D6 /* PPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPTabBarController.m; path = PixePixie/Controllers/PPTabBarController.m; sourceTree = SOURCE_ROOT; };
-		A514985818D6A6C900AF20D6 /* PPTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PPTabBarController.xib; path = PixePixie/Controllers/PPTabBarController.xib; sourceTree = SOURCE_ROOT; };
+		A50D271418DA8B2600641430 /* PPControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPControllers.h; sourceTree = "<group>"; };
+		A50D271518DA8B2600641430 /* PPHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHomeVC.h; sourceTree = "<group>"; };
+		A50D271618DA8B2600641430 /* PPHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHomeVC.m; sourceTree = "<group>"; };
+		A50D271718DA8B2600641430 /* PPLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLoginVC.h; sourceTree = "<group>"; };
+		A50D271818DA8B2600641430 /* PPLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLoginVC.m; sourceTree = "<group>"; };
+		A50D271918DA8B2600641430 /* PPMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuVC.h; sourceTree = "<group>"; };
+		A50D271A18DA8B2600641430 /* PPMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuVC.m; sourceTree = "<group>"; };
+		A50D271B18DA8B2600641430 /* PPRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPRootVC.h; sourceTree = "<group>"; };
+		A50D271C18DA8B2600641430 /* PPRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPRootVC.m; sourceTree = "<group>"; };
+		A50D271D18DA8B2600641430 /* PPSelectPixieVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSelectPixieVC.h; sourceTree = "<group>"; };
+		A50D271E18DA8B2600641430 /* PPSelectPixieVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSelectPixieVC.m; sourceTree = "<group>"; };
+		A50D271F18DA8B2600641430 /* PPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTabBarController.h; sourceTree = "<group>"; };
+		A50D272018DA8B2600641430 /* PPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPTabBarController.m; sourceTree = "<group>"; };
+		A50D272118DA8B2600641430 /* PPTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPTabBarController.xib; sourceTree = "<group>"; };
 		A591A21618CEF36B00219E86 /* PPReversibleAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPReversibleAnimationController.h; path = animation/PPReversibleAnimationController.h; sourceTree = "<group>"; };
 		A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPReversibleAnimationController.m; path = animation/PPReversibleAnimationController.m; sourceTree = "<group>"; };
 		A591A21918CEF64200219E86 /* PPPortalAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPortalAnimationController.h; path = animation/PPPortalAnimationController.h; sourceTree = "<group>"; };
 		A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPortalAnimationController.m; path = animation/PPPortalAnimationController.m; sourceTree = "<group>"; };
-		A591A21C18CF0C8C00219E86 /* PPHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPHomeVC.h; path = PixePixie/Controllers/PPHomeVC.h; sourceTree = SOURCE_ROOT; };
-		A591A21D18CF0C8C00219E86 /* PPHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPHomeVC.m; path = PixePixie/Controllers/PPHomeVC.m; sourceTree = SOURCE_ROOT; };
 		A5A2944418CAABD2002F866D /* PPPixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPixie.h; path = Models/PPPixie.h; sourceTree = "<group>"; };
 		A5A2944518CAABD2002F866D /* PPPixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPixie.m; path = Models/PPPixie.m; sourceTree = "<group>"; };
 		A5A2944818CAACBF002F866D /* PPStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PPStoryboard.storyboard; sourceTree = "<group>"; };
@@ -189,7 +192,7 @@
 				19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */,
 				19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */,
 				19906B8918CB039400C05BA3 /* Configurations */,
-				A5A2944718CAAC84002F866D /* Controllers */,
+				A50D271318DA8B2600641430 /* Controllers */,
 				1917DFF418C8545200E54F02 /* Models */,
 				A5B786C518CC01A500D3E50B /* Views */,
 				A5B786C118CBFE5A00D3E50B /* Library */,
@@ -221,24 +224,25 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		A5A2944718CAAC84002F866D /* Controllers */ = {
+		A50D271318DA8B2600641430 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				19F2FEFB18CAF54600E3F446 /* PPControllers.h */,
-				19F2FEFF18CAF54600E3F446 /* PPRootVC.h */,
-				19F2FF0018CAF54600E3F446 /* PPRootVC.m */,
-				19F2FEFD18CAF54600E3F446 /* PPLoginVC.h */,
-				19F2FEFE18CAF54600E3F446 /* PPLoginVC.m */,
-				19F2FF0118CAF54600E3F446 /* PPSelectPixieVC.h */,
-				19F2FF0218CAF54600E3F446 /* PPSelectPixieVC.m */,
-				A591A21C18CF0C8C00219E86 /* PPHomeVC.h */,
-				A591A21D18CF0C8C00219E86 /* PPHomeVC.m */,
-				A514985518D6A61700AF20D6 /* PPTabBarController.h */,
-				A514985618D6A61700AF20D6 /* PPTabBarController.m */,
-				A514985818D6A6C900AF20D6 /* PPTabBarController.xib */,
+				A50D271418DA8B2600641430 /* PPControllers.h */,
+				A50D271518DA8B2600641430 /* PPHomeVC.h */,
+				A50D271618DA8B2600641430 /* PPHomeVC.m */,
+				A50D271718DA8B2600641430 /* PPLoginVC.h */,
+				A50D271818DA8B2600641430 /* PPLoginVC.m */,
+				A50D271918DA8B2600641430 /* PPMenuVC.h */,
+				A50D271A18DA8B2600641430 /* PPMenuVC.m */,
+				A50D271B18DA8B2600641430 /* PPRootVC.h */,
+				A50D271C18DA8B2600641430 /* PPRootVC.m */,
+				A50D271D18DA8B2600641430 /* PPSelectPixieVC.h */,
+				A50D271E18DA8B2600641430 /* PPSelectPixieVC.m */,
+				A50D271F18DA8B2600641430 /* PPTabBarController.h */,
+				A50D272018DA8B2600641430 /* PPTabBarController.m */,
+				A50D272118DA8B2600641430 /* PPTabBarController.xib */,
 			);
-			name = Controllers;
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		A5B786C118CBFE5A00D3E50B /* Library */ = {
@@ -317,8 +321,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */,
-				A514985918D6A6C900AF20D6 /* PPTabBarController.xib in Resources */,
 				190BF48F18C6C873006B0AE6 /* Spaceship.png in Resources */,
+				A50D272818DA8B2600641430 /* PPTabBarController.xib in Resources */,
 				19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */,
 				A5A2944918CAACBF002F866D /* PPStoryboard.storyboard in Resources */,
 			);
@@ -331,21 +335,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F2FF0418CAF54600E3F446 /* PPLoginVC.m in Sources */,
 				A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */,
+				A50D272418DA8B2600641430 /* PPMenuVC.m in Sources */,
 				A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */,
 				190BF48C18C6C818006B0AE6 /* MyScene.m in Sources */,
-				19F2FF0618CAF54600E3F446 /* PPSelectPixieVC.m in Sources */,
 				A5A2944618CAABD2002F866D /* PPPixie.m in Sources */,
 				A591A21818CEF36B00219E86 /* PPReversibleAnimationController.m in Sources */,
-				19F2FF0518CAF54600E3F446 /* PPRootVC.m in Sources */,
 				A5B786C918CC021200D3E50B /* PPCoverflow.m in Sources */,
+				A50D272618DA8B2600641430 /* PPSelectPixieVC.m in Sources */,
 				1917DFF718C8551300E54F02 /* PPElement.m in Sources */,
 				1938054918CB0CAB00EF8691 /* ConfigData.m in Sources */,
 				19F6EDAE18C6C09900BFFF9A /* PPAppDelegate.m in Sources */,
 				19F6EDAA18C6C09900BFFF9A /* main.m in Sources */,
-				A591A21E18CF0C8C00219E86 /* PPHomeVC.m in Sources */,
-				A514985718D6A61700AF20D6 /* PPTabBarController.m in Sources */,
+				A50D272218DA8B2600641430 /* PPHomeVC.m in Sources */,
+				A50D272318DA8B2600641430 /* PPLoginVC.m in Sources */,
+				A50D272518DA8B2600641430 /* PPRootVC.m in Sources */,
+				A50D272718DA8B2600641430 /* PPTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
