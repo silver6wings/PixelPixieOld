@@ -10,6 +10,8 @@
 
 @interface PPTabBarController ()
 
+@property (nonatomic) PPMenuSwitchType switchType;
+
 @end
 
 @implementation PPTabBarController
@@ -26,6 +28,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//	if (self.tabBarItemSelectedBlock) {
+//		self.tabBarItemSelectedBlock(PPMenuSwitchToPixieView);
+//	}
+}
+
+- (IBAction)tabBarItemSelected:(UIButton *)sender {
+	switch (sender.tag) {
+		case 100:
+			self.switchType = PPMenuSwitchToPixieView;
+			break;
+		case 101:
+			self.switchType = PPMenuSwitchToPackView;
+			break;
+		case 102:
+			self.switchType = PPMenuSwitchToFightView;
+			break;
+		case 103:
+			self.switchType = PPMenuSwitchToShopView;
+			break;
+		case 104:
+			self.switchType = PPMenuSwitchToSettingView;
+			break;
+		default:
+			break;
+	}
+//	if (self.tabBarItemSelectedBlock) {
+//		self.tabBarItemSelectedBlock(self.switchType);
+//	}
+	if (self.switchMenuVCFromPreviousChildVCBlock) {
+		self.switchMenuVCFromPreviousChildVCBlock(self.switchType,self.previousChildVC);
+	}
 }
 
 - (void)didReceiveMemoryWarning

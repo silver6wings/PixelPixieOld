@@ -49,7 +49,8 @@ NSString *const kPPHomeVCWillMoveToParentVC = @"kPPHomeVCWillMoveToParentVC";
 	if (!_homeVC) {
 		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PPStoryboard" bundle:nil];
 		PPHomeVC *homeVC = [storyboard instantiateViewControllerWithIdentifier:@"PPHomeVC"];
-		homeVC.view.frame = CGRectMake(CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.contentView.bounds), CGRectGetHeight(self.contentView.bounds));
+		CGFloat originX = [ConfigData instance].launchWithVC?CGRectGetWidth(self.view.bounds):0;
+		homeVC.view.frame = CGRectMake(originX, 0, CGRectGetWidth(self.contentView.bounds), CGRectGetHeight(self.contentView.bounds));
 		_homeVC = homeVC;
 	}
 	return _homeVC;
