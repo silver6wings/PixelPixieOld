@@ -8,4 +8,6 @@
 
 @interface PPLoginVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewTopLayoutConstraint;
+
 @end
