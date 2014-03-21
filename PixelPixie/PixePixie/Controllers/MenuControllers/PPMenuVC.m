@@ -33,8 +33,8 @@
 }
 
 - (IBAction)removeFromParentViewController:(UIButton *)sender {
-	if (self.removeFromParentVCBlock) {
-		self.removeFromParentVCBlock(self);
+	if (self.activityVCRemoveFromParentVC) {
+		self.activityVCRemoveFromParentVC(self);
 	}
 }
 

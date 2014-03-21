@@ -13,6 +13,6 @@
 
 @property (nonatomic, readonly) PPMenuSwitchType type;
 
-@property (nonatomic, copy) void (^removeFromParentVCBlock)(UIViewController *childVC);
+@property (nonatomic, copy) void (^activityVCRemoveFromParentVC)(UIViewController *activityVC);
 
 @end

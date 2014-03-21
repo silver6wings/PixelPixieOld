@@ -28,9 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//	if (self.tabBarItemSelectedBlock) {
-//		self.tabBarItemSelectedBlock(PPMenuSwitchToPixieView);
-//	}
 }
 
 - (IBAction)tabBarItemSelected:(UIButton *)sender {
@@ -53,11 +50,8 @@
 		default:
 			break;
 	}
-//	if (self.tabBarItemSelectedBlock) {
-//		self.tabBarItemSelectedBlock(self.switchType);
-//	}
-	if (self.switchMenuVCFromPreviousChildVCBlock) {
-		self.switchMenuVCFromPreviousChildVCBlock(self.switchType,self.previousChildVC);
+	if (self.activityVCSwitchToPreviousVCByMenuTypeBlock) {
+		self.activityVCSwitchToPreviousVCByMenuTypeBlock(self.switchType,self.relatedActivityViewController);
 	}
 }
 

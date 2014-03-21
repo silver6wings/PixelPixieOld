@@ -16,10 +16,10 @@ typedef NS_ENUM(NSInteger,PPMenuSwitchType) {
 
 @interface PPTabBarController : UIViewController
 
-@property (nonatomic, strong) UIViewController *previousChildVC;
+@property (nonatomic, strong) UIViewController *relatedActivityViewController;
 
-@property (nonatomic, copy) void (^tabBarItemSelectedBlock)(PPMenuSwitchType type);
+@property (nonatomic, copy) void (^activityVCWillMoveToParentVCBlock)(UIViewController *activityVC);
 
-@property (nonatomic, copy) void (^switchMenuVCFromPreviousChildVCBlock)(PPMenuSwitchType type,UIViewController *previousChildVC);
+@property (nonatomic, copy) void (^activityVCSwitchToPreviousVCByMenuTypeBlock)(PPMenuSwitchType type,UIViewController *previousVC);
 
 @end
