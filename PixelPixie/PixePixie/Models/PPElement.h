@@ -13,21 +13,21 @@ typedef NS_ENUM(NSInteger, PPElementType)
     PPElementTypeNone,        // 无
 
     PPElementTypeMetal,       // 金
-    PPElementTypeWood,        // 木
+    PPElementTypePlant,       // 木
     PPElementTypeWater,       // 水
     PPElementTypeFire,        // 火
     PPElementTypeEarth,       // 土
     
     PPElementTypeSteel,       // 钢
-    PPElementTypePlant,       // 树
+    PPElementTypePosion,      // 毒
     PPElementTypeIce,         // 冰
     PPElementTypeBlaze,       // 炎
-    PPElementTypeRock,        // 岩
+    PPElementTypeStone,       // 岩
 
     PPElementTypeBurst,       // 爆
     PPElementTypeSand,        // 沙
     PPElementTypeThunder,     // 雷
-    PPElementTypePosion,      // 毒
+    PPElementTypeTree,        // 树
     PPElementTypeWind         // 风
 };
 
