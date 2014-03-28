@@ -8,8 +8,8 @@
 
 #import "BallScene.h"
 
-static const uint32_t BallCategory     =  0x1 << 0;
-static const uint32_t GroundCategory     =  0x1 << 1;
+static const uint32_t BallCategory      =  0x1 << 0;
+static const uint32_t GroundCategory    =  0x1 << 1;
 
 @interface BallScene () <SKPhysicsContactDelegate>
 @property (nonatomic) SKSpriteNode * ball;
@@ -21,7 +21,7 @@ static const uint32_t GroundCategory     =  0x1 << 1;
     if (self = [super initWithSize:size]) {
         
         self.backgroundColor = [SKColor whiteColor];
-        self.physicsWorld.gravity = CGVectorMake(0, -2.0);
+        self.physicsWorld.gravity = CGVectorMake(0, 0);
 //        self.physicsWorld.speed = 1.0f;
         
         self.physicsWorld.contactDelegate = self;
@@ -46,6 +46,13 @@ static const uint32_t GroundCategory     =  0x1 << 1;
         groundRight.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:groundRight.size];
         [self setAsGround:groundRight.physicsBody];
         [self addChild:groundRight];
+     
+        SKSpriteNode * groundTop = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor]
+                                                                  size:CGSizeMake(self.frame.size.width, 20)];
+        groundTop.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height - 10);
+        groundTop.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:groundTop.size];
+        [self setAsGround:groundTop.physicsBody];
+        [self addChild:groundTop];
         
         self.ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball.png"];
         self.ball.color = [SKColor whiteColor];
@@ -53,7 +60,7 @@ static const uint32_t GroundCategory     =  0x1 << 1;
         self.ball.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
         
         self.ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.ball.size];
-        self.ball.physicsBody.friction = 0.1;       // 表面摩擦力
+        self.ball.physicsBody.friction = 0.6;       // 表面摩擦力
         self.ball.physicsBody.restitution = 0.7;    // 弹性恢复系数
         self.ball.physicsBody.dynamic = YES;        // 说明物体是动态的
         self.ball.physicsBody.usesPreciseCollisionDetection = YES; // 使用快速运动检测碰撞
@@ -86,6 +93,9 @@ static const uint32_t GroundCategory     =  0x1 << 1;
     pb.categoryBitMask = GroundCategory;
     pb.contactTestBitMask = BallCategory;
     //pb.collisionBitMask = 0;
+}
+-(void)update:(NSTimeInterval)currentTime{
+    NSLog(@"%f", currentTime);
 }
 
 @end
