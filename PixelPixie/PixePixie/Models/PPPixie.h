@@ -6,6 +6,10 @@
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
-@interface PPPixie : NSObject
+@interface PPPixie : NSObject {
+    PPElementType * element;
+}
+
+
 
 @end
