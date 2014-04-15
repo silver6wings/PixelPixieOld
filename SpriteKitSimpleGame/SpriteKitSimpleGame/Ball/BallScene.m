@@ -12,7 +12,12 @@ static const uint32_t BallCategory      =  0x1 << 0;
 static const uint32_t GroundCategory    =  0x1 << 1;
 
 @interface BallScene () <SKPhysicsContactDelegate>
-@property (nonatomic) SKSpriteNode * ball;
+
+@property (nonatomic) SKSpriteNode * ballSelf;
+@property (nonatomic) SKSpriteNode * ballEnemey;
+
+@property (nonatomic) NSMutableArray * ballElement;
+
 @end
 
 @implementation BallScene
@@ -26,76 +31,95 @@ static const uint32_t GroundCategory    =  0x1 << 1;
         
         self.physicsWorld.contactDelegate = self;
         
-        SKSpriteNode * ground = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor]
-                                                             size:CGSizeMake(self.frame.size.width, 20)];
-        ground.position = CGPointMake(self.frame.size.width / 2, 10);
-        ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
-        [self setAsGround:ground.physicsBody];
-        [self addChild:ground];
+        // Add Walls
         
-        SKSpriteNode * groundLeft = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor]
-                                                                 size:CGSizeMake(20, self.frame.size.height)];
-        groundLeft.position = CGPointMake(10, self.frame.size.height / 2);
-        groundLeft.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:groundLeft.size];
-        [self setAsGround:groundLeft.physicsBody];
-        [self addChild:groundLeft];
+        SKSpriteNode * wallTop = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(self.frame.size.width, 20)];
+        wallTop.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height - 10);
+        wallTop.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallTop.size];
+        [self setAsWall:wallTop.physicsBody];
+        [self addChild:wallTop];
         
-        SKSpriteNode * groundRight = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor]
-                                                                  size:CGSizeMake(20, self.frame.size.height)];
-        groundRight.position = CGPointMake(self.frame.size.width - 10, self.frame.size.height / 2);
-        groundRight.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:groundRight.size];
-        [self setAsGround:groundRight.physicsBody];
-        [self addChild:groundRight];
-     
-        SKSpriteNode * groundTop = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor]
-                                                                  size:CGSizeMake(self.frame.size.width, 20)];
-        groundTop.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height - 10);
-        groundTop.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:groundTop.size];
-        [self setAsGround:groundTop.physicsBody];
-        [self addChild:groundTop];
+        SKSpriteNode * wallBottom = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(self.frame.size.width, 20)];
+        wallBottom.position = CGPointMake(self.frame.size.width / 2, 10);
+        wallBottom.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallBottom.size];
+        [self setAsWall:wallBottom.physicsBody];
+        [self addChild:wallBottom];
         
-        self.ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball.png"];
-        self.ball.color = [SKColor whiteColor];
-        self.ball.size = CGSizeMake(40, 40);
-        self.ball.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
+        SKSpriteNode * wallLeft = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(20, self.frame.size.height)];
+        wallLeft.position = CGPointMake(10, self.frame.size.height / 2);
+        wallLeft.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallLeft.size];
+        [self setAsWall:wallLeft.physicsBody];
+        [self addChild:wallLeft];
         
-        self.ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.ball.size];
-        self.ball.physicsBody.friction = 0.6;       // 表面摩擦力
-        self.ball.physicsBody.restitution = 0.7;    // 弹性恢复系数
-        self.ball.physicsBody.dynamic = YES;        // 说明物体是动态的
-        self.ball.physicsBody.usesPreciseCollisionDetection = YES; // 使用快速运动检测碰撞
-        self.ball.physicsBody.categoryBitMask = BallCategory;
-        self.ball.physicsBody.contactTestBitMask = GroundCategory;
-        //self.ball.physicsBody.collisionBitMask = 0;
-        [self addChild:self.ball];
+        SKSpriteNode * wallRight = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(20, self.frame.size.height)];
+        wallRight.position = CGPointMake(self.frame.size.width - 10, self.frame.size.height / 2);
+        wallRight.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallRight.size];
+        [self setAsWall:wallRight.physicsBody];
+        [self addChild:wallRight];
 
+        
+        // Set Ball of Self
+        
+        _ballSelf = [SKSpriteNode spriteNodeWithImageNamed:@"ball_self.png"];
+        _ballSelf.size = CGSizeMake(40, 40);
+        _ballSelf.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
+        _ballSelf.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_ballSelf.size];
+        [self setAsBall:_ballSelf.physicsBody];
+        [self addChild:_ballSelf];
+
+        // Set Ball of Enemey
+        
+        _ballEnemey = [SKSpriteNode spriteNodeWithImageNamed:@"ball_enemey.png"];
+        _ballEnemey.size = CGSizeMake(40, 40);
+        _ballEnemey.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
+        _ballEnemey.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_ballEnemey.size];
+        [self setAsBall:_ballEnemey.physicsBody];
+        [self addChild:_ballEnemey];
+        
+        // Set Balls of Element
+        _ballElement = [NSMutableArray arrayWithObjects:nil];
     }
     return self;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-//    [self.ball.physicsBody applyForce:CGVectorMake(0, 1000)];
-    [self.ball.physicsBody applyImpulse:CGVectorMake(0, 10)];
-    [self.ball.physicsBody applyTorque:0.1];
+    
+//    [_ball.physicsBody applyForce:CGVectorMake(0, 1000)];
+    [_ballSelf.physicsBody applyImpulse:CGVectorMake(0, 10)];
+    [_ballSelf.physicsBody applyTorque:0.1];
     
     //SKAction * sa = [SKAction moveByX:100.0 y:100.0 duration:1.0];
     //[self.ball runAction:sa];
+    
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact{
     
 }
 
-- (void)setAsGround:(SKPhysicsBody *)pb{
-    pb.affectedByGravity = NO;
-    pb.dynamic = NO;
-    pb.friction = 0.1;
-    pb.categoryBitMask = GroundCategory;
-    pb.contactTestBitMask = BallCategory;
-    //pb.collisionBitMask = 0;
+- (void)setAsWall:(SKPhysicsBody *)wallPhysic{
+    wallPhysic.affectedByGravity = NO;
+    wallPhysic.dynamic = NO;
+    wallPhysic.friction = 0.1;
+    wallPhysic.categoryBitMask = GroundCategory;
+    wallPhysic.contactTestBitMask = BallCategory;
+    //wallPhysic.collisionBitMask = 0;
 }
+
+- (void)setAsBall:(SKPhysicsBody *)ballPhysic{
+    ballPhysic.friction = 0.6;       // 表面摩擦力
+    ballPhysic.restitution = 0.7;    // 弹性恢复系数
+    ballPhysic.dynamic = YES;        // 说明物体是动态的
+    ballPhysic.usesPreciseCollisionDetection = YES; // 使用快速运动检测碰撞
+    ballPhysic.categoryBitMask = BallCategory;
+    ballPhysic.contactTestBitMask = GroundCategory;
+    //ballPhysic.physicsBody.collisionBitMask = 0;
+}
+
+
+
 -(void)update:(NSTimeInterval)currentTime{
-    NSLog(@"%f", currentTime);
+    //NSLog(@"%f", currentTime);
 }
 
 @end

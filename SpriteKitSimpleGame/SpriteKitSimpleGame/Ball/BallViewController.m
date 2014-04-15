@@ -10,6 +10,9 @@
 #import "BallScene.h"
 
 @interface BallViewController ()
+
+@property (nonatomic) SKView * skView;
+
 @end
 
 
@@ -18,8 +21,12 @@
 - (void)loadView{
     [super loadView];
     
-    SKView * skView = [[SKView alloc] initWithFrame:self.view.bounds];
-    self.view = skView;
+    UIView * mainView = [[UIView alloc] initWithFrame:self.view.bounds];
+    mainView.backgroundColor = [UIColor whiteColor];
+    self.view = mainView;
+    
+    self.skView = [[SKView alloc] initWithFrame:CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 480)];
+    [self.view addSubview:self.skView];
 }
 
 - (void)viewDidLoad{
@@ -29,19 +36,18 @@
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     
-    SKView * skView = (SKView *)self.view;
-    
     //如果skView没有scene
-    if(!skView.scene){
-        SKScene * scene = [BallScene sceneWithSize:skView.bounds.size];
+    if(!self.skView.scene){
+        SKScene * scene = [BallScene sceneWithSize:self.skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
-        [skView presentScene:scene];
+        [self.skView presentScene:scene];
         
-        skView.showsFPS = YES;
-        skView.showsNodeCount = YES;
-        skView.showsDrawCount = YES;
+        self.skView.showsFPS = YES;
+        self.skView.showsNodeCount = YES;
+        self.skView.showsDrawCount = YES;
     }
+    
 }
 
 - (void)didReceiveMemoryWarning{

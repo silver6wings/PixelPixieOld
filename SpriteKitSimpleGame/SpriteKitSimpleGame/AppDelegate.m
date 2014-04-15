@@ -14,6 +14,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    if( [UIScreen mainScreen].bounds.size.height <= 480.0f ){
+        NSLog(@"ip4");
+    } else {
+        NSLog(@"ip5");
+    }
+    
     UIViewController * vc = [[BallViewController alloc] init];
 //    UIViewController * vc = [[PlaneViewController alloc] init];
     

@@ -11,6 +11,12 @@
 
 @implementation PlaneViewController
 
+-(id)init{
+    if (self = [super init]) {
+    }
+    return self;
+}
+
 -(void)loadView{
     [super loadView];
     

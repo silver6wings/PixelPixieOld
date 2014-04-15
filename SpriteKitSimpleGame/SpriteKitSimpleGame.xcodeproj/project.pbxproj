@@ -18,8 +18,14 @@
 		194007FC18BF078D007DCE3D /* battery.png in Resources */ = {isa = PBXBuildFile; fileRef = 194007F918BF078D007DCE3D /* battery.png */; };
 		194007FD18BF078D007DCE3D /* bomb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194007FA18BF078D007DCE3D /* bomb.jpg */; };
 		194007FE18BF078D007DCE3D /* plane.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194007FB18BF078D007DCE3D /* plane.jpg */; };
-		197DD53818CF19210056EDAC /* crystalball.png in Resources */ = {isa = PBXBuildFile; fileRef = 197DD53718CF19210056EDAC /* crystalball.png */; };
-		199EE54F18CDB56A00A18324 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 199EE54E18CDB56A00A18324 /* ball.png */; };
+		194979C518FBB676007D2DFB /* ball_enemey.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979BD18FBB676007D2DFB /* ball_enemey.png */; };
+		194979C618FBB676007D2DFB /* ball_great.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979BE18FBB676007D2DFB /* ball_great.png */; };
+		194979C718FBB676007D2DFB /* ball_master.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979BF18FBB676007D2DFB /* ball_master.png */; };
+		194979C818FBB676007D2DFB /* ball_poke.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C018FBB676007D2DFB /* ball_poke.png */; };
+		194979C918FBB676007D2DFB /* ball_premier.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C118FBB676007D2DFB /* ball_premier.png */; };
+		194979CA18FBB676007D2DFB /* ball_safari.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C218FBB676007D2DFB /* ball_safari.png */; };
+		194979CB18FBB676007D2DFB /* ball_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C318FBB676007D2DFB /* ball_self.png */; };
+		194979CC18FBB676007D2DFB /* ball_ultra.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C418FBB676007D2DFB /* ball_ultra.png */; };
 		19EA6A5C18CC539400200CD4 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5718CC539400200CD4 /* GameOverScene.m */; };
 		19EA6A5D18CC539400200CD4 /* PlaneScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5918CC539400200CD4 /* PlaneScene.m */; };
 		19EA6A5E18CC539400200CD4 /* PlaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5B18CC539400200CD4 /* PlaneViewController.m */; };
@@ -44,8 +50,14 @@
 		194007F918BF078D007DCE3D /* battery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battery.png; path = Resource/battery.png; sourceTree = "<group>"; };
 		194007FA18BF078D007DCE3D /* bomb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bomb.jpg; path = Resource/bomb.jpg; sourceTree = "<group>"; };
 		194007FB18BF078D007DCE3D /* plane.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = plane.jpg; path = Resource/plane.jpg; sourceTree = "<group>"; };
-		197DD53718CF19210056EDAC /* crystalball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crystalball.png; sourceTree = "<group>"; };
-		199EE54E18CDB56A00A18324 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		194979BD18FBB676007D2DFB /* ball_enemey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_enemey.png; path = Resource/balls/ball_enemey.png; sourceTree = "<group>"; };
+		194979BE18FBB676007D2DFB /* ball_great.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_great.png; path = Resource/balls/ball_great.png; sourceTree = "<group>"; };
+		194979BF18FBB676007D2DFB /* ball_master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_master.png; path = Resource/balls/ball_master.png; sourceTree = "<group>"; };
+		194979C018FBB676007D2DFB /* ball_poke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_poke.png; path = Resource/balls/ball_poke.png; sourceTree = "<group>"; };
+		194979C118FBB676007D2DFB /* ball_premier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_premier.png; path = Resource/balls/ball_premier.png; sourceTree = "<group>"; };
+		194979C218FBB676007D2DFB /* ball_safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_safari.png; path = Resource/balls/ball_safari.png; sourceTree = "<group>"; };
+		194979C318FBB676007D2DFB /* ball_self.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_self.png; path = Resource/balls/ball_self.png; sourceTree = "<group>"; };
+		194979C418FBB676007D2DFB /* ball_ultra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_ultra.png; path = Resource/balls/ball_ultra.png; sourceTree = "<group>"; };
 		19EA6A5618CC539400200CD4 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Plane/GameOverScene.h; sourceTree = "<group>"; };
 		19EA6A5718CC539400200CD4 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Plane/GameOverScene.m; sourceTree = "<group>"; };
 		19EA6A5818CC539400200CD4 /* PlaneScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaneScene.h; path = Plane/PlaneScene.h; sourceTree = "<group>"; };
@@ -140,6 +152,21 @@
 			name = Plane;
 			sourceTree = "<group>";
 		};
+		194979BC18FBB655007D2DFB /* balls */ = {
+			isa = PBXGroup;
+			children = (
+				194979BD18FBB676007D2DFB /* ball_enemey.png */,
+				194979BE18FBB676007D2DFB /* ball_great.png */,
+				194979BF18FBB676007D2DFB /* ball_master.png */,
+				194979C018FBB676007D2DFB /* ball_poke.png */,
+				194979C118FBB676007D2DFB /* ball_premier.png */,
+				194979C218FBB676007D2DFB /* ball_safari.png */,
+				194979C318FBB676007D2DFB /* ball_self.png */,
+				194979C418FBB676007D2DFB /* ball_ultra.png */,
+			);
+			name = balls;
+			sourceTree = "<group>";
+		};
 		19EA6A5218CC52BC00200CD4 /* Ball */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,8 +181,7 @@
 		19F8317318BE248F0022868D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				197DD53718CF19210056EDAC /* crystalball.png */,
-				199EE54E18CDB56A00A18324 /* ball.png */,
+				194979BC18FBB655007D2DFB /* balls */,
 				194007F918BF078D007DCE3D /* battery.png */,
 				194007FA18BF078D007DCE3D /* bomb.jpg */,
 				194007FB18BF078D007DCE3D /* plane.jpg */,
@@ -189,7 +215,7 @@
 		190F55C418BC8C4A00965C67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = silver6wings;
 			};
 			buildConfigurationList = 190F55C718BC8C4A00965C67 /* Build configuration list for PBXProject "SpriteKitSimpleGame" */;
@@ -215,13 +241,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				194979C718FBB676007D2DFB /* ball_master.png in Resources */,
+				194979CC18FBB676007D2DFB /* ball_ultra.png in Resources */,
 				190F55DC18BC8C4A00965C67 /* InfoPlist.strings in Resources */,
 				194007FD18BF078D007DCE3D /* bomb.jpg in Resources */,
-				197DD53818CF19210056EDAC /* crystalball.png in Resources */,
-				199EE54F18CDB56A00A18324 /* ball.png in Resources */,
 				194007FE18BF078D007DCE3D /* plane.jpg in Resources */,
+				194979C518FBB676007D2DFB /* ball_enemey.png in Resources */,
+				194979C618FBB676007D2DFB /* ball_great.png in Resources */,
+				194979CA18FBB676007D2DFB /* ball_safari.png in Resources */,
 				194007FC18BF078D007DCE3D /* battery.png in Resources */,
+				194979CB18FBB676007D2DFB /* ball_self.png in Resources */,
+				194979C818FBB676007D2DFB /* ball_poke.png in Resources */,
 				190F55EF18BC8C4A00965C67 /* Images.xcassets in Resources */,
+				194979C918FBB676007D2DFB /* ball_premier.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +292,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -299,7 +330,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
