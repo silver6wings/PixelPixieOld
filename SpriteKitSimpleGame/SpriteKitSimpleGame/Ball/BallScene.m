@@ -27,55 +27,14 @@ static const uint32_t GroundCategory    =  0x1 << 1;
         
         self.backgroundColor = [SKColor whiteColor];
         self.physicsWorld.gravity = CGVectorMake(0, 0);
-//        self.physicsWorld.speed = 1.0f;
-        
         self.physicsWorld.contactDelegate = self;
+        //        self.physicsWorld.speed = 1.0f;
         
-        // Add Walls
-        
-        SKSpriteNode * wallTop = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(self.frame.size.width, 20)];
-        wallTop.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height - 10);
-        wallTop.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallTop.size];
-        [self setAsWall:wallTop.physicsBody];
-        [self addChild:wallTop];
-        
-        SKSpriteNode * wallBottom = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(self.frame.size.width, 20)];
-        wallBottom.position = CGPointMake(self.frame.size.width / 2, 10);
-        wallBottom.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallBottom.size];
-        [self setAsWall:wallBottom.physicsBody];
-        [self addChild:wallBottom];
-        
-        SKSpriteNode * wallLeft = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(20, self.frame.size.height)];
-        wallLeft.position = CGPointMake(10, self.frame.size.height / 2);
-        wallLeft.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallLeft.size];
-        [self setAsWall:wallLeft.physicsBody];
-        [self addChild:wallLeft];
-        
-        SKSpriteNode * wallRight = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(20, self.frame.size.height)];
-        wallRight.position = CGPointMake(self.frame.size.width - 10, self.frame.size.height / 2);
-        wallRight.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallRight.size];
-        [self setAsWall:wallRight.physicsBody];
-        [self addChild:wallRight];
+        [self addWalls];
+        [self addSelfBall];
+        [self addEnemeyBall];
 
-        
-        // Set Ball of Self
-        
-        _ballSelf = [SKSpriteNode spriteNodeWithImageNamed:@"ball_self.png"];
-        _ballSelf.size = CGSizeMake(40, 40);
-        _ballSelf.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
-        _ballSelf.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_ballSelf.size];
-        [self setAsBall:_ballSelf.physicsBody];
-        [self addChild:_ballSelf];
 
-        // Set Ball of Enemey
-        
-        _ballEnemey = [SKSpriteNode spriteNodeWithImageNamed:@"ball_enemey.png"];
-        _ballEnemey.size = CGSizeMake(40, 40);
-        _ballEnemey.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
-        _ballEnemey.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_ballEnemey.size];
-        [self setAsBall:_ballEnemey.physicsBody];
-        [self addChild:_ballEnemey];
-        
         // Set Balls of Element
         _ballElement = [NSMutableArray arrayWithObjects:nil];
     }
@@ -95,6 +54,57 @@ static const uint32_t GroundCategory    =  0x1 << 1;
 
 - (void)didBeginContact:(SKPhysicsContact *)contact{
     
+}
+
+- (void)addWalls{
+    // Add Walls
+    
+    int thick = 1;
+    int thick2 = thick * 2;
+    
+    SKSpriteNode * wallTop = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(self.frame.size.width, thick2)];
+    wallTop.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height - thick);
+    wallTop.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallTop.size];
+    [self setAsWall:wallTop.physicsBody];
+    [self addChild:wallTop];
+    
+    SKSpriteNode * wallBottom = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(self.frame.size.width, thick2)];
+    wallBottom.position = CGPointMake(self.frame.size.width / 2, thick);
+    wallBottom.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallBottom.size];
+    [self setAsWall:wallBottom.physicsBody];
+    [self addChild:wallBottom];
+    
+    SKSpriteNode * wallLeft = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(thick2, self.frame.size.height)];
+    wallLeft.position = CGPointMake(thick, self.frame.size.height / 2);
+    wallLeft.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallLeft.size];
+    [self setAsWall:wallLeft.physicsBody];
+    [self addChild:wallLeft];
+    
+    SKSpriteNode * wallRight = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(thick2, self.frame.size.height)];
+    wallRight.position = CGPointMake(self.frame.size.width - thick, self.frame.size.height / 2);
+    wallRight.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wallRight.size];
+    [self setAsWall:wallRight.physicsBody];
+    [self addChild:wallRight];
+}
+
+- (void)addSelfBall{
+    // Set Ball of Self
+    _ballSelf = [SKSpriteNode spriteNodeWithImageNamed:@"ball_player.png"];
+    _ballSelf.size = CGSizeMake(40, 40);
+    _ballSelf.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
+    _ballSelf.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_ballSelf.size.height / 2];
+    [self setAsBall:_ballSelf.physicsBody];
+    [self addChild:_ballSelf];
+}
+
+- (void)addEnemeyBall{
+    // Set Ball of Enemey
+    _ballEnemey = [SKSpriteNode spriteNodeWithImageNamed:@"ball_player.png"];
+    _ballEnemey.size = CGSizeMake(40, 40);
+    _ballEnemey.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 );
+    _ballEnemey.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_ballEnemey.size.height / 2];
+    [self setAsBall:_ballEnemey.physicsBody];
+    [self addChild:_ballEnemey];
 }
 
 - (void)setAsWall:(SKPhysicsBody *)wallPhysic{

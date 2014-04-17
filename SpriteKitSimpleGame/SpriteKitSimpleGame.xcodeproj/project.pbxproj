@@ -18,14 +18,12 @@
 		194007FC18BF078D007DCE3D /* battery.png in Resources */ = {isa = PBXBuildFile; fileRef = 194007F918BF078D007DCE3D /* battery.png */; };
 		194007FD18BF078D007DCE3D /* bomb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194007FA18BF078D007DCE3D /* bomb.jpg */; };
 		194007FE18BF078D007DCE3D /* plane.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194007FB18BF078D007DCE3D /* plane.jpg */; };
-		194979C518FBB676007D2DFB /* ball_enemey.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979BD18FBB676007D2DFB /* ball_enemey.png */; };
-		194979C618FBB676007D2DFB /* ball_great.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979BE18FBB676007D2DFB /* ball_great.png */; };
-		194979C718FBB676007D2DFB /* ball_master.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979BF18FBB676007D2DFB /* ball_master.png */; };
-		194979C818FBB676007D2DFB /* ball_poke.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C018FBB676007D2DFB /* ball_poke.png */; };
-		194979C918FBB676007D2DFB /* ball_premier.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C118FBB676007D2DFB /* ball_premier.png */; };
-		194979CA18FBB676007D2DFB /* ball_safari.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C218FBB676007D2DFB /* ball_safari.png */; };
-		194979CB18FBB676007D2DFB /* ball_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C318FBB676007D2DFB /* ball_self.png */; };
-		194979CC18FBB676007D2DFB /* ball_ultra.png in Resources */ = {isa = PBXBuildFile; fileRef = 194979C418FBB676007D2DFB /* ball_ultra.png */; };
+		1980E79418FFEA6200DCDD2A /* ball_earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 1980E78E18FFEA6200DCDD2A /* ball_earth.png */; };
+		1980E79518FFEA6200DCDD2A /* ball_fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 1980E78F18FFEA6200DCDD2A /* ball_fire.png */; };
+		1980E79618FFEA6200DCDD2A /* ball_metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1980E79018FFEA6200DCDD2A /* ball_metal.png */; };
+		1980E79718FFEA6200DCDD2A /* ball_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1980E79118FFEA6200DCDD2A /* ball_plant.png */; };
+		1980E79818FFEA6200DCDD2A /* ball_player.png in Resources */ = {isa = PBXBuildFile; fileRef = 1980E79218FFEA6200DCDD2A /* ball_player.png */; };
+		1980E79918FFEA6200DCDD2A /* ball_water.png in Resources */ = {isa = PBXBuildFile; fileRef = 1980E79318FFEA6200DCDD2A /* ball_water.png */; };
 		19EA6A5C18CC539400200CD4 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5718CC539400200CD4 /* GameOverScene.m */; };
 		19EA6A5D18CC539400200CD4 /* PlaneScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5918CC539400200CD4 /* PlaneScene.m */; };
 		19EA6A5E18CC539400200CD4 /* PlaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6A5B18CC539400200CD4 /* PlaneViewController.m */; };
@@ -50,14 +48,12 @@
 		194007F918BF078D007DCE3D /* battery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battery.png; path = Resource/battery.png; sourceTree = "<group>"; };
 		194007FA18BF078D007DCE3D /* bomb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bomb.jpg; path = Resource/bomb.jpg; sourceTree = "<group>"; };
 		194007FB18BF078D007DCE3D /* plane.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = plane.jpg; path = Resource/plane.jpg; sourceTree = "<group>"; };
-		194979BD18FBB676007D2DFB /* ball_enemey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_enemey.png; path = Resource/balls/ball_enemey.png; sourceTree = "<group>"; };
-		194979BE18FBB676007D2DFB /* ball_great.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_great.png; path = Resource/balls/ball_great.png; sourceTree = "<group>"; };
-		194979BF18FBB676007D2DFB /* ball_master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_master.png; path = Resource/balls/ball_master.png; sourceTree = "<group>"; };
-		194979C018FBB676007D2DFB /* ball_poke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_poke.png; path = Resource/balls/ball_poke.png; sourceTree = "<group>"; };
-		194979C118FBB676007D2DFB /* ball_premier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_premier.png; path = Resource/balls/ball_premier.png; sourceTree = "<group>"; };
-		194979C218FBB676007D2DFB /* ball_safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_safari.png; path = Resource/balls/ball_safari.png; sourceTree = "<group>"; };
-		194979C318FBB676007D2DFB /* ball_self.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_self.png; path = Resource/balls/ball_self.png; sourceTree = "<group>"; };
-		194979C418FBB676007D2DFB /* ball_ultra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_ultra.png; path = Resource/balls/ball_ultra.png; sourceTree = "<group>"; };
+		1980E78E18FFEA6200DCDD2A /* ball_earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_earth.png; path = Resource/ball_earth.png; sourceTree = "<group>"; };
+		1980E78F18FFEA6200DCDD2A /* ball_fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_fire.png; path = Resource/ball_fire.png; sourceTree = "<group>"; };
+		1980E79018FFEA6200DCDD2A /* ball_metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_metal.png; path = Resource/ball_metal.png; sourceTree = "<group>"; };
+		1980E79118FFEA6200DCDD2A /* ball_plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_plant.png; path = Resource/ball_plant.png; sourceTree = "<group>"; };
+		1980E79218FFEA6200DCDD2A /* ball_player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_player.png; path = Resource/ball_player.png; sourceTree = "<group>"; };
+		1980E79318FFEA6200DCDD2A /* ball_water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_water.png; path = Resource/ball_water.png; sourceTree = "<group>"; };
 		19EA6A5618CC539400200CD4 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Plane/GameOverScene.h; sourceTree = "<group>"; };
 		19EA6A5718CC539400200CD4 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Plane/GameOverScene.m; sourceTree = "<group>"; };
 		19EA6A5818CC539400200CD4 /* PlaneScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaneScene.h; path = Plane/PlaneScene.h; sourceTree = "<group>"; };
@@ -155,14 +151,12 @@
 		194979BC18FBB655007D2DFB /* balls */ = {
 			isa = PBXGroup;
 			children = (
-				194979BD18FBB676007D2DFB /* ball_enemey.png */,
-				194979BE18FBB676007D2DFB /* ball_great.png */,
-				194979BF18FBB676007D2DFB /* ball_master.png */,
-				194979C018FBB676007D2DFB /* ball_poke.png */,
-				194979C118FBB676007D2DFB /* ball_premier.png */,
-				194979C218FBB676007D2DFB /* ball_safari.png */,
-				194979C318FBB676007D2DFB /* ball_self.png */,
-				194979C418FBB676007D2DFB /* ball_ultra.png */,
+				1980E78E18FFEA6200DCDD2A /* ball_earth.png */,
+				1980E78F18FFEA6200DCDD2A /* ball_fire.png */,
+				1980E79018FFEA6200DCDD2A /* ball_metal.png */,
+				1980E79118FFEA6200DCDD2A /* ball_plant.png */,
+				1980E79218FFEA6200DCDD2A /* ball_player.png */,
+				1980E79318FFEA6200DCDD2A /* ball_water.png */,
 			);
 			name = balls;
 			sourceTree = "<group>";
@@ -241,19 +235,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				194979C718FBB676007D2DFB /* ball_master.png in Resources */,
-				194979CC18FBB676007D2DFB /* ball_ultra.png in Resources */,
 				190F55DC18BC8C4A00965C67 /* InfoPlist.strings in Resources */,
+				1980E79818FFEA6200DCDD2A /* ball_player.png in Resources */,
 				194007FD18BF078D007DCE3D /* bomb.jpg in Resources */,
+				1980E79518FFEA6200DCDD2A /* ball_fire.png in Resources */,
 				194007FE18BF078D007DCE3D /* plane.jpg in Resources */,
-				194979C518FBB676007D2DFB /* ball_enemey.png in Resources */,
-				194979C618FBB676007D2DFB /* ball_great.png in Resources */,
-				194979CA18FBB676007D2DFB /* ball_safari.png in Resources */,
+				1980E79918FFEA6200DCDD2A /* ball_water.png in Resources */,
+				1980E79418FFEA6200DCDD2A /* ball_earth.png in Resources */,
 				194007FC18BF078D007DCE3D /* battery.png in Resources */,
-				194979CB18FBB676007D2DFB /* ball_self.png in Resources */,
-				194979C818FBB676007D2DFB /* ball_poke.png in Resources */,
+				1980E79618FFEA6200DCDD2A /* ball_metal.png in Resources */,
+				1980E79718FFEA6200DCDD2A /* ball_plant.png in Resources */,
 				190F55EF18BC8C4A00965C67 /* Images.xcassets in Resources */,
-				194979C918FBB676007D2DFB /* ball_premier.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
