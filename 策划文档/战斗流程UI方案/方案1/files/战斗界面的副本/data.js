@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"战斗界面的副本.html",
-  "generationDate":new Date(1397310615833.43),
+  "generationDate":new Date(1397831728117.51),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -55,7 +55,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u0.png"}},
+            "normal~":"images/战斗界面/u0.png"}},
 {
           "id":"5f9799cfd46b4346b65ee8a63379e6f2",
           "label":"",
@@ -82,7 +82,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u2.png"}},
+            "normal~":"images/战斗界面/u2.png"}},
 {
           "id":"b89f1c53bd544faeb92977b3736f874e",
           "label":"",
@@ -115,7 +115,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u4.png"}},
+            "normal~":"images/战斗界面/u4.png"}},
 {
           "id":"e2200cc9a26744c18026c0e4f5dc50ab",
           "label":"",
@@ -148,7 +148,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u4.png"}},
+            "normal~":"images/战斗界面/u4.png"}},
 {
           "id":"4d473c62c9a04a04b750ddc2b4fa4986",
           "label":"",
@@ -181,7 +181,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u4.png"}},
+            "normal~":"images/战斗界面/u4.png"}},
 {
           "id":"ea70c7e9fd1544f0890e5f88f1f99879",
           "label":"",
@@ -214,7 +214,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u4.png"}},
+            "normal~":"images/战斗界面/u4.png"}},
 {
           "id":"9cd60223a1ec49a1a5c838a74552ca2f",
           "label":"",
@@ -247,7 +247,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u4.png"}},
+            "normal~":"images/战斗界面/u4.png"}},
 {
           "id":"dda6b6f07e5541d6a978718352ef7380",
           "label":"",
@@ -498,7 +498,7 @@
                             "options":{
                               "showType":"none"}}}]}]}]}},
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u16.png"}},
+            "normal~":"images/战斗界面/己方小球_u22.png"}},
 {
           "id":"370bef827378401da7cdaa7eab863a5a",
           "label":"宠物3",
@@ -630,7 +630,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/玩家拖动己方小球时/u18.png"}}]}},
+            "normal~":"images/战斗界面/u30.png"}}]}},
   "masters":{
 },
   "objectPaths":{

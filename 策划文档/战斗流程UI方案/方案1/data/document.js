@@ -13,17 +13,13 @@
     "loadFeedbackPlugin":false},
   "sitemap":{
     "rootNodes":[{
-        "pageName":"玩家拖动己方小球前",
-        "type":"Wireframe",
-        "url":"玩家拖动己方小球前.html"},
-{
         "pageName":"战斗界面",
         "type":"Wireframe",
         "url":"战斗界面.html"},
 {
-        "pageName":"宠物切换",
+        "pageName":"战斗界面的副本",
         "type":"Wireframe",
-        "url":"宠物切换.html"}]},
+        "url":"战斗界面的副本.html"}]},
   "globalVariables":{
     "onloadvariable":""},
   "defaultAdaptiveView":{

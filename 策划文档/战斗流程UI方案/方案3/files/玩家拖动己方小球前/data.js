@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"玩家拖动己方小球前.html",
-  "generationDate":new Date(1397342867262.11),
+  "generationDate":new Date(1397832004305.31),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1058,7 +1058,199 @@
                 "imageVerticalAlignment":"near",
                 "imageRepeat":"auto"},
               "adaptiveStyles":{
-}}]}]}},
+}}]},
+{
+          "id":"a9d40a9f79f64f9c9c5b60b1304939ae",
+          "label":"回合时间",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":false,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF009DD9},
+            "location":{
+              "x":57,
+              "y":784},
+            "size":{
+              "width":107,
+              "height":59},
+            "visible":false,
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFF777777}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"06f446e3eeae414db0939702e09bb4b8",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF009DD9},
+                "location":{
+                  "x":57,
+                  "y":784},
+                "size":{
+                  "width":107,
+                  "height":59},
+                "visible":false,
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF777777}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/玩家拖动己方小球前/回合时间_u34.png"}},
+{
+          "id":"a8d754bd6d834a049f08ab9f63a625a0",
+          "label":"边框1",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":70,
+              "y":800},
+            "size":{
+              "width":80,
+              "height":80},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"899bb1d655244be19e9dbf35d6ee638b",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":70,
+                  "y":800},
+                "size":{
+                  "width":80,
+                  "height":80},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/玩家拖动己方小球前/边框1_u36.png"}},
+{
+          "id":"e35866a0d870406897fb002d6636ebd1",
+          "label":"己方小球",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":80,
+              "y":810},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"3358df30e20646f8aa315e4ef1ce4a50",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":80,
+                  "y":810},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"显示 边框1,<br>回合时间",
+                      "objectsToFades":[{
+                          "objectPath":["a8d754bd6d834a049f08ab9f63a625a0"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["a9d40a9f79f64f9c9c5b60b1304939ae"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}}]}]}]},
+            "onMouseOut":{
+              "description":"OnMouseOut",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"隐藏 回合时间,<br>边框1",
+                      "objectsToFades":[{
+                          "objectPath":["a9d40a9f79f64f9c9c5b60b1304939ae"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["a8d754bd6d834a049f08ab9f63a625a0"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}}]}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/玩家拖动己方小球前/u14.png"}},
+{
+          "id":"d73a051316ce45b3a1d7886e9e0ecce1",
+          "label":"边框2",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":57,
+              "y":784},
+            "size":{
+              "width":106,
+              "height":106},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"c40e063003a44bb19acbfea241d12535",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":57,
+                  "y":784},
+                "size":{
+                  "width":106,
+                  "height":106},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/玩家拖动己方小球前/边框2_u40.png"}}]}},
   "masters":{
 },
   "objectPaths":{
@@ -1129,4 +1321,20 @@
     "2e75aea157984c84bb1cf71ff85db73d":{
       "scriptId":"u32"},
     "6ec513a71bd4472aaad98023e2e11504":{
-      "scriptId":"u33"}}});
+      "scriptId":"u33"},
+    "a9d40a9f79f64f9c9c5b60b1304939ae":{
+      "scriptId":"u34"},
+    "06f446e3eeae414db0939702e09bb4b8":{
+      "scriptId":"u35"},
+    "a8d754bd6d834a049f08ab9f63a625a0":{
+      "scriptId":"u36"},
+    "899bb1d655244be19e9dbf35d6ee638b":{
+      "scriptId":"u37"},
+    "e35866a0d870406897fb002d6636ebd1":{
+      "scriptId":"u38"},
+    "3358df30e20646f8aa315e4ef1ce4a50":{
+      "scriptId":"u39"},
+    "d73a051316ce45b3a1d7886e9e0ecce1":{
+      "scriptId":"u40"},
+    "c40e063003a44bb19acbfea241d12535":{
+      "scriptId":"u41"}}});

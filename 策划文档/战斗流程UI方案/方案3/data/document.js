@@ -15,11 +15,7 @@
     "rootNodes":[{
         "pageName":"玩家拖动己方小球前",
         "type":"Wireframe",
-        "url":"玩家拖动己方小球前.html"},
-{
-        "pageName":"战斗界面",
-        "type":"Wireframe",
-        "url":"战斗界面.html"}]},
+        "url":"玩家拖动己方小球前.html"}]},
   "globalVariables":{
     "onloadvariable":""},
   "defaultAdaptiveView":{
