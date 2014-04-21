@@ -8,6 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface BallScene : SKScene
+@interface PPBallScene : SKScene
 
 @end

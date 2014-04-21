@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BallViewController : UIViewController
+@interface PPBallViewController : UIViewController
 
 @end

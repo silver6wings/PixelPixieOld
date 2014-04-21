@@ -8,20 +8,16 @@
 
 #import "AppDelegate.h"
 #import "PlaneViewController.h"
-#import "BallViewController.h"
+#import "PPBallViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    if( [UIScreen mainScreen].bounds.size.height <= 480.0f ){
-        NSLog(@"ip4");
-    } else {
-        NSLog(@"ip5");
-    }
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
-    UIViewController * vc = [[BallViewController alloc] init];
+    UIViewController * vc = [[PPBallViewController alloc] init];
 //    UIViewController * vc = [[PlaneViewController alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

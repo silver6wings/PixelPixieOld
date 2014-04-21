@@ -6,27 +6,29 @@
 //  Copyright (c) 2014年 silver6wings. All rights reserved.
 //
 
-#import "BallViewController.h"
-#import "BallScene.h"
+#import "PPBallViewController.h"
+#import "PPBallScene.h"
+#import "PPPixie.h"
 
-@interface BallViewController ()
+@interface PPBallViewController ()
 
 @property (nonatomic) SKView * skView;
+@property (nonatomic) PPPixie * player;
+@property (nonatomic) PPPixie * enemy;
 
 @end
 
 
-@implementation BallViewController
+@implementation PPBallViewController
 
-- (void)loadView{
-    [super loadView];
-    
-    UIView * mainView = [[UIView alloc] initWithFrame:self.view.bounds];
-    mainView.backgroundColor = [UIColor whiteColor];
-    self.view = mainView;
-    
-    self.skView = [[SKView alloc] initWithFrame:CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 480)];
-    [self.view addSubview:self.skView];
+- (id)init{
+    if (self = [super init]) {
+        self.view.backgroundColor = [UIColor blackColor];
+        
+        self.skView = [[SKView alloc] initWithFrame:CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 480)];
+        [self.view addSubview:self.skView];
+    }
+    return self;
 }
 
 - (void)viewDidLoad{
@@ -38,7 +40,7 @@
     
     //如果skView没有scene
     if(!self.skView.scene){
-        SKScene * scene = [BallScene sceneWithSize:self.skView.bounds.size];
+        SKScene * scene = [PPBallScene sceneWithSize:self.skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         [self.skView presentScene:scene];
