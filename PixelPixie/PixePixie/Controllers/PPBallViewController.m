@@ -23,7 +23,7 @@
 
 - (id)init{
     if (self = [super init]) {
-        self.view.backgroundColor = [UIColor blackColor];
+        self.view.backgroundColor = [UIColor whiteColor];
         
         self.skView = [[SKView alloc] initWithFrame:CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 480)];
         [self.view addSubview:self.skView];

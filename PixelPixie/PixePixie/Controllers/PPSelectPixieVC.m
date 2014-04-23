@@ -41,11 +41,11 @@
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index {
-	self.textView.text = [NSString stringWithFormat:@"%d小精灵",index];
+	self.textView.text = [NSString stringWithFormat:@"%d小精灵", (int)index];
 }
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
-	self.textView.text = [NSString stringWithFormat:@"%d小精灵",carousel.currentItemIndex];
+	self.textView.text = [NSString stringWithFormat:@"%d小精灵", (int)carousel.currentItemIndex];
 }
 
 - (IBAction)confirmToHomeVC:(UIButton *)sender {

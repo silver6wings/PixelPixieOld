@@ -7,10 +7,20 @@
 //
 
 #import "PPAppDelegate.h"
+#import "PPControllers.h"
 
 @implementation PPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    UIViewController * vc = [[PPBallViewController alloc] init];
+    //    UIViewController * vc = [[PlaneViewController alloc] init];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    
+    
 	return YES;
 }
 							

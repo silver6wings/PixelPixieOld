@@ -82,6 +82,68 @@ static const int kWallThick = 2;
     return self;
 }
 
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    if (touches.count > 1 || _isBallDragging || _isBallRolling) return;
+    
+    UITouch * touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    
+    if (distanceBetweenPoints(location, _ballSelf.position) <= BALL_SIZE) {
+        _isBallDragging = YES;
+        _ballShadow = [PPBall spriteNodeWithImageNamed:@"ball_player.png"];
+        _ballShadow.size = CGSizeMake(BALL_SIZE, BALL_SIZE);
+        _ballShadow.alpha = 0.5f;
+        _ballShadow.position = location;
+        [self addChild:_ballShadow];
+    }
+    
+    // SKAction * sa = [SKAction moveByX:100.0 y:100.0 duration:1.0];
+    // [self.ball runAction:sa];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    if (touches.count > 1 || !_isBallDragging || _isBallRolling) return;
+    
+    UITouch * touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    _ballShadow.position = location;
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    if (touches.count > 1 || !_isBallDragging || _isBallRolling) return;
+    _isBallDragging = NO;
+    
+    [_ballSelf.physicsBody applyImpulse:CGVectorMake(_ballSelf.position.x - _ballShadow.position.x,
+                                                     _ballSelf.position.y - _ballShadow.position.y)];
+    
+    [_ballShadow removeFromParent];
+    _isBallRolling = YES;
+}
+
+-(void)update:(NSTimeInterval)currentTime{
+    
+    // NSLog(@"%f", _ballSelf.physicsBody.velocity.dx);
+    // NSLog(@"%f", _ballSelf.physicsBody.velocity.dy);
+    
+    if ([self isAllStopRolling] && _isBallRolling) {
+        NSLog(@"Stopped");
+        _isBallRolling = NO;
+    }
+}
+
+#pragma SKPhysicsContactDelegate
+
+// 碰撞事件
+- (void)didBeginContact:(SKPhysicsContact *)contact{
+}
+
+#pragma Custom
+
 -(void)addWalls:(CGSize)nodeSize atPosition:(CGPoint)nodePosition{
     
     SKSpriteNode * wall = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:nodeSize];
@@ -98,76 +160,25 @@ static const int kWallThick = 2;
     [self addChild:wall];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+-(BOOL)isAllStopRolling{
     
-    if (touches.count > 1 || _isBallDragging) return;
-    
-    UITouch * touch = [touches anyObject];
-    CGPoint location = [touch locationInNode:self];
-    
-    if (distanceBetweenPoints(location, _ballSelf.position) <= BALL_SIZE) {
-        _isBallDragging = YES;
-        _ballShadow = [PPBall spriteNodeWithImageNamed:@"ball_player.png"];
-        _ballShadow.size = CGSizeMake(BALL_SIZE, BALL_SIZE);
-        _ballShadow.alpha = 0.5f;
-        _ballShadow.position = location;
-        [self addChild:_ballShadow];
+    if (vectorLength(_ballSelf.physicsBody.velocity) > 0) {
+        return NO;
     }
     
-    // SKAction * sa = [SKAction moveByX:100.0 y:100.0 duration:1.0];
-    // [self.ball runAction:sa];
-    
-    // [_ball.physicsBody applyForce:CGVectorMake(0, 1000)];
-    // [_ballSelf.physicsBody applyImpulse:CGVectorMake(0, 10)];
-    // [_ballSelf.physicsBody applyTorque:0.1];
-}
-
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    if (touches.count > 1 || !_isBallDragging) return;
-    
-    UITouch * touch = [touches anyObject];
-    CGPoint location = [touch locationInNode:self];
-    _ballShadow.position = location;
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    if (touches.count > 1 || !_isBallDragging) return;
-    _isBallDragging = NO;
-    
-    [_ballSelf.physicsBody applyImpulse:CGVectorMake(_ballSelf.position.x - _ballShadow.position.x,
-                                                     _ballSelf.position.y - _ballShadow.position.y)];
-    
-    [_ballShadow removeFromParent];
-    _isBallRolling = YES;
-}
-
--(void)update:(NSTimeInterval)currentTime{
-    
-    // NSLog(@"%f", _ballSelf.physicsBody.velocity.dx);
-    // NSLog(@"%f", _ballSelf.physicsBody.velocity.dy);
-    
-    if (false){
-        _isBallRolling = false;
-        
-    }
-}
-
-#pragma SKPhysicsContactDelegate
-
-// 碰撞事件
-- (void)didBeginContact:(SKPhysicsContact *)contact{
-    if (_isBallRolling) {
-        //[_ballSelf removeFromParent];
-    }
+    return YES;
 }
 
 // 计算两点间距离
 CGFloat distanceBetweenPoints (CGPoint first, CGPoint second) {
     CGFloat deltaX = second.x - first.x;
     CGFloat deltaY = second.y - first.y;
-    return sqrt( deltaX*deltaX + deltaY*deltaY );
+    return sqrt( deltaX * deltaX + deltaY * deltaY );
+};
+
+// 计算向量长度
+CGFloat vectorLength (CGVector vector) {
+    return sqrt( vector.dx * vector.dx + vector.dy * vector.dy );
 };
 
 @end

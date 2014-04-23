@@ -8,17 +8,14 @@
 
 #import "AppDelegate.h"
 #import "PlaneViewController.h"
-#import "PPBallViewController.h"
+#import "TestViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    
-    UIViewController * vc = [[PPBallViewController alloc] init];
-//    UIViewController * vc = [[PlaneViewController alloc] init];
+    //UIViewController * vc = [[TestViewController alloc] init];
+    UIViewController * vc = [[PlaneViewController alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = vc;
