@@ -11,38 +11,43 @@
 @interface PPPixie : NSObject {
     
     // 喂养属性
-    float ppSAT;    // 饱食度 Satiation
-    float ppINT;    // 亲密度 Intimate
+    float ppSatiation;  // 饱食度
+    float ppIntimate;   // 亲密度
     
     // 战斗属性
-    int ppLevel;    // 等级
+    int ppLEVEL;    // 等级
     
     float ppHP;     // 生命值 HealthPoint
+    float ppHPmax;  // 生命值上限 HealthPointMax
     float ppMP;     // 魔法值 ManaPoint
+    float ppMPmax;  // 魔法值上限 ManaPointMax
     float ppAP;     // 攻击力 AttackPoint;
     float ppDP;     // 防御力 DefendPoint;
     
     float ppGP;     // 成长值 GrowthPoint;
     float ppDEX;    // 闪避值 Dexterity
     
-    PPElementType ppElement;  // 属性
+    PPElementType ppElement;    // 属性
+    NSArray * ppSkills;         // 技能
+    NSArray * ppBuffs;          // 状态
 }
 
-@property (nonatomic) float ppSAT;
-@property (nonatomic) float ppINT;
+@property (nonatomic, assign) float ppSatiation;
+@property (nonatomic, assign) float ppIntimate;
 
-@property (nonatomic, readonly) int ppLevel;
+@property (nonatomic, readonly) int ppLEVEL;
+@property (nonatomic, assign) float ppHP;
+@property (nonatomic, assign) float ppHPmax;
+@property (nonatomic, assign) float ppMP;
+@property (nonatomic, assign) float ppMPmax;
+@property (nonatomic, assign) float ppAP;
+@property (nonatomic, assign) float ppDP;
 
-@property (nonatomic) float ppHP;
-@property (nonatomic) float ppMP;
-@property (nonatomic) float ppAP;
-@property (nonatomic) float ppDP;
-
-@property (nonatomic) float ppGP;
-@property (nonatomic) float ppDEX;
+@property (nonatomic, assign) float ppGP;
+@property (nonatomic, assign) float ppDEX;
 
 @property (nonatomic, readonly) PPElementType ppElement;
 
-
++(PPPixie *)birthPixiePlant:(int)Generation;
 
 @end

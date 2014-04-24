@@ -30,6 +30,7 @@ static const int kWallThick = 2;
 @implementation PPBallScene
 
 -(id)initWithSize:(CGSize)size {
+    
     if (self = [super initWithSize:size]) {
         
         self.backgroundColor = [SKColor whiteColor];

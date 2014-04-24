@@ -9,7 +9,19 @@
 #import "PPPixie.h"
 
 @implementation PPPixie
-@synthesize ppSAT, ppINT, ppElement, ppLevel, ppHP, ppMP, ppAP, ppDP, ppGP, ppDEX;
+@synthesize ppSatiation, ppIntimate, ppElement, ppLEVEL,
+            ppHP, ppHPmax, ppMP, ppMPmax, ppAP, ppDP, ppGP, ppDEX;
 
++(PPPixie *)birthPixiePlant:(int)Generation{
+    
+    PPPixie * tPixie = [[PPPixie alloc] init];
+    
+    tPixie.ppHPmax = 1000;
+    tPixie.ppMPmax = 100;
+    tPixie.ppAP = 10;
+    tPixie.ppDP = 1;
+    
+    return tPixie;
+}
 
 @end
