@@ -9,6 +9,7 @@
 #import "ConfigData.h"
 
 static ConfigData * instance = nil;
+static NSArray * ElementNameList;
 
 @interface ConfigData()
 @end

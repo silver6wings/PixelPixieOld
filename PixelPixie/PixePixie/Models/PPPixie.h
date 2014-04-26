@@ -32,22 +32,7 @@
     NSArray * ppBuffs;          // 状态
 }
 
-@property (nonatomic, assign) float ppSatiation;
-@property (nonatomic, assign) float ppIntimate;
-
-@property (nonatomic, readonly) int ppLEVEL;
-@property (nonatomic, assign) float ppHP;
-@property (nonatomic, assign) float ppHPmax;
-@property (nonatomic, assign) float ppMP;
-@property (nonatomic, assign) float ppMPmax;
-@property (nonatomic, assign) float ppAP;
-@property (nonatomic, assign) float ppDP;
-
-@property (nonatomic, assign) float ppGP;
-@property (nonatomic, assign) float ppDEX;
-
-@property (nonatomic, readonly) PPElementType ppElement;
-
-+(PPPixie *)birthPixiePlant:(int)Generation;
++(PPPixie *)birthPixieWith:(PPElementType)pixieElement
+                       And:(int)generation;
 
 @end
