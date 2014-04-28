@@ -52,10 +52,12 @@
     _skView.alpha = 0.0f;
     [self.view addSubview:_skView];
     
-    [UIView animateWithDuration:1.0f
-                     animations:^{
-                         _skView.alpha = 1.0f;
-                     }];
+    [UIView animateWithDuration:1.0f animations:^(void){
+        _skView.alpha = 1.0f;
+    } completion:^(BOOL finished){
+
+    }];
+
     
     [_btStart removeFromSuperview];
 }

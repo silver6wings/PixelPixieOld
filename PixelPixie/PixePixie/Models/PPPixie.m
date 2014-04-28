@@ -21,7 +21,10 @@
 @property (nonatomic, assign) float ppDP;
 @property (nonatomic, assign) float ppGP;
 @property (nonatomic, assign) float ppDEX;
+
 @property (nonatomic) PPElementType ppElement;
+@property (nonatomic) PPBall * ppBall;
+
 @end
 
 @implementation PPPixie

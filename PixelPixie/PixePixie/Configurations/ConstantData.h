@@ -66,6 +66,6 @@ static const int kElementMix[kElementTypeMax + 1][kElementTypeMax + 1] = {
 
 @interface ConstantData : NSObject
 
--(NSString *)elementName:(PPElementType)elementType;
++(NSString *)elementName:(PPElementType)elementType;
 
 @end

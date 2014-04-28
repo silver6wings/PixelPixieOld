@@ -130,6 +130,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
 // 碰撞事件
 - (void)didBeginContact:(SKPhysicsContact *)contact{
+    if (!_isBallRolling) return;
+    
 }
 
 #pragma Custom
