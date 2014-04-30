@@ -1,11 +1,13 @@
 
 static const int kWallThick = 1;                    // 墙的厚度
+static const int kBallNumberMax = 10;               // 球的最大数量
 static const int kBallRadius = 15;                  // 球的半径
 static const int kBallSize = kBallRadius * 2;       // 球的直径
+
 static const float kBallLinearDamping = 0.6f;       // 线阻尼系数
 static const float kBallAngularDamping = 0.7f;      // 角阻尼系数
 static const float kBallFriction = 0.7f;            // 表面摩擦力
-static const float kBallRestitution = 0.7f;         // 弹性恢复系数
+static const float kBallRestitution = 0.9f;         // 弹性恢复系数
 
 // 最大元素个数
 static const int kElementTypeMax = 10;

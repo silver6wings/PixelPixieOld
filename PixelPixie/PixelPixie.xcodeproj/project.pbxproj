@@ -18,11 +18,11 @@
 		19CBA8C31907C77600A249AB /* PPBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C21907C77600A249AB /* PPBall.m */; };
 		19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C51907C7D000A249AB /* PPPlayer.m */; };
 		19CBA8C91907C91E00A249AB /* PPPixie.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C81907C91E00A249AB /* PPPixie.m */; };
-		19CBA8D11907C99100A249AB /* ball_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CB1907C99100A249AB /* ball_1.png */; };
-		19CBA8D21907C99100A249AB /* ball_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CC1907C99100A249AB /* ball_2.png */; };
-		19CBA8D31907C99100A249AB /* ball_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CD1907C99100A249AB /* ball_3.png */; };
-		19CBA8D41907C99100A249AB /* ball_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CE1907C99100A249AB /* ball_4.png */; };
-		19CBA8D51907C99100A249AB /* ball_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CF1907C99100A249AB /* ball_5.png */; };
+		19CBA8D11907C99100A249AB /* ball_metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CB1907C99100A249AB /* ball_metal.png */; };
+		19CBA8D21907C99100A249AB /* ball_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CC1907C99100A249AB /* ball_plant.png */; };
+		19CBA8D31907C99100A249AB /* ball_water.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CD1907C99100A249AB /* ball_water.png */; };
+		19CBA8D41907C99100A249AB /* ball_fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CE1907C99100A249AB /* ball_fire.png */; };
+		19CBA8D51907C99100A249AB /* ball_earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8CF1907C99100A249AB /* ball_earth.png */; };
 		19CBA8D61907C99100A249AB /* ball_player.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CBA8D01907C99100A249AB /* ball_player.png */; };
 		19F6ED9C18C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
 		19F6ED9E18C6C09900BFFF9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */; };
@@ -76,11 +76,11 @@
 		19CBA8C51907C7D000A249AB /* PPPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPlayer.m; path = Models/PPPlayer.m; sourceTree = "<group>"; };
 		19CBA8C71907C91E00A249AB /* PPPixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPixie.h; path = Models/PPPixie.h; sourceTree = "<group>"; };
 		19CBA8C81907C91E00A249AB /* PPPixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPixie.m; path = Models/PPPixie.m; sourceTree = "<group>"; };
-		19CBA8CB1907C99100A249AB /* ball_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_1.png; path = Resource/Image/balls/ball_1.png; sourceTree = "<group>"; };
-		19CBA8CC1907C99100A249AB /* ball_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_2.png; path = Resource/Image/balls/ball_2.png; sourceTree = "<group>"; };
-		19CBA8CD1907C99100A249AB /* ball_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_3.png; path = Resource/Image/balls/ball_3.png; sourceTree = "<group>"; };
-		19CBA8CE1907C99100A249AB /* ball_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_4.png; path = Resource/Image/balls/ball_4.png; sourceTree = "<group>"; };
-		19CBA8CF1907C99100A249AB /* ball_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_5.png; path = Resource/Image/balls/ball_5.png; sourceTree = "<group>"; };
+		19CBA8CB1907C99100A249AB /* ball_metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_metal.png; path = Resource/Image/balls/ball_metal.png; sourceTree = "<group>"; };
+		19CBA8CC1907C99100A249AB /* ball_plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_plant.png; path = Resource/Image/balls/ball_plant.png; sourceTree = "<group>"; };
+		19CBA8CD1907C99100A249AB /* ball_water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_water.png; path = Resource/Image/balls/ball_water.png; sourceTree = "<group>"; };
+		19CBA8CE1907C99100A249AB /* ball_fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_fire.png; path = Resource/Image/balls/ball_fire.png; sourceTree = "<group>"; };
+		19CBA8CF1907C99100A249AB /* ball_earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_earth.png; path = Resource/Image/balls/ball_earth.png; sourceTree = "<group>"; };
 		19CBA8D01907C99100A249AB /* ball_player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_player.png; path = Resource/Image/balls/ball_player.png; sourceTree = "<group>"; };
 		19F6ED9818C6C09900BFFF9A /* PixelPixie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPixie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F6ED9B18C6C09900BFFF9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +171,8 @@
 				19C930B018EC2591001B4358 /* PPSkill.m */,
 				19C930B218EC260C001B4358 /* PPBuff.h */,
 				19C930B318EC260C001B4358 /* PPBuff.m */,
+				19CBA8C11907C77600A249AB /* PPBall.h */,
+				19CBA8C21907C77600A249AB /* PPBall.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -194,8 +196,6 @@
 				19CBA8BF1907C6FD00A249AB /* PPBallViewController.m */,
 				19CBA8BB1907C6D400A249AB /* PPBallScene.h */,
 				19CBA8BC1907C6D400A249AB /* PPBallScene.m */,
-				19CBA8C11907C77600A249AB /* PPBall.h */,
-				19CBA8C21907C77600A249AB /* PPBall.m */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -203,11 +203,11 @@
 		19CBA8CA1907C98000A249AB /* balls */ = {
 			isa = PBXGroup;
 			children = (
-				19CBA8CB1907C99100A249AB /* ball_1.png */,
-				19CBA8CC1907C99100A249AB /* ball_2.png */,
-				19CBA8CD1907C99100A249AB /* ball_3.png */,
-				19CBA8CE1907C99100A249AB /* ball_4.png */,
-				19CBA8CF1907C99100A249AB /* ball_5.png */,
+				19CBA8CB1907C99100A249AB /* ball_metal.png */,
+				19CBA8CC1907C99100A249AB /* ball_plant.png */,
+				19CBA8CD1907C99100A249AB /* ball_water.png */,
+				19CBA8CE1907C99100A249AB /* ball_fire.png */,
+				19CBA8CF1907C99100A249AB /* ball_earth.png */,
 				19CBA8D01907C99100A249AB /* ball_player.png */,
 			);
 			name = balls;
@@ -421,17 +421,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */,
-				19CBA8D21907C99100A249AB /* ball_2.png in Resources */,
+				19CBA8D21907C99100A249AB /* ball_plant.png in Resources */,
 				190BF48F18C6C873006B0AE6 /* Spaceship.png in Resources */,
 				A50D272818DA8B2600641430 /* PPTabBarController.xib in Resources */,
-				19CBA8D51907C99100A249AB /* ball_5.png in Resources */,
+				19CBA8D51907C99100A249AB /* ball_earth.png in Resources */,
 				19CBA8D61907C99100A249AB /* ball_player.png in Resources */,
 				19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */,
 				A5A2944918CAACBF002F866D /* PPStoryboard.storyboard in Resources */,
-				19CBA8D31907C99100A249AB /* ball_3.png in Resources */,
-				19CBA8D11907C99100A249AB /* ball_1.png in Resources */,
+				19CBA8D31907C99100A249AB /* ball_water.png in Resources */,
+				19CBA8D11907C99100A249AB /* ball_metal.png in Resources */,
 				A50D277B18DAD45E00641430 /* PPMenuVC.xib in Resources */,
-				19CBA8D41907C99100A249AB /* ball_4.png in Resources */,
+				19CBA8D41907C99100A249AB /* ball_fire.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

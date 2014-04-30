@@ -2,26 +2,41 @@
 #import "PPBall.h"
 
 @implementation PPBall
+@synthesize pixie, ballElementType;
 
+// 创建元素球
 +(PPBall *)ballWithElement:(PPElementType) elementType{
-    PPBall * tBall = [PPBall spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@%d%@", @"ball_", (int)elementType, @".png"]];
+    
+    PPBall * tBall = [PPBall spriteNodeWithImageNamed:[NSString stringWithFormat:
+                                                       @"%@%@%@",
+                                                       @"ball_",
+                                                       [ConstantData elementName:elementType],
+                                                       @".png"]];
     if (tBall){
+        tBall.ballElementType = elementType;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
         [PPBall defaultBallPhysicsBody:tBall];
+        
+        tBall.pixie = nil;
     }
     return tBall;
 }
 
-+(PPBall *)ballWithPlayer:(NSString *)player{
+// 创建宠物的球
++(PPBall *)ballWithPixie:(PPPixie *)pixie{
     
     PPBall * tBall = [PPBall spriteNodeWithImageNamed:@"ball_player.png"];
     if (tBall){
+        tBall.ballElementType = pixie.pixieElement;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
         [PPBall defaultBallPhysicsBody:tBall];
+        
+        tBall.pixie = pixie;
     }
     return tBall;
 }
 
+// 默认的球的物理属性
 +(void)defaultBallPhysicsBody:(SKSpriteNode *)ball{
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:kBallSize / 2];
     

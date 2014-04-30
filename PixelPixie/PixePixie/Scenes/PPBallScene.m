@@ -11,7 +11,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
 @property (nonatomic) BOOL isBallDragging;
 @property (nonatomic) BOOL isBallRolling;
-@property (nonatomic) PPBall * ballSelf;
+@property (nonatomic) PPBall * ballPlayer;
 @property (nonatomic) PPBall * ballShadow;
 @property (nonatomic) PPBall * ballEnemy;
 @property (nonatomic) NSMutableArray * ballElement;
@@ -20,7 +20,9 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
 @implementation PPBallScene
 
--(id)initWithSize:(CGSize)size {
+-(id)initWithSize:(CGSize)size
+           PixieA:(PPPixie *)pixieA
+           PixieB:(PPPixie *)pixieB{
     
     if (self = [super initWithSize:size]) {
         
@@ -38,14 +40,14 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2)];
         
         // Add Ball of Self
-        _ballSelf = [PPBall ballWithPlayer:@""];
-        _ballSelf.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
-        _ballSelf.physicsBody.categoryBitMask = kBallCategory;
-        _ballSelf.physicsBody.contactTestBitMask = kGroundCategory;
-        [self addChild:_ballSelf];
+        _ballPlayer = pixieA.pixieBall;
+        _ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
+        _ballPlayer.physicsBody.categoryBitMask = kBallCategory;
+        _ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
+        [self addChild:_ballPlayer];
         
         // Add Ball of Enemey
-        _ballEnemy = [PPBall ballWithPlayer:@""];
+        _ballEnemy = pixieB.pixieBall;
         _ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
         _ballEnemy.physicsBody.categoryBitMask = kBallCategory;
         _ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
@@ -61,15 +63,10 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             tBall.physicsBody.categoryBitMask = kBallCategory;
             tBall.physicsBody.contactTestBitMask = kBallCategory;
             [self addChild:tBall];
+            [_ballElement addObject:tBall];
         }
-        
-        for (int i = 0; i < 5; i++) {
-            PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
-            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
-            tBall.physicsBody.categoryBitMask = kBallCategory;
-            tBall.physicsBody.contactTestBitMask = kBallCategory;
-            [self addChild:tBall];
-        }
+        [self addRandomBalls:5];
+
     }
     return self;
 }
@@ -81,7 +78,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     UITouch * touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
     
-    if (distanceBetweenPoints(location, _ballSelf.position) <= kBallSize) {
+    if (distanceBetweenPoints(location, _ballPlayer.position) <= kBallSize) {
         _isBallDragging = YES;
         _ballShadow = [PPBall spriteNodeWithImageNamed:@"ball_player.png"];
         _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
@@ -108,21 +105,20 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if (touches.count > 1 || !_isBallDragging || _isBallRolling) return;
     _isBallDragging = NO;
     
-    [_ballSelf.physicsBody applyImpulse:CGVectorMake(_ballSelf.position.x - _ballShadow.position.x,
-                                                     _ballSelf.position.y - _ballShadow.position.y)];
+    [_ballPlayer.physicsBody applyImpulse:CGVectorMake(_ballPlayer.position.x - _ballShadow.position.x,
+                                                       _ballPlayer.position.y - _ballShadow.position.y)];
     
     [_ballShadow removeFromParent];
     _isBallRolling = YES;
 }
 
+// 每帧处理程序
 -(void)update:(NSTimeInterval)currentTime{
     
-    // NSLog(@"%f", _ballSelf.physicsBody.velocity.dx);
-    // NSLog(@"%f", _ballSelf.physicsBody.velocity.dy);
-    
-    if ([self isAllStopRolling] && _isBallRolling) {
+    if (_isBallRolling && [self isAllStopRolling]) {
         NSLog(@"Stopped");
         _isBallRolling = NO;
+        [self addRandomBalls:(kBallNumberMax - (int)_ballElement.count)];
     }
 }
 
@@ -132,10 +128,33 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 - (void)didBeginContact:(SKPhysicsContact *)contact{
     if (!_isBallRolling) return;
     
+    SKPhysicsBody * playerBall, * hittedBall;
+    
+    if (contact.bodyA == _ballPlayer.physicsBody && contact.bodyB != _ballEnemy.physicsBody) {
+        // 球A是玩家球 球B不是玩家球
+        playerBall = contact.bodyA;
+        hittedBall = contact.bodyB;
+    } else if (contact.bodyB == _ballPlayer.physicsBody && contact.bodyA != _ballEnemy.physicsBody){
+        // 球B是玩家球 球A不是玩家球
+        playerBall = contact.bodyB;
+        hittedBall = contact.bodyA;
+    } else return;
+    
+    PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
+    PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
+    
+    if (kElementInhibition[attack][defend] > 1.0f) {
+        [hittedBall.node removeFromParent];
+        [_ballElement removeObject:hittedBall.node];
+        NSLog(@"%lu", _ballElement.count);
+    }
+    
+    NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
 }
 
 #pragma Custom
 
+// 添加四周的墙
 -(void)addWalls:(CGSize)nodeSize atPosition:(CGPoint)nodePosition{
     
     SKSpriteNode * wall = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:nodeSize];
@@ -146,18 +165,38 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     wall.physicsBody.dynamic = NO;
     wall.physicsBody.friction = 0.1;
     wall.physicsBody.categoryBitMask = kGroundCategory;
-    wall.physicsBody.contactTestBitMask = kBallCategory;
+    //wall.physicsBody.contactTestBitMask = kBallCategory;
     //wall.physicsBody.collisionBitMask = 0;
     
     [self addChild:wall];
 }
 
+// 添加随机的球
+-(void)addRandomBalls:(int)number{
+    for (int i = 0; i < number; i++) {
+        PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
+        tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
+        tBall.physicsBody.categoryBitMask = kBallCategory;
+        tBall.physicsBody.contactTestBitMask = kBallCategory;
+        [self addChild:tBall];
+        [_ballElement addObject:tBall];
+    }
+}
+
+// 是否所有的球都停止了滚动
 -(BOOL)isAllStopRolling{
     
-    if (vectorLength(_ballSelf.physicsBody.velocity) > 0) {
+    if (vectorLength(_ballPlayer.physicsBody.velocity) > 0) {
         return NO;
     }
-    
+    if (vectorLength(_ballEnemy.physicsBody.velocity) > 0) {
+        return NO;
+    }
+    for (PPBall * tBall in _ballElement) {
+        if (vectorLength(tBall.physicsBody.velocity) > 0) {
+            return NO;
+        }
+    }
     return YES;
 }
 

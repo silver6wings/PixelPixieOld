@@ -8,40 +8,27 @@
 
 #import "PPPixie.h"
 
-@interface PPPixie ()
-@property (nonatomic, assign) float ppSatiation;
-@property (nonatomic, assign) float ppIntimate;
-
-@property (nonatomic, assign) int ppLEVEL;
-@property (nonatomic, assign) float ppHP;
-@property (nonatomic, assign) float ppHPmax;
-@property (nonatomic, assign) float ppMP;
-@property (nonatomic, assign) float ppMPmax;
-@property (nonatomic, assign) float ppAP;
-@property (nonatomic, assign) float ppDP;
-@property (nonatomic, assign) float ppGP;
-@property (nonatomic, assign) float ppDEX;
-
-@property (nonatomic) PPElementType ppElement;
-@property (nonatomic) PPBall * ppBall;
-
-@end
-
 @implementation PPPixie
-@synthesize ppSatiation, ppIntimate, ppElement, ppLEVEL,
-            ppHP, ppHPmax, ppMP, ppMPmax, ppAP, ppDP, ppGP, ppDEX;
+@synthesize pixieSatiation, pixieIntimate, pixieLEVEL,
+            pixieHP, pixieHPmax, pixieMP, pixieMPmax, pixieAP, pixieDP, pixieGP, pixieDEX,
+            pixieGeneration, pixieElement, pixieBuffs, pixieSkills, pixieBall;
 
+// 创建新的宠物
 +(PPPixie *)birthPixieWith:(PPElementType)pixieElement
-                       And:(int)generation{
+                Generation:(int)generation{
     
     PPPixie * tPixie = [[PPPixie alloc] init];
     
-    tPixie.ppHPmax = 1000*generation;
-    tPixie.ppMPmax = 100*generation;
-    tPixie.ppAP = 10;
-    tPixie.ppDP = 1;
+    tPixie.pixieHPmax = 1000*generation;
+    tPixie.pixieMPmax = 100*generation;
+    tPixie.pixieAP = 10;
+    tPixie.pixieDP = 1;
     
-    tPixie.ppElement = pixieElement;
+    tPixie.pixieGeneration = generation;
+    tPixie.pixieElement = pixieElement;
+    tPixie.pixieSkills = [NSArray arrayWithObjects:nil];
+    tPixie.pixieBuffs = [NSArray arrayWithObjects:nil];
+    tPixie.pixieBall = [PPBall ballWithPixie:tPixie];
     
     return tPixie;
 }

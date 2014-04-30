@@ -6,8 +6,8 @@
 @property (nonatomic) UIButton * btStart;
 @property (nonatomic) SKView * skView;
 
-@property (nonatomic) PPPixie * player;
-@property (nonatomic) PPPixie * enemy;
+@property (nonatomic) PPPixie * playerPixie;
+@property (nonatomic) PPPixie * enemyPixie;
 
 @end
 
@@ -22,6 +22,9 @@
         [_btStart setTitle:@"Start" forState:UIControlStateNormal];
         [_btStart addTarget:self action:@selector(startBattle) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_btStart];
+        
+        _playerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:3];
+        _enemyPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:2];
         
     }
     return self;
@@ -39,27 +42,43 @@
     [super didReceiveMemoryWarning];
 }
 
+// 开始战斗画面
 -(void)startBattle{
     
-     _skView = [[SKView alloc] initWithFrame:CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 480)];
-    
-     //如果skView没有scene
-     if(!_skView.scene){
-         SKScene * scene = [PPBallScene sceneWithSize:_skView.bounds.size];
-         scene.scaleMode = SKSceneScaleModeAspectFill;
-         [self.skView presentScene:scene];
-     }
+    _skView = [[SKView alloc] initWithFrame:CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 480)];
     _skView.alpha = 0.0f;
     [self.view addSubview:_skView];
     
+    //如果skView没有scene则添加scene
+    if(!_skView.scene){
+        PPBallScene * battleScene = [[PPBallScene alloc] initWithSize:_skView.bounds.size
+                                                               PixieA:_playerPixie
+                                                               PixieB:_enemyPixie];
+        battleScene.scaleMode = SKSceneScaleModeAspectFill;
+        [self.skView presentScene:battleScene];
+    }
+    
+    // 播放显示动画
     [UIView animateWithDuration:1.0f animations:^(void){
         _skView.alpha = 1.0f;
     } completion:^(BOOL finished){
-
+        
     }];
-
+    
+    /*
+    [UIView animateWithDuration:0.5f
+                          delay:5.0f
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^(void){
+                         _skView.alpha = 1.0f;
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+    */
     
     [_btStart removeFromSuperview];
+    
 }
 
 @end

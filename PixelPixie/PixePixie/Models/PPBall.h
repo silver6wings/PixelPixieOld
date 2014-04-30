@@ -1,11 +1,16 @@
 
+@class PPPixie;
+
 @interface PPBall : SKSpriteNode
 {
-    BOOL isPlayerBall;
+    PPPixie * pixie;                // 球隶属于那个宠物
+    PPElementType ballElementType;  // 球属于哪个元素
 }
 
-+(PPBall *)ballWithElement:(PPElementType) element;
-+(PPBall *)ballWithPlayer:(NSString *)player;
+@property (nonatomic) PPPixie * pixie;
+@property (nonatomic) PPElementType ballElementType;
+
++(PPBall *)ballWithPixie:(PPPixie *)pixie;
++(PPBall *)ballWithElement:(PPElementType)element;
 
 @end
-
