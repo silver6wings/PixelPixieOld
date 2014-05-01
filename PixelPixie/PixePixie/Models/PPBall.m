@@ -25,7 +25,13 @@
 // 创建宠物的球
 +(PPBall *)ballWithPixie:(PPPixie *)pixie{
     
-    PPBall * tBall = [PPBall spriteNodeWithImageNamed:@"ball_player.png"];
+    NSString * ballPixieImageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
+                                     [ConstantData elementName:PPElementTypePlant],
+                                     pixie.pixieGeneration];
+    
+    if (ballPixieImageName == nil) return nil;
+    
+    PPBall * tBall = [PPBall spriteNodeWithImageNamed:ballPixieImageName];
     if (tBall){
         tBall.ballElementType = pixie.pixieElement;
         tBall.size = CGSizeMake(kBallSize, kBallSize);

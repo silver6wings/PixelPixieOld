@@ -26,7 +26,13 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     if (self = [super initWithSize:size]) {
         
-        self.backgroundColor = [SKColor whiteColor];
+        self.backgroundColor = [SKColor clearColor];
+        
+        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, 450)];
+        bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_01.png"]]];
+        [self addChild:bg];
+        
         //self.physicsWorld.speed = 1.0f;
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
@@ -51,7 +57,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         _ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
         _ballEnemy.physicsBody.categoryBitMask = kBallCategory;
         _ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
-        _ballEnemy.alpha = 0.5;
         [self addChild:_ballEnemy];
         
         // Add Balls of Element
@@ -80,10 +85,11 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     if (distanceBetweenPoints(location, _ballPlayer.position) <= kBallSize) {
         _isBallDragging = YES;
-        _ballShadow = [PPBall spriteNodeWithImageNamed:@"ball_player.png"];
-        _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
+        _ballShadow = [_ballPlayer copy];
+        //_ballShadow.size = CGSizeMake(kBallSize, kBallSize);
+        //_ballShadow.position = location;
         _ballShadow.alpha = 0.5f;
-        _ballShadow.position = location;
+        _ballShadow.physicsBody = nil;
         [self addChild:_ballShadow];
     }
     

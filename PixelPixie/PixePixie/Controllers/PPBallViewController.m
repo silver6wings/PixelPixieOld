@@ -15,7 +15,7 @@
 
 -(id)init{
     if (self = [super init]) {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [UIColor blackColor];
         
         _btStart = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         _btStart.frame = CGRectMake(100, 100, 100, 100);
@@ -45,8 +45,11 @@
 // 开始战斗画面
 -(void)startBattle{
     
-    _skView = [[SKView alloc] initWithFrame:CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 480)];
+    _skView = [[SKView alloc] initWithFrame:CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 450)];
+    _skView.backgroundColor = [UIColor clearColor];
     _skView.alpha = 0.0f;
+    _skView.showsFPS = YES;
+    
     [self.view addSubview:_skView];
     
     //如果skView没有scene则添加scene
