@@ -1,8 +1,9 @@
 
 #import "PPBallScene.h"
 
-#define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(self.frame.size.width - kBallSize)
-#define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(self.frame.size.height - kBallSize)
+#define SPACE_BOTTOM 60
+#define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
+#define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(450 - kBallSize)+SPACE_BOTTOM
 
 static const uint32_t kBallCategory      =  0x1 << 0;
 static const uint32_t kGroundCategory    =  0x1 << 1;
@@ -26,27 +27,35 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     if (self = [super initWithSize:size]) {
         
-        self.backgroundColor = [SKColor clearColor];
+        self.backgroundColor = [SKColor whiteColor];
         
         SKSpriteNode * bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, 450)];
         bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_01.png"]]];
+        [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_02.jpg"]]];
         [self addChild:bg];
         
         //self.physicsWorld.speed = 1.0f;
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
         
+        // Add Skill Button
+        SKSpriteNode * btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"Cirrus0005.png"];
+        btSkill.size = CGSizeMake(50, 50);
+        btSkill.name = @"btSkill";
+        btSkill.position = CGPointMake(CGRectGetMidX(self.frame), 30);
+        [self addChild:btSkill];
+        
         // Add Walls
-        CGFloat tWidth = self.frame.size.width;
-        CGFloat tHeight = self.frame.size.height;
-        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight)];
-        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2)];
+        CGFloat tWidth = 320;
+        CGFloat tHeight = 450;
+        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM)];
+        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM)];
+        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM)];
+        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM)];
         
         // Add Ball of Self
         _ballPlayer = pixieA.pixieBall;
+        _ballPlayer.name = @"ballPlayer";
         _ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
         _ballPlayer.physicsBody.categoryBitMask = kBallCategory;
         _ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
@@ -71,7 +80,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [_ballElement addObject:tBall];
         }
         [self addRandomBalls:5];
-
+        
     }
     return self;
 }
@@ -83,7 +92,11 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     UITouch * touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
     
-    if (distanceBetweenPoints(location, _ballPlayer.position) <= kBallSize) {
+//    if (distanceBetweenPoints(location, _ballPlayer.position) <= kBallSize) {
+    
+    SKSpriteNode *touchedNode = (SKSpriteNode *)[self nodeAtPoint:location];
+    if ([[touchedNode name] isEqualToString:@"ballPlayer"]) {
+        
         _isBallDragging = YES;
         _ballShadow = [_ballPlayer copy];
         //_ballShadow.size = CGSizeMake(kBallSize, kBallSize);
@@ -93,29 +106,39 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addChild:_ballShadow];
     }
     
+    if ([[touchedNode name] isEqualToString:@"btSkill"]) {
+        NSLog(@"asdf");
+    }
+    
     // SKAction * sa = [SKAction moveByX:100.0 y:100.0 duration:1.0];
     // [self.ball runAction:sa];
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    if (touches.count > 1 || !_isBallDragging || _isBallRolling) return;
+    if (touches.count > 1) return;
     
-    UITouch * touch = [touches anyObject];
-    CGPoint location = [touch locationInNode:self];
-    _ballShadow.position = location;
+    if (_isBallDragging && !_isBallRolling) {
+        UITouch * touch = [touches anyObject];
+        CGPoint location = [touch locationInNode:self];
+        _ballShadow.position = location;
+    }
+
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    if (touches.count > 1 || !_isBallDragging || _isBallRolling) return;
-    _isBallDragging = NO;
+    if (touches.count > 1 ) return;
     
-    [_ballPlayer.physicsBody applyImpulse:CGVectorMake(_ballPlayer.position.x - _ballShadow.position.x,
-                                                       _ballPlayer.position.y - _ballShadow.position.y)];
-    
-    [_ballShadow removeFromParent];
-    _isBallRolling = YES;
+    if (_isBallDragging && !_isBallRolling) {
+        
+        _isBallDragging = NO;
+        [_ballPlayer.physicsBody applyImpulse:CGVectorMake(_ballPlayer.position.x - _ballShadow.position.x,
+                                                           _ballPlayer.position.y - _ballShadow.position.y)];
+        
+        [_ballShadow removeFromParent];
+        _isBallRolling = YES;
+    }
 }
 
 // 每帧处理程序

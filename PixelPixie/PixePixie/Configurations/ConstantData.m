@@ -2,6 +2,7 @@
 
 @implementation ConstantData
 
+// 获取元素名称
 +(NSString *)elementName:(PPElementType)elementType{
     
     switch (elementType) {
@@ -20,7 +21,13 @@
         default:
             break;
     }
-    return @"";
+    return nil;
+    
+}
+
++(NSString *)pixieType:(PPPixie *)pixie isFront:(BOOL)front{
+    
+    return nil;
 }
 
 @end
