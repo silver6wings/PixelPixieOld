@@ -19,56 +19,56 @@
 		190CF086191230AD00370760 /* ball_pixie_plant2.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF084191230AD00370760 /* ball_pixie_plant2.png */; };
 		190CF087191230AD00370760 /* ball_pixie_plant3.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF085191230AD00370760 /* ball_pixie_plant3.png */; };
 		190CF08A191230C700370760 /* bg_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF089191230C700370760 /* bg_01.png */; };
-		190CF1871913CA4700370760 /* 陷阱0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1551913CA4700370760 /* 陷阱0001.png */; };
-		190CF1881913CA4700370760 /* 陷阱0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1561913CA4700370760 /* 陷阱0002.png */; };
-		190CF1891913CA4700370760 /* 陷阱0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1571913CA4700370760 /* 陷阱0003.png */; };
-		190CF18A1913CA4700370760 /* 陷阱0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1581913CA4700370760 /* 陷阱0004.png */; };
-		190CF18B1913CA4700370760 /* 陷阱0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1591913CA4700370760 /* 陷阱0005.png */; };
-		190CF18C1913CA4700370760 /* 陷阱0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF15A1913CA4700370760 /* 陷阱0006.png */; };
-		190CF18D1913CA4700370760 /* 陷阱0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF15B1913CA4700370760 /* 陷阱0007.png */; };
-		190CF18E1913CA4700370760 /* 陷阱0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF15C1913CA4700370760 /* 陷阱0008.png */; };
-		190CF18F1913CA4700370760 /* 陷阱0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF15D1913CA4700370760 /* 陷阱0009.png */; };
-		190CF1901913CA4700370760 /* 陷阱0010.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF15E1913CA4700370760 /* 陷阱0010.png */; };
-		190CF1911913CA4700370760 /* 陷阱0011.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF15F1913CA4700370760 /* 陷阱0011.png */; };
-		190CF1921913CA4700370760 /* 陷阱0012.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1601913CA4700370760 /* 陷阱0012.png */; };
-		190CF1931913CA4700370760 /* 陷阱0013.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1611913CA4700370760 /* 陷阱0013.png */; };
-		190CF1941913CA4700370760 /* 陷阱0014.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1621913CA4700370760 /* 陷阱0014.png */; };
-		190CF1951913CA4700370760 /* 陷阱0015.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1631913CA4700370760 /* 陷阱0015.png */; };
-		190CF1961913CA4700370760 /* 陷阱0016.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1641913CA4700370760 /* 陷阱0016.png */; };
-		190CF1971913CA4700370760 /* 陷阱0017.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1651913CA4700370760 /* 陷阱0017.png */; };
-		190CF1981913CA4700370760 /* 陷阱0018.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1661913CA4700370760 /* 陷阱0018.png */; };
-		190CF1991913CA4700370760 /* 陷阱0019.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1671913CA4700370760 /* 陷阱0019.png */; };
-		190CF19A1913CA4700370760 /* 陷阱0020.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1681913CA4700370760 /* 陷阱0020.png */; };
-		190CF19B1913CA4700370760 /* 陷阱0021.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1691913CA4700370760 /* 陷阱0021.png */; };
-		190CF19C1913CA4700370760 /* 陷阱0022.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF16A1913CA4700370760 /* 陷阱0022.png */; };
-		190CF19D1913CA4700370760 /* 陷阱0023.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF16B1913CA4700370760 /* 陷阱0023.png */; };
-		190CF19E1913CA4700370760 /* 陷阱0024.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF16C1913CA4700370760 /* 陷阱0024.png */; };
-		190CF19F1913CA4700370760 /* 陷阱0025.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF16D1913CA4700370760 /* 陷阱0025.png */; };
-		190CF1A01913CA4700370760 /* 陷阱0026.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF16E1913CA4700370760 /* 陷阱0026.png */; };
-		190CF1A11913CA4700370760 /* 陷阱0027.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF16F1913CA4700370760 /* 陷阱0027.png */; };
-		190CF1A21913CA4700370760 /* 陷阱0028.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1701913CA4700370760 /* 陷阱0028.png */; };
-		190CF1A31913CA4700370760 /* 陷阱0029.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1711913CA4700370760 /* 陷阱0029.png */; };
-		190CF1A41913CA4700370760 /* 陷阱0030.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1721913CA4700370760 /* 陷阱0030.png */; };
-		190CF1A51913CA4700370760 /* 陷阱0031.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1731913CA4700370760 /* 陷阱0031.png */; };
-		190CF1A61913CA4700370760 /* 陷阱0032.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1741913CA4700370760 /* 陷阱0032.png */; };
-		190CF1A71913CA4700370760 /* 陷阱0033.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1751913CA4700370760 /* 陷阱0033.png */; };
-		190CF1A81913CA4700370760 /* 陷阱0034.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1761913CA4700370760 /* 陷阱0034.png */; };
-		190CF1A91913CA4700370760 /* 陷阱0035.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1771913CA4700370760 /* 陷阱0035.png */; };
-		190CF1AA1913CA4700370760 /* 陷阱0036.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1781913CA4700370760 /* 陷阱0036.png */; };
-		190CF1AB1913CA4700370760 /* 陷阱0037.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1791913CA4700370760 /* 陷阱0037.png */; };
-		190CF1AC1913CA4700370760 /* 陷阱0038.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF17A1913CA4700370760 /* 陷阱0038.png */; };
-		190CF1AD1913CA4700370760 /* 陷阱0039.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF17B1913CA4700370760 /* 陷阱0039.png */; };
-		190CF1AE1913CA4700370760 /* 陷阱0040.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF17C1913CA4700370760 /* 陷阱0040.png */; };
-		190CF1AF1913CA4700370760 /* 陷阱0041.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF17D1913CA4700370760 /* 陷阱0041.png */; };
-		190CF1B01913CA4700370760 /* 陷阱0042.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF17E1913CA4700370760 /* 陷阱0042.png */; };
-		190CF1B11913CA4700370760 /* 陷阱0043.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF17F1913CA4700370760 /* 陷阱0043.png */; };
-		190CF1B21913CA4700370760 /* 陷阱0044.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1801913CA4700370760 /* 陷阱0044.png */; };
-		190CF1B31913CA4700370760 /* 陷阱0045.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1811913CA4700370760 /* 陷阱0045.png */; };
-		190CF1B41913CA4700370760 /* 陷阱0046.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1821913CA4700370760 /* 陷阱0046.png */; };
-		190CF1B51913CA4700370760 /* 陷阱0047.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1831913CA4700370760 /* 陷阱0047.png */; };
-		190CF1B61913CA4700370760 /* 陷阱0048.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1841913CA4700370760 /* 陷阱0048.png */; };
-		190CF1B71913CA4700370760 /* 陷阱0049.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1851913CA4700370760 /* 陷阱0049.png */; };
-		190CF1B81913CA4700370760 /* 陷阱0050.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF1861913CA4700370760 /* 陷阱0050.png */; };
+		19145DF01913F472005C6AD4 /* 陷阱0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DBE1913F472005C6AD4 /* 陷阱0001.png */; };
+		19145DF11913F472005C6AD4 /* 陷阱0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DBF1913F472005C6AD4 /* 陷阱0002.png */; };
+		19145DF21913F472005C6AD4 /* 陷阱0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC01913F472005C6AD4 /* 陷阱0003.png */; };
+		19145DF31913F472005C6AD4 /* 陷阱0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC11913F472005C6AD4 /* 陷阱0004.png */; };
+		19145DF41913F472005C6AD4 /* 陷阱0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC21913F472005C6AD4 /* 陷阱0005.png */; };
+		19145DF51913F472005C6AD4 /* 陷阱0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC31913F472005C6AD4 /* 陷阱0006.png */; };
+		19145DF61913F472005C6AD4 /* 陷阱0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC41913F472005C6AD4 /* 陷阱0007.png */; };
+		19145DF71913F472005C6AD4 /* 陷阱0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC51913F472005C6AD4 /* 陷阱0008.png */; };
+		19145DF81913F472005C6AD4 /* 陷阱0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC61913F472005C6AD4 /* 陷阱0009.png */; };
+		19145DF91913F472005C6AD4 /* 陷阱0010.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC71913F472005C6AD4 /* 陷阱0010.png */; };
+		19145DFA1913F472005C6AD4 /* 陷阱0011.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC81913F472005C6AD4 /* 陷阱0011.png */; };
+		19145DFB1913F472005C6AD4 /* 陷阱0012.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DC91913F472005C6AD4 /* 陷阱0012.png */; };
+		19145DFC1913F472005C6AD4 /* 陷阱0013.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DCA1913F472005C6AD4 /* 陷阱0013.png */; };
+		19145DFD1913F472005C6AD4 /* 陷阱0014.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DCB1913F472005C6AD4 /* 陷阱0014.png */; };
+		19145DFE1913F472005C6AD4 /* 陷阱0015.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DCC1913F472005C6AD4 /* 陷阱0015.png */; };
+		19145DFF1913F472005C6AD4 /* 陷阱0016.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DCD1913F472005C6AD4 /* 陷阱0016.png */; };
+		19145E001913F472005C6AD4 /* 陷阱0017.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DCE1913F472005C6AD4 /* 陷阱0017.png */; };
+		19145E011913F472005C6AD4 /* 陷阱0018.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DCF1913F472005C6AD4 /* 陷阱0018.png */; };
+		19145E021913F472005C6AD4 /* 陷阱0019.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD01913F472005C6AD4 /* 陷阱0019.png */; };
+		19145E031913F472005C6AD4 /* 陷阱0020.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD11913F472005C6AD4 /* 陷阱0020.png */; };
+		19145E041913F472005C6AD4 /* 陷阱0021.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD21913F472005C6AD4 /* 陷阱0021.png */; };
+		19145E051913F472005C6AD4 /* 陷阱0022.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD31913F472005C6AD4 /* 陷阱0022.png */; };
+		19145E061913F472005C6AD4 /* 陷阱0023.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD41913F472005C6AD4 /* 陷阱0023.png */; };
+		19145E071913F472005C6AD4 /* 陷阱0024.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD51913F472005C6AD4 /* 陷阱0024.png */; };
+		19145E081913F472005C6AD4 /* 陷阱0025.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD61913F472005C6AD4 /* 陷阱0025.png */; };
+		19145E091913F472005C6AD4 /* 陷阱0026.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD71913F472005C6AD4 /* 陷阱0026.png */; };
+		19145E0A1913F472005C6AD4 /* 陷阱0027.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD81913F472005C6AD4 /* 陷阱0027.png */; };
+		19145E0B1913F472005C6AD4 /* 陷阱0028.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DD91913F472005C6AD4 /* 陷阱0028.png */; };
+		19145E0C1913F472005C6AD4 /* 陷阱0029.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DDA1913F472005C6AD4 /* 陷阱0029.png */; };
+		19145E0D1913F472005C6AD4 /* 陷阱0030.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DDB1913F472005C6AD4 /* 陷阱0030.png */; };
+		19145E0E1913F472005C6AD4 /* 陷阱0031.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DDC1913F472005C6AD4 /* 陷阱0031.png */; };
+		19145E0F1913F472005C6AD4 /* 陷阱0032.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DDD1913F472005C6AD4 /* 陷阱0032.png */; };
+		19145E101913F472005C6AD4 /* 陷阱0033.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DDE1913F472005C6AD4 /* 陷阱0033.png */; };
+		19145E111913F472005C6AD4 /* 陷阱0034.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DDF1913F472005C6AD4 /* 陷阱0034.png */; };
+		19145E121913F472005C6AD4 /* 陷阱0035.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE01913F472005C6AD4 /* 陷阱0035.png */; };
+		19145E131913F472005C6AD4 /* 陷阱0036.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE11913F472005C6AD4 /* 陷阱0036.png */; };
+		19145E141913F472005C6AD4 /* 陷阱0037.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE21913F472005C6AD4 /* 陷阱0037.png */; };
+		19145E151913F472005C6AD4 /* 陷阱0038.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE31913F472005C6AD4 /* 陷阱0038.png */; };
+		19145E161913F472005C6AD4 /* 陷阱0039.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE41913F472005C6AD4 /* 陷阱0039.png */; };
+		19145E171913F472005C6AD4 /* 陷阱0040.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE51913F472005C6AD4 /* 陷阱0040.png */; };
+		19145E181913F472005C6AD4 /* 陷阱0041.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE61913F472005C6AD4 /* 陷阱0041.png */; };
+		19145E191913F472005C6AD4 /* 陷阱0042.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE71913F472005C6AD4 /* 陷阱0042.png */; };
+		19145E1A1913F472005C6AD4 /* 陷阱0043.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE81913F472005C6AD4 /* 陷阱0043.png */; };
+		19145E1B1913F472005C6AD4 /* 陷阱0044.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DE91913F472005C6AD4 /* 陷阱0044.png */; };
+		19145E1C1913F472005C6AD4 /* 陷阱0045.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DEA1913F472005C6AD4 /* 陷阱0045.png */; };
+		19145E1D1913F472005C6AD4 /* 陷阱0046.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DEB1913F472005C6AD4 /* 陷阱0046.png */; };
+		19145E1E1913F472005C6AD4 /* 陷阱0047.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DEC1913F472005C6AD4 /* 陷阱0047.png */; };
+		19145E1F1913F472005C6AD4 /* 陷阱0048.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DED1913F472005C6AD4 /* 陷阱0048.png */; };
+		19145E201913F472005C6AD4 /* 陷阱0049.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DEE1913F472005C6AD4 /* 陷阱0049.png */; };
+		19145E211913F472005C6AD4 /* 陷阱0050.png in Resources */ = {isa = PBXBuildFile; fileRef = 19145DEF1913F472005C6AD4 /* 陷阱0050.png */; };
 		1917DFF718C8551300E54F02 /* PPElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917DFF618C8551300E54F02 /* PPElement.m */; };
 		1938054918CB0CAB00EF8691 /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1938054818CB0CAB00EF8691 /* ConfigData.m */; };
 		193C25DA1913EF9500E2C1BA /* bg_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 193C25D91913EF9500E2C1BA /* bg_02.jpg */; };
@@ -126,56 +126,56 @@
 		190CF084191230AD00370760 /* ball_pixie_plant2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_pixie_plant2.png; path = Resource/Image/balls_pixie/ball_pixie_plant2.png; sourceTree = "<group>"; };
 		190CF085191230AD00370760 /* ball_pixie_plant3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_pixie_plant3.png; path = Resource/Image/balls_pixie/ball_pixie_plant3.png; sourceTree = "<group>"; };
 		190CF089191230C700370760 /* bg_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_01.png; path = Resource/Image/background/bg_01.png; sourceTree = "<group>"; };
-		190CF1551913CA4700370760 /* 陷阱0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0001.png"; sourceTree = "<group>"; };
-		190CF1561913CA4700370760 /* 陷阱0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0002.png"; sourceTree = "<group>"; };
-		190CF1571913CA4700370760 /* 陷阱0003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0003.png"; sourceTree = "<group>"; };
-		190CF1581913CA4700370760 /* 陷阱0004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0004.png"; sourceTree = "<group>"; };
-		190CF1591913CA4700370760 /* 陷阱0005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0005.png"; sourceTree = "<group>"; };
-		190CF15A1913CA4700370760 /* 陷阱0006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0006.png"; sourceTree = "<group>"; };
-		190CF15B1913CA4700370760 /* 陷阱0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0007.png"; sourceTree = "<group>"; };
-		190CF15C1913CA4700370760 /* 陷阱0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0008.png"; sourceTree = "<group>"; };
-		190CF15D1913CA4700370760 /* 陷阱0009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0009.png"; sourceTree = "<group>"; };
-		190CF15E1913CA4700370760 /* 陷阱0010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0010.png"; sourceTree = "<group>"; };
-		190CF15F1913CA4700370760 /* 陷阱0011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0011.png"; sourceTree = "<group>"; };
-		190CF1601913CA4700370760 /* 陷阱0012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0012.png"; sourceTree = "<group>"; };
-		190CF1611913CA4700370760 /* 陷阱0013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0013.png"; sourceTree = "<group>"; };
-		190CF1621913CA4700370760 /* 陷阱0014.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0014.png"; sourceTree = "<group>"; };
-		190CF1631913CA4700370760 /* 陷阱0015.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0015.png"; sourceTree = "<group>"; };
-		190CF1641913CA4700370760 /* 陷阱0016.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0016.png"; sourceTree = "<group>"; };
-		190CF1651913CA4700370760 /* 陷阱0017.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0017.png"; sourceTree = "<group>"; };
-		190CF1661913CA4700370760 /* 陷阱0018.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0018.png"; sourceTree = "<group>"; };
-		190CF1671913CA4700370760 /* 陷阱0019.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0019.png"; sourceTree = "<group>"; };
-		190CF1681913CA4700370760 /* 陷阱0020.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0020.png"; sourceTree = "<group>"; };
-		190CF1691913CA4700370760 /* 陷阱0021.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0021.png"; sourceTree = "<group>"; };
-		190CF16A1913CA4700370760 /* 陷阱0022.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0022.png"; sourceTree = "<group>"; };
-		190CF16B1913CA4700370760 /* 陷阱0023.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0023.png"; sourceTree = "<group>"; };
-		190CF16C1913CA4700370760 /* 陷阱0024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0024.png"; sourceTree = "<group>"; };
-		190CF16D1913CA4700370760 /* 陷阱0025.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0025.png"; sourceTree = "<group>"; };
-		190CF16E1913CA4700370760 /* 陷阱0026.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0026.png"; sourceTree = "<group>"; };
-		190CF16F1913CA4700370760 /* 陷阱0027.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0027.png"; sourceTree = "<group>"; };
-		190CF1701913CA4700370760 /* 陷阱0028.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0028.png"; sourceTree = "<group>"; };
-		190CF1711913CA4700370760 /* 陷阱0029.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0029.png"; sourceTree = "<group>"; };
-		190CF1721913CA4700370760 /* 陷阱0030.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0030.png"; sourceTree = "<group>"; };
-		190CF1731913CA4700370760 /* 陷阱0031.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0031.png"; sourceTree = "<group>"; };
-		190CF1741913CA4700370760 /* 陷阱0032.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0032.png"; sourceTree = "<group>"; };
-		190CF1751913CA4700370760 /* 陷阱0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0033.png"; sourceTree = "<group>"; };
-		190CF1761913CA4700370760 /* 陷阱0034.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0034.png"; sourceTree = "<group>"; };
-		190CF1771913CA4700370760 /* 陷阱0035.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0035.png"; sourceTree = "<group>"; };
-		190CF1781913CA4700370760 /* 陷阱0036.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0036.png"; sourceTree = "<group>"; };
-		190CF1791913CA4700370760 /* 陷阱0037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0037.png"; sourceTree = "<group>"; };
-		190CF17A1913CA4700370760 /* 陷阱0038.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0038.png"; sourceTree = "<group>"; };
-		190CF17B1913CA4700370760 /* 陷阱0039.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0039.png"; sourceTree = "<group>"; };
-		190CF17C1913CA4700370760 /* 陷阱0040.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0040.png"; sourceTree = "<group>"; };
-		190CF17D1913CA4700370760 /* 陷阱0041.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0041.png"; sourceTree = "<group>"; };
-		190CF17E1913CA4700370760 /* 陷阱0042.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0042.png"; sourceTree = "<group>"; };
-		190CF17F1913CA4700370760 /* 陷阱0043.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0043.png"; sourceTree = "<group>"; };
-		190CF1801913CA4700370760 /* 陷阱0044.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0044.png"; sourceTree = "<group>"; };
-		190CF1811913CA4700370760 /* 陷阱0045.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0045.png"; sourceTree = "<group>"; };
-		190CF1821913CA4700370760 /* 陷阱0046.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0046.png"; sourceTree = "<group>"; };
-		190CF1831913CA4700370760 /* 陷阱0047.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0047.png"; sourceTree = "<group>"; };
-		190CF1841913CA4700370760 /* 陷阱0048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0048.png"; sourceTree = "<group>"; };
-		190CF1851913CA4700370760 /* 陷阱0049.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0049.png"; sourceTree = "<group>"; };
-		190CF1861913CA4700370760 /* 陷阱0050.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0050.png"; sourceTree = "<group>"; };
+		19145DBE1913F472005C6AD4 /* 陷阱0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0001.png"; sourceTree = "<group>"; };
+		19145DBF1913F472005C6AD4 /* 陷阱0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0002.png"; sourceTree = "<group>"; };
+		19145DC01913F472005C6AD4 /* 陷阱0003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0003.png"; sourceTree = "<group>"; };
+		19145DC11913F472005C6AD4 /* 陷阱0004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0004.png"; sourceTree = "<group>"; };
+		19145DC21913F472005C6AD4 /* 陷阱0005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0005.png"; sourceTree = "<group>"; };
+		19145DC31913F472005C6AD4 /* 陷阱0006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0006.png"; sourceTree = "<group>"; };
+		19145DC41913F472005C6AD4 /* 陷阱0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0007.png"; sourceTree = "<group>"; };
+		19145DC51913F472005C6AD4 /* 陷阱0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0008.png"; sourceTree = "<group>"; };
+		19145DC61913F472005C6AD4 /* 陷阱0009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0009.png"; sourceTree = "<group>"; };
+		19145DC71913F472005C6AD4 /* 陷阱0010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0010.png"; sourceTree = "<group>"; };
+		19145DC81913F472005C6AD4 /* 陷阱0011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0011.png"; sourceTree = "<group>"; };
+		19145DC91913F472005C6AD4 /* 陷阱0012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0012.png"; sourceTree = "<group>"; };
+		19145DCA1913F472005C6AD4 /* 陷阱0013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0013.png"; sourceTree = "<group>"; };
+		19145DCB1913F472005C6AD4 /* 陷阱0014.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0014.png"; sourceTree = "<group>"; };
+		19145DCC1913F472005C6AD4 /* 陷阱0015.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0015.png"; sourceTree = "<group>"; };
+		19145DCD1913F472005C6AD4 /* 陷阱0016.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0016.png"; sourceTree = "<group>"; };
+		19145DCE1913F472005C6AD4 /* 陷阱0017.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0017.png"; sourceTree = "<group>"; };
+		19145DCF1913F472005C6AD4 /* 陷阱0018.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0018.png"; sourceTree = "<group>"; };
+		19145DD01913F472005C6AD4 /* 陷阱0019.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0019.png"; sourceTree = "<group>"; };
+		19145DD11913F472005C6AD4 /* 陷阱0020.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0020.png"; sourceTree = "<group>"; };
+		19145DD21913F472005C6AD4 /* 陷阱0021.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0021.png"; sourceTree = "<group>"; };
+		19145DD31913F472005C6AD4 /* 陷阱0022.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0022.png"; sourceTree = "<group>"; };
+		19145DD41913F472005C6AD4 /* 陷阱0023.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0023.png"; sourceTree = "<group>"; };
+		19145DD51913F472005C6AD4 /* 陷阱0024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0024.png"; sourceTree = "<group>"; };
+		19145DD61913F472005C6AD4 /* 陷阱0025.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0025.png"; sourceTree = "<group>"; };
+		19145DD71913F472005C6AD4 /* 陷阱0026.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0026.png"; sourceTree = "<group>"; };
+		19145DD81913F472005C6AD4 /* 陷阱0027.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0027.png"; sourceTree = "<group>"; };
+		19145DD91913F472005C6AD4 /* 陷阱0028.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0028.png"; sourceTree = "<group>"; };
+		19145DDA1913F472005C6AD4 /* 陷阱0029.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0029.png"; sourceTree = "<group>"; };
+		19145DDB1913F472005C6AD4 /* 陷阱0030.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0030.png"; sourceTree = "<group>"; };
+		19145DDC1913F472005C6AD4 /* 陷阱0031.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0031.png"; sourceTree = "<group>"; };
+		19145DDD1913F472005C6AD4 /* 陷阱0032.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0032.png"; sourceTree = "<group>"; };
+		19145DDE1913F472005C6AD4 /* 陷阱0033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0033.png"; sourceTree = "<group>"; };
+		19145DDF1913F472005C6AD4 /* 陷阱0034.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0034.png"; sourceTree = "<group>"; };
+		19145DE01913F472005C6AD4 /* 陷阱0035.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0035.png"; sourceTree = "<group>"; };
+		19145DE11913F472005C6AD4 /* 陷阱0036.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0036.png"; sourceTree = "<group>"; };
+		19145DE21913F472005C6AD4 /* 陷阱0037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0037.png"; sourceTree = "<group>"; };
+		19145DE31913F472005C6AD4 /* 陷阱0038.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0038.png"; sourceTree = "<group>"; };
+		19145DE41913F472005C6AD4 /* 陷阱0039.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0039.png"; sourceTree = "<group>"; };
+		19145DE51913F472005C6AD4 /* 陷阱0040.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0040.png"; sourceTree = "<group>"; };
+		19145DE61913F472005C6AD4 /* 陷阱0041.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0041.png"; sourceTree = "<group>"; };
+		19145DE71913F472005C6AD4 /* 陷阱0042.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0042.png"; sourceTree = "<group>"; };
+		19145DE81913F472005C6AD4 /* 陷阱0043.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0043.png"; sourceTree = "<group>"; };
+		19145DE91913F472005C6AD4 /* 陷阱0044.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0044.png"; sourceTree = "<group>"; };
+		19145DEA1913F472005C6AD4 /* 陷阱0045.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0045.png"; sourceTree = "<group>"; };
+		19145DEB1913F472005C6AD4 /* 陷阱0046.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0046.png"; sourceTree = "<group>"; };
+		19145DEC1913F472005C6AD4 /* 陷阱0047.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0047.png"; sourceTree = "<group>"; };
+		19145DED1913F472005C6AD4 /* 陷阱0048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0048.png"; sourceTree = "<group>"; };
+		19145DEE1913F472005C6AD4 /* 陷阱0049.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0049.png"; sourceTree = "<group>"; };
+		19145DEF1913F472005C6AD4 /* 陷阱0050.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陷阱0050.png"; sourceTree = "<group>"; };
 		1917DFF518C8551300E54F02 /* PPElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPElement.h; path = Models/PPElement.h; sourceTree = "<group>"; };
 		1917DFF618C8551300E54F02 /* PPElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPElement.m; path = Models/PPElement.m; sourceTree = "<group>"; };
 		192C54D019096744007FA656 /* PPModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPModels.h; path = Models/PPModels.h; sourceTree = "<group>"; };
@@ -323,63 +323,63 @@
 			name = background;
 			sourceTree = "<group>";
 		};
-		190CF1541913CA4700370760 /* Trap.altas */ = {
+		19145DBD1913F472005C6AD4 /* trap */ = {
 			isa = PBXGroup;
 			children = (
-				190CF1551913CA4700370760 /* 陷阱0001.png */,
-				190CF1561913CA4700370760 /* 陷阱0002.png */,
-				190CF1571913CA4700370760 /* 陷阱0003.png */,
-				190CF1581913CA4700370760 /* 陷阱0004.png */,
-				190CF1591913CA4700370760 /* 陷阱0005.png */,
-				190CF15A1913CA4700370760 /* 陷阱0006.png */,
-				190CF15B1913CA4700370760 /* 陷阱0007.png */,
-				190CF15C1913CA4700370760 /* 陷阱0008.png */,
-				190CF15D1913CA4700370760 /* 陷阱0009.png */,
-				190CF15E1913CA4700370760 /* 陷阱0010.png */,
-				190CF15F1913CA4700370760 /* 陷阱0011.png */,
-				190CF1601913CA4700370760 /* 陷阱0012.png */,
-				190CF1611913CA4700370760 /* 陷阱0013.png */,
-				190CF1621913CA4700370760 /* 陷阱0014.png */,
-				190CF1631913CA4700370760 /* 陷阱0015.png */,
-				190CF1641913CA4700370760 /* 陷阱0016.png */,
-				190CF1651913CA4700370760 /* 陷阱0017.png */,
-				190CF1661913CA4700370760 /* 陷阱0018.png */,
-				190CF1671913CA4700370760 /* 陷阱0019.png */,
-				190CF1681913CA4700370760 /* 陷阱0020.png */,
-				190CF1691913CA4700370760 /* 陷阱0021.png */,
-				190CF16A1913CA4700370760 /* 陷阱0022.png */,
-				190CF16B1913CA4700370760 /* 陷阱0023.png */,
-				190CF16C1913CA4700370760 /* 陷阱0024.png */,
-				190CF16D1913CA4700370760 /* 陷阱0025.png */,
-				190CF16E1913CA4700370760 /* 陷阱0026.png */,
-				190CF16F1913CA4700370760 /* 陷阱0027.png */,
-				190CF1701913CA4700370760 /* 陷阱0028.png */,
-				190CF1711913CA4700370760 /* 陷阱0029.png */,
-				190CF1721913CA4700370760 /* 陷阱0030.png */,
-				190CF1731913CA4700370760 /* 陷阱0031.png */,
-				190CF1741913CA4700370760 /* 陷阱0032.png */,
-				190CF1751913CA4700370760 /* 陷阱0033.png */,
-				190CF1761913CA4700370760 /* 陷阱0034.png */,
-				190CF1771913CA4700370760 /* 陷阱0035.png */,
-				190CF1781913CA4700370760 /* 陷阱0036.png */,
-				190CF1791913CA4700370760 /* 陷阱0037.png */,
-				190CF17A1913CA4700370760 /* 陷阱0038.png */,
-				190CF17B1913CA4700370760 /* 陷阱0039.png */,
-				190CF17C1913CA4700370760 /* 陷阱0040.png */,
-				190CF17D1913CA4700370760 /* 陷阱0041.png */,
-				190CF17E1913CA4700370760 /* 陷阱0042.png */,
-				190CF17F1913CA4700370760 /* 陷阱0043.png */,
-				190CF1801913CA4700370760 /* 陷阱0044.png */,
-				190CF1811913CA4700370760 /* 陷阱0045.png */,
-				190CF1821913CA4700370760 /* 陷阱0046.png */,
-				190CF1831913CA4700370760 /* 陷阱0047.png */,
-				190CF1841913CA4700370760 /* 陷阱0048.png */,
-				190CF1851913CA4700370760 /* 陷阱0049.png */,
-				190CF1861913CA4700370760 /* 陷阱0050.png */,
+				19145DBE1913F472005C6AD4 /* 陷阱0001.png */,
+				19145DBF1913F472005C6AD4 /* 陷阱0002.png */,
+				19145DC01913F472005C6AD4 /* 陷阱0003.png */,
+				19145DC11913F472005C6AD4 /* 陷阱0004.png */,
+				19145DC21913F472005C6AD4 /* 陷阱0005.png */,
+				19145DC31913F472005C6AD4 /* 陷阱0006.png */,
+				19145DC41913F472005C6AD4 /* 陷阱0007.png */,
+				19145DC51913F472005C6AD4 /* 陷阱0008.png */,
+				19145DC61913F472005C6AD4 /* 陷阱0009.png */,
+				19145DC71913F472005C6AD4 /* 陷阱0010.png */,
+				19145DC81913F472005C6AD4 /* 陷阱0011.png */,
+				19145DC91913F472005C6AD4 /* 陷阱0012.png */,
+				19145DCA1913F472005C6AD4 /* 陷阱0013.png */,
+				19145DCB1913F472005C6AD4 /* 陷阱0014.png */,
+				19145DCC1913F472005C6AD4 /* 陷阱0015.png */,
+				19145DCD1913F472005C6AD4 /* 陷阱0016.png */,
+				19145DCE1913F472005C6AD4 /* 陷阱0017.png */,
+				19145DCF1913F472005C6AD4 /* 陷阱0018.png */,
+				19145DD01913F472005C6AD4 /* 陷阱0019.png */,
+				19145DD11913F472005C6AD4 /* 陷阱0020.png */,
+				19145DD21913F472005C6AD4 /* 陷阱0021.png */,
+				19145DD31913F472005C6AD4 /* 陷阱0022.png */,
+				19145DD41913F472005C6AD4 /* 陷阱0023.png */,
+				19145DD51913F472005C6AD4 /* 陷阱0024.png */,
+				19145DD61913F472005C6AD4 /* 陷阱0025.png */,
+				19145DD71913F472005C6AD4 /* 陷阱0026.png */,
+				19145DD81913F472005C6AD4 /* 陷阱0027.png */,
+				19145DD91913F472005C6AD4 /* 陷阱0028.png */,
+				19145DDA1913F472005C6AD4 /* 陷阱0029.png */,
+				19145DDB1913F472005C6AD4 /* 陷阱0030.png */,
+				19145DDC1913F472005C6AD4 /* 陷阱0031.png */,
+				19145DDD1913F472005C6AD4 /* 陷阱0032.png */,
+				19145DDE1913F472005C6AD4 /* 陷阱0033.png */,
+				19145DDF1913F472005C6AD4 /* 陷阱0034.png */,
+				19145DE01913F472005C6AD4 /* 陷阱0035.png */,
+				19145DE11913F472005C6AD4 /* 陷阱0036.png */,
+				19145DE21913F472005C6AD4 /* 陷阱0037.png */,
+				19145DE31913F472005C6AD4 /* 陷阱0038.png */,
+				19145DE41913F472005C6AD4 /* 陷阱0039.png */,
+				19145DE51913F472005C6AD4 /* 陷阱0040.png */,
+				19145DE61913F472005C6AD4 /* 陷阱0041.png */,
+				19145DE71913F472005C6AD4 /* 陷阱0042.png */,
+				19145DE81913F472005C6AD4 /* 陷阱0043.png */,
+				19145DE91913F472005C6AD4 /* 陷阱0044.png */,
+				19145DEA1913F472005C6AD4 /* 陷阱0045.png */,
+				19145DEB1913F472005C6AD4 /* 陷阱0046.png */,
+				19145DEC1913F472005C6AD4 /* 陷阱0047.png */,
+				19145DED1913F472005C6AD4 /* 陷阱0048.png */,
+				19145DEE1913F472005C6AD4 /* 陷阱0049.png */,
+				19145DEF1913F472005C6AD4 /* 陷阱0050.png */,
 			);
-			name = Trap.altas;
-			path = Resource/Image/test/frames/Trap.altas;
-			sourceTree = SOURCE_ROOT;
+			name = trap;
+			path = Resource/Image/test/trap;
+			sourceTree = "<group>";
 		};
 		1917DFF418C8545200E54F02 /* Models */ = {
 			isa = PBXGroup;
@@ -440,6 +440,7 @@
 		19CBA8CA1907C98000A249AB /* test */ = {
 			isa = PBXGroup;
 			children = (
+				19145DBD1913F472005C6AD4 /* trap */,
 				193C25DB1913F00400E2C1BA /* cirrus */,
 			);
 			name = test;
@@ -478,7 +479,6 @@
 		19F6EDA318C6C09900BFFF9A /* PixePixie */ = {
 			isa = PBXGroup;
 			children = (
-				190CF1541913CA4700370760 /* Trap.altas */,
 				A5A2944818CAACBF002F866D /* PPStoryboard.storyboard */,
 				19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */,
 				19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */,
@@ -637,79 +637,79 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				190CF1B81913CA4700370760 /* 陷阱0050.png in Resources */,
-				190CF19C1913CA4700370760 /* 陷阱0022.png in Resources */,
-				190CF18F1913CA4700370760 /* 陷阱0009.png in Resources */,
-				190CF1931913CA4700370760 /* 陷阱0013.png in Resources */,
 				190CF0821912309D00370760 /* pixie_plant3_battle0.png in Resources */,
-				190CF1B71913CA4700370760 /* 陷阱0049.png in Resources */,
+				19145E091913F472005C6AD4 /* 陷阱0026.png in Resources */,
+				19145DFE1913F472005C6AD4 /* 陷阱0015.png in Resources */,
 				190CF086191230AD00370760 /* ball_pixie_plant2.png in Resources */,
 				190CF0761912277400370760 /* ball_fire.png in Resources */,
-				190CF1881913CA4700370760 /* 陷阱0002.png in Resources */,
-				190CF1A61913CA4700370760 /* 陷阱0032.png in Resources */,
-				190CF1AA1913CA4700370760 /* 陷阱0036.png in Resources */,
-				190CF18C1913CA4700370760 /* 陷阱0006.png in Resources */,
 				193C25E11913F00400E2C1BA /* Cirrus0001.png in Resources */,
-				190CF1991913CA4700370760 /* 陷阱0019.png in Resources */,
 				19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */,
-				190CF1A11913CA4700370760 /* 陷阱0027.png in Resources */,
-				190CF1921913CA4700370760 /* 陷阱0012.png in Resources */,
+				19145E1D1913F472005C6AD4 /* 陷阱0046.png in Resources */,
+				19145E051913F472005C6AD4 /* 陷阱0022.png in Resources */,
 				193C25E21913F00400E2C1BA /* Cirrus0002.png in Resources */,
-				190CF1B31913CA4700370760 /* 陷阱0045.png in Resources */,
-				190CF1A91913CA4700370760 /* 陷阱0035.png in Resources */,
+				19145E201913F472005C6AD4 /* 陷阱0049.png in Resources */,
 				190CF0831912309D00370760 /* pixie_plant3_battle1.png in Resources */,
+				19145E1F1913F472005C6AD4 /* 陷阱0048.png in Resources */,
 				193C25E31913F00400E2C1BA /* Cirrus0003.png in Resources */,
-				190CF1B11913CA4700370760 /* 陷阱0043.png in Resources */,
-				190CF1941913CA4700370760 /* 陷阱0014.png in Resources */,
-				190CF1981913CA4700370760 /* 陷阱0018.png in Resources */,
-				190CF1A41913CA4700370760 /* 陷阱0030.png in Resources */,
-				190CF1951913CA4700370760 /* 陷阱0015.png in Resources */,
-				190CF19E1913CA4700370760 /* 陷阱0024.png in Resources */,
-				190CF1B01913CA4700370760 /* 陷阱0042.png in Resources */,
+				19145E141913F472005C6AD4 /* 陷阱0037.png in Resources */,
+				19145DFD1913F472005C6AD4 /* 陷阱0014.png in Resources */,
+				19145DFF1913F472005C6AD4 /* 陷阱0016.png in Resources */,
+				19145E081913F472005C6AD4 /* 陷阱0025.png in Resources */,
 				193C25DA1913EF9500E2C1BA /* bg_02.jpg in Resources */,
 				A50D272818DA8B2600641430 /* PPTabBarController.xib in Resources */,
-				190CF1AE1913CA4700370760 /* 陷阱0040.png in Resources */,
-				190CF1B61913CA4700370760 /* 陷阱0048.png in Resources */,
-				190CF1961913CA4700370760 /* 陷阱0016.png in Resources */,
-				190CF1A71913CA4700370760 /* 陷阱0033.png in Resources */,
+				19145DF91913F472005C6AD4 /* 陷阱0010.png in Resources */,
+				19145DF21913F472005C6AD4 /* 陷阱0003.png in Resources */,
+				19145E011913F472005C6AD4 /* 陷阱0018.png in Resources */,
 				19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */,
+				19145E111913F472005C6AD4 /* 陷阱0034.png in Resources */,
+				19145DFC1913F472005C6AD4 /* 陷阱0013.png in Resources */,
 				190CF0791912277400370760 /* ball_water.png in Resources */,
-				190CF1911913CA4700370760 /* 陷阱0011.png in Resources */,
+				19145DF51913F472005C6AD4 /* 陷阱0006.png in Resources */,
+				19145DF81913F472005C6AD4 /* 陷阱0009.png in Resources */,
+				19145E121913F472005C6AD4 /* 陷阱0035.png in Resources */,
 				190CF08A191230C700370760 /* bg_01.png in Resources */,
+				19145E001913F472005C6AD4 /* 陷阱0017.png in Resources */,
+				19145E0F1913F472005C6AD4 /* 陷阱0032.png in Resources */,
+				19145E101913F472005C6AD4 /* 陷阱0033.png in Resources */,
+				19145E161913F472005C6AD4 /* 陷阱0039.png in Resources */,
 				190CF0811912309D00370760 /* pixie_plant2_battle1.png in Resources */,
-				190CF1AB1913CA4700370760 /* 陷阱0037.png in Resources */,
+				19145E031913F472005C6AD4 /* 陷阱0020.png in Resources */,
+				19145E1A1913F472005C6AD4 /* 陷阱0043.png in Resources */,
+				19145DF01913F472005C6AD4 /* 陷阱0001.png in Resources */,
+				19145DFA1913F472005C6AD4 /* 陷阱0011.png in Resources */,
+				19145E191913F472005C6AD4 /* 陷阱0042.png in Resources */,
 				190CF0771912277400370760 /* ball_metal.png in Resources */,
-				190CF19B1913CA4700370760 /* 陷阱0021.png in Resources */,
-				190CF1A01913CA4700370760 /* 陷阱0026.png in Resources */,
+				19145E131913F472005C6AD4 /* 陷阱0036.png in Resources */,
+				19145E0D1913F472005C6AD4 /* 陷阱0030.png in Resources */,
 				190CF0781912277400370760 /* ball_plant.png in Resources */,
 				190CF0751912277400370760 /* ball_earth.png in Resources */,
-				190CF19D1913CA4700370760 /* 陷阱0023.png in Resources */,
-				190CF1B41913CA4700370760 /* 陷阱0046.png in Resources */,
-				190CF1901913CA4700370760 /* 陷阱0010.png in Resources */,
-				190CF1971913CA4700370760 /* 陷阱0017.png in Resources */,
-				190CF1A81913CA4700370760 /* 陷阱0034.png in Resources */,
-				190CF19F1913CA4700370760 /* 陷阱0025.png in Resources */,
 				190CF0801912309D00370760 /* pixie_plant2_battle0.png in Resources */,
-				190CF1871913CA4700370760 /* 陷阱0001.png in Resources */,
-				190CF19A1913CA4700370760 /* 陷阱0020.png in Resources */,
-				190CF1B51913CA4700370760 /* 陷阱0047.png in Resources */,
-				190CF1A21913CA4700370760 /* 陷阱0028.png in Resources */,
-				190CF18B1913CA4700370760 /* 陷阱0005.png in Resources */,
-				190CF1891913CA4700370760 /* 陷阱0003.png in Resources */,
+				19145E181913F472005C6AD4 /* 陷阱0041.png in Resources */,
+				19145E1E1913F472005C6AD4 /* 陷阱0047.png in Resources */,
+				19145DF31913F472005C6AD4 /* 陷阱0004.png in Resources */,
+				19145E021913F472005C6AD4 /* 陷阱0019.png in Resources */,
+				19145E0C1913F472005C6AD4 /* 陷阱0029.png in Resources */,
+				19145E1B1913F472005C6AD4 /* 陷阱0044.png in Resources */,
 				A5A2944918CAACBF002F866D /* PPStoryboard.storyboard in Resources */,
-				190CF1AF1913CA4700370760 /* 陷阱0041.png in Resources */,
-				190CF1A51913CA4700370760 /* 陷阱0031.png in Resources */,
-				190CF18D1913CA4700370760 /* 陷阱0007.png in Resources */,
-				190CF1AD1913CA4700370760 /* 陷阱0039.png in Resources */,
-				190CF18E1913CA4700370760 /* 陷阱0008.png in Resources */,
-				190CF1A31913CA4700370760 /* 陷阱0029.png in Resources */,
-				190CF1AC1913CA4700370760 /* 陷阱0038.png in Resources */,
+				19145E171913F472005C6AD4 /* 陷阱0040.png in Resources */,
 				A50D277B18DAD45E00641430 /* PPMenuVC.xib in Resources */,
+				19145DF11913F472005C6AD4 /* 陷阱0002.png in Resources */,
 				193C25E51913F00400E2C1BA /* Cirrus0005.png in Resources */,
-				190CF1B21913CA4700370760 /* 陷阱0044.png in Resources */,
+				19145E1C1913F472005C6AD4 /* 陷阱0045.png in Resources */,
+				19145E061913F472005C6AD4 /* 陷阱0023.png in Resources */,
+				19145E211913F472005C6AD4 /* 陷阱0050.png in Resources */,
+				19145DF61913F472005C6AD4 /* 陷阱0007.png in Resources */,
+				19145E0B1913F472005C6AD4 /* 陷阱0028.png in Resources */,
+				19145DF71913F472005C6AD4 /* 陷阱0008.png in Resources */,
+				19145DFB1913F472005C6AD4 /* 陷阱0012.png in Resources */,
+				19145E071913F472005C6AD4 /* 陷阱0024.png in Resources */,
+				19145E041913F472005C6AD4 /* 陷阱0021.png in Resources */,
+				19145E0A1913F472005C6AD4 /* 陷阱0027.png in Resources */,
 				193C25E41913F00400E2C1BA /* Cirrus0004.png in Resources */,
+				19145DF41913F472005C6AD4 /* 陷阱0005.png in Resources */,
 				190CF087191230AD00370760 /* ball_pixie_plant3.png in Resources */,
-				190CF18A1913CA4700370760 /* 陷阱0004.png in Resources */,
+				19145E151913F472005C6AD4 /* 陷阱0038.png in Resources */,
+				19145E0E1913F472005C6AD4 /* 陷阱0031.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

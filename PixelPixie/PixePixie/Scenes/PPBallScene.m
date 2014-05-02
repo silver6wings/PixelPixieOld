@@ -15,7 +15,11 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 @property (nonatomic) PPBall * ballPlayer;
 @property (nonatomic) PPBall * ballShadow;
 @property (nonatomic) PPBall * ballEnemy;
-@property (nonatomic) NSMutableArray * ballElement;
+@property (nonatomic) NSMutableArray * ballsElement;
+@property (nonatomic) NSMutableArray * trapFrames;
+@property (nonatomic) SKSpriteNode * btSkill;
+
+@property (nonatomic) BOOL isTrapEnable;
 
 @end
 
@@ -34,16 +38,27 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_02.jpg"]]];
         [self addChild:bg];
         
-        //self.physicsWorld.speed = 1.0f;
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
         
+        // Prepare for skill parameter
+        _isTrapEnable = NO;
+        
         // Add Skill Button
-        SKSpriteNode * btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"Cirrus0005.png"];
-        btSkill.size = CGSizeMake(50, 50);
-        btSkill.name = @"btSkill";
-        btSkill.position = CGPointMake(CGRectGetMidX(self.frame), 30);
-        [self addChild:btSkill];
+        _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"Cirrus0005.png"];
+        _btSkill.size = CGSizeMake(50, 50);
+        _btSkill.name = @"bt_skill";
+        _btSkill.position = CGPointMake(CGRectGetMidX(self.frame), 30);
+        [self addChild:_btSkill];
+        
+        // Prepare for frames
+        _trapFrames = [NSMutableArray array];
+        for (int i=1; i <= 40; i++) {
+            NSString *textureName = [NSString stringWithFormat:@"陷阱%04d.png", i];
+            NSLog(@"%@", textureName);
+            SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
+            [_trapFrames addObject:temp];
+        }
         
         // Add Walls
         CGFloat tWidth = 320;
@@ -55,7 +70,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         // Add Ball of Self
         _ballPlayer = pixieA.pixieBall;
-        _ballPlayer.name = @"ballPlayer";
+        _ballPlayer.name = @"ball_player";
         _ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
         _ballPlayer.physicsBody.categoryBitMask = kBallCategory;
         _ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
@@ -69,7 +84,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addChild:_ballEnemy];
         
         // Add Balls of Element
-        _ballElement = [NSMutableArray arrayWithObjects:nil];
+        _ballsElement = [NSMutableArray arrayWithObjects:nil];
         
         for (int i = 0; i < 5; i++) {
             PPBall * tBall = [PPBall ballWithElement:i + 1];
@@ -77,13 +92,15 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             tBall.physicsBody.categoryBitMask = kBallCategory;
             tBall.physicsBody.contactTestBitMask = kBallCategory;
             [self addChild:tBall];
-            [_ballElement addObject:tBall];
+            [_ballsElement addObject:tBall];
         }
         [self addRandomBalls:5];
         
     }
     return self;
 }
+
+#pragma mark -
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
@@ -92,10 +109,10 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     UITouch * touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
     
-//    if (distanceBetweenPoints(location, _ballPlayer.position) <= kBallSize) {
-    
     SKSpriteNode *touchedNode = (SKSpriteNode *)[self nodeAtPoint:location];
-    if ([[touchedNode name] isEqualToString:@"ballPlayer"]) {
+    
+    // 点击自己的球
+    if ([[touchedNode name] isEqualToString:@"ball_player"]) {
         
         _isBallDragging = YES;
         _ballShadow = [_ballPlayer copy];
@@ -106,8 +123,16 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addChild:_ballShadow];
     }
     
-    if ([[touchedNode name] isEqualToString:@"btSkill"]) {
-        NSLog(@"asdf");
+    // 点击技能按钮
+    if ([[touchedNode name] isEqualToString:@"bt_skill"]) {
+        _isTrapEnable = YES;
+        
+        for (PPBall * tBall in _ballsElement) {
+            if ([tBall.name isEqualToString:@"ball_plant"]) {
+                [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
+            }
+        }
+        
     }
     
     // SKAction * sa = [SKAction moveByX:100.0 y:100.0 duration:1.0];
@@ -144,14 +169,20 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 // 每帧处理程序
 -(void)update:(NSTimeInterval)currentTime{
     
+    // 如果球都停止了
     if (_isBallRolling && [self isAllStopRolling]) {
         NSLog(@"Stopped");
         _isBallRolling = NO;
-        [self addRandomBalls:(kBallNumberMax - (int)_ballElement.count)];
+        
+        // 添加少了的球
+        [self addRandomBalls:(kBallNumberMax - (int)_ballsElement.count)];
+        
+        // 刷新技能
+        //_isTrapEnable = NO;
     }
 }
 
-#pragma SKPhysicsContactDelegate
+#pragma mark SKPhysicsContactDelegate
 
 // 碰撞事件
 - (void)didBeginContact:(SKPhysicsContact *)contact{
@@ -163,7 +194,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         // 球A是玩家球 球B不是玩家球
         playerBall = contact.bodyA;
         hittedBall = contact.bodyB;
-    } else if (contact.bodyB == _ballPlayer.physicsBody && contact.bodyA != _ballEnemy.physicsBody){
+    } else if (contact.bodyB == _ballPlayer.physicsBody && contact.bodyA != _ballEnemy.physicsBody) {
         // 球B是玩家球 球A不是玩家球
         playerBall = contact.bodyB;
         hittedBall = contact.bodyA;
@@ -174,14 +205,23 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     if (kElementInhibition[attack][defend] > 1.0f) {
         [hittedBall.node removeFromParent];
-        [_ballElement removeObject:hittedBall.node];
-        NSLog(@"%lu", _ballElement.count);
+        [_ballsElement removeObject:hittedBall.node];
+        NSLog(@"%lu", _ballsElement.count);
+    }
+    
+    if (_isTrapEnable && ((PPBall *)hittedBall.node).ballElementType == PPElementTypePlant) {
+        NSLog(@"skill");
+        
+        CGPoint tPos = _ballPlayer.position;
+        [_ballPlayer removeFromParent];
+        [self addChild:_ballPlayer];
+        _ballPlayer.position = tPos;
     }
     
     NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
 }
 
-#pragma Custom
+#pragma mark Custom
 
 // 添加四周的墙
 -(void)addWalls:(CGSize)nodeSize atPosition:(CGPoint)nodePosition{
@@ -208,7 +248,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         tBall.physicsBody.categoryBitMask = kBallCategory;
         tBall.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:tBall];
-        [_ballElement addObject:tBall];
+        [_ballsElement addObject:tBall];
     }
 }
 
@@ -221,7 +261,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if (vectorLength(_ballEnemy.physicsBody.velocity) > 0) {
         return NO;
     }
-    for (PPBall * tBall in _ballElement) {
+    for (PPBall * tBall in _ballsElement) {
         if (vectorLength(tBall.physicsBody.velocity) > 0) {
             return NO;
         }

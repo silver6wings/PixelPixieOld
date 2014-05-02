@@ -4,17 +4,22 @@
 @implementation PPBall
 @synthesize pixie, ballElementType;
 
+-(void)recover{
+    
+}
+
 // 创建元素球
 +(PPBall *)ballWithElement:(PPElementType) elementType{
     
-    PPBall * tBall = [PPBall spriteNodeWithImageNamed:[NSString stringWithFormat:
-                                                       @"%@%@%@",
-                                                       @"ball_",
-                                                       [ConstantData elementName:elementType],
-                                                       @".png"]];
+    NSString * imageName = [NSString stringWithFormat:@"%@%@%@",@"ball_",[ConstantData elementName:elementType],@".png"];
+    if (imageName == nil) return nil;
+    
+    PPBall * tBall = [PPBall spriteNodeWithImageNamed:imageName];
     if (tBall){
+        tBall.name = [NSString stringWithFormat:@"ball_%@",[ConstantData elementName:elementType]];
         tBall.ballElementType = elementType;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
+        
         [PPBall defaultBallPhysicsBody:tBall];
         
         tBall.pixie = nil;
@@ -28,7 +33,6 @@
     NSString * ballPixieImageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
                                      [ConstantData elementName:PPElementTypePlant],
                                      pixie.pixieGeneration];
-    
     if (ballPixieImageName == nil) return nil;
     
     PPBall * tBall = [PPBall spriteNodeWithImageNamed:ballPixieImageName];
