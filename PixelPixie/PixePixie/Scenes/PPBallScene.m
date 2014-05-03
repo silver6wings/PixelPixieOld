@@ -46,42 +46,54 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
         
-        // 初始化 skill parameter
+        // demo 初始化 skill parameter
         _isTrapEnable = NO;
         
-        // 添加 Skill Button
-        _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"Cirrus0005.png"];
+        // demo 添加 Skill Button
+        _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
         _btSkill.size = CGSizeMake(30, 30);
         _btSkill.name = @"bt_skill";
         _btSkill.position = CGPointMake(CGRectGetMidX(self.frame), 30);
         [self addChild:_btSkill];
         
-        // 预加载 动画 frames
+        // demo 预加载 动画 frames
         _trapFrames = [NSMutableArray array];
         for (int i=1; i <= 40; i++) {
-            NSString *textureName = [NSString stringWithFormat:@"陷阱%04d.png", i];
+            NSString * textureName = [NSString stringWithFormat:@"陷阱%04d.png", i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
             [_trapFrames addObject:temp];
         }
         
+        // demo 添加头像
+        SKSpriteNode * playerPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant2.png"];
+        playerPortrait.size = CGSizeMake(30, 30);
+        playerPortrait.position = CGPointMake(30, 541);
+        [self addChild:playerPortrait];
+        
+        SKSpriteNode * enemyPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant3.png"];
+        enemyPortrait.size = CGSizeMake(30, 30);
+        enemyPortrait.position = CGPointMake(290, 541);
+        [self addChild:enemyPortrait];
+        
+        
         // 添加 HP bar
-        _barPlayerHP = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(120, 10)];
+        _barPlayerHP = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
         _barPlayerHP.anchorPoint = CGPointMake(1, 0.5);
         _barPlayerHP.position = CGPointMake(CGRectGetMidX(self.frame) - 10, CGRectGetMaxY(self.frame) - 20);
         [self addChild:_barPlayerHP];
         
-        _barEnemyHP = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(120, 10)];
+        _barEnemyHP = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
         _barEnemyHP.anchorPoint = CGPointMake(0, 0.5);
         _barEnemyHP.position = CGPointMake(CGRectGetMidX(self.frame) + 10, CGRectGetMaxY(self.frame) - 20);
         [self addChild:_barEnemyHP];
         
         // 添加 MP bar
-        _barPlayerMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(80, 10)];
+        _barPlayerMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
         _barPlayerMP.anchorPoint = CGPointMake(1, 0.5);
         _barPlayerMP.position = CGPointMake(CGRectGetMidX(self.frame) - 10, CGRectGetMaxY(self.frame) - 35);
         [self addChild:_barPlayerMP];
         
-        _barEnemyMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(80, 10)];
+        _barEnemyMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
         _barEnemyMP.anchorPoint = CGPointMake(0, 0.5);
         _barEnemyMP.position = CGPointMake(CGRectGetMidX(self.frame) + 10, CGRectGetMaxY(self.frame) - 35);
         [self addChild:_barEnemyMP];
@@ -191,7 +203,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     // 如果球都停止了
     if (_isBallRolling && [self isAllStopRolling]) {
-        NSLog(@"Stopped");
+        NSLog(@"Doing Attack and Defend");
         _isBallRolling = NO;
         
         // 添加少了的球
@@ -232,12 +244,14 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         NSLog(@"%lu", _ballsElement.count);
     }
     
+    /*
     if (_isTrapEnable && ((PPBall *)hittedBall.node).ballElementType == PPElementTypePlant) {
         CGPoint tPos = _ballPlayer.position;
         [_ballPlayer removeFromParent];
         [self addChild:_ballPlayer];
         _ballPlayer.position = tPos;
     }
+    */
     
     NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
 }

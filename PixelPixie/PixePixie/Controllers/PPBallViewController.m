@@ -2,13 +2,7 @@
 #import "PPBallViewController.h"
 
 @interface PPBallViewController ()
-
-@property (nonatomic) UIButton * btStart;
 @property (nonatomic) SKView * skView;
-
-@property (nonatomic) PPPixie * playerPixie;
-@property (nonatomic) PPPixie * enemyPixie;
-
 @end
 
 @implementation PPBallViewController
@@ -17,16 +11,6 @@
     if (self = [super init]) {
         self.view.backgroundColor = [UIColor blackColor];
         
-        /*
-        _btStart = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _btStart.frame = CGRectMake(100, 100, 100, 100);
-        [_btStart setTitle:@"Start" forState:UIControlStateNormal];
-        [_btStart addTarget:self action:@selector(startBattle) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_btStart];
-        */
-        
-        _playerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:3];
-        _enemyPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:2];
         
         // 准备战斗画面
         // CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 480)/2, 320, 450)
@@ -67,11 +51,6 @@
 
 // 开始战斗画面
 -(void)startBattle{
-    
-    // 初始化 ballScene
-    //PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:_skView.bounds.size PixieA:_playerPixie PixieB:_enemyPixie];
-    //ballScene.scaleMode = SKSceneScaleModeAspectFill;
-    //[self.skView presentScene:ballScene];
     
 }
 
