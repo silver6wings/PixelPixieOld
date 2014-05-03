@@ -1,21 +1,25 @@
 
 #import "PPBall.h"
 
+@interface PPBall ()
+@property (nonatomic) SKTexture * defaultTexture;
+@end
+
 @implementation PPBall
 @synthesize pixie, ballElementType;
 
--(void)recover{
-    
-}
+#pragma mark Factory Method
 
 // 创建元素球
 +(PPBall *)ballWithElement:(PPElementType) elementType{
     
     NSString * imageName = [NSString stringWithFormat:@"%@%@%@",@"ball_",[ConstantData elementName:elementType],@".png"];
     if (imageName == nil) return nil;
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
-    PPBall * tBall = [PPBall spriteNodeWithImageNamed:imageName];
     if (tBall){
+        tBall.defaultTexture = tTexture;
         tBall.name = [NSString stringWithFormat:@"ball_%@",[ConstantData elementName:elementType]];
         tBall.ballElementType = elementType;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
@@ -30,12 +34,13 @@
 // 创建宠物的球
 +(PPBall *)ballWithPixie:(PPPixie *)pixie{
     
-    NSString * ballPixieImageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
+    NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
                                      [ConstantData elementName:PPElementTypePlant],
                                      pixie.pixieGeneration];
-    if (ballPixieImageName == nil) return nil;
+    if (imageName == nil) return nil;
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
-    PPBall * tBall = [PPBall spriteNodeWithImageNamed:ballPixieImageName];
     if (tBall){
         tBall.ballElementType = pixie.pixieElement;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
@@ -57,6 +62,13 @@
     
     ball.physicsBody.dynamic = YES;                         // 说明物体是动态的
     ball.physicsBody.usesPreciseCollisionDetection = YES;   // 使用快速运动检测碰撞
+}
+
+
+
+// 改为默认皮肤
+-(void)setToDefaultTexture{
+    [self runAction:[SKAction setTexture:_defaultTexture]];
 }
 
 @end

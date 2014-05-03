@@ -13,4 +13,6 @@
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
 +(PPBall *)ballWithElement:(PPElementType)element;
 
+-(void)setToDefaultTexture;
+
 @end
