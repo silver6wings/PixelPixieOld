@@ -154,7 +154,6 @@
 		A50D278A18DADFD600641430 /* PPMenuSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D278918DADFD600641430 /* PPMenuSettingVC.m */; };
 		A591A21818CEF36B00219E86 /* PPReversibleAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */; };
 		A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */; };
-		A5A2944918CAACBF002F866D /* PPStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A2944818CAACBF002F866D /* PPStoryboard.storyboard */; };
 		A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C318CBFE8F00D3E50B /* iCarousel.m */; };
 		A5B786C918CC021200D3E50B /* PPCoverflow.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C818CC021200D3E50B /* PPCoverflow.m */; };
 /* End PBXBuildFile section */
@@ -340,7 +339,6 @@
 		A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPReversibleAnimationController.m; path = animation/PPReversibleAnimationController.m; sourceTree = "<group>"; };
 		A591A21918CEF64200219E86 /* PPPortalAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPortalAnimationController.h; path = animation/PPPortalAnimationController.h; sourceTree = "<group>"; };
 		A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPortalAnimationController.m; path = animation/PPPortalAnimationController.m; sourceTree = "<group>"; };
-		A5A2944818CAACBF002F866D /* PPStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PPStoryboard.storyboard; sourceTree = "<group>"; };
 		A5B786C218CBFE8F00D3E50B /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = iCarousel/iCarousel.h; sourceTree = "<group>"; };
 		A5B786C318CBFE8F00D3E50B /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
 		A5B786C618CC01A500D3E50B /* PPViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPViews.h; sourceTree = "<group>"; };
@@ -628,7 +626,6 @@
 		19F6EDA318C6C09900BFFF9A /* PixePixie */ = {
 			isa = PBXGroup;
 			children = (
-				A5A2944818CAACBF002F866D /* PPStoryboard.storyboard */,
 				19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */,
 				19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */,
 				19906B8918CB039400C05BA3 /* Configurations */,
@@ -872,7 +869,6 @@
 				1959D68B191515C900865D27 /* 变身效果01034.png in Resources */,
 				1959D66B191515C900865D27 /* 变身效果01002.png in Resources */,
 				1959D67E191515C900865D27 /* 变身效果01021.png in Resources */,
-				A5A2944918CAACBF002F866D /* PPStoryboard.storyboard in Resources */,
 				19145E171913F472005C6AD4 /* 陷阱0040.png in Resources */,
 				A50D277B18DAD45E00641430 /* PPMenuVC.xib in Resources */,
 				1959D690191515C900865D27 /* 变身效果01039.png in Resources */,
@@ -1037,6 +1033,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PixePixie/PixelPixie-Prefix.pch";
 				INFOPLIST_FILE = "PixePixie/PixelPixie-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = PixelPixie;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1052,6 +1049,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PixePixie/PixelPixie-Prefix.pch";
 				INFOPLIST_FILE = "PixePixie/PixelPixie-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = PixelPixie;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
