@@ -241,7 +241,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if (kElementInhibition[attack][defend] > 1.0f) {
         [hittedBall.node removeFromParent];
         [_ballsElement removeObject:hittedBall.node];
-        NSLog(@"%lu", _ballsElement.count);
+        NSLog(@"%lu", (unsigned long)_ballsElement.count);
     }
     
     /*

@@ -13,10 +13,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     
-    UIViewController * vc = [[PPBallViewController alloc] init];
+    PPMainViewController * vc = [[PPMainViewController alloc] init];
     
+    UINavigationController *navMain=[[UINavigationController alloc] initWithRootViewController:vc];
+    navMain.navigationBarHidden=YES;
+    
+    NSLog(@"test");
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = vc;
+    self.window.rootViewController = navMain;
+    
     [self.window makeKeyAndVisible];
     
 	return YES;

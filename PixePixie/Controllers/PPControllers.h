@@ -9,6 +9,6 @@
 #import "PPMenuFightVC.h"
 #import "PPMenuShopVC.h"
 #import	"PPMenuSettingVC.h"
-
+#import "PPMainViewController.h"
 //Demo
 #import "PPBallViewController.h"

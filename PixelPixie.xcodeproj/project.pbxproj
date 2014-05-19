@@ -156,6 +156,8 @@
 		A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */; };
 		A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C318CBFE8F00D3E50B /* iCarousel.m */; };
 		A5B786C918CC021200D3E50B /* PPCoverflow.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C818CC021200D3E50B /* PPCoverflow.m */; };
+		D4879EDA192A5459003E8D50 /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4879ED9192A5459003E8D50 /* PPMainViewController.m */; };
+		D4879EDD192A54B7003E8D50 /* PPBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4879EDC192A54B7003E8D50 /* PPBasicViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -344,6 +346,10 @@
 		A5B786C618CC01A500D3E50B /* PPViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPViews.h; sourceTree = "<group>"; };
 		A5B786C718CC021200D3E50B /* PPCoverflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPCoverflow.h; sourceTree = "<group>"; };
 		A5B786C818CC021200D3E50B /* PPCoverflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPCoverflow.m; sourceTree = "<group>"; };
+		D4879ED8192A5459003E8D50 /* PPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainViewController.h; sourceTree = "<group>"; };
+		D4879ED9192A5459003E8D50 /* PPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainViewController.m; sourceTree = "<group>"; };
+		D4879EDB192A54B7003E8D50 /* PPBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBasicViewController.h; sourceTree = "<group>"; };
+		D4879EDC192A54B7003E8D50 /* PPBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBasicViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,6 +634,7 @@
 			children = (
 				19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */,
 				19F6EDAD18C6C09900BFFF9A /* PPAppDelegate.m */,
+				D4879ED7192A5459003E8D50 /* ViewControllers */,
 				19906B8918CB039400C05BA3 /* Configurations */,
 				A50D271318DA8B2600641430 /* Controllers */,
 				1917DFF418C8545200E54F02 /* Models */,
@@ -729,6 +736,17 @@
 				A5B786C818CC021200D3E50B /* PPCoverflow.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D4879ED7192A5459003E8D50 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4879ED8192A5459003E8D50 /* PPMainViewController.h */,
+				D4879ED9192A5459003E8D50 /* PPMainViewController.m */,
+				D4879EDB192A54B7003E8D50 /* PPBasicViewController.h */,
+				D4879EDC192A54B7003E8D50 /* PPBasicViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -915,6 +933,7 @@
 				A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */,
 				A591A21818CEF36B00219E86 /* PPReversibleAnimationController.m in Sources */,
 				1959D5F31914E05300865D27 /* PPBattleScene.m in Sources */,
+				D4879EDD192A54B7003E8D50 /* PPBasicViewController.m in Sources */,
 				A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */,
 				A50D278118DADF6F00641430 /* PPMenuPackVC.m in Sources */,
 				A50D278718DADFBF00641430 /* PPMenuShopVC.m in Sources */,
@@ -929,6 +948,7 @@
 				A50D272318DA8B2600641430 /* PPLoginVC.m in Sources */,
 				194E6AC8190A01130098F599 /* ConstantData.m in Sources */,
 				A50D272518DA8B2600641430 /* PPRootVC.m in Sources */,
+				D4879EDA192A5459003E8D50 /* PPMainViewController.m in Sources */,
 				A5B786C918CC021200D3E50B /* PPCoverflow.m in Sources */,
 				19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */,
 				19CBA8C91907C91E00A249AB /* PPPixie.m in Sources */,
