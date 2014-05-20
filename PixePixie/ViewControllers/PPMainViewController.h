@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PPBasicViewController.h"
-@interface PPMainViewController : PPBasicViewController
 
+@interface PPMainViewController : PPBasicViewController
+{
+    int  menuAnimationTag;
+}
 @end

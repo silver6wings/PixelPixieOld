@@ -10,5 +10,9 @@
 #import "PPMenuShopVC.h"
 #import	"PPMenuSettingVC.h"
 #import "PPMainViewController.h"
+#import "PPSettingScene.h"
+#import "PPMonsterScene.h"
+#import "PPPacksackScene.h"
+#import "PPShopScene.h"
 //Demo
 #import "PPBallViewController.h"

@@ -9,6 +9,7 @@
 @interface ConfigData : NSObject
 
 @property (nonatomic, assign) BOOL launchWithVC;
+//@property (nonatomic, strong) NSObject;
 
 +(ConfigData *)instance;
 

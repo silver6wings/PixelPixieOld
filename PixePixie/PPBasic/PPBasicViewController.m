@@ -22,10 +22,19 @@
     }
     return self;
 }
-
+-(void)loadView
+{
+    [super loadView];
+    SKView *aView=[[SKView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.view=aView;
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    skViewMain = (SKView *)self.view;
+    skViewMain.showsFPS = YES;
+    skViewMain.showsNodeCount = YES;
     // Do any additional setup after loading the view.
 }
 
