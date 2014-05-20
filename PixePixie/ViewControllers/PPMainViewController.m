@@ -51,8 +51,6 @@ NSString * menu[]={
 }
 -(void)menuBtnClick:(UIButton *)sender
 {
-    
-    
     switch (sender.tag-PP_MENU_BUTON_TAG) {
         case 0:
         {
@@ -97,9 +95,7 @@ NSString * menu[]={
             break;
         case 4:
         {
-            
-            [self menuDownAnimation];
-            
+                    
             PPSettingScene * ppSetScene = [[PPSettingScene alloc] initWithSize:self.view.bounds.size];
             ppSetScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:ppSetScene];
