@@ -13,7 +13,7 @@
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
 
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor purpleColor];
         
 //        PPTableView *ppTable1=[[PPTableView alloc] initWithFrame:self.view.frame];
 //        [ppTable1 setBackgroundColor:[UIColor blackColor]];

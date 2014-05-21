@@ -9,5 +9,12 @@
 #import "PPPacksackScene.h"
 
 @implementation PPPacksackScene
-
+- (id)initWithSize:(CGSize)size
+{
+    if (self=[super initWithSize:size]) {
+        self.backgroundColor = [UIColor grayColor];
+        
+    }
+    return self;
+}
 @end

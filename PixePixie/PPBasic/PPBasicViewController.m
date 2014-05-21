@@ -9,7 +9,9 @@
 #import "PPBasicViewController.h"
 
 @interface PPBasicViewController ()
-
+{
+   
+}
 @end
 
 @implementation PPBasicViewController
@@ -35,9 +37,20 @@
     skViewMain = (SKView *)self.view;
     skViewMain.showsFPS = YES;
     skViewMain.showsNodeCount = YES;
+    
+    
+    backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 5.0f, 50.0f,50.0f)];
+    [backToMain setTitle:@"back" forState:UIControlStateNormal];
+    [backToMain addTarget:self action:@selector(backToMainClick) forControlEvents:UIControlEventTouchUpInside];
+    [skViewMain addSubview:backToMain];
+    
     // Do any additional setup after loading the view.
 }
-
+-(void)backToMainClick
+{
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

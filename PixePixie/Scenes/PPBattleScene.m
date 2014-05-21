@@ -19,7 +19,7 @@
         _lbStart.text = @"Click me to start ^~^";
         _lbStart.fontSize = 15;
         _lbStart.fontColor = [UIColor yellowColor];
-        _lbStart.position = CGPointMake(CGRectGetMidX(self.frame),536);
+        _lbStart.position = CGPointMake(CGRectGetMidX(self.frame),50);
         [self addChild:_lbStart];
         
         // 添加己方精灵

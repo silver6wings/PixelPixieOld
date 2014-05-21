@@ -14,5 +14,8 @@
 #import "PPMonsterScene.h"
 #import "PPPacksackScene.h"
 #import "PPShopScene.h"
+#import "PPMainScene.h"
+#import "PPTableView.h"
+
 //Demo
 #import "PPBallViewController.h"

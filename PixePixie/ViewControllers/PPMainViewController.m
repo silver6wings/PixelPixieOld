@@ -9,7 +9,9 @@
 #import "PPMainViewController.h"
 
 @interface PPMainViewController ()
-
+{
+    PPMainScene *mainScene;
+}
 @end
 
 @implementation PPMainViewController
@@ -32,7 +34,13 @@ NSString * menu[]={
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    mainScene=[[PPMainScene alloc] initWithSize:[UIScreen mainScreen].bounds.size];
+    mainScene->chooseTarget=self;
+    mainScene->chooseCouterpartSel=@selector(counterpartEnter:);
+    mainScene.scaleMode=SKSceneScaleModeFill;
+    [skViewMain presentScene:mainScene];
+
     menuAnimationTag=0;
     
     for (int i=0; i<PP_MENU_COUNT; i++) {
@@ -49,13 +57,55 @@ NSString * menu[]={
     
     // Do any additional setup after loading the view.
 }
+-(void)counterpartEnter:(id)obj
+{
+    
+    PPTableView *ppTable1=[[PPTableView alloc] initWithFrame:CGRectMake(0.0f, 80, 320, 200)];
+    ppTable1->choosePassNumber=self;
+    ppTable1.tag=PP_PASSNUM_CHOOSE_TABLE_TAG;
+    ppTable1->choosePassNumberSel=@selector(enterBattle:);
+    NSArray *productInfoArray=[NSArray arrayWithObjects:@"关卡1",@"关卡2",@"关卡3",@"关卡4",@"关卡5",@"关卡6", nil];
+    [ppTable1 ppsetTableViewWithData:productInfoArray];
+    [self.view addSubview:ppTable1];
+    
+}
+-(void)enterBattle:(NSNumber *)passNumber
+{
+    
+    UIView *passNumView=[self.view viewWithTag:PP_PASSNUM_CHOOSE_TABLE_TAG];
+    [passNumView removeFromSuperview];
+    passNumber=nil;
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        
+        [backToMain setFrame:CGRectMake(0.0f, backToMain.frame.origin.y, backToMain.frame.size.width, backToMain.frame.size.height)];
+        
+        
+    } completion:^(BOOL finished){}];
+    
+    [self menuDownAnimation];
+
+    PPBattleScene * battleScene;
+    battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
+    battleScene.scaleMode = SKSceneScaleModeAspectFill;
+    
+    [skViewMain presentScene:battleScene];
+}
 -(void)menuBtnClick:(UIButton *)sender
 {
+    [UIView animateWithDuration:0.1 animations:^{
+    
+        [backToMain setFrame:CGRectMake(0.0f, backToMain.frame.origin.y, backToMain.frame.size.width, backToMain.frame.size.height)];
+        
+       
+    } completion:^(BOOL finished){}];
+    
+    [self menuDownAnimation];
+
     switch (sender.tag-PP_MENU_BUTON_TAG) {
         case 0:
         {
             
-            [self menuDownAnimation];
             
             PPMonsterScene * monsterScene = [[PPMonsterScene alloc] initWithSize:self.view.bounds.size];
             monsterScene.scaleMode = SKSceneScaleModeAspectFill;
@@ -65,7 +115,6 @@ NSString * menu[]={
         case 1:
         {
             
-            [self menuDownAnimation];
             
             PPPacksackScene * packsackScene = [[PPPacksackScene alloc] initWithSize:self.view.bounds.size];
             packsackScene.scaleMode = SKSceneScaleModeAspectFill;
@@ -76,17 +125,16 @@ NSString * menu[]={
         case 2:
         {
             
-            [self menuDownAnimation];
-
-            PPBattleScene * battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
+            PPBattleScene * battleScene;
+            battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
             battleScene.scaleMode = SKSceneScaleModeAspectFill;
+        
             [skViewMain presentScene:battleScene];
         }
             break;
         case 3:
         {
             
-            [self menuDownAnimation];
             
             PPShopScene * shopScene = [[PPShopScene alloc] initWithSize:self.view.bounds.size];
             shopScene.scaleMode = SKSceneScaleModeAspectFill;
@@ -95,7 +143,7 @@ NSString * menu[]={
             break;
         case 4:
         {
-                    
+
             PPSettingScene * ppSetScene = [[PPSettingScene alloc] initWithSize:self.view.bounds.size];
             ppSetScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:ppSetScene];
@@ -107,11 +155,44 @@ NSString * menu[]={
     }
     
 }
+-(void)backToMainClick
+{
+    [skViewMain presentScene:mainScene];
+    [UIView animateWithDuration:0.1 animations:^{
+        
+        [backToMain setFrame:CGRectMake(-backToMain.frame.size.width, backToMain.frame.origin.y, backToMain.frame.size.width, backToMain.frame.size.height)];
+        
+        
+    } completion:^(BOOL finished){}];
+    [self menuUpAnimation];
+}
+-(void)menuUpAnimation
+{
+    
+    [self performSelector:@selector(upMenuBtn) withObject:nil];
+
+}
 -(void)menuDownAnimation
 {
-
     [self performSelector:@selector(downMenuBtn) withObject:nil];
  
+}
+-(void)upMenuBtn
+{
+    [UIView animateWithDuration:0.1 animations:^{
+        
+        UIButton *buttonTmp=(UIButton *)[skViewMain viewWithTag:PP_MENU_BUTON_TAG+menuAnimationTag];
+        [buttonTmp setFrame:CGRectMake(buttonTmp.frame.origin.x, skViewMain.frame.size.height-64.0f, buttonTmp.frame.size.width, buttonTmp.frame.size.height)];
+        
+    } completion:^(BOOL finished){
+        menuAnimationTag++;
+        if (menuAnimationTag<PP_MENU_COUNT) {
+            [self performSelector:@selector(menuUpAnimation) withObject:nil];
+            return ;
+        }
+        menuAnimationTag=0;
+        
+    }];
 }
 -(void)downMenuBtn
 {
@@ -124,8 +205,9 @@ NSString * menu[]={
         menuAnimationTag++;
         if (menuAnimationTag<PP_MENU_COUNT) {
              [self performSelector:@selector(menuDownAnimation) withObject:nil];
+            return ;
         }
-       
+        menuAnimationTag=0;
         
     }];
 }

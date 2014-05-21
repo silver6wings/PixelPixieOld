@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface PPTableView : UIView<UITableViewDataSource,UITableViewDelegate>
+{
+    @public
+    id choosePassNumber;
+    SEL choosePassNumberSel;
+}
 -(void)ppsetTableViewWithData:(NSArray *)array;
 @end

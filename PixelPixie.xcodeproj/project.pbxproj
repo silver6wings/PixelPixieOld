@@ -164,6 +164,7 @@
 		D449CFE3192BB5FE007179B1 /* PPPacksackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */; };
 		D449CFE6192BB619007179B1 /* PPShopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFE5192BB619007179B1 /* PPShopScene.m */; };
 		D4879EDA192A5459003E8D50 /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4879ED9192A5459003E8D50 /* PPMainViewController.m */; };
+		D49664AB192CDF4400E37092 /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D49664AA192CDF4400E37092 /* PPMainScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -368,6 +369,8 @@
 		D449CFE5192BB619007179B1 /* PPShopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPShopScene.m; sourceTree = "<group>"; };
 		D4879ED8192A5459003E8D50 /* PPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainViewController.h; sourceTree = "<group>"; };
 		D4879ED9192A5459003E8D50 /* PPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainViewController.m; sourceTree = "<group>"; };
+		D49664A9192CDF4400E37092 /* PPMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainScene.h; sourceTree = "<group>"; };
+		D49664AA192CDF4400E37092 /* PPMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -598,6 +601,8 @@
 			children = (
 				19CBA8BE1907C6FD00A249AB /* PPBallViewController.h */,
 				19CBA8BF1907C6FD00A249AB /* PPBallViewController.m */,
+				D49664A9192CDF4400E37092 /* PPMainScene.h */,
+				D49664AA192CDF4400E37092 /* PPMainScene.m */,
 				1959D5F11914E05300865D27 /* PPBattleScene.h */,
 				1959D5F21914E05300865D27 /* PPBattleScene.m */,
 				D449CFDB192BB2F5007179B1 /* PPSettingScene.h */,
@@ -994,6 +999,7 @@
 				A5B786C918CC021200D3E50B /* PPCoverflow.m in Sources */,
 				D449CFD8192BB278007179B1 /* PPBasicViewController.m in Sources */,
 				19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */,
+				D49664AB192CDF4400E37092 /* PPMainScene.m in Sources */,
 				19CBA8C91907C91E00A249AB /* PPPixie.m in Sources */,
 				1917DFF718C8551300E54F02 /* PPElement.m in Sources */,
 				19C930B118EC2591001B4358 /* PPSkill.m in Sources */,

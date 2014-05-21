@@ -9,5 +9,12 @@
 #import "PPMonsterScene.h"
 
 @implementation PPMonsterScene
-
+- (id)initWithSize:(CGSize)size
+{
+    if (self=[super initWithSize:size]) {
+        self.backgroundColor = [UIColor redColor];
+        
+    }
+    return self;
+}
 @end
