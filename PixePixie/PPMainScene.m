@@ -10,7 +10,7 @@
 
 @implementation PPMainScene
 CGPoint couterpartPosition[]={
-    {100.0f,100.0f}
+    {150.0f,300.0f}
 };
 NSString *couterpartName[]={
  @"封印之塔"
