@@ -14,7 +14,8 @@
 }
 @end
 @implementation PPTableView
-
+@synthesize choosePassNumberSel=_choosePassNumberSel;
+@synthesize choosePassNumber=_choosePassNumber;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -102,9 +103,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (choosePassNumber!=nil&&choosePassNumberSel!=nil&&[choosePassNumber respondsToSelector:choosePassNumberSel]) {
+    if (self.choosePassNumber!=nil&&self.choosePassNumberSel!=nil&&[self.choosePassNumber respondsToSelector:self.choosePassNumberSel]) {
         
-        [choosePassNumber performSelector:choosePassNumberSel withObject:[NSNumber numberWithInt:indexPath.row]];
+        [self.choosePassNumber performSelector:self.choosePassNumberSel withObject:[NSNumber numberWithInt:indexPath.row]];
     }
 //
 }

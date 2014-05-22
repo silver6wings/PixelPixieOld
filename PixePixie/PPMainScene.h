@@ -10,8 +10,10 @@
 
 @interface PPMainScene : PPBasicScene
 {
-    @public
-    id chooseTarget;
-    SEL chooseCouterpartSel;
+
 }
+//回调对象
+@property(nonatomic,assign) id chooseTarget;
+//回调方法
+@property(nonatomic,assign) SEL chooseCouterpartSel;
 @end

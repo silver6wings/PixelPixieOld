@@ -36,8 +36,8 @@ NSString * menu[]={
     [super viewDidLoad];
 
     mainScene=[[PPMainScene alloc] initWithSize:[UIScreen mainScreen].bounds.size];
-    mainScene->chooseTarget=self;
-    mainScene->chooseCouterpartSel=@selector(counterpartEnter:);
+    mainScene.chooseTarget=self;
+    mainScene.chooseCouterpartSel=@selector(counterpartEnter:);
     mainScene.scaleMode=SKSceneScaleModeFill;
     [skViewMain presentScene:mainScene];
 
@@ -61,9 +61,9 @@ NSString * menu[]={
 {
     
     PPTableView *ppTable1=[[PPTableView alloc] initWithFrame:CGRectMake(0.0f, 80, 320, 200)];
-    ppTable1->choosePassNumber=self;
+    ppTable1.choosePassNumber=self;
     ppTable1.tag=PP_PASSNUM_CHOOSE_TABLE_TAG;
-    ppTable1->choosePassNumberSel=@selector(enterBattle:);
+    ppTable1.choosePassNumberSel=@selector(enterBattle:);
     NSArray *productInfoArray=[NSArray arrayWithObjects:@"关卡1",@"关卡2",@"关卡3",@"关卡4",@"关卡5",@"关卡6", nil];
     [ppTable1 ppsetTableViewWithData:productInfoArray];
     [self.view addSubview:ppTable1];

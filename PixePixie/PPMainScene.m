@@ -9,6 +9,8 @@
 #import "PPMainScene.h"
 
 @implementation PPMainScene
+@synthesize chooseCouterpartSel=_chooseCouterpartSel;
+@synthesize chooseTarget=_chooseTarget;
 CGPoint couterpartPosition[]={
     {150.0f,300.0f}
 };
@@ -36,11 +38,11 @@ NSString *couterpartName[]={
 }
 -(void)choosePassNumber
 {
-    if (chooseTarget!=nil&&chooseCouterpartSel!=nil&&[chooseTarget respondsToSelector:chooseCouterpartSel]) {
-        
-        [chooseTarget performSelector:chooseCouterpartSel withObject:nil];
-    }
+    if (self.chooseTarget!=nil&&self.chooseCouterpartSel!=nil&&[self.chooseTarget respondsToSelector:self.chooseCouterpartSel]) {
     
+        [self.chooseTarget performSelector:self.chooseCouterpartSel withObject:nil];
+    }
+
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

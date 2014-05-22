@@ -10,9 +10,11 @@
 
 @interface PPTableView : UIView<UITableViewDataSource,UITableViewDelegate>
 {
-    @public
-    id choosePassNumber;
-    SEL choosePassNumberSel;
+
 }
+//回调对象
+@property(nonatomic,assign) id choosePassNumber;
+//回调方法
+@property(nonatomic,assign) SEL choosePassNumberSel;
 -(void)ppsetTableViewWithData:(NSArray *)array;
 @end
