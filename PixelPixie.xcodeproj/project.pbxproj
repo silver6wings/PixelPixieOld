@@ -314,7 +314,7 @@
 		19F6EDA918C6C09900BFFF9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19F6EDAB18C6C09900BFFF9A /* PixelPixie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixelPixie-Prefix.pch"; sourceTree = "<group>"; };
 		19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
-		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PixePixie/Images.xcassets; sourceTree = "<group>"; };
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A50D271418DA8B2600641430 /* PPControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPControllers.h; sourceTree = "<group>"; };
 		A50D271518DA8B2600641430 /* PPHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHomeVC.h; sourceTree = "<group>"; };
@@ -629,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				19F6EDA318C6C09900BFFF9A /* PixePixie */,
+				19F6EDBA18C6C09900BFFF9A /* Images.xcassets */,
 				19F6EDD718C6C65900BFFF9A /* Resource */,
 				19F6ED9A18C6C09900BFFF9A /* Frameworks */,
 				19F6ED9918C6C09900BFFF9A /* Products */,
@@ -669,7 +670,6 @@
 				A50D277518DAC19200641430 /* Scenes */,
 				19CBA8B71907C24500A249AB /* Demo */,
 				A5B786C118CBFE5A00D3E50B /* Library */,
-				19F6EDBA18C6C09900BFFF9A /* Images.xcassets */,
 				19F6EDA418C6C09900BFFF9A /* Supporting Files */,
 			);
 			path = PixePixie;
