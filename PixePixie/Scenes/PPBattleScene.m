@@ -13,6 +13,8 @@
     if (self = [super initWithSize:size]) {
         self.backgroundColor = [UIColor blackColor];
         
+       
+        
         // 加载开始按钮
         _lbStart = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
         _lbStart.name = @"bt_start";
@@ -41,6 +43,7 @@
             [_pixieAnimation addObject:temp];
         }
     }
+    
     return self;
 }
 

@@ -40,6 +40,6 @@
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.target performSelectorInBackground:self.selector withObject:nil];
+    [self.target performSelectorInBackground:self.selector withObject:self];
 }
 @end

@@ -138,19 +138,6 @@
 		19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */; };
 		19F6EDAA18C6C09900BFFF9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDA918C6C09900BFFF9A /* main.m */; };
 		19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDBA18C6C09900BFFF9A /* Images.xcassets */; };
-		A50D272218DA8B2600641430 /* PPHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271618DA8B2600641430 /* PPHomeVC.m */; };
-		A50D272318DA8B2600641430 /* PPLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271818DA8B2600641430 /* PPLoginVC.m */; };
-		A50D272518DA8B2600641430 /* PPRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271C18DA8B2600641430 /* PPRootVC.m */; };
-		A50D272618DA8B2600641430 /* PPSelectPixieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D271E18DA8B2600641430 /* PPSelectPixieVC.m */; };
-		A50D272718DA8B2600641430 /* PPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D272018DA8B2600641430 /* PPTabBarController.m */; };
-		A50D272818DA8B2600641430 /* PPTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50D272118DA8B2600641430 /* PPTabBarController.xib */; };
-		A50D272C18DA982000641430 /* PPMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D272B18DA982000641430 /* PPMenuVC.m */; };
-		A50D277B18DAD45E00641430 /* PPMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50D277A18DAD45E00641430 /* PPMenuVC.xib */; };
-		A50D277E18DADF1A00641430 /* PPMenuPixieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D277D18DADF1A00641430 /* PPMenuPixieVC.m */; };
-		A50D278118DADF6F00641430 /* PPMenuPackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D278018DADF6F00641430 /* PPMenuPackVC.m */; };
-		A50D278418DADFA500641430 /* PPMenuFightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D278318DADFA500641430 /* PPMenuFightVC.m */; };
-		A50D278718DADFBF00641430 /* PPMenuShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D278618DADFBF00641430 /* PPMenuShopVC.m */; };
-		A50D278A18DADFD600641430 /* PPMenuSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A50D278918DADFD600641430 /* PPMenuSettingVC.m */; };
 		A591A21818CEF36B00219E86 /* PPReversibleAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */; };
 		A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */; };
 		A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C318CBFE8F00D3E50B /* iCarousel.m */; };
@@ -165,8 +152,9 @@
 		D449CFE0192BB5AB007179B1 /* PPMonsterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFDF192BB5AB007179B1 /* PPMonsterScene.m */; };
 		D449CFE3192BB5FE007179B1 /* PPPacksackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */; };
 		D449CFE6192BB619007179B1 /* PPShopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFE5192BB619007179B1 /* PPShopScene.m */; };
-		D4879EDA192A5459003E8D50 /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4879ED9192A5459003E8D50 /* PPMainViewController.m */; };
 		D49664AB192CDF4400E37092 /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D49664AA192CDF4400E37092 /* PPMainScene.m */; };
+		D4A03088193E123600A8A204 /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A03087193E123600A8A204 /* PPMainViewController.m */; };
+		D4B071EB193E258300CA9042 /* PPPassNumberScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B071EA193E258300CA9042 /* PPPassNumberScroll.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -320,31 +308,7 @@
 		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A50D271418DA8B2600641430 /* PPControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPControllers.h; sourceTree = "<group>"; };
-		A50D271518DA8B2600641430 /* PPHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHomeVC.h; sourceTree = "<group>"; };
-		A50D271618DA8B2600641430 /* PPHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHomeVC.m; sourceTree = "<group>"; };
-		A50D271718DA8B2600641430 /* PPLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLoginVC.h; sourceTree = "<group>"; };
-		A50D271818DA8B2600641430 /* PPLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLoginVC.m; sourceTree = "<group>"; };
-		A50D271B18DA8B2600641430 /* PPRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPRootVC.h; sourceTree = "<group>"; };
-		A50D271C18DA8B2600641430 /* PPRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPRootVC.m; sourceTree = "<group>"; };
-		A50D271D18DA8B2600641430 /* PPSelectPixieVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSelectPixieVC.h; sourceTree = "<group>"; };
-		A50D271E18DA8B2600641430 /* PPSelectPixieVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSelectPixieVC.m; sourceTree = "<group>"; };
-		A50D271F18DA8B2600641430 /* PPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTabBarController.h; sourceTree = "<group>"; };
-		A50D272018DA8B2600641430 /* PPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPTabBarController.m; sourceTree = "<group>"; };
-		A50D272118DA8B2600641430 /* PPTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPTabBarController.xib; sourceTree = "<group>"; };
-		A50D272A18DA982000641430 /* PPMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuVC.h; sourceTree = "<group>"; };
-		A50D272B18DA982000641430 /* PPMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuVC.m; sourceTree = "<group>"; };
 		A50D277618DAC19200641430 /* PPScenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPScenes.h; sourceTree = "<group>"; };
-		A50D277A18DAD45E00641430 /* PPMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPMenuVC.xib; sourceTree = "<group>"; };
-		A50D277C18DADF1A00641430 /* PPMenuPixieVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuPixieVC.h; sourceTree = "<group>"; };
-		A50D277D18DADF1A00641430 /* PPMenuPixieVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuPixieVC.m; sourceTree = "<group>"; };
-		A50D277F18DADF6F00641430 /* PPMenuPackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuPackVC.h; sourceTree = "<group>"; };
-		A50D278018DADF6F00641430 /* PPMenuPackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuPackVC.m; sourceTree = "<group>"; };
-		A50D278218DADFA500641430 /* PPMenuFightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuFightVC.h; sourceTree = "<group>"; };
-		A50D278318DADFA500641430 /* PPMenuFightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuFightVC.m; sourceTree = "<group>"; };
-		A50D278518DADFBF00641430 /* PPMenuShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuShopVC.h; sourceTree = "<group>"; };
-		A50D278618DADFBF00641430 /* PPMenuShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuShopVC.m; sourceTree = "<group>"; };
-		A50D278818DADFD600641430 /* PPMenuSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMenuSettingVC.h; sourceTree = "<group>"; };
-		A50D278918DADFD600641430 /* PPMenuSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuSettingVC.m; sourceTree = "<group>"; };
 		A591A21618CEF36B00219E86 /* PPReversibleAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPReversibleAnimationController.h; path = animation/PPReversibleAnimationController.h; sourceTree = "<group>"; };
 		A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPReversibleAnimationController.m; path = animation/PPReversibleAnimationController.m; sourceTree = "<group>"; };
 		A591A21918CEF64200219E86 /* PPPortalAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPortalAnimationController.h; path = animation/PPPortalAnimationController.h; sourceTree = "<group>"; };
@@ -373,10 +337,12 @@
 		D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPacksackScene.m; sourceTree = "<group>"; };
 		D449CFE4192BB619007179B1 /* PPShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPShopScene.h; sourceTree = "<group>"; };
 		D449CFE5192BB619007179B1 /* PPShopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPShopScene.m; sourceTree = "<group>"; };
-		D4879ED8192A5459003E8D50 /* PPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainViewController.h; sourceTree = "<group>"; };
-		D4879ED9192A5459003E8D50 /* PPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainViewController.m; sourceTree = "<group>"; };
 		D49664A9192CDF4400E37092 /* PPMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainScene.h; sourceTree = "<group>"; };
 		D49664AA192CDF4400E37092 /* PPMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainScene.m; sourceTree = "<group>"; };
+		D4A03086193E123600A8A204 /* PPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainViewController.h; sourceTree = "<group>"; };
+		D4A03087193E123600A8A204 /* PPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainViewController.m; sourceTree = "<group>"; };
+		D4B071E9193E258300CA9042 /* PPPassNumberScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPassNumberScroll.h; sourceTree = "<group>"; };
+		D4B071EA193E258300CA9042 /* PPPassNumberScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPassNumberScroll.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +487,8 @@
 				19C930B318EC260C001B4358 /* PPBuff.m */,
 				19CBA8C11907C77600A249AB /* PPBall.h */,
 				19CBA8C21907C77600A249AB /* PPBall.m */,
+				D4B071E9193E258300CA9042 /* PPPassNumberScroll.h */,
+				D4B071EA193E258300CA9042 /* PPPassNumberScroll.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -611,6 +579,8 @@
 				D49664AA192CDF4400E37092 /* PPMainScene.m */,
 				1959D5F11914E05300865D27 /* PPBattleScene.h */,
 				1959D5F21914E05300865D27 /* PPBattleScene.m */,
+				19CBA8BB1907C6D400A249AB /* PPBallScene.h */,
+				19CBA8BC1907C6D400A249AB /* PPBallScene.m */,
 				D449CFDB192BB2F5007179B1 /* PPSettingScene.h */,
 				D449CFDC192BB2F5007179B1 /* PPSettingScene.m */,
 				D449CFDE192BB5AB007179B1 /* PPMonsterScene.h */,
@@ -619,8 +589,6 @@
 				D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */,
 				D449CFE4192BB619007179B1 /* PPShopScene.h */,
 				D449CFE5192BB619007179B1 /* PPShopScene.m */,
-				19CBA8BB1907C6D400A249AB /* PPBallScene.h */,
-				19CBA8BC1907C6D400A249AB /* PPBallScene.m */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -710,17 +678,6 @@
 			children = (
 				A50D272918DA980000641430 /* MenuControllers */,
 				A50D271418DA8B2600641430 /* PPControllers.h */,
-				A50D271518DA8B2600641430 /* PPHomeVC.h */,
-				A50D271618DA8B2600641430 /* PPHomeVC.m */,
-				A50D271718DA8B2600641430 /* PPLoginVC.h */,
-				A50D271818DA8B2600641430 /* PPLoginVC.m */,
-				A50D271B18DA8B2600641430 /* PPRootVC.h */,
-				A50D271C18DA8B2600641430 /* PPRootVC.m */,
-				A50D271D18DA8B2600641430 /* PPSelectPixieVC.h */,
-				A50D271E18DA8B2600641430 /* PPSelectPixieVC.m */,
-				A50D271F18DA8B2600641430 /* PPTabBarController.h */,
-				A50D272018DA8B2600641430 /* PPTabBarController.m */,
-				A50D272118DA8B2600641430 /* PPTabBarController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -728,19 +685,6 @@
 		A50D272918DA980000641430 /* MenuControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A50D272A18DA982000641430 /* PPMenuVC.h */,
-				A50D272B18DA982000641430 /* PPMenuVC.m */,
-				A50D277A18DAD45E00641430 /* PPMenuVC.xib */,
-				A50D277C18DADF1A00641430 /* PPMenuPixieVC.h */,
-				A50D277D18DADF1A00641430 /* PPMenuPixieVC.m */,
-				A50D277F18DADF6F00641430 /* PPMenuPackVC.h */,
-				A50D278018DADF6F00641430 /* PPMenuPackVC.m */,
-				A50D278218DADFA500641430 /* PPMenuFightVC.h */,
-				A50D278318DADFA500641430 /* PPMenuFightVC.m */,
-				A50D278518DADFBF00641430 /* PPMenuShopVC.h */,
-				A50D278618DADFBF00641430 /* PPMenuShopVC.m */,
-				A50D278818DADFD600641430 /* PPMenuSettingVC.h */,
-				A50D278918DADFD600641430 /* PPMenuSettingVC.m */,
 				D449CFCC192BB1D1007179B1 /* PPTableView.h */,
 				D449CFCD192BB1D1007179B1 /* PPTableView.m */,
 			);
@@ -796,8 +740,8 @@
 		D4879ED7192A5459003E8D50 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D4879ED8192A5459003E8D50 /* PPMainViewController.h */,
-				D4879ED9192A5459003E8D50 /* PPMainViewController.m */,
+				D4A03086193E123600A8A204 /* PPMainViewController.h */,
+				D4A03087193E123600A8A204 /* PPMainViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -884,7 +828,6 @@
 				193C25DA1913EF9500E2C1BA /* bg_02.jpg in Resources */,
 				1959D671191515C900865D27 /* 变身效果01008.png in Resources */,
 				1959D67D191515C900865D27 /* 变身效果01020.png in Resources */,
-				A50D272818DA8B2600641430 /* PPTabBarController.xib in Resources */,
 				19145DF91913F472005C6AD4 /* 陷阱0010.png in Resources */,
 				19145DF21913F472005C6AD4 /* 陷阱0003.png in Resources */,
 				1959D678191515C900865D27 /* 变身效果01015.png in Resources */,
@@ -941,7 +884,6 @@
 				1959D66B191515C900865D27 /* 变身效果01002.png in Resources */,
 				1959D67E191515C900865D27 /* 变身效果01021.png in Resources */,
 				19145E171913F472005C6AD4 /* 陷阱0040.png in Resources */,
-				A50D277B18DAD45E00641430 /* PPMenuVC.xib in Resources */,
 				1959D690191515C900865D27 /* 变身效果01039.png in Resources */,
 				19145DF11913F472005C6AD4 /* 陷阱0002.png in Resources */,
 				193C25E51913F00400E2C1BA /* Cirrus0005.png in Resources */,
@@ -986,28 +928,18 @@
 				A591A21818CEF36B00219E86 /* PPReversibleAnimationController.m in Sources */,
 				1959D5F31914E05300865D27 /* PPBattleScene.m in Sources */,
 				A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */,
+				D4A03088193E123600A8A204 /* PPMainViewController.m in Sources */,
 				D449CFE0192BB5AB007179B1 /* PPMonsterScene.m in Sources */,
-				A50D278118DADF6F00641430 /* PPMenuPackVC.m in Sources */,
 				D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */,
 				D449CFDD192BB2F5007179B1 /* PPSettingScene.m in Sources */,
-				A50D278718DADFBF00641430 /* PPMenuShopVC.m in Sources */,
 				D449CFCE192BB1D1007179B1 /* PPTableView.m in Sources */,
-				A50D277E18DADF1A00641430 /* PPMenuPixieVC.m in Sources */,
-				A50D278A18DADFD600641430 /* PPMenuSettingVC.m in Sources */,
-				A50D278418DADFA500641430 /* PPMenuFightVC.m in Sources */,
 				D449CFE3192BB5FE007179B1 /* PPPacksackScene.m in Sources */,
-				A50D272C18DA982000641430 /* PPMenuVC.m in Sources */,
 				D449CFE6192BB619007179B1 /* PPShopScene.m in Sources */,
-				A50D272718DA8B2600641430 /* PPTabBarController.m in Sources */,
-				A50D272618DA8B2600641430 /* PPSelectPixieVC.m in Sources */,
 				1938054918CB0CAB00EF8691 /* ConfigData.m in Sources */,
-				A50D272218DA8B2600641430 /* PPHomeVC.m in Sources */,
-				A50D272318DA8B2600641430 /* PPLoginVC.m in Sources */,
 				194E6AC8190A01130098F599 /* ConstantData.m in Sources */,
-				A50D272518DA8B2600641430 /* PPRootVC.m in Sources */,
 				D42F8F1B192E3F9D001374AB /* PPSceneManager.m in Sources */,
-				D4879EDA192A5459003E8D50 /* PPMainViewController.m in Sources */,
 				A5B786C918CC021200D3E50B /* PPCoverflow.m in Sources */,
+				D4B071EB193E258300CA9042 /* PPPassNumberScroll.m in Sources */,
 				D449CFD8192BB278007179B1 /* PPBasicViewController.m in Sources */,
 				19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */,
 				D49664AB192CDF4400E37092 /* PPMainScene.m in Sources */,

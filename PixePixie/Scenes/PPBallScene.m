@@ -64,39 +64,41 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [_trapFrames addObject:temp];
         }
         
+        
         // demo 添加头像
         SKSpriteNode * playerPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant2.png"];
         playerPortrait.size = CGSizeMake(30, 30);
-        playerPortrait.position = CGPointMake(30, 541);
+        playerPortrait.position = CGPointMake(30, 20);
         [self addChild:playerPortrait];
+        
         
         SKSpriteNode * enemyPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant3.png"];
         enemyPortrait.size = CGSizeMake(30, 30);
-        enemyPortrait.position = CGPointMake(290, 541);
+        enemyPortrait.position = CGPointMake(30, 541);
         [self addChild:enemyPortrait];
         
         
         // 添加 HP bar
         _barPlayerHP = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
-        _barPlayerHP.anchorPoint = CGPointMake(1, 0.5);
-        _barPlayerHP.position = CGPointMake(CGRectGetMidX(self.frame) - 10, CGRectGetMaxY(self.frame) - 20);
+        _barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
+        _barPlayerHP.position = CGPointMake(playerPortrait.frame.origin.x, playerPortrait.frame.origin.y+_barPlayerHP.frame.size.height+playerPortrait.frame.size.height);
         [self addChild:_barPlayerHP];
         
         _barEnemyHP = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
         _barEnemyHP.anchorPoint = CGPointMake(0, 0.5);
-        _barEnemyHP.position = CGPointMake(CGRectGetMidX(self.frame) + 10, CGRectGetMaxY(self.frame) - 20);
+        _barEnemyHP.position = CGPointMake(enemyPortrait.frame.origin.x+enemyPortrait.frame.size.width+10.0f, CGRectGetMaxY(self.frame) - 20);
         [self addChild:_barEnemyHP];
         
-        // 添加 MP bar
-        _barPlayerMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
-        _barPlayerMP.anchorPoint = CGPointMake(1, 0.5);
-        _barPlayerMP.position = CGPointMake(CGRectGetMidX(self.frame) - 10, CGRectGetMaxY(self.frame) - 35);
-        [self addChild:_barPlayerMP];
+//        // 添加 MP bar
+//        _barPlayerMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
+//        _barPlayerMP.anchorPoint = CGPointMake(1, 0.5);
+//        _barPlayerMP.position = CGPointMake(CGRectGetMidX(self.frame) - 10, CGRectGetMaxY(self.frame) - 35);
+//        [self addChild:_barPlayerMP];
         
-        _barEnemyMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
-        _barEnemyMP.anchorPoint = CGPointMake(0, 0.5);
-        _barEnemyMP.position = CGPointMake(CGRectGetMidX(self.frame) + 10, CGRectGetMaxY(self.frame) - 35);
-        [self addChild:_barEnemyMP];
+//        _barEnemyMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
+//        _barEnemyMP.anchorPoint = CGPointMake(0, 0.5);
+//        _barEnemyMP.position = CGPointMake(CGRectGetMidX(self.frame) + 10, CGRectGetMaxY(self.frame) - 35);
+//        [self addChild:_barEnemyMP];
         
         // 添加 Walls
         CGFloat tWidth = 320;

@@ -124,11 +124,13 @@ NSString * menu[]={
             break;
         case 2:
         {
+
+            
             
             PPBattleScene * battleScene;
             battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
             battleScene.scaleMode = SKSceneScaleModeAspectFill;
-        
+            
             [skViewMain presentScene:battleScene];
         }
             break;
