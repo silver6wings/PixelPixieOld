@@ -7,7 +7,7 @@
 //
 
 #import "PPMainViewController.h"
-
+#import "PPPassNumberScroll.h"
 @interface PPMainViewController ()
 {
     PPMainScene *mainScene;
@@ -100,13 +100,13 @@ NSString * menu[]={
        
     } completion:^(BOOL finished){}];
     
-    [self menuDownAnimation];
 
     switch (sender.tag-PP_MENU_BUTON_TAG) {
         case 0:
         {
             
-            
+            [self menuDownAnimation];
+
             PPMonsterScene * monsterScene = [[PPMonsterScene alloc] initWithSize:self.view.bounds.size];
             monsterScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:monsterScene];
@@ -115,7 +115,8 @@ NSString * menu[]={
         case 1:
         {
             
-            
+            [self menuDownAnimation];
+
             PPPacksackScene * packsackScene = [[PPPacksackScene alloc] initWithSize:self.view.bounds.size];
             packsackScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:packsackScene];
@@ -124,8 +125,10 @@ NSString * menu[]={
             break;
         case 2:
         {
-
             
+
+            [self menuDownAnimation];
+
             
             PPBattleScene * battleScene;
             battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
@@ -136,7 +139,8 @@ NSString * menu[]={
             break;
         case 3:
         {
-            
+            [self menuDownAnimation];
+
             
             PPShopScene * shopScene = [[PPShopScene alloc] initWithSize:self.view.bounds.size];
             shopScene.scaleMode = SKSceneScaleModeAspectFill;
@@ -145,6 +149,7 @@ NSString * menu[]={
             break;
         case 4:
         {
+            [self menuDownAnimation];
 
             PPSettingScene * ppSetScene = [[PPSettingScene alloc] initWithSize:self.view.bounds.size];
             ppSetScene.scaleMode = SKSceneScaleModeAspectFill;

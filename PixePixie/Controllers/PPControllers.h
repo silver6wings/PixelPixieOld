@@ -5,6 +5,6 @@
 #import "PPMainScene.h"
 #import "PPTableView.h"
 #import "PPMainViewController.h"
-
+#import "PPPassNumberScroll.h"
 //Demo
 #import "PPBallViewController.h"

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>transcriptinfo</key>
+	<array>
+		<dict>
+			<key>passid</key>
+			<string>1234</string>
+			<key>passimage</key>
+			<string>ball_pixie_plant2</string>
+			<key>passname</key>
+			<string>副本1</string>
+			<key>passtime</key>
+			<string>2013/11/11 00:00</string>
+		</dict>
+		<dict>
+			<key>passid</key>
+			<string>1234</string>
+			<key>passimage</key>
+			<string>ball_pixie_plant2</string>
+			<key>passname</key>
+			<string>副本2</string>
+			<key>passtime</key>
+			<string>2013/11/11 00:00</string>
+		</dict>
+		<dict>
+			<key>passid</key>
+			<string>1234</string>
+			<key>passimage</key>
+			<string>ball_pixie_plant2</string>
+			<key>passname</key>
+			<string>副本3</string>
+			<key>passtime</key>
+			<string>2013/11/11 00:00</string>
+		</dict>
+		<dict>
+			<key>passid</key>
+			<string>1234</string>
+			<key>passimage</key>
+			<string>ball_pixie_plant2</string>
+			<key>passname</key>
+			<string>副本4</string>
+			<key>passtime</key>
+			<string>2013/11/11 00:00</string>
+		</dict>
+	</array>
+	<key>transcriptname</key>
+	<string>精灵大战</string>
+</dict>
+</plist>

@@ -40,7 +40,7 @@ NSString *couterpartName[]={
 {
     if (self.chooseTarget!=nil&&self.chooseCouterpartSel!=nil&&[self.chooseTarget respondsToSelector:self.chooseCouterpartSel]) {
     
-        [self.chooseTarget performSelector:self.chooseCouterpartSel withObject:nil];
+        [self.chooseTarget performSelectorInBackground:self.chooseCouterpartSel withObject:nil];
     }
 
 }

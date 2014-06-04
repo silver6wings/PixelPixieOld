@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface PPPassNumberScroll : UIView
--(void)creatPassNumberScroll:(NSDictionary *)passInfo;
+@property (strong, nonatomic)SKScene *scene;
+@property (weak, nonatomic) UIView *view;
+//回调对象
+@property(nonatomic,assign) id target;
+//回调方法
+@property(nonatomic,assign) SEL selector;
+-(void)creatPassNumberScroll:(NSDictionary *)passInfo with:(SKScene *)sceneTmp;
 @end

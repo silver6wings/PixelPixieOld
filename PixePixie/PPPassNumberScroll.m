@@ -9,37 +9,80 @@
 #import "PPPassNumberScroll.h"
 #import "PPCustomButton.h"
 @implementation PPPassNumberScroll
-
+@synthesize scene;
+@synthesize view;
+@synthesize target;
+@synthesize selector;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self creatPassNumberScroll:@{@"a":@"b",@"a":@"b",@"a":@"b",@"a":@"b",@"a":@"b"}];
+       
         // Initialization code
     }
     return self;
 }
--(void)creatPassNumberScroll:(NSDictionary *)passInfo
+-(void)creatPassNumberScroll:(NSDictionary *)passInfo with:(SKScene *)sceneTmp
 {
+    self.scene=sceneTmp;
+    NSArray *passArray=[NSArray arrayWithArray:[passInfo objectForKey:@"transcriptinfo"]];
+    NSInteger passCount=[passArray count];
+    
+    
     UIScrollView *scrollContent=[[UIScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height)];
-    scrollContent.contentSize=CGSizeMake(self.frame.size.width*[passInfo count], self.frame.size.height);
+    NSLog(@"count=%d",passCount);
+    scrollContent.showsHorizontalScrollIndicator=NO;
+    
+    scrollContent.contentSize=CGSizeMake(self.frame.size.width*passCount, self.frame.size.height);
+    scrollContent.contentOffset=CGPointMake(0.0, 0.0);
+    scrollContent.pagingEnabled=YES;
     [self addSubview:scrollContent];
-    for (int i=0; i<[[passInfo allKeys] count]; i++) {
+    
+    
+    for (NSInteger i=0; i<passCount; i++) {
+        
         UIButton  *passBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         [passBtn setFrame:CGRectMake(i*self.frame.size.width,0.0f, 64.0f, 64.0f)];
         passBtn.tag=PP_PASSNUM_CHOOSE_TABLE_TAG+i;
-        
+        [passBtn setBackgroundColor:[UIColor blueColor]];
         [passBtn addTarget:self action:@selector(passBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [passBtn setTitle:[NSString stringWithFormat:@"副本00%d",i] forState:UIControlStateNormal];
+        [passBtn setTitle:[[passArray objectAtIndex:i] objectForKey:@"passname"] forState:UIControlStateNormal];
         [scrollContent addSubview:passBtn];
+        
+        
+        UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(passBtn.frame.origin.x+passBtn.frame.size.width+50, passBtn.frame.origin.y, 120.0f, 120.0f)];
+        [imageView setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[[passArray objectAtIndex:i] objectForKey:@"passimage"] ofType:@"png"]]];
+        [imageView setBackgroundColor:[UIColor greenColor]];
+        [scrollContent addSubview:imageView];
+        
+        UILabel *labelPassText=[[UILabel alloc] initWithFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y+imageView.frame.size.height, 220.0f, 60.0f)];
+        [labelPassText setFont:[UIFont boldSystemFontOfSize:15]];
+        [labelPassText setTextColor:[UIColor whiteColor]];
+        [labelPassText setText:[[passArray objectAtIndex:i] objectForKey:@"passtime"]];
+        [scrollContent addSubview:labelPassText];
+        
+        
     }
     
-    
+    [self addSubview:self.view];
+
 }
--(void)passBtnClick:(PPCustomButton *)sender
+-(SKScene *)scene {
+    if (!scene) scene = [[SKScene alloc]init];
+    return scene;
+}
+
+-(void)passBtnClick:(UIButton *)sender
 {
+    if (self.target!=nil&&self.selector!=nil&&[self.target respondsToSelector:self.selector]) {
+        [self.target performSelectorInBackground:self.selector withObject:[NSNumber numberWithInt:sender.tag]];
+
+    }
+    [self setHidden:YES];
+    [self removeFromSuperview];
     
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

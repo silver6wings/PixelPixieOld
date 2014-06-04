@@ -152,6 +152,7 @@
 		D449CFE0192BB5AB007179B1 /* PPMonsterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFDF192BB5AB007179B1 /* PPMonsterScene.m */; };
 		D449CFE3192BB5FE007179B1 /* PPPacksackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */; };
 		D449CFE6192BB619007179B1 /* PPShopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFE5192BB619007179B1 /* PPShopScene.m */; };
+		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
 		D49664AB192CDF4400E37092 /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D49664AA192CDF4400E37092 /* PPMainScene.m */; };
 		D4A03088193E123600A8A204 /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A03087193E123600A8A204 /* PPMainViewController.m */; };
 		D4B071EB193E258300CA9042 /* PPPassNumberScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B071EA193E258300CA9042 /* PPPassNumberScroll.m */; };
@@ -337,6 +338,7 @@
 		D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPacksackScene.m; sourceTree = "<group>"; };
 		D449CFE4192BB619007179B1 /* PPShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPShopScene.h; sourceTree = "<group>"; };
 		D449CFE5192BB619007179B1 /* PPShopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPShopScene.m; sourceTree = "<group>"; };
+		D4916A16193F636C00662F88 /* PassInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassInfo.plist; sourceTree = "<group>"; };
 		D49664A9192CDF4400E37092 /* PPMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainScene.h; sourceTree = "<group>"; };
 		D49664AA192CDF4400E37092 /* PPMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainScene.m; sourceTree = "<group>"; };
 		D4A03086193E123600A8A204 /* PPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainViewController.h; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 		19F6EDD718C6C65900BFFF9A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D4916A15193F62CF00662F88 /* JsonData */,
 				190BF48D18C6C85C006B0AE6 /* Image */,
 			);
 			name = Resource;
@@ -744,6 +747,15 @@
 				D4A03087193E123600A8A204 /* PPMainViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D4916A15193F62CF00662F88 /* JsonData */ = {
+			isa = PBXGroup;
+			children = (
+				D4916A16193F636C00662F88 /* PassInfo.plist */,
+			);
+			name = JsonData;
+			path = Resource/JsonData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -877,6 +889,7 @@
 				19145E1E1913F472005C6AD4 /* 陷阱0047.png in Resources */,
 				19145DF31913F472005C6AD4 /* 陷阱0004.png in Resources */,
 				19145E021913F472005C6AD4 /* 陷阱0019.png in Resources */,
+				D4916A17193F636C00662F88 /* PassInfo.plist in Resources */,
 				19145E0C1913F472005C6AD4 /* 陷阱0029.png in Resources */,
 				19145E1B1913F472005C6AD4 /* 陷阱0044.png in Resources */,
 				1959D679191515C900865D27 /* 变身效果01016.png in Resources */,
