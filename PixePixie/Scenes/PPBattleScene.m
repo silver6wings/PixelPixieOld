@@ -44,32 +44,44 @@
     
     self.backgroundColor = [UIColor grayColor];
     
+    SKSpriteNode *spriteContent=[SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(100, 400)];
+    spriteContent.name=@"contentSprite";
+    spriteContent.position=CGPointMake(100, 300);
+    [self addChild:spriteContent];
+    
     
     PPCustomButton *sprit1=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.1"];
     sprit1.target=self;
-    sprit1.position=CGPointMake(50, 50);
-    sprit1.selector=@selector(spriteChooseClick);
-    [self addChild:sprit1];
+    sprit1.name=@"sprite1";
+    sprit1.position=CGPointMake(-50, 100);
+    sprit1.selector=@selector(spriteChooseClick:);
+    [spriteContent addChild:sprit1];
+    
     
     PPCustomButton *sprit2=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.2"];
     sprit2.target=self;
-    sprit2.position=CGPointMake(150, 50);
-    sprit2.selector=@selector(spriteChooseClick);
-    [self addChild:sprit2];
+    sprit2.name=@"sprite2";
+    sprit2.position=CGPointMake(sprit1.position.x, 00);
+    sprit2.selector=@selector(spriteChooseClick:);
+    [spriteContent addChild:sprit2];
     
     
     PPCustomButton *sprit3=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.3"];
     sprit3.target=self;
-    sprit3.position=CGPointMake(250, 50);
-    sprit3.selector=@selector(spriteChooseClick);
-    [self addChild:sprit3];
+    sprit3.name=@"sprite3";
+    sprit3.position=CGPointMake(sprit1.position.x, -100);
+    sprit3.selector=@selector(spriteChooseClick:);
+    [spriteContent addChild:sprit3];
 
     
     
 }
--(void)spriteChooseClick
+-(void)spriteChooseClick:(PPCustomButton *)spriteBtn
 {
-
+    
+    SKSpriteNode *spriteTmp=(SKSpriteNode *)[self childNodeWithName:@"contentSprite"];
+    spriteTmp.hidden=YES;
+    
     // 加载开始按钮
     _lbStart = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     _lbStart.name = @"bt_start";
