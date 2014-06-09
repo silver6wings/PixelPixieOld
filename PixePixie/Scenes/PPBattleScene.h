@@ -8,6 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface PPBattleScene : SKScene
+@interface PPBattleScene : PPBasicScene
 
 @end

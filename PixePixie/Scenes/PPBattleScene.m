@@ -103,11 +103,11 @@
     [self addChild:enemyPixie];
 
     // 预加载变身动画
-    _pixieAnimation = [NSMutableArray array];
+    self.pixieAnimation = [[NSMutableArray alloc] init];
     for (int i=1; i <= 43; i++) {
         NSString *textureName = [NSString stringWithFormat:@"变身效果01%03d.png", i];
         SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
-        [_pixieAnimation addObject:temp];
+        [self.pixieAnimation addObject:temp];
     }
 
     SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
@@ -140,7 +140,7 @@
         
         [_playerPixie runAction:
          [SKAction sequence:@[
-            [SKAction animateWithTextures:_pixieAnimation timePerFrame:0.02f],
+            [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f],
             [SKAction runBlock:^{
              // 初始化 ballScene
              PPPixie * playerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:2];             

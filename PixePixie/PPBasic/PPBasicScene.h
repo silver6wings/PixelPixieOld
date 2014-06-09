@@ -7,7 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-
+#import "Configuration.h"
+#import "PPModels.h"
 @interface PPBasicScene : SKScene
 
 @end

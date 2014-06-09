@@ -1,5 +1,6 @@
 
 #import "PPBallScene.h"
+#import "PPPixie.h"
 
 #define SPACE_BOTTOM 60
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
@@ -18,10 +19,10 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 @property (nonatomic) NSMutableArray * ballsElement;
 @property (nonatomic) NSMutableArray * trapFrames;
 
-@property (nonatomic) SKSpriteNode * barPlayerHP;
-@property (nonatomic) SKSpriteNode * barPlayerMP;
-@property (nonatomic) SKSpriteNode * barEnemyHP;
-@property (nonatomic) SKSpriteNode * barEnemyMP;
+@property (nonatomic) PPHPSpriteNode * barPlayerHP;
+@property (nonatomic) PPHPSpriteNode * barPlayerMP;
+@property (nonatomic) PPHPSpriteNode * barEnemyHP;
+@property (nonatomic) PPHPSpriteNode * barEnemyMP;
 @property (nonatomic) SKSpriteNode * btSkill;
 
 @property (nonatomic) BOOL isTrapEnable;
@@ -29,7 +30,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 @end
 
 @implementation PPBallScene
-
+@synthesize barPlayerHP;
+@synthesize barEnemyHP;
 -(id)initWithSize:(CGSize)size
            PixieA:(PPPixie *)pixieA
            PixieB:(PPPixie *)pixieB{
@@ -57,7 +59,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addChild:_btSkill];
         
         // demo 预加载 动画 frames
-        _trapFrames = [NSMutableArray array];
+        _trapFrames = [[NSMutableArray alloc] init];
         for (int i=1; i <= 40; i++) {
             NSString * textureName = [NSString stringWithFormat:@"陷阱%04d.png", i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
@@ -79,15 +81,15 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         
         // 添加 HP bar
-        _barPlayerHP = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
-        _barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
-        _barPlayerHP.position = CGPointMake(playerPortrait.frame.origin.x, playerPortrait.frame.origin.y+_barPlayerHP.frame.size.height+playerPortrait.frame.size.height);
-        [self addChild:_barPlayerHP];
+        self.barPlayerHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
+        self.barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
+        self.barPlayerHP.position = CGPointMake(playerPortrait.frame.origin.x, playerPortrait.frame.origin.y+self.barPlayerHP.frame.size.height+playerPortrait.frame.size.height);
+        [self addChild:self.barPlayerHP];
         
-        _barEnemyHP = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
-        _barEnemyHP.anchorPoint = CGPointMake(0, 0.5);
-        _barEnemyHP.position = CGPointMake(enemyPortrait.frame.origin.x+enemyPortrait.frame.size.width+10.0f, CGRectGetMaxY(self.frame) - 20);
-        [self addChild:_barEnemyHP];
+        self.barEnemyHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
+        self.barEnemyHP.anchorPoint = CGPointMake(0, 0.5);
+        self.barEnemyHP.position = CGPointMake(enemyPortrait.frame.origin.x+enemyPortrait.frame.size.width+10.0f, CGRectGetMaxY(self.frame) - 20);
+        [self addChild:self.barEnemyHP];
         
 //        // 添加 MP bar
 //        _barPlayerMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
@@ -124,7 +126,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addChild:_ballEnemy];
         
         // 添加 Balls of Element
-        _ballsElement = [NSMutableArray arrayWithObjects:nil];
+        self.ballsElement = [[NSMutableArray alloc] init];
         
         for (int i = 0; i < 5; i++) {
             PPBall * tBall = [PPBall ballWithElement:i + 1];
@@ -132,7 +134,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             tBall.physicsBody.categoryBitMask = kBallCategory;
             tBall.physicsBody.contactTestBitMask = kBallCategory;
             [self addChild:tBall];
-            [_ballsElement addObject:tBall];
+            [self.ballsElement addObject:tBall];
         }
         [self addRandomBalls:5];
         
@@ -166,7 +168,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if ([[touchedNode name] isEqualToString:@"bt_skill"]) {
         _isTrapEnable = YES;
         
-        for (PPBall * tBall in _ballsElement) {
+        for (PPBall * tBall in self.ballsElement) {
             if ([tBall.name isEqualToString:@"ball_plant"]) {
                 [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
             }
@@ -209,13 +211,23 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         _isBallRolling = NO;
         
         // 添加少了的球
-        [self addRandomBalls:(kBallNumberMax - (int)_ballsElement.count)];
+        [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
         
         // 刷新技能
         _isTrapEnable = NO;
-        for (PPBall * tBall in _ballsElement) {
+        for (PPBall * tBall in self.ballsElement) {
             [tBall setToDefaultTexture];
         }
+        
+        
+        PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
+        skillNode.delegate=self;
+        skillNode.position=CGPointMake(0.0f, 300.0f);
+        [self addChild:skillNode];
+        
+        [skillNode showSkillAnimate];
+        
+        
     }
 }
 
@@ -242,8 +254,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     if (kElementInhibition[attack][defend] > 1.0f) {
         [hittedBall.node removeFromParent];
-        [_ballsElement removeObject:hittedBall.node];
-        NSLog(@"%lu", (unsigned long)_ballsElement.count);
+        [self.ballsElement removeObject:hittedBall.node];
+        NSLog(@"%lu", (unsigned long)self.ballsElement.count);
     }
     
     /*
@@ -286,7 +298,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         tBall.physicsBody.categoryBitMask = kBallCategory;
         tBall.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:tBall];
-        [_ballsElement addObject:tBall];
+        [self.ballsElement addObject:tBall];
     }
 }
 
@@ -299,7 +311,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if (vectorLength(_ballEnemy.physicsBody.velocity) > 0) {
         return NO;
     }
-    for (PPBall * tBall in _ballsElement) {
+    for (PPBall * tBall in self.ballsElement) {
         if (vectorLength(tBall.physicsBody.velocity) > 0) {
             return NO;
         }
@@ -318,5 +330,13 @@ CGFloat distanceBetweenPoints (CGPoint first, CGPoint second) {
 CGFloat vectorLength (CGVector vector) {
     return sqrt( vector.dx * vector.dx + vector.dy * vector.dy );
 };
+
+#pragma mark SkillEndAnimateDelegate
+-(void)skillEndEvent:(PPSkillInfo *)skillInfo
+{
+    
+    [self.barEnemyHP HPChangeWith:skillInfo.HPChangeValue];
+    [self.barPlayerHP HPChangeWith:skillInfo.HPChangeValue];
+}
 
 @end
