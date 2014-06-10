@@ -18,6 +18,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 @property (nonatomic) PPBall * ballEnemy;
 @property (nonatomic) NSMutableArray * ballsElement;
 @property (nonatomic) NSMutableArray * trapFrames;
+@property (nonatomic,retain) PPBattleSideNode *playerSide;
+@property (nonatomic,retain) PPBattleSideNode *enemySide;
 
 @property (nonatomic) PPHPSpriteNode * barPlayerHP;
 @property (nonatomic) PPHPSpriteNode * barPlayerMP;
@@ -67,40 +69,49 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         }
         
         
-        // demo 添加头像
-        SKSpriteNode * playerPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant2.png"];
-        playerPortrait.size = CGSizeMake(30, 30);
-        playerPortrait.position = CGPointMake(30, 20);
-        [self addChild:playerPortrait];
+//        // demo 添加头像
+//        SKSpriteNode * playerPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant2.png"];
+//        playerPortrait.size = CGSizeMake(30, 30);
+//        playerPortrait.position = CGPointMake(30, 20);
+//        [self addChild:playerPortrait];
+//        
+//        
+//        SKSpriteNode * enemyPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant3.png"];
+//        enemyPortrait.size = CGSizeMake(30, 30);
+//        enemyPortrait.position = CGPointMake(30, 541);
+//        [self addChild:enemyPortrait];
+        
+       
         
         
-        SKSpriteNode * enemyPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant3.png"];
-        enemyPortrait.size = CGSizeMake(30, 30);
-        enemyPortrait.position = CGPointMake(30, 541);
-        [self addChild:enemyPortrait];
+       self.playerSide=[[PPBattleSideNode alloc] init];
+        self.playerSide.position= CGPointMake(30, 30);
+        self.playerSide.size =  CGSizeMake(CurrentDeviceRealSize.width, 60);
+        [self.playerSide setColor:[UIColor blueColor]];
+        [self.playerSide setSideElements:pixieA];
+        [self addChild:self.playerSide];
+
+        
+        self.enemySide=[[PPBattleSideNode alloc] init];
+        [self.enemySide setColor:[UIColor purpleColor]];
+        self.enemySide.position= CGPointMake(30, 541);
+        self.enemySide.size = CGSizeMake(CurrentDeviceRealSize.width, 60);
+        [self.enemySide setSideElements:pixieB];
+        [self addChild:self.enemySide];
+        
         
         
         // 添加 HP bar
-        self.barPlayerHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
-        self.barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
-        self.barPlayerHP.position = CGPointMake(playerPortrait.frame.origin.x, playerPortrait.frame.origin.y+self.barPlayerHP.frame.size.height+playerPortrait.frame.size.height);
-        [self addChild:self.barPlayerHP];
+//        self.barPlayerHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
+//        self.barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
+//        self.barPlayerHP.position = CGPointMake(playerPortrait.frame.origin.x, playerPortrait.frame.origin.y+self.barPlayerHP.frame.size.height+playerPortrait.frame.size.height);
+//        [self addChild:self.barPlayerHP];
         
-        self.barEnemyHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
-        self.barEnemyHP.anchorPoint = CGPointMake(0, 0.5);
-        self.barEnemyHP.position = CGPointMake(enemyPortrait.frame.origin.x+enemyPortrait.frame.size.width+10.0f, CGRectGetMaxY(self.frame) - 20);
-        [self addChild:self.barEnemyHP];
+//        self.barEnemyHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
+//        self.barEnemyHP.anchorPoint = CGPointMake(0, 0.5);
+//        self.barEnemyHP.position = CGPointMake(enemyPortrait.frame.origin.x+enemyPortrait.frame.size.width+10.0f, CGRectGetMaxY(self.frame) - 20);
+//        [self addChild:self.barEnemyHP];
         
-//        // 添加 MP bar
-//        _barPlayerMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
-//        _barPlayerMP.anchorPoint = CGPointMake(1, 0.5);
-//        _barPlayerMP.position = CGPointMake(CGRectGetMidX(self.frame) - 10, CGRectGetMaxY(self.frame) - 35);
-//        [self addChild:_barPlayerMP];
-        
-//        _barEnemyMP = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(75, 10)];
-//        _barEnemyMP.anchorPoint = CGPointMake(0, 0.5);
-//        _barEnemyMP.position = CGPointMake(CGRectGetMidX(self.frame) + 10, CGRectGetMaxY(self.frame) - 35);
-//        [self addChild:_barEnemyMP];
         
         // 添加 Walls
         CGFloat tWidth = 320;
@@ -334,9 +345,9 @@ CGFloat vectorLength (CGVector vector) {
 #pragma mark SkillEndAnimateDelegate
 -(void)skillEndEvent:(PPSkillInfo *)skillInfo
 {
-    
-    [self.barEnemyHP HPChangeWith:skillInfo.HPChangeValue];
-    [self.barPlayerHP HPChangeWith:skillInfo.HPChangeValue];
+    [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+    [self.enemySide changeHPValue:skillInfo.HPChangeValue];
+ 
 }
 
 @end

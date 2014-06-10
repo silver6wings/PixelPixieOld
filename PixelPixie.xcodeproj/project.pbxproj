@@ -126,10 +126,8 @@
 		1959D69619152E9700865D27 /* skill_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D69519152E9700865D27 /* skill_plant.png */; };
 		19C930B418EC260C001B4358 /* PPBuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C930B318EC260C001B4358 /* PPBuff.m */; };
 		19CBA8BD1907C6D400A249AB /* PPBallScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8BC1907C6D400A249AB /* PPBallScene.m */; };
-		19CBA8C01907C6FD00A249AB /* PPBallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8BF1907C6FD00A249AB /* PPBallViewController.m */; };
 		19CBA8C31907C77600A249AB /* PPBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C21907C77600A249AB /* PPBall.m */; };
 		19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C51907C7D000A249AB /* PPPlayer.m */; };
-		19CBA8C91907C91E00A249AB /* PPPixie.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C81907C91E00A249AB /* PPPixie.m */; };
 		19F6ED9C18C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
 		19F6ED9E18C6C09900BFFF9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */; };
 		19F6EDA018C6C09900BFFF9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9F18C6C09900BFFF9A /* UIKit.framework */; };
@@ -137,28 +135,27 @@
 		19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */; };
 		19F6EDAA18C6C09900BFFF9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDA918C6C09900BFFF9A /* main.m */; };
 		19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDBA18C6C09900BFFF9A /* Images.xcassets */; };
-		A591A21818CEF36B00219E86 /* PPReversibleAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */; };
-		A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */; };
-		A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C318CBFE8F00D3E50B /* iCarousel.m */; };
-		A5B786C918CC021200D3E50B /* PPCoverflow.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B786C818CC021200D3E50B /* PPCoverflow.m */; };
-		D413CB5E1945FB44004B4FDE /* PPSkillNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D413CB5D1945FB44004B4FDE /* PPSkillNode.m */; };
 		D413CB611945FF62004B4FDE /* PPSkillInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D413CB601945FF62004B4FDE /* PPSkillInfo.m */; };
 		D413CB6419460561004B4FDE /* PPBasicSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D413CB6319460561004B4FDE /* PPBasicSpriteNode.m */; };
 		D42F8F18192E3925001374AB /* PPCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D42F8F17192E3925001374AB /* PPCustomButton.m */; };
 		D42F8F1B192E3F9D001374AB /* PPSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D42F8F1A192E3F9D001374AB /* PPSceneManager.m */; };
-		D449CFCE192BB1D1007179B1 /* PPTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFCD192BB1D1007179B1 /* PPTableView.m */; };
+		D43F421B1947548F00B19F2F /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42121947548F00B19F2F /* PPMainScene.m */; };
+		D43F421C1947548F00B19F2F /* PPMonsterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42141947548F00B19F2F /* PPMonsterScene.m */; };
+		D43F421D1947548F00B19F2F /* PPPacksackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42161947548F00B19F2F /* PPPacksackScene.m */; };
+		D43F421E1947548F00B19F2F /* PPSettingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42181947548F00B19F2F /* PPSettingScene.m */; };
+		D43F421F1947548F00B19F2F /* PPShopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F421A1947548F00B19F2F /* PPShopScene.m */; };
+		D43F4223194754D500B19F2F /* PPBattleSideNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F4222194754D500B19F2F /* PPBattleSideNode.m */; };
+		D43F422A194755C100B19F2F /* PPHPSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F4225194755C100B19F2F /* PPHPSpriteNode.m */; };
+		D43F422B194755C100B19F2F /* PPPixie.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F4227194755C100B19F2F /* PPPixie.m */; };
+		D43F422C194755C100B19F2F /* PPSkillNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F4229194755C100B19F2F /* PPSkillNode.m */; };
+		D43F423E1947562A00B19F2F /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42371947562A00B19F2F /* PPMainViewController.m */; };
+		D43F423F1947562A00B19F2F /* PPCoverflow.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F423A1947562A00B19F2F /* PPCoverflow.m */; };
+		D43F42401947562A00B19F2F /* PPPassNumberScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F423C1947562A00B19F2F /* PPPassNumberScroll.m */; };
+		D43F42451947566300B19F2F /* PPTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42431947566300B19F2F /* PPTableView.m */; };
 		D449CFD7192BB278007179B1 /* PPBasicScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD4192BB278007179B1 /* PPBasicScene.m */; };
 		D449CFD8192BB278007179B1 /* PPBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD6192BB278007179B1 /* PPBasicViewController.m */; };
 		D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD9192BB296007179B1 /* PPAppDelegate.m */; };
-		D449CFDD192BB2F5007179B1 /* PPSettingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFDC192BB2F5007179B1 /* PPSettingScene.m */; };
-		D449CFE0192BB5AB007179B1 /* PPMonsterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFDF192BB5AB007179B1 /* PPMonsterScene.m */; };
-		D449CFE3192BB5FE007179B1 /* PPPacksackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */; };
-		D449CFE6192BB619007179B1 /* PPShopScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFE5192BB619007179B1 /* PPShopScene.m */; };
 		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
-		D49664AB192CDF4400E37092 /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D49664AA192CDF4400E37092 /* PPMainScene.m */; };
-		D4A03088193E123600A8A204 /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A03087193E123600A8A204 /* PPMainViewController.m */; };
-		D4B071EB193E258300CA9042 /* PPPassNumberScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B071EA193E258300CA9042 /* PPPassNumberScroll.m */; };
-		D4FE800C19460ED20080CE88 /* PPHPSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE800B19460ED20080CE88 /* PPHPSpriteNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,8 +234,8 @@
 		193C25E01913F00400E2C1BA /* Cirrus0005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cirrus0005.png; sourceTree = "<group>"; };
 		194E6AC6190A01130098F599 /* ConstantData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantData.h; path = Configurations/ConstantData.h; sourceTree = "<group>"; };
 		194E6AC7190A01130098F599 /* ConstantData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConstantData.m; path = Configurations/ConstantData.m; sourceTree = "<group>"; };
-		1959D5F11914E05300865D27 /* PPBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBattleScene.h; path = Scenes/PPBattleScene.h; sourceTree = "<group>"; };
-		1959D5F21914E05300865D27 /* PPBattleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBattleScene.m; path = Scenes/PPBattleScene.m; sourceTree = "<group>"; };
+		1959D5F11914E05300865D27 /* PPBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBattleScene.h; sourceTree = "<group>"; };
+		1959D5F21914E05300865D27 /* PPBattleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBattleScene.m; sourceTree = "<group>"; };
 		1959D63D191515C900865D27 /* 变身效果01000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01000.png"; sourceTree = "<group>"; };
 		1959D63E191515C900865D27 /* 变身效果01001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01001.png"; sourceTree = "<group>"; };
 		1959D63F191515C900865D27 /* 变身效果01002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01002.png"; sourceTree = "<group>"; };
@@ -287,16 +284,12 @@
 		19906B8E18CB061D00C05BA3 /* Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Configuration.h; path = Configurations/Configuration.h; sourceTree = "<group>"; };
 		19C930B218EC260C001B4358 /* PPBuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBuff.h; path = Models/PPBuff.h; sourceTree = "<group>"; };
 		19C930B318EC260C001B4358 /* PPBuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBuff.m; path = Models/PPBuff.m; sourceTree = "<group>"; };
-		19CBA8BB1907C6D400A249AB /* PPBallScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBallScene.h; path = Scenes/PPBallScene.h; sourceTree = "<group>"; };
-		19CBA8BC1907C6D400A249AB /* PPBallScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBallScene.m; path = Scenes/PPBallScene.m; sourceTree = "<group>"; };
-		19CBA8BE1907C6FD00A249AB /* PPBallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBallViewController.h; path = Controllers/PPBallViewController.h; sourceTree = "<group>"; };
-		19CBA8BF1907C6FD00A249AB /* PPBallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBallViewController.m; path = Controllers/PPBallViewController.m; sourceTree = "<group>"; };
+		19CBA8BB1907C6D400A249AB /* PPBallScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBallScene.h; sourceTree = "<group>"; };
+		19CBA8BC1907C6D400A249AB /* PPBallScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBallScene.m; sourceTree = "<group>"; };
 		19CBA8C11907C77600A249AB /* PPBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBall.h; path = Models/PPBall.h; sourceTree = "<group>"; };
 		19CBA8C21907C77600A249AB /* PPBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBall.m; path = Models/PPBall.m; sourceTree = "<group>"; };
 		19CBA8C41907C7D000A249AB /* PPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPlayer.h; path = Models/PPPlayer.h; sourceTree = "<group>"; };
 		19CBA8C51907C7D000A249AB /* PPPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPlayer.m; path = Models/PPPlayer.m; sourceTree = "<group>"; };
-		19CBA8C71907C91E00A249AB /* PPPixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPixie.h; path = Models/PPPixie.h; sourceTree = "<group>"; };
-		19CBA8C81907C91E00A249AB /* PPPixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPixie.m; path = Models/PPPixie.m; sourceTree = "<group>"; };
 		19F6ED9818C6C09900BFFF9A /* PixelPixie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPixie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F6ED9B18C6C09900BFFF9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		19F6ED9D18C6C09900BFFF9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -306,22 +299,10 @@
 		19F6EDA718C6C09900BFFF9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		19F6EDA918C6C09900BFFF9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19F6EDAB18C6C09900BFFF9A /* PixelPixie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixelPixie-Prefix.pch"; sourceTree = "<group>"; };
-		19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
-		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PPAppDelegate.h; path = PixePixie/PPAppDelegate.h; sourceTree = "<group>"; };
+		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PixePixie/Images.xcassets; sourceTree = "<group>"; };
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		A50D271418DA8B2600641430 /* PPControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPControllers.h; sourceTree = "<group>"; };
 		A50D277618DAC19200641430 /* PPScenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPScenes.h; sourceTree = "<group>"; };
-		A591A21618CEF36B00219E86 /* PPReversibleAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPReversibleAnimationController.h; path = animation/PPReversibleAnimationController.h; sourceTree = "<group>"; };
-		A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPReversibleAnimationController.m; path = animation/PPReversibleAnimationController.m; sourceTree = "<group>"; };
-		A591A21918CEF64200219E86 /* PPPortalAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPortalAnimationController.h; path = animation/PPPortalAnimationController.h; sourceTree = "<group>"; };
-		A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPortalAnimationController.m; path = animation/PPPortalAnimationController.m; sourceTree = "<group>"; };
-		A5B786C218CBFE8F00D3E50B /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = iCarousel/iCarousel.h; sourceTree = "<group>"; };
-		A5B786C318CBFE8F00D3E50B /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
-		A5B786C618CC01A500D3E50B /* PPViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPViews.h; sourceTree = "<group>"; };
-		A5B786C718CC021200D3E50B /* PPCoverflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPCoverflow.h; sourceTree = "<group>"; };
-		A5B786C818CC021200D3E50B /* PPCoverflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPCoverflow.m; sourceTree = "<group>"; };
-		D413CB5C1945FB44004B4FDE /* PPSkillNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSkillNode.h; path = Models/PPSkillNode.h; sourceTree = "<group>"; };
-		D413CB5D1945FB44004B4FDE /* PPSkillNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkillNode.m; path = Models/PPSkillNode.m; sourceTree = "<group>"; };
 		D413CB5F1945FF62004B4FDE /* PPSkillInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSkillInfo.h; path = Models/PPSkillInfo.h; sourceTree = "<group>"; };
 		D413CB601945FF62004B4FDE /* PPSkillInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkillInfo.m; path = Models/PPSkillInfo.m; sourceTree = "<group>"; };
 		D413CB6219460561004B4FDE /* PPBasicSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBasicSpriteNode.h; sourceTree = "<group>"; };
@@ -330,30 +311,40 @@
 		D42F8F17192E3925001374AB /* PPCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPCustomButton.m; sourceTree = "<group>"; };
 		D42F8F19192E3F9D001374AB /* PPSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSceneManager.h; sourceTree = "<group>"; };
 		D42F8F1A192E3F9D001374AB /* PPSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSceneManager.m; sourceTree = "<group>"; };
-		D449CFCC192BB1D1007179B1 /* PPTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTableView.h; sourceTree = "<group>"; };
-		D449CFCD192BB1D1007179B1 /* PPTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPTableView.m; sourceTree = "<group>"; };
+		D43F42111947548F00B19F2F /* PPMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainScene.h; sourceTree = "<group>"; };
+		D43F42121947548F00B19F2F /* PPMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainScene.m; sourceTree = "<group>"; };
+		D43F42131947548F00B19F2F /* PPMonsterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMonsterScene.h; sourceTree = "<group>"; };
+		D43F42141947548F00B19F2F /* PPMonsterScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMonsterScene.m; sourceTree = "<group>"; };
+		D43F42151947548F00B19F2F /* PPPacksackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPacksackScene.h; sourceTree = "<group>"; };
+		D43F42161947548F00B19F2F /* PPPacksackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPacksackScene.m; sourceTree = "<group>"; };
+		D43F42171947548F00B19F2F /* PPSettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSettingScene.h; sourceTree = "<group>"; };
+		D43F42181947548F00B19F2F /* PPSettingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSettingScene.m; sourceTree = "<group>"; };
+		D43F42191947548F00B19F2F /* PPShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPShopScene.h; sourceTree = "<group>"; };
+		D43F421A1947548F00B19F2F /* PPShopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPShopScene.m; sourceTree = "<group>"; };
+		D43F4221194754D500B19F2F /* PPBattleSideNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBattleSideNode.h; sourceTree = "<group>"; };
+		D43F4222194754D500B19F2F /* PPBattleSideNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBattleSideNode.m; sourceTree = "<group>"; };
+		D43F4224194755C100B19F2F /* PPHPSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHPSpriteNode.h; sourceTree = "<group>"; };
+		D43F4225194755C100B19F2F /* PPHPSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHPSpriteNode.m; sourceTree = "<group>"; };
+		D43F4226194755C100B19F2F /* PPPixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPixie.h; sourceTree = "<group>"; };
+		D43F4227194755C100B19F2F /* PPPixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPixie.m; sourceTree = "<group>"; };
+		D43F4228194755C100B19F2F /* PPSkillNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSkillNode.h; sourceTree = "<group>"; };
+		D43F4229194755C100B19F2F /* PPSkillNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSkillNode.m; sourceTree = "<group>"; };
+		D43F42361947562A00B19F2F /* PPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainViewController.h; sourceTree = "<group>"; };
+		D43F42371947562A00B19F2F /* PPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainViewController.m; sourceTree = "<group>"; };
+		D43F42391947562A00B19F2F /* PPCoverflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPCoverflow.h; sourceTree = "<group>"; };
+		D43F423A1947562A00B19F2F /* PPCoverflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPCoverflow.m; sourceTree = "<group>"; };
+		D43F423B1947562A00B19F2F /* PPPassNumberScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPassNumberScroll.h; sourceTree = "<group>"; };
+		D43F423C1947562A00B19F2F /* PPPassNumberScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPassNumberScroll.m; sourceTree = "<group>"; };
+		D43F423D1947562A00B19F2F /* PPViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPViews.h; sourceTree = "<group>"; };
+		D43F42421947566300B19F2F /* PPTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTableView.h; sourceTree = "<group>"; };
+		D43F42431947566300B19F2F /* PPTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPTableView.m; sourceTree = "<group>"; };
+		D43F42441947566300B19F2F /* PPControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPControllers.h; sourceTree = "<group>"; };
 		D449CFD3192BB278007179B1 /* PPBasicScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBasicScene.h; sourceTree = "<group>"; };
 		D449CFD4192BB278007179B1 /* PPBasicScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBasicScene.m; sourceTree = "<group>"; };
 		D449CFD5192BB278007179B1 /* PPBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBasicViewController.h; sourceTree = "<group>"; };
 		D449CFD6192BB278007179B1 /* PPBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBasicViewController.m; sourceTree = "<group>"; };
-		D449CFD9192BB296007179B1 /* PPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAppDelegate.m; sourceTree = "<group>"; };
-		D449CFDB192BB2F5007179B1 /* PPSettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSettingScene.h; sourceTree = "<group>"; };
-		D449CFDC192BB2F5007179B1 /* PPSettingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSettingScene.m; sourceTree = "<group>"; };
-		D449CFDE192BB5AB007179B1 /* PPMonsterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMonsterScene.h; sourceTree = "<group>"; };
-		D449CFDF192BB5AB007179B1 /* PPMonsterScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMonsterScene.m; sourceTree = "<group>"; };
-		D449CFE1192BB5FE007179B1 /* PPPacksackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPacksackScene.h; sourceTree = "<group>"; };
-		D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPacksackScene.m; sourceTree = "<group>"; };
-		D449CFE4192BB619007179B1 /* PPShopScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPShopScene.h; sourceTree = "<group>"; };
-		D449CFE5192BB619007179B1 /* PPShopScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPShopScene.m; sourceTree = "<group>"; };
+		D449CFD9192BB296007179B1 /* PPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPAppDelegate.m; path = PixePixie/PPAppDelegate.m; sourceTree = "<group>"; };
 		D4916A16193F636C00662F88 /* PassInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassInfo.plist; sourceTree = "<group>"; };
-		D49664A9192CDF4400E37092 /* PPMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainScene.h; sourceTree = "<group>"; };
-		D49664AA192CDF4400E37092 /* PPMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainScene.m; sourceTree = "<group>"; };
-		D4A03086193E123600A8A204 /* PPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainViewController.h; sourceTree = "<group>"; };
-		D4A03087193E123600A8A204 /* PPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainViewController.m; sourceTree = "<group>"; };
-		D4B071E9193E258300CA9042 /* PPPassNumberScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPassNumberScroll.h; sourceTree = "<group>"; };
-		D4B071EA193E258300CA9042 /* PPPassNumberScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPassNumberScroll.m; sourceTree = "<group>"; };
-		D4FE800A19460ED20080CE88 /* PPHPSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPHPSpriteNode.h; path = Models/PPHPSpriteNode.h; sourceTree = "<group>"; };
-		D4FE800B19460ED20080CE88 /* PPHPSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPHPSpriteNode.m; path = Models/PPHPSpriteNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,22 +479,14 @@
 				192C54D019096744007FA656 /* PPModels.h */,
 				19CBA8C41907C7D000A249AB /* PPPlayer.h */,
 				19CBA8C51907C7D000A249AB /* PPPlayer.m */,
-				19CBA8C71907C91E00A249AB /* PPPixie.h */,
-				19CBA8C81907C91E00A249AB /* PPPixie.m */,
 				1917DFF518C8551300E54F02 /* PPElement.h */,
 				1917DFF618C8551300E54F02 /* PPElement.m */,
-				D413CB5C1945FB44004B4FDE /* PPSkillNode.h */,
-				D413CB5D1945FB44004B4FDE /* PPSkillNode.m */,
-				D4FE800A19460ED20080CE88 /* PPHPSpriteNode.h */,
-				D4FE800B19460ED20080CE88 /* PPHPSpriteNode.m */,
 				D413CB5F1945FF62004B4FDE /* PPSkillInfo.h */,
 				D413CB601945FF62004B4FDE /* PPSkillInfo.m */,
 				19C930B218EC260C001B4358 /* PPBuff.h */,
 				19C930B318EC260C001B4358 /* PPBuff.m */,
 				19CBA8C11907C77600A249AB /* PPBall.h */,
 				19CBA8C21907C77600A249AB /* PPBall.m */,
-				D4B071E9193E258300CA9042 /* PPPassNumberScroll.h */,
-				D4B071EA193E258300CA9042 /* PPPassNumberScroll.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -585,29 +568,6 @@
 			name = Configurations;
 			sourceTree = "<group>";
 		};
-		19CBA8B71907C24500A249AB /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				19CBA8BE1907C6FD00A249AB /* PPBallViewController.h */,
-				19CBA8BF1907C6FD00A249AB /* PPBallViewController.m */,
-				D49664A9192CDF4400E37092 /* PPMainScene.h */,
-				D49664AA192CDF4400E37092 /* PPMainScene.m */,
-				1959D5F11914E05300865D27 /* PPBattleScene.h */,
-				1959D5F21914E05300865D27 /* PPBattleScene.m */,
-				19CBA8BB1907C6D400A249AB /* PPBallScene.h */,
-				19CBA8BC1907C6D400A249AB /* PPBallScene.m */,
-				D449CFDB192BB2F5007179B1 /* PPSettingScene.h */,
-				D449CFDC192BB2F5007179B1 /* PPSettingScene.m */,
-				D449CFDE192BB5AB007179B1 /* PPMonsterScene.h */,
-				D449CFDF192BB5AB007179B1 /* PPMonsterScene.m */,
-				D449CFE1192BB5FE007179B1 /* PPPacksackScene.h */,
-				D449CFE2192BB5FE007179B1 /* PPPacksackScene.m */,
-				D449CFE4192BB619007179B1 /* PPShopScene.h */,
-				D449CFE5192BB619007179B1 /* PPShopScene.m */,
-			);
-			name = Demo;
-			sourceTree = "<group>";
-		};
 		19CBA8CA1907C98000A249AB /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +582,9 @@
 		19F6ED8F18C6C09900BFFF9A = {
 			isa = PBXGroup;
 			children = (
+				19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */,
+				D449CFD9192BB296007179B1 /* PPAppDelegate.m */,
+				D43F42351947562A00B19F2F /* ViewsAndControllers */,
 				19F6EDA318C6C09900BFFF9A /* PixePixie */,
 				19F6EDD718C6C65900BFFF9A /* Resource */,
 				19F6ED9A18C6C09900BFFF9A /* Frameworks */,
@@ -652,18 +615,11 @@
 		19F6EDA318C6C09900BFFF9A /* PixePixie */ = {
 			isa = PBXGroup;
 			children = (
-				19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */,
-				D449CFD9192BB296007179B1 /* PPAppDelegate.m */,
+				D43F4220194754D500B19F2F /* spriteNodes */,
 				D449CFD2192BB278007179B1 /* PPBasic */,
-				D4879ED7192A5459003E8D50 /* ViewControllers */,
 				19906B8918CB039400C05BA3 /* Configurations */,
-				A50D271318DA8B2600641430 /* Controllers */,
 				1917DFF418C8545200E54F02 /* Models */,
-				A5B786C518CC01A500D3E50B /* Views */,
 				A50D277518DAC19200641430 /* Scenes */,
-				19CBA8B71907C24500A249AB /* Demo */,
-				A5B786C118CBFE5A00D3E50B /* Library */,
-				19F6EDBA18C6C09900BFFF9A /* Images.xcassets */,
 				19F6EDA418C6C09900BFFF9A /* Supporting Files */,
 			);
 			path = PixePixie;
@@ -683,59 +639,82 @@
 		19F6EDD718C6C65900BFFF9A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				19F6EDBA18C6C09900BFFF9A /* Images.xcassets */,
 				D4916A15193F62CF00662F88 /* JsonData */,
 				190BF48D18C6C85C006B0AE6 /* Image */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		A50D271318DA8B2600641430 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A50D272918DA980000641430 /* MenuControllers */,
-				A50D271418DA8B2600641430 /* PPControllers.h */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		A50D272918DA980000641430 /* MenuControllers */ = {
-			isa = PBXGroup;
-			children = (
-				D449CFCC192BB1D1007179B1 /* PPTableView.h */,
-				D449CFCD192BB1D1007179B1 /* PPTableView.m */,
-			);
-			path = MenuControllers;
-			sourceTree = "<group>";
-		};
 		A50D277518DAC19200641430 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1959D5F11914E05300865D27 /* PPBattleScene.h */,
+				1959D5F21914E05300865D27 /* PPBattleScene.m */,
+				19CBA8BB1907C6D400A249AB /* PPBallScene.h */,
+				19CBA8BC1907C6D400A249AB /* PPBallScene.m */,
+				D43F42111947548F00B19F2F /* PPMainScene.h */,
+				D43F42121947548F00B19F2F /* PPMainScene.m */,
+				D43F42131947548F00B19F2F /* PPMonsterScene.h */,
+				D43F42141947548F00B19F2F /* PPMonsterScene.m */,
+				D43F42151947548F00B19F2F /* PPPacksackScene.h */,
+				D43F42161947548F00B19F2F /* PPPacksackScene.m */,
+				D43F42171947548F00B19F2F /* PPSettingScene.h */,
+				D43F42181947548F00B19F2F /* PPSettingScene.m */,
+				D43F42191947548F00B19F2F /* PPShopScene.h */,
+				D43F421A1947548F00B19F2F /* PPShopScene.m */,
 				A50D277618DAC19200641430 /* PPScenes.h */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		A5B786C118CBFE5A00D3E50B /* Library */ = {
+		D43F4220194754D500B19F2F /* spriteNodes */ = {
 			isa = PBXGroup;
 			children = (
-				A5B786C218CBFE8F00D3E50B /* iCarousel.h */,
-				A5B786C318CBFE8F00D3E50B /* iCarousel.m */,
-				A591A21618CEF36B00219E86 /* PPReversibleAnimationController.h */,
-				A591A21718CEF36B00219E86 /* PPReversibleAnimationController.m */,
-				A591A21918CEF64200219E86 /* PPPortalAnimationController.h */,
-				A591A21A18CEF64200219E86 /* PPPortalAnimationController.m */,
+				D43F4224194755C100B19F2F /* PPHPSpriteNode.h */,
+				D43F4225194755C100B19F2F /* PPHPSpriteNode.m */,
+				D43F4226194755C100B19F2F /* PPPixie.h */,
+				D43F4227194755C100B19F2F /* PPPixie.m */,
+				D43F4228194755C100B19F2F /* PPSkillNode.h */,
+				D43F4229194755C100B19F2F /* PPSkillNode.m */,
+				D43F4221194754D500B19F2F /* PPBattleSideNode.h */,
+				D43F4222194754D500B19F2F /* PPBattleSideNode.m */,
 			);
-			path = Library;
+			path = spriteNodes;
 			sourceTree = "<group>";
 		};
-		A5B786C518CC01A500D3E50B /* Views */ = {
+		D43F42351947562A00B19F2F /* ViewsAndControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A5B786C618CC01A500D3E50B /* PPViews.h */,
-				A5B786C718CC021200D3E50B /* PPCoverflow.h */,
-				A5B786C818CC021200D3E50B /* PPCoverflow.m */,
+				D43F42381947562A00B19F2F /* Views */,
+				D43F42411947566300B19F2F /* MenuControllers */,
+				D43F42441947566300B19F2F /* PPControllers.h */,
+				D43F42361947562A00B19F2F /* PPMainViewController.h */,
+				D43F42371947562A00B19F2F /* PPMainViewController.m */,
+			);
+			name = ViewsAndControllers;
+			path = PixePixie/ViewsAndControllers;
+			sourceTree = "<group>";
+		};
+		D43F42381947562A00B19F2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D43F42391947562A00B19F2F /* PPCoverflow.h */,
+				D43F423A1947562A00B19F2F /* PPCoverflow.m */,
+				D43F423B1947562A00B19F2F /* PPPassNumberScroll.h */,
+				D43F423C1947562A00B19F2F /* PPPassNumberScroll.m */,
+				D43F423D1947562A00B19F2F /* PPViews.h */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D43F42411947566300B19F2F /* MenuControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D43F42421947566300B19F2F /* PPTableView.h */,
+				D43F42431947566300B19F2F /* PPTableView.m */,
+			);
+			path = MenuControllers;
 			sourceTree = "<group>";
 		};
 		D449CFD2192BB278007179B1 /* PPBasic */ = {
@@ -753,15 +732,6 @@
 				D449CFD6192BB278007179B1 /* PPBasicViewController.m */,
 			);
 			path = PPBasic;
-			sourceTree = "<group>";
-		};
-		D4879ED7192A5459003E8D50 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				D4A03086193E123600A8A204 /* PPMainViewController.h */,
-				D4A03087193E123600A8A204 /* PPMainViewController.m */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		D4916A15193F62CF00662F88 /* JsonData */ = {
@@ -951,38 +921,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4FE800C19460ED20080CE88 /* PPHPSpriteNode.m in Sources */,
+				D43F421F1947548F00B19F2F /* PPShopScene.m in Sources */,
 				19F6EDAA18C6C09900BFFF9A /* main.m in Sources */,
-				D413CB5E1945FB44004B4FDE /* PPSkillNode.m in Sources */,
-				A5B786C418CBFE8F00D3E50B /* iCarousel.m in Sources */,
-				A591A21818CEF36B00219E86 /* PPReversibleAnimationController.m in Sources */,
 				1959D5F31914E05300865D27 /* PPBattleScene.m in Sources */,
-				A591A21B18CEF64200219E86 /* PPPortalAnimationController.m in Sources */,
-				D4A03088193E123600A8A204 /* PPMainViewController.m in Sources */,
-				D449CFE0192BB5AB007179B1 /* PPMonsterScene.m in Sources */,
+				D43F423F1947562A00B19F2F /* PPCoverflow.m in Sources */,
+				D43F421D1947548F00B19F2F /* PPPacksackScene.m in Sources */,
+				D43F42401947562A00B19F2F /* PPPassNumberScroll.m in Sources */,
+				D43F423E1947562A00B19F2F /* PPMainViewController.m in Sources */,
 				D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */,
-				D449CFDD192BB2F5007179B1 /* PPSettingScene.m in Sources */,
-				D449CFCE192BB1D1007179B1 /* PPTableView.m in Sources */,
-				D449CFE3192BB5FE007179B1 /* PPPacksackScene.m in Sources */,
-				D449CFE6192BB619007179B1 /* PPShopScene.m in Sources */,
 				1938054918CB0CAB00EF8691 /* ConfigData.m in Sources */,
 				194E6AC8190A01130098F599 /* ConstantData.m in Sources */,
 				D42F8F1B192E3F9D001374AB /* PPSceneManager.m in Sources */,
-				A5B786C918CC021200D3E50B /* PPCoverflow.m in Sources */,
-				D4B071EB193E258300CA9042 /* PPPassNumberScroll.m in Sources */,
+				D43F422A194755C100B19F2F /* PPHPSpriteNode.m in Sources */,
+				D43F42451947566300B19F2F /* PPTableView.m in Sources */,
 				D449CFD8192BB278007179B1 /* PPBasicViewController.m in Sources */,
 				19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */,
-				D49664AB192CDF4400E37092 /* PPMainScene.m in Sources */,
-				19CBA8C91907C91E00A249AB /* PPPixie.m in Sources */,
+				D43F4223194754D500B19F2F /* PPBattleSideNode.m in Sources */,
 				D42F8F18192E3925001374AB /* PPCustomButton.m in Sources */,
 				1917DFF718C8551300E54F02 /* PPElement.m in Sources */,
 				D413CB6419460561004B4FDE /* PPBasicSpriteNode.m in Sources */,
+				D43F421E1947548F00B19F2F /* PPSettingScene.m in Sources */,
+				D43F421B1947548F00B19F2F /* PPMainScene.m in Sources */,
+				D43F421C1947548F00B19F2F /* PPMonsterScene.m in Sources */,
 				19C930B418EC260C001B4358 /* PPBuff.m in Sources */,
 				D413CB611945FF62004B4FDE /* PPSkillInfo.m in Sources */,
-				19CBA8C01907C6FD00A249AB /* PPBallViewController.m in Sources */,
+				D43F422C194755C100B19F2F /* PPSkillNode.m in Sources */,
 				D449CFD7192BB278007179B1 /* PPBasicScene.m in Sources */,
 				19CBA8C31907C77600A249AB /* PPBall.m in Sources */,
 				19CBA8BD1907C6D400A249AB /* PPBallScene.m in Sources */,
+				D43F422B194755C100B19F2F /* PPPixie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

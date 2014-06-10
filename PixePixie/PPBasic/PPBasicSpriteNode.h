@@ -7,7 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-
+#import "PPModels.h"
 @interface PPBasicSpriteNode : SKSpriteNode
 
 @end

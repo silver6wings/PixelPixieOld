@@ -50,27 +50,21 @@
     [self addChild:spriteContent];
     
     
-    PPCustomButton *sprit1=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.1"];
-    sprit1.target=self;
+    PPCustomButton *sprit1=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.1" withTarget:self withSelecter:@selector(spriteChooseClick:)];
     sprit1.name=@"sprite1";
     sprit1.position=CGPointMake(-50, 100);
-    sprit1.selector=@selector(spriteChooseClick:);
     [spriteContent addChild:sprit1];
     
     
-    PPCustomButton *sprit2=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.2"];
-    sprit2.target=self;
+    PPCustomButton *sprit2=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.2" withTarget:self withSelecter:@selector(spriteChooseClick:)];
     sprit2.name=@"sprite2";
     sprit2.position=CGPointMake(sprit1.position.x, 00);
-    sprit2.selector=@selector(spriteChooseClick:);
     [spriteContent addChild:sprit2];
     
     
-    PPCustomButton *sprit3=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.3"];
-    sprit3.target=self;
+    PPCustomButton *sprit3=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.3" withTarget:self withSelecter:@selector(spriteChooseClick:)];
     sprit3.name=@"sprite3";
     sprit3.position=CGPointMake(sprit1.position.x, -100);
-    sprit3.selector=@selector(spriteChooseClick:);
     [spriteContent addChild:sprit3];
 
     
@@ -90,6 +84,10 @@
     _lbStart.fontColor = [UIColor yellowColor];
     _lbStart.position = CGPointMake(CGRectGetMidX(self.frame),50);
     [self addChild:_lbStart];
+    
+   
+    
+    
 
     // 添加己方精灵
     _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];

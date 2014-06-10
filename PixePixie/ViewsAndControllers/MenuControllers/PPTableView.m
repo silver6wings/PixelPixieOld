@@ -106,7 +106,7 @@
     if (self.choosePassNumber!=nil&&self.choosePassNumberSel!=nil&&[self.choosePassNumber respondsToSelector:self.choosePassNumberSel]) {
         
 
-        [self.choosePassNumber performSelectorInBackground:self.choosePassNumberSel withObject:[NSNumber numberWithInt:indexPath.row]];
+        [self.choosePassNumber performSelectorInBackground:self.choosePassNumberSel withObject:[NSNumber numberWithInt:(int)indexPath.row]];
     }
 //
 }
