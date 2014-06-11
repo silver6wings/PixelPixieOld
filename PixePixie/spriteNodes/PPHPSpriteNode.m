@@ -16,4 +16,9 @@
     
     
 }
+-(void)MPChangeWith:(CGFloat)mpvalue
+{
+    SKAction *actionChangeHP=[SKAction scaleXTo:0.5 duration:1];
+    [self runAction:actionChangeHP];
+}
 @end

@@ -31,6 +31,7 @@
     
     UIScrollView *scrollContent=[[UIScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height)];
     NSLog(@"count=%ld",(long)passCount);
+    
     scrollContent.showsHorizontalScrollIndicator=NO;
     
     scrollContent.contentSize=CGSizeMake(self.frame.size.width*passCount, self.frame.size.height);

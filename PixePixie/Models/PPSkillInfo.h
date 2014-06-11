@@ -12,5 +12,7 @@
 @property (nonatomic,retain)NSString *skillName;
 @property (nonatomic,retain)NSMutableArray *animateTextures;
 @property (nonatomic,assign)CGFloat HPChangeValue;
-
+@property (nonatomic,assign)CGFloat MPChangeValue;
+@property (nonatomic,assign)int skillType; //0:被动 1:主动
+@property (nonatomic,assign)int cdRounds; //回合
 @end

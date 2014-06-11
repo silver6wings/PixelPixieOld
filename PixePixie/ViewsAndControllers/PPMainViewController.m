@@ -128,10 +128,13 @@ NSString * menu[]={
             
 
             [self menuDownAnimation];
-
+//            PPPixie * playerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:2];
+//            PPPixie * eneplayerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:3];
+//            PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:self.view.bounds.size
+//                                                                 PixieA:playerPixie
+//                                                                 PixieB:eneplayerPixie];
             
-            PPBattleScene * battleScene;
-            battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
+            PPBattleScene * battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
             battleScene.scaleMode = SKSceneScaleModeAspectFill;
             
             [skViewMain presentScene:battleScene];

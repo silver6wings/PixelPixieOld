@@ -152,6 +152,7 @@
 		D43F423F1947562A00B19F2F /* PPCoverflow.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F423A1947562A00B19F2F /* PPCoverflow.m */; };
 		D43F42401947562A00B19F2F /* PPPassNumberScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F423C1947562A00B19F2F /* PPPassNumberScroll.m */; };
 		D43F42451947566300B19F2F /* PPTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42431947566300B19F2F /* PPTableView.m */; };
+		D44935C41948B52E00F3B5B9 /* UserPetInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */; };
 		D449CFD7192BB278007179B1 /* PPBasicScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD4192BB278007179B1 /* PPBasicScene.m */; };
 		D449CFD8192BB278007179B1 /* PPBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD6192BB278007179B1 /* PPBasicViewController.m */; };
 		D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD9192BB296007179B1 /* PPAppDelegate.m */; };
@@ -339,6 +340,7 @@
 		D43F42421947566300B19F2F /* PPTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTableView.h; sourceTree = "<group>"; };
 		D43F42431947566300B19F2F /* PPTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPTableView.m; sourceTree = "<group>"; };
 		D43F42441947566300B19F2F /* PPControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPControllers.h; sourceTree = "<group>"; };
+		D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPetInfo.plist; sourceTree = "<group>"; };
 		D449CFD3192BB278007179B1 /* PPBasicScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBasicScene.h; sourceTree = "<group>"; };
 		D449CFD4192BB278007179B1 /* PPBasicScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBasicScene.m; sourceTree = "<group>"; };
 		D449CFD5192BB278007179B1 /* PPBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBasicViewController.h; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 		D4916A15193F62CF00662F88 /* JsonData */ = {
 			isa = PBXGroup;
 			children = (
+				D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */,
 				D4916A16193F636C00662F88 /* PassInfo.plist */,
 			);
 			name = JsonData;
@@ -802,6 +805,7 @@
 				1959D670191515C900865D27 /* 变身效果01007.png in Resources */,
 				190CF086191230AD00370760 /* ball_pixie_plant2.png in Resources */,
 				1959D675191515C900865D27 /* 变身效果01012.png in Resources */,
+				D44935C41948B52E00F3B5B9 /* UserPetInfo.plist in Resources */,
 				1959D691191515C900865D27 /* 变身效果01040.png in Resources */,
 				190CF0761912277400370760 /* ball_fire.png in Resources */,
 				193C25E11913F00400E2C1BA /* Cirrus0001.png in Resources */,

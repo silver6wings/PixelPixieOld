@@ -35,8 +35,8 @@
 {
     [super viewDidLoad];
     skViewMain = (SKView *)self.view;
-    skViewMain.showsFPS = YES;
-    skViewMain.showsNodeCount = YES;
+    skViewMain.showsFPS = NO;
+    skViewMain.showsNodeCount = NO;
     
     
     backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 5.0f, 50.0f,50.0f)];

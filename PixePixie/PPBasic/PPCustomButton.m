@@ -69,7 +69,9 @@
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self setHidden:YES];
-    [self.target performSelectorInBackground:self.selector withObject:self];
+    if (self.target!=nil &&self.selector!=nil &&[self.target respondsToSelector:self.selector]) {
+        [self.target performSelectorInBackground:self.selector withObject:self];
+
+    }
 }
 @end

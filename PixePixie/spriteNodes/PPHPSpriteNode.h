@@ -11,5 +11,5 @@
 @interface PPHPSpriteNode : SKSpriteNode
 
 -(void)HPChangeWith:(CGFloat)hpValue;
-
+-(void)MPChangeWith:(CGFloat)mpvalue;
 @end

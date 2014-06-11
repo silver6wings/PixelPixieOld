@@ -3,7 +3,7 @@
 #import "PPControllers.h"
 #import "PPModels.h"
 @interface PPBattleScene ()
-@property (weak, nonatomic) PPPassNumberScroll *menu;
+@property (retain, nonatomic) PPPassNumberScroll *menu;
 @property (nonatomic) SKLabelNode * lbStart;
 @property (nonatomic) SKSpriteNode * playerPixie;
 @property (nonatomic) NSMutableArray * pixieAnimation;
@@ -85,9 +85,6 @@
     _lbStart.position = CGPointMake(CGRectGetMidX(self.frame),50);
     [self addChild:_lbStart];
     
-   
-    
-    
 
     // 添加己方精灵
     _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
@@ -95,6 +92,7 @@
     _playerPixie.size = CGSizeMake(339, 242);
     [self addChild:_playerPixie];
 
+    
     // 添加敌方精灵
     SKSpriteNode * enemyPixie = [SKSpriteNode spriteNodeWithImageNamed:@"pixie_plant2_battle1.png"];
     enemyPixie.position = CGPointMake(CGRectGetMidX(self.frame)-30,200);
@@ -107,6 +105,7 @@
         SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
         [self.pixieAnimation addObject:temp];
     }
+    
 
     SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     titilePass.name = @"";
@@ -149,6 +148,7 @@
                                                                   PixieA:playerPixie
                                                                   PixieB:eneplayerPixie];
              ballScene.scaleMode = SKSceneScaleModeAspectFill;
+             
              [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
             }]
         ]]];
