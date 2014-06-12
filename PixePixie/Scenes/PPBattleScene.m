@@ -4,13 +4,16 @@
 #import "PPModels.h"
 @interface PPBattleScene ()
 @property (retain, nonatomic) PPPassNumberScroll *menu;
-@property (nonatomic) SKLabelNode * lbStart;
+@property (retain,nonatomic) NSArray *petsArray;
 @property (nonatomic) SKSpriteNode * playerPixie;
 @property (nonatomic) NSMutableArray * pixieAnimation;
+@property (nonatomic,retain)NSDictionary *choosedPet;
 @end
 
 @implementation PPBattleScene
 @synthesize menu;
+@synthesize petsArray;
+@synthesize choosedPet;
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
    
@@ -41,6 +44,16 @@
 }
 -(void)chooseSpriteToBattle:(NSNumber *)passName
 {
+    NSLog(@"passName=%@",passName);
+    NSDictionary *dictPassInfo=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PassInfo" ofType:@"plist"]];
+    NSArray *passArray=[NSArray arrayWithArray:[dictPassInfo objectForKey:@"transcriptinfo"]];
+    NSInteger passCount=[passArray count];
+    int index=[passName integerValue]-PP_PASSNUM_CHOOSE_TABLE_TAG;
+    NSDictionary *passDictInfo=nil;
+    if (passCount>index) {
+        NSLog(@"pass choosed=%@",[passArray objectAtIndex:index]);
+        passDictInfo=[NSDictionary dictionaryWithDictionary:[passArray objectAtIndex:index]];
+    }
     
     self.backgroundColor = [UIColor grayColor];
     
@@ -50,48 +63,73 @@
     [self addChild:spriteContent];
     
     
-    PPCustomButton *sprit1=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.1" withTarget:self withSelecter:@selector(spriteChooseClick:)];
-    sprit1.name=@"sprite1";
-    sprit1.position=CGPointMake(-50, 100);
-    [spriteContent addChild:sprit1];
+    NSDictionary * dictUserPets=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserPetInfo" ofType:@"plist"]];
+    
+    NSLog(@"dictUserPets=%@",dictUserPets);
+    self.petsArray=[NSArray arrayWithArray:[dictUserPets objectForKey:@"userpetinfo"]];
+    for (int i=0; i<[self.petsArray count]; i++) {
+        
+        PPCustomButton *sprit1=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:[[self.petsArray objectAtIndex:i] objectForKey:@"petname"] withTarget:self withSelecter:@selector(spriteChooseClick:)];
+        sprit1.name=[NSString stringWithFormat:@"%d",PP_PETS_CHOOSE_BTN_TAG+i];
+        sprit1.position=CGPointMake(-50, 100*(i-1));
+        [spriteContent addChild:sprit1];
+        
+        
+    }
     
     
-    PPCustomButton *sprit2=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.2" withTarget:self withSelecter:@selector(spriteChooseClick:)];
-    sprit2.name=@"sprite2";
-    sprit2.position=CGPointMake(sprit1.position.x, 00);
-    [spriteContent addChild:sprit2];
+    SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    titilePass.name = @"";
+    titilePass.text = [NSString stringWithFormat:@"副本id:%@",[passDictInfo objectForKey:@"passid"]];
+    titilePass.fontSize = 20;
+    titilePass.fontColor=[UIColor whiteColor];
+    titilePass.position = CGPointMake(0.0f,spriteContent.frame.size.height/2.0f);
+    [spriteContent addChild:titilePass];
     
-    
-    PPCustomButton *sprit3=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:@"精灵No.3" withTarget:self withSelecter:@selector(spriteChooseClick:)];
-    sprit3.name=@"sprite3";
-    sprit3.position=CGPointMake(sprit1.position.x, -100);
-    [spriteContent addChild:sprit3];
-
     
     
 }
 -(void)spriteChooseClick:(PPCustomButton *)spriteBtn
 {
     
+    NSDictionary *petsChoosedInfo=[self.petsArray objectAtIndex:[spriteBtn.name integerValue]-PP_PETS_CHOOSE_BTN_TAG];
+    
+    NSLog(@"petsChoose=%@",petsChoosedInfo);
+    self.choosedPet = [NSDictionary dictionaryWithDictionary:petsChoosedInfo];
+    
     SKSpriteNode *spriteTmp=(SKSpriteNode *)[self childNodeWithName:@"contentSprite"];
     spriteTmp.hidden=YES;
+ 
+    
     
     // 加载开始按钮
-    _lbStart = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    _lbStart.name = @"bt_start";
-    _lbStart.text = @"Click me to start ^~^";
-    _lbStart.fontSize = 15;
-    _lbStart.fontColor = [UIColor yellowColor];
-    _lbStart.position = CGPointMake(CGRectGetMidX(self.frame),50);
-    [self addChild:_lbStart];
+    SKLabelNode *lbStart = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    lbStart.name = @"bt_start";
+    lbStart.text = @"Click me to start ^~^";
+    lbStart.fontSize = 15;
+    lbStart.fontColor = [UIColor yellowColor];
+    lbStart.position = CGPointMake(CGRectGetMidX(self.frame),50);
+    [self addChild:lbStart];
     
-
-    // 添加己方精灵
-    _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
-    _playerPixie.position = CGPointMake(CGRectGetMidX(self.frame)+30,400);
-    _playerPixie.size = CGSizeMake(339, 242);
-    [self addChild:_playerPixie];
-
+    
+    if ([[petsChoosedInfo objectForKey:@"petstatus"] intValue]) {
+      
+        
+        
+        // 添加己方精灵
+        _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
+        _playerPixie.position = CGPointMake(CGRectGetMidX(self.frame)+30,400);
+        _playerPixie.size = CGSizeMake(_playerPixie.frame.size.width/3, _playerPixie.frame.size.height/3);
+        [self addChild:_playerPixie];
+        
+        
+        SKLabelNode *statusLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+        statusLabel.text=[NSString stringWithFormat:@"%@ 形态:%d",[petsChoosedInfo objectForKey:@"petname"],[[petsChoosedInfo objectForKey:@"petstatus"] integerValue]];
+        statusLabel.position=CGPointMake(_playerPixie.frame.size.width/2+statusLabel.frame.size.width/2.0f, _playerPixie.position.y+_playerPixie.frame.size.height/2+statusLabel.frame.size.height/2.0f);
+        [self addChild:statusLabel];
+        
+        
+    }
     
     // 添加敌方精灵
     SKSpriteNode * enemyPixie = [SKSpriteNode spriteNodeWithImageNamed:@"pixie_plant2_battle1.png"];
@@ -107,13 +145,7 @@
     }
     
 
-    SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    titilePass.name = @"";
-    titilePass.text = [NSString stringWithFormat:@"副本%d",203-PP_PASSNUM_CHOOSE_TABLE_TAG+1];
-    titilePass.fontSize = 20;
-    titilePass.fontColor=[UIColor whiteColor];
-    titilePass.position = CGPointMake(CGRectGetMidX(self.frame),self.frame.size.height-40);
-    [self addChild:titilePass];
+
     
 }
 //得到应用程序Documents文件夹下的目标路径
@@ -139,9 +171,10 @@
          [SKAction sequence:@[
             [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f],
             [SKAction runBlock:^{
+             
              // 初始化 ballScene
-             PPPixie * playerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:2];             
-             PPPixie * eneplayerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:3];
+             PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
+             PPPixie * eneplayerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
              
              
              PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:self.view.bounds.size

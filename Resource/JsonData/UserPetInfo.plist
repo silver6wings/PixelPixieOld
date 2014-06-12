@@ -7,10 +7,12 @@
 		<dict>
 			<key>petid</key>
 			<string>1234</string>
+			<key>petelementtype</key>
+			<integer>2</integer>
 			<key>petname</key>
-			<string>ball_pixie_plant2</string>
+			<string>精灵宝贝</string>
 			<key>petimage</key>
-			<string>pet1</string>
+			<string>ball_pixie_plant2.png</string>
 			<key>petstatus</key>
 			<integer>1</integer>
 			<key>petvalueinfo</key>
@@ -83,10 +85,12 @@
 		<dict>
 			<key>petid</key>
 			<string>1234</string>
+			<key>petelementtype</key>
+			<integer>2</integer>
 			<key>petname</key>
-			<string>ball_pixie_plant2</string>
+			<string>精灵</string>
 			<key>petimage</key>
-			<string>pet1</string>
+			<string>ball_pixie_plant2.png</string>
 			<key>petstatus</key>
 			<integer>2</integer>
 			<key>petvalueinfo</key>
@@ -159,12 +163,14 @@
 		<dict>
 			<key>petid</key>
 			<string>1234</string>
-			<key>petname</key>
-			<string>ball_pixie_plant2</string>
-			<key>petimage</key>
-			<string>pet1</string>
-			<key>petstatus</key>
+			<key>petelementtype</key>
 			<integer>2</integer>
+			<key>petname</key>
+			<string>精灵王</string>
+			<key>petimage</key>
+			<string>ball_pixie_plant2.png</string>
+			<key>petstatus</key>
+			<integer>3</integer>
 			<key>petvalueinfo</key>
 			<dict>
 				<key>hpmax</key>

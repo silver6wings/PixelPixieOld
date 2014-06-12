@@ -53,12 +53,12 @@
 
 @property (nonatomic, assign) int pixieGeneration;
 @property (nonatomic) PPElementType pixieElement;
-@property (nonatomic) NSArray * pixieSkills;
+@property (nonatomic,retain) NSArray * pixieSkills;
 @property (nonatomic) NSArray * pixieBuffs;
 
 @property (nonatomic) PPBall * pixieBall;
 
-+(PPPixie *)birthPixieWith:(PPElementType)pixieElement
-                Generation:(int)generation;
+// 创建新的宠物
++(PPPixie *)birthPixieWithPetsInfo:(NSDictionary *)petsDict;
 
 @end

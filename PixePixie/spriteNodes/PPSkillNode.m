@@ -15,9 +15,19 @@
 @implementation PPSkillNode
 @synthesize skill;
 @synthesize delegate=mdelegate;
--(void)showSkillAnimate
+-(void)showSkillAnimate:(NSDictionary *)skillInfo
 {
     self.skill=[[PPSkillInfo alloc] init];
+    
+    SKLabelNode *skillNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+    skillNameLabel.fontColor = [UIColor blueColor];
+    NSLog(@"skillname=%@",[skillInfo objectForKey:@"skillname"]);
+    
+    skillNameLabel.text = [skillInfo objectForKey:@"skillname"];
+    skillNameLabel.position = CGPointMake(100.0f,121);
+    [self addChild:skillNameLabel];
+    
+    
     
     SKSpriteNode *skillAnimate = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
     skillAnimate.size = CGSizeMake(self.frame.size.width/2, 242);

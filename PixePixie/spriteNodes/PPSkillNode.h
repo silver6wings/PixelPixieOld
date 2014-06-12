@@ -20,5 +20,5 @@
 }
 @property (nonatomic,retain)id delegate;
 @property(nonatomic,retain)PPSkillInfo *skill;
--(void)showSkillAnimate;
+-(void)showSkillAnimate:(NSDictionary *)skillInfo;
 @end

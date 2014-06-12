@@ -156,6 +156,8 @@
 		D449CFD7192BB278007179B1 /* PPBasicScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD4192BB278007179B1 /* PPBasicScene.m */; };
 		D449CFD8192BB278007179B1 /* PPBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD6192BB278007179B1 /* PPBasicViewController.m */; };
 		D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD9192BB296007179B1 /* PPAppDelegate.m */; };
+		D4545B321949E04D007EABE3 /* ballTest.sks in Resources */ = {isa = PBXBuildFile; fileRef = D4545B301949E04D007EABE3 /* ballTest.sks */; };
+		D4545B331949E04D007EABE3 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D4545B311949E04D007EABE3 /* spark.png */; };
 		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
 /* End PBXBuildFile section */
 
@@ -346,6 +348,8 @@
 		D449CFD5192BB278007179B1 /* PPBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBasicViewController.h; sourceTree = "<group>"; };
 		D449CFD6192BB278007179B1 /* PPBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBasicViewController.m; sourceTree = "<group>"; };
 		D449CFD9192BB296007179B1 /* PPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPAppDelegate.m; path = PixePixie/PPAppDelegate.m; sourceTree = "<group>"; };
+		D4545B301949E04D007EABE3 /* ballTest.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ballTest.sks; sourceTree = "<group>"; };
+		D4545B311949E04D007EABE3 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		D4916A16193F636C00662F88 /* PassInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassInfo.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -617,8 +621,8 @@
 		19F6EDA318C6C09900BFFF9A /* PixePixie */ = {
 			isa = PBXGroup;
 			children = (
-				D43F4220194754D500B19F2F /* spriteNodes */,
 				D449CFD2192BB278007179B1 /* PPBasic */,
+				D43F4220194754D500B19F2F /* spriteNodes */,
 				19906B8918CB039400C05BA3 /* Configurations */,
 				1917DFF418C8545200E54F02 /* Models */,
 				A50D277518DAC19200641430 /* Scenes */,
@@ -641,6 +645,7 @@
 		19F6EDD718C6C65900BFFF9A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D4545B2F1949E024007EABE3 /* Particle */,
 				19F6EDBA18C6C09900BFFF9A /* Images.xcassets */,
 				D4916A15193F62CF00662F88 /* JsonData */,
 				190BF48D18C6C85C006B0AE6 /* Image */,
@@ -734,6 +739,16 @@
 				D449CFD6192BB278007179B1 /* PPBasicViewController.m */,
 			);
 			path = PPBasic;
+			sourceTree = "<group>";
+		};
+		D4545B2F1949E024007EABE3 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				D4545B301949E04D007EABE3 /* ballTest.sks */,
+				D4545B311949E04D007EABE3 /* spark.png */,
+			);
+			name = Particle;
+			path = Resource/Particle;
 			sourceTree = "<group>";
 		};
 		D4916A15193F62CF00662F88 /* JsonData */ = {
@@ -890,6 +905,7 @@
 				19145DF11913F472005C6AD4 /* 陷阱0002.png in Resources */,
 				193C25E51913F00400E2C1BA /* Cirrus0005.png in Resources */,
 				19145E1C1913F472005C6AD4 /* 陷阱0045.png in Resources */,
+				D4545B321949E04D007EABE3 /* ballTest.sks in Resources */,
 				1959D676191515C900865D27 /* 变身效果01013.png in Resources */,
 				19145E061913F472005C6AD4 /* 陷阱0023.png in Resources */,
 				19145E211913F472005C6AD4 /* 陷阱0050.png in Resources */,
@@ -898,6 +914,7 @@
 				1959D66A191515C900865D27 /* 变身效果01001.png in Resources */,
 				19145E0B1913F472005C6AD4 /* 陷阱0028.png in Resources */,
 				1959D694191515C900865D27 /* 变身效果01043.png in Resources */,
+				D4545B331949E04D007EABE3 /* spark.png in Resources */,
 				19145DF71913F472005C6AD4 /* 陷阱0008.png in Resources */,
 				19145DFB1913F472005C6AD4 /* 陷阱0012.png in Resources */,
 				1959D67C191515C900865D27 /* 变身效果01019.png in Resources */,

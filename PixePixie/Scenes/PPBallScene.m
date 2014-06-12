@@ -134,8 +134,12 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:self.ballPlayer];
         
-        
-        
+        SKEmitterNode *snow = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"ballTest" ofType:@"sks"]];
+        snow.name=@"ball_player";
+        snow.position = CGPointMake(0.0f, 0.0f);
+        [self.ballPlayer addChild:snow];
+    
+                
         // 添加 Ball of Enemey
         self.ballEnemy = pixieB.pixieBall;
         self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
@@ -160,13 +164,15 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     return self;
 }
 #pragma mark SkillShow
--(void)skllPlayerShowBegain:(NSString *)skillName
+-(void)skllPlayerShowBegain:(NSDictionary *)skillInfo
 {
-    [self showSkillEventBegain:nil];
+    NSLog(@"skillInfo=%@",skillInfo);
+    
+    [self showSkillEventBegain:skillInfo];
 }
--(void)skllEnemyBegain:(NSString *)skillName
+-(void)skllEnemyBegain:(NSDictionary *)skillInfo
 {
-    [self showSkillEventBegain:nil];
+    [self showSkillEventBegain:skillInfo];
 
 }
 #pragma mark SKScene
@@ -184,8 +190,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         _isBallDragging = YES;
         _ballShadow = [self.ballPlayer copy];
-        //_ballShadow.size = CGSizeMake(kBallSize, kBallSize);
-        //_ballShadow.position = location;
+        _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
+        _ballShadow.position = location;
         _ballShadow.alpha = 0.5f;
         _ballShadow.physicsBody = nil;
         [self addChild:_ballShadow];
@@ -246,7 +252,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [tBall setToDefaultTexture];
         }
         
-        [self showSkillEventBegain:@""];
+        [self showSkillEventBegain:nil];
         
         
     }
@@ -354,7 +360,7 @@ CGFloat vectorLength (CGVector vector) {
     return sqrt( vector.dx * vector.dx + vector.dy * vector.dy );
 };
 #pragma mark SkillBeginAnimateDelegate
--(void)showSkillEventBegain:(NSString *)skillName
+-(void)showSkillEventBegain:(NSDictionary *)skillInfo
 {
     
     PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
@@ -362,7 +368,7 @@ CGFloat vectorLength (CGVector vector) {
     skillNode.position=CGPointMake(0.0f, 300.0f);
     [self addChild:skillNode];
     
-    [skillNode showSkillAnimate];
+    [skillNode showSkillAnimate:skillInfo];
 
 }
 #pragma mark SkillEndAnimateDelegate

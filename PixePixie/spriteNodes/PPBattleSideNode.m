@@ -11,12 +11,13 @@
 @implementation PPBattleSideNode
 @synthesize target=_target;
 @synthesize skillSelector=_skillSelector;
+@synthesize currentPPPixie;
 -(void)setSideElements:(PPPixie *)ppixie
 {
     PPCustomButton*ppixieBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andImage:@"ball_pixie_plant2.png" withTarget:self withSelecter:@selector(pixieClick:)];
     ppixieBtn.position = CGPointMake(40.0f, -10.0f);
     [self addChild:ppixieBtn];
-    
+    self.currentPPPixie = ppixie;
     
     // 添加 HP bar
     barPlayerHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 6)];
@@ -32,9 +33,10 @@
     [self addChild:barPlayerMP];
     
     
-    for (int i=0; i<5; i++) {
-        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andTitle:[NSString stringWithFormat:@"技能%d",i] withTarget:self withSelecter:@selector(skillClick:)];
-        ppixieSkillBtn.position = CGPointMake(40.0f*i+70, -30.0f);
+    for (int i=0; i<[ppixie.pixieSkills count]; i++) {
+        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andTitle:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"] withTarget:self withSelecter:@selector(skillClick:)];
+        ppixieSkillBtn.name=[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
+        ppixieSkillBtn.position = CGPointMake(70.0f*i+70, -30.0f);
         [self addChild:ppixieSkillBtn];
     }
     
@@ -45,8 +47,11 @@
 }
 -(void)skillClick:(PPCustomButton *)sender
 {
+    
+    NSDictionary *skillChoosed=[self.currentPPPixie.pixieSkills objectAtIndex:[sender.name intValue]-PP_SKILLS_CHOOSE_BTN_TAG];
+    
       if (self.target!=nil &&self.skillSelector!=nil &&[self.target respondsToSelector:self.skillSelector]) {
-          [self.target performSelectorInBackground:self.skillSelector withObject:sender.name];
+          [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
       }
    
 }

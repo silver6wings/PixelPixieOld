@@ -15,7 +15,7 @@ static const int kElementTypeMax = 10;
 // 元素类型定义
 typedef NS_ENUM(NSInteger, PPElementType)
 {
-    PPElementTypeNone,        // 无
+    PPElementTypeNone = 0,        // 无
     
     PPElementTypeMetal,       // 金
     PPElementTypePlant,       // 木

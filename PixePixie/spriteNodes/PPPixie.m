@@ -14,19 +14,19 @@
             pixieGeneration, pixieElement, pixieBuffs, pixieSkills, pixieBall;
 
 // 创建新的宠物
-+(PPPixie *)birthPixieWith:(PPElementType)pixieElement
-                Generation:(int)generation{
++(PPPixie *)birthPixieWithPetsInfo:(NSDictionary *)petsDict
+{
     
     PPPixie * tPixie = [[PPPixie alloc] init];
     
-    tPixie.pixieHPmax = 1000*generation;
-    tPixie.pixieMPmax = 100*generation;
+    tPixie.pixieHPmax = 1000*[[petsDict objectForKey:@"petstatus"] intValue];
+    tPixie.pixieMPmax = 100*[[petsDict objectForKey:@"petstatus"] intValue];
     tPixie.pixieAP = 10;
     tPixie.pixieDP = 1;
+    tPixie.pixieGeneration = [[petsDict objectForKey:@"petstatus"] intValue];
     
-    tPixie.pixieGeneration = generation;
-    tPixie.pixieElement = pixieElement;
-    tPixie.pixieSkills = [NSArray arrayWithObjects:nil];
+    tPixie.pixieElement = [[petsDict objectForKey:@"petelementtype"] intValue];
+    tPixie.pixieSkills = [NSArray arrayWithArray:[petsDict objectForKey:@"pixieSkills"]];
     tPixie.pixieBuffs = [NSArray arrayWithObjects:nil];
     tPixie.pixieBall = [PPBall ballWithPixie:tPixie];
     
