@@ -14,14 +14,15 @@
 @synthesize HPChangeValue;
 @synthesize MPChangeValue;
 @synthesize skillType;
+@synthesize skillObject;
 @synthesize cdRounds;
 -(id)init
 {
     if (self=[super init]) {
         
         self.animateTextures = [[NSMutableArray alloc] init];
-        self.HPChangeValue = 1000.0f;
-        self.MPChangeValue = 500 ;
+        self.HPChangeValue = -193.0f;
+        self.MPChangeValue = -43.0f ;
     }
     return self;
 }

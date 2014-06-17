@@ -21,10 +21,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 @property (nonatomic,retain) PPBattleSideNode *playerSide;
 @property (nonatomic,retain) PPBattleSideNode *enemySide;
 
-@property (nonatomic) PPHPSpriteNode * barPlayerHP;
-@property (nonatomic) PPHPSpriteNode * barPlayerMP;
-@property (nonatomic) PPHPSpriteNode * barEnemyHP;
-@property (nonatomic) PPHPSpriteNode * barEnemyMP;
+
 @property (nonatomic) SKSpriteNode * btSkill;
 
 @property (nonatomic) BOOL isTrapEnable;
@@ -32,8 +29,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 @end
 
 @implementation PPBallScene
-@synthesize barPlayerHP;
-@synthesize barEnemyHP;
+
 -(id)initWithSize:(CGSize)size
            PixieA:(PPPixie *)pixieA
            PixieB:(PPPixie *)pixieB{
@@ -69,20 +65,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         }
         
         
-//        // demo 添加头像
-//        SKSpriteNode * playerPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant2.png"];
-//        playerPortrait.size = CGSizeMake(30, 30);
-//        playerPortrait.position = CGPointMake(30, 20);
-//        [self addChild:playerPortrait];
-//        
-//        
-//        SKSpriteNode * enemyPortrait = [SKSpriteNode spriteNodeWithImageNamed:@"ball_pixie_plant3.png"];
-//        enemyPortrait.size = CGSizeMake(30, 30);
-//        enemyPortrait.position = CGPointMake(30, 541);
-//        [self addChild:enemyPortrait];
-        
-       
-        
         
        self.playerSide=[[PPBattleSideNode alloc] init];
         self.playerSide.position= CGPointMake(30, 30);
@@ -90,7 +72,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.playerSide.target=self;
         self.playerSide.skillSelector=@selector(skllPlayerShowBegain:);
         [self.playerSide setColor:[UIColor grayColor]];
-        [self.playerSide setSideElements:pixieA];
+        [self.playerSide setSideElementsForPet:pixieA];
         [self addChild:self.playerSide];
 
         
@@ -100,21 +82,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.enemySide.size = CGSizeMake(CurrentDeviceRealSize.width, 60);
         self.enemySide.target=self;
         self.enemySide.skillSelector=@selector(skllEnemyBegain:);
-        [self.enemySide setSideElements:pixieB];
+        [self.enemySide setSideElementsForEnemy:pixieB];
         [self addChild:self.enemySide];
-        
-        
-        
-        // 添加 HP bar
-//        self.barPlayerHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
-//        self.barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
-//        self.barPlayerHP.position = CGPointMake(playerPortrait.frame.origin.x, playerPortrait.frame.origin.y+self.barPlayerHP.frame.size.height+playerPortrait.frame.size.height);
-//        [self addChild:self.barPlayerHP];
-        
-//        self.barEnemyHP = [PPHPSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 10)];
-//        self.barEnemyHP.anchorPoint = CGPointMake(0, 0.5);
-//        self.barEnemyHP.position = CGPointMake(enemyPortrait.frame.origin.x+enemyPortrait.frame.size.width+10.0f, CGRectGetMaxY(self.frame) - 20);
-//        [self addChild:self.barEnemyHP];
         
         
         // 添加 Walls
@@ -138,6 +107,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         snow.name=@"ball_player";
         snow.position = CGPointMake(0.0f, 0.0f);
         [self.ballPlayer addChild:snow];
+        snow.targetNode = self;
     
                 
         // 添加 Ball of Enemey
@@ -374,6 +344,8 @@ CGFloat vectorLength (CGVector vector) {
 #pragma mark SkillEndAnimateDelegate
 -(void)skillEndEvent:(PPSkillInfo *)skillInfo
 {
+    NSLog(@"skillInfo=%@",skillInfo);
+    
     [self.playerSide changeHPValue:skillInfo.HPChangeValue];
     [self.playerSide changeMPValue:skillInfo.MPChangeValue];
     

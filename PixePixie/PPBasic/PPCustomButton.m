@@ -41,6 +41,7 @@
     customBtn.selector = selectorTmp;
     return  customBtn;
 }
+
 +(PPCustomButton *)buttonWithSize:(CGSize)size andImage:(NSString *)image withTarget:(id)targetTmp withSelecter:(SEL)selectorTmp
 {
     CGRect rect= CGRectMake(0.0f, 0.0f, size.width, size.height);

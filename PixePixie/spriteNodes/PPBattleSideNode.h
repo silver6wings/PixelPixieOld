@@ -7,11 +7,11 @@
 //
 
 #import "PPBasicSpriteNode.h"
-
+#import "PPValueShowNode.h"
 @interface PPBattleSideNode : PPBasicSpriteNode
 {
-    PPHPSpriteNode *barPlayerHP;
-    PPHPSpriteNode *barPlayerMP;
+    PPValueShowNode *barPlayerHP;
+    PPValueShowNode *barPlayerMP;
 }
 //回调对象
 @property(nonatomic,assign) id target;
@@ -19,7 +19,8 @@
 @property(nonatomic,assign) SEL skillSelector;
 
 @property(nonatomic,retain) PPPixie *currentPPPixie;
--(void)setSideElements:(PPPixie *)ppixie;
+-(void)setSideElementsForPet:(PPPixie *)ppixie;
+-(void)setSideElementsForEnemy:(PPPixie *)ppixie;
 -(void)changeHPValue:(CGFloat)HPValue;
 -(void)changeMPValue:(CGFloat)MPValue;
 @end

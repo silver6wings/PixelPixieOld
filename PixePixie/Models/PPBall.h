@@ -1,6 +1,7 @@
 
+#import "PPEnemyPixie.h"
 @class PPPixie;
-
+@class PPEnemyPixie;
 @interface PPBall : SKSpriteNode
 {
     PPPixie * pixie;                // 球隶属于那个宠物
@@ -12,7 +13,7 @@
 
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
 +(PPBall *)ballWithElement:(PPElementType)element;
-
++(PPBall *)ballWithEnemyPixie:(PPEnemyPixie *)enemypixie;
 -(void)setToDefaultTexture;
 
 @end

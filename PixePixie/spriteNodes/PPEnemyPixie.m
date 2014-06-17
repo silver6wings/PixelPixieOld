@@ -1,23 +1,23 @@
 //
-//  PPPixie.m
-//  SpriteKitSimpleGame
+//  PPEnemyPixie.m
+//  PixelPixie
 //
-//  Created by silver6wings on 14-4-21.
-//  Copyright (c) 2014年 silver6wings. All rights reserved.
+//  Created by xiefei on 6/16/14.
+//  Copyright (c) 2014 Psyches. All rights reserved.
 //
 
-#import "PPPixie.h"
+#import "PPEnemyPixie.h"
+#import "PPBall.h"
 
-@implementation PPPixie
+@implementation PPEnemyPixie
 @synthesize pixieSatiation,pixieName, pixieIntimate, pixieLEVEL,
-            pixieHP, pixieHPmax, pixieMP, pixieMPmax, pixieAP, pixieDP, pixieGP, pixieDEX,
-            pixieGeneration, pixieElement, pixieBuffs, pixieSkills, pixieBall;
-
+pixieHP, pixieHPmax, pixieMP, pixieMPmax, pixieAP, pixieDP, pixieGP, pixieDEX,
+pixieGeneration, pixieElement, pixieBuffs, pixieSkills, pixieBall;
 // 创建新的宠物
-+(PPPixie *)birthPixieWithPetsInfo:(NSDictionary *)petsDict
++(PPEnemyPixie *)birthEnemyPixieWithPetsInfo:(NSDictionary *)petsDict;
 {
     
-    PPPixie * tPixie = [[PPPixie alloc] init];
+    PPEnemyPixie * tPixie = [[PPEnemyPixie alloc] init];
     
     tPixie.pixieHPmax = 1000*[[petsDict objectForKey:@"petstatus"] intValue];
     tPixie.pixieMPmax = 1000*[[petsDict objectForKey:@"petstatus"] intValue];

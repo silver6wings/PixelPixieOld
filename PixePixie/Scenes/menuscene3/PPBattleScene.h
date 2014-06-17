@@ -12,4 +12,6 @@
 {
 
 }
+@property (nonatomic,retain)NSDictionary *choosedPet;
+
 @end

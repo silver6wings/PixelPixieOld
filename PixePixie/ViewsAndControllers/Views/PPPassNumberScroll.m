@@ -81,7 +81,6 @@
     }
     [self setHidden:YES];
     [self removeFromSuperview];
-    
 }
 
 /*

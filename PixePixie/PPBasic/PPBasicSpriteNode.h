@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "PPModels.h"
+#import "PPBasicLabelNode.h"
 @interface PPBasicSpriteNode : SKSpriteNode
 
 @end

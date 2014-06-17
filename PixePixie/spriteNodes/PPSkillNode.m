@@ -27,7 +27,8 @@
     skillNameLabel.position = CGPointMake(100.0f,121);
     [self addChild:skillNameLabel];
     
-    
+    self.skill.HPChangeValue = [[skillInfo objectForKey:@"skillhpchange"] floatValue];
+    self.skill.MPChangeValue = [[skillInfo objectForKey:@"skillmpchange"] floatValue];
     
     SKSpriteNode *skillAnimate = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
     skillAnimate.size = CGSizeMake(self.frame.size.width/2, 242);

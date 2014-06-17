@@ -1,8 +1,17 @@
+//
+//  PPEnemyPixie.h
+//  PixelPixie
+//
+//  Created by xiefei on 6/16/14.
+//  Copyright (c) 2014 Psyches. All rights reserved.
+//
 
+#import <Foundation/Foundation.h>
 #import "PPElement.h"
-#import "PPBall.h"
 #import "PPSkillNode.h"
-@interface PPPixie : NSObject {
+@class PPBall;
+@interface PPEnemyPixie : NSObject
+{
     
     
     // 喂养属性
@@ -58,7 +67,7 @@
 
 @property (nonatomic) PPBall * pixieBall;
 
-// 创建新的宠物
-+(PPPixie *)birthPixieWithPetsInfo:(NSDictionary *)petsDict;
+// 创建新的敌人怪物
++(PPEnemyPixie *)birthEnemyPixieWithPetsInfo:(NSDictionary *)petsDict;
 
 @end
