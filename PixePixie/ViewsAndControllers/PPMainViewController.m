@@ -35,13 +35,15 @@ NSString * menu[]={
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     mainScene=[[PPMainScene alloc] initWithSize:[UIScreen mainScreen].bounds.size];
     mainScene.chooseTarget=self;
     mainScene.chooseCouterpartSel=@selector(counterpartEnter:);
     mainScene.scaleMode=SKSceneScaleModeFill;
     [skViewMain presentScene:mainScene];
 
+    
+    
+    
     menuAnimationTag=0;
     
     for (int i=0; i<PP_MENU_COUNT; i++) {
@@ -129,12 +131,6 @@ NSString * menu[]={
             
 
             [self menuDownAnimation];
-//            PPPixie * playerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:2];
-//            PPPixie * eneplayerPixie = [PPPixie birthPixieWith:PPElementTypePlant Generation:3];
-//            PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:self.view.bounds.size
-//                                                                 PixieA:playerPixie
-//                                                                 PixieB:eneplayerPixie];
-            
             PPBattleScene * battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
             battleScene.scaleMode = SKSceneScaleModeAspectFill;
             
