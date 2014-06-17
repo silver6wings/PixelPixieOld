@@ -131,10 +131,9 @@ NSString * menu[]={
             
 
             [self menuDownAnimation];
-            PPBattleScene * battleScene = [[PPBattleScene alloc] initWithSize:self.view.bounds.size];
-            battleScene.scaleMode = SKSceneScaleModeAspectFill;
-            
-            [skViewMain presentScene:battleScene];
+            PPPassNumberScene * passScene = [[PPPassNumberScene alloc] initWithSize:self.view.bounds.size];
+            passScene.scaleMode = SKSceneScaleModeAspectFill;
+            [skViewMain presentScene:passScene];
         }
             break;
         case 3:
