@@ -3,6 +3,6 @@
 
 -(id)initWithSize:(CGSize)size
            PixieA:(PPPixie *)pixieA
-           PixieB:(PPPixie *)pixieB;
+           PixieB:(PPEnemyPixie *)pixieB;
 
 @end

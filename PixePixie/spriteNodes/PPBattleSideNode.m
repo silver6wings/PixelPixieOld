@@ -12,6 +12,7 @@
 @synthesize target=_target;
 @synthesize skillSelector=_skillSelector;
 @synthesize currentPPPixie;
+@synthesize currentEenemyPPPixie;
 -(void)setSideElementsForPet:(PPPixie *)ppixie
 {
     PPCustomButton*ppixieBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andImage:@"ball_pixie_plant2.png" withTarget:self withSelecter:@selector(pixieClick:)];
@@ -45,20 +46,21 @@
     barPlayerMP.position = CGPointMake(40.0f,barPlayerHP.position.y-10);
     [self addChild:barPlayerMP];
     
-    
+    NSArray *skillsArray = [NSArray arrayWithArray:ppixie.pixieSkills];
     for (int i=0; i<[ppixie.pixieSkills count]; i++) {
-        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andTitle:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"] withTarget:self withSelecter:@selector(skillClick:)];
+        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andTitle:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"] withTarget:self withSelecter:@selector(skillClick:)];
         ppixieSkillBtn.name=[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         ppixieSkillBtn.position = CGPointMake(70.0f*i+70, -30.0f);
         [self addChild:ppixieSkillBtn];
     }
 }
--(void)setSideElementsForEnemy:(PPPixie *)ppixie
+-(void)setSideElementsForEnemy:(PPEnemyPixie *)ppixie
 {
+    
     PPCustomButton*ppixieBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andImage:@"ball_pixie_plant2.png" withTarget:self withSelecter:@selector(pixieClick:)];
     ppixieBtn.position = CGPointMake(40.0f, -10.0f);
     [self addChild:ppixieBtn];
-    self.currentPPPixie = ppixie;
+    self.currentEenemyPPPixie = ppixie;
     
     
     
@@ -68,7 +70,7 @@
     NSLog(@"pixieName=%@",ppixie.pixieName);
     
     [ppixieNameLabel setText:ppixie.pixieName];
-    ppixieNameLabel.position = CGPointMake(0, ppixieBtn.position.y+5);
+    ppixieNameLabel.position = CGPointMake(0, ppixieBtn.position.y+15);
     [self addChild:ppixieNameLabel];
     
     
@@ -91,7 +93,7 @@
     
     
     for (int i=0; i<[ppixie.pixieSkills count]; i++) {
-        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andTitle:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"] withTarget:self withSelecter:@selector(skillClick:)];
+        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andTitle:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"] withTarget:self withSelecter:@selector(enemyskillClick:)];
         ppixieSkillBtn.name=[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         ppixieSkillBtn.position = CGPointMake(70.0f*i+70, -30.0f);
         [self addChild:ppixieSkillBtn];
@@ -110,6 +112,16 @@
           [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
       }
    
+}
+-(void)enemyskillClick:(PPCustomButton *)sender
+{
+    
+    NSDictionary *skillChoosed=[self.currentEenemyPPPixie.pixieSkills objectAtIndex:[sender.name intValue]-PP_SKILLS_CHOOSE_BTN_TAG];
+    
+    if (self.target!=nil &&self.skillSelector!=nil &&[self.target respondsToSelector:self.skillSelector]) {
+        [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
+    }
+    
 }
 -(void)changeHPValue:(CGFloat)HPValue
 {

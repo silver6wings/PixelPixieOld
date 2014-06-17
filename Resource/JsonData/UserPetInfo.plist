@@ -62,7 +62,7 @@
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
 					<string>木防加成</string>
 					<key>skillcdrounds</key>
@@ -124,7 +124,7 @@
 					<key>skillhpchange</key>
 					<integer>300</integer>
 					<key>skillmpchange</key>
-					<integer>-29</integer>
+					<integer>-290</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
@@ -142,11 +142,11 @@
 					<key>skillhpchange</key>
 					<integer>-300</integer>
 					<key>skillmpchange</key>
-					<integer>-40</integer>
+					<integer>-400</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
 					<string>巨木降临</string>
 					<key>skillcdrounds</key>
@@ -160,11 +160,11 @@
 					<key>skillhpchange</key>
 					<integer>-555</integer>
 					<key>skillmpchange</key>
-					<integer>223</integer>
+					<integer>-223</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
 					<string>木旋风</string>
 					<key>skillcdrounds</key>
@@ -212,7 +212,7 @@
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
 					<string>森林瞬起</string>
 					<key>skillcdrounds</key>
@@ -230,7 +230,7 @@
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
 					<string>光合作用</string>
 					<key>skillcdrounds</key>
@@ -248,7 +248,7 @@
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
 					<string>木之誓言</string>
 					<key>skillcdrounds</key>

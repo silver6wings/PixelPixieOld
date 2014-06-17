@@ -65,12 +65,15 @@
     [self addChild:enemyPixie];
     // 预加载变身动画
     NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
+    @synchronized(texturesArray)
+    {
+        
     for (int i=1; i <= 43; i++) {
         NSString *textureName = [NSString stringWithFormat:@"变身效果01%03d.png", i];
         SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
         [texturesArray addObject:temp];
     }
-    NSLog(@"pixieAnimation=%@",texturesArray);
+    }
 
     self.pixieAnimation = texturesArray;
     
@@ -104,9 +107,15 @@
             [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f],
             [SKAction runBlock:^{
              
+             NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+             NSArray *enemySkills=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+             NSDictionary *chooseEnemyDict=[NSDictionary dictionaryWithDictionary:[enemySkills objectAtIndex:0]];
+             
+             NSLog(@"dictEnemy=%@",dictEnemy);
+             
              // 初始化 ballScene
              PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
-             PPPixie * eneplayerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
+             PPEnemyPixie * eneplayerPixie = [PPEnemyPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
              
              
              PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:self.view.bounds.size

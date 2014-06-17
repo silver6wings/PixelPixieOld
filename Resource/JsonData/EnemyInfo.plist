@@ -46,7 +46,7 @@
 					<key>skillobject</key>
 					<integer>0</integer>
 					<key>skillname</key>
-					<string>发芽</string>
+					<string>弹幕冲击</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -60,11 +60,11 @@
 					<key>skillmpchange</key>
 					<integer>-139</integer>
 					<key>skilltype</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
-					<string>木防加成</string>
+					<string>冰晶之触</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -82,7 +82,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>木系掌控</string>
+					<string>闪烁</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -99,21 +99,6 @@
 			<string>ball_pixie_plant2.png</string>
 			<key>enemystatus</key>
 			<integer>1</integer>
-			<key>enemyinfo</key>
-			<dict>
-				<key>hpmax</key>
-				<integer>1000</integer>
-				<key>mpmax</key>
-				<integer>1000</integer>
-				<key>pixieAPmax</key>
-				<integer>0</integer>
-				<key>pixieDPmax</key>
-				<integer>0</integer>
-				<key>pixieDEXmax</key>
-				<integer>0</integer>
-				<key>pixieDEFmax</key>
-				<integer>0</integer>
-			</dict>
 			<key>enemySkills</key>
 			<array>
 				<dict>
@@ -130,7 +115,7 @@
 					<key>skillobject</key>
 					<integer>0</integer>
 					<key>skillname</key>
-					<string>发芽</string>
+					<string>弹幕冲击</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -146,9 +131,9 @@
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
-					<string>木防加成</string>
+					<string>冰晶之触</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -166,11 +151,26 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>木系掌控</string>
+					<string>闪烁</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
 			</array>
+			<key>enemyinfo</key>
+			<dict>
+				<key>hpmax</key>
+				<integer>1000</integer>
+				<key>mpmax</key>
+				<integer>1000</integer>
+				<key>pixieAPmax</key>
+				<integer>0</integer>
+				<key>pixieDPmax</key>
+				<integer>0</integer>
+				<key>pixieDEXmax</key>
+				<integer>0</integer>
+				<key>pixieDEFmax</key>
+				<integer>0</integer>
+			</dict>
 		</dict>
 		<dict>
 			<key>enemyId</key>
@@ -183,21 +183,6 @@
 			<string>ball_pixie_plant2.png</string>
 			<key>enemystatus</key>
 			<integer>1</integer>
-			<key>enemyinfo</key>
-			<dict>
-				<key>hpmax</key>
-				<integer>1000</integer>
-				<key>mpmax</key>
-				<integer>1000</integer>
-				<key>pixieAPmax</key>
-				<integer>0</integer>
-				<key>pixieDPmax</key>
-				<integer>0</integer>
-				<key>pixieDEXmax</key>
-				<integer>0</integer>
-				<key>pixieDEFmax</key>
-				<integer>0</integer>
-			</dict>
 			<key>enemySkills</key>
 			<array>
 				<dict>
@@ -214,7 +199,7 @@
 					<key>skillobject</key>
 					<integer>0</integer>
 					<key>skillname</key>
-					<string>发芽</string>
+					<string>弹幕冲击</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -230,9 +215,9 @@
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
-					<string>木防加成</string>
+					<string>冰晶之触</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -250,11 +235,26 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>木系掌控</string>
+					<string>闪烁</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
 			</array>
+			<key>enemyinfo</key>
+			<dict>
+				<key>hpmax</key>
+				<integer>1000</integer>
+				<key>mpmax</key>
+				<integer>1000</integer>
+				<key>pixieAPmax</key>
+				<integer>0</integer>
+				<key>pixieDPmax</key>
+				<integer>0</integer>
+				<key>pixieDEXmax</key>
+				<integer>0</integer>
+				<key>pixieDEFmax</key>
+				<integer>0</integer>
+			</dict>
 		</dict>
 	</array>
 </dict>

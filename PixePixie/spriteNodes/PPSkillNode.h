@@ -10,7 +10,7 @@
 #import "PPSkillInfo.h"
 @protocol SkillShowEndDelegate
 
--(void)skillEndEvent:(PPSkillInfo *)skillInfo;
+-(void)skillEndEvent:(PPSkillInfo *)skillInfo withSelfName:(NSString *)nodeName;
 
 @end
 @interface PPSkillNode : SKSpriteNode

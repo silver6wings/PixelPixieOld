@@ -19,8 +19,9 @@
 @property(nonatomic,assign) SEL skillSelector;
 
 @property(nonatomic,retain) PPPixie *currentPPPixie;
+@property(nonatomic,retain) PPEnemyPixie *currentEenemyPPPixie;
 -(void)setSideElementsForPet:(PPPixie *)ppixie;
--(void)setSideElementsForEnemy:(PPPixie *)ppixie;
+-(void)setSideElementsForEnemy:(PPEnemyPixie *)ppixie;
 -(void)changeHPValue:(CGFloat)HPValue;
 -(void)changeMPValue:(CGFloat)MPValue;
 @end

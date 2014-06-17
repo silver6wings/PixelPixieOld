@@ -7,7 +7,7 @@
 @end
 
 @implementation PPBall
-@synthesize pixie, ballElementType;
+@synthesize pixie, ballElementType,enemypixie;
 
 #pragma mark Factory Method
 
@@ -67,7 +67,7 @@
         tBall.size = CGSizeMake(kBallSize, kBallSize);
         [PPBall defaultBallPhysicsBody:tBall];
     
-        tBall.pixie = enemypixie;
+        tBall.enemypixie = enemypixie;
     }
     return tBall;
 }

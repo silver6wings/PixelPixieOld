@@ -10,6 +10,8 @@ typedef enum {
     PP_MPTYPE
 }VALUESHOWTYPE;
 
+#define PP_PET_SKILL_SHOW_NODE_NAME @"petskillshow"
+#define PP_ENEMY_SKILL_SHOW_NODE_NAME @"enemyskillshow"
 
 #define PP_MENU_COUNT 5
 #define PP_MENU_BUTON_TAG 100

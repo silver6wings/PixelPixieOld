@@ -32,7 +32,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
 -(id)initWithSize:(CGSize)size
            PixieA:(PPPixie *)pixieA
-           PixieB:(PPPixie *)pixieB{
+           PixieB:(PPEnemyPixie *)pixieB{
     
     if (self = [super initWithSize:size]) {
         
@@ -142,7 +142,9 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 }
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
 {
-    [self showSkillEventBegain:skillInfo];
+    NSLog(@"skillInfo=%@",skillInfo);
+    
+    [self showEnemySkillEventBegain:skillInfo];
 
 }
 #pragma mark SKScene
@@ -175,6 +177,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             if ([tBall.name isEqualToString:@"ball_plant"]) {
                 [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
             }
+            
         }
     }
 }
@@ -329,12 +332,28 @@ CGFloat distanceBetweenPoints (CGPoint first, CGPoint second) {
 CGFloat vectorLength (CGVector vector) {
     return sqrt( vector.dx * vector.dx + vector.dy * vector.dy );
 };
+
 #pragma mark SkillBeginAnimateDelegate
+
+-(void)showEnemySkillEventBegain:(NSDictionary *)skillInfo
+{
+    
+    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
+    skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
+    skillNode.delegate=self;
+    skillNode.position=CGPointMake(0.0f, 300.0f);
+    [self addChild:skillNode];
+    
+    [skillNode showSkillAnimate:skillInfo];
+    
+}
+
 -(void)showSkillEventBegain:(NSDictionary *)skillInfo
 {
     
     PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
     skillNode.delegate=self;
+    skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
     skillNode.position=CGPointMake(0.0f, 300.0f);
     [self addChild:skillNode];
     
@@ -342,15 +361,44 @@ CGFloat vectorLength (CGVector vector) {
 
 }
 #pragma mark SkillEndAnimateDelegate
--(void)skillEndEvent:(PPSkillInfo *)skillInfo
+-(void)skillEndEvent:(PPSkillInfo *)skillInfo withSelfName:(NSString *)nodeName
 {
-    NSLog(@"skillInfo=%@",skillInfo);
     
-    [self.playerSide changeHPValue:skillInfo.HPChangeValue];
-    [self.playerSide changeMPValue:skillInfo.MPChangeValue];
+    NSLog(@"skillInfo=%@ HP:%f MP:%f",skillInfo,skillInfo.HPChangeValue,skillInfo.MPChangeValue);
     
-    [self.enemySide changeHPValue:skillInfo.HPChangeValue];
-    [self.enemySide changeMPValue:skillInfo.MPChangeValue];
+    
+    if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
+    {
+        if (skillInfo.skillObject ==1) {
+            [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+            [self.playerSide changeMPValue:skillInfo.MPChangeValue];
+        }else
+        {
+            [self.enemySide changeHPValue:skillInfo.HPChangeValue];
+            [self.enemySide changeMPValue:skillInfo.MPChangeValue];
+        
+        }
+
+        
+    }else
+    {
+        
+        if (skillInfo.skillObject ==1) {
+            
+            [self.enemySide changeHPValue:skillInfo.HPChangeValue];
+            [self.enemySide changeMPValue:skillInfo.MPChangeValue];
+            
+        }else
+        {
+            [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+            [self.playerSide changeMPValue:skillInfo.MPChangeValue];
+            
+        }
+        
+    }
+  
+    
+ 
     
     
 }

@@ -56,6 +56,8 @@
     NSArray *petsInfoArray=[[NSArray alloc] initWithArray:[dictUserPets objectForKey:@"userpetinfo"]];
     NSInteger petsCount = [petsInfoArray count];
     
+    @synchronized(petsInfoArray)
+    {
     for (int i=0; i<petsCount; i++) {
         
         PPCustomButton *sprit1=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"] withTarget:self withSelecter:@selector(spriteChooseClick:)];
@@ -63,6 +65,7 @@
         sprit1.position=CGPointMake(0.0, 100*(i-1));
         [spriteContent addChild:sprit1];
         
+     }
     }
     self.petsArray = petsInfoArray;
     

@@ -9,6 +9,7 @@
 }
 
 @property (nonatomic) PPPixie * pixie;
+@property (nonatomic) PPEnemyPixie * enemypixie;
 @property (nonatomic) PPElementType ballElementType;
 
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
