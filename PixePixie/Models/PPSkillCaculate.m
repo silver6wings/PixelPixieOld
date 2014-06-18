@@ -29,5 +29,10 @@ static PPSkillCaculate *skillCaculate = nil;
     return 200.0f;
     
 }
+-(CGFloat)bloodChangeForBallAttack:(NSInteger )assimilateBalls
+{
+    return 300.0f;
+}
+
 
 @end

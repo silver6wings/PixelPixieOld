@@ -75,6 +75,7 @@ static const float kElementInhibition[kElementTypeMax + 1][kElementTypeMax + 1] 
     {0.00f, 1.45f, 1.30f, 0.85f, 1.15f, 1.15f, 1.30f, 1.15f, 0.70f, 1.00f, 1.00f},
     {0.00f, 1.15f, 0.85f, 1.45f, 1.30f, 1.15f, 1.00f, 0.70f, 1.30f, 1.15f, 1.00f}
     
+    
 };
 
 // 属性融合策划表
