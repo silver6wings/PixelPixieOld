@@ -123,7 +123,6 @@
 		1959D693191515C900865D27 /* 变身效果01042.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D667191515C900865D27 /* 变身效果01042.png */; };
 		1959D694191515C900865D27 /* 变身效果01043.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D668191515C900865D27 /* 变身效果01043.png */; };
 		1959D69619152E9700865D27 /* skill_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D69519152E9700865D27 /* skill_plant.png */; };
-		19C930B418EC260C001B4358 /* PPBuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C930B318EC260C001B4358 /* PPBuff.m */; };
 		19CBA8C31907C77600A249AB /* PPBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C21907C77600A249AB /* PPBall.m */; };
 		19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C51907C7D000A249AB /* PPPlayer.m */; };
 		19F6ED9C18C6C09900BFFF9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6ED9B18C6C09900BFFF9A /* Foundation.framework */; };
@@ -157,6 +156,7 @@
 		D4572B58194D3F3D00848BC3 /* PPBasicLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4572B57194D3F3D00848BC3 /* PPBasicLabelNode.m */; };
 		D4572B5B194D49A500848BC3 /* PPValueShowNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4572B5A194D49A500848BC3 /* PPValueShowNode.m */; };
 		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
+		D4BE5ABF19513FFD001F72DE /* PPBuffAgg.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE5ABE19513FFD001F72DE /* PPBuffAgg.m */; };
 		D4EE4174194BE8E3003126C6 /* PPMonsterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE4163194BE8E3003126C6 /* PPMonsterScene.m */; };
 		D4EE4175194BE8E4003126C6 /* PPPacksackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE4166194BE8E3003126C6 /* PPPacksackScene.m */; };
 		D4EE4176194BE8E4003126C6 /* PPBallScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE4169194BE8E3003126C6 /* PPBallScene.m */; };
@@ -289,8 +289,6 @@
 		1959D668191515C900865D27 /* 变身效果01043.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01043.png"; sourceTree = "<group>"; };
 		1959D69519152E9700865D27 /* skill_plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skill_plant.png; path = Resource/Image/test/skill_plant.png; sourceTree = "<group>"; };
 		19906B8E18CB061D00C05BA3 /* Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Configuration.h; path = Configurations/Configuration.h; sourceTree = "<group>"; };
-		19C930B218EC260C001B4358 /* PPBuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBuff.h; path = Models/PPBuff.h; sourceTree = "<group>"; };
-		19C930B318EC260C001B4358 /* PPBuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBuff.m; path = Models/PPBuff.m; sourceTree = "<group>"; };
 		19CBA8C11907C77600A249AB /* PPBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBall.h; path = Models/PPBall.h; sourceTree = "<group>"; };
 		19CBA8C21907C77600A249AB /* PPBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBall.m; path = Models/PPBall.m; sourceTree = "<group>"; };
 		19CBA8C41907C7D000A249AB /* PPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPlayer.h; path = Models/PPPlayer.h; sourceTree = "<group>"; };
@@ -352,6 +350,8 @@
 		D4572B59194D49A500848BC3 /* PPValueShowNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPValueShowNode.h; sourceTree = "<group>"; };
 		D4572B5A194D49A500848BC3 /* PPValueShowNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPValueShowNode.m; sourceTree = "<group>"; };
 		D4916A16193F636C00662F88 /* PassInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassInfo.plist; sourceTree = "<group>"; };
+		D4BE5ABD19513FFD001F72DE /* PPBuffAgg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBuffAgg.h; path = Models/PPBuffAgg.h; sourceTree = "<group>"; };
+		D4BE5ABE19513FFD001F72DE /* PPBuffAgg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBuffAgg.m; path = Models/PPBuffAgg.m; sourceTree = "<group>"; };
 		D4EE4162194BE8E3003126C6 /* PPMonsterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMonsterScene.h; sourceTree = "<group>"; };
 		D4EE4163194BE8E3003126C6 /* PPMonsterScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMonsterScene.m; sourceTree = "<group>"; };
 		D4EE4165194BE8E3003126C6 /* PPPacksackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPacksackScene.h; sourceTree = "<group>"; };
@@ -506,8 +506,8 @@
 				1917DFF618C8551300E54F02 /* PPElement.m */,
 				D413CB5F1945FF62004B4FDE /* PPSkillInfo.h */,
 				D413CB601945FF62004B4FDE /* PPSkillInfo.m */,
-				19C930B218EC260C001B4358 /* PPBuff.h */,
-				19C930B318EC260C001B4358 /* PPBuff.m */,
+				D4BE5ABD19513FFD001F72DE /* PPBuffAgg.h */,
+				D4BE5ABE19513FFD001F72DE /* PPBuffAgg.m */,
 				19CBA8C11907C77600A249AB /* PPBall.h */,
 				19CBA8C21907C77600A249AB /* PPBall.m */,
 				D40E1F9219508D28004704D5 /* PPSkillCaculate.h */,
@@ -1020,6 +1020,7 @@
 				1938054918CB0CAB00EF8691 /* ConfigData.m in Sources */,
 				194E6AC8190A01130098F599 /* ConstantData.m in Sources */,
 				D4570130194F4B3D00C2EFCE /* PPEnemyPixie.m in Sources */,
+				D4BE5ABF19513FFD001F72DE /* PPBuffAgg.m in Sources */,
 				D42F8F1B192E3F9D001374AB /* PPSceneManager.m in Sources */,
 				D43F42451947566300B19F2F /* PPTableView.m in Sources */,
 				D449CFD8192BB278007179B1 /* PPBasicViewController.m in Sources */,
@@ -1032,7 +1033,6 @@
 				D413CB6419460561004B4FDE /* PPBasicSpriteNode.m in Sources */,
 				D43F421B1947548F00B19F2F /* PPMainScene.m in Sources */,
 				D4EE4174194BE8E3003126C6 /* PPMonsterScene.m in Sources */,
-				19C930B418EC260C001B4358 /* PPBuff.m in Sources */,
 				D4572B58194D3F3D00848BC3 /* PPBasicLabelNode.m in Sources */,
 				D413CB611945FF62004B4FDE /* PPSkillInfo.m in Sources */,
 				D4EE4178194BE8E4003126C6 /* PPPassNumberScene.m in Sources */,

@@ -2,6 +2,7 @@
 #import "PPElement.h"
 #import "PPBall.h"
 #import "PPSkillNode.h"
+#import "PPBuffAgg.h"
 @interface PPPixie : NSObject {
     
     
@@ -51,11 +52,11 @@
 @property (nonatomic, assign) CGFloat pixieGP;
 @property (nonatomic, assign) CGFloat pixieDEX;
 
+
 @property (nonatomic, assign) int pixieGeneration;
 @property (nonatomic) PPElementType pixieElement;
 @property (nonatomic,retain) NSArray * pixieSkills;
-@property (nonatomic) NSArray * pixieBuffs;
-
+@property (nonatomic,retain) PPBuffAgg *pixieBuffAgg;
 @property (nonatomic) PPBall * pixieBall;
 
 // 创建新的宠物

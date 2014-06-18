@@ -16,12 +16,18 @@ static PPSkillCaculate *skillCaculate = nil;
         if(skillCaculate == nil)
         {
             skillCaculate = [[PPSkillCaculate alloc] init];
-            
         
         }
     }
     
     return skillCaculate;
+}
+
+- (CGFloat)bloodChangeForPhysicalAttack:(CGFloat )attackValue andAddition:(CGFloat) attValueAddition andOppositeDefense:(CGFloat) defValue andOppositeDefAddition:(CGFloat)defAddition andDexterity:(CGFloat)dexterity
+{
+    
+    return 200.0f;
+    
 }
 
 @end

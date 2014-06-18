@@ -36,8 +36,33 @@ typedef NS_ENUM(NSInteger, PPElementType)
     PPElementTypeWind         // 风
 };
 
+
+// 技能类型定义
+typedef NS_ENUM(NSInteger, PPSkillUniversalType)
+{
+    
+    PPSkillTypePhysicalAttack = 0,     // 物理攻击
+    PPSkillTypeBallAttack,             // 弹球攻击
+    PPSkillTypeSubtractBlood,          // 耗血技能
+    PPSkillTypeAppendBlood,            // 补血技能
+    PPSkillTypeSubtractDefense,        // 削减对方防御
+    PPSkillTypeAppendDefense,          // 增加本体防御
+     
+};
+
+// 临时状态buff定义
+typedef NS_ENUM(NSInteger, PPBuffUniversalType)
+{
+    
+    PPBuffTypeAttackAddition = 0,              // 伤害加成
+    
+    
+};
+
+
 // 属性相克数值策划表
 static const float kElementInhibition[kElementTypeMax + 1][kElementTypeMax + 1] = {
+    
     {0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f},
     {0.00f, 1.00f, 1.30f, 1.00f, 0.70f, 1.15f, 0.85f, 1.15f, 0.85f, 0.55f, 1.00f},
     {0.00f, 0.70f, 1.00f, 1.15f, 1.00f, 1.30f, 0.55f, 1.15f, 1.00f, 0.85f, 1.15f},
@@ -48,7 +73,8 @@ static const float kElementInhibition[kElementTypeMax + 1][kElementTypeMax + 1] 
     {0.00f, 0.85f, 1.15f, 1.30f, 1.15f, 1.45f, 0.70f, 1.00f, 1.15f, 1.00f, 1.30f},
     {0.00f, 1.15f, 1.15f, 1.15f, 1.45f, 0.85f, 1.15f, 1.00f, 1.00f, 1.30f, 0.70f},
     {0.00f, 1.45f, 1.30f, 0.85f, 1.15f, 1.15f, 1.30f, 1.15f, 0.70f, 1.00f, 1.00f},
-    {0.00f, 1.15f, 0.85f, 1.45f, 1.30f, 1.15f, 1.00f, 0.70f, 1.30f, 1.15f, 1.00f},
+    {0.00f, 1.15f, 0.85f, 1.45f, 1.30f, 1.15f, 1.00f, 0.70f, 1.30f, 1.15f, 1.00f}
+    
 };
 
 // 属性融合策划表
@@ -65,6 +91,7 @@ static const int kElementMix[kElementTypeMax + 1][kElementTypeMax + 1] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 };
+
 
 @interface ConstantData : NSObject
 

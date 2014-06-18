@@ -9,9 +9,23 @@
 #import "PPPixie.h"
 
 @implementation PPPixie
-@synthesize pixieSatiation,pixieName, pixieIntimate, pixieLEVEL,
-            pixieHP, pixieHPmax, pixieMP, pixieMPmax, pixieAP, pixieDP, pixieGP, pixieDEX,
-            pixieGeneration, pixieElement, pixieBuffs, pixieSkills, pixieBall;
+@synthesize pixieSatiation;
+@synthesize pixieName;
+@synthesize pixieIntimate ;
+@synthesize pixieLEVEL;
+@synthesize pixieHP;
+@synthesize pixieHPmax;
+@synthesize pixieMP;
+@synthesize pixieMPmax;
+@synthesize pixieAP;
+@synthesize pixieDP;
+@synthesize pixieGP;
+@synthesize pixieDEX;
+@synthesize pixieGeneration;
+@synthesize pixieElement;
+@synthesize pixieSkills;
+@synthesize pixieBall;
+@synthesize pixieBuffAgg;
 
 // 创建新的宠物
 +(PPPixie *)birthPixieWithPetsInfo:(NSDictionary *)petsDict
@@ -30,7 +44,7 @@
     
     tPixie.pixieElement = [[petsDict objectForKey:@"petelementtype"] intValue];
     tPixie.pixieSkills = [NSArray arrayWithArray:[petsDict objectForKey:@"pixieSkills"]];
-    tPixie.pixieBuffs = [NSArray arrayWithObjects:nil];
+    tPixie.pixieBuffAgg = [[PPBuffAgg alloc] init];
     tPixie.pixieBall = [PPBall ballWithPixie:tPixie];
     
     return tPixie;
