@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "PPElement.h"
 #import "PPSkillNode.h"
+#import "PPBuffAgg.h"
+
 @class PPBall;
 @interface PPEnemyPixie : NSObject
 {
@@ -20,21 +22,6 @@
     
     // 战斗属性
     int pixieLEVEL;         // 等级
-    
-    
-    CGFloat currentHP;      // 当前生命值
-    CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
-    CGFloat currentMP;      // 魔法值 ManaPoint
-    CGFloat pixieMPmax;   // 魔法值上限 ManaPointMax
-    CGFloat pixieAPmax;      // 攻击力 AttackPoint;
-    CGFloat currentAP;      // 当前攻击力 AttackPoint;
-    CGFloat pixieDPmax;      // 防御力 DefendPoint;
-    CGFloat currentDP;      // 当前防御力 DefendPoint;
-    CGFloat pixieDEXmax;     // 闪避值 Dexterity
-    CGFloat currentDEX;     // 当前闪避值 Dexterity
-    CGFloat pixieDEFmax; // 防御  Defense
-    CGFloat currentDEF;  // 当前防御  Defense
-    
     
     // 固有属性
     CGFloat pixieGP;      // 成长值 GrowthPoint;
@@ -51,19 +38,25 @@
 @property (nonatomic, assign) CGFloat pixieIntimate;
 
 @property (nonatomic, assign) int pixieLEVEL;
-@property (nonatomic, assign) CGFloat pixieHP;
-@property (nonatomic, assign) CGFloat pixieHPmax;
-@property (nonatomic, assign) CGFloat pixieMP;
-@property (nonatomic, assign) CGFloat pixieMPmax;
-@property (nonatomic, assign) CGFloat pixieAP;
-@property (nonatomic, assign) CGFloat pixieDP;
-@property (nonatomic, assign) CGFloat pixieGP;
-@property (nonatomic, assign) CGFloat pixieDEX;
+@property (nonatomic, assign) CGFloat currentHP;      // 当前生命值
+@property (nonatomic, assign) CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
+@property (nonatomic, assign) CGFloat currentMP;      // 魔法值 ManaPoint
+@property (nonatomic, assign) CGFloat pixieMPmax;   // 魔法值上限 ManaPointMax
+@property (nonatomic, assign) CGFloat pixieAPmax;      // 攻击力 AttackPoint;
+@property (nonatomic, assign) CGFloat currentAP;      // 当前攻击力 AttackPoint;
+@property (nonatomic, assign) CGFloat pixieDPmax;      // 防御力 DefendPoint;
+@property (nonatomic, assign) CGFloat currentDP;      // 当前防御力 DefendPoint;
+@property (nonatomic, assign) CGFloat pixieDEXmax;     // 闪避值 Dexterity
+@property (nonatomic, assign) CGFloat currentDEX;     // 当前闪避值 Dexterity
+@property (nonatomic, assign) CGFloat pixieDEFmax; // 防御  Defense
+@property (nonatomic, assign) CGFloat currentDEF;  // 当前防御  Defense
+
+
 
 @property (nonatomic, assign) int pixieGeneration;
 @property (nonatomic) PPElementType pixieElement;
 @property (nonatomic,retain) NSArray * pixieSkills;
-@property (nonatomic) NSArray * pixieBuffs;
+@property (nonatomic,retain) PPBuffAgg *pixieBuffAgg;
 
 @property (nonatomic) PPBall * pixieBall;
 

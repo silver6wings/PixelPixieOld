@@ -103,7 +103,7 @@
     
     // 添加 HP bar
     barPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
-    [barPlayerHP setMaxValue:ppixie.pixieHPmax andCurrentValue:ppixie.pixieHP andShowType:PP_HPTYPE];
+    [barPlayerHP setMaxValue:ppixie.pixieHPmax andCurrentValue:ppixie.currentHP andShowType:PP_HPTYPE];
     barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
     barPlayerHP.position = CGPointMake(40.0f,15.0);
     [self addChild:barPlayerHP];
@@ -111,7 +111,7 @@
     
     // 添加 MP bar
     barPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
-    [barPlayerMP setMaxValue:ppixie.pixieMPmax andCurrentValue:ppixie.pixieMP andShowType:PP_MPTYPE];
+    [barPlayerMP setMaxValue:ppixie.pixieMPmax andCurrentValue:ppixie.currentMP andShowType:PP_MPTYPE];
     barPlayerMP.anchorPoint = CGPointMake(0, 0.0);
     barPlayerMP.position = CGPointMake(40.0f,barPlayerHP.position.y-10);
     [self addChild:barPlayerMP];

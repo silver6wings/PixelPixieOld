@@ -149,21 +149,66 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if ([nodeName isEqual:PP_PET_PLAYER_SIDE_NODE_NAME]) {
         
         
-//        [PPSkillCaculate getInstance] bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.pixieAP andAddition:<#(CGFloat)#> andOppositeDefense:<#(CGFloat)#> andOppositeDefAddition:<#(CGFloat)#> andDexterity:<#(CGFloat)#>
-//            CGFloat hpchangresult=[
-//            [self.enemySide changeHPValue:skillInfo.HPChangeValue];
-//            [self.enemySide changeMPValue:skillInfo.MPChangeValue];
-//            
+        
+          CGFloat hpchangresult=[[PPSkillCaculate getInstance] bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.currentAP andAddition:self.playerSide.currentPPPixie.pixieBuffAgg.attackAddition andOppositeDefense:self.enemySide.currentEenemyPPPixie.currentDP andOppositeDefAddition:self.enemySide.currentEenemyPPPixie.pixieBuffAgg.defenseAddition andDexterity:self.enemySide.currentEenemyPPPixie.currentDEX];
+        
+            [self.enemySide changeHPValue:hpchangresult];
+            [self.enemySide changeMPValue:hpchangresult];
+        
     }else
     {
         
-//        [self.playerSide changeHPValue:skillInfo.HPChangeValue];
-//        [self.playerSide changeMPValue:skillInfo.MPChangeValue];
-//        
+        
+        CGFloat hpchangresult=[[PPSkillCaculate getInstance] bloodChangeForPhysicalAttack:self.enemySide.currentEenemyPPPixie.currentAP andAddition:self.enemySide.currentEenemyPPPixie.pixieBuffAgg.attackAddition andOppositeDefense:self.playerSide.currentPPPixie.currentDP andOppositeDefAddition:self.playerSide.currentPPPixie.pixieBuffAgg.defenseAddition andDexterity:self.playerSide.currentPPPixie.currentDEX];
+        
+        
+        [self.playerSide changeHPValue:hpchangresult];
+        [self.playerSide changeMPValue:hpchangresult];
+        
+        
     }
     
 }
 
+-(void)ballAttackEnd:(NSInteger )ballsCount
+{
+    
+    CGFloat ballAttackHpChange= [[PPSkillCaculate getInstance] bloodChangeForBallAttack:YES andPet:self.playerSide.currentPPPixie andEnemy:self.enemySide.currentEenemyPPPixie];
+    
+    [self.enemySide changeHPValue:ballAttackHpChange];
+    [self.enemySide changeMPValue:ballAttackHpChange];
+    
+    
+    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
+    skillNode.delegate=self;
+    skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
+    skillNode.position=CGPointMake(0.0f, 300.0f);
+    [self addChild:skillNode];
+    
+    SKLabelNode *skillNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+    [skillNameLabel setFontSize:20];
+    skillNameLabel.fontColor = [UIColor whiteColor];
+    skillNameLabel.text = @"弹球攻击";
+    skillNameLabel.position = CGPointMake(100.0f,221);
+    [self addChild:skillNameLabel];
+    
+    
+    SKLabelNode *ballsLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+    [ballsLabel setFontSize:20];
+    ballsLabel.fontColor = [UIColor whiteColor];
+    ballsLabel.text = [NSString stringWithFormat:@"吸收球数:%d",ballsCount];
+    ballsLabel.position = CGPointMake(200.0f,221);
+    [self addChild:ballsLabel];
+    
+    SKAction *action=[SKAction fadeAlphaTo:0.0f duration:5];
+    [skillNameLabel runAction:action];
+    [ballsLabel runAction:action];
+    
+    
+    
+    [skillNode showSkillAnimate:nil];
+    
+}
 
 -(void)skllPlayerShowBegain:(NSDictionary *)skillInfo
 {
@@ -249,7 +294,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         NSLog(@"Doing Attack and Defend");
         _isBallRolling = NO;
         
-        NSLog(@"吸收球的个数 ：%d",(kBallNumberMax - (int)self.ballsElement.count));
+        [self ballAttackEnd:(kBallNumberMax - (int)self.ballsElement.count)];
 
         // 添加少了的球
         [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
@@ -259,11 +304,11 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [tBall setToDefaultTexture];
         }
         
-        [self showSkillEventBegain:nil];
         
         
     }
 }
+
 -(void)ballStopAssimilateCount:(NSInteger)balls
 {
     

@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "PPModels.h"
+#import "PPPixie.h"
+#import "PPEnemyPixie.h"
 @interface PPSkillCaculate : NSObject
 + (instancetype)getInstance;
 
 - (CGFloat)bloodChangeForPhysicalAttack:(CGFloat )attackValue andAddition:(CGFloat) attValueAddition andOppositeDefense:(CGFloat) defValue andOppositeDefAddition:(CGFloat)defAddition andDexterity:(CGFloat)dexterity;
 
--(CGFloat)bloodChangeForBallAttack:(NSInteger )assimilateBalls;
+-(CGFloat)bloodChangeForBallAttack:(BOOL)targetDirection andPet:(PPPixie * )petPixie andEnemy:(PPEnemyPixie *)enemyPixie;
     
 
 

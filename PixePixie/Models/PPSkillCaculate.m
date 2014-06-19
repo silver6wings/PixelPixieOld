@@ -26,12 +26,12 @@ static PPSkillCaculate *skillCaculate = nil;
 - (CGFloat)bloodChangeForPhysicalAttack:(CGFloat )attackValue andAddition:(CGFloat) attValueAddition andOppositeDefense:(CGFloat) defValue andOppositeDefAddition:(CGFloat)defAddition andDexterity:(CGFloat)dexterity
 {
     
-    return 200.0f;
+    return -200.0f;
     
 }
--(CGFloat)bloodChangeForBallAttack:(NSInteger )assimilateBalls
+-(CGFloat)bloodChangeForBallAttack:(BOOL)targetDirection andPet:(PPPixie * )petPixie andEnemy:(PPEnemyPixie *)enemyPixie
 {
-    return 300.0f;
+    return -300.0f;
 }
 
 
