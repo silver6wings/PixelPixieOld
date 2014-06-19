@@ -49,13 +49,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         // demo 初始化 skill parameter
         _isTrapEnable = NO;
         
-        // demo 添加 Skill Button
-        _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
-        _btSkill.size = CGSizeMake(30, 30);
-        _btSkill.name = @"bt_skill";
-        _btSkill.position = CGPointMake(CGRectGetMidX(self.frame), 30);
-        [self addChild:_btSkill];
-        
+       
         // demo 预加载 动画 frames
         _trapFrames = [[NSMutableArray alloc] init];
         for (int i=1; i <= 40; i++) {
@@ -84,6 +78,13 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.enemySide.skillSelector=@selector(skllEnemyBegain:);
         [self.enemySide setSideElementsForEnemy:pixieB];
         [self addChild:self.enemySide];
+        
+        // demo 添加 Skill Button
+        _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
+        _btSkill.size = CGSizeMake(30, 30);
+        _btSkill.name = @"bt_skill";
+        _btSkill.position = CGPointMake(280, 45);
+        [self addChild:_btSkill];
         
         
         // 添加 Walls
@@ -117,6 +118,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:self.ballEnemy];
         
+        
         // 添加 Balls of Element
         self.ballsElement = [[NSMutableArray alloc] init];
         
@@ -129,6 +131,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [self.ballsElement addObject:tBall];
         }
         [self addRandomBalls:5];
+        
         
     }
     return self;
@@ -216,9 +219,10 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         NSLog(@"Doing Attack and Defend");
         _isBallRolling = NO;
         
+        NSLog(@"吸收球的个数 ：%d",(kBallNumberMax - (int)self.ballsElement.count));
+
         // 添加少了的球
         [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
-        
         // 刷新技能
         _isTrapEnable = NO;
         for (PPBall * tBall in self.ballsElement) {
@@ -229,6 +233,13 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         
     }
+}
+-(void)ballStopAssimilateCount:(NSInteger)balls
+{
+    
+    
+    
+
 }
 
 #pragma mark SKPhysicsContactDelegate
@@ -255,7 +266,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if (kElementInhibition[attack][defend] > 1.0f) {
         [hittedBall.node removeFromParent];
         [self.ballsElement removeObject:hittedBall.node];
-        NSLog(@"%lu", (unsigned long)self.ballsElement.count);
     }
     
     /*
@@ -292,6 +302,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
 // 添加随机的球
 -(void)addRandomBalls:(int)number{
+    NSLog(@"number=%d",number);
     
     for (int i = 0; i < number; i++) {
         PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
