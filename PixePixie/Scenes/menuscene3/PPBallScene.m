@@ -59,25 +59,30 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         }
         
         
-        
        self.playerSide=[[PPBattleSideNode alloc] init];
         self.playerSide.position= CGPointMake(30, 30);
         self.playerSide.size =  CGSizeMake(CurrentDeviceRealSize.width, 60);
+        self.playerSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSide.target=self;
         self.playerSide.skillSelector=@selector(skllPlayerShowBegain:);
+        self.playerSide.physicsAttackSelector=@selector(physicsAttackBegin:);
         [self.playerSide setColor:[UIColor grayColor]];
         [self.playerSide setSideElementsForPet:pixieA];
         [self addChild:self.playerSide];
+
 
         
         self.enemySide=[[PPBattleSideNode alloc] init];
         [self.enemySide setColor:[UIColor purpleColor]];
         self.enemySide.position= CGPointMake(30, 541);
+        self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
         self.enemySide.size = CGSizeMake(CurrentDeviceRealSize.width, 60);
         self.enemySide.target=self;
         self.enemySide.skillSelector=@selector(skllEnemyBegain:);
+        self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
         [self.enemySide setSideElementsForEnemy:pixieB];
         [self addChild:self.enemySide];
+        
         
         // demo 添加 Skill Button
         _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
@@ -104,13 +109,14 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:self.ballPlayer];
         
+        
         SKEmitterNode *snow = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"ballTest" ofType:@"sks"]];
         snow.name=@"ball_player";
         snow.position = CGPointMake(0.0f, 0.0f);
         [self.ballPlayer addChild:snow];
         snow.targetNode = self;
-    
-                
+        
+        
         // 添加 Ball of Enemey
         self.ballEnemy = pixieB.pixieBall;
         self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
@@ -137,12 +143,35 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     return self;
 }
 #pragma mark SkillShow
+-(void)physicsAttackBegin:(NSString *)nodeName
+{
+    NSLog(@"nodeName=%@",nodeName);
+    if ([nodeName isEqual:PP_PET_PLAYER_SIDE_NODE_NAME]) {
+        
+        
+//        [PPSkillCaculate getInstance] bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.pixieAP andAddition:<#(CGFloat)#> andOppositeDefense:<#(CGFloat)#> andOppositeDefAddition:<#(CGFloat)#> andDexterity:<#(CGFloat)#>
+//            CGFloat hpchangresult=[
+//            [self.enemySide changeHPValue:skillInfo.HPChangeValue];
+//            [self.enemySide changeMPValue:skillInfo.MPChangeValue];
+//            
+    }else
+    {
+        
+//        [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+//        [self.playerSide changeMPValue:skillInfo.MPChangeValue];
+//        
+    }
+    
+}
+
+
 -(void)skllPlayerShowBegain:(NSDictionary *)skillInfo
 {
     NSLog(@"skillInfo=%@",skillInfo);
     
     [self showSkillEventBegain:skillInfo];
 }
+
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
 {
     NSLog(@"skillInfo=%@",skillInfo);
@@ -150,6 +179,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     [self showEnemySkillEventBegain:skillInfo];
 
 }
+
 #pragma mark SKScene
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -355,6 +385,7 @@ CGFloat vectorLength (CGVector vector) {
     skillNode.position=CGPointMake(0.0f, 300.0f);
     [self addChild:skillNode];
     
+    NSLog(@"skillInfo=%@",skillInfo);
     [skillNode showSkillAnimate:skillInfo];
     
 }
@@ -367,7 +398,8 @@ CGFloat vectorLength (CGVector vector) {
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
     skillNode.position=CGPointMake(0.0f, 300.0f);
     [self addChild:skillNode];
-    
+    NSLog(@"skillInfo=%@",skillInfo);
+
     [skillNode showSkillAnimate:skillInfo];
 
 }

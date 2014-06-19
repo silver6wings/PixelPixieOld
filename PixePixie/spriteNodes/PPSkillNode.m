@@ -21,8 +21,6 @@
     
     SKLabelNode *skillNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     skillNameLabel.fontColor = [UIColor blueColor];
-    NSLog(@"skillname=%@",[skillInfo objectForKey:@"skillname"]);
-    
     skillNameLabel.text = [skillInfo objectForKey:@"skillname"];
     skillNameLabel.position = CGPointMake(100.0f,121);
     [self addChild:skillNameLabel];

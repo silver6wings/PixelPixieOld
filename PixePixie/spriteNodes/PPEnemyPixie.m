@@ -10,9 +10,23 @@
 #import "PPBall.h"
 
 @implementation PPEnemyPixie
-@synthesize pixieSatiation,pixieName, pixieIntimate, pixieLEVEL,
-pixieHP, pixieHPmax, pixieMP, pixieMPmax, pixieAP, pixieDP, pixieGP, pixieDEX,
-pixieGeneration, pixieElement, pixieBuffs, pixieSkills, pixieBall;
+@synthesize pixieSatiation;
+@synthesize pixieName;
+@synthesize pixieIntimate;
+@synthesize pixieLEVEL;
+@synthesize pixieHP;
+@synthesize pixieHPmax;
+@synthesize pixieMP;
+@synthesize pixieMPmax;
+@synthesize pixieAP;
+@synthesize pixieDP;
+@synthesize pixieGP;
+@synthesize pixieDEX;
+@synthesize pixieGeneration;
+@synthesize pixieElement;
+@synthesize pixieBuffs;
+@synthesize pixieSkills;
+@synthesize pixieBall;
 // 创建新的怪物
 +(PPEnemyPixie *)birthEnemyPixieWithPetsInfo:(NSDictionary *)petsDict;
 {

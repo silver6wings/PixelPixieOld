@@ -18,6 +18,9 @@
 //回调方法
 @property(nonatomic,assign) SEL skillSelector;
 
+//回调方法
+@property(nonatomic,assign) SEL physicsAttackSelector;
+
 @property(nonatomic,retain) PPPixie *currentPPPixie;
 @property(nonatomic,retain) PPEnemyPixie *currentEenemyPPPixie;
 -(void)setSideElementsForPet:(PPPixie *)ppixie;

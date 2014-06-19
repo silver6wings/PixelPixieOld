@@ -26,10 +26,6 @@
     //Called immediately after a scene is presented by a view.
     [super didMoveToView:view];
     
-    
-    
-    
-    
     // 加载开始按钮
     SKLabelNode *lbStart = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     lbStart.name = @"bt_start";
@@ -111,7 +107,6 @@
              NSArray *enemySkills=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
              NSDictionary *chooseEnemyDict=[NSDictionary dictionaryWithDictionary:[enemySkills objectAtIndex:0]];
              
-             NSLog(@"dictEnemy=%@",dictEnemy);
              
              // 初始化 ballScene
              PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];

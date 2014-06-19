@@ -13,9 +13,12 @@
 @synthesize selector=_selector;
 +(PPCustomButton *)buttonWithSize:(CGSize)size andTitle:(NSString *)title withTarget:(id)targetTmp withSelecter:(SEL)selectorTmp
 {
+    
+
     CGRect rect= CGRectMake(0.0f, 0.0f, size.width, size.height);
     PPCustomButton *customBtn=[[PPCustomButton alloc] init];
-    
+    customBtn.target = targetTmp;
+    customBtn.selector = selectorTmp;
     //创建路径
     CGMutablePathRef path=CGPathCreateMutable();
     CGPathAddRoundedRect(path, NULL, rect, 5.0f, 5.0f);
@@ -44,9 +47,11 @@
 
 +(PPCustomButton *)buttonWithSize:(CGSize)size andImage:(NSString *)image withTarget:(id)targetTmp withSelecter:(SEL)selectorTmp
 {
+    
     CGRect rect= CGRectMake(0.0f, 0.0f, size.width, size.height);
     PPCustomButton *customBtn=[[PPCustomButton alloc] init];
-    
+    customBtn.target = targetTmp;
+    customBtn.selector = selectorTmp;
     //创建路径
     CGMutablePathRef path=CGPathCreateMutable();
     CGPathAddRoundedRect(path, NULL, rect, 5.0f, 5.0f);
@@ -68,6 +73,7 @@
     return  customBtn;
     
 }
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (self.target!=nil &&self.selector!=nil &&[self.target respondsToSelector:self.selector]) {

@@ -28,16 +28,6 @@
 {
     [super didMoveToView:view];
 
-//    NSLog(@"passName=%@",passName);
-//    NSDictionary *dictPassInfo=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PassInfo" ofType:@"plist"]];
-//    NSArray *passArray=[NSArray arrayWithArray:[dictPassInfo objectForKey:@"transcriptinfo"]];
-//    NSInteger passCount=[passArray count];
-//    int index=[passName integerValue]-PP_PASSNUM_CHOOSE_TABLE_TAG;
-//    NSDictionary *passDictInfo=nil;
-//    if (passCount>index) {
-//        NSLog(@"pass choosed=%@",[passArray objectAtIndex:index]);
-//        passDictInfo=[NSDictionary dictionaryWithDictionary:[passArray objectAtIndex:index]];
-//    }
     
     self.backgroundColor = [SKColor purpleColor];
     
@@ -49,15 +39,10 @@
 //
     
     NSDictionary * dictUserPets=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserPetInfo" ofType:@"plist"]];
-    NSLog(@"dictUserPets11111=%@",self.passDictInfo);
-
-    
-    
     NSArray *petsInfoArray=[[NSArray alloc] initWithArray:[dictUserPets objectForKey:@"userpetinfo"]];
     NSInteger petsCount = [petsInfoArray count];
     
-    @synchronized(petsInfoArray)
-    {
+
     for (int i=0; i<petsCount; i++) {
         
         PPCustomButton *sprit1=[PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f) andTitle:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"] withTarget:self withSelecter:@selector(spriteChooseClick:)];
@@ -66,7 +51,7 @@
         [spriteContent addChild:sprit1];
         
      }
-    }
+    
     self.petsArray = petsInfoArray;
     
     
@@ -85,8 +70,6 @@
 {
     
     NSDictionary *petsChoosedInfo=[self.petsArray objectAtIndex:[spriteBtn.name integerValue]-PP_PETS_CHOOSE_BTN_TAG];
-    
-    NSLog(@"petsChoose=%@",petsChoosedInfo);
     PPBattleScene *battleScene=[[PPBattleScene alloc] initWithSize:self.view.bounds.size];
     battleScene.choosedPet =[NSDictionary dictionaryWithDictionary:petsChoosedInfo];
     [self.view presentScene:battleScene transition:[SKTransition doorwayWithDuration:1.0]];    

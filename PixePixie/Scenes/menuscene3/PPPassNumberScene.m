@@ -53,9 +53,7 @@
 -(void)chooseSpriteToBattle:(NSNumber *)passName
 {
     
-    
-    NSLog(@"passName=%@",passName);
-    NSDictionary *dictPassInfo=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PassInfo" ofType:@"plist"]];
+        NSDictionary *dictPassInfo=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PassInfo" ofType:@"plist"]];
     NSArray *passArray=[[NSArray alloc ] initWithArray:[dictPassInfo objectForKey:@"transcriptinfo"]];
     
     NSInteger passCount=[passArray count];
@@ -64,7 +62,6 @@
     if (passCount>index) {
         passDictInfo=[NSDictionary dictionaryWithDictionary:[passArray objectAtIndex:index]];
     }
-    
     
     PPPetChooseScene * choosePetScene = [[PPPetChooseScene alloc] initWithSize:self.view.bounds.size];
     choosePetScene.passDictInfo=passDictInfo;
