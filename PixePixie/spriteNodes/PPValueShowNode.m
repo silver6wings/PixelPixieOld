@@ -11,10 +11,7 @@
 {
     PPBasicSpriteNode *valueShowNode;
     PPBasicLabelNode *valueShowLabel;
-    CGFloat maxValue;
-    CGFloat currentValue;
-    
-    CGFloat originalMax;
+
 }
 @end
 

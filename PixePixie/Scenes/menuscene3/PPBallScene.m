@@ -4,7 +4,7 @@
 
 #define SPACE_BOTTOM 60
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
-#define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(450 - kBallSize)+SPACE_BOTTOM
+#define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(CurrentDeviceRealSize.height -118 - kBallSize)+SPACE_BOTTOM
 
 static const uint32_t kBallCategory      =  0x1 << 0;
 static const uint32_t kGroundCategory    =  0x1 << 1;
@@ -38,10 +38,11 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         self.backgroundColor = [SKColor blackColor];
         
-        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, 450)];
+        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, self.size.height-118)];
         bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
         [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_01.png"]]];
         [self addChild:bg];
+        
         
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
@@ -60,24 +61,25 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         
        self.playerSide=[[PPBattleSideNode alloc] init];
-        self.playerSide.position= CGPointMake(30, 30);
-        self.playerSide.size =  CGSizeMake(CurrentDeviceRealSize.width, 60);
+        self.playerSide.position= CGPointMake(self.size.width/2.0f, 30);
+        self.playerSide.size =  CGSizeMake(self.size.width, 60);
         self.playerSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSide.target=self;
         self.playerSide.skillSelector=@selector(skllPlayerShowBegain:);
         self.playerSide.physicsAttackSelector=@selector(physicsAttackBegin:);
+        self.playerSide.hpBeenZeroSel = @selector(hpBeenZeroMethoed:);
         [self.playerSide setColor:[UIColor grayColor]];
         [self.playerSide setSideElementsForPet:pixieA];
         [self addChild:self.playerSide];
 
 
-        
         self.enemySide=[[PPBattleSideNode alloc] init];
         [self.enemySide setColor:[UIColor purpleColor]];
-        self.enemySide.position= CGPointMake(30, 541);
+        self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27);
         self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
-        self.enemySide.size = CGSizeMake(CurrentDeviceRealSize.width, 60);
+        self.enemySide.size = CGSizeMake(self.size.width, 60);
         self.enemySide.target=self;
+        self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethoed:);
         self.enemySide.skillSelector=@selector(skllEnemyBegain:);
         self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
         [self.enemySide setSideElementsForEnemy:pixieB];
@@ -91,14 +93,19 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         _btSkill.position = CGPointMake(280, 45);
         [self addChild:_btSkill];
         
+        NSLog(@"self.HEIGTH=%f",self.size.height);
+        
         
         // 添加 Walls
         CGFloat tWidth = 320;
-        CGFloat tHeight = 450;
+        CGFloat tHeight = self.size.height-118.0f;
         [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM)];
         [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM)];
         [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM)];
         [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM)];
+
+
+        
         
         // 添加 Ball of Self
         
@@ -142,28 +149,29 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     }
     return self;
 }
+
 #pragma mark SkillShow
 -(void)physicsAttackBegin:(NSString *)nodeName
 {
     NSLog(@"nodeName=%@",nodeName);
     if ([nodeName isEqual:PP_PET_PLAYER_SIDE_NODE_NAME]) {
         
-        
-        
           CGFloat hpchangresult=[[PPSkillCaculate getInstance] bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.currentAP andAddition:self.playerSide.currentPPPixie.pixieBuffAgg.attackAddition andOppositeDefense:self.enemySide.currentEenemyPPPixie.currentDP andOppositeDefAddition:self.enemySide.currentEenemyPPPixie.pixieBuffAgg.defenseAddition andDexterity:self.enemySide.currentEenemyPPPixie.currentDEX];
         
             [self.enemySide changeHPValue:hpchangresult];
-            [self.enemySide changeMPValue:hpchangresult];
+        NSLog(@"currentHP=%f",self.enemySide.currentEenemyPPPixie.currentHP);
+        
+        if (self.enemySide.currentEenemyPPPixie.currentHP <=0) {
+            
+        }
         
     }else
     {
-        
         
         CGFloat hpchangresult=[[PPSkillCaculate getInstance] bloodChangeForPhysicalAttack:self.enemySide.currentEenemyPPPixie.currentAP andAddition:self.enemySide.currentEenemyPPPixie.pixieBuffAgg.attackAddition andOppositeDefense:self.playerSide.currentPPPixie.currentDP andOppositeDefAddition:self.playerSide.currentPPPixie.pixieBuffAgg.defenseAddition andDexterity:self.playerSide.currentPPPixie.currentDEX];
         
         
         [self.playerSide changeHPValue:hpchangresult];
-        [self.playerSide changeMPValue:hpchangresult];
         
         
     }
@@ -176,14 +184,14 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     CGFloat ballAttackHpChange= [[PPSkillCaculate getInstance] bloodChangeForBallAttack:YES andPet:self.playerSide.currentPPPixie andEnemy:self.enemySide.currentEenemyPPPixie];
     
     [self.enemySide changeHPValue:ballAttackHpChange];
-    [self.enemySide changeMPValue:ballAttackHpChange];
     
     
-    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
+    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.delegate=self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position=CGPointMake(0.0f, 300.0f);
+    skillNode.position=CGPointMake(self.size.width/2.0f, 300.0f);
     [self addChild:skillNode];
+    
     
     SKLabelNode *skillNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     [skillNameLabel setFontSize:20];
@@ -224,7 +232,23 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     [self showEnemySkillEventBegain:skillInfo];
 
 }
-
+-(void)hpBeenZeroMethoed:(PPBattleSideNode *)battleside
+{
+    NSLog(@"NAME 123=%@",battleside.name);
+    
+    if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME]) {
+        
+        
+        
+    }else
+    {
+        
+        
+        
+    }
+    
+    
+}
 #pragma mark SKScene
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -239,12 +263,19 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if ([[touchedNode name] isEqualToString:@"ball_player"]) {
         
         _isBallDragging = YES;
-        _ballShadow = [self.ballPlayer copy];
+//        _ballShadow = [self.ballPlayer copy];
+        _ballShadow = [PPBall ballWithPixie:self.playerSide.currentPPPixie];
         _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
         _ballShadow.position = location;
         _ballShadow.alpha = 0.5f;
         _ballShadow.physicsBody = nil;
         [self addChild:_ballShadow];
+        
+        SKEmitterNode *snow = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"ballTest" ofType:@"sks"]];
+        snow.name=@"ball_player";
+        snow.position = CGPointMake(0.0f, 0.0f);
+        [_ballShadow addChild:snow];
+        snow.targetNode = self;
     }
     
     // 点击技能按钮
@@ -303,9 +334,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         for (PPBall * tBall in self.ballsElement) {
             [tBall setToDefaultTexture];
         }
-        
-        
-        
     }
 }
 
@@ -386,6 +414,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         tBall.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:tBall];
         [self.ballsElement addObject:tBall];
+        
+        
     }
     
 }
@@ -424,10 +454,10 @@ CGFloat vectorLength (CGVector vector) {
 -(void)showEnemySkillEventBegain:(NSDictionary *)skillInfo
 {
     
-    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
+    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
     skillNode.delegate=self;
-    skillNode.position=CGPointMake(0.0f, 300.0f);
+    skillNode.position=CGPointMake(self.size.width/2.0f, 300.0f);
     [self addChild:skillNode];
     
     NSLog(@"skillInfo=%@",skillInfo);
@@ -438,10 +468,10 @@ CGFloat vectorLength (CGVector vector) {
 -(void)showSkillEventBegain:(NSDictionary *)skillInfo
 {
     
-    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
+    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.delegate=self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position=CGPointMake(0.0f, 300.0f);
+    skillNode.position=CGPointMake(self.size.width/2.0f, 300.0f);
     [self addChild:skillNode];
     NSLog(@"skillInfo=%@",skillInfo);
 
@@ -459,11 +489,9 @@ CGFloat vectorLength (CGVector vector) {
     {
         if (skillInfo.skillObject ==1) {
             [self.playerSide changeHPValue:skillInfo.HPChangeValue];
-            [self.playerSide changeMPValue:skillInfo.MPChangeValue];
         }else
         {
             [self.enemySide changeHPValue:skillInfo.HPChangeValue];
-            [self.enemySide changeMPValue:skillInfo.MPChangeValue];
         
         }
 
@@ -474,20 +502,14 @@ CGFloat vectorLength (CGVector vector) {
         if (skillInfo.skillObject ==1) {
             
             [self.enemySide changeHPValue:skillInfo.HPChangeValue];
-            [self.enemySide changeMPValue:skillInfo.MPChangeValue];
             
         }else
         {
             [self.playerSide changeHPValue:skillInfo.HPChangeValue];
-            [self.playerSide changeMPValue:skillInfo.MPChangeValue];
             
         }
         
     }
-  
-    
- 
-    
     
 }
 

@@ -49,6 +49,8 @@
         
         tBall.pixie = pixie;
     }
+
+    
     return tBall;
 }
 // 创建敌人的球

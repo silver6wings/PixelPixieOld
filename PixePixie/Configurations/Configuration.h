@@ -3,7 +3,7 @@
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 
-#define CurrentDeviceRealSize [[[UIScreen mainScreen] currentMode] size]
+#define CurrentDeviceRealSize [UIScreen mainScreen].bounds.size
 
 typedef enum {
     PP_HPTYPE,

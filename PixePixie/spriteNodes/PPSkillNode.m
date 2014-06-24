@@ -22,7 +22,7 @@
     SKLabelNode *skillNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     skillNameLabel.fontColor = [UIColor blueColor];
     skillNameLabel.text = [skillInfo objectForKey:@"skillname"];
-    skillNameLabel.position = CGPointMake(100.0f,121);
+    skillNameLabel.position = CGPointMake(0.0f,121);
     [self addChild:skillNameLabel];
     
     
@@ -31,8 +31,8 @@
     self.skill.skillObject = [[skillInfo objectForKey:@"skillobject"] floatValue];
     
     SKSpriteNode *skillAnimate = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
-    skillAnimate.size = CGSizeMake(self.frame.size.width/2, 242);
-    skillAnimate.position = CGPointMake(self.frame.size.width/4,0);
+    skillAnimate.size = CGSizeMake(self.frame.size.width, 242);
+    skillAnimate.position = CGPointMake(0.0f,0.0f);
 
     [self addChild:skillAnimate];
     

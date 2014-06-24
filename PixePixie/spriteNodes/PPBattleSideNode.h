@@ -21,10 +21,10 @@
 //回调方法
 @property(nonatomic,assign) SEL physicsAttackSelector;
 
+@property(nonatomic,assign) SEL hpBeenZeroSel;
 @property(nonatomic,retain) PPPixie *currentPPPixie;
 @property(nonatomic,retain) PPEnemyPixie *currentEenemyPPPixie;
 -(void)setSideElementsForPet:(PPPixie *)ppixie;
 -(void)setSideElementsForEnemy:(PPEnemyPixie *)ppixie;
 -(void)changeHPValue:(CGFloat)HPValue;
--(void)changeMPValue:(CGFloat)MPValue;
 @end

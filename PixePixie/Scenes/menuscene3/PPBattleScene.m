@@ -38,7 +38,6 @@
     
     if ([[self.choosedPet objectForKey:@"petstatus"] intValue]) {
         
-        
         // 添加己方精灵
         _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
         _playerPixie.position = CGPointMake(CGRectGetMidX(self.frame)+30,400);
