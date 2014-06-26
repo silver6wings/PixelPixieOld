@@ -4,7 +4,7 @@
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 
 #define CurrentDeviceRealSize [UIScreen mainScreen].bounds.size
-
+#define CustomAlertFrame CGRectMake(160.0f,300.0f, 320.0f, 200)
 typedef enum {
     PP_HPTYPE,
     PP_MPTYPE

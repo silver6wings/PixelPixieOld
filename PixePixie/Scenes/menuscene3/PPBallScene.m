@@ -86,6 +86,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addChild:self.enemySide];
         
         
+        
         // demo 添加 Skill Button
         _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
         _btSkill.size = CGSizeMake(30, 30);
@@ -104,8 +105,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM)];
         [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM)];
 
-
-        
         
         // 添加 Ball of Self
         
@@ -238,12 +237,39 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME]) {
         
+        NSDictionary *dict=@{@"title":@"怪物死了",@"context":@"我是小雨，我是sb"};
+        PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
+        [alertCustom showCustomAlertWithInfo:dict];
+        [self addChild:alertCustom];
+        
+        [self.enemySide removeFromParent];
+        
+        
+        self.enemySide=[[PPBattleSideNode alloc] init];
+        [self.enemySide setColor:[UIColor purpleColor]];
+        self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27);
+        self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
+        self.enemySide.size = CGSizeMake(self.size.width, 60);
+        self.enemySide.target=self;
+        self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethoed:);
+        self.enemySide.skillSelector=@selector(skllEnemyBegain:);
+        self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
+//        [self.enemySide setSideElementsForEnemy:[PPEnemyPixie alloc] init];
+        [self addChild:self.enemySide];
+        
         
         
     }else
     {
         
         
+        NSDictionary *dict=@{@"title":@"宠物死了",@"context":@"我是小雨，我是sb"};
+        PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
+        [alertCustom showCustomAlertWithInfo:dict];
+        [self addChild:alertCustom];
+        
+        [self.playerSide removeFromParent];
+
         
     }
     

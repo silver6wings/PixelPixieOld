@@ -3,6 +3,8 @@
 #import "PPBall.h"
 #import "PPSkillNode.h"
 #import "PPBuffAgg.h"
+#import "PPCustomAlertNode.h"
+
 @interface PPPixie : NSObject
 {
     
