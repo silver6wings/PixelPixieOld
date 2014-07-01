@@ -32,7 +32,6 @@ NSString *couterpartName[]={
         
         [self addChild:counterpartNode];
         
-        
     }
     return self;
 }

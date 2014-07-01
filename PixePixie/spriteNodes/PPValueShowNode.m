@@ -68,7 +68,11 @@
     xToValue<=0.0f?xToValue = 0.0f:xToValue;
     xToValue>=1.0f?xToValue = 1.0f:xToValue;
     SKAction *actionChangeHP=[SKAction scaleXTo:xToValue duration:1];
-    [valueShowNode runAction:actionChangeHP];
+    [valueShowNode runAction:actionChangeHP completion:^{
+        if (target!=nil&&animateEnd!=nil&&[target respondsToSelector:animateEnd]) {
+            [target performSelectorInBackground:animateEnd withObject:[NSNumber numberWithFloat:currentValue]];
+        }
+    }];
 
 }
 @end

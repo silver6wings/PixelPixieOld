@@ -102,22 +102,24 @@
             [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f],
             [SKAction runBlock:^{
              
+             
              NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-             NSArray *enemySkills=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
-             NSDictionary *chooseEnemyDict=[NSDictionary dictionaryWithDictionary:[enemySkills objectAtIndex:0]];
+             NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
              
              
              // 初始化 ballScene
              PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
-             PPEnemyPixie * eneplayerPixie = [PPEnemyPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
-             
+    
              
              PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:self.view.bounds.size
-                                                                  PixieA:playerPixie
-                                                                  PixieB:eneplayerPixie];
-             ballScene.scaleMode = SKSceneScaleModeAspectFill;
+                                                    PixieA:playerPixie
+                                                                  PixieB:enemys];
+             
             
+             ballScene.choosedEnemys = enemys;
+             ballScene.scaleMode = SKSceneScaleModeAspectFill;
              [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
+             
             }]
         ]]];
     

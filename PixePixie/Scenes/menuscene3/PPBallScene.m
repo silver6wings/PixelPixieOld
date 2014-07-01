@@ -29,14 +29,16 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 @end
 
 @implementation PPBallScene
-
+@synthesize choosedEnemys;
 -(id)initWithSize:(CGSize)size
            PixieA:(PPPixie *)pixieA
-           PixieB:(PPEnemyPixie *)pixieB{
+           PixieB:(NSArray *)enemyS{
     
     if (self = [super initWithSize:size]) {
         
         self.backgroundColor = [SKColor blackColor];
+        self.choosedEnemys=enemyS;
+        
         
         SKSpriteNode * bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, self.size.height-118)];
         bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -65,25 +67,26 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.playerSide.size =  CGSizeMake(self.size.width, 60);
         self.playerSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSide.target=self;
-        self.playerSide.skillSelector=@selector(skllPlayerShowBegain:);
+        self.playerSide.skillSelector=@selector(skillPlayerShowBegain:);
         self.playerSide.physicsAttackSelector=@selector(physicsAttackBegin:);
-        self.playerSide.hpBeenZeroSel = @selector(hpBeenZeroMethoed:);
+        self.playerSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
         [self.playerSide setColor:[UIColor grayColor]];
         [self.playerSide setSideElementsForPet:pixieA];
         [self addChild:self.playerSide];
 
-
-        self.enemySide=[[PPBattleSideNode alloc] init];
-        [self.enemySide setColor:[UIColor purpleColor]];
-        self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27);
-        self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
-        self.enemySide.size = CGSizeMake(self.size.width, 60);
-        self.enemySide.target=self;
-        self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethoed:);
-        self.enemySide.skillSelector=@selector(skllEnemyBegain:);
-        self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
-        [self.enemySide setSideElementsForEnemy:pixieB];
-        [self addChild:self.enemySide];
+        currentEnemyIndex = 0;
+        [self addEnemySide];
+//        self.enemySide=[[PPBattleSideNode alloc] init];
+//        [self.enemySide setColor:[UIColor purpleColor]];
+//        self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27);
+//        self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
+//        self.enemySide.size = CGSizeMake(self.size.width, 60);
+//        self.enemySide.target=self;
+//        self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
+//        self.enemySide.skillSelector=@selector(skllEnemyBegain:);
+//        self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
+//        [self.enemySide setSideElementsForEnemy:pixieB];
+//        [self addChild:self.enemySide];
         
         
         
@@ -123,12 +126,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         snow.targetNode = self;
         
         
-        // 添加 Ball of Enemey
-        self.ballEnemy = pixieB.pixieBall;
-        self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
-        self.ballEnemy.physicsBody.categoryBitMask = kBallCategory;
-        self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
-        [self addChild:self.ballEnemy];
+       
         
         
         // 添加 Balls of Element
@@ -217,7 +215,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
 }
 
--(void)skllPlayerShowBegain:(NSDictionary *)skillInfo
+-(void)skillPlayerShowBegain:(NSDictionary *)skillInfo
 {
     NSLog(@"skillInfo=%@",skillInfo);
     
@@ -231,37 +229,35 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     [self showEnemySkillEventBegain:skillInfo];
 
 }
--(void)hpBeenZeroMethoed:(PPBattleSideNode *)battleside
+-(void)hpBeenZeroMethod:(PPBattleSideNode *)battleside
 {
     NSLog(@"NAME 123=%@",battleside.name);
     
     if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME]) {
-        
-        NSDictionary *dict=@{@"title":@"怪物死了",@"context":@"我是小雨，我是sb"};
+        if ([self.choosedEnemys count]<=currentEnemyIndex) {
+           
+            NSLog(@"战斗结束，结算奖励");
+
+            NSDictionary *dict=@{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"副本结束"};
+            PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
+            [alertCustom showCustomAlertWithInfo:dict];
+            [self addChild:alertCustom];
+            
+            return;
+        }else
+        {
+        NSDictionary *dict=@{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"小雨是sb，请干下一个怪物"};
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
         [alertCustom showCustomAlertWithInfo:dict];
         [self addChild:alertCustom];
+     
         
-        [self.enemySide removeFromParent];
-        
-        
-        self.enemySide=[[PPBattleSideNode alloc] init];
-        [self.enemySide setColor:[UIColor purpleColor]];
-        self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27);
-        self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
-        self.enemySide.size = CGSizeMake(self.size.width, 60);
-        self.enemySide.target=self;
-        self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethoed:);
-        self.enemySide.skillSelector=@selector(skllEnemyBegain:);
-        self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
-//        [self.enemySide setSideElementsForEnemy:[PPEnemyPixie alloc] init];
-        [self addChild:self.enemySide];
-        
+        [self addEnemySide];
+        }
         
         
     }else
     {
-        
         
         NSDictionary *dict=@{@"title":@"宠物死了",@"context":@"我是小雨，我是sb"};
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
@@ -273,6 +269,53 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
     }
     
+    
+}
+-(void)addEnemySide
+{
+    if(self.enemySide != nil){
+        
+    [self.enemySide removeFromParent];
+    self.enemySide = nil;
+        
+    }
+    
+    if(self.ballEnemy != nil){
+        
+        [self.ballEnemy removeFromParent];
+        self.ballEnemy = nil;
+        
+    }
+  
+    
+   
+    
+    NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+    NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+    NSDictionary *chooseEnemyDict=[NSDictionary dictionaryWithDictionary:[enemys objectAtIndex:currentEnemyIndex]];
+    PPEnemyPixie * eneplayerPixie = [PPEnemyPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
+    
+    // 添加 Ball of Enemey
+    self.ballEnemy = eneplayerPixie.pixieBall;
+    self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
+    self.ballEnemy.physicsBody.categoryBitMask = kBallCategory;
+    self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
+    [self addChild:self.ballEnemy];
+    
+    
+    self.enemySide=[[PPBattleSideNode alloc] init];
+    [self.enemySide setColor:[UIColor purpleColor]];
+    self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27);
+    self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
+    self.enemySide.size = CGSizeMake(self.size.width, 60);
+    self.enemySide.target=self;
+    self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
+    self.enemySide.skillSelector=@selector(skllEnemyBegain:);
+    self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
+    [self.enemySide setSideElementsForEnemy:eneplayerPixie];
+    [self addChild:self.enemySide];
+    
+    currentEnemyIndex+=1;
     
 }
 #pragma mark SKScene

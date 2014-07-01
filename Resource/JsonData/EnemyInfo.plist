@@ -115,7 +115,7 @@
 					<key>skillobject</key>
 					<integer>0</integer>
 					<key>skillname</key>
-					<string>弹幕冲击</string>
+					<string>大地撕裂1</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -133,7 +133,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>冰晶之触</string>
+					<string>大地撕裂2</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -151,7 +151,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>闪烁</string>
+					<string>大地撕裂2</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -199,7 +199,7 @@
 					<key>skillobject</key>
 					<integer>0</integer>
 					<key>skillname</key>
-					<string>弹幕冲击</string>
+					<string>时光倒流1</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -217,7 +217,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>冰晶之触</string>
+					<string>时光倒流2</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -235,7 +235,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>闪烁</string>
+					<string>时光倒流3</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>

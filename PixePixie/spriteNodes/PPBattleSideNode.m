@@ -48,6 +48,8 @@
     // 添加 HP bar
     barPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
     [barPlayerHP setMaxValue:ppixie.pixieHPmax andCurrentValue:ppixie.currentHP andShowType:PP_HPTYPE];
+    barPlayerHP->target=self;
+    barPlayerHP->animateEnd=@selector(animateEnd:);
     barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
     barPlayerHP.position = CGPointMake(ppixieBtn.position.x+40.0f,15.0);
     [self addChild:barPlayerHP];
@@ -95,6 +97,8 @@
     // 添加 HP bar
     barPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
     [barPlayerHP setMaxValue:ppixie.pixieHPmax andCurrentValue:ppixie.currentHP andShowType:PP_HPTYPE];
+    barPlayerHP->target=self;
+    barPlayerHP->animateEnd=@selector(animateEnd:);
     barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
     barPlayerHP.position = CGPointMake(ppixieBtn.position.x+40.0f,15.0);
     [self addChild:barPlayerHP];
@@ -140,18 +144,21 @@
     }
     
 }
--(void)changeHPValue:(CGFloat)HPValue
+-(void)animateEnd:(NSNumber *)currentHp
 {
-    
-    [barPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
-    NSLog(@"CURRENT =%f",barPlayerHP->currentValue);
-    
     if (barPlayerHP->currentValue<=0.0f) {
         
         if (self.target!=nil &&self.hpBeenZeroSel!=nil &&[self.target respondsToSelector:self.hpBeenZeroSel]) {
             [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:self];
         }
     }
+}
+-(void)changeHPValue:(CGFloat)HPValue
+{
+    
+    [barPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+    
+
     
 }
 
