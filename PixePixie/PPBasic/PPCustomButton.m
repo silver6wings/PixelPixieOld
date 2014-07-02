@@ -13,7 +13,6 @@
 @synthesize selector=_selector;
 +(PPCustomButton *)buttonWithSize:(CGSize)size andTitle:(NSString *)title withTarget:(id)targetTmp withSelecter:(SEL)selectorTmp
 {
-    
 
     CGRect rect= CGRectMake(0.0f, 0.0f, size.width, size.height);
     PPCustomButton *customBtn=[[PPCustomButton alloc] init];
