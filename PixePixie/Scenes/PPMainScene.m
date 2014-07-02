@@ -21,7 +21,7 @@ NSString *couterpartName[]={
 {
     if (self=[super initWithSize:size]) {
         
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor redColor];
         
         SKLabelNode *counterpartNode = [SKLabelNode labelNodeWithFontNamed:@""];
         counterpartNode.name=@"couterpart";
@@ -42,6 +42,16 @@ NSString *couterpartName[]={
         [self.chooseTarget performSelectorInBackground:self.chooseCouterpartSel withObject:nil];
     }
 
+}
+-(void)didMoveToView:(SKView *)view
+{
+    
+    if ([UIScreen mainScreen].bounds.size.height>500) {
+
+    NSLog(@"heit=%f",self.view.frame.size.height);
+    [self.view setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
+    }
+    
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

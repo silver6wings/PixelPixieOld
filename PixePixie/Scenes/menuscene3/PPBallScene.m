@@ -4,7 +4,7 @@
 
 #define SPACE_BOTTOM 60
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
-#define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(CurrentDeviceRealSize.height -118 - kBallSize)+SPACE_BOTTOM
+#define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(362 - kBallSize)+SPACE_BOTTOM
 
 static const uint32_t kBallCategory      =  0x1 << 0;
 static const uint32_t kGroundCategory    =  0x1 << 1;
@@ -97,12 +97,10 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         _btSkill.position = CGPointMake(280, 45);
         [self addChild:_btSkill];
         
-        NSLog(@"self.HEIGTH=%f",self.size.height);
-        
         
         // 添加 Walls
-        CGFloat tWidth = 320;
-        CGFloat tHeight = self.size.height-118.0f;
+        CGFloat tWidth = 320.0f;
+        CGFloat tHeight = 362.0f;
         [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM)];
         [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM)];
         [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM)];
@@ -140,9 +138,10 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [self addChild:tBall];
             [self.ballsElement addObject:tBall];
         }
+        
         [self addRandomBalls:5];
         
-        
+
     }
     return self;
 }
@@ -186,7 +185,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.delegate=self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position=CGPointMake(self.size.width/2.0f, 300.0f);
+    skillNode.position=CGPointMake(self.size.width/2.0f, 250.0f);
     [self addChild:skillNode];
     
     
@@ -318,8 +317,24 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     currentEnemyIndex+=1;
     
 }
-#pragma mark SKScene
 
+#pragma mark SKScene
+-(void)didMoveToView:(SKView *)view
+{
+    if ([UIScreen mainScreen].bounds.size.height<500) {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+
+    }
+
+}
+-(void)willMoveFromView:(SKView *)view
+{
+    if ([UIScreen mainScreen].bounds.size.height<500) {
+        
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+        
+    }
+}
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     if (touches.count > 1 || _isBallDragging || _isBallRolling) return;
@@ -339,6 +354,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         _ballShadow.alpha = 0.5f;
         _ballShadow.physicsBody = nil;
         [self addChild:_ballShadow];
+        
         
         SKEmitterNode *snow = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"ballTest" ofType:@"sks"]];
         snow.name=@"ball_player";
@@ -384,11 +400,12 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [_ballShadow removeFromParent];
         _isBallRolling = YES;
     }
+    
 }
 
 // 每帧处理程序
 -(void)update:(NSTimeInterval)currentTime{
-    
+
     // 如果球都停止了
     if (_isBallRolling && [self isAllStopRolling]) {
         NSLog(@"Doing Attack and Defend");
@@ -403,24 +420,26 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         for (PPBall * tBall in self.ballsElement) {
             [tBall setToDefaultTexture];
         }
+        
     }
+    
 }
 
 -(void)ballStopAssimilateCount:(NSInteger)balls
 {
     
     
-    
-
 }
 
 #pragma mark SKPhysicsContactDelegate
 
 // 碰撞事件
 - (void)didBeginContact:(SKPhysicsContact *)contact{
+    
     if (!_isBallRolling) return;
     
     SKPhysicsBody * playerBall, * hittedBall;
+    
     
     if (contact.bodyA == self.ballPlayer.physicsBody && contact.bodyB != self.ballEnemy.physicsBody) {
         // 球A是玩家球 球B不是玩家球
@@ -431,6 +450,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         playerBall = contact.bodyB;
         hittedBall = contact.bodyA;
     } else return;
+    
     
     PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
     PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
@@ -474,7 +494,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
 // 添加随机的球
 -(void)addRandomBalls:(int)number{
-    NSLog(@"number=%d",number);
     
     for (int i = 0; i < number; i++) {
         PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
@@ -482,8 +501,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         tBall.physicsBody.categoryBitMask = kBallCategory;
         tBall.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:tBall];
-        [self.ballsElement addObject:tBall];
         
+        [self.ballsElement addObject:tBall];
         
     }
     
@@ -526,7 +545,7 @@ CGFloat vectorLength (CGVector vector) {
     PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
     skillNode.delegate=self;
-    skillNode.position=CGPointMake(self.size.width/2.0f, 300.0f);
+    skillNode.position=CGPointMake(self.size.width/2.0f, 250.0f);
     [self addChild:skillNode];
     
     NSLog(@"skillInfo=%@",skillInfo);
@@ -537,10 +556,10 @@ CGFloat vectorLength (CGVector vector) {
 -(void)showSkillEventBegain:(NSDictionary *)skillInfo
 {
     
-    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
+    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300.0f)];
     skillNode.delegate=self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position=CGPointMake(self.size.width/2.0f, 300.0f);
+    skillNode.position=CGPointMake(self.size.width/2.0f, 250.0f);
     [self addChild:skillNode];
     NSLog(@"skillInfo=%@",skillInfo);
 

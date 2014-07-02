@@ -42,24 +42,26 @@
     
     for (NSInteger i=0; i<passCount; i++) {
         
+        NSDictionary *dict=[NSDictionary dictionaryWithDictionary:[passArray objectAtIndex:i]];
+        
         UIButton  *passBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         [passBtn setFrame:CGRectMake(i*self.frame.size.width,0.0f, 64.0f, 64.0f)];
         passBtn.tag=PP_PASSNUM_CHOOSE_TABLE_TAG+i;
         [passBtn setBackgroundColor:[UIColor blueColor]];
         [passBtn addTarget:self action:@selector(passBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [passBtn setTitle:[[passArray objectAtIndex:i] objectForKey:@"passname"] forState:UIControlStateNormal];
+        [passBtn setTitle:[dict objectForKey:@"passname"] forState:UIControlStateNormal];
         [scrollContent addSubview:passBtn];
         
         
         UIImageView *imageView=[[UIImageView alloc] initWithFrame:CGRectMake(passBtn.frame.origin.x+passBtn.frame.size.width+50, passBtn.frame.origin.y, 120.0f, 120.0f)];
-        [imageView setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[[passArray objectAtIndex:i] objectForKey:@"passimage"] ofType:@"png"]]];
+        [imageView setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[dict objectForKey:@"passimage"] ofType:@"png"]]];
         [imageView setBackgroundColor:[UIColor greenColor]];
         [scrollContent addSubview:imageView];
         
         UILabel *labelPassText=[[UILabel alloc] initWithFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y+imageView.frame.size.height, 220.0f, 60.0f)];
         [labelPassText setFont:[UIFont boldSystemFontOfSize:15]];
         [labelPassText setTextColor:[UIColor whiteColor]];
-        [labelPassText setText:[[passArray objectAtIndex:i] objectForKey:@"passtime"]];
+        [labelPassText setText:[dict objectForKey:@"passtime"]];
         [scrollContent addSubview:labelPassText];
         
         

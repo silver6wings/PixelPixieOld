@@ -96,32 +96,52 @@
     
     // 点击开始按钮
     if ([[touchedNode name] isEqualToString:@"bt_start"]) {
-        
-        [_playerPixie runAction:
-         [SKAction sequence:@[
-            [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f],
-            [SKAction runBlock:^{
-             
-             
-             NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-             NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
-             
-             
-             // 初始化 ballScene
-             PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
-    
-             
-             PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:self.view.bounds.size
-                                                    PixieA:playerPixie
-                                                                  PixieB:enemys];
-             
+        [_playerPixie runAction:[SKAction sequence:@[
+                                                     [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]]] completion:^{
+            NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+            NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
             
-             ballScene.choosedEnemys = enemys;
-             ballScene.scaleMode = SKSceneScaleModeAspectFill;
-             [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
-             
-            }]
-        ]]];
+            
+            // 初始化 ballScene
+            PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
+            
+            
+            PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE
+                                                                 PixieA:playerPixie
+                                                                 PixieB:enemys];
+            
+            
+            ballScene.choosedEnemys = enemys;
+            ballScene.scaleMode = SKSceneScaleModeAspectFill;
+            [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
+
+        
+        }];
+//        [_playerPixie runAction:
+//         [SKAction sequence:@[
+//            [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f],
+//            [SKAction runBlock:^{
+//             
+//             
+//             NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+//             NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+//             
+//             
+//             // 初始化 ballScene
+//             PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
+//    
+//             
+//             PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE
+//                                                    PixieA:playerPixie
+//                                                                  PixieB:enemys];
+//             
+//            
+//             ballScene.choosedEnemys = enemys;
+//             ballScene.scaleMode = SKSceneScaleModeAspectFill;
+//             [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
+//             
+//            }]
+//        ]]];
     
     }
 }

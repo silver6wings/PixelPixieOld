@@ -27,24 +27,34 @@
 -(void)loadView
 {
     [super loadView];
-    SKView *aView=[[SKView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.view=aView;
+    if ([UIScreen mainScreen].bounds.size.height>500) {
+        SKView *mainView=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
+        self.view = mainView;
+    }else
+    {
+        SKView *mainView=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 480.0f)];
+        self.view = mainView;
+    }
+   
     
 }
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+    
     skViewMain = (SKView *)self.view;
     skViewMain.showsFPS = NO;
     skViewMain.showsNodeCount = NO;
+
     
-    
-    backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 5.0f, 50.0f,50.0f)];
+    backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 10.0f, 50.0f,50.0f)];
     [backToMain setTitle:@"back" forState:UIControlStateNormal];
     [backToMain addTarget:self action:@selector(backToMainClick) forControlEvents:UIControlEventTouchUpInside];
     [skViewMain addSubview:backToMain];
     
     // Do any additional setup after loading the view.
+    
 }
 -(void)backToMainClick
 {
