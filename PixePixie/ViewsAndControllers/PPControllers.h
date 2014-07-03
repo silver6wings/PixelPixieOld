@@ -6,4 +6,10 @@
 #import "PPTableView.h"
 #import "PPMainViewController.h"
 #import "PPPassNumberScroll.h"
+#import "PPMonsterMainView.h"
+#import "PPKnapsackMainView.h"
+#import "PPFightingMainView.h"
+#import "PPScheduleMainView.h"
+#import "PPOthersMainView.h"
+#import "PPMainView.h"
 //Demo

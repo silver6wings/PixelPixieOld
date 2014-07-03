@@ -10,7 +10,13 @@
 #import "PPPassNumberScroll.h"
 @interface PPMainViewController ()
 {
-    PPMainScene *mainScene;
+    PPMainView *mainView;
+    PPMonsterMainView *monsterMainView;
+    PPKnapsackMainView *knapsackMainView;
+    PPFightingMainView*fightingMainView;
+    PPScheduleMainView *scheduleMainView;
+    PPOthersMainView *othersMainView;
+    
 }
 @end
 
@@ -68,24 +74,8 @@ NSString * menu[]={
     
     
     
-    mainScene=[[PPMainScene alloc] initWithSize:skViewMain.frame.size];
-    mainScene.chooseTarget=self;
-    mainScene.chooseCouterpartSel=@selector(counterpartEnter:);
-    CGFloat dicrect = 44.0f;
-    
-    if (mainScene.frame.size.height<500) {
-        dicrect = 0.0f;
-    }
-    [skViewMain presentScene:mainScene];
-    NSLog(@"height=%f",mainScene.frame.size.height);
-    
-
-    
+   
     menuAnimationTag=0;
-    
-    
-
-    
     
 
     backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 54.0f, 50.0f,50.0f)];
@@ -94,6 +84,36 @@ NSString * menu[]={
     [skViewMain addSubview:backToMain];
     
     
+    
+    mainView =[[PPMainView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, skViewMain.frame.size.width, skViewMain.frame.size.height-88)];
+    [skViewMain addSubview:mainView];
+    
+    
+    
+    monsterMainView=[[PPMonsterMainView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, skViewMain.frame.size.width, skViewMain.frame.size.height-88)];
+    [skViewMain addSubview:monsterMainView];
+    
+    
+    
+    knapsackMainView=[[PPKnapsackMainView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, skViewMain.frame.size.width, skViewMain.frame.size.height-88)];
+    [skViewMain addSubview:knapsackMainView];
+    
+    
+    fightingMainView=[[PPFightingMainView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, skViewMain.frame.size.width, skViewMain.frame.size.height)];
+    [skViewMain addSubview:fightingMainView];
+    
+    
+    scheduleMainView=[[PPScheduleMainView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, skViewMain.frame.size.width, skViewMain.frame.size.height-88)];
+    [skViewMain addSubview:scheduleMainView];
+    
+    
+    othersMainView=[[PPOthersMainView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, skViewMain.frame.size.width, skViewMain.frame.size.height-88)];
+    [skViewMain addSubview:othersMainView];
+    
+    
+    [skViewMain bringSubviewToFront:mainView];
+    
+
     
     userInfoBar=[[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
     [userInfoBar setBackgroundColor:[UIColor purpleColor]];
@@ -241,50 +261,64 @@ NSString * menu[]={
         case 0:
         {
             
-            [self menuDownAnimation];
 
-            PPMonsterScene * monsterScene = [[PPMonsterScene alloc] initWithSize:CurrentDeviceRealSize];
-            monsterScene.scaleMode = SKSceneScaleModeAspectFill;
-            [skViewMain presentScene:monsterScene];
+            [skViewMain bringSubviewToFront:monsterMainView];
+            
+            
+//            [self menuDownAnimation];
+//
+//            PPMonsterScene * monsterScene = [[PPMonsterScene alloc] initWithSize:CurrentDeviceRealSize];
+//            monsterScene.scaleMode = SKSceneScaleModeAspectFill;
+//            [skViewMain presentScene:monsterScene];
+            
         }
             break;
         case 1:
         {
             
-            [self menuDownAnimation];
+            [skViewMain bringSubviewToFront:knapsackMainView];
 
-            PPPacksackScene * packsackScene = [[PPPacksackScene alloc] initWithSize:CurrentDeviceRealSize];
-            packsackScene.scaleMode = SKSceneScaleModeAspectFill;
-            [skViewMain presentScene:packsackScene];
+//            
+//            [self menuDownAnimation];
+//
+//            PPPacksackScene * packsackScene = [[PPPacksackScene alloc] initWithSize:CurrentDeviceRealSize];
+//            packsackScene.scaleMode = SKSceneScaleModeAspectFill;
+//            [skViewMain presentScene:packsackScene];
             
         }
             break;
         case 2:
         {
 
-            [self menuDownAnimation];
-            PPPassNumberScene * passScene = [[PPPassNumberScene alloc] initWithSize:CurrentDeviceRealSize];
-            passScene.scaleMode = SKSceneScaleModeAspectFill;
-            [skViewMain presentScene:passScene];
+            [skViewMain bringSubviewToFront:fightingMainView];
+//            [self menuDownAnimation];
+//            PPPassNumberScene * passScene = [[PPPassNumberScene alloc] initWithSize:CurrentDeviceRealSize];
+//            passScene.scaleMode = SKSceneScaleModeAspectFill;
+//            [skViewMain presentScene:passScene];
         }
             break;
         case 3:
         {
-            [self menuDownAnimation];
-
             
-            PPShopScene * shopScene = [[PPShopScene alloc] initWithSize:CurrentDeviceRealSize];
-            shopScene.scaleMode = SKSceneScaleModeAspectFill;
-            [skViewMain presentScene:shopScene];
+            [skViewMain bringSubviewToFront:scheduleMainView];
+//            [self menuDownAnimation];
+//
+//            
+//            PPShopScene * shopScene = [[PPShopScene alloc] initWithSize:CurrentDeviceRealSize];
+//            shopScene.scaleMode = SKSceneScaleModeAspectFill;
+//            [skViewMain presentScene:shopScene];
         }
             break;
         case 4:
         {
-            [self menuDownAnimation];
-
-            PPSettingScene * ppSetScene = [[PPSettingScene alloc] initWithSize:CurrentDeviceRealSize];
-            ppSetScene.scaleMode = SKSceneScaleModeAspectFill;
-            [skViewMain presentScene:ppSetScene];
+            
+            [skViewMain bringSubviewToFront:othersMainView];
+            
+//            [self menuDownAnimation];
+//
+//            PPSettingScene * ppSetScene = [[PPSettingScene alloc] initWithSize:CurrentDeviceRealSize];
+//            ppSetScene.scaleMode = SKSceneScaleModeAspectFill;
+//            [skViewMain presentScene:ppSetScene];
         }
             break;
             
@@ -303,13 +337,13 @@ NSString * menu[]={
 //        
 //    }
     
-    [skViewMain presentScene:mainScene];
-    [UIView animateWithDuration:0.1 animations:^{
-        
-        [backToMain setFrame:CGRectMake(-backToMain.frame.size.width, backToMain.frame.origin.y, backToMain.frame.size.width, backToMain.frame.size.height)];
-        
-    } completion:^(BOOL finished){}];
-    [self menuUpAnimation];
+//    [skViewMain presentScene:mainScene];
+//    [UIView animateWithDuration:0.1 animations:^{
+//        
+//        [backToMain setFrame:CGRectMake(-backToMain.frame.size.width, backToMain.frame.origin.y, backToMain.frame.size.width, backToMain.frame.size.height)];
+//        
+//    } completion:^(BOOL finished){}];
+//    [self menuUpAnimation];
 }
 -(void)menuUpAnimation
 {
@@ -348,8 +382,8 @@ NSString * menu[]={
     
     [UIView animateWithDuration:0.05 animations:^{
         
-        UIButton *buttonTmp=(UIButton *)[skViewMain viewWithTag:PP_MENU_BUTON_TAG+menuAnimationTag];
-        [buttonTmp setFrame:CGRectMake(buttonTmp.frame.origin.x,buttonTmp.frame.size.height, buttonTmp.frame.size.width, buttonTmp.frame.size.height)];
+//        UIButton *buttonTmp=(UIButton *)[skViewMain viewWithTag:PP_MENU_BUTON_TAG+menuAnimationTag];
+//        [buttonTmp setFrame:CGRectMake(buttonTmp.frame.origin.x,buttonTmp.frame.size.height, buttonTmp.frame.size.width, buttonTmp.frame.size.height)];
         
     } completion:^(BOOL finished){
         menuAnimationTag++;
