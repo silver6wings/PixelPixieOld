@@ -44,11 +44,23 @@ NSString * menu[]={
 {
     [super viewDidLoad];
     
+    
     self.view.backgroundColor=[UIColor whiteColor];
-  
+    
+    if (CurrentDeviceRealSize.height>500) {
+        skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 88.0f, 320.0f, 392.0f)];
+
+    }else
+    {
+        skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, 320.0f, 392.0f)];
+
+    }
+    [skViewMain setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:skViewMain];
     
     
-    mainScene=[[PPMainScene alloc] initWithSize:CurrentDeviceRealSize];
+    
+    mainScene=[[PPMainScene alloc] initWithSize:skViewMain.frame.size];
     mainScene.chooseTarget=self;
     mainScene.chooseCouterpartSel=@selector(counterpartEnter:);
     CGFloat dicrect = 44.0f;
@@ -72,10 +84,19 @@ NSString * menu[]={
         menuBtn.tag=PP_MENU_BUTON_TAG+i;
         [menuBtn addTarget:self action:@selector(menuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [menuBtn setTitle:menu[i] forState:UIControlStateNormal];
-        [self.view addSubview:menuBtn];
+        [skViewMain addSubview:menuBtn];
         
         
     }
+    
+    
+
+    backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 10.0f, 50.0f,50.0f)];
+
+    [backToMain setTitle:@"back" forState:UIControlStateNormal];
+    [backToMain addTarget:self action:@selector(backToMainClick) forControlEvents:UIControlEventTouchUpInside];
+    [skViewMain addSubview:backToMain];
+    
     
     
     if (CurrentDeviceRealSize.height>500) {

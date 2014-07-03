@@ -49,16 +49,7 @@
     skViewMain.showsFPS = NO;
     skViewMain.showsNodeCount = NO;
 
-    if (CurrentDeviceRealSize.height>500) {
-            backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 54.0f, 50.0f,50.0f)];
-    }else
-    {
-            backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 10.0f, 50.0f,50.0f)];
-    }
 
-    [backToMain setTitle:@"back" forState:UIControlStateNormal];
-    [backToMain addTarget:self action:@selector(backToMainClick) forControlEvents:UIControlEventTouchUpInside];
-    [skViewMain addSubview:backToMain];
     
     // Do any additional setup after loading the view.
     
