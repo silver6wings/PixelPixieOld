@@ -34,10 +34,10 @@ NSString * menu[]={
 };
 -(void)viewDidAppear:(BOOL)animated
 {
-    if ([UIScreen mainScreen].bounds.size.height>500) {
-
-    [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
-    }
+//    if ([UIScreen mainScreen].bounds.size.height>500) {
+//
+//    [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
+//    }
 
 }
 - (void)viewDidLoad
@@ -48,14 +48,13 @@ NSString * menu[]={
   
     
     
-    mainScene=[[PPMainScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE];
+    mainScene=[[PPMainScene alloc] initWithSize:CurrentDeviceRealSize];
     mainScene.chooseTarget=self;
     mainScene.chooseCouterpartSel=@selector(counterpartEnter:);
+    CGFloat dicrect = 44.0f;
     
-    if ([UIScreen mainScreen].bounds.size.height>500) {
-        [self.view setFrame:CGRectMake(0.0f, 44.0f, self.view.frame.size.width, self.view.frame.size.height)];
-        [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
-        
+    if (mainScene.frame.size.height<500) {
+        dicrect = 0.0f;
     }
     [skViewMain presentScene:mainScene];
     NSLog(@"height=%f",mainScene.frame.size.height);
@@ -64,17 +63,33 @@ NSString * menu[]={
     
     menuAnimationTag=0;
     
+    
     for (int i=0; i<PP_MENU_COUNT; i++) {
         
+        
         UIButton  *menuBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-        [menuBtn setFrame:CGRectMake(i*skViewMain.frame.size.width/PP_MENU_COUNT, skViewMain.frame.size.height-64.0f, 64.0f, 64.0f)];
+        [menuBtn setFrame:CGRectMake(i*skViewMain.frame.size.width/PP_MENU_COUNT, skViewMain.frame.size.height-64.0f-dicrect, 64.0f, 64.0f)];
         menuBtn.tag=PP_MENU_BUTON_TAG+i;
         [menuBtn addTarget:self action:@selector(menuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [menuBtn setTitle:menu[i] forState:UIControlStateNormal];
         [self.view addSubview:menuBtn];
         
+        
     }
     
+    
+    if (CurrentDeviceRealSize.height>500) {
+        
+    UIView *upBlackBar=[[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
+    [upBlackBar setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:upBlackBar];
+    
+    
+    UIView *downBlackBar=[[UIView alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height-44.0f, 320.0f, 44.0f)];
+    [downBlackBar setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:downBlackBar];
+        
+    }
     
     // Do any additional setup after loading the view.
 }
@@ -110,7 +125,7 @@ NSString * menu[]={
     [self menuDownAnimation];
 
     PPBattleScene * battleScene;
-    battleScene = [[PPBattleScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE];
+    battleScene = [[PPBattleScene alloc] initWithSize:CurrentDeviceRealSize];
     battleScene.scaleMode = SKSceneScaleModeAspectFill;
     
     [skViewMain presentScene:battleScene];
@@ -132,7 +147,7 @@ NSString * menu[]={
             
             [self menuDownAnimation];
 
-            PPMonsterScene * monsterScene = [[PPMonsterScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE];
+            PPMonsterScene * monsterScene = [[PPMonsterScene alloc] initWithSize:CurrentDeviceRealSize];
             monsterScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:monsterScene];
         }
@@ -142,7 +157,7 @@ NSString * menu[]={
             
             [self menuDownAnimation];
 
-            PPPacksackScene * packsackScene = [[PPPacksackScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE];
+            PPPacksackScene * packsackScene = [[PPPacksackScene alloc] initWithSize:CurrentDeviceRealSize];
             packsackScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:packsackScene];
             
@@ -152,7 +167,7 @@ NSString * menu[]={
         {
 
             [self menuDownAnimation];
-            PPPassNumberScene * passScene = [[PPPassNumberScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE];
+            PPPassNumberScene * passScene = [[PPPassNumberScene alloc] initWithSize:CurrentDeviceRealSize];
             passScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:passScene];
         }
@@ -162,7 +177,7 @@ NSString * menu[]={
             [self menuDownAnimation];
 
             
-            PPShopScene * shopScene = [[PPShopScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE];
+            PPShopScene * shopScene = [[PPShopScene alloc] initWithSize:CurrentDeviceRealSize];
             shopScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:shopScene];
         }
@@ -171,7 +186,7 @@ NSString * menu[]={
         {
             [self menuDownAnimation];
 
-            PPSettingScene * ppSetScene = [[PPSettingScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE];
+            PPSettingScene * ppSetScene = [[PPSettingScene alloc] initWithSize:CurrentDeviceRealSize];
             ppSetScene.scaleMode = SKSceneScaleModeAspectFill;
             [skViewMain presentScene:ppSetScene];
         }
@@ -185,10 +200,13 @@ NSString * menu[]={
 }
 -(void)backToMainClick
 {
-    if ([UIScreen mainScreen].bounds.size.height>500) {
-
-    [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
-    }
+    
+//    if ([UIScreen mainScreen].bounds.size.height>500) {
+//
+//    [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
+//        
+//    }
+    
     [skViewMain presentScene:mainScene];
     [UIView animateWithDuration:0.1 animations:^{
         
@@ -214,8 +232,16 @@ NSString * menu[]={
         
         UIButton *buttonTmp=(UIButton *)[skViewMain viewWithTag:PP_MENU_BUTON_TAG+menuAnimationTag];
         NSLog(@"height=%f",skViewMain.frame.size.height);
-        
-        [buttonTmp setFrame:CGRectMake(buttonTmp.frame.origin.x, skViewMain.frame.size.height-64.0f, buttonTmp.frame.size.width, buttonTmp.frame.size.height)];
+        if(CurrentDeviceRealSize.height>500)
+        {
+            
+           [buttonTmp setFrame:CGRectMake(buttonTmp.frame.origin.x, skViewMain.frame.size.height-108.0f, buttonTmp.frame.size.width, buttonTmp.frame.size.height)];
+            
+        }else
+        {
+            [buttonTmp setFrame:CGRectMake(buttonTmp.frame.origin.x, skViewMain.frame.size.height-64.0f, buttonTmp.frame.size.width, buttonTmp.frame.size.height)];
+
+        }
         
     } completion:^(BOOL finished){
         menuAnimationTag++;
@@ -229,6 +255,7 @@ NSString * menu[]={
 }
 -(void)downMenuBtn
 {
+    
     [UIView animateWithDuration:0.05 animations:^{
         
         UIButton *buttonTmp=(UIButton *)[skViewMain viewWithTag:PP_MENU_BUTON_TAG+menuAnimationTag];
@@ -243,6 +270,7 @@ NSString * menu[]={
         menuAnimationTag=0;
         
     }];
+    
 }
 - (void)didReceiveMemoryWarning
 {

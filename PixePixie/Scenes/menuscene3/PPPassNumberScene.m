@@ -60,7 +60,9 @@
     NSInteger index=[passName integerValue]-PP_PASSNUM_CHOOSE_TABLE_TAG;
     NSDictionary *passDictInfo=nil;
     if (passCount>index) {
+        
         passDictInfo=[NSDictionary dictionaryWithDictionary:[passArray objectAtIndex:index]];
+        
     }
     
     PPPetChooseScene * choosePetScene = [[PPPetChooseScene alloc] initWithSize:self.view.bounds.size];

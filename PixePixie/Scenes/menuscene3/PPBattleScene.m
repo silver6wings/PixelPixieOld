@@ -70,7 +70,7 @@
     }
     }
 
-    self.pixieAnimation = texturesArray;
+    self.pixieAnimation = [NSMutableArray arrayWithArray:texturesArray];
     
 }
 
@@ -106,7 +106,7 @@
             PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
             
             
-            PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE
+            PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:CurrentDeviceRealSize
                                                                  PixieA:playerPixie
                                                                  PixieB:enemys];
             

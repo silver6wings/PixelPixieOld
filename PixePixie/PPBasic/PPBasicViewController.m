@@ -27,15 +27,17 @@
 -(void)loadView
 {
     [super loadView];
-    if ([UIScreen mainScreen].bounds.size.height>500) {
-        SKView *mainView=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
-        self.view = mainView;
-    }else
-    {
-        SKView *mainView=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 480.0f)];
-        self.view = mainView;
-    }
-   
+//    if ([UIScreen mainScreen].bounds.size.height>500) {
+//        SKView *mainView=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
+//        self.view = mainView;
+//    }else
+//    {
+//        SKView *mainView=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 480.0f)];
+//        self.view = mainView;
+//    }
+    
+    SKView *mainView=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, [UIScreen mainScreen].bounds.size.height)];
+    self.view = mainView;
     
 }
 - (void)viewDidLoad
@@ -47,8 +49,13 @@
     skViewMain.showsFPS = NO;
     skViewMain.showsNodeCount = NO;
 
-    
-    backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 10.0f, 50.0f,50.0f)];
+    if (CurrentDeviceRealSize.height>500) {
+            backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 54.0f, 50.0f,50.0f)];
+    }else
+    {
+            backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 10.0f, 50.0f,50.0f)];
+    }
+
     [backToMain setTitle:@"back" forState:UIControlStateNormal];
     [backToMain addTarget:self action:@selector(backToMainClick) forControlEvents:UIControlEventTouchUpInside];
     [skViewMain addSubview:backToMain];

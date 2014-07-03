@@ -9,7 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Configuration.h"
 #import "PPModels.h"
-#define EXTERN_SIZE_SCREEN_MERGE CGSizeMake(320.0f,480.0f)
+//#define EXTERN_SIZE_SCREEN_MERGE CGSizeMake(320.0f,480.0f)
 @interface PPBasicScene : SKScene
 
 @end

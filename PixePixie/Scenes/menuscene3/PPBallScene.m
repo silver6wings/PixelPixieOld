@@ -3,6 +3,7 @@
 #import "PPPixie.h"
 
 #define SPACE_BOTTOM 60
+
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
 #define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(362 - kBallSize)+SPACE_BOTTOM
 
@@ -40,10 +41,24 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.choosedEnemys=enemyS;
         
         
-        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, self.size.height-118)];
-        bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_01.png"]]];
-        [self addChild:bg];
+     
+        if (CurrentDeviceRealSize.height>500) {
+            directFori5=44.0f;
+            SKSpriteNode * bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, 450.0)];
+            bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+            [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_01.png"]]];
+            [self addChild:bg];
+            
+            
+        }else
+        {
+            directFori5=0.0f;
+            SKSpriteNode * bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, 362.0f)];
+            bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+            [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_01.png"]]];
+            [self addChild:bg];
+            
+        }
         
         
         self.physicsWorld.gravity = CGVectorMake(0, 0);
@@ -55,6 +70,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
        
         // demo 预加载 动画 frames
         _trapFrames = [[NSMutableArray alloc] init];
+        
         for (int i=1; i <= 40; i++) {
             NSString * textureName = [NSString stringWithFormat:@"陷阱%04d.png", i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
@@ -62,8 +78,9 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         }
         
         
+        
        self.playerSide=[[PPBattleSideNode alloc] init];
-        self.playerSide.position= CGPointMake(self.size.width/2.0f, 30);
+        self.playerSide.position= CGPointMake(self.size.width/2.0f, 30+directFori5);
         self.playerSide.size =  CGSizeMake(self.size.width, 60);
         self.playerSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSide.target=self;
@@ -75,47 +92,62 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         [self addChild:self.playerSide];
 
         currentEnemyIndex = 0;
-        [self addEnemySide];
-//        self.enemySide=[[PPBattleSideNode alloc] init];
-//        [self.enemySide setColor:[UIColor purpleColor]];
-//        self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27);
-//        self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
-//        self.enemySide.size = CGSizeMake(self.size.width, 60);
-//        self.enemySide.target=self;
-//        self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-//        self.enemySide.skillSelector=@selector(skllEnemyBegain:);
-//        self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
-//        [self.enemySide setSideElementsForEnemy:pixieB];
-//        [self addChild:self.enemySide];
+        [self addEnemySide:directFori5];
         
-        
+
         
         // demo 添加 Skill Button
         _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
         _btSkill.size = CGSizeMake(30, 30);
         _btSkill.name = @"bt_skill";
-        _btSkill.position = CGPointMake(280, 45);
+        _btSkill.position = CGPointMake(280, 45+directFori5);
         [self addChild:_btSkill];
+        
         
         
         // 添加 Walls
         CGFloat tWidth = 320.0f;
+        
         CGFloat tHeight = 362.0f;
-        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM)];
-        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM)];
+        
+        if (CurrentDeviceRealSize.height>500) {
+            
+            
+            [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM+directFori5)];
+            [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM+directFori5)];
+            [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM)];
+            [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM)];
+            
+            // 添加 Ball of Self
+            self.ballPlayer = pixieA.pixieBall;
+            self.ballPlayer.name = @"ball_player";
+            self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+directFori5);
+            self.ballPlayer.physicsBody.categoryBitMask = kBallCategory;
+            self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
+            [self addChild:self.ballPlayer];
+            
+            
+        }else
+        {
+            
+            [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM)];
+            [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM)];
+            [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM)];
+            [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM)];
+            
+            // 添加 Ball of Self
+            self.ballPlayer = pixieA.pixieBall;
+            self.ballPlayer.name = @"ball_player";
+            self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
+            self.ballPlayer.physicsBody.categoryBitMask = kBallCategory;
+            self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
+            [self addChild:self.ballPlayer];
+            
+        }
 
+      
         
-        // 添加 Ball of Self
-        
-        self.ballPlayer = pixieA.pixieBall;
-        self.ballPlayer.name = @"ball_player";
-        self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
-        self.ballPlayer.physicsBody.categoryBitMask = kBallCategory;
-        self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
-        [self addChild:self.ballPlayer];
-        
+
         
         SKEmitterNode *snow = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"ballTest" ofType:@"sks"]];
         snow.name=@"ball_player";
@@ -125,19 +157,29 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         
        
-        
-        
         // 添加 Balls of Element
         self.ballsElement = [[NSMutableArray alloc] init];
-        
-        for (int i = 0; i < 5; i++) {
-            PPBall * tBall = [PPBall ballWithElement:i + 1];
-            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
-            tBall.physicsBody.categoryBitMask = kBallCategory;
-            tBall.physicsBody.contactTestBitMask = kBallCategory;
-            [self addChild:tBall];
-            [self.ballsElement addObject:tBall];
+        if (CurrentDeviceRealSize.height>500) {
+            for (int i = 0; i < 5; i++) {
+                PPBall * tBall = [PPBall ballWithElement:i + 1];
+                tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+directFori5);
+                tBall.physicsBody.categoryBitMask = kBallCategory;
+                tBall.physicsBody.contactTestBitMask = kBallCategory;
+                [self addChild:tBall];
+                [self.ballsElement addObject:tBall];
+            }
+        }else
+        {
+            for (int i = 0; i < 5; i++) {
+                PPBall * tBall = [PPBall ballWithElement:i + 1];
+                tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
+                tBall.physicsBody.categoryBitMask = kBallCategory;
+                tBall.physicsBody.contactTestBitMask = kBallCategory;
+                [self addChild:tBall];
+                [self.ballsElement addObject:tBall];
+            }
         }
+      
         
         [self addRandomBalls:5];
         
@@ -249,9 +291,16 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
         [alertCustom showCustomAlertWithInfo:dict];
         [self addChild:alertCustom];
-     
+            if (CurrentDeviceRealSize.height<500) {
+                [self addEnemySide:0.0];
+
+            }else
+            {
+                
+                [self addEnemySide:44.0];
+                
+            }
         
-        [self addEnemySide];
         }
         
         
@@ -270,7 +319,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     
 }
--(void)addEnemySide
+-(void)addEnemySide:(CGFloat)direct
 {
     if(self.enemySide != nil){
         
@@ -304,7 +353,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     self.enemySide=[[PPBattleSideNode alloc] init];
     [self.enemySide setColor:[UIColor purpleColor]];
-    self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27);
+    self.enemySide.position= CGPointMake(CGRectGetMidX(self.frame), self.size.height-27-direct);
     self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
     self.enemySide.size = CGSizeMake(self.size.width, 60);
     self.enemySide.target=self;
@@ -321,19 +370,15 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 #pragma mark SKScene
 -(void)didMoveToView:(SKView *)view
 {
-    if ([UIScreen mainScreen].bounds.size.height<500) {
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
 
-    }
 
 }
 -(void)willMoveFromView:(SKView *)view
 {
-    if ([UIScreen mainScreen].bounds.size.height<500) {
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
         
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-        
-    }
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
@@ -495,16 +540,33 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 // 添加随机的球
 -(void)addRandomBalls:(int)number{
     
-    for (int i = 0; i < number; i++) {
-        PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
-        tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
-        tBall.physicsBody.categoryBitMask = kBallCategory;
-        tBall.physicsBody.contactTestBitMask = kBallCategory;
-        [self addChild:tBall];
-        
-        [self.ballsElement addObject:tBall];
-        
+    if (CurrentDeviceRealSize.height>500) {
+        for (int i = 0; i < number; i++) {
+            
+            PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
+            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+44.0f);
+            tBall.physicsBody.categoryBitMask = kBallCategory;
+            tBall.physicsBody.contactTestBitMask = kBallCategory;
+            [self addChild:tBall];
+            
+            [self.ballsElement addObject:tBall];
+            
+        }
+    }else
+    {
+        for (int i = 0; i < number; i++) {
+            
+            PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
+            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
+            tBall.physicsBody.categoryBitMask = kBallCategory;
+            tBall.physicsBody.contactTestBitMask = kBallCategory;
+            [self addChild:tBall];
+            
+            [self.ballsElement addObject:tBall];
+            
+        }
     }
+
     
 }
 
@@ -545,7 +607,7 @@ CGFloat vectorLength (CGVector vector) {
     PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
     skillNode.delegate=self;
-    skillNode.position=CGPointMake(self.size.width/2.0f, 250.0f);
+    skillNode.position=CGPointMake(self.size.width/2.0f, 250.0f+directFori5);
     [self addChild:skillNode];
     
     NSLog(@"skillInfo=%@",skillInfo);
@@ -559,7 +621,7 @@ CGFloat vectorLength (CGVector vector) {
     PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300.0f)];
     skillNode.delegate=self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position=CGPointMake(self.size.width/2.0f, 250.0f);
+    skillNode.position=CGPointMake(self.size.width/2.0f, 250.0f+directFori5);
     [self addChild:skillNode];
     NSLog(@"skillInfo=%@",skillInfo);
 
