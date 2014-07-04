@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PPScheduleMainView : UIView
+@interface PPScheduleMainView : SKView
 
 @end

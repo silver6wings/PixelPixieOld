@@ -242,7 +242,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     SKLabelNode *ballsLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     [ballsLabel setFontSize:20];
     ballsLabel.fontColor = [UIColor whiteColor];
-    ballsLabel.text = [NSString stringWithFormat:@"吸收球数:%d",ballsCount];
+    ballsLabel.text = [NSString stringWithFormat:@"吸收球数:%d",(NSInteger)ballsCount];
     ballsLabel.position = CGPointMake(200.0f,221);
     [self addChild:ballsLabel];
     

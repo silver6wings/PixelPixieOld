@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PPFightingMainView : UIView
+@interface PPFightingMainView : SKView
 
 @end

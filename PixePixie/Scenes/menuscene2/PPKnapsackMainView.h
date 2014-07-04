@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PPKnapsackMainView : UIView
+@interface PPKnapsackMainView : SKView
 
 @end

@@ -14,6 +14,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        PPMonsterScene* mainScene=[[PPMonsterScene alloc] initWithSize:self.bounds.size];
+        mainScene.scaleMode=SKSceneScaleModeFill;
+        [self presentScene:mainScene];
         self.backgroundColor = [UIColor redColor];
         // Initialization code
     }

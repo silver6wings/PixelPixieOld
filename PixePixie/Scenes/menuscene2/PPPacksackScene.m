@@ -12,7 +12,7 @@
 - (id)initWithSize:(CGSize)size
 {
     if (self=[super initWithSize:size]) {
-        self.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor blueColor];
         
     }
     return self;
