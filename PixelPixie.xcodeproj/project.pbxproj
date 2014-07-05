@@ -147,7 +147,6 @@
 		19F6EDA218C6C09900BFFF9A /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6EDA118C6C09900BFFF9A /* SpriteKit.framework */; };
 		19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */; };
 		19F6EDAA18C6C09900BFFF9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDA918C6C09900BFFF9A /* main.m */; };
-		19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDBA18C6C09900BFFF9A /* Images.xcassets */; };
 		D40E1F9419508D28004704D5 /* PPSkillCaculate.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E1F9319508D28004704D5 /* PPSkillCaculate.m */; };
 		D413CB611945FF62004B4FDE /* PPSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = D413CB601945FF62004B4FDE /* PPSkill.m */; };
 		D43F421B1947548F00B19F2F /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42121947548F00B19F2F /* PPMainScene.m */; };
@@ -347,7 +346,7 @@
 		19F6EDA918C6C09900BFFF9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19F6EDAB18C6C09900BFFF9A /* PixelPixie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixelPixie-Prefix.pch"; sourceTree = "<group>"; };
 		19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
-		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PixePixie/Images.xcassets; sourceTree = "<group>"; };
+		19F6EDBA18C6C09900BFFF9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = /Users/silver6wings/Desktop/PixelPixie/PixePixie/Images.xcassets; sourceTree = "<absolute>"; };
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D40E1F9219508D28004704D5 /* PPSkillCaculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSkillCaculate.h; path = Models/PPSkillCaculate.h; sourceTree = "<group>"; };
 		D40E1F9319508D28004704D5 /* PPSkillCaculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkillCaculate.m; path = Models/PPSkillCaculate.m; sourceTree = "<group>"; };
@@ -553,10 +552,10 @@
 				193DC48319686054007308C7 /* Configuration.h */,
 				193DC48419686054007308C7 /* PPBasic.h */,
 				193DC48519686054007308C7 /* PPControllers.h */,
+				193DC48919686054007308C7 /* PPViews.h */,
 				193DC48619686054007308C7 /* PPModels.h */,
 				193DC48719686054007308C7 /* PPNodes.h */,
 				193DC48819686054007308C7 /* PPScenes.h */,
-				193DC48919686054007308C7 /* PPViews.h */,
 			);
 			name = Header;
 			path = ..;
@@ -680,7 +679,6 @@
 			isa = PBXGroup;
 			children = (
 				19F6EDA318C6C09900BFFF9A /* PixePixie */,
-				19F6EDBA18C6C09900BFFF9A /* Images.xcassets */,
 				19F6EDD718C6C65900BFFF9A /* Resource */,
 				19F6ED9A18C6C09900BFFF9A /* Frameworks */,
 				19F6ED9918C6C09900BFFF9A /* Products */,
@@ -719,12 +717,7 @@
 				1917DFF418C8545200E54F02 /* Models */,
 				D43F4220194754D500B19F2F /* Nodes */,
 				A50D277518DAC19200641430 /* Scenes */,
-<<<<<<< HEAD
-				19CBA8B71907C24500A249AB /* Demo */,
-				A5B786C118CBFE5A00D3E50B /* Library */,
-=======
 				19906B8918CB039400C05BA3 /* Configurations */,
->>>>>>> AndrewXF
 				19F6EDA418C6C09900BFFF9A /* Supporting Files */,
 			);
 			path = PixePixie;
@@ -999,7 +992,6 @@
 				1959D678191515C900865D27 /* 变身效果01015.png in Resources */,
 				1959D685191515C900865D27 /* 变身效果01028.png in Resources */,
 				19145E011913F472005C6AD4 /* 陷阱0018.png in Resources */,
-				19F6EDBB18C6C09900BFFF9A /* Images.xcassets in Resources */,
 				1959D68F191515C900865D27 /* 变身效果01038.png in Resources */,
 				1959D68C191515C900865D27 /* 变身效果01035.png in Resources */,
 				1959D693191515C900865D27 /* 变身效果01042.png in Resources */,
