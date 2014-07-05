@@ -1,56 +1,69 @@
 
 #import "PPElement.h"
 #import "PPBall.h"
+#import "PPSkillNode.h"
+#import "PPCustomAlertNode.h"
 
-@interface PPPixie : NSObject {
+@interface PPPixie : NSObject
+{
     
     
     // 喂养属性
-    float pixieSatiation;   // 饱食度
-    float pixieIntimate;    // 亲密度
+    CGFloat pixieSatiation;   // 饱食度
+    CGFloat pixieIntimate;    // 亲密度
     
     // 战斗属性
     int pixieLEVEL;         // 等级
     
-    float pixieHP;      // 生命值 HealthPoint
-    float pixieHPmax;   // 生命值上限 HealthPointMax
-    float pixieMP;      // 魔法值 ManaPoint
-    float pixieMPmax;   // 魔法值上限 ManaPointMax
-    float pixieAP;      // 攻击力 AttackPoint;
-    float pixieDP;      // 防御力 DefendPoint;
-    
-    float pixieGP;      // 成长值 GrowthPoint;
-    float pixieDEX;     // 闪避值 Dexterity
-    
+//    CGFloat currentHP;      // 当前生命值
+//    CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
+//    CGFloat currentMP;      // 魔法值 ManaPoint
+//    CGFloat pixieMPmax;   // 魔法值上限 ManaPointMax
+//    CGFloat pixieAPmax;      // 攻击力 AttackPoint;
+//    CGFloat currentAP;      // 当前攻击力 AttackPoint;
+//    CGFloat pixieDPmax;      // 防御力 DefendPoint;
+//    CGFloat currentDP;      // 当前防御力 DefendPoint;
+//    CGFloat pixieDEXmax;     // 闪避值 Dexterity
+//    CGFloat currentDEX;     // 当前闪避值 Dexterity
+//    CGFloat pixieDEFmax; // 防御  Defense
+//    CGFloat currentDEF;  // 当前防御  Defense
+
     // 固有属性
-    int pixieGeneration;    // 进化的代数
+    CGFloat pixieGP;      // 成长值 GrowthPoint;
     PPElementType pixieElement;     // 属性
     PPBall * pixieBall;             // 小球
     NSArray * pixieSkills;          // 技能
-    NSArray * pixieBuffs;           // 状态
+    NSArray * pixieBuffs;           // 附加状态
+    int status;                     // 形态
+    
+    
 }
-
-@property (nonatomic, assign) float pixieSatiation;
-@property (nonatomic, assign) float pixieIntimate;
+@property (nonatomic,retain)NSString *pixieName;
+@property (nonatomic, assign) CGFloat pixieSatiation;
+@property (nonatomic, assign) CGFloat pixieIntimate;
 
 @property (nonatomic, assign) int pixieLEVEL;
-@property (nonatomic, assign) float pixieHP;
-@property (nonatomic, assign) float pixieHPmax;
-@property (nonatomic, assign) float pixieMP;
-@property (nonatomic, assign) float pixieMPmax;
-@property (nonatomic, assign) float pixieAP;
-@property (nonatomic, assign) float pixieDP;
-@property (nonatomic, assign) float pixieGP;
-@property (nonatomic, assign) float pixieDEX;
 
-@property (nonatomic, assign) int pixieGeneration;
+@property (nonatomic, assign)CGFloat currentHP;      // 当前生命值
+@property (nonatomic, assign)CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
+@property (nonatomic, assign)CGFloat currentMP;      // 魔法值 ManaPoint
+@property (nonatomic, assign)CGFloat pixieMPmax;   // 魔法值上限 ManaPointMax
+@property (nonatomic, assign)CGFloat pixieAPmax;      // 攻击力 AttackPoint;
+@property (nonatomic, assign)CGFloat currentAP;      // 当前攻击力 AttackPoint;
+@property (nonatomic, assign)CGFloat pixieDPmax;      // 防御力 DefendPoint;
+@property (nonatomic, assign)CGFloat currentDP;      // 当前防御力 DefendPoint;
+@property (nonatomic, assign)CGFloat pixieDEXmax;     // 闪避值 Dexterity
+@property (nonatomic, assign)CGFloat currentDEX;     // 当前闪避值 Dexterity
+@property (nonatomic, assign)CGFloat pixieDEFmax; // 防御  Defense
+@property (nonatomic, assign)CGFloat currentDEF;  // 当前防御  Defense
+
 @property (nonatomic) PPElementType pixieElement;
-@property (nonatomic) NSArray * pixieSkills;
-@property (nonatomic) NSArray * pixieBuffs;
-
+@property (nonatomic, assign) int pixieGeneration;
+@property (nonatomic,retain) NSArray * pixieSkills;
+@property (nonatomic,retain) PPBuff *pixieBuffAgg;
 @property (nonatomic) PPBall * pixieBall;
 
-+(PPPixie *)birthPixieWith:(PPElementType)pixieElement
-                Generation:(int)generation;
+// 创建新的宠物
++(PPPixie *)birthPixieWithPetsInfo:(NSDictionary *)petsDict;
 
 @end

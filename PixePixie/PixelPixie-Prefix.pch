@@ -4,6 +4,12 @@
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
+#ifdef DEBUG
+
+#else
+#define NSLog(...) {};
+#endif
+
 #ifdef __OBJC__
 
 #import <UIKit/UIKit.h>
@@ -11,9 +17,13 @@
 #import <SpriteKit/SpriteKit.h>
 
 #import "Configuration.h"
+
+#import "PPBasic.h"
+#import "PPControllers.h"
 #import "PPViews.h"
 #import "PPModels.h"
-#import "PPControllers.h"
 #import "PPScenes.h"
+#import "PPNodes.h"
+
 
 #endif

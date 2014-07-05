@@ -1,12 +1,13 @@
 
 #import "PPBall.h"
+#import "PPPixie.h"
 
 @interface PPBall ()
 @property (nonatomic) SKTexture * defaultTexture;
 @end
 
 @implementation PPBall
-@synthesize pixie, ballElementType;
+@synthesize pixie, ballElementType,enemypixie;
 
 #pragma mark Factory Method
 
@@ -48,6 +49,29 @@
         
         tBall.pixie = pixie;
     }
+
+    
+    return tBall;
+}
+
+// 创建敌人的球
++(PPBall *)ballWithEnemyPixie:(PPEnemyPixie *)enemypixie;
+{
+    
+    NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
+                            [ConstantData elementName:PPElementTypePlant],
+                            enemypixie.pixieGeneration];
+    if (imageName == nil) return nil;
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
+    
+    if (tBall){
+        tBall.ballElementType = enemypixie.pixieElement;
+        tBall.size = CGSizeMake(kBallSize, kBallSize);
+        [PPBall defaultBallPhysicsBody:tBall];
+    
+        tBall.enemypixie = enemypixie;
+    }
     return tBall;
 }
 
@@ -63,8 +87,6 @@
     ball.physicsBody.dynamic = YES;                         // 说明物体是动态的
     ball.physicsBody.usesPreciseCollisionDetection = YES;   // 使用快速运动检测碰撞
 }
-
-
 
 // 改为默认皮肤
 -(void)setToDefaultTexture{

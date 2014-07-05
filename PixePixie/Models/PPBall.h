@@ -1,5 +1,8 @@
 
+#import "PPEnemyPixie.h"
+
 @class PPPixie;
+@class PPEnemyPixie;
 
 @interface PPBall : SKSpriteNode
 {
@@ -8,11 +11,12 @@
 }
 
 @property (nonatomic) PPPixie * pixie;
+@property (nonatomic) PPEnemyPixie * enemypixie;
 @property (nonatomic) PPElementType ballElementType;
 
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
 +(PPBall *)ballWithElement:(PPElementType)element;
-
++(PPBall *)ballWithEnemyPixie:(PPEnemyPixie *)enemypixie;
 -(void)setToDefaultTexture;
 
 @end

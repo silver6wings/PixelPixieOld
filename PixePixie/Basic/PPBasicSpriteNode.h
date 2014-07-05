@@ -1,0 +1,4 @@
+
+@interface PPBasicSpriteNode : SKSpriteNode
+
+@end
