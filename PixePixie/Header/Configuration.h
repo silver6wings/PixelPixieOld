@@ -15,8 +15,6 @@ typedef enum {
 #define PP_PET_PLAYER_SIDE_NODE_NAME @"petsidename"
 #define PP_ENEMY_SIDE_NODE_NAME @"enemysidename"
 
-
-
 #define PP_MENU_COUNT 5
 #define PP_USER_BUTON_TAG 50
 #define PP_MENU_BUTON_TAG 100

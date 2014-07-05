@@ -16,7 +16,6 @@
     // 战斗属性
     int pixieLEVEL;         // 等级
     
-    
 //    CGFloat currentHP;      // 当前生命值
 //    CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
 //    CGFloat currentMP;      // 魔法值 ManaPoint
@@ -30,7 +29,6 @@
 //    CGFloat pixieDEFmax; // 防御  Defense
 //    CGFloat currentDEF;  // 当前防御  Defense
 
-    
     // 固有属性
     CGFloat pixieGP;      // 成长值 GrowthPoint;
     PPElementType pixieElement;     // 属性
