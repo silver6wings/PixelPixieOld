@@ -5,6 +5,7 @@
 
 #define CurrentDeviceRealSize [UIScreen mainScreen].bounds.size
 #define CustomAlertFrame CGRectMake(160.0f,300.0f, 320.0f, 200)
+
 typedef enum {
     PP_HPTYPE,
     PP_MPTYPE

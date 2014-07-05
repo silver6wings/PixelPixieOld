@@ -1,13 +1,5 @@
-//
-//  PPBattleSideNode.h
-//  PixelPixie
-//
-//  Created by xiefei on 6/10/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
 
-#import "PPBasicSpriteNode.h"
-#import "PPValueShowNode.h"
+
 @interface PPBattleSideNode : PPBasicSpriteNode
 {
     PPValueShowNode *barPlayerHP;

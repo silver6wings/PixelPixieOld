@@ -1,10 +1,3 @@
-//
-//  PPBattleSideNode.m
-//  PixelPixie
-//
-//  Created by xiefei on 6/10/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
 
 #import "PPBattleSideNode.h"
 
