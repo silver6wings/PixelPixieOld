@@ -6,9 +6,10 @@
 //  Copyright (c) 2014年 Psyches. All rights reserved.
 //
 
-#import "PPBuffAgg.h"
+#import "PPBuff.h"
 
-@implementation PPBuffAgg
+@implementation PPBuff
+
 @synthesize attackAddition;
 @synthesize defenseAddition;
 @synthesize cdRoundsAttAdd;

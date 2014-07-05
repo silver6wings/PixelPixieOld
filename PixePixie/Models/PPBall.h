@@ -1,7 +1,9 @@
 
 #import "PPEnemyPixie.h"
+
 @class PPPixie;
 @class PPEnemyPixie;
+
 @interface PPBall : SKSpriteNode
 {
     PPPixie * pixie;                // 球隶属于那个宠物

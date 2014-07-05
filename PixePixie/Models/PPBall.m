@@ -53,6 +53,7 @@
     
     return tBall;
 }
+
 // 创建敌人的球
 +(PPBall *)ballWithEnemyPixie:(PPEnemyPixie *)enemypixie;
 {
@@ -73,6 +74,7 @@
     }
     return tBall;
 }
+
 // 默认的球的物理属性
 +(void)defaultBallPhysicsBody:(SKSpriteNode *)ball{
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:kBallSize / 2];
@@ -85,8 +87,6 @@
     ball.physicsBody.dynamic = YES;                         // 说明物体是动态的
     ball.physicsBody.usesPreciseCollisionDetection = YES;   // 使用快速运动检测碰撞
 }
-
-
 
 // 改为默认皮肤
 -(void)setToDefaultTexture{

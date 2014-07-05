@@ -1,13 +1,5 @@
-//
-//  PPEnemyPixie.m
-//  PixelPixie
-//
-//  Created by xiefei on 6/16/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
 
 #import "PPEnemyPixie.h"
-#import "PPBall.h"
 
 @implementation PPEnemyPixie
 @synthesize pixieSatiation;
@@ -52,7 +44,9 @@
     
     tPixie.pixieElement = [[petsDict objectForKey:@"enemytype"] intValue];
     tPixie.pixieSkills = [NSArray arrayWithArray:[petsDict objectForKey:@"enemySkills"]];
-    tPixie.pixieBuffAgg = [[PPBuffAgg alloc] init];
+    
+    #warning 这里到时候再说
+    tPixie.pixieBuffAgg = [[PPBuff alloc] init];
     tPixie.pixieBall = [PPBall ballWithEnemyPixie:tPixie];
     
     return tPixie;

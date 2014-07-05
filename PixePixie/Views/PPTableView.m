@@ -1,53 +1,46 @@
-//
-//  PPTableView.m
-//  PixelPixie
-//
-//  Created by xiefei on 14-4-2.
-//  Copyright (c) 2014年 Psyches. All rights reserved.
-//
-
 #import "PPTableView.h"
+
 @interface PPTableView()
 {
     NSArray *tableArray;
     NSMutableArray *cellArray;
 }
 @end
+
 @implementation PPTableView
-@synthesize choosePassNumberSel=_choosePassNumberSel;
-@synthesize choosePassNumber=_choosePassNumber;
+@synthesize choosePassNumberSel = _choosePassNumberSel;
+@synthesize choosePassNumber = _choosePassNumber;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-    
         // Initialization code
     }
     return self;
 }
+
 -(void)ppsetTableViewWithData:(NSArray *)Tmparray
 {
-
-    tableArray=[[NSArray alloc] initWithArray:Tmparray];
-    cellArray=[[NSMutableArray alloc] init];
+    tableArray = [[NSArray alloc] initWithArray:Tmparray];
+    cellArray = [[NSMutableArray alloc] init];
 
     for (int i=0; i<6; i++) {
-        UITableViewCell* cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sbliu"];
-        cell.textLabel.text =[tableArray objectAtIndex:i];
+        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sbliu"];
+        cell.textLabel.text = [tableArray objectAtIndex:i];
         [cellArray addObject:cell];
     }
     
-    UITableView *tableTest=[[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height)];
-    tableTest.delegate=self;
-    tableTest.dataSource=self;
+    UITableView *tableTest = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height)];
+    tableTest.delegate = self;
+    tableTest.dataSource = self;
     [self addSubview:tableTest];
-    
-    
 }
+
 #pragma mark - UITableView delegate methods
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     CGFloat rotationAngleDegrees = 0;
     CGFloat rotationAngleRadians = rotationAngleDegrees * (M_PI/180);
     CGPoint offsetPositioning = CGPointMake(-200,0);
@@ -63,8 +56,6 @@
         card.layer.transform = CATransform3DIdentity;
         card.layer.opacity = 1;
     }];
-    
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -87,7 +78,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
 //    static NSString *CellIdentifier = @"sbliu";
 //    
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -97,19 +87,17 @@
 //    
 //    cell.textLabel.text =[tableArray objectAtIndex:indexPath.row];
     return [cellArray objectAtIndex:indexPath.row];
-    
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.choosePassNumber!=nil&&self.choosePassNumberSel!=nil&&[self.choosePassNumber respondsToSelector:self.choosePassNumberSel]) {
-        
-
+    if (self.choosePassNumber!=nil&&self.choosePassNumberSel!=nil &&
+        [self.choosePassNumber respondsToSelector:self.choosePassNumberSel])
+    {
         [self.choosePassNumber performSelectorInBackground:self.choosePassNumberSel withObject:[NSNumber numberWithInt:(int)indexPath.row]];
     }
-//
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

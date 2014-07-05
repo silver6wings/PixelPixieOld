@@ -1,20 +1,9 @@
-//
-//  PPEnemyPixie.h
-//  PixelPixie
-//
-//  Created by xiefei on 6/16/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
-#import "PPElement.h"
-#import "PPSkillNode.h"
-#import "PPBuffAgg.h"
 
 @class PPBall;
+@class PPBuff;
+
 @interface PPEnemyPixie : NSObject
 {
-    
     
     // 喂养属性
     CGFloat pixieSatiation;   // 饱食度
@@ -56,7 +45,7 @@
 @property (nonatomic, assign) int pixieGeneration;
 @property (nonatomic) PPElementType pixieElement;
 @property (nonatomic,retain) NSArray * pixieSkills;
-@property (nonatomic,retain) PPBuffAgg *pixieBuffAgg;
+@property (nonatomic,retain) PPBuff *pixieBuffAgg;
 
 @property (nonatomic) PPBall * pixieBall;
 

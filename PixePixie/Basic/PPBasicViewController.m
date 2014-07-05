@@ -1,17 +1,6 @@
-//
-//  PPBasicViewController.m
-//  PixelPixie
-//
-//  Created by xiefei on 5/19/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
-
 #import "PPBasicViewController.h"
 
 @interface PPBasicViewController ()
-{
-   
-}
 @end
 
 @implementation PPBasicViewController

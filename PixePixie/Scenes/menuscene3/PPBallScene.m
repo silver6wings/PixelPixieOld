@@ -629,7 +629,7 @@ CGFloat vectorLength (CGVector vector) {
 
 }
 #pragma mark SkillEndAnimateDelegate
--(void)skillEndEvent:(PPSkillInfo *)skillInfo withSelfName:(NSString *)nodeName
+-(void)skillEndEvent:(PPSkill *)skillInfo withSelfName:(NSString *)nodeName
 {
     
     NSLog(@"skillInfo=%@ HP:%f MP:%f",skillInfo,skillInfo.HPChangeValue,skillInfo.MPChangeValue);

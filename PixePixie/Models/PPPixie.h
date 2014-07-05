@@ -2,7 +2,6 @@
 #import "PPElement.h"
 #import "PPBall.h"
 #import "PPSkillNode.h"
-#import "PPBuffAgg.h"
 #import "PPCustomAlertNode.h"
 
 @interface PPPixie : NSObject
@@ -44,15 +43,6 @@
 @property (nonatomic, assign) CGFloat pixieIntimate;
 
 @property (nonatomic, assign) int pixieLEVEL;
-//@property (nonatomic, assign) CGFloat pixieHP;
-//@property (nonatomic, assign) CGFloat pixieHPmax;
-//@property (nonatomic, assign) CGFloat pixieMP;
-//@property (nonatomic, assign) CGFloat pixieMPmax;
-//@property (nonatomic, assign) CGFloat pixieAP;
-//@property (nonatomic, assign) CGFloat pixieDP;
-//@property (nonatomic, assign) CGFloat pixieGP;
-//@property (nonatomic, assign) CGFloat pixieDEX;
-
 
 @property (nonatomic, assign)CGFloat currentHP;      // 当前生命值
 @property (nonatomic, assign)CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
@@ -67,12 +57,10 @@
 @property (nonatomic, assign)CGFloat pixieDEFmax; // 防御  Defense
 @property (nonatomic, assign)CGFloat currentDEF;  // 当前防御  Defense
 
-
-
-@property (nonatomic, assign) int pixieGeneration;
 @property (nonatomic) PPElementType pixieElement;
+@property (nonatomic, assign) int pixieGeneration;
 @property (nonatomic,retain) NSArray * pixieSkills;
-@property (nonatomic,retain) PPBuffAgg *pixieBuffAgg;
+@property (nonatomic,retain) PPBuff *pixieBuffAgg;
 @property (nonatomic) PPBall * pixieBall;
 
 // 创建新的宠物

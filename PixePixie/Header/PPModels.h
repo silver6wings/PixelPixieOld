@@ -4,6 +4,6 @@
 #import "PPElement.h"
 #import "PPBall.h"
 
-#import "PPSkillInfo.h"
+#import "PPSkill.h"
 #import "PPSkillCaculate.h"
-#import "PPBuffAgg.h"
+#import "PPBuff.h"
