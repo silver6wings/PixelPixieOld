@@ -1,4 +1,5 @@
 
+@class PPValueShowNode;
 
 @interface PPBattleSideNode : PPBasicSpriteNode
 {

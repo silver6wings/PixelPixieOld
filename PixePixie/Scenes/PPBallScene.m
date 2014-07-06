@@ -500,7 +500,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
     PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
     
-    if (kElementInhibition[attack][defend] > 1.0f) {
+    if (kElementInhibition[attack][defend] >= 1.0f) {
         [hittedBall.node removeFromParent];
         [self.ballsElement removeObject:hittedBall.node];
     }
