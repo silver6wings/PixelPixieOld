@@ -439,8 +439,9 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if (_isBallDragging && !_isBallRolling) {
         
         _isBallDragging = NO;
-        [self.ballPlayer.physicsBody applyImpulse:CGVectorMake(self.ballPlayer.position.x - _ballShadow.position.x,
-                                                           self.ballPlayer.position.y - _ballShadow.position.y)];
+        [self.ballPlayer.physicsBody applyImpulse:
+         CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
+                      (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce)];
         
         [_ballShadow removeFromParent];
         _isBallRolling = YES;

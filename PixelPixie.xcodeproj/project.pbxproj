@@ -605,10 +605,10 @@
 				192F74461969124D006C6586 /* PPPetChooseScene.m */,
 				192F74431969124D006C6586 /* PPPassNumberScene.h */,
 				192F74441969124D006C6586 /* PPPassNumberScene.m */,
-				192F743B1969124D006C6586 /* PPBallScene.h */,
-				192F743C1969124D006C6586 /* PPBallScene.m */,
 				192F743D1969124D006C6586 /* PPBattleScene.h */,
 				192F743E1969124D006C6586 /* PPBattleScene.m */,
+				192F743B1969124D006C6586 /* PPBallScene.h */,
+				192F743C1969124D006C6586 /* PPBallScene.m */,
 			);
 			name = Fighting;
 			sourceTree = "<group>";

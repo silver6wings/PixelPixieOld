@@ -9,6 +9,8 @@ static const float kBallAngularDamping = 0.7f;      // 角阻尼系数
 static const float kBallFriction = 0.0f;            // 表面摩擦力
 static const float kBallRestitution = 0.9f;         // 弹性恢复系数
 
+static const float kBounceReduce = 0.2f;
+
 // 最大元素个数
 static const int kElementTypeMax = 10;
 
