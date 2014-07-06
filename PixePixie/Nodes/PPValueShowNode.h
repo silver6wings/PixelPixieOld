@@ -8,6 +8,9 @@
     SEL animateEnd;
     CGFloat originalMax;
 }
--(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV  andShowType:(VALUESHOWTYPE) showType;
+
+-(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV andShowType:(VALUESHOWTYPE) showType;
+
 -(void)valueShowChangeMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV;
+
 @end

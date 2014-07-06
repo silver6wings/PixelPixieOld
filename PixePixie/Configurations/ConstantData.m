@@ -5,7 +5,8 @@
 // 获取元素名称
 +(NSString *)elementName:(PPElementType)elementType{
     
-    switch (elementType) {
+    switch (elementType)
+    {
         case PPElementTypeMetal:    return @"metal";
         case PPElementTypePlant:    return @"plant";
         case PPElementTypeWater:    return @"water";
@@ -22,11 +23,10 @@
             break;
     }
     return nil;
-    
 }
 
-+(NSString *)pixieType:(PPPixie *)pixie isFront:(BOOL)front{
-    
++(NSString *)pixieType:(PPPixie *)pixie isFront:(BOOL)front
+{
     return nil;
 }
 

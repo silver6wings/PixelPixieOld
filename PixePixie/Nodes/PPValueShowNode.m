@@ -1,23 +1,14 @@
-//
-//  PPValueShowNode.m
-//  PixelPixie
-//
-//  Created by xiefei on 6/15/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
-
 #import "PPValueShowNode.h"
+
 @interface PPValueShowNode()
 {
     PPBasicSpriteNode *valueShowNode;
     PPBasicLabelNode *valueShowLabel;
-
 }
 @end
 
-
-
 @implementation PPValueShowNode
+
 -(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV  andShowType:(VALUESHOWTYPE) showType{
     maxValue = maxV;
     originalMax = maxValue;
@@ -33,8 +24,7 @@
     if (showType == PP_HPTYPE) {
         valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 6)];
 
-    }else
-    {
+    } else {
         valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(90, 6)];
 
     }
@@ -43,6 +33,7 @@
     [self addChild:valueShowNode];
     
 }
+
 -(void)valueShowChangeMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV
 {
     

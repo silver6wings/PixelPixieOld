@@ -1,9 +1,7 @@
 
 #import "PPBallScene.h"
-#import "PPPixie.h"
 
 #define SPACE_BOTTOM 60
-
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
 #define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(362 - kBallSize)+SPACE_BOTTOM
 
@@ -19,18 +17,16 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 @property (nonatomic) PPBall * ballEnemy;
 @property (nonatomic,retain) NSMutableArray * ballsElement;
 @property (nonatomic,retain) NSMutableArray * trapFrames;
-@property (nonatomic,retain) PPBattleSideNode *playerSide;
-@property (nonatomic,retain) PPBattleSideNode *enemySide;
-
+@property (nonatomic,retain) PPBattleSideNode * playerSide;
+@property (nonatomic,retain) PPBattleSideNode * enemySide;
 
 @property (nonatomic) SKSpriteNode * btSkill;
-
 @property (nonatomic) BOOL isTrapEnable;
-
 @end
 
 @implementation PPBallScene
 @synthesize choosedEnemys;
+
 -(id)initWithSize:(CGSize)size
            PixieA:(PPPixie *)pixieA
            PixieB:(NSArray *)enemyS{
@@ -306,15 +302,12 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
     }else
     {
-        
         NSDictionary *dict=@{@"title":@"宠物死了",@"context":@"我是小雨，我是sb"};
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
         [alertCustom showCustomAlertWithInfo:dict];
         [self addChild:alertCustom];
         
         [self.playerSide removeFromParent];
-
-        
     }
     
     
@@ -334,9 +327,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.ballEnemy = nil;
         
     }
-  
-    
-   
     
     NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
     NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
@@ -368,6 +358,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 }
 
 #pragma mark SKScene
+
 -(void)didMoveToView:(SKView *)view
 {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
@@ -466,15 +457,11 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         for (PPBall * tBall in self.ballsElement) {
             [tBall setToDefaultTexture];
         }
-        
     }
-    
 }
 
 -(void)ballStopAssimilateCount:(NSInteger)balls
 {
-    
-    
 }
 
 #pragma mark SKPhysicsContactDelegate
@@ -486,7 +473,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     SKPhysicsBody * playerBall, * hittedBall;
     
-    
     if (contact.bodyA == self.ballPlayer.physicsBody && contact.bodyB != self.ballEnemy.physicsBody) {
         // 球A是玩家球 球B不是玩家球
         playerBall = contact.bodyA;
@@ -497,11 +483,11 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         hittedBall = contact.bodyA;
     } else return;
     
-    
     PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
     PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
     
-    if (kElementInhibition[attack][defend] >= 1.0f) {
+    if (kElementInhibition[attack][defend] >= 1.0f)
+    {
         [hittedBall.node removeFromParent];
         [self.ballsElement removeObject:hittedBall.node];
     }
@@ -541,7 +527,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 // 添加随机的球
 -(void)addRandomBalls:(int)number{
     
-    if (CurrentDeviceRealSize.height>500) {
+    if (CurrentDeviceRealSize.height > 500) {
         for (int i = 0; i < number; i++) {
             
             PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
@@ -553,8 +539,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [self.ballsElement addObject:tBall];
             
         }
-    }else
-    {
+    } else {
         for (int i = 0; i < number; i++) {
             
             PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
@@ -564,7 +549,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [self addChild:tBall];
             
             [self.ballsElement addObject:tBall];
-            
         }
     }
 

@@ -18,15 +18,14 @@
     return customAlert;
     
 }
+
 -(void)showCustomAlertWithInfo:(NSDictionary *)alertInfo
 {
-    
     SKLabelNode *titleNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     titleNameLabel.fontColor = [UIColor blueColor];
     titleNameLabel.text = [alertInfo objectForKey:@"title"];
     titleNameLabel.position = CGPointMake(0.0f,50);
     [self addChild:titleNameLabel];
-    
     
     SKLabelNode *textContentLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     textContentLabel.fontColor = [UIColor blueColor];
@@ -36,12 +35,8 @@
     
     SKAction *action = [SKAction fadeAlphaTo:0.0f duration:4];
     [self runAction:action completion:^{
-        
-        
         [self removeFromParent];
-    
     }];
 }
-
 
 @end

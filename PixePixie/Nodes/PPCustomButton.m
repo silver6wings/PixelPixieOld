@@ -9,24 +9,27 @@
 #import "PPCustomButton.h"
 
 @implementation PPCustomButton
-@synthesize target=_target;
-@synthesize selector=_selector;
+@synthesize target = _target;
+@synthesize selector = _selector;
+
 +(PPCustomButton *)buttonWithSize:(CGSize)size andTitle:(NSString *)title withTarget:(id)targetTmp withSelecter:(SEL)selectorTmp
 {
-
     CGRect rect= CGRectMake(0.0f, 0.0f, size.width, size.height);
     PPCustomButton *customBtn=[[PPCustomButton alloc] init];
     customBtn.target = targetTmp;
     customBtn.selector = selectorTmp;
+    
     //创建路径
     CGMutablePathRef path=CGPathCreateMutable();
     CGPathAddRoundedRect(path, NULL, rect, 5.0f, 5.0f);
+    
     //设置路径及相关属性
     customBtn.path=path;
     customBtn.lineWidth=0.5f;
     customBtn.strokeColor=[SKColor clearColor];
     customBtn.userInteractionEnabled=YES;
     customBtn.antialiased=YES;
+    
     //释放路径
     CFRelease(path);
     
@@ -51,18 +54,20 @@
     PPCustomButton *customBtn=[[PPCustomButton alloc] init];
     customBtn.target = targetTmp;
     customBtn.selector = selectorTmp;
+    
     //创建路径
     CGMutablePathRef path=CGPathCreateMutable();
     CGPathAddRoundedRect(path, NULL, rect, 5.0f, 5.0f);
+    
     //设置路径及相关属性
     customBtn.path=path;
     customBtn.lineWidth=0.5f;
     customBtn.strokeColor=[SKColor clearColor];
     customBtn.userInteractionEnabled=YES;
     customBtn.antialiased=YES;
+    
     //释放路径
     CFRelease(path);
-    
     
     SKSpriteNode *spritePixieNode = [SKSpriteNode spriteNodeWithImageNamed:image];
     spritePixieNode.size=size;
@@ -75,9 +80,9 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (self.target!=nil &&self.selector!=nil &&[self.target respondsToSelector:self.selector]) {
+    if (self.target!=nil &&self.selector!=nil &&[self.target respondsToSelector:self.selector])
+    {
         [self.target performSelectorInBackground:self.selector withObject:self];
-
     }
 }
 @end
