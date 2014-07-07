@@ -1,7 +1,5 @@
 
-#import "PPCoverflow.h"
 #import "PPCustomButton.h"
-
 #import "PPBasicScene.h"
 #import "PPBasicSpriteNode.h"
 #import "PPBasicLabelNode.h"

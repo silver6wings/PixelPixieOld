@@ -14,6 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         self.backgroundColor = [UIColor yellowColor];
         PPPassNumberScene* mainScene=[[PPPassNumberScene alloc] initWithSize:self.bounds.size];
         mainScene.scaleMode=SKSceneScaleModeFill;

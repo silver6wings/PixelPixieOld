@@ -91,10 +91,12 @@ NSString * menu[] = {
     
     [skViewMain bringSubviewToFront:mainView];
     
+    
     // Bar上方状态栏
     userInfoBar=[[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
     [userInfoBar setBackgroundColor:[UIColor purpleColor]];
     [skViewMain addSubview:userInfoBar];
+    
     
     for (int i = 0; i < PP_MENU_COUNT; i++) {
         UIButton  *userInfoBtn=[UIButton buttonWithType:UIButtonTypeCustom];
