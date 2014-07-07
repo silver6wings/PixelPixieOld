@@ -358,6 +358,10 @@
             
             id object = [dicSelector objectForKey:@"object"];
             
+            if (object == nil) {
+                NSLog(@"按钮name不能为空");
+            }
+            
             IMP imp = [target methodForSelector:selector];
             
             if (object)

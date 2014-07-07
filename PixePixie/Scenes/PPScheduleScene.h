@@ -1,13 +1,13 @@
 //
-//  PPShopScene.h
+//  PPScheduleScene.h
 //  PixelPixie
 //
-//  Created by xiefei on 5/21/14.
+//  Created by xiefei on 7/7/14.
 //  Copyright (c) 2014 Psyches. All rights reserved.
 //
 
 #import "PPBasicScene.h"
 
-@interface PPShopScene : PPBasicScene
+@interface PPScheduleScene : PPBasicScene
 
 @end

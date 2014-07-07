@@ -7,7 +7,6 @@
 //
 
 #import "PPFightingMainView.h"
-
 @implementation PPFightingMainView
 
 - (id)initWithFrame:(CGRect)frame
@@ -16,14 +15,23 @@
     if (self) {
         
         self.backgroundColor = [UIColor yellowColor];
-        PPPassNumberScene* mainScene=[[PPPassNumberScene alloc] initWithSize:self.bounds.size];
-        mainScene.scaleMode=SKSceneScaleModeFill;
-        [self presentScene:mainScene];
+
+        [self changeToPassScene];
+       
+
+        
         // Initialization code
     }
     return self;
 }
 
+-(void)changeToPassScene
+{
+    
+    PPFightingPassScene* mainScene=[[PPFightingPassScene alloc] initWithSize:self.bounds.size];
+    mainScene.scaleMode=SKSceneScaleModeFill;
+    [self presentScene:mainScene];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

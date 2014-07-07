@@ -38,9 +38,7 @@
     }
     self.skill.animateTextures =[NSMutableArray arrayWithArray:textureNameArray];
     
-#warning 这里就一个Action为啥用了个sequence
-    
-    [skillAnimate runAction:[SKAction sequence:@[[SKAction animateWithTextures:self.skill.animateTextures timePerFrame:0.02f]]]
+    [skillAnimate runAction:[SKAction animateWithTextures:self.skill.animateTextures timePerFrame:0.02f]
                  completion:^{
         [self endAnimateWithSkill];
     }];

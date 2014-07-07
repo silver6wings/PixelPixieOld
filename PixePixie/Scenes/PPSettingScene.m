@@ -14,7 +14,8 @@
     if (self = [super initWithSize:size]) {
 
         self.backgroundColor = [UIColor purpleColor];
-        
+        [self setBackTitleText:@"Other" andPositionY:360.0f];
+
 //        PPTableView *ppTable1=[[PPTableView alloc] initWithFrame:self.view.frame];
 //        [ppTable1 setBackgroundColor:[UIColor blackColor]];
 //        NSArray *productInfoArray=[NSArray arrayWithObjects:@"奖励",@"好友排行榜",@"收件箱",@"好友",@"邀请好友",@"论坛", nil];
@@ -24,5 +25,12 @@
         
     }
     return self;
+}
+-(void)backButtonClick:(NSString *)backName
+{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:PP_BACK_TO_MAIN_VIEW object:nil];
+    
+    
 }
 @end

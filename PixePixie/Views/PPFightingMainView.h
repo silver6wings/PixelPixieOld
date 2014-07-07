@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface PPFightingMainView : SKView
-
+{
+   
+}
+-(void)changeToPassScene;
 @end

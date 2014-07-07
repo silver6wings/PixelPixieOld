@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor grayColor];
-        PPShopScene* mainScene=[[PPShopScene alloc] initWithSize:self.bounds.size];
+        PPScheduleScene* mainScene=[[PPScheduleScene alloc] initWithSize:self.bounds.size];
         mainScene.scaleMode=SKSceneScaleModeFill;
         [self presentScene:mainScene];
         // Initialization code

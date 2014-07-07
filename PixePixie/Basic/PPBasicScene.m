@@ -2,7 +2,8 @@
 #import "PPSpriteButton.h"
 @interface PPBasicScene()
 {
-    PPCustomButton *backButtonTitle;
+    PPSpriteButton *backButtonTitle;
+    PPSpriteButton  *backButton;
 }
 @end
 @implementation PPBasicScene
@@ -12,32 +13,44 @@
     if (self=[super initWithSize:size]) {
         self.backgroundColor = [UIColor redColor];
         
-       PPSpriteButton       *button = [PPSpriteButton buttonWithColor:[UIColor redColor] andSize:CGSizeMake(300, 100)];
-        [button setLabelWithText:@"返回" andFont:nil withColor:nil];
-        button.position = CGPointMake(self.size.width / 2, self.size.height / 3);
-        [button addTarget:self selector:@selector(addSpaceshipAtPoint:) withObject:[NSValue valueWithCGPoint:CGPointMake(self.size.width / 2, self.size.height / 2)] forControlEvent:PPButtonControlEventTouchUpInside];
-        [self addChild:button];
-        
-        
-        PPCustomButton *backButton=[PPCustomButton buttonWithSize:CGSizeMake(120.0f, 30.0f) andTitle:@"返回" withTarget:self withSelecter:@selector(backToSuperScene)];
-        backButton.position = CGPointMake(0.0f, 300);
-        [self addChild:backButton];
-        
-        
+
 
         
     }
     return self;
 }
+-(void)setBackTitleText:(NSString *)title andPositionY:(CGFloat)yValue;
+{
+    
+    backButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(45, 30)];
+    [backButton setLabelWithText:@"返回" andFont:[UIFont systemFontOfSize:15] withColor:nil];
+    backButton.position = CGPointMake(15.0f,yValue);
+    [backButton addTarget:self selector:@selector(backButtonClick:) withObject:title forControlEvent:PPButtonControlEventTouchUpInside];
+    [self addChild:backButton];
+    
+    
+    
+    backButtonTitle = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(120, 30)];
+    [backButtonTitle setLabelWithText:title andFont:[UIFont systemFontOfSize:15] withColor:nil];
+    backButtonTitle.position = CGPointMake(backButton.position.x+backButton.size.width/2.0f+backButtonTitle.size.width/2.0f,backButton.position.y);
+    [backButtonTitle addTarget:self selector:@selector(backTitleClick:) withObject:title forControlEvent:PPButtonControlEventTouchUpInside];
+    [self addChild:backButtonTitle];
 
--(void)addSpaceshipAtPoint:(NSValue*)pointValue
+}
+
+-(void)backButtonClick:(NSString *)backName
+{
+    
+
+
+    
+}
+
+-(void)backTitleClick:(NSString *)backName
 {
     
     
     
-    CGPoint point = [pointValue CGPointValue];
-    
-
     
 }
 

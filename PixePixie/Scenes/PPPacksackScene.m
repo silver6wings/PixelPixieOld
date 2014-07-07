@@ -13,8 +13,16 @@
 {
     if (self=[super initWithSize:size]) {
         self.backgroundColor = [UIColor blueColor];
-        
+        [self setBackTitleText:@"Knapsack" andPositionY:360.0f];
+
     }
     return self;
+}
+-(void)backButtonClick:(NSString *)backName
+{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:PP_BACK_TO_MAIN_VIEW object:nil];
+    
+    
 }
 @end

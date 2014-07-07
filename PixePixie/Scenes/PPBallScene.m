@@ -8,7 +8,7 @@
 static const uint32_t kBallCategory      =  0x1 << 0;
 static const uint32_t kGroundCategory    =  0x1 << 1;
 
-@interface PPBallScene () <SKPhysicsContactDelegate>
+@interface PPBallScene () <SKPhysicsContactDelegate,UIAlertViewDelegate>
 
 @property (nonatomic) BOOL isBallDragging;
 @property (nonatomic) BOOL isBallRolling;
@@ -36,7 +36,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.backgroundColor = [SKColor blackColor];
         self.choosedEnemys=enemyS;
         
-        
+
      
         if (CurrentDeviceRealSize.height>500) {
             directFori5=44.0f;
@@ -143,8 +143,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
       
         
-
-        
         SKEmitterNode *snow = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"ballTest" ofType:@"sks"]];
         snow.name=@"ball_player";
         snow.position = CGPointMake(0.0f, 0.0f);
@@ -179,6 +177,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         [self addRandomBalls:5];
         
+        [self setBackTitleText:@"退出战斗" andPositionY:450.0f];
 
     }
     return self;
@@ -356,20 +355,39 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     currentEnemyIndex+=1;
     
 }
+#pragma mark BackAlert
+-(void)backButtonClick:(NSString *)backName
+{
+    
+    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意" message:@"退出战斗会导致体力损失。确认退出战斗吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+    [alertView show];
 
+    
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+           [(PPFightingMainView *)self.view changeToPassScene];
+            [[NSNotificationCenter defaultCenter] postNotificationName:PP_BACK_TO_MAIN_VIEW object:PP_BACK_TO_MAIN_VIEW_FIGHTING];
+        
+    }else
+    {
+        
+    }
+}
 #pragma mark SKScene
 
 -(void)didMoveToView:(SKView *)view
 {
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
 
 
 }
 -(void)willMoveFromView:(SKView *)view
 {
     
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-        
+//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+    
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     

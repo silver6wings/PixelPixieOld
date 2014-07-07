@@ -13,11 +13,13 @@
     [self.menu removeFromSuperview];
 }
 
-- (id)init
+- (id)initWithSize:(CGSize)size
 {
-    self = [super init];
+    self = [super initWithSize:size];
     if (self) {
-      
+        
+        [self setBackTitleText:@"世界地图" andPositionY:450.0f];
+
     }
     return self;
 }

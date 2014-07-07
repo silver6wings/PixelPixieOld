@@ -8,5 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @interface PPMonsterMainView : SKView
+{
+}
 
 @end

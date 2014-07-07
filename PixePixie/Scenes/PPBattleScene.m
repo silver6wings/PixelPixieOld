@@ -14,7 +14,8 @@
 @synthesize choosedPet;
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
-   
+        [self setBackTitleText:@"精灵选择" andPositionY:450.0f];
+
     }
     
     return self;
@@ -40,7 +41,8 @@
         
         // 添加己方精灵
         _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
-        _playerPixie.position = CGPointMake(CGRectGetMidX(self.frame)+30,400);
+        _playerPixie.position = CGPointMake(CGRectGetMidX(self.frame)+30,300);
+        _playerPixie.size = CGSizeMake(_playerPixie.size.width/2.0f, _playerPixie.size.height/2.0f);
         _playerPixie.size = CGSizeMake(_playerPixie.frame.size.width/3, _playerPixie.frame.size.height/3);
         [self addChild:_playerPixie];
         
@@ -56,7 +58,8 @@
     
     // 添加敌方精灵
     SKSpriteNode * enemyPixie = [SKSpriteNode spriteNodeWithImageNamed:@"pixie_plant2_battle1.png"];
-    enemyPixie.position = CGPointMake(CGRectGetMidX(self.frame)-30,200);
+    enemyPixie.position = CGPointMake(CGRectGetMidX(self.frame)-30,170);
+    enemyPixie.size = CGSizeMake(enemyPixie.size.width/2.0f, enemyPixie.size.height/2.0f);
     [self addChild:enemyPixie];
     // 预加载变身动画
     NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
@@ -96,6 +99,7 @@
     
     // 点击开始按钮
     if ([[touchedNode name] isEqualToString:@"bt_start"]) {
+        
         [_playerPixie runAction:[SKAction sequence:@[
                                                      [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]]] completion:^{
             NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
@@ -117,33 +121,14 @@
 
         
         }];
-//        [_playerPixie runAction:
-//         [SKAction sequence:@[
-//            [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f],
-//            [SKAction runBlock:^{
-//             
-//             
-//             NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-//             NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
-//             
-//             
-//             // 初始化 ballScene
-//             PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
-//    
-//             
-//             PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:EXTERN_SIZE_SCREEN_MERGE
-//                                                    PixieA:playerPixie
-//                                                                  PixieB:enemys];
-//             
-//            
-//             ballScene.choosedEnemys = enemys;
-//             ballScene.scaleMode = SKSceneScaleModeAspectFill;
-//             [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
-//             
-//            }]
-//        ]]];
     
     }
 }
-
+-(void)backButtonClick:(NSString *)backName
+{
+    
+    [self.view presentScene:previousScene transition:[SKTransition doorwayWithDuration:1.0]];
+    
+    
+}
 @end
