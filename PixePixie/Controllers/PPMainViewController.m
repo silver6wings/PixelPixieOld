@@ -47,9 +47,12 @@ NSString * menu[] = {
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMainScene:) name:PP_BACK_TO_MAIN_VIEW object:nil];
     
     if (CurrentDeviceRealSize.height > 500) {
@@ -61,6 +64,7 @@ NSString * menu[] = {
     [self.view addSubview:skViewMain];
     
     menuAnimationTag = 0;
+
     
     backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 54.0f, 50.0f,50.0f)];
     [backToMain setTitle:@"back" forState:UIControlStateNormal];
@@ -166,6 +170,7 @@ NSString * menu[] = {
         [downBlackBar setBackgroundColor:[UIColor whiteColor]];
         [self.view addSubview:downBlackBar];
     }
+    
     // Do any additional setup after loading the view.
 }
 

@@ -39,6 +39,10 @@ NSString *couterpartName[]={
         [self addChild:worldBossButton];
         
         
+        PPMonsterInfoNode *monsterInfo=[[PPMonsterInfoNode alloc] initWithColor:[UIColor cyanColor] size:CGSizeMake(320, 300)];
+        [monsterInfo initMonsterInfo:nil];
+        monsterInfo.position = CGPointMake(160.0f, 170);
+        [self addChild:monsterInfo];
 
         
     }
