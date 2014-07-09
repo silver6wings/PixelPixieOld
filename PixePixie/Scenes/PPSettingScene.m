@@ -8,7 +8,12 @@
 
 #import "PPSettingScene.h"
 #import "PPTableView.h"
-
+static NSString *monsterBtnTitle[]={
+    @"help",
+    @"options",
+    @"monster book",
+    @"news"
+};
 @implementation PPSettingScene
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
@@ -16,15 +21,22 @@
         self.backgroundColor = [UIColor purpleColor];
         [self setBackTitleText:@"Other" andPositionY:360.0f];
 
-//        PPTableView *ppTable1=[[PPTableView alloc] initWithFrame:self.view.frame];
-//        [ppTable1 setBackgroundColor:[UIColor blackColor]];
-//        NSArray *productInfoArray=[NSArray arrayWithObjects:@"奖励",@"好友排行榜",@"收件箱",@"好友",@"邀请好友",@"论坛", nil];
-//        [ppTable1 ppsetTableViewWithData:productInfoArray];
-//        [self addChild:(SKSpriteNode *)ppTable1];
+        for (int i=0; i<4; i++) {
+            PPSpriteButton *monsterButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(200.0f, 40.0f)];
+            [monsterButton setLabelWithText:monsterBtnTitle[i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+            monsterButton.position = CGPointMake(160.0f,i*80+80.0f);
+            monsterButton.name = [NSString stringWithFormat:@"%d",i];
+            [monsterButton addTarget:self selector:@selector(monsterButtonClick:) withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+            [self addChild:monsterButton];
+        }
         
         
     }
     return self;
+}
+-(void)monsterButtonClick:(NSString *)name
+{
+    
 }
 -(void)backButtonClick:(NSString *)backName
 {
@@ -33,4 +45,5 @@
     
     
 }
+
 @end

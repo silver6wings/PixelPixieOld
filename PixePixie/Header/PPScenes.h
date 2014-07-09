@@ -15,3 +15,4 @@
 #import "PPSellMonsterScene.h"
 #import "PPTalentTreeScene.h"
 #import "PPCookingScene.h"
+#import "PPScheduleScene.h"

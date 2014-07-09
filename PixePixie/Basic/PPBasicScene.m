@@ -1,5 +1,6 @@
 #import "PPBasicScene.h"
 #import "PPSpriteButton.h"
+#import "PPCommonTool.h"
 @interface PPBasicScene()
 {
     PPSpriteButton *backButtonTitle;

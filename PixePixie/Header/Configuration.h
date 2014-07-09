@@ -10,7 +10,7 @@ typedef enum {
     PP_HPTYPE,
     PP_MPTYPE
 }VALUESHOWTYPE;
-
+#define PP_FIRST_LOG_IN  @"firstenter"
 #define PP_PET_SKILL_SHOW_NODE_NAME @"petskillshow"
 #define PP_ENEMY_SKILL_SHOW_NODE_NAME @"enemyskillshow"
 #define PP_PET_PLAYER_SIDE_NODE_NAME @"petsidename"
@@ -24,3 +24,5 @@ typedef enum {
 #define PP_PETS_CHOOSE_BTN_TAG 300
 #define PP_SKILLS_CHOOSE_BTN_TAG 400
 #define PP_SKILLS_VALUE_LAEBEL_TAG 500
+#define PP_CONTENT_TAG 600
+

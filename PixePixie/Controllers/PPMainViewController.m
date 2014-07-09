@@ -1,4 +1,5 @@
 #import "PPMainViewController.h"
+#import "PPCommonTool.h"
 
 @interface PPMainViewController ()
 {
@@ -63,8 +64,63 @@ NSString * menu[] = {
     [skViewMain setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:skViewMain];
     
+    NSString * isNotFirstEnter=[PPCommonTool contentFromUserDefaultKey:PP_FIRST_LOG_IN];
+    
+    if ([isNotFirstEnter isEqualToString:@"1"]) {
+        
+        [self enterMainScene];
+        
+        
+    }else
+    {
+        
+        UIView *contentView=[[UIView alloc] initWithFrame:CGRectMake(10, 100, 300, 200)];
+        [contentView setBackgroundColor:[UIColor cyanColor]];
+        contentView.tag=PP_CONTENT_TAG;
+        UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(10, 5, 200, 40)];
+        [titleLabel setBackgroundColor:[UIColor yellowColor]];
+        [titleLabel setText:@"请输入您的宠物的名字："];
+        [contentView addSubview:titleLabel];
+    
+        
+        UITextField *textFiled=[[UITextField alloc] initWithFrame:CGRectMake(40.0f, 50.0f, 150, 50)];
+        [textFiled addTarget:self action:@selector(textFieldResign:) forControlEvents:UIControlEventEditingDidEndOnExit];
+        [textFiled setBackgroundColor:[UIColor redColor]];
+        [contentView addSubview:textFiled];
+        
+        
+        UIButton *buttonConfirm=[UIButton buttonWithType:UIButtonTypeCustom];
+        [buttonConfirm setTitle:@"确定" forState:UIControlStateNormal];
+        [buttonConfirm setBackgroundColor:[UIColor brownColor]];
+        [buttonConfirm addTarget:self action:@selector(textInputConfirmClick) forControlEvents:UIControlEventTouchUpInside];
+        [buttonConfirm setFrame:CGRectMake(120, 120, 60, 40)];
+        [contentView addSubview:buttonConfirm];
+        
+        [self.view addSubview:contentView];
+        
+    }
+    
+    // Do any additional setup after loading the view.
+}
+-(void)textInputConfirmClick
+{
+    UIView *contentView=[self.view viewWithTag:PP_CONTENT_TAG];
+    if (contentView!=nil) {
+        [contentView removeFromSuperview];
+    }
+    [PPCommonTool setContent:@"1" forContentKey:PP_FIRST_LOG_IN];
+    [self enterMainScene];
+    
+}
+-(void)textFieldResign:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+-(void)enterMainScene
+{
+    
     menuAnimationTag = 0;
-
+    
     
     backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 54.0f, 50.0f,50.0f)];
     [backToMain setTitle:@"back" forState:UIControlStateNormal];
@@ -108,7 +164,7 @@ NSString * menu[] = {
             case 0:
             {
                 [userInfoBtn setFrame:CGRectMake(5.0f,2.0f, 100.0f,18.0f)];
-
+                
                 
             }
                 break;
@@ -116,7 +172,7 @@ NSString * menu[] = {
             {
                 
                 [userInfoBtn setFrame:CGRectMake(110.0f,2.0f, 100.0f,18.0f)];
-
+                
             }
                 break;
             case 2:
@@ -128,13 +184,13 @@ NSString * menu[] = {
             case 3:
             {
                 [userInfoBtn setFrame:CGRectMake(110,24.0f, 100.0f,18.0f)];
-
+                
             }
                 break;
             case 4:
             {
                 [userInfoBtn setFrame:CGRectMake(220.0f,2, 80.0f,40.0f)];
-
+                
             }
                 break;
             default:
@@ -171,9 +227,8 @@ NSString * menu[] = {
         [self.view addSubview:downBlackBar];
     }
     
-    // Do any additional setup after loading the view.
+    
 }
-
 -(void)counterpartEnter:(id)obj
 {
     PPTableView *ppTable1=[[PPTableView alloc] initWithFrame:CGRectMake(0.0f, 80, 320, 200)];
