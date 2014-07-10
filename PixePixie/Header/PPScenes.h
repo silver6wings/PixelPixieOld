@@ -16,3 +16,7 @@
 #import "PPTalentTreeScene.h"
 #import "PPCookingScene.h"
 #import "PPScheduleScene.h"
+#import "PPNewsScene.h"
+#import "PPMonsterBookScene.h"
+#import "PPOptionsScene.h"
+#import "PPHelpScene.h"

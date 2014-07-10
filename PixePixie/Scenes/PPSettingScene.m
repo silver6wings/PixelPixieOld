@@ -36,7 +36,40 @@ static NSString *monsterBtnTitle[]={
 }
 -(void)monsterButtonClick:(NSString *)name
 {
-    
+    switch ([name intValue]) {
+        case 0:
+        {
+            PPHelpScene *helpScene=[[PPHelpScene alloc] initWithSize:self.view.bounds.size];
+            helpScene->previousScene = self;
+            [self.view presentScene:helpScene transition:[SKTransition flipHorizontalWithDuration:1.0]];
+            
+        }
+            break;
+        case 1:
+        {
+            PPOptionsScene *optionScene=[[PPOptionsScene alloc] initWithSize:self.view.bounds.size];
+            optionScene->previousScene = self;
+            [self.view presentScene:optionScene transition:[SKTransition flipHorizontalWithDuration:1.0]];
+        }
+            break;
+        case 2:
+        {
+            PPMonsterBookScene *monstorBookScene=[[PPMonsterBookScene alloc] initWithSize:self.view.bounds.size];
+            monstorBookScene->previousScene = self;
+            [self.view presentScene:monstorBookScene transition:[SKTransition flipHorizontalWithDuration:1.0]];
+        }
+            break;
+        case 3:
+        {
+            PPNewsScene *newsScene=[[PPNewsScene alloc] initWithSize:self.view.bounds.size];
+            newsScene->previousScene = self;
+            [self.view presentScene:newsScene transition:[SKTransition flipHorizontalWithDuration:1.0]];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 -(void)backButtonClick:(NSString *)backName
 {

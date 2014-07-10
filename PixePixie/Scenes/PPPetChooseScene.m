@@ -73,7 +73,9 @@
         
     }
     
+    
     self.petsArray = [NSArray arrayWithArray:petsInfoArray];
+    
     
     
     SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];

@@ -1,6 +1,6 @@
 #import "PPMainViewController.h"
 #import "PPCommonTool.h"
-
+#import "PPChoosePetScrollView.h"
 @interface PPMainViewController ()
 {
     PPMainView *mainView;
@@ -79,7 +79,7 @@ NSString * menu[] = {
         contentView.tag=PP_CONTENT_TAG;
         UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(10, 5, 200, 40)];
         [titleLabel setBackgroundColor:[UIColor yellowColor]];
-        [titleLabel setText:@"请输入您的宠物的名字："];
+        [titleLabel setText:@"下面请告诉我你的名字："];
         [contentView addSubview:titleLabel];
     
         
@@ -104,13 +104,74 @@ NSString * menu[] = {
 }
 -(void)textInputConfirmClick
 {
+    
     UIView *contentView=[self.view viewWithTag:PP_CONTENT_TAG];
     if (contentView!=nil) {
         [contentView removeFromSuperview];
     }
+    
+    
+    UIView *viewContent=[[UIView alloc] initWithFrame:CGRectMake(0.0f, 20.0, 320.0f, 400)];
+    viewContent.tag = PP_CHOOSE_PET_CONTENT_TAG;
+    [viewContent setBackgroundColor:[UIColor magentaColor]];
+    
+    
+    NSDictionary * dictUserPets=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PetsChooseInfo" ofType:@"plist"]];
+    
+    
+    
+    PPChoosePetScrollView *petsScroll=[[PPChoosePetScrollView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 280.0f, 250.0f)];
+    [petsScroll setBackgroundColor:[UIColor cyanColor]];
+    [petsScroll setSCrollWith:dictUserPets];
+    [viewContent addSubview:petsScroll];
+    
+    
+    UILabel *labelEnemyInfo=[[UILabel alloc] initWithFrame:CGRectMake(20, 280, 280, 60)];
+    [labelEnemyInfo setText:@"怪物信息"];
+    [labelEnemyInfo setBackgroundColor:[UIColor whiteColor]];
+    [labelEnemyInfo setTextAlignment:NSTextAlignmentCenter];
+    [viewContent addSubview:labelEnemyInfo];
+    
+    
+    
+    UILabel *labelConfrimInfo=[[UILabel alloc] initWithFrame:CGRectMake(labelEnemyInfo.frame.origin.x, labelEnemyInfo.frame.origin.y+labelEnemyInfo.frame.size.height+10.0f, 200, 40)];
+    [labelConfrimInfo setFont:[UIFont boldSystemFontOfSize:11]];
+    [labelConfrimInfo setTextColor:[UIColor blackColor]];
+    [labelConfrimInfo setText:@"是否选择此怪物作为你的第一个伙伴？"];
+    [labelConfrimInfo setTextAlignment:NSTextAlignmentCenter];
+    [viewContent addSubview:labelConfrimInfo];
+    
+    
+    
+    UIButton *petsChooseCofirmBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [petsChooseCofirmBtn setTitle:@"确认" forState:UIControlStateNormal];
+    [petsChooseCofirmBtn setBackgroundColor:[UIColor blackColor]];
+    [petsChooseCofirmBtn setFrame:CGRectMake(labelConfrimInfo.frame.origin.x+labelConfrimInfo.frame.size.width+20.0f,labelConfrimInfo.frame.origin.y,40.0f, 40)];
+    [petsChooseCofirmBtn addTarget:self action:@selector(petsChooseCofirmBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [viewContent addSubview:petsChooseCofirmBtn];
+    
+    
+    
+    
+    [self.view addSubview:viewContent];
+    
+    
+   
+    
+  
+    
+    
+    
+}
+-(void)petsChooseCofirmBtnClick:(UIButton *)sender
+{
+    UIView *contentView=[self.view viewWithTag:PP_CHOOSE_PET_CONTENT_TAG];
+    if (contentView) {
+        [contentView removeFromSuperview];
+    }
+    
     [PPCommonTool setContent:@"1" forContentKey:PP_FIRST_LOG_IN];
     [self enterMainScene];
-    
 }
 -(void)textFieldResign:(UITextField *)textField
 {

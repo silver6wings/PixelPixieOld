@@ -180,6 +180,19 @@
 		D4877A43196C42E9009509E5 /* PPCookingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4877A42196C42E9009509E5 /* PPCookingScene.m */; };
 		D4877A46196C479A009509E5 /* PPMonsterInfoNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4877A45196C479A009509E5 /* PPMonsterInfoNode.m */; };
 		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
+		D4AE4CAE196ED01E00FC24EF /* PPChoosePetScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CAD196ED01E00FC24EF /* PPChoosePetScrollView.m */; };
+		D4AE4CB0196ED1D100FC24EF /* PetsChooseInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CAF196ED1D100FC24EF /* PetsChooseInfo.plist */; };
+		D4AE4CBA196EDA5100FC24EF /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB3196EDA5100FC24EF /* fire.png */; };
+		D4AE4CBB196EDA5100FC24EF /* fire_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB4196EDA5100FC24EF /* fire_selected.png */; };
+		D4AE4CBC196EDA5100FC24EF /* petchooseback.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB5196EDA5100FC24EF /* petchooseback.png */; };
+		D4AE4CBD196EDA5100FC24EF /* soil.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB6196EDA5100FC24EF /* soil.png */; };
+		D4AE4CBE196EDA5100FC24EF /* soil_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB7196EDA5100FC24EF /* soil_selected.png */; };
+		D4AE4CBF196EDA5100FC24EF /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB8196EDA5100FC24EF /* water.png */; };
+		D4AE4CC0196EDA5100FC24EF /* water_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB9196EDA5100FC24EF /* water_selected.png */; };
+		D4AE4CC3196EED0400FC24EF /* PPNewsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CC2196EED0400FC24EF /* PPNewsScene.m */; };
+		D4AE4CC6196EED4C00FC24EF /* PPMonsterBookScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CC5196EED4C00FC24EF /* PPMonsterBookScene.m */; };
+		D4AE4CC9196EED6400FC24EF /* PPOptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CC8196EED6400FC24EF /* PPOptionsScene.m */; };
+		D4AE4CCC196EED7B00FC24EF /* PPHelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CCB196EED7B00FC24EF /* PPHelpScene.m */; };
 		D4BE5ABF19513FFD001F72DE /* PPBuff.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE5ABE19513FFD001F72DE /* PPBuff.m */; };
 /* End PBXBuildFile section */
 
@@ -416,6 +429,24 @@
 		D4877A44196C479A009509E5 /* PPMonsterInfoNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMonsterInfoNode.h; path = PixePixie/Nodes/PPMonsterInfoNode.h; sourceTree = SOURCE_ROOT; };
 		D4877A45196C479A009509E5 /* PPMonsterInfoNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPMonsterInfoNode.m; path = PixePixie/Nodes/PPMonsterInfoNode.m; sourceTree = SOURCE_ROOT; };
 		D4916A16193F636C00662F88 /* PassInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassInfo.plist; sourceTree = "<group>"; };
+		D4AE4CAC196ED01E00FC24EF /* PPChoosePetScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPChoosePetScrollView.h; path = PixePixie/Views/PPChoosePetScrollView.h; sourceTree = SOURCE_ROOT; };
+		D4AE4CAD196ED01E00FC24EF /* PPChoosePetScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPChoosePetScrollView.m; path = PixePixie/Views/PPChoosePetScrollView.m; sourceTree = SOURCE_ROOT; };
+		D4AE4CAF196ED1D100FC24EF /* PetsChooseInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PetsChooseInfo.plist; sourceTree = "<group>"; };
+		D4AE4CB3196EDA5100FC24EF /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		D4AE4CB4196EDA5100FC24EF /* fire_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire_selected.png; sourceTree = "<group>"; };
+		D4AE4CB5196EDA5100FC24EF /* petchooseback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petchooseback.png; sourceTree = "<group>"; };
+		D4AE4CB6196EDA5100FC24EF /* soil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soil.png; sourceTree = "<group>"; };
+		D4AE4CB7196EDA5100FC24EF /* soil_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soil_selected.png; sourceTree = "<group>"; };
+		D4AE4CB8196EDA5100FC24EF /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		D4AE4CB9196EDA5100FC24EF /* water_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water_selected.png; sourceTree = "<group>"; };
+		D4AE4CC1196EED0400FC24EF /* PPNewsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNewsScene.h; sourceTree = "<group>"; };
+		D4AE4CC2196EED0400FC24EF /* PPNewsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNewsScene.m; sourceTree = "<group>"; };
+		D4AE4CC4196EED4C00FC24EF /* PPMonsterBookScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMonsterBookScene.h; sourceTree = "<group>"; };
+		D4AE4CC5196EED4C00FC24EF /* PPMonsterBookScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMonsterBookScene.m; sourceTree = "<group>"; };
+		D4AE4CC7196EED6400FC24EF /* PPOptionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPOptionsScene.h; sourceTree = "<group>"; };
+		D4AE4CC8196EED6400FC24EF /* PPOptionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPOptionsScene.m; sourceTree = "<group>"; };
+		D4AE4CCA196EED7B00FC24EF /* PPHelpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHelpScene.h; sourceTree = "<group>"; };
+		D4AE4CCB196EED7B00FC24EF /* PPHelpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHelpScene.m; sourceTree = "<group>"; };
 		D4BE5ABD19513FFD001F72DE /* PPBuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBuff.h; path = Models/PPBuff.h; sourceTree = "<group>"; };
 		D4BE5ABE19513FFD001F72DE /* PPBuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBuff.m; path = Models/PPBuff.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -438,6 +469,7 @@
 		190BF48D18C6C85C006B0AE6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D4AE4CB1196EDA5100FC24EF /* MainView */,
 				19CBA8CA1907C98000A249AB /* test */,
 				190CF088191230B900370760 /* background */,
 				190CF06F1912273600370760 /* balls_element */,
@@ -669,6 +701,14 @@
 			children = (
 				192F74471969124D006C6586 /* PPSettingScene.h */,
 				192F74481969124D006C6586 /* PPSettingScene.m */,
+				D4AE4CC1196EED0400FC24EF /* PPNewsScene.h */,
+				D4AE4CC2196EED0400FC24EF /* PPNewsScene.m */,
+				D4AE4CC4196EED4C00FC24EF /* PPMonsterBookScene.h */,
+				D4AE4CC5196EED4C00FC24EF /* PPMonsterBookScene.m */,
+				D4AE4CC7196EED6400FC24EF /* PPOptionsScene.h */,
+				D4AE4CC8196EED6400FC24EF /* PPOptionsScene.m */,
+				D4AE4CCA196EED7B00FC24EF /* PPHelpScene.h */,
+				D4AE4CCB196EED7B00FC24EF /* PPHelpScene.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -937,6 +977,8 @@
 				192F742E19691241006C6586 /* PPMainView.m */,
 				193DC4A31968610F007308C7 /* PPTableView.h */,
 				193DC4A41968610F007308C7 /* PPTableView.m */,
+				D4AE4CAC196ED01E00FC24EF /* PPChoosePetScrollView.h */,
+				D4AE4CAD196ED01E00FC24EF /* PPChoosePetScrollView.m */,
 				192F74531969132B006C6586 /* Monster */,
 				192F745419691333006C6586 /* Knapsack */,
 				192F74551969133C006C6586 /* Fighting */,
@@ -989,12 +1031,36 @@
 		D4916A15193F62CF00662F88 /* JsonData */ = {
 			isa = PBXGroup;
 			children = (
+				D4AE4CAF196ED1D100FC24EF /* PetsChooseInfo.plist */,
 				D457012C194F430700C2EFCE /* EnemyInfo.plist */,
 				D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */,
 				D4916A16193F636C00662F88 /* PassInfo.plist */,
 			);
 			name = JsonData;
 			path = Resource/JsonData;
+			sourceTree = "<group>";
+		};
+		D4AE4CB1196EDA5100FC24EF /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				D4AE4CB2196EDA5100FC24EF /* PetTypeChoose */,
+			);
+			name = MainView;
+			path = Resource/Image/MainView;
+			sourceTree = "<group>";
+		};
+		D4AE4CB2196EDA5100FC24EF /* PetTypeChoose */ = {
+			isa = PBXGroup;
+			children = (
+				D4AE4CB3196EDA5100FC24EF /* fire.png */,
+				D4AE4CB4196EDA5100FC24EF /* fire_selected.png */,
+				D4AE4CB5196EDA5100FC24EF /* petchooseback.png */,
+				D4AE4CB6196EDA5100FC24EF /* soil.png */,
+				D4AE4CB7196EDA5100FC24EF /* soil_selected.png */,
+				D4AE4CB8196EDA5100FC24EF /* water.png */,
+				D4AE4CB9196EDA5100FC24EF /* water_selected.png */,
+			);
+			path = PetTypeChoose;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1072,13 +1138,17 @@
 				190CF0831912309D00370760 /* pixie_plant3_battle1.png in Resources */,
 				19145E1F1913F472005C6AD4 /* 陷阱0048.png in Resources */,
 				193C25E31913F00400E2C1BA /* Cirrus0003.png in Resources */,
+				D4AE4CB0196ED1D100FC24EF /* PetsChooseInfo.plist in Resources */,
 				19145E141913F472005C6AD4 /* 陷阱0037.png in Resources */,
+				D4AE4CBB196EDA5100FC24EF /* fire_selected.png in Resources */,
 				19145DFD1913F472005C6AD4 /* 陷阱0014.png in Resources */,
 				1959D681191515C900865D27 /* 变身效果01024.png in Resources */,
 				19145DFF1913F472005C6AD4 /* 陷阱0016.png in Resources */,
 				19145E081913F472005C6AD4 /* 陷阱0025.png in Resources */,
+				D4AE4CBA196EDA5100FC24EF /* fire.png in Resources */,
 				1959D68D191515C900865D27 /* 变身效果01036.png in Resources */,
 				193C25DA1913EF9500E2C1BA /* bg_02.jpg in Resources */,
+				D4AE4CBF196EDA5100FC24EF /* water.png in Resources */,
 				1959D671191515C900865D27 /* 变身效果01008.png in Resources */,
 				1959D67D191515C900865D27 /* 变身效果01020.png in Resources */,
 				19145DF91913F472005C6AD4 /* 陷阱0010.png in Resources */,
@@ -1117,12 +1187,15 @@
 				190CF0771912277400370760 /* ball_metal.png in Resources */,
 				19145E131913F472005C6AD4 /* 陷阱0036.png in Resources */,
 				19145E0D1913F472005C6AD4 /* 陷阱0030.png in Resources */,
+				D4AE4CBC196EDA5100FC24EF /* petchooseback.png in Resources */,
 				190CF0781912277400370760 /* ball_plant.png in Resources */,
 				190CF0751912277400370760 /* ball_earth.png in Resources */,
 				1959D669191515C900865D27 /* 变身效果01000.png in Resources */,
+				D4AE4CBE196EDA5100FC24EF /* soil_selected.png in Resources */,
 				1959D66D191515C900865D27 /* 变身效果01004.png in Resources */,
 				1959D674191515C900865D27 /* 变身效果01011.png in Resources */,
 				1959D688191515C900865D27 /* 变身效果01031.png in Resources */,
+				D4AE4CC0196EDA5100FC24EF /* water_selected.png in Resources */,
 				190CF0801912309D00370760 /* pixie_plant2_battle0.png in Resources */,
 				1959D67F191515C900865D27 /* 变身效果01022.png in Resources */,
 				19145E181913F472005C6AD4 /* 陷阱0041.png in Resources */,
@@ -1156,6 +1229,7 @@
 				19145DFB1913F472005C6AD4 /* 陷阱0012.png in Resources */,
 				1959D67C191515C900865D27 /* 变身效果01019.png in Resources */,
 				1959D682191515C900865D27 /* 变身效果01025.png in Resources */,
+				D4AE4CBD196EDA5100FC24EF /* soil.png in Resources */,
 				1959D683191515C900865D27 /* 变身效果01026.png in Resources */,
 				19145E071913F472005C6AD4 /* 陷阱0024.png in Resources */,
 				1959D66E191515C900865D27 /* 变身效果01005.png in Resources */,
@@ -1188,6 +1262,7 @@
 				193DC4B8196861D5007308C7 /* PPSkillNode.m in Sources */,
 				193DC4A61968610F007308C7 /* PPPassNumberScroll.m in Sources */,
 				D486A1C5196AF5F40006206B /* PPEuoFusionScene.m in Sources */,
+				D4AE4CC6196EED4C00FC24EF /* PPMonsterBookScene.m in Sources */,
 				192F743719691241006C6586 /* PPMainView.m in Sources */,
 				193DC4BC19686C18007308C7 /* PPBasicLabelNode.m in Sources */,
 				D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */,
@@ -1210,10 +1285,12 @@
 				D486A1CB196AF6450006206B /* PPTalentTreeScene.m in Sources */,
 				D486A1C2196AF5D10006206B /* PPMonsterBoxScene.m in Sources */,
 				D486A1C8196AF60D0006206B /* PPSellMonsterScene.m in Sources */,
+				D4AE4CCC196EED7B00FC24EF /* PPHelpScene.m in Sources */,
 				193DC4B9196861D5007308C7 /* PPValueShowNode.m in Sources */,
 				192F743519691241006C6586 /* PPFightingMainView.m in Sources */,
 				192F743619691241006C6586 /* PPKnapsackMainView.m in Sources */,
 				193DC4991968608B007308C7 /* PPBasicViewController.m in Sources */,
+				D4AE4CC3196EED0400FC24EF /* PPNewsScene.m in Sources */,
 				D413CB611945FF62004B4FDE /* PPSkill.m in Sources */,
 				193DC4AC19686162007308C7 /* PPEnemyPixie.m in Sources */,
 				192F744D1969124D006C6586 /* PPMonsterScene.m in Sources */,
@@ -1227,8 +1304,10 @@
 				193DC4A71968610F007308C7 /* PPTableView.m in Sources */,
 				D4767ABC196D8780000B5B9C /* PPCommonTool.m in Sources */,
 				D40E1F9419508D28004704D5 /* PPSkillCaculate.m in Sources */,
+				D4AE4CAE196ED01E00FC24EF /* PPChoosePetScrollView.m in Sources */,
 				192F744B1969124D006C6586 /* PPBallScene.m in Sources */,
 				D486A1B6196AD8770006206B /* PPFightingPassScene.m in Sources */,
+				D4AE4CC9196EED6400FC24EF /* PPOptionsScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
