@@ -4,6 +4,8 @@
 #define SPACE_BOTTOM 60
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
 #define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(362 - kBallSize)+SPACE_BOTTOM
+static const CGFloat criticalValue=20.1;  //临界值
+static const CGFloat dampingValue =1.5;    //衰减系数
 
 static const uint32_t kBallCategory      =  0x1 << 0;
 static const uint32_t kGroundCategory    =  0x1 << 1;
@@ -154,8 +156,8 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         // 添加 Balls of Element
         self.ballsElement = [[NSMutableArray alloc] init];
         if (CurrentDeviceRealSize.height>500) {
-            for (int i = 0; i < 5; i++) {
-                PPBall * tBall = [PPBall ballWithElement:i + 1];
+            for (int i = 0; i < 10; i++) {
+                PPBall * tBall = [PPBall ballWithElement:i%5+1];
                 tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+directFori5);
                 tBall.physicsBody.categoryBitMask = kBallCategory;
                 tBall.physicsBody.contactTestBitMask = kBallCategory;
@@ -164,8 +166,9 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             }
         }else
         {
-            for (int i = 0; i < 5; i++) {
-                PPBall * tBall = [PPBall ballWithElement:i + 1];
+            for (int i = 0; i < 10; i++) {
+                
+                PPBall * tBall = [PPBall ballWithElement:i%5+1];
                 tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
                 tBall.physicsBody.categoryBitMask = kBallCategory;
                 tBall.physicsBody.contactTestBitMask = kBallCategory;
@@ -241,6 +244,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     ballsLabel.position = CGPointMake(200.0f,221);
     [self addChild:ballsLabel];
     
+    
     SKAction *action=[SKAction fadeAlphaTo:0.0f duration:5];
     [skillNameLabel runAction:action];
     [ballsLabel runAction:action];
@@ -248,6 +252,13 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     
     [skillNode showSkillAnimate:nil];
+    
+    
+//
+//        // 添加少了的球
+//        [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
+//        // 刷新技能
+
     
 }
 
@@ -282,10 +293,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             return;
         }else
         {
-        NSDictionary *dict=@{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"小雨是sb，请干下一个怪物"};
-        PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
-        [alertCustom showCustomAlertWithInfo:dict];
-        [self addChild:alertCustom];
+        
             if (CurrentDeviceRealSize.height<500) {
                 [self addEnemySide:0.0];
 
@@ -295,13 +303,18 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
                 [self addEnemySide:44.0];
                 
             }
+            
+            NSDictionary *dict=@{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"请干下一个怪物"};
+            PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
+            [alertCustom showCustomAlertWithInfo:dict];
+            [self addChild:alertCustom];
         
         }
         
         
     }else
     {
-        NSDictionary *dict=@{@"title":@"宠物死了",@"context":@"我是小雨，我是sb"};
+        NSDictionary *dict=@{@"title":@"宠物死了",@"context":@"你太厉害了"};
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
         [alertCustom showCustomAlertWithInfo:dict];
         [self addChild:alertCustom];
@@ -334,7 +347,14 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     // 添加 Ball of Enemey
     self.ballEnemy = eneplayerPixie.pixieBall;
-    self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
+    if (CurrentDeviceRealSize.height>500) {
+        self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+44);
+
+    }else{
+        self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y);
+
+    }
+    
     self.ballEnemy.physicsBody.categoryBitMask = kBallCategory;
     self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
     [self addChild:self.ballEnemy];
@@ -466,15 +486,18 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         NSLog(@"Doing Attack and Defend");
         _isBallRolling = NO;
         
-        [self ballAttackEnd:(kBallNumberMax - (int)self.ballsElement.count)];
-
         // 添加少了的球
         [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
-        // 刷新技能
+        
+        [self ballAttackEnd:(kBallNumberMax - (int)self.ballsElement.count)];
+        
+
+//        // 刷新技能
         _isTrapEnable = NO;
         for (PPBall * tBall in self.ballsElement) {
             [tBall setToDefaultTexture];
         }
+        
     }
 }
 
@@ -558,6 +581,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             
         }
     } else {
+        
         for (int i = 0; i < number; i++) {
             
             PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
@@ -567,6 +591,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [self addChild:tBall];
             
             [self.ballsElement addObject:tBall];
+            
         }
     }
 
@@ -575,19 +600,65 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
 // 是否所有的球都停止了滚动
 -(BOOL)isAllStopRolling{
+
+    CGFloat vectorLengthVelocity=vectorLength(self.ballPlayer.physicsBody.velocity);
     
-    if (vectorLength(self.ballPlayer.physicsBody.velocity) > 0) {
+    if (vectorLengthVelocity > 0) {
+        NSLog(@"value = %f",vectorLengthVelocity);
+        
+        if (vectorLengthVelocity<criticalValue) {
+            
+            self.ballPlayer.physicsBody.velocity=CGVectorMake(self.ballPlayer.physicsBody.velocity.dx/dampingValue, self.ballPlayer.physicsBody.velocity.dy/dampingValue);
+        }
+        if (vectorLengthVelocity<5.0f) {
+             self.ballPlayer.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
+        }
+        
         return NO;
     }
-    if (vectorLength(self.ballEnemy.physicsBody.velocity) > 0) {
+    
+    CGFloat vectorBallVelocity=vectorLength(self.ballEnemy.physicsBody.velocity);
+
+    if (vectorBallVelocity > 0) {
+        
+        if (vectorBallVelocity<criticalValue) {
+            
+            self.ballEnemy.physicsBody.velocity=CGVectorMake(self.ballEnemy.physicsBody.velocity.dx/dampingValue, self.ballEnemy.physicsBody.velocity.dy/dampingValue);
+        }
+        
+        if (vectorLengthVelocity<5.0f) {
+            self.ballEnemy.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
+        }
+        
         return NO;
     }
+
+    BOOL isAllOtherBallStop = YES;
     for (PPBall * tBall in self.ballsElement) {
         if (vectorLength(tBall.physicsBody.velocity) > 0) {
-            return NO;
+            if (vectorLength(tBall.physicsBody.velocity) <criticalValue) {
+                
+               tBall.physicsBody.velocity=CGVectorMake(tBall.physicsBody.velocity.dx/dampingValue, tBall.physicsBody.velocity.dy/dampingValue);
+                
+                if (vectorLength(tBall.physicsBody.velocity)<5.0f) {
+                    self.ballEnemy.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
+                }
+                
+            }
+            isAllOtherBallStop = NO;
+//            break;
         }
     }
-    return YES;
+    
+    if (vectorLengthVelocity == 0&&vectorBallVelocity==0&&isAllOtherBallStop) {
+        return YES;
+    }else
+    {
+        return NO;
+
+    }
+    
+    
 }
 
 // 计算两点间距离
@@ -635,13 +706,16 @@ CGFloat vectorLength (CGVector vector) {
 -(void)skillEndEvent:(PPSkill *)skillInfo withSelfName:(NSString *)nodeName
 {
     
+    
     NSLog(@"skillInfo=%@ HP:%f MP:%f",skillInfo,skillInfo.HPChangeValue,skillInfo.MPChangeValue);
     
     
     if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
     {
         if (skillInfo.skillObject ==1) {
+            
             [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+            
         }else
         {
             [self.enemySide changeHPValue:skillInfo.HPChangeValue];
