@@ -20,3 +20,5 @@
 #import "PPMonsterBookScene.h"
 #import "PPOptionsScene.h"
 #import "PPHelpScene.h"
+#import "PPWorldBossScene.h"
+

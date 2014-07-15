@@ -55,6 +55,40 @@ NSString *couterpartName[]={
 -(void)worldBossButtonClick:(NSString *)nameString
 {
     
+    
+    //战斗示例 方便连调
+    NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+    NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+    
+    NSDictionary * dictUserPets=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserPetInfo" ofType:@"plist"]];
+    NSArray *petsInfoArray=[[NSArray alloc] initWithArray:[dictUserPets objectForKey:@"userpetinfo"]];
+    NSDictionary *petsChoosedInfo=[petsInfoArray objectAtIndex:2];
+
+    // 初始化 ballScene
+    PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:petsChoosedInfo];
+    
+    
+
+    
+    PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:CurrentDeviceRealSize
+                                                         PixieA:playerPixie
+                                                         PixieB:enemys];
+    
+    
+    ballScene.choosedEnemys = enemys;
+    ballScene.scaleMode = SKSceneScaleModeAspectFill;
+    [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
+
+    
+    
+    
+//    
+//    PPWorldBossScene *worldScene=[[PPWorldBossScene alloc] initWithSize:self.view.bounds.size];
+//    worldScene->previousScene = self;
+//    [self.view presentScene:worldScene];
+    
+    
+    
 }
 -(void)choosePassNumber
 {

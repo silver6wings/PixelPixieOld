@@ -102,6 +102,8 @@
         
         [_playerPixie runAction:[SKAction sequence:@[
                                                      [SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]]] completion:^{
+            
+            
             NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
             NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
             
