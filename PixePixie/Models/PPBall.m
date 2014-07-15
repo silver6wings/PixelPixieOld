@@ -1,6 +1,4 @@
 
-#import "PPBall.h"
-#import "PPPixie.h"
 
 @interface PPBall ()
 {
@@ -10,7 +8,7 @@
 @end
 
 @implementation PPBall
-@synthesize pixie, ballElementType,enemypixie;
+@synthesize pixie, ballElementType, pixieEnemy;
 
 #pragma mark Factory Method
 
@@ -65,22 +63,24 @@
 }
 
 // 创建敌人的球
-+(PPBall *)ballWithEnemyPixie:(PPEnemyPixie *)enemypixie;
++(PPBall *)ballWithEnemyPixie:(PPPixie *)pixieEnemy;
 {
     
     NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
                             [ConstantData elementName:PPElementTypePlant],
-                            enemypixie.pixieGeneration];
+                            pixieEnemy.pixieGeneration];
+    
     if (imageName == nil) return nil;
+    
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
     if (tBall){
-        tBall.ballElementType = enemypixie.pixieElement;
+        tBall.ballElementType = pixieEnemy.pixieElement;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
         [PPBall defaultBallPhysicsBody:tBall];
     
-        tBall.enemypixie = enemypixie;
+        tBall.pixieEnemy = pixieEnemy;
     }
     return tBall;
 }

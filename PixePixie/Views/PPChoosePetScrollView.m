@@ -28,7 +28,7 @@ static NSString *typeString[]={
 {
     NSArray *petsInfoArray=[[NSArray alloc] initWithArray:[petsDict objectForKey:@"userpetinfo"]];
     NSArray * petsArray = [NSArray arrayWithArray:petsInfoArray];
-    int petsCount = [petsArray count];
+    int petsCount = (int)[petsArray count];
     self.pagingEnabled = YES;
     self.showsHorizontalScrollIndicator = NO;
     self.contentSize=CGSizeMake(self.frame.size.width*petsCount, self.frame.size.height);

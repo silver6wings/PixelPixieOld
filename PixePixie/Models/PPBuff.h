@@ -1,12 +1,4 @@
-//
-//  PPBuffAgg.h
-//  PixelPixie
-//
-//  Created by xiefei on 14-6-18.
-//  Copyright (c) 2014年 Psyches. All rights reserved.
-//
 
-#import <Foundation/Foundation.h>
 
 @interface PPBuff : NSObject
 

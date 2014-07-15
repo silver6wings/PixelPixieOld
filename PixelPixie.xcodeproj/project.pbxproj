@@ -97,7 +97,6 @@
 		193DC49E196860FE007308C7 /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC49D196860FE007308C7 /* PPMainViewController.m */; };
 		193DC4A61968610F007308C7 /* PPPassNumberScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4A21968610F007308C7 /* PPPassNumberScroll.m */; };
 		193DC4A71968610F007308C7 /* PPTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4A41968610F007308C7 /* PPTableView.m */; };
-		193DC4AC19686162007308C7 /* PPEnemyPixie.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4A919686162007308C7 /* PPEnemyPixie.m */; };
 		193DC4AD19686162007308C7 /* PPPixie.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4AB19686162007308C7 /* PPPixie.m */; };
 		193DC4B6196861D5007308C7 /* PPBattleSideNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4AF196861D5007308C7 /* PPBattleSideNode.m */; };
 		193DC4B7196861D5007308C7 /* PPCustomAlertNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4B1196861D5007308C7 /* PPCustomAlertNode.m */; };
@@ -159,7 +158,7 @@
 		19F6EDA218C6C09900BFFF9A /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6EDA118C6C09900BFFF9A /* SpriteKit.framework */; };
 		19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */; };
 		19F6EDAA18C6C09900BFFF9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDA918C6C09900BFFF9A /* main.m */; };
-		D40E1F9419508D28004704D5 /* PPSkillCaculate.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E1F9319508D28004704D5 /* PPSkillCaculate.m */; };
+		D40E1F9419508D28004704D5 /* PPDamageCaculate.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E1F9319508D28004704D5 /* PPDamageCaculate.m */; };
 		D413CB611945FF62004B4FDE /* PPSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = D413CB601945FF62004B4FDE /* PPSkill.m */; };
 		D43F421B1947548F00B19F2F /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42121947548F00B19F2F /* PPMainScene.m */; };
 		D44935C41948B52E00F3B5B9 /* UserPetInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */; };
@@ -317,8 +316,6 @@
 		193DC4A21968610F007308C7 /* PPPassNumberScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPassNumberScroll.m; path = PixePixie/Views/PPPassNumberScroll.m; sourceTree = SOURCE_ROOT; };
 		193DC4A31968610F007308C7 /* PPTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPTableView.h; path = PixePixie/Views/PPTableView.h; sourceTree = SOURCE_ROOT; };
 		193DC4A41968610F007308C7 /* PPTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPTableView.m; path = PixePixie/Views/PPTableView.m; sourceTree = SOURCE_ROOT; };
-		193DC4A819686162007308C7 /* PPEnemyPixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPEnemyPixie.h; path = Models/PPEnemyPixie.h; sourceTree = "<group>"; };
-		193DC4A919686162007308C7 /* PPEnemyPixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPEnemyPixie.m; path = Models/PPEnemyPixie.m; sourceTree = "<group>"; };
 		193DC4AA19686162007308C7 /* PPPixie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPixie.h; path = Models/PPPixie.h; sourceTree = "<group>"; };
 		193DC4AB19686162007308C7 /* PPPixie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPixie.m; path = Models/PPPixie.m; sourceTree = "<group>"; };
 		193DC4AE196861D5007308C7 /* PPBattleSideNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBattleSideNode.h; path = PixePixie/Nodes/PPBattleSideNode.h; sourceTree = SOURCE_ROOT; };
@@ -395,8 +392,8 @@
 		19F6EDAB18C6C09900BFFF9A /* PixelPixie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PixelPixie-Prefix.pch"; sourceTree = "<group>"; };
 		19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D40E1F9219508D28004704D5 /* PPSkillCaculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSkillCaculate.h; path = Models/PPSkillCaculate.h; sourceTree = "<group>"; };
-		D40E1F9319508D28004704D5 /* PPSkillCaculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkillCaculate.m; path = Models/PPSkillCaculate.m; sourceTree = "<group>"; };
+		D40E1F9219508D28004704D5 /* PPDamageCaculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPDamageCaculate.h; path = Models/PPDamageCaculate.h; sourceTree = "<group>"; };
+		D40E1F9319508D28004704D5 /* PPDamageCaculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPDamageCaculate.m; path = Models/PPDamageCaculate.m; sourceTree = "<group>"; };
 		D413CB5F1945FF62004B4FDE /* PPSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSkill.h; path = Models/PPSkill.h; sourceTree = "<group>"; };
 		D413CB601945FF62004B4FDE /* PPSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkill.m; path = Models/PPSkill.m; sourceTree = "<group>"; };
 		D43F42111947548F00B19F2F /* PPMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainScene.h; sourceTree = "<group>"; };
@@ -749,8 +746,8 @@
 			children = (
 				193DC4AA19686162007308C7 /* PPPixie.h */,
 				193DC4AB19686162007308C7 /* PPPixie.m */,
-				193DC4A819686162007308C7 /* PPEnemyPixie.h */,
-				193DC4A919686162007308C7 /* PPEnemyPixie.m */,
+				D40E1F9219508D28004704D5 /* PPDamageCaculate.h */,
+				D40E1F9319508D28004704D5 /* PPDamageCaculate.m */,
 			);
 			name = PPPixie;
 			sourceTree = "<group>";
@@ -760,8 +757,6 @@
 			children = (
 				D413CB5F1945FF62004B4FDE /* PPSkill.h */,
 				D413CB601945FF62004B4FDE /* PPSkill.m */,
-				D40E1F9219508D28004704D5 /* PPSkillCaculate.h */,
-				D40E1F9319508D28004704D5 /* PPSkillCaculate.m */,
 			);
 			name = PPSkill;
 			sourceTree = "<group>";
@@ -1298,7 +1293,6 @@
 				193DC4991968608B007308C7 /* PPBasicViewController.m in Sources */,
 				D4AE4CC3196EED0400FC24EF /* PPNewsScene.m in Sources */,
 				D413CB611945FF62004B4FDE /* PPSkill.m in Sources */,
-				193DC4AC19686162007308C7 /* PPEnemyPixie.m in Sources */,
 				192F744D1969124D006C6586 /* PPMonsterScene.m in Sources */,
 				192F74511969124D006C6586 /* PPSettingScene.m in Sources */,
 				192F744E1969124D006C6586 /* PPPacksackScene.m in Sources */,
@@ -1309,7 +1303,7 @@
 				19CBA8C31907C77600A249AB /* PPBall.m in Sources */,
 				193DC4A71968610F007308C7 /* PPTableView.m in Sources */,
 				D4767ABC196D8780000B5B9C /* PPCommonTool.m in Sources */,
-				D40E1F9419508D28004704D5 /* PPSkillCaculate.m in Sources */,
+				D40E1F9419508D28004704D5 /* PPDamageCaculate.m in Sources */,
 				D4AE4CAE196ED01E00FC24EF /* PPChoosePetScrollView.m in Sources */,
 				192F744B1969124D006C6586 /* PPBallScene.m in Sources */,
 				D486A1B6196AD8770006206B /* PPFightingPassScene.m in Sources */,

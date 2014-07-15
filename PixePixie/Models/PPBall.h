@@ -1,22 +1,16 @@
 
-#import "PPEnemyPixie.h"
 
 @class PPPixie;
-@class PPEnemyPixie;
 
 @interface PPBall : SKSpriteNode
-{
-    PPPixie * pixie;                // 球隶属于那个宠物
-    PPElementType ballElementType;  // 球属于哪个元素
-}
 
-@property (nonatomic) PPPixie * pixie;
-@property (nonatomic) PPEnemyPixie * enemypixie;
 @property (nonatomic) PPElementType ballElementType;
+@property (nonatomic) PPPixie * pixie;
+@property (nonatomic) PPPixie * pixieEnemy;
 
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
++(PPBall *)ballWithEnemyPixie:(PPPixie *)pixieEnemy;
 +(PPBall *)ballWithElement:(PPElementType)element;
-+(PPBall *)ballWithEnemyPixie:(PPEnemyPixie *)enemypixie;
 -(void)setToDefaultTexture;
 
 @end

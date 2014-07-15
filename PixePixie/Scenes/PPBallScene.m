@@ -192,40 +192,46 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     NSLog(@"nodeName=%@",nodeName);
     if ([nodeName isEqual:PP_PET_PLAYER_SIDE_NODE_NAME]) {
         
-          CGFloat hpchangresult=[[PPSkillCaculate getInstance] bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.currentAP andAddition:self.playerSide.currentPPPixie.pixieBuffAgg.attackAddition andOppositeDefense:self.enemySide.currentEenemyPPPixie.currentDP andOppositeDefAddition:self.enemySide.currentEenemyPPPixie.pixieBuffAgg.defenseAddition andDexterity:self.enemySide.currentEenemyPPPixie.currentDEX];
+        CGFloat hpchangresult = [[PPDamageCaculate getInstance]
+                                 bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.currentAP
+                                 andAddition:self.playerSide.currentPPPixie.pixieBuffs.attackAddition
+                                 andOppositeDefense:self.enemySide.currentPPPixieEnemy.currentDP
+                                 andOppositeDefAddition:self.enemySide.currentPPPixieEnemy.pixieBuffs.defenseAddition
+                                 andDexterity:self.enemySide.currentPPPixieEnemy.currentDEX];
         
-            [self.enemySide changeHPValue:hpchangresult];
-        NSLog(@"currentHP=%f",self.enemySide.currentEenemyPPPixie.currentHP);
+        [self.enemySide changeHPValue:hpchangresult];
+        NSLog(@"currentHP=%f",self.enemySide.currentPPPixieEnemy.currentHP);
         
-        if (self.enemySide.currentEenemyPPPixie.currentHP <=0) {
+        if (self.enemySide.currentPPPixieEnemy.currentHP <= 0)
+        {
             
         }
-        
-    }else
-    {
-        
-        CGFloat hpchangresult=[[PPSkillCaculate getInstance] bloodChangeForPhysicalAttack:self.enemySide.currentEenemyPPPixie.currentAP andAddition:self.enemySide.currentEenemyPPPixie.pixieBuffAgg.attackAddition andOppositeDefense:self.playerSide.currentPPPixie.currentDP andOppositeDefAddition:self.playerSide.currentPPPixie.pixieBuffAgg.defenseAddition andDexterity:self.playerSide.currentPPPixie.currentDEX];
-        
+    } else {
+        CGFloat hpchangresult = [[PPDamageCaculate getInstance]
+                                 bloodChangeForPhysicalAttack:self.enemySide.currentPPPixieEnemy.currentAP
+                                 andAddition:self.enemySide.currentPPPixieEnemy.pixieBuffs.attackAddition
+                                 andOppositeDefense:self.playerSide.currentPPPixie.currentDP
+                                 andOppositeDefAddition:self.playerSide.currentPPPixie.pixieBuffs.defenseAddition
+                                 andDexterity:self.playerSide.currentPPPixie.currentDEX];
         
         [self.playerSide changeHPValue:hpchangresult];
-        
-        
     }
     
 }
 
--(void)ballAttackEnd:(NSInteger )ballsCount
+-(void)ballAttackEnd:(NSInteger)ballsCount
 {
-    
-    CGFloat ballAttackHpChange= [[PPSkillCaculate getInstance] bloodChangeForBallAttack:YES andPet:self.playerSide.currentPPPixie andEnemy:self.enemySide.currentEenemyPPPixie];
+    CGFloat ballAttackHpChange = [[PPDamageCaculate getInstance]
+                                  bloodChangeForBallAttack:YES
+                                  andPet:self.playerSide.currentPPPixie
+                                  andEnemy:self.enemySide.currentPPPixieEnemy];
     
     [self.enemySide changeHPValue:ballAttackHpChange];
     
-    
-    PPSkillNode *skillNode=[PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
-    skillNode.delegate=self;
+    PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
+    skillNode.delegate = self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position=CGPointMake(self.size.width/2.0f, 250.0f);
+    skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f);
     [self addChild:skillNode];
     
     
@@ -240,26 +246,22 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     SKLabelNode *ballsLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     [ballsLabel setFontSize:20];
     ballsLabel.fontColor = [UIColor whiteColor];
-    ballsLabel.text = [NSString stringWithFormat:@"吸收球数:%d",(NSInteger)ballsCount];
+    ballsLabel.text = [NSString stringWithFormat:@"吸收球数:%d",(int)ballsCount];
     ballsLabel.position = CGPointMake(200.0f,221);
     [self addChild:ballsLabel];
     
-    
-    SKAction *action=[SKAction fadeAlphaTo:0.0f duration:5];
+    SKAction *action = [SKAction fadeAlphaTo:0.0f duration:5];
+
     [skillNameLabel runAction:action];
     [ballsLabel runAction:action];
     
-    
-    
     [skillNode showSkillAnimate:nil];
-    
-    
+
 //
 //        // 添加少了的球
 //        [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
 //        // 刷新技能
 
-    
 }
 -(void)setAdditionLabel:(CGFloat)addition
 {
@@ -337,9 +339,10 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 {
     NSLog(@"NAME 123=%@",battleside.name);
     
-    if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME]) {
-        if ([self.choosedEnemys count]<=currentEnemyIndex) {
-           
+    if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
+    {
+        if ([self.choosedEnemys count]<=currentEnemyIndex)
+        {
             NSLog(@"战斗结束，结算奖励");
 
             NSDictionary *dict=@{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"副本结束"};
@@ -348,18 +351,16 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [self addChild:alertCustom];
             
             return;
+
         }else
         {
         
             if (CurrentDeviceRealSize.height<500) {
                 [self addEnemySide:0.0];
-
-            }else
-            {
-                
+            } else {
                 [self addEnemySide:44.0];
-                
             }
+
             
             NSDictionary *dict=@{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"请干下一个怪物"};
             PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
@@ -367,8 +368,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
             [self addChild:alertCustom];
         
         }
-        
-        
     }else
     {
         NSDictionary *dict=@{@"title":@"宠物死了",@"context":@"你太厉害了"};
@@ -378,29 +377,26 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
         [self.playerSide removeFromParent];
     }
-    
-    
 }
+
 -(void)addEnemySide:(CGFloat)direct
 {
     if(self.enemySide != nil){
-        
-    [self.enemySide removeFromParent];
-    self.enemySide = nil;
-        
+        [self.enemySide removeFromParent];
+        self.enemySide = nil;
     }
     
     if(self.ballEnemy != nil){
-        
         [self.ballEnemy removeFromParent];
         self.ballEnemy = nil;
-        
     }
     
-    NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-    NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
-    NSDictionary *chooseEnemyDict=[NSDictionary dictionaryWithDictionary:[enemys objectAtIndex:currentEnemyIndex]];
-    PPEnemyPixie * eneplayerPixie = [PPEnemyPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
+    NSDictionary * dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
+                                [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+    
+    NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+    NSDictionary *chooseEnemyDict = [NSDictionary dictionaryWithDictionary:[enemys objectAtIndex:currentEnemyIndex]];
+    PPPixie *eneplayerPixie = [PPPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
     
     // 添加 Ball of Enemey
     self.ballEnemy = eneplayerPixie.pixieBall;
@@ -424,34 +420,36 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     self.enemySide.size = CGSizeMake(self.size.width, 60);
     self.enemySide.target=self;
     self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-    self.enemySide.skillSelector=@selector(skllEnemyBegain:);
+    self.enemySide.skillSelector = @selector(skllEnemyBegain:);
     self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
     [self.enemySide setSideElementsForEnemy:eneplayerPixie];
     [self addChild:self.enemySide];
     
-    currentEnemyIndex+=1;
-    
+    currentEnemyIndex += 1;
 }
+
 #pragma mark BackAlert
 -(void)backButtonClick:(NSString *)backName
 {
-    
-    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意" message:@"退出战斗会导致体力损失。确认退出战斗吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
+                                                      message:@"退出战斗会导致体力损失。确认退出战斗吗？"
+                                                     delegate:self
+                                            cancelButtonTitle:@"确定"
+                                            otherButtonTitles:@"取消", nil];
     [alertView show];
-
-    
 }
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
            [(PPFightingMainView *)self.view changeToPassScene];
             [[NSNotificationCenter defaultCenter] postNotificationName:PP_BACK_TO_MAIN_VIEW object:PP_BACK_TO_MAIN_VIEW_FIGHTING];
         
-    }else
-    {
+    } else {
         
     }
 }
+
 #pragma mark SKScene
 
 -(void)didMoveToView:(SKView *)view
@@ -478,7 +476,6 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if ([[touchedNode name] isEqualToString:@"ball_player"]) {
         
         _isBallDragging = YES;
-//        _ballShadow = [self.ballPlayer copy];
         _ballShadow = [PPBall ballWithPixie:self.playerSide.currentPPPixie];
         _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
         _ballShadow.position = location;

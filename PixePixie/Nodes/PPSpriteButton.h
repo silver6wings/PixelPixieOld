@@ -1,12 +1,5 @@
-//
-//  PPSpriteButton.h
-//  PixelPixie
-//
-//  Created by xiefei on 14-7-7.
-//  Copyright (c) 2014年 XieFei. All rights reserved.
-//
-
 #import <SpriteKit/SpriteKit.h>
+
 typedef NS_OPTIONS(int, PPButtonControlEvent)
 {
     PPButtonControlEventTouchDown = 1,
@@ -15,10 +8,9 @@ typedef NS_OPTIONS(int, PPButtonControlEvent)
     PPButtonControlEventAllEvents
 };
 
-
 @interface PPSpriteButton : SKSpriteNode
-@property (setter = setExclusiveTouch:, getter = isExclusiveTouch) BOOL exclusiveTouch;
 
+@property (setter = setExclusiveTouch:, getter = isExclusiveTouch) BOOL exclusiveTouch;
 @property (strong, nonatomic) SKLabelNode *label;
 
 //SpriteButton初始化
@@ -39,7 +31,6 @@ typedef NS_OPTIONS(int, PPButtonControlEvent)
 
 -(void)removeAllTargets;
 
-
 //改变label text方法
 
 -(void)setLabelWithText:(NSString*)text andFont:(UIFont*)font withColor:(UIColor*)fontColor;
@@ -48,7 +39,5 @@ typedef NS_OPTIONS(int, PPButtonControlEvent)
 
 -(void)transformForTouchDown;
 -(void)transformForTouchUp;
-
-
 
 @end

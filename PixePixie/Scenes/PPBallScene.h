@@ -1,9 +1,13 @@
 
-@interface PPBallScene : PPBasicScene<SkillShowEndDelegate>
+#import "PPSkillNode.h"
+#import "PPCustomAlertNode.h"
+
+@interface PPBallScene : PPBasicScene <SkillShowEndDelegate>
 {
     int currentEnemyIndex;
     CGFloat directFori5;
 }
+
 @property (nonatomic,retain)NSArray *choosedEnemys;
 
 -(id)initWithSize:(CGSize)size

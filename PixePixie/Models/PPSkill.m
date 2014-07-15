@@ -14,9 +14,10 @@
 {
     if (self = [super init]) {
         self.animateTextures = [[NSMutableArray alloc] init];
-        self.HPChangeValue = -193.0f;
-        self.MPChangeValue = -43.0f ;
+        self.HPChangeValue = - 193.0f;
+        self.MPChangeValue = - 43.0f ;
     }
     return self;
 }
+
 @end
