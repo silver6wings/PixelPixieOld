@@ -5,14 +5,17 @@
 @synthesize target=_target;
 @synthesize skillSelector=_skillSelector;
 @synthesize currentPPPixie;
-@synthesize currentEenemyPPPixie;
+@synthesize currentPPPixieEnemy;
 @synthesize physicsAttackSelector;
 @synthesize hpBeenZeroSel;
 
 -(void)setSideElementsForPet:(PPPixie *)ppixie
 {
     
-    PPCustomButton*ppixieBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andImage:@"ball_pixie_plant2.png" withTarget:self withSelecter:@selector(physicsAttackClick:)];
+    PPCustomButton*ppixieBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
+                                                     andImage:@"ball_pixie_plant2.png"
+                                                   withTarget:self
+                                                 withSelecter:@selector(physicsAttackClick:)];
     ppixieBtn.position = CGPointMake(-self.size.width/2.0f+ppixieBtn.frame.size.width/2.0f+20.0F, -10.0f);
     [self addChild:ppixieBtn];
     
@@ -56,7 +59,7 @@
     }
 }
 
--(void)setSideElementsForEnemy:(PPEnemyPixie *)ppixie
+-(void)setSideElementsForEnemy:(PPPixie *)ppixie
 {
     
     PPCustomButton *ppixieBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
@@ -75,7 +78,7 @@
     ppixieBtnLabel.position = CGPointMake(0, 0);
     [ppixieBtn addChild:ppixieBtnLabel];
     
-    self.currentEenemyPPPixie = ppixie;
+    self.currentPPPixieEnemy = ppixie;
     
     PPBasicLabelNode *ppixieNameLabel=[[PPBasicLabelNode alloc] init];
     ppixieNameLabel.fontSize=12;
@@ -120,15 +123,17 @@
 {
     NSDictionary *skillChoosed = [self.currentPPPixie.pixieSkills objectAtIndex:[sender.name intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
     
-    if (self.target!=nil && self.skillSelector!=nil && [self.target respondsToSelector:self.skillSelector]) {
+    if (self.target!=nil && self.skillSelector!=nil && [self.target respondsToSelector:self.skillSelector])
+    {
         [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
     }
 }
 -(void)enemyskillClick:(PPCustomButton *)sender
 {
-    NSDictionary *skillChoosed=[self.currentEenemyPPPixie.pixieSkills objectAtIndex:[sender.name intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
+    NSDictionary * skillChoosed = [self.currentPPPixieEnemy.pixieSkills objectAtIndex:[sender.name intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
     
-    if (self.target != nil && self.skillSelector != nil && [self.target respondsToSelector:self.skillSelector]) {
+    if (self.target != nil && self.skillSelector != nil && [self.target respondsToSelector:self.skillSelector])
+    {
         [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
     }
 }
@@ -136,8 +141,7 @@
 -(void)animateEnd:(NSNumber *)currentHp
 {
     if (barPlayerHP->currentValue <= 0.0f) {
-        
-        if (self.target!=nil &&self.hpBeenZeroSel!=nil &&[self.target respondsToSelector:self.hpBeenZeroSel]) {
+        if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
             [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:self];
         }
     }

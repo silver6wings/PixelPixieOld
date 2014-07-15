@@ -1,69 +1,40 @@
-
-#import "PPElement.h"
-#import "PPBall.h"
-#import "PPSkillNode.h"
-#import "PPCustomAlertNode.h"
+@class PPElement;
+@class PPBuff;
+@class PPBall;
 
 @interface PPPixie : NSObject
-{
-    
-    
-    // 喂养属性
-    CGFloat pixieSatiation;   // 饱食度
-    CGFloat pixieIntimate;    // 亲密度
-    
-    // 战斗属性
-    int pixieLEVEL;         // 等级
-    
-//    CGFloat currentHP;      // 当前生命值
-//    CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
-//    CGFloat currentMP;      // 魔法值 ManaPoint
-//    CGFloat pixieMPmax;   // 魔法值上限 ManaPointMax
-//    CGFloat pixieAPmax;      // 攻击力 AttackPoint;
-//    CGFloat currentAP;      // 当前攻击力 AttackPoint;
-//    CGFloat pixieDPmax;      // 防御力 DefendPoint;
-//    CGFloat currentDP;      // 当前防御力 DefendPoint;
-//    CGFloat pixieDEXmax;     // 闪避值 Dexterity
-//    CGFloat currentDEX;     // 当前闪避值 Dexterity
-//    CGFloat pixieDEFmax; // 防御  Defense
-//    CGFloat currentDEF;  // 当前防御  Defense
 
-    // 固有属性
-    CGFloat pixieGP;      // 成长值 GrowthPoint;
-    PPElementType pixieElement;     // 属性
-    PPBall * pixieBall;             // 小球
-    NSArray * pixieSkills;          // 技能
-    NSArray * pixieBuffs;           // 附加状态
-    int status;                     // 形态
-    
-    
-}
-@property (nonatomic,retain)NSString *pixieName;
-@property (nonatomic, assign) CGFloat pixieSatiation;
-@property (nonatomic, assign) CGFloat pixieIntimate;
+@property (nonatomic, retain) NSString * pixieName;
+@property (nonatomic, assign) int pixieStatus;          // 活动状态
+@property (nonatomic, assign) CGFloat pixieSatiation;   // 饱食度
+@property (nonatomic, assign) CGFloat pixieIntimate;    // 亲密度
+@property (nonatomic, assign) CGFloat pixieGP;          // 固定成长值
 
-@property (nonatomic, assign) int pixieLEVEL;
+@property (nonatomic, assign) int pixieLEVEL;       // 等级
+@property (nonatomic, assign) CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
+@property (nonatomic, assign) CGFloat pixieMPmax;   // 魔法值上限 ManaPointMax
+@property (nonatomic, assign) CGFloat pixieAP;      // 基础攻击力 AttackPoint;
+@property (nonatomic, assign) CGFloat pixieDP;      // 基础防御力 DefendPoint;
+@property (nonatomic, assign) CGFloat pixieDEX;     // 基础闪避值 Dexterity
+@property (nonatomic, assign) CGFloat pixieDEF;     // 基础格挡值 Defense
 
-@property (nonatomic, assign)CGFloat currentHP;      // 当前生命值
-@property (nonatomic, assign)CGFloat pixieHPmax;   // 生命值上限 HealthPointMax
-@property (nonatomic, assign)CGFloat currentMP;      // 魔法值 ManaPoint
-@property (nonatomic, assign)CGFloat pixieMPmax;   // 魔法值上限 ManaPointMax
-@property (nonatomic, assign)CGFloat pixieAPmax;      // 攻击力 AttackPoint;
-@property (nonatomic, assign)CGFloat currentAP;      // 当前攻击力 AttackPoint;
-@property (nonatomic, assign)CGFloat pixieDPmax;      // 防御力 DefendPoint;
-@property (nonatomic, assign)CGFloat currentDP;      // 当前防御力 DefendPoint;
-@property (nonatomic, assign)CGFloat pixieDEXmax;     // 闪避值 Dexterity
-@property (nonatomic, assign)CGFloat currentDEX;     // 当前闪避值 Dexterity
-@property (nonatomic, assign)CGFloat pixieDEFmax; // 防御  Defense
-@property (nonatomic, assign)CGFloat currentDEF;  // 当前防御  Defense
+@property (nonatomic, assign) CGFloat currentHP;    // 当前生命值
+@property (nonatomic, assign) CGFloat currentMP;    // 当前魔法值
+@property (nonatomic, assign) CGFloat currentAP;    // 当前攻击力
+@property (nonatomic, assign) CGFloat currentDP;    // 当前防御力
+@property (nonatomic, assign) CGFloat currentDEX;   // 当前闪避值
+@property (nonatomic, assign) CGFloat currentDEF;   // 当前格挡值
 
-@property (nonatomic) PPElementType pixieElement;
-@property (nonatomic, assign) int pixieGeneration;
-@property (nonatomic,retain) NSArray * pixieSkills;
-@property (nonatomic,retain) PPBuff *pixieBuffAgg;
-@property (nonatomic) PPBall * pixieBall;
+@property (nonatomic) PPElementType pixieElement;   // 宠物的元素属性
+@property (nonatomic, assign) int pixieGeneration;  // 第几个进化态
+@property (nonatomic, retain) NSArray *pixieSkills; // 技能
+@property (nonatomic, retain) PPBuff *pixieBuffs;   // 附加状态
+@property (nonatomic) PPBall *pixieBall;            // 小球
 
 // 创建新的宠物
 +(PPPixie *)birthPixieWithPetsInfo:(NSDictionary *)petsDict;
+
+// 创建敌方的宠物
++(PPPixie *)birthEnemyPixieWithPetsInfo:(NSDictionary *)petsDict;
 
 @end

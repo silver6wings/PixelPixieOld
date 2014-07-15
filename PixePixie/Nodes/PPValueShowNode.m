@@ -9,7 +9,8 @@
 
 @implementation PPValueShowNode
 
--(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV  andShowType:(VALUESHOWTYPE) showType{
+-(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV andShowType:(VALUESHOWTYPE)showType
+{
     maxValue = maxV;
     originalMax = maxValue;
     currentValue = currentV;

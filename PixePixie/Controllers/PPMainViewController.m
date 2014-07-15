@@ -41,18 +41,16 @@ NSString * menu[] = {
 
 -(void)viewDidAppear:(BOOL)animated
 {
-//    if ([UIScreen mainScreen].bounds.size.height>500) {
+//    if ([UIScreen mainScreen].bounds.size.height > 500) {
 //      [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
 //    }
 }
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMainScene:) name:PP_BACK_TO_MAIN_VIEW object:nil];
     
@@ -64,15 +62,13 @@ NSString * menu[] = {
     [skViewMain setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:skViewMain];
     
-    NSString * isNotFirstEnter=[PPCommonTool contentFromUserDefaultKey:PP_FIRST_LOG_IN];
+    NSString * isNotFirstEnter = [PPCommonTool contentFromUserDefaultKey:PP_FIRST_LOG_IN];
     
     if ([isNotFirstEnter isEqualToString:@"1"]) {
         
         [self enterMainScene];
         
-        
-    }else
-    {
+    } else {
         
         UIView *contentView=[[UIView alloc] initWithFrame:CGRectMake(10, 100, 300, 200)];
         [contentView setBackgroundColor:[UIColor cyanColor]];
@@ -97,16 +93,16 @@ NSString * menu[] = {
         [contentView addSubview:buttonConfirm];
         
         [self.view addSubview:contentView];
-        
     }
     
     // Do any additional setup after loading the view.
 }
+
 -(void)textInputConfirmClick
 {
-    
     UIView *contentView=[self.view viewWithTag:PP_CONTENT_TAG];
-    if (contentView!=nil) {
+    if (contentView!=nil)
+    {
         [contentView removeFromSuperview];
     }
     
@@ -117,7 +113,6 @@ NSString * menu[] = {
     
     
     NSDictionary * dictUserPets=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PetsChooseInfo" ofType:@"plist"]];
-    
     
     
     PPChoosePetScrollView *petsScroll=[[PPChoosePetScrollView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 280.0f, 250.0f)];
@@ -133,14 +128,12 @@ NSString * menu[] = {
     [viewContent addSubview:labelEnemyInfo];
     
     
-    
     UILabel *labelConfrimInfo=[[UILabel alloc] initWithFrame:CGRectMake(labelEnemyInfo.frame.origin.x, labelEnemyInfo.frame.origin.y+labelEnemyInfo.frame.size.height+10.0f, 200, 40)];
     [labelConfrimInfo setFont:[UIFont boldSystemFontOfSize:11]];
     [labelConfrimInfo setTextColor:[UIColor blackColor]];
     [labelConfrimInfo setText:@"是否选择此怪物作为你的第一个伙伴？"];
     [labelConfrimInfo setTextAlignment:NSTextAlignmentCenter];
     [viewContent addSubview:labelConfrimInfo];
-    
     
     
     UIButton *petsChooseCofirmBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -150,19 +143,10 @@ NSString * menu[] = {
     [petsChooseCofirmBtn addTarget:self action:@selector(petsChooseCofirmBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [viewContent addSubview:petsChooseCofirmBtn];
     
-    
-    
-    
+
     [self.view addSubview:viewContent];
-    
-    
-   
-    
-  
-    
-    
-    
 }
+
 -(void)petsChooseCofirmBtnClick:(UIButton *)sender
 {
     UIView *contentView=[self.view viewWithTag:PP_CHOOSE_PET_CONTENT_TAG];
@@ -451,7 +435,7 @@ NSString * menu[] = {
                      completion:
      ^(BOOL finished) {
         menuAnimationTag++;
-        if (menuAnimationTag<PP_MENU_COUNT) {
+        if (menuAnimationTag < PP_MENU_COUNT) {
             [self performSelector:@selector(menuUpAnimation) withObject:nil];
             return ;
         }

@@ -1,11 +1,3 @@
-//
-//  PPPlayer.m
-//  PixelPixie
-//
-//  Created by silver6wings on 14-4-23.
-//  Copyright (c) 2014年 Psyches. All rights reserved.
-//
-
 #import "PPPlayer.h"
 
 @implementation PPPlayer
@@ -35,7 +27,6 @@
 }
 
 // 得到应用程序Documents文件夹下的目标路径
-
 -(NSString *)getPersonalSetTargetPath
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
