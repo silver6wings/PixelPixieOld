@@ -3,6 +3,9 @@
 #import "PPPixie.h"
 
 @interface PPBall ()
+{
+    
+}
 @property (nonatomic) SKTexture * defaultTexture;
 @end
 
@@ -20,6 +23,7 @@
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
     if (tBall){
+        
         tBall.defaultTexture = tTexture;
         tBall.name = [NSString stringWithFormat:@"ball_%@",[ConstantData elementName:elementType]];
         tBall.ballElementType = elementType;
@@ -28,6 +32,7 @@
         [PPBall defaultBallPhysicsBody:tBall];
         
         tBall.pixie = nil;
+        
     }
     return tBall;
 }
@@ -49,7 +54,12 @@
         
         tBall.pixie = pixie;
     }
-
+    
+//    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+//    additonLabel.position = CGPointMake(0.0f, 10.0f);
+//    [additonLabel setText:@"%100"];
+//    [tBall addChild:additonLabel];
+    
     
     return tBall;
 }
@@ -88,6 +98,13 @@
     ball.physicsBody.usesPreciseCollisionDetection = YES;   // 使用快速运动检测碰撞
 }
 
+
+
+-(void)setAdditionLabel:(CGFloat )addition
+{
+    
+    
+}
 // 改为默认皮肤
 -(void)setToDefaultTexture{
     [self runAction:[SKAction setTexture:_defaultTexture]];

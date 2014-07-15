@@ -78,7 +78,7 @@
 					<key>skillmpchange</key>
 					<integer>-123</integer>
 					<key>skilltype</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
@@ -210,7 +210,7 @@
 					<key>skillmpchange</key>
 					<integer>-100</integer>
 					<key>skilltype</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>

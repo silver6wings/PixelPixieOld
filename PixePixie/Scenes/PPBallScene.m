@@ -38,7 +38,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         self.backgroundColor = [SKColor blackColor];
         self.choosedEnemys=enemyS;
         
-
+      
      
         if (CurrentDeviceRealSize.height>500) {
             directFori5=44.0f;
@@ -94,12 +94,12 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
         
 
         
-        // demo 添加 Skill Button
-        _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
-        _btSkill.size = CGSizeMake(30, 30);
-        _btSkill.name = @"bt_skill";
-        _btSkill.position = CGPointMake(280, 45+directFori5);
-        [self addChild:_btSkill];
+//        // demo 添加 Skill Button
+//        _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
+//        _btSkill.size = CGSizeMake(30, 30);
+//        _btSkill.name = @"bt_skill";
+//        _btSkill.position = CGPointMake(280, 45+directFori5);
+//        [self addChild:_btSkill];
         
         
         
@@ -261,12 +261,69 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
     
 }
+-(void)setAdditionLabel:(CGFloat)addition
+{
+    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"additonLabel"];
+    if (labelNode) {
+        [labelNode removeFromParent];
+    }
+    
+    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+    additonLabel.name  = @"additonLabel";
+    additonLabel.position = CGPointMake(160.0f, 200.0f);
+    [additonLabel setText:[NSString stringWithFormat:@"%f",addition*100]];
+    [self addChild:additonLabel];
+    
+    SKAction *actionScale=[SKAction scaleBy:2.0 duration:0.5];
+    [additonLabel runAction:actionScale completion:^{
+    
+
+        [additonLabel removeFromParent];
+        
+    }];
+    
+}
 
 -(void)skillPlayerShowBegain:(NSDictionary *)skillInfo
 {
     NSLog(@"skillInfo=%@",skillInfo);
     
-    [self showSkillEventBegain:skillInfo];
+    if ([[skillInfo objectForKey:@"skilltype"] intValue]==1) {
+        if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
+            
+            for (PPBall * tBall in self.ballsElement) {
+                if ([tBall.name isEqualToString:@"ball_plant"]) {
+                    [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
+                }
+                
+            }
+            return;
+            
+        }
+        if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"木系掌控"]) {
+            
+            for (PPBall * tBall in self.ballsElement) {
+                if ([tBall.name isEqualToString:@"ball_plant"]) {
+                    
+//                    [tBall runAction:[SKAction moveTo:CGPointMake(tBall.position.x-10, tBall.position.y-20) duration:2]];
+                    [tBall runAction:[SKAction moveBy:CGVectorMake((self.ballPlayer.position.x-tBall.position.x)/2.0f, (self.ballPlayer.position.y-tBall.position.y)/2.0f) duration:2]];
+                }
+                
+            }
+            
+            
+            return;
+            
+        }
+        
+        
+    }else
+    {
+        
+        [self showSkillEventBegain:skillInfo];
+
+    }
+    
 }
 
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
@@ -514,19 +571,24 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     
     SKPhysicsBody * playerBall, * hittedBall;
     
+
+    
     if (contact.bodyA == self.ballPlayer.physicsBody && contact.bodyB != self.ballEnemy.physicsBody) {
         // 球A是玩家球 球B不是玩家球
         playerBall = contact.bodyA;
         hittedBall = contact.bodyB;
+        
     } else if (contact.bodyB == self.ballPlayer.physicsBody && contact.bodyA != self.ballEnemy.physicsBody) {
+        
         // 球B是玩家球 球A不是玩家球
         playerBall = contact.bodyB;
         hittedBall = contact.bodyA;
+        
     } else return;
     
     PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
     PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
-    
+    [self  setAdditionLabel:kElementInhibition[attack][defend]] ;
     if (kElementInhibition[attack][defend] >= 1.0f)
     {
         [hittedBall.node removeFromParent];
@@ -543,6 +605,7 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     */
     
     NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
+    
 }
 
 #pragma mark Custom
@@ -606,13 +669,15 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     if (vectorLengthVelocity > 0) {
         NSLog(@"value = %f",vectorLengthVelocity);
         
-        if (vectorLengthVelocity<criticalValue) {
-            
-            self.ballPlayer.physicsBody.velocity=CGVectorMake(self.ballPlayer.physicsBody.velocity.dx/dampingValue, self.ballPlayer.physicsBody.velocity.dy/dampingValue);
-        }
-        if (vectorLengthVelocity<5.0f) {
-             self.ballPlayer.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
-        }
+        
+//        if (vectorLengthVelocity<criticalValue) {
+//            
+//            self.ballPlayer.physicsBody.velocity=CGVectorMake(self.ballPlayer.physicsBody.velocity.dx/dampingValue, self.ballPlayer.physicsBody.velocity.dy/dampingValue);
+//        }
+//        if (vectorLengthVelocity<5.0f) {
+//             self.ballPlayer.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
+//        }
+        
         
         return NO;
     }
@@ -621,11 +686,11 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 
     if (vectorBallVelocity > 0) {
         
-        if (vectorBallVelocity<criticalValue) {
-            
-            self.ballEnemy.physicsBody.velocity=CGVectorMake(self.ballEnemy.physicsBody.velocity.dx/dampingValue, self.ballEnemy.physicsBody.velocity.dy/dampingValue);
-        }
-        
+//        if (vectorBallVelocity<criticalValue) {
+//            
+//            self.ballEnemy.physicsBody.velocity=CGVectorMake(self.ballEnemy.physicsBody.velocity.dx/dampingValue, self.ballEnemy.physicsBody.velocity.dy/dampingValue);
+//        }
+//        
         if (vectorLengthVelocity<5.0f) {
             self.ballEnemy.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
         }
@@ -636,17 +701,17 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
     BOOL isAllOtherBallStop = YES;
     for (PPBall * tBall in self.ballsElement) {
         if (vectorLength(tBall.physicsBody.velocity) > 0) {
-            if (vectorLength(tBall.physicsBody.velocity) <criticalValue) {
-                
-               tBall.physicsBody.velocity=CGVectorMake(tBall.physicsBody.velocity.dx/dampingValue, tBall.physicsBody.velocity.dy/dampingValue);
-                
-                if (vectorLength(tBall.physicsBody.velocity)<5.0f) {
-                    self.ballEnemy.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
-                }
-                
-            }
-            isAllOtherBallStop = NO;
-//            break;
+//            if (vectorLength(tBall.physicsBody.velocity) <criticalValue) {
+//                
+//               tBall.physicsBody.velocity=CGVectorMake(tBall.physicsBody.velocity.dx/dampingValue, tBall.physicsBody.velocity.dy/dampingValue);
+//                
+//                if (vectorLength(tBall.physicsBody.velocity)<10.0f) {
+//                    
+//                    self.ballEnemy.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
+//                }
+           isAllOtherBallStop = NO;
+
+            break;
         }
     }
     

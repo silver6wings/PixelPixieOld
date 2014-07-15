@@ -5,9 +5,9 @@ static const int kBallRadius = 15;                  // 球的半径
 static const int kBallSize = kBallRadius * 2;       // 球的直径
 
 static const float kBallLinearDamping = 0.6f;       // 线阻尼系数
-static const float kBallAngularDamping = 0.6f;      // 角阻尼系数
+static const float kBallAngularDamping = 0.8f;      // 角阻尼系数
 static const float kBallFriction = 0.0f;            // 表面摩擦力
-static const float kBallRestitution = 0.9f;         // 弹性恢复系数
+static const float kBallRestitution = 1.0f;         // 弹性恢复系数
 
 static const float kBounceReduce = 0.8f;
 
