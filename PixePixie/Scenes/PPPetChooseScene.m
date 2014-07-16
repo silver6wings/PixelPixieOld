@@ -12,26 +12,10 @@
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
         
-        [self setBackTitleText:@"关卡选择" andPositionY:450.0f];
+        [self setBackTitleText:@"宠物选择" andPositionY:450.0f];
         
-        PPSpriteButton * coinButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80, 20)];
-        [coinButton setLabelWithText:@"小场景1" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        coinButton.position = CGPointMake(80.0f,380.0f);
-        [coinButton addTarget:self
-                     selector:@selector(coinButton:)
-                   withObject:[NSValue valueWithCGPoint:CGPointMake(self.size.width / 2, self.size.height / 2)]
-              forControlEvent:PPButtonControlEventTouchUpInside];
-        [self addChild:coinButton];
+        [self setPetsChooseContent];
         
-        
-        PPSpriteButton * petsButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80, 20)];
-        [petsButton setLabelWithText:@"小场景2" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        petsButton.position = CGPointMake(coinButton.frame.size.width+100.0f,380.0f);
-        [petsButton addTarget:self
-                     selector:@selector(petsButton:)
-                   withObject:[NSValue valueWithCGPoint:CGPointMake(self.size.width / 2, self.size.height / 2)]
-              forControlEvent:PPButtonControlEventTouchUpInside];
-        [self addChild:petsButton];
     }
     return self;
 }
@@ -42,8 +26,9 @@
     
 }
 
--(void)petsButton:(NSValue *)valueTmp
+-(void)setPetsChooseContent
 {
+    
     SKSpriteNode *spriteContent = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(300, 350)];
     spriteContent.name = @"contentSprite";
     spriteContent.position = CGPointMake(160.0, 260.0);
@@ -88,7 +73,7 @@
     PPReadyScene *battleScene = [[PPReadyScene alloc] initWithSize:self.view.bounds.size];
     battleScene.choosedPet = [NSDictionary dictionaryWithDictionary:petsChoosedInfo];
     battleScene->previousScene = self;
-    [self.view presentScene:battleScene];
+    [self.view presentScene:battleScene transition:[SKTransition fadeWithDuration:1]];
 }
 
 -(void)backButtonClick:(NSString *)backName

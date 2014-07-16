@@ -72,11 +72,11 @@
             passDictInfo=[NSDictionary dictionaryWithDictionary:[passArray objectAtIndex:index]];
         }
         
-        PPPetChooseScene * choosePetScene = [[PPPetChooseScene alloc] initWithSize:self.view.bounds.size];
+        PPSecondaryPassScene * choosePetScene = [[PPSecondaryPassScene alloc] initWithSize:self.view.bounds.size];
         choosePetScene.passDictInfo=passDictInfo;
         choosePetScene->previousScene=self;
         choosePetScene.scaleMode = SKSceneScaleModeAspectFill;
     
-        [self.view presentScene:choosePetScene];
+        [self.view presentScene:choosePetScene transition:[SKTransition doorsOpenVerticalWithDuration:1]];
 }
 @end

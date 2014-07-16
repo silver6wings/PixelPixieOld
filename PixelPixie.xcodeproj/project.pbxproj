@@ -163,6 +163,8 @@
 		D43F421B1947548F00B19F2F /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42121947548F00B19F2F /* PPMainScene.m */; };
 		D44935C41948B52E00F3B5B9 /* UserPetInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */; };
 		D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD9192BB296007179B1 /* PPAppDelegate.m */; };
+		D44D9EA61976C61700C69C15 /* PPSecondaryPassScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D44D9EA51976C61700C69C15 /* PPSecondaryPassScene.m */; };
+		D44D9EA91976D0AA00C69C15 /* PPSkillButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D44D9EA81976D0AA00C69C15 /* PPSkillButtonNode.m */; };
 		D4545B321949E04D007EABE3 /* ballTest.sks in Resources */ = {isa = PBXBuildFile; fileRef = D4545B301949E04D007EABE3 /* ballTest.sks */; };
 		D4545B331949E04D007EABE3 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D4545B311949E04D007EABE3 /* spark.png */; };
 		D457012D194F430700C2EFCE /* EnemyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D457012C194F430700C2EFCE /* EnemyInfo.plist */; };
@@ -400,6 +402,10 @@
 		D43F42121947548F00B19F2F /* PPMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainScene.m; sourceTree = "<group>"; };
 		D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPetInfo.plist; sourceTree = "<group>"; };
 		D449CFD9192BB296007179B1 /* PPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAppDelegate.m; sourceTree = "<group>"; };
+		D44D9EA41976C61700C69C15 /* PPSecondaryPassScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSecondaryPassScene.h; sourceTree = "<group>"; };
+		D44D9EA51976C61700C69C15 /* PPSecondaryPassScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSecondaryPassScene.m; sourceTree = "<group>"; };
+		D44D9EA71976D0AA00C69C15 /* PPSkillButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSkillButtonNode.h; path = PixePixie/Nodes/PPSkillButtonNode.h; sourceTree = SOURCE_ROOT; };
+		D44D9EA81976D0AA00C69C15 /* PPSkillButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkillButtonNode.m; path = PixePixie/Nodes/PPSkillButtonNode.m; sourceTree = SOURCE_ROOT; };
 		D4545B301949E04D007EABE3 /* ballTest.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ballTest.sks; sourceTree = "<group>"; };
 		D4545B311949E04D007EABE3 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		D457012C194F430700C2EFCE /* EnemyInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnemyInfo.plist; sourceTree = "<group>"; };
@@ -673,6 +679,8 @@
 			children = (
 				D486A1B4196AD8770006206B /* PPFightingPassScene.h */,
 				D486A1B5196AD8770006206B /* PPFightingPassScene.m */,
+				D44D9EA41976C61700C69C15 /* PPSecondaryPassScene.h */,
+				D44D9EA51976C61700C69C15 /* PPSecondaryPassScene.m */,
 				192F74451969124D006C6586 /* PPPetChooseScene.h */,
 				192F74461969124D006C6586 /* PPPetChooseScene.m */,
 				192F743D1969124D006C6586 /* PPReadyScene.h */,
@@ -957,6 +965,8 @@
 				193DC4B3196861D5007308C7 /* PPSkillNode.m */,
 				193DC4B4196861D5007308C7 /* PPValueShowNode.h */,
 				193DC4B5196861D5007308C7 /* PPValueShowNode.m */,
+				D44D9EA71976D0AA00C69C15 /* PPSkillButtonNode.h */,
+				D44D9EA81976D0AA00C69C15 /* PPSkillButtonNode.m */,
 			);
 			name = Nodes;
 			path = spriteNodes;
@@ -1259,6 +1269,7 @@
 				19F6EDAA18C6C09900BFFF9A /* main.m in Sources */,
 				D45C3F83196A975F00A78E88 /* PPSpriteButton.m in Sources */,
 				192F743A19691241006C6586 /* PPScheduleMainView.m in Sources */,
+				D44D9EA61976C61700C69C15 /* PPSecondaryPassScene.m in Sources */,
 				193DC4B8196861D5007308C7 /* PPSkillNode.m in Sources */,
 				193DC4A61968610F007308C7 /* PPPassNumberScroll.m in Sources */,
 				D486A1C5196AF5F40006206B /* PPEuoFusionScene.m in Sources */,
@@ -1269,6 +1280,7 @@
 				1938054918CB0CAB00EF8691 /* ConfigData.m in Sources */,
 				194E6AC8190A01130098F599 /* ConstantData.m in Sources */,
 				D4BE5ABF19513FFD001F72DE /* PPBuff.m in Sources */,
+				D44D9EA91976D0AA00C69C15 /* PPSkillButtonNode.m in Sources */,
 				19F28E2D1969181B0006ABFF /* PPCustomButton.m in Sources */,
 				193DC49B1968608B007308C7 /* PPSceneManager.m in Sources */,
 				193DC4B7196861D5007308C7 /* PPCustomAlertNode.m in Sources */,

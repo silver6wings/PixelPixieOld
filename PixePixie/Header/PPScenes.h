@@ -11,11 +11,14 @@
 #import "PPPacksackScene.h"
 #import "PPCookingScene.h"
 
+
 #import "PPFightingPassScene.h"
+#import "PPSecondaryPassScene.h"
 #import "PPPetChooseScene.h"
 #import "PPReadyScene.h"
 #import "PPBallBattleScene.h"
 #import "PPPassNumberScene.h"
+
 
 #import "PPScheduleScene.h"
 #import "PPActivityDetailScene.h"

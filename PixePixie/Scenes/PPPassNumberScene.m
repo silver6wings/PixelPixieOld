@@ -58,7 +58,7 @@
     }
     
     PPPetChooseScene * choosePetScene = [[PPPetChooseScene alloc] initWithSize:self.view.bounds.size];
-    choosePetScene.passDictInfo=passDictInfo;
+//    choosePetScene.passDictInfo=passDictInfo;
     choosePetScene.scaleMode = SKSceneScaleModeAspectFill;
     [self.view presentScene:choosePetScene transition:[SKTransition doorsCloseVerticalWithDuration:1.0f]];
 }

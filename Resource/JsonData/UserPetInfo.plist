@@ -49,6 +49,8 @@
 					<string>发芽</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -60,12 +62,14 @@
 					<key>skillmpchange</key>
 					<integer>-139</integer>
 					<key>skilltype</key>
-					<integer>0</integer>
+					<integer>3</integer>
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
 					<string>木防加成</string>
 					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
 					<integer>3</integer>
 				</dict>
 				<dict>
@@ -85,6 +89,8 @@
 					<string>木系掌控</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
 				</dict>
 			</array>
 		</dict>
@@ -133,6 +139,8 @@
 					<string>阳光普照</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -151,6 +159,8 @@
 					<string>巨木降临</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -169,6 +179,8 @@
 					<string>木旋风</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
 				</dict>
 			</array>
 		</dict>
@@ -217,6 +229,8 @@
 					<string>森林瞬起</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -235,6 +249,8 @@
 					<string>光合作用</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -253,6 +269,8 @@
 					<string>木之誓言</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
 				</dict>
 			</array>
 		</dict>

@@ -149,7 +149,13 @@ CGFloat vectorLength (CGVector vector) {
             [self.ballsElement addObject:tBall];
         }
         [self addRandomBalls:5];
-        [self setBackTitleText:@"退出战斗" andPositionY:450.0f];
+        if (CurrentDeviceRealSize.height>500) {
+            [self setBackTitleText:nil andPositionY:490.0f];
+        }else
+        {
+            [self setBackTitleText:nil andPositionY:450.0f];
+
+        }
     }
     return self;
 }
@@ -198,7 +204,7 @@ CGFloat vectorLength (CGVector vector) {
     PPSkillNode * skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.delegate = self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f);
+    skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+sizeFitFor5);
     [self addChild:skillNode];
     
     SKLabelNode *skillNameLabel = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
@@ -229,7 +235,9 @@ CGFloat vectorLength (CGVector vector) {
 }
 
 #warning additionLabel是啥东西？
-// ~~
+
+// 记录碰到过的球。相生相克。最后算出总的伤害加成。暂时先显示，还没具体相加。
+
 -(void)setAdditionLabel:(CGFloat)addition
 {
     PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"additonLabel"];
@@ -252,32 +260,60 @@ CGFloat vectorLength (CGVector vector) {
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
 {
     NSLog(@"skillInfo=%@",skillInfo);
-    
-    if ([[skillInfo objectForKey:@"skilltype"] intValue]==1) {
-        if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
-            for (PPBall * tBall in self.ballsElement) {
-                if ([tBall.name isEqualToString:@"ball_plant"]) {
-                    [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
-                }
-            }
-            return;
+    switch ([[skillInfo objectForKey:@"skilltype"] intValue]) {
+        case 0:
+        {
+            [self showSkillEventBegin:skillInfo];
+
         }
-        if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"木系掌控"]) {
+            break;
+        case 1:
+        {
             
-            for (PPBall * tBall in self.ballsElement) {
-                if ([tBall.name isEqualToString:@"ball_plant"]) {
-                    
-                    //                    [tBall runAction:[SKAction moveTo:CGPointMake(tBall.position.x-10, tBall.position.y-20) duration:2]];
-                    [tBall runAction:[SKAction moveBy:CGVectorMake((self.ballPlayer.position.x - tBall.position.x)/2.0f,
-                                                                   (self.ballPlayer.position.y - tBall.position.y)/2.0f)
-                                             duration:2]];
+            if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
+                for (PPBall * tBall in self.ballsElement) {
+                    if ([tBall.name isEqualToString:@"ball_plant"]) {
+                        [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
+                    }
                 }
+                return;
             }
-            return;
+            if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"木系掌控"]) {
+                
+                for (PPBall * tBall in self.ballsElement) {
+                    if ([tBall.name isEqualToString:@"ball_plant"]) {
+                        
+                        //                    [tBall runAction:[SKAction moveTo:CGPointMake(tBall.position.x-10, tBall.position.y-20) duration:2]];
+                        [tBall runAction:[SKAction moveBy:CGVectorMake((self.ballPlayer.position.x - tBall.position.x)/2.0f,
+                                                                       (self.ballPlayer.position.y - tBall.position.y)/2.0f)
+                                                 duration:2]];
+                    }
+                }
+                return;
+            }
+            
         }
-    } else {
-        [self showSkillEventBegin:skillInfo];
+            break;
+        case 2:
+        {
+            [self showSkillEventBegin:skillInfo];
+
+        }
+            break;
+        case 3:
+        {
+            
+            [self showSkillEventBegin:skillInfo];
+
+        }
+            break;
+            
+        default:
+            break;
     }
+    
+
+  
 }
 
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
@@ -368,6 +404,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)backButtonClick:(NSString *)backName
 {
+    
     [self.view presentScene:self->previousScene transition:[SKTransition doorsOpenVerticalWithDuration:1]];
 
     

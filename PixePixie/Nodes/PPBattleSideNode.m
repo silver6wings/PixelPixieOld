@@ -48,7 +48,9 @@
     [self addChild:barPlayerHP];
     
     NSArray *skillsArray = [NSArray arrayWithArray:ppixie.pixieSkills];
+    
     for (int i = 0; i < [ppixie.pixieSkills count]; i++) {
+        
         PPCustomButton *ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
                                                               andTitle:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"]
                                                             withTarget:self
@@ -56,6 +58,7 @@
         ppixieSkillBtn.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         ppixieSkillBtn.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -30.0f);
         [self addChild:ppixieSkillBtn];
+        
     }
 }
 
@@ -66,7 +69,7 @@
                                                       andImage:@"ball_pixie_plant2.png"
                                                     withTarget:self
                                                   withSelecter:@selector(physicsAttackClick:)];
-    ppixieBtn.position = CGPointMake(-self.size.width/2.0f+ppixieBtn.frame.size.width/2.0f+40.0f, -10.0f);
+    ppixieBtn.position = CGPointMake(-self.size.width/2.0f+ppixieBtn.frame.size.width/2.0f+50.0f, -10.0f);
     
     [self addChild:ppixieBtn];
     
