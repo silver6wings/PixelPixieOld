@@ -15,7 +15,6 @@
         [self setBackTitleText:@"精灵选择" andPositionY:450.0f];
 
     }
-    
     return self;
 }
 

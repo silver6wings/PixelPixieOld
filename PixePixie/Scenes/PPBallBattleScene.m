@@ -8,13 +8,13 @@
 
 static CGFloat sizeFitFor5;     // 适配Retina4英寸屏幕的上界值
 
-/*
-static const CGFloat criticalValue = 20.1;  // 临界值
-static const CGFloat dampingValue  = 1.5;   // 衰减系数
-*/
- 
 static const uint32_t kBallCategory      =  0x1 << 0;
 static const uint32_t kGroundCategory    =  0x1 << 1;
+
+/*
+ static const CGFloat criticalValue = 20.1;  // 临界值
+ static const CGFloat dampingValue  = 1.5;   // 衰减系数
+*/
 
 // 计算两点间距离
 CGFloat distanceBetweenPoints (CGPoint first, CGPoint second) {
@@ -107,8 +107,8 @@ CGFloat vectorLength (CGVector vector) {
         
         [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + sizeFitFor5)];
         [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + sizeFitFor5)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM)];
+        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM + sizeFitFor5)];
+        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM + sizeFitFor5)];
         
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
@@ -396,8 +396,8 @@ CGFloat vectorLength (CGVector vector) {
     //    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     if (touches.count > 1 || _isBallDragging || _isBallRolling) return;
     
     UITouch * touch = [touches anyObject];
@@ -434,13 +434,12 @@ CGFloat vectorLength (CGVector vector) {
             if ([tBall.name isEqualToString:@"ball_plant"]) {
                 [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
             }
-            
         }
     }
 }
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
     if (touches.count > 1) return;
     
     if (_isBallDragging && !_isBallRolling) {
@@ -450,8 +449,8 @@ CGFloat vectorLength (CGVector vector) {
     }
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
     if (touches.count > 1 ) return;
     
     if (_isBallDragging && !_isBallRolling) {
@@ -467,8 +466,8 @@ CGFloat vectorLength (CGVector vector) {
 }
 
 // 每帧处理程序
--(void)update:(NSTimeInterval)currentTime{
-    
+-(void)update:(NSTimeInterval)currentTime
+{
     // 如果球都停止了
     if (_isBallRolling && [self isAllStopRolling]) {
         NSLog(@"Doing Attack and Defend");
@@ -494,7 +493,7 @@ CGFloat vectorLength (CGVector vector) {
 #pragma mark SKPhysicsContactDelegate
 
 // 碰撞事件
-- (void)didBeginContact:(SKPhysicsContact *)contact{
+-(void)didBeginContact:(SKPhysicsContact *)contact{
     
     if (!_isBallRolling) return;
     

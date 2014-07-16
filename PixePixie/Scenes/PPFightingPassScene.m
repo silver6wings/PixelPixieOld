@@ -22,13 +22,13 @@
             switch (i) {
                 case 0:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"小关卡 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+                    [passButton setLabelWithText:[NSString stringWithFormat:@"大场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
                     passButton.position = CGPointMake(80.0f,80.0f);
                 }
                     break;
                 case 1:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"小关卡 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+                    [passButton setLabelWithText:[NSString stringWithFormat:@"大场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
                     
                     passButton.position = CGPointMake(120.0f,380.0f);
                 }
@@ -36,7 +36,7 @@
                     break;
                 case 2:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"小关卡 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+                    [passButton setLabelWithText:[NSString stringWithFormat:@"大场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
                     
                     passButton.position = CGPointMake(220.0f,180.0f);
                 }
@@ -62,7 +62,6 @@
 }
 -(void)passChoose:(NSString *)passchoose
 {
-    
         NSDictionary *dictPassInfo = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PassInfo" ofType:@"plist"]];
         NSArray *passArray = [[NSArray alloc ] initWithArray:[dictPassInfo objectForKey:@"transcriptinfo"]];
         
@@ -77,8 +76,7 @@
         choosePetScene.passDictInfo=passDictInfo;
         choosePetScene->previousScene=self;
         choosePetScene.scaleMode = SKSceneScaleModeAspectFill;
-        [self.view presentScene:choosePetScene transition:[SKTransition doorsCloseVerticalWithDuration:1.0f]];
     
-    
+        [self.view presentScene:choosePetScene];
 }
 @end
