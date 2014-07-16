@@ -6,8 +6,8 @@
     
     PPMainViewController * vc = [[PPMainViewController alloc] init];
     
-    UINavigationController *navMain=[[UINavigationController alloc] initWithRootViewController:vc];
-    navMain.navigationBarHidden=YES;
+    UINavigationController *navMain = [[UINavigationController alloc] initWithRootViewController:vc];
+    navMain.navigationBarHidden = YES;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navMain;

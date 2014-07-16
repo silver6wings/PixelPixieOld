@@ -949,6 +949,8 @@
 				193DC4B1196861D5007308C7 /* PPCustomAlertNode.m */,
 				19F28E2B1969181B0006ABFF /* PPCustomButton.h */,
 				19F28E2C1969181B0006ABFF /* PPCustomButton.m */,
+				D4877A44196C479A009509E5 /* PPMonsterInfoNode.h */,
+				D4877A45196C479A009509E5 /* PPMonsterInfoNode.m */,
 				D45C3F81196A975F00A78E88 /* PPSpriteButton.h */,
 				D45C3F82196A975F00A78E88 /* PPSpriteButton.m */,
 				193DC4B2196861D5007308C7 /* PPSkillNode.h */,
@@ -1002,8 +1004,6 @@
 				193DC48F1968608B007308C7 /* PPBasicSpriteNode.m */,
 				193DC4BA19686C0A007308C7 /* PPBasicLabelNode.h */,
 				193DC4BB19686C18007308C7 /* PPBasicLabelNode.m */,
-				D4877A44196C479A009509E5 /* PPMonsterInfoNode.h */,
-				D4877A45196C479A009509E5 /* PPMonsterInfoNode.m */,
 			);
 			name = Basic;
 			path = PPBasic;

@@ -30,10 +30,6 @@
     [super didMoveToView:view];
     self.backgroundColor = [UIColor grayColor];
     
-    
-   
-    
-    
     PPPassNumberScroll *pppassView=[[PPPassNumberScroll alloc] initWithFrame:CGRectMake(0.0, 150.0, 320.0f, 200)];
     NSDictionary *dictPassInfo=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PassInfo" ofType:@"plist"]];
     pppassView.target=self;
