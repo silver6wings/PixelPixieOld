@@ -1,12 +1,6 @@
-//
-//  PPWorldBossScene.m
-//  PixelPixie
-//
-//  Created by xiefei on 7/14/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
 
 #import "PPWorldBossScene.h"
+
 #define SPACE_BOTTOM 60
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
 #define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(362 - kBallSize)+SPACE_BOTTOM
@@ -34,6 +28,7 @@
 
 @implementation PPWorldBossScene
 @synthesize choosedEnemys;
+
 - (id)initWithSize:(CGSize)size
 {
     
