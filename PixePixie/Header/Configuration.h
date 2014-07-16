@@ -1,3 +1,4 @@
+
 #import "ConfigData.h"
 #import "ConstantData.h"
 
@@ -10,6 +11,7 @@ typedef enum {
     PP_HPTYPE,
     PP_MPTYPE
 }VALUESHOWTYPE;
+
 #define PP_FIRST_LOG_IN  @"firstenter"
 #define PP_PET_SKILL_SHOW_NODE_NAME @"petskillshow"
 #define PP_ENEMY_SKILL_SHOW_NODE_NAME @"enemyskillshow"

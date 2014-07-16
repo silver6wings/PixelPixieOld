@@ -70,7 +70,7 @@ NSString *couterpartName[]={
     
 
     
-    PPBallScene * ballScene = [[PPBallScene alloc] initWithSize:CurrentDeviceRealSize
+    PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
                                                          PixieA:playerPixie
                                                          PixieB:enemys];
     
