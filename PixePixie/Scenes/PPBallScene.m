@@ -433,12 +433,17 @@ static const uint32_t kGroundCategory    =  0x1 << 1;
 #pragma mark BackAlert
 -(void)backButtonClick:(NSString *)backName
 {
-    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
-                                                      message:@"退出战斗会导致体力损失。确认退出战斗吗？"
-                                                     delegate:self
-                                            cancelButtonTitle:@"确定"
-                                            otherButtonTitles:@"取消", nil];
-    [alertView show];
+    [self.view presentScene:self->previousScene transition:[SKTransition doorsOpenVerticalWithDuration:1]];
+
+    
+//    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
+//                                                      message:@"退出战斗会导致体力损失。确认退出战斗吗？"
+//                                                     delegate:self
+//                                            cancelButtonTitle:@"确定"
+//                                            otherButtonTitles:@"取消", nil];
+//    [alertView show];
+    
+    
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

@@ -116,7 +116,7 @@
                                                                  PixieA:playerPixie
                                                                  PixieB:enemys];
             
-            
+            ballScene->previousScene=self;
             ballScene.choosedEnemys = enemys;
             ballScene.scaleMode = SKSceneScaleModeAspectFill;
             [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
