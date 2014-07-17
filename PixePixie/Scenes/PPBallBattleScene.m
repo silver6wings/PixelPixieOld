@@ -29,6 +29,10 @@ CGFloat vectorLength (CGVector vector) {
 };
 
 @interface PPBallBattleScene () < SKPhysicsContactDelegate, UIAlertViewDelegate >
+
+@property (nonatomic, retain) PPPixie * pixiePlayer;
+@property (nonatomic, retain) PPPixie * pixieEnemy;
+
 @property (nonatomic) BOOL isBallDragging;
 @property (nonatomic) BOOL isBallRolling;
 @property (nonatomic) PPBall * ballPlayer;
@@ -45,16 +49,17 @@ CGFloat vectorLength (CGVector vector) {
 @end
 
 @implementation PPBallBattleScene
-@synthesize choosedEnemys;
 
 -(id)initWithSize:(CGSize)size
-           PixieA:(PPPixie *)pixieA
-           PixieB:(NSArray *)enemyS{
-    
+      PixiePlayer:(PPPixie *)pixieA
+       PixieEnemy:(PPPixie *)pixieB
+{
     if (self = [super initWithSize:size]) {
         
         self.backgroundColor = [SKColor blackColor];
-        self.choosedEnemys = enemyS;
+        
+        self.pixiePlayer = pixieA;
+        self.pixieEnemy = pixieB;
         
         // 设置场景物理属性
         self.physicsWorld.gravity = CGVectorMake(0, 0);
@@ -166,40 +171,38 @@ CGFloat vectorLength (CGVector vector) {
 {
     NSLog(@"nodeName=%@",nodeName);
     if ([nodeName isEqual:PP_PET_PLAYER_SIDE_NODE_NAME]) {
+        /*
         CGFloat hpchangresult = [PPDamageCaculate
                                  bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.currentAP
                                  andAddition:self.playerSide.currentPPPixie.pixieBuffs.attackAddition
                                  andOppositeDefense:self.enemySide.currentPPPixieEnemy.currentDP
                                  andOppositeDefAddition:self.enemySide.currentPPPixieEnemy.pixieBuffs.defenseAddition
                                  andDexterity:self.enemySide.currentPPPixieEnemy.currentDEX];
+        */
         
-        [self.enemySide changeHPValue:hpchangresult];
+        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+        [self.enemySide changeHPValue:-damageCount];
         NSLog(@"currentHP=%f",self.enemySide.currentPPPixieEnemy.currentHP);
         
-        if (self.enemySide.currentPPPixieEnemy.currentHP <= 0)
-        {
-#warning 这里是处理地方宠物挂掉的代码么？
-            // TODO
-        }
     } else {
-        CGFloat hpchangresult = [PPDamageCaculate
-                                 bloodChangeForPhysicalAttack:self.enemySide.currentPPPixieEnemy.currentAP
-                                 andAddition:self.enemySide.currentPPPixieEnemy.pixieBuffs.attackAddition
-                                 andOppositeDefense:self.playerSide.currentPPPixie.currentDP
-                                 andOppositeDefAddition:self.playerSide.currentPPPixie.pixieBuffs.defenseAddition
-                                 andDexterity:self.playerSide.currentPPPixie.currentDEX];
-        [self.playerSide changeHPValue:hpchangresult];
+        /*
+         CGFloat hpchangresult = [PPDamageCaculate
+         bloodChangeForPhysicalAttack:self.enemySide.currentPPPixieEnemy.currentAP
+         andAddition:self.enemySide.currentPPPixieEnemy.pixieBuffs.attackAddition
+         andOppositeDefense:self.playerSide.currentPPPixie.currentDP
+         andOppositeDefAddition:self.playerSide.currentPPPixie.pixieBuffs.defenseAddition
+         andDexterity:self.playerSide.currentPPPixie.currentDEX];
+         */
+        
+        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+        [self.playerSide changeHPValue:-damageCount];
     }
 }
 
 -(void)ballAttackEnd:(NSInteger)ballsCount
 {
-    CGFloat ballAttackHpChange = [PPDamageCaculate
-                                  bloodChangeForBallAttack:YES
-                                  andPet:self.playerSide.currentPPPixie
-                                  andEnemy:self.enemySide.currentPPPixieEnemy];
-    
-    [self.enemySide changeHPValue:ballAttackHpChange];
+    CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+    [self.enemySide changeHPValue:-damageCount];
     
     PPSkillNode * skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.delegate = self;
@@ -227,17 +230,10 @@ CGFloat vectorLength (CGVector vector) {
     [ballsLabel runAction:action];
     
     [skillNode showSkillAnimate:nil];
-    
-    // 添加少了的球
-    /*
-    [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
-    */
 }
 
 #warning additionLabel是啥东西？
-
 // 记录碰到过的球。相生相克。最后算出总的伤害加成。暂时先显示，还没具体相加。
-
 -(void)setAdditionLabel:(CGFloat)addition
 {
     PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"additonLabel"];
@@ -251,7 +247,7 @@ CGFloat vectorLength (CGVector vector) {
     [additonLabel setText:[NSString stringWithFormat:@"%f",addition*100]];
     [self addChild:additonLabel];
     
-    SKAction *actionScale=[SKAction scaleBy:2.0 duration:0.5];
+    SKAction *actionScale = [SKAction scaleBy:2.0 duration:0.5];
     [additonLabel runAction:actionScale completion:^{
         [additonLabel removeFromParent];
     }];
@@ -261,15 +257,15 @@ CGFloat vectorLength (CGVector vector) {
 {
     NSLog(@"skillInfo=%@",skillInfo);
     switch ([[skillInfo objectForKey:@"skilltype"] intValue]) {
+            
         case 0:
         {
             [self showSkillEventBegin:skillInfo];
-
         }
             break;
+            
         case 1:
         {
-            
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
                 for (PPBall * tBall in self.ballsElement) {
                     if ([tBall.name isEqualToString:@"ball_plant"]) {
@@ -278,8 +274,8 @@ CGFloat vectorLength (CGVector vector) {
                 }
                 return;
             }
+            
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"木系掌控"]) {
-                
                 for (PPBall * tBall in self.ballsElement) {
                     if ([tBall.name isEqualToString:@"ball_plant"]) {
                         
@@ -291,29 +287,24 @@ CGFloat vectorLength (CGVector vector) {
                 }
                 return;
             }
-            
         }
             break;
+            
         case 2:
         {
             [self showSkillEventBegin:skillInfo];
-
         }
             break;
+            
         case 3:
         {
-            
             [self showSkillEventBegin:skillInfo];
-
         }
             break;
             
         default:
             break;
     }
-    
-
-  
 }
 
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
@@ -325,11 +316,12 @@ CGFloat vectorLength (CGVector vector) {
 // 战斗结束过程
 -(void)hpBeenZeroMethod:(PPBattleSideNode *)battleside
 {
+#warning 最后有没有打完这个是应该在推进遇怪界面做的 这里需要做的就是弹窗结算点击回到推进遇怪界面，如果有新的战斗初始化一个新的ballBattleScene切过去
     NSLog(@"NAME 123=%@",battleside.name);
-    
+    /*
     if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
     {
-        if ([self.choosedEnemys count]<=currentEnemyIndex)
+        if ([self.choosedEnemys count] <= currentEnemyIndex)
         {
             NSLog(@"战斗结束，结算奖励");
             
@@ -357,6 +349,7 @@ CGFloat vectorLength (CGVector vector) {
         
         [self.playerSide removeFromParent];
     }
+    */
 }
 
 -(void)addEnemySide:(CGFloat)direct
@@ -404,18 +397,15 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)backButtonClick:(NSString *)backName
 {
-    
     [self.view presentScene:self->previousScene transition:[SKTransition doorsOpenVerticalWithDuration:1]];
 
-    
 //    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
 //                                                      message:@"退出战斗会导致体力损失。确认退出战斗吗？"
 //                                                     delegate:self
 //                                            cancelButtonTitle:@"确定"
 //                                            otherButtonTitles:@"取消", nil];
 //    [alertView show];
-    
-    
+
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -574,7 +564,7 @@ CGFloat vectorLength (CGVector vector) {
     NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
 }
 
-#pragma mark Custom
+#pragma mark Custom Method
 
 // 添加四周的墙
 -(void)addWalls:(CGSize)nodeSize atPosition:(CGPoint)nodePosition{
@@ -635,7 +625,7 @@ CGFloat vectorLength (CGVector vector) {
         //            self.ballEnemy.physicsBody.velocity=CGVectorMake(self.ballEnemy.physicsBody.velocity.dx/dampingValue, self.ballEnemy.physicsBody.velocity.dy/dampingValue);
         //        }
         //
-        if (vectorLengthVelocity<5.0f) {
+        if (vectorLengthVelocity < 5.0f) {
             self.ballEnemy.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
         }
         

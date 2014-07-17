@@ -29,6 +29,20 @@
 @synthesize pixieBuffs;
 @synthesize pixieBall;
 
+
+// 物理攻击伤害计算
+-(CGFloat)countPhysicalDamageTo:(PPPixie *)targetPixie
+{
+    return 600;
+}
+
+// 技能伤害计算
+-(CGFloat)countMagicalDamageTo:(PPPixie *)targetPixie
+                     WithSkill:(PPSkill *)usingSkill
+{
+    return 350;
+}
+
 // 创建新的宠物
 +(PPPixie *)birthPixieWithPetsInfo:(NSDictionary *)petsDict
 {
@@ -45,7 +59,7 @@
     
     tPixie.pixieElement = [[petsDict objectForKey:@"petelementtype"] intValue];
     tPixie.pixieSkills = [NSArray arrayWithArray:[petsDict objectForKey:@"pixieSkills"]];
-    tPixie.pixieBuffs = [[PPBuff alloc] init];
+    tPixie.pixieBuffs = [[NSArray alloc] init];
     tPixie.pixieBall = [PPBall ballWithPixie:tPixie];
     
     return tPixie;
@@ -68,8 +82,7 @@
     tPixie.pixieElement = [[petsDict objectForKey:@"enemytype"] intValue];
     tPixie.pixieSkills = [NSArray arrayWithArray:[petsDict objectForKey:@"enemySkills"]];
     
-    #warning 这里到时候再说
-    tPixie.pixieBuffs = [[PPBuff alloc] init];
+    tPixie.pixieBuffs = [[NSArray alloc] init];
     tPixie.pixieBall = [PPBall ballWithEnemyPixie:tPixie];
     
     return tPixie;

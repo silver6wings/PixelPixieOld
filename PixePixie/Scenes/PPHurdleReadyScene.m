@@ -1,13 +1,13 @@
 
-#import "PPReadyScene.h"
+#import "PPHurdleReadyScene.h"
 
-@interface PPReadyScene ()
+@interface PPHurdleReadyScene ()
 @property (retain,nonatomic) NSArray *petsArray;
 @property (nonatomic) SKSpriteNode * playerPixie;
 @property (nonatomic) NSMutableArray * pixieAnimation;
 @end
 
-@implementation PPReadyScene
+@implementation PPHurdleReadyScene
 @synthesize petsArray;
 @synthesize choosedPet;
 -(id)initWithSize:(CGSize)size{
@@ -35,6 +35,7 @@
     [self addChild:lbStart];
     
     if ([[self.choosedPet objectForKey:@"petstatus"] intValue]) {
+        
         // 添加己方精灵
         _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
         _playerPixie.position = CGPointMake(CGRectGetMidX(self.frame)+30,300);
@@ -95,22 +96,27 @@
         
         [_playerPixie runAction:[SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]
                      completion:^{
-            NSDictionary *dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
-                                       [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-            NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
                          
-            // 初始化 ballScene
-            PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
-        
-            PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
-                                                                 PixieA:playerPixie
-                                                                 PixieB:enemys];
-            
-            ballScene->previousScene=self;
-            ballScene.choosedEnemys = enemys;
-            ballScene.scaleMode = SKSceneScaleModeAspectFill;
-            [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
-        }];
+                         /*
+                          NSDictionary *dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
+                          [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+                          NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+                          */
+                         
+                         // 初始化 ballScene
+                         PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
+                         PPPixie * enemyPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
+                         
+                         PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
+                                                                                     PixiePlayer:playerPixie
+                                                                                      PixieEnemy:enemyPixie];
+                         
+                         ballScene->previousScene = self;
+                         ballScene.scaleMode = SKSceneScaleModeAspectFill;
+                         [self.view presentScene:ballScene
+                                      transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
+                         
+                     }];
     }
 }
 

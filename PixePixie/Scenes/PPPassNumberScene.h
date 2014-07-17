@@ -1,12 +1,12 @@
+////
+////  PPPassNumberScene.h
+////  PixelPixie
+////
+////  Created by xiefei on 6/14/14.
+////  Copyright (c) 2014 Psyches. All rights reserved.
+////
 //
-//  PPPassNumberScene.h
-//  PixelPixie
+//#import "PPBasicScene.h"
 //
-//  Created by xiefei on 6/14/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
-
-#import "PPBasicScene.h"
-
-@interface PPPassNumberScene : PPBasicScene
-@end
+//@interface PPPassNumberScene : PPBasicScene
+//@end
