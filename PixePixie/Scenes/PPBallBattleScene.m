@@ -236,21 +236,21 @@ CGFloat vectorLength (CGVector vector) {
 // 记录碰到过的球。相生相克。最后算出总的伤害加成。暂时先显示，还没具体相加。
 -(void)setAdditionLabel:(CGFloat)addition
 {
-    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"additonLabel"];
-    if (labelNode) {
-        [labelNode removeFromParent];
-    }
-    
-    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
-    additonLabel.name  = @"additonLabel";
-    additonLabel.position = CGPointMake(160.0f, 200.0f);
-    [additonLabel setText:[NSString stringWithFormat:@"%f",addition*100]];
-    [self addChild:additonLabel];
-    
-    SKAction *actionScale = [SKAction scaleBy:2.0 duration:0.5];
-    [additonLabel runAction:actionScale completion:^{
-        [additonLabel removeFromParent];
-    }];
+//    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"additonLabel"];
+//    if (labelNode) {
+//        [labelNode removeFromParent];
+//    }
+//    
+//    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+//    additonLabel.name  = @"additonLabel";
+//    additonLabel.position = CGPointMake(160.0f, 200.0f);
+//    [additonLabel setText:[NSString stringWithFormat:@"%f",addition*100]];
+//    [self addChild:additonLabel];
+//    
+//    SKAction *actionScale = [SKAction scaleBy:2.0 duration:0.5];
+//    [additonLabel runAction:actionScale completion:^{
+//        [additonLabel removeFromParent];
+//    }];
 }
 
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
@@ -545,7 +545,7 @@ CGFloat vectorLength (CGVector vector) {
     
     PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
     PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
-    [self  setAdditionLabel:kElementInhibition[attack][defend]] ;
+//    [self  setAdditionLabel:kElementInhibition[attack][defend]] ;
     if (kElementInhibition[attack][defend] >= 1.0f)
     {
         [hittedBall.node removeFromParent];

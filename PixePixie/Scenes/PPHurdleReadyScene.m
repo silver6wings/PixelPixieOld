@@ -12,7 +12,7 @@
 @synthesize choosedPet;
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
-        [self setBackTitleText:@"精灵选择" andPositionY:450.0f];
+        [self setBackTitleText:@"遭遇怪物" andPositionY:450.0f];
 
     }
     return self;
@@ -24,18 +24,20 @@
 {
     // Called immediately after a scene is presented by a view.
     [super didMoveToView:view];
+    [self setBackgroundColor:[UIColor cyanColor]];
+
+    
     
     // 加载开始按钮
     SKLabelNode *lbStart = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     lbStart.name = @"bt_start";
     lbStart.text = @"Click me to start ^~^";
     lbStart.fontSize = 15;
-    lbStart.fontColor = [UIColor yellowColor];
+    lbStart.fontColor = [UIColor blackColor];
     lbStart.position = CGPointMake(CGRectGetMidX(self.frame),50);
     [self addChild:lbStart];
     
-    if ([[self.choosedPet objectForKey:@"petstatus"] intValue]) {
-        
+    
         // 添加己方精灵
         _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
         _playerPixie.position = CGPointMake(CGRectGetMidX(self.frame)+30,300);
@@ -50,13 +52,14 @@
         statusLabel.position = CGPointMake(_playerPixie.frame.size.width/2+statusLabel.frame.size.width/2.0f,
                                            _playerPixie.position.y+_playerPixie.frame.size.height/2+statusLabel.frame.size.height/2.0f);
         [self addChild:statusLabel];
-    }
     
     // 添加敌方精灵
     SKSpriteNode * enemyPixie = [SKSpriteNode spriteNodeWithImageNamed:@"pixie_plant2_battle1.png"];
+    [enemyPixie setColor:[UIColor blackColor]];
     enemyPixie.position = CGPointMake(CGRectGetMidX(self.frame)-30,170);
     enemyPixie.size = CGSizeMake(enemyPixie.size.width/2.0f, enemyPixie.size.height/2.0f);
     [self addChild:enemyPixie];
+    
     
     // 预加载变身动画
     NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
@@ -94,27 +97,17 @@
     // 点击开始按钮
     if ([[touchedNode name] isEqualToString:@"bt_start"]) {
         
+
+        
+        
+        
         [_playerPixie runAction:[SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]
                      completion:^{
+                        
                          
-                         /*
-                          NSDictionary *dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
-                          [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-                          NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
-                          */
-                         
-                         // 初始化 ballScene
-                         PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
-                         PPPixie * enemyPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
-                         
-                         PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
-                                                                                     PixiePlayer:playerPixie
-                                                                                      PixieEnemy:enemyPixie];
-                         
-                         ballScene->previousScene = self;
-                         ballScene.scaleMode = SKSceneScaleModeAspectFill;
-                         [self.view presentScene:ballScene
-                                      transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
+        PPPetChooseScene *petchoose = [[PPPetChooseScene alloc] initWithSize:self.view.bounds.size];
+        petchoose->previousScene = self;
+        [self.view presentScene:petchoose transition:[SKTransition doorsOpenHorizontalWithDuration:1]];
                          
                      }];
     }
