@@ -22,13 +22,13 @@
             switch (i) {
                 case 0:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"大场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+                    [passButton setLabelWithText:[NSString stringWithFormat:@"场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
                     passButton.position = CGPointMake(80.0f,80.0f);
                 }
                     break;
                 case 1:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"大场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+                    [passButton setLabelWithText:[NSString stringWithFormat:@"场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
                     
                     passButton.position = CGPointMake(120.0f,380.0f);
                 }
@@ -36,7 +36,7 @@
                     break;
                 case 2:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"大场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+                    [passButton setLabelWithText:[NSString stringWithFormat:@"场景 %d",i+1] andFont:[UIFont systemFontOfSize:15] withColor:nil];
                     
                     passButton.position = CGPointMake(220.0f,180.0f);
                 }

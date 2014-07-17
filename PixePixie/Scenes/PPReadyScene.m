@@ -95,22 +95,27 @@
         
         [_playerPixie runAction:[SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]
                      completion:^{
-            NSDictionary *dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
-                                       [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-            NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
                          
-            // 初始化 ballScene
-            PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
-        
-            PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
-                                                                 PixieA:playerPixie
-                                                                 PixieB:enemys];
-            
-            ballScene->previousScene=self;
-            ballScene.choosedEnemys = enemys;
-            ballScene.scaleMode = SKSceneScaleModeAspectFill;
-            [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
-        }];
+                         /*
+                          NSDictionary *dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
+                          [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+                          NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+                          */
+                         
+                         // 初始化 ballScene
+                         PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
+                         PPPixie * enemyPixie = [PPPixie birthPixieWithPetsInfo:self.choosedPet];
+                         
+                         PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
+                                                                                     PixiePlayer:playerPixie
+                                                                                      PixieEnemy:enemyPixie];
+                         
+                         ballScene->previousScene = self;
+                         ballScene.scaleMode = SKSceneScaleModeAspectFill;
+                         [self.view presentScene:ballScene
+                                      transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
+                         
+                     }];
     }
 }
 

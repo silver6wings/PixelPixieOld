@@ -54,8 +54,8 @@ NSString *couterpartName[]={
 }
 -(void)worldBossButtonClick:(NSString *)nameString
 {
-    
-    
+    #warning 不知道咋改，WorldBoss先暂搁一下
+    /*
     //战斗示例 方便连调
     NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
     NSArray *enemys=[[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
@@ -67,9 +67,6 @@ NSString *couterpartName[]={
     // 初始化 ballScene
     PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:petsChoosedInfo];
     
-    
-
-    
     PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
                                                          PixieA:playerPixie
                                                          PixieB:enemys];
@@ -78,8 +75,6 @@ NSString *couterpartName[]={
     ballScene.choosedEnemys = enemys;
     ballScene.scaleMode = SKSceneScaleModeAspectFill;
     [self.view presentScene:ballScene transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
-
-    
     
     
 //    
@@ -87,7 +82,7 @@ NSString *couterpartName[]={
 //    worldScene->previousScene = self;
 //    [self.view presentScene:worldScene];
     
-    
+    */
     
 }
 -(void)choosePassNumber

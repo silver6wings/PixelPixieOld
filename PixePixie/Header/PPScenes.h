@@ -1,6 +1,5 @@
 
 #import "PPMainScene.h"
-#import "PPWorldBossScene.h"
 
 #import "PPMonsterScene.h"
 #import "PPMonsterBoxScene.h"
