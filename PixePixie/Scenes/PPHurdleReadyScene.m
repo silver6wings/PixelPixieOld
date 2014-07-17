@@ -1,13 +1,13 @@
 
-#import "PPReadyScene.h"
+#import "PPHurdleReadyScene.h"
 
-@interface PPReadyScene ()
+@interface PPHurdleReadyScene ()
 @property (retain,nonatomic) NSArray *petsArray;
 @property (nonatomic) SKSpriteNode * playerPixie;
 @property (nonatomic) NSMutableArray * pixieAnimation;
 @end
 
-@implementation PPReadyScene
+@implementation PPHurdleReadyScene
 @synthesize petsArray;
 @synthesize choosedPet;
 -(id)initWithSize:(CGSize)size{
@@ -35,6 +35,7 @@
     [self addChild:lbStart];
     
     if ([[self.choosedPet objectForKey:@"petstatus"] intValue]) {
+        
         // 添加己方精灵
         _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
         _playerPixie.position = CGPointMake(CGRectGetMidX(self.frame)+30,300);

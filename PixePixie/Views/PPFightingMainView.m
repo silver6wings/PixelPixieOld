@@ -28,8 +28,8 @@
 -(void)changeToPassScene
 {
     
-    PPFightingPassScene* mainScene=[[PPFightingPassScene alloc] initWithSize:self.bounds.size];
-    mainScene.scaleMode=SKSceneScaleModeFill;
+    PPMenuThemeScene * mainScene = [[PPMenuThemeScene alloc] initWithSize:self.bounds.size];
+    mainScene.scaleMode = SKSceneScaleModeFill;
     [self presentScene:mainScene];
 }
 /*

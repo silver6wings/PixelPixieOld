@@ -1,6 +1,6 @@
-#import "PPSecondaryPassScene.h"
+#import "PPMenuDungeonScene.h"
 
-@implementation PPSecondaryPassScene
+@implementation PPMenuDungeonScene
 @synthesize passDictInfo;
 
 -(id)initWithSize:(CGSize)size{

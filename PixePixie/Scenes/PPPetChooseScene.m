@@ -69,8 +69,8 @@
 
 -(void)spriteChooseClick:(PPCustomButton *)spriteBtn
 {
-    NSDictionary *petsChoosedInfo = [self.petsArray objectAtIndex:[spriteBtn.name integerValue]-PP_PETS_CHOOSE_BTN_TAG];
-    PPReadyScene *battleScene = [[PPReadyScene alloc] initWithSize:self.view.bounds.size];
+    NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteBtn.name integerValue]-PP_PETS_CHOOSE_BTN_TAG];
+    PPHurdleReadyScene * battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
     battleScene.choosedPet = [NSDictionary dictionaryWithDictionary:petsChoosedInfo];
     battleScene->previousScene = self;
     [self.view presentScene:battleScene transition:[SKTransition fadeWithDuration:1]];

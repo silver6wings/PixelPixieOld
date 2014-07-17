@@ -309,8 +309,8 @@ NSString * menu[] = {
     
     [self menuDownAnimation];
 
-    PPReadyScene * battleScene;
-    battleScene = [[PPReadyScene alloc] initWithSize:CurrentDeviceRealSize];
+    PPHurdleReadyScene * battleScene;
+    battleScene = [[PPHurdleReadyScene alloc] initWithSize:CurrentDeviceRealSize];
     battleScene.scaleMode = SKSceneScaleModeAspectFill;
     
     [skViewMain presentScene:battleScene];

@@ -1,6 +1,6 @@
 
 
-@interface PPReadyScene : PPBasicScene
+@interface PPHurdleReadyScene : PPBasicScene
 
 @property (nonatomic,retain) NSDictionary *choosedPet;
 

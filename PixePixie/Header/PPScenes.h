@@ -11,10 +11,10 @@
 #import "PPCookingScene.h"
 
 
-#import "PPFightingPassScene.h"
-#import "PPSecondaryPassScene.h"
+#import "PPMenuThemeScene.h"
+#import "PPMenuDungeonScene.h"
 #import "PPPetChooseScene.h"
-#import "PPReadyScene.h"
+#import "PPHurdleReadyScene.h"
 #import "PPBallBattleScene.h"
 #import "PPPassNumberScene.h"
 
