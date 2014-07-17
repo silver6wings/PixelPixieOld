@@ -12,9 +12,7 @@
 -(void)setSkillButton:(NSDictionary *)skillInfo
 {
     
-    PPCustomButton *ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-                                                           andTitle:[skillInfo objectForKey:@"skillname"]
-                                                         withTarget:self
+    PPCustomButton *ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f) andTitle:[skillInfo objectForKey:@"skillname"] withTarget:self
                                                        withSelecter:@selector(skillClick:)];
     ppixieSkillBtn.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG];
     ppixieSkillBtn.position = CGPointMake(0.0f,0.0f);
