@@ -6,7 +6,7 @@
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
         
-        [self setBackTitleText:@"副本选择" andPositionY:450.0f];
+        [self setBackTitleText:@"小场景推进" andPositionY:450.0f];
         [self setBackgroundColor:[UIColor purpleColor]];
         for (int i=0; i<5; i++) {
             PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(90, 60)];
@@ -43,6 +43,7 @@
         sizeFitFor5 = 44.0f;
     }
     PPBasicSpriteNode *goForwardContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor darkGrayColor] size:CGSizeMake(320.0f, 360)];
+    goForwardContent.name = PP_GOFORWARD_MENU_DUNGEON_FIGHTING;
     [goForwardContent setPosition:CGPointMake(160.0f, 200.0f)];
     [self addChild:goForwardContent];
     
@@ -95,6 +96,11 @@
 }
 -(void)enterHurdleReady
 {
+    
+    SKNode *spriteNode=[self childNodeWithName:PP_GOFORWARD_MENU_DUNGEON_FIGHTING];
+    if (spriteNode) {
+        [spriteNode removeFromParent];
+    }
     
     PPHurdleReadyScene * battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
     battleScene->previousScene = self;
