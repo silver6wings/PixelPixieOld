@@ -101,9 +101,15 @@
     if (spriteNode) {
         [spriteNode removeFromParent];
     }
+    NSDictionary * dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
+                                [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+    
     
     PPHurdleReadyScene * battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
+    battleScene.allEnemys = dictEnemy;
     battleScene->previousScene = self;
+    [battleScene setEnemysArray];
+    [battleScene setCurrentHurdle:0];
     [self.view presentScene:battleScene transition:[SKTransition doorsOpenHorizontalWithDuration:1]];
     
 }

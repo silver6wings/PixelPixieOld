@@ -85,7 +85,7 @@
     
     
     SKSpriteNode *spriteContent = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(300, 350)];
-    spriteContent.name = @"contentSprite";
+    spriteContent.name = PP_HURDLE_PETCHOOSE_CONTENT_NAME;
     spriteContent.position = CGPointMake(160.0, 260.0);
     [self addChild:spriteContent];
     
@@ -109,12 +109,12 @@
     
     SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     titilePass.name = @"eee";
-    titilePass.text = [NSString stringWithFormat:@"副本id:%@",[self.passDictInfo objectForKey:@"passid"]];
+    titilePass.text = @"选择它去战斗吧";
     titilePass.fontSize = 10;
     titilePass.color = [UIColor yellowColor];
     titilePass.fontColor = [UIColor whiteColor];
     titilePass.position = CGPointMake(100.0f,100.0f);
-    [self addChild:titilePass];
+    [spriteContent addChild:titilePass];
     
     
     

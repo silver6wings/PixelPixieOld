@@ -20,6 +20,9 @@ typedef enum {
 #define PP_BACK_TO_MAIN_VIEW @"backToMainNotification"
 #define PP_BACK_TO_MAIN_VIEW_FIGHTING @"fightingToBack"
 #define PP_GOFORWARD_MENU_DUNGEON_FIGHTING @"goForwardContent"
+#define PP_HURDLE_READY_CONTENT_NAME @"hurdleReadyContent"
+#define PP_HURDLE_PETCHOOSE_CONTENT_NAME @"petChooseContent"
+
 #define PP_MENU_COUNT 5
 #define PP_USER_BUTON_TAG 50
 #define PP_MENU_BUTON_TAG 100

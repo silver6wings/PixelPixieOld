@@ -102,9 +102,7 @@ CGFloat vectorLength (CGVector vector) {
         [self.playerSide setColor:[UIColor grayColor]];
         [self.playerSide setSideElementsForPet:pixieA];
         [self addChild:self.playerSide];
-        
-        currentEnemyIndex = 0;
-        [self addEnemySide:sizeFitFor5];
+     
         
         // 添加 Walls
         CGFloat tWidth = 320.0f;
@@ -154,15 +152,23 @@ CGFloat vectorLength (CGVector vector) {
             [self.ballsElement addObject:tBall];
         }
         [self addRandomBalls:5];
-        if (CurrentDeviceRealSize.height>500) {
-            [self setBackTitleText:nil andPositionY:490.0f];
-        }else
-        {
-            [self setBackTitleText:nil andPositionY:450.0f];
-
-        }
+     
     }
     return self;
+}
+-(void)setEnemyAtIndex:(int)index
+{
+    
+    currentEnemyIndex = index;
+    [self addEnemySide:sizeFitFor5];
+    
+    if (CurrentDeviceRealSize.height>500) {
+        [self setBackTitleText:nil andPositionY:490.0f];
+    }else
+    {
+        [self setBackTitleText:nil andPositionY:450.0f];
+        
+    }
 }
 
 #pragma mark SkillShow
@@ -195,6 +201,7 @@ CGFloat vectorLength (CGVector vector) {
          */
         
         CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+        
         [self.playerSide changeHPValue:-damageCount];
     }
 }
@@ -318,30 +325,45 @@ CGFloat vectorLength (CGVector vector) {
 {
 #warning 最后有没有打完这个是应该在推进遇怪界面做的 这里需要做的就是弹窗结算点击回到推进遇怪界面，如果有新的战斗初始化一个新的ballBattleScene切过去
     NSLog(@"NAME 123=%@",battleside.name);
-    /*
+ 
     if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
     {
-        if ([self.choosedEnemys count] <= currentEnemyIndex)
-        {
-            NSLog(@"战斗结束，结算奖励");
-            
-            NSDictionary *dict = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],
-                                   @"context":@"副本结束"};
-            PPCustomAlertNode *alertCustom = [[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
-            [alertCustom showCustomAlertWithInfo:dict];
-            [self addChild:alertCustom];
-            
-            return;
-        } else {
-            [self addEnemySide:sizeFitFor5];
-            
-            NSDictionary *dict = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],
-                                   @"context":@"请干下一个怪物"};
-            PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
-            [alertCustom showCustomAlertWithInfo:dict];
-            [self addChild:alertCustom];
-        }
+
+
+        
+        PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
+        [enemyDeadContent setPosition:CGPointMake(160.0f, 300)];
+        [self addChild:enemyDeadContent];
+        
+        
+        NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],
+                                    @"context":@"请干下一个怪物"};
+        
+        SKLabelNode * titleNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+        titleNameLabel.fontSize = 13;
+        titleNameLabel.fontColor = [UIColor blueColor];
+        titleNameLabel.text = [alertInfo objectForKey:@"title"];
+        titleNameLabel.position = CGPointMake(0.0f,50);
+        [enemyDeadContent addChild:titleNameLabel];
+        
+        SKLabelNode * textContentLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+        textContentLabel.fontColor = [UIColor blueColor];
+        textContentLabel.text = [alertInfo objectForKey:@"context"];
+        textContentLabel.fontSize = 13;
+        
+        textContentLabel.position = CGPointMake(0.0f,-50);
+        [enemyDeadContent addChild:textContentLabel];
+        
+
+            [self goNextEnemy];
+
+        
+
+        
+        
+        
     } else {
+        
         NSDictionary *dict = @{@"title":@"宠物死了",@"context":@"你太厉害了"};
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
         [alertCustom showCustomAlertWithInfo:dict];
@@ -349,9 +371,13 @@ CGFloat vectorLength (CGVector vector) {
         
         [self.playerSide removeFromParent];
     }
-    */
-}
 
+}
+-(void)goNextEnemy
+{
+    [(PPHurdleReadyScene *)self->previousScene setCurrentHurdle:currentEnemyIndex];
+    [self.view presentScene:self->previousScene transition:[SKTransition doorwayWithDuration:1]];
+}
 -(void)addEnemySide:(CGFloat)direct
 {
     if(self.enemySide != nil){
@@ -364,15 +390,17 @@ CGFloat vectorLength (CGVector vector) {
         self.ballEnemy = nil;
     }
     
-    NSDictionary * dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
-                                [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
     
-    NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
-    NSDictionary *chooseEnemyDict = [NSDictionary dictionaryWithDictionary:[enemys objectAtIndex:currentEnemyIndex]];
-    PPPixie *eneplayerPixie = [PPPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
+//    NSDictionary * dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
+//                                [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+//    
+//    NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+//    NSDictionary *chooseEnemyDict = [NSDictionary dictionaryWithDictionary:[enemys objectAtIndex:currentEnemyIndex]];
+//    PPPixie *eneplayerPixie = [PPPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
+    
     
     // 添加 Ball of Enemey
-    self.ballEnemy = eneplayerPixie.pixieBall;
+    self.ballEnemy = self.pixieEnemy.pixieBall;
     self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + sizeFitFor5);
     self.ballEnemy.physicsBody.categoryBitMask = kBallCategory;
     self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
@@ -387,7 +415,7 @@ CGFloat vectorLength (CGVector vector) {
     self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
     self.enemySide.skillSelector = @selector(skllEnemyBegain:);
     self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
-    [self.enemySide setSideElementsForEnemy:eneplayerPixie];
+    [self.enemySide setSideElementsForEnemy:self.pixieEnemy];
     [self addChild:self.enemySide];
     
     currentEnemyIndex += 1;

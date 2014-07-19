@@ -29,6 +29,7 @@
     SKAction * action = [SKAction fadeAlphaTo:0.0f duration:4];
     [self runAction:action completion:^{
         [self removeFromParent];
+        
     }];
 }
 
