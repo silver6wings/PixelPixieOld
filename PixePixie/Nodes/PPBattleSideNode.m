@@ -6,7 +6,7 @@
 @synthesize skillSelector=_skillSelector;
 @synthesize currentPPPixie;
 @synthesize currentPPPixieEnemy;
-@synthesize physicsAttackSelector;
+@synthesize showInfoSelector;
 @synthesize hpBeenZeroSel;
 
 -(void)setSideElementsForPet:(PPPixie *)ppixie
@@ -24,7 +24,7 @@
     ppixieBtnLabel.fontSize=10;
     [ppixieBtnLabel setColor:[SKColor redColor]];
     NSLog(@"pixieName=%@",ppixie.pixieName);
-    [ppixieBtnLabel setText:@"物理攻击"];
+    [ppixieBtnLabel setText:@"信息查看"];
     ppixieBtnLabel.position = CGPointMake(0.0F, 0);
     [ppixieBtn addChild:ppixieBtnLabel];
     
@@ -77,7 +77,7 @@
     PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
     ppixieBtnLabel.fontSize = 10;
     NSLog(@"pixieName=%@",ppixie.pixieName);
-    [ppixieBtnLabel setText:@"物理攻击"];
+    [ppixieBtnLabel setText:@"信息查看"];
     ppixieBtnLabel.position = CGPointMake(0, 0);
     [ppixieBtn addChild:ppixieBtnLabel];
     
@@ -115,10 +115,10 @@
 
 -(void)physicsAttackClick:(PPCustomButton *)sender
 {
-    if (self.target != nil && self.physicsAttackSelector != nil &&
-        [self.target respondsToSelector:self.physicsAttackSelector])
+    if (self.target != nil && self.showInfoSelector != nil &&
+        [self.target respondsToSelector:self.showInfoSelector])
     {
-        [self.target performSelectorInBackground:self.physicsAttackSelector withObject:self.name];
+        [self.target performSelectorInBackground:self.showInfoSelector withObject:self.name];
     }
 }
 

@@ -97,7 +97,7 @@ CGFloat vectorLength (CGVector vector) {
         self.playerSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSide.target = self;
         self.playerSide.skillSelector = @selector(skillPlayerShowBegin:);
-        self.playerSide.physicsAttackSelector = @selector(physicsAttackBegin:);
+        self.playerSide.showInfoSelector = @selector(showCurrentPlayerPetInfo:);
         self.playerSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
         [self.playerSide setColor:[UIColor grayColor]];
         [self.playerSide setSideElementsForPet:pixieA];
@@ -171,11 +171,25 @@ CGFloat vectorLength (CGVector vector) {
     }
 }
 
+-(void)showCurrentPlayerPetInfo:(PPPixie *) pet
+{
+    
+    
+    
+}
+-(void)showCurrentEnemyInfo:(PPPixie *)enemy
+{
+    
+    
+}
+
 #pragma mark SkillShow
 
 -(void)physicsAttackBegin:(NSString *)nodeName
 {
     NSLog(@"nodeName=%@",nodeName);
+    
+    
     if ([nodeName isEqual:PP_PET_PLAYER_SIDE_NODE_NAME]) {
         /*
         CGFloat hpchangresult = [PPDamageCaculate
@@ -190,7 +204,9 @@ CGFloat vectorLength (CGVector vector) {
         [self.enemySide changeHPValue:-damageCount];
         NSLog(@"currentHP=%f",self.enemySide.currentPPPixieEnemy.currentHP);
         
+        
     } else {
+        
         /*
          CGFloat hpchangresult = [PPDamageCaculate
          bloodChangeForPhysicalAttack:self.enemySide.currentPPPixieEnemy.currentAP
@@ -200,22 +216,41 @@ CGFloat vectorLength (CGVector vector) {
          andDexterity:self.playerSide.currentPPPixie.currentDEX];
          */
         
+        PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"EnemyPhysics"];
+        if (labelNode) {
+            [labelNode removeFromParent];
+        }
+        
+        
+        PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+        additonLabel.name  = @"EnemyPhysics";
+        additonLabel.position = CGPointMake(160.0f, 200.0f);
+        [additonLabel setText:@"怪物物理攻击"];
+        [self addChild:additonLabel];
+        
+        
+        SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
+        [additonLabel runAction:actionScale completion:^{
+            [additonLabel removeFromParent];
+        }];
+        
         CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
         
         [self.playerSide changeHPValue:-damageCount];
+        
     }
+    
+    [self performSelectorOnMainThread:@selector(roundRotateMoved:) withObject:nodeName afterDelay:1];
+
+    
 }
 
 -(void)ballAttackEnd:(NSInteger)ballsCount
 {
-    CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-    [self.enemySide changeHPValue:-damageCount];
     
-    PPSkillNode * skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
-    skillNode.delegate = self;
-    skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+sizeFitFor5);
-    [self addChild:skillNode];
+    [self physicsAttackBegin:PP_PET_PLAYER_SIDE_NODE_NAME];
+    
+    
     
     SKLabelNode *skillNameLabel = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     [skillNameLabel setFontSize:20];
@@ -236,33 +271,19 @@ CGFloat vectorLength (CGVector vector) {
     [skillNameLabel runAction:action];
     [ballsLabel runAction:action];
     
-    [skillNode showSkillAnimate:nil];
+  
+    
+
 }
 
-#warning additionLabel是啥东西？
-// 记录碰到过的球。相生相克。最后算出总的伤害加成。暂时先显示，还没具体相加。
--(void)setAdditionLabel:(CGFloat)addition
-{
-//    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"additonLabel"];
-//    if (labelNode) {
-//        [labelNode removeFromParent];
-//    }
-//    
-//    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
-//    additonLabel.name  = @"additonLabel";
-//    additonLabel.position = CGPointMake(160.0f, 200.0f);
-//    [additonLabel setText:[NSString stringWithFormat:@"%f",addition*100]];
-//    [self addChild:additonLabel];
-//    
-//    SKAction *actionScale = [SKAction scaleBy:2.0 duration:0.5];
-//    [additonLabel runAction:actionScale completion:^{
-//        [additonLabel removeFromParent];
-//    }];
-}
+
 
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
 {
+  
+    
     NSLog(@"skillInfo=%@",skillInfo);
+    
     switch ([[skillInfo objectForKey:@"skilltype"] intValue]) {
             
         case 0:
@@ -277,9 +298,11 @@ CGFloat vectorLength (CGVector vector) {
                 for (PPBall * tBall in self.ballsElement) {
                     if ([tBall.name isEqualToString:@"ball_plant"]) {
                         [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
+                       
                     }
                 }
-                return;
+                
+              
             }
             
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"木系掌控"]) {
@@ -292,8 +315,12 @@ CGFloat vectorLength (CGVector vector) {
                                                  duration:2]];
                     }
                 }
-                return;
+              
             }
+            
+            [self performSelectorOnMainThread:@selector(roundRotateMoved:) withObject:PP_PET_PLAYER_SIDE_NODE_NAME afterDelay:2];
+            
+            
         }
             break;
             
@@ -312,25 +339,28 @@ CGFloat vectorLength (CGVector vector) {
         default:
             break;
     }
+    
+    
+
+    
 }
 
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
 {
+    
     NSLog(@"skillInfo=%@",skillInfo);
     [self showEnemySkillEventBegin:skillInfo];
+    [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
+
 }
 
 // 战斗结束过程
 -(void)hpBeenZeroMethod:(PPBattleSideNode *)battleside
 {
-#warning 最后有没有打完这个是应该在推进遇怪界面做的 这里需要做的就是弹窗结算点击回到推进遇怪界面，如果有新的战斗初始化一个新的ballBattleScene切过去
-    NSLog(@"NAME 123=%@",battleside.name);
  
     if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
     {
 
-
-        
         PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
         [enemyDeadContent setPosition:CGPointMake(160.0f, 300)];
         [self addChild:enemyDeadContent];
@@ -355,11 +385,8 @@ CGFloat vectorLength (CGVector vector) {
         [enemyDeadContent addChild:textContentLabel];
         
 
-            [self goNextEnemy];
+        [self performSelectorOnMainThread:@selector(goNextEnemy) withObject:nil afterDelay:1];
 
-        
-
-        
         
         
     } else {
@@ -375,11 +402,14 @@ CGFloat vectorLength (CGVector vector) {
 }
 -(void)goNextEnemy
 {
+    
     [(PPHurdleReadyScene *)self->previousScene setCurrentHurdle:currentEnemyIndex];
     [self.view presentScene:self->previousScene transition:[SKTransition doorwayWithDuration:1]];
+    
 }
 -(void)addEnemySide:(CGFloat)direct
 {
+    
     if(self.enemySide != nil){
         [self.enemySide removeFromParent];
         self.enemySide = nil;
@@ -414,13 +444,92 @@ CGFloat vectorLength (CGVector vector) {
     self.enemySide.target = self;
     self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
     self.enemySide.skillSelector = @selector(skllEnemyBegain:);
-    self.enemySide.physicsAttackSelector = @selector(physicsAttackBegin:);
+    self.enemySide.showInfoSelector = @selector(showCurrentEnemyInfo:);
     [self.enemySide setSideElementsForEnemy:self.pixieEnemy];
     [self addChild:self.enemySide];
     
     currentEnemyIndex += 1;
+    
+}
+#pragma mark round take turns
+-(void)roundRotateBegin
+{
+    
+    roundActionNum = 0;
+    
+    [self setRoundNumberLabel:[NSString stringWithFormat:@"round num:%d",roundIndex]];
+    
+    if (self.pixiePlayer.currentPrecedence>=self.pixiePlayer.currentPrecedence) {
+        
+        
+    }else
+    {
+        
+        [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+
+    }
+    
 }
 
+-(void)roundRotateMoved:(NSString *)nodeName
+{
+    
+    roundActionNum+=1;
+    
+    if(roundActionNum==1)
+    {
+        if ([nodeName isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
+            
+            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+
+        }else
+        {
+            
+        }
+        
+    }else
+    {
+        
+        [self roundRotateEnd];
+        
+    }
+    
+
+    
+}
+-(void)roundRotateEnd
+{
+
+    roundActionNum = 0;
+    roundIndex += 1;
+    [self setRoundNumberLabel:[NSString stringWithFormat:@"%d回合结束",roundIndex]];
+
+    
+}
+-(void)setRoundNumberLabel:(NSString *)text
+{
+    
+        PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
+        if (labelNode) {
+            [labelNode removeFromParent];
+        }
+
+    
+        PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+        additonLabel.name  = @"RoundLabel";
+        additonLabel.fontColor = [UIColor redColor];
+        additonLabel.position = CGPointMake(160.0f, 200.0f);
+        [additonLabel setText:text];
+        [self addChild:additonLabel];
+    
+
+        SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
+        [additonLabel runAction:actionScale completion:^{
+            [additonLabel removeFromParent];
+        }];
+    
+    
+}
 #pragma mark BackAlert
 
 -(void)backButtonClick:(NSString *)backName
@@ -448,7 +557,9 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)didMoveToView:(SKView *)view
 {
-    //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+    
+    [self roundRotateBegin];
+    
 }
 
 -(void)willMoveFromView:(SKView *)view
@@ -519,6 +630,7 @@ CGFloat vectorLength (CGVector vector) {
         [self.ballPlayer.physicsBody applyImpulse:
          CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
                       (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce)];
+        
         
         [_ballShadow removeFromParent];
         _isBallRolling = YES;
@@ -707,12 +819,16 @@ CGFloat vectorLength (CGVector vector) {
     NSLog(@"skillInfo=%@",skillInfo);
     
     [skillNode showSkillAnimate:skillInfo];
+    
+    
+
 }
 
 #pragma mark SkillEndAnimateDelegate
 
 -(void)skillEndEvent:(PPSkill *)skillInfo withSelfName:(NSString *)nodeName
 {
+
     NSLog(@"skillInfo=%@ HP:%f MP:%f",skillInfo,skillInfo.HPChangeValue,skillInfo.MPChangeValue);
     
     if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
@@ -729,6 +845,9 @@ CGFloat vectorLength (CGVector vector) {
             [self.playerSide changeHPValue:skillInfo.HPChangeValue];
         }
     }
+    
+    [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+
 }
 
 @end

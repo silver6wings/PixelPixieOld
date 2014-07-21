@@ -13,7 +13,7 @@
 @property(nonatomic, assign) SEL skillSelector;
 
 //回调方法
-@property(nonatomic, assign) SEL physicsAttackSelector;
+@property(nonatomic, assign) SEL showInfoSelector;
 
 @property(nonatomic, assign) SEL hpBeenZeroSel;
 @property(nonatomic, retain) PPPixie *currentPPPixie;

@@ -57,6 +57,7 @@ typedef NS_ENUM(NSInteger, PPBuffUniversalType)
 };
 
 
+
 // 属性相克数值策划表
 static const float kElementInhibition[kElementTypeMax + 1][kElementTypeMax + 1] = {
     {0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 0.00f},

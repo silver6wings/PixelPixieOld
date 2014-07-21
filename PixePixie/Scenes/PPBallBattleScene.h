@@ -4,8 +4,12 @@
 
 @interface PPBallBattleScene : PPBasicScene <SkillShowEndDelegate>
 {
+    int roundIndex;
+    BOOL roundRuning;
+    int roundActionNum;
     @public
     int currentEnemyIndex;
+    
 }
 
 -(id)initWithSize:(CGSize)size
