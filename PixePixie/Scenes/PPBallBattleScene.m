@@ -251,13 +251,13 @@ CGFloat vectorLength (CGVector vector) {
     [self physicsAttackBegin:PP_PET_PLAYER_SIDE_NODE_NAME];
     
     
-    
     SKLabelNode *skillNameLabel = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     [skillNameLabel setFontSize:20];
     skillNameLabel.fontColor = [UIColor whiteColor];
     skillNameLabel.text = @"弹球攻击";
     skillNameLabel.position = CGPointMake(100.0f,221);
     [self addChild:skillNameLabel];
+    
     
     SKLabelNode *ballsLabel = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     [ballsLabel setFontSize:20];
@@ -266,12 +266,10 @@ CGFloat vectorLength (CGVector vector) {
     ballsLabel.position = CGPointMake(200.0f,221);
     [self addChild:ballsLabel];
     
-    SKAction *action = [SKAction fadeAlphaTo:0.0f duration:5];
     
+    SKAction *action = [SKAction fadeAlphaTo:0.0f duration:5];
     [skillNameLabel runAction:action];
     [ballsLabel runAction:action];
-    
-  
     
 
 }
@@ -281,6 +279,8 @@ CGFloat vectorLength (CGVector vector) {
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
 {
   
+    [self setPlayerSideRoundRunState];
+
     
     NSLog(@"skillInfo=%@",skillInfo);
     
@@ -391,12 +391,13 @@ CGFloat vectorLength (CGVector vector) {
         
     } else {
         
-        NSDictionary *dict = @{@"title":@"宠物死了",@"context":@"你太厉害了"};
+        NSDictionary *dict = @{@"title":@"宠物死了",@"context":@"你太sb了"};
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
         [alertCustom showCustomAlertWithInfo:dict];
         [self addChild:alertCustom];
         
         [self.playerSide removeFromParent];
+        
     }
 
 }
@@ -459,8 +460,11 @@ CGFloat vectorLength (CGVector vector) {
     
     [self setRoundNumberLabel:[NSString stringWithFormat:@"round num:%d",roundIndex]];
     
-    if (self.pixiePlayer.currentPrecedence>=self.pixiePlayer.currentPrecedence) {
+    self.pixiePlayer.currentPrecedence = arc4random()%2-1;
+    self.pixieEnemy.currentPrecedence = 0;
+    if (self.pixiePlayer.currentPrecedence>=self.pixieEnemy.currentPrecedence) {
         
+
         
     }else
     {
@@ -473,6 +477,8 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)roundRotateMoved:(NSString *)nodeName
 {
+    
+    [self setPlayerSideRoundRunState];
     
     roundActionNum+=1;
     
@@ -499,11 +505,12 @@ CGFloat vectorLength (CGVector vector) {
 }
 -(void)roundRotateEnd
 {
-
+  
     roundActionNum = 0;
     roundIndex += 1;
     [self setRoundNumberLabel:[NSString stringWithFormat:@"%d回合结束",roundIndex]];
 
+    [self setPlayerSideRoundEndState];
     
 }
 -(void)setRoundNumberLabel:(NSString *)text
@@ -529,6 +536,17 @@ CGFloat vectorLength (CGVector vector) {
         }];
     
     
+}
+-(void)setPlayerSideRoundRunState
+{
+    
+    [self.playerSide setSideSkillButtonDisable];
+    
+}
+-(void)setPlayerSideRoundEndState
+{
+    [self.playerSide setSideSkillButtonEnable];
+
 }
 #pragma mark BackAlert
 

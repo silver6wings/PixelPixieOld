@@ -22,5 +22,7 @@
 -(void)setSideElementsForPet:(PPPixie *)ppixie;
 -(void)setSideElementsForEnemy:(PPPixie *)ppixie;
 -(void)changeHPValue:(CGFloat)HPValue;
+-(void)setSideSkillButtonDisable;
+-(void)setSideSkillButtonEnable;
 
 @end

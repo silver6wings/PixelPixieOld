@@ -69,7 +69,7 @@
                                                       andImage:@"ball_pixie_plant2.png"
                                                     withTarget:self
                                                   withSelecter:@selector(physicsAttackClick:)];
-    ppixieBtn.position = CGPointMake(-self.size.width/2.0f+ppixieBtn.frame.size.width/2.0f+50.0f, -10.0f);
+    ppixieBtn.position = CGPointMake(0.0f, -10.0f);
     
     [self addChild:ppixieBtn];
     
@@ -97,20 +97,20 @@
     barPlayerHP->target=self;
     barPlayerHP->animateEnd=@selector(animateEnd:);
     barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
-    barPlayerHP.position = CGPointMake(ppixieBtn.position.x+40.0f,15.0);
+    barPlayerHP.position = CGPointMake(-40.0f,15.0);
     [self addChild:barPlayerHP];
     
     
-    for (int i=0; i<[ppixie.pixieSkills count]; i++) {
-        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-                                                              andTitle:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"]
-                                                            withTarget:self
-                                                          withSelecter:@selector(enemyskillClick:)];
-        
-        ppixieSkillBtn.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
-        ppixieSkillBtn.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -30.0f);
-        [self addChild:ppixieSkillBtn];
-    }
+//    for (int i=0; i<[ppixie.pixieSkills count]; i++) {
+//        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
+//                                                              andTitle:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"]
+//                                                            withTarget:self
+//                                                          withSelecter:@selector(enemyskillClick:)];
+//        
+//        ppixieSkillBtn.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
+//        ppixieSkillBtn.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -30.0f);
+//        [self addChild:ppixieSkillBtn];
+//    }
 }
 
 -(void)physicsAttackClick:(PPCustomButton *)sender
@@ -139,6 +139,24 @@
     {
         [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
     }
+}
+-(void)setSideSkillButtonDisable
+{
+    for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
+       PPCustomButton *ppixieSkillBtn  =(PPCustomButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
+        [ppixieSkillBtn setStrokeColor:[UIColor redColor]];
+        ppixieSkillBtn.userInteractionEnabled = NO;
+    }
+}
+-(void)setSideSkillButtonEnable
+{
+    
+    for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
+        PPCustomButton *ppixieSkillBtn  =(PPCustomButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
+        [ppixieSkillBtn setStrokeColor:[UIColor clearColor]];
+        ppixieSkillBtn.userInteractionEnabled = YES;
+    }
+    
 }
 
 -(void)animateEnd:(NSNumber *)currentHp
