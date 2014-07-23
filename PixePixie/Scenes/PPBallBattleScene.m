@@ -216,6 +216,8 @@ CGFloat vectorLength (CGVector vector) {
          andDexterity:self.playerSide.currentPPPixie.currentDEX];
          */
         
+        [self setPlayerSideRoundRunState];
+        
         PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"EnemyPhysics"];
         if (labelNode) {
             [labelNode removeFromParent];
@@ -385,9 +387,9 @@ CGFloat vectorLength (CGVector vector) {
         [enemyDeadContent addChild:textContentLabel];
         
 
-        [self performSelectorOnMainThread:@selector(goNextEnemy) withObject:nil afterDelay:1];
+//        [self performSelectorOnMainThread:@selector(goNextEnemy) withObject:nil afterDelay:3];
 
-        
+        [self goNextEnemy];
         
     } else {
         
@@ -457,21 +459,10 @@ CGFloat vectorLength (CGVector vector) {
 {
     
     roundActionNum = 0;
+    //随机怪物先攻击还是人物先开始攻击
+    [self startBattle:@"战斗开始"];
     
-    [self setRoundNumberLabel:[NSString stringWithFormat:@"round num:%d",roundIndex]];
-    
-    self.pixiePlayer.currentPrecedence = arc4random()%2-1;
-    self.pixieEnemy.currentPrecedence = 0;
-    if (self.pixiePlayer.currentPrecedence>=self.pixieEnemy.currentPrecedence) {
-        
 
-        
-    }else
-    {
-        
-        [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-
-    }
     
 }
 
@@ -490,7 +481,7 @@ CGFloat vectorLength (CGVector vector) {
 
         }else
         {
-            
+            [self setPlayerSideRoundEndState];
         }
         
     }else
@@ -508,12 +499,12 @@ CGFloat vectorLength (CGVector vector) {
   
     roundActionNum = 0;
     roundIndex += 1;
-    [self setRoundNumberLabel:[NSString stringWithFormat:@"%d回合结束",roundIndex]];
+    [self setRoundEndNumberLabel:[NSString stringWithFormat:@"%d回合结束",roundIndex]];
 
     [self setPlayerSideRoundEndState];
     
 }
--(void)setRoundNumberLabel:(NSString *)text
+-(void)startBattle:(NSString *)text
 {
     
         PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
@@ -524,7 +515,7 @@ CGFloat vectorLength (CGVector vector) {
     
         PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
         additonLabel.name  = @"RoundLabel";
-        additonLabel.fontColor = [UIColor redColor];
+        additonLabel.fontColor = [UIColor yellowColor];
         additonLabel.position = CGPointMake(160.0f, 200.0f);
         [additonLabel setText:text];
         [self addChild:additonLabel];
@@ -533,7 +524,46 @@ CGFloat vectorLength (CGVector vector) {
         SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
         [additonLabel runAction:actionScale completion:^{
             [additonLabel removeFromParent];
+            
+        
+            if (arc4random()%2==0) {
+                
+                
+                
+            }else
+            {
+
+                [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+                
+            }
+            
+            
         }];
+    
+    
+}
+-(void)setRoundEndNumberLabel:(NSString *)text
+{
+    
+    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
+    if (labelNode) {
+        [labelNode removeFromParent];
+    }
+    
+    
+    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+    additonLabel.name  = @"RoundLabel";
+    additonLabel.fontColor = [UIColor redColor];
+    additonLabel.position = CGPointMake(160.0f, 200.0f);
+    [additonLabel setText:text];
+    [self addChild:additonLabel];
+    
+    
+    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
+    [additonLabel runAction:actionScale completion:^{
+        [additonLabel removeFromParent];
+        
+    }];
     
     
 }
@@ -575,9 +605,8 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)didMoveToView:(SKView *)view
 {
-    
-    [self roundRotateBegin];
-    
+    [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:2];
+    [self setPlayerSideRoundRunState];
 }
 
 -(void)willMoveFromView:(SKView *)view

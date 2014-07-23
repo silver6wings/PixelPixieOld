@@ -1,5 +1,9 @@
 #import "PPMenuDungeonScene.h"
-
+@interface PPMenuDungeonScene()
+{
+    PPHurdleReadyScene * battleScene;
+}
+@end
 @implementation PPMenuDungeonScene
 @synthesize passDictInfo;
 
@@ -18,6 +22,9 @@
             [passButton addTarget:self selector:@selector(menuDungeonGoForward:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
             [self addChild:passButton];
             
+            
+           
+           
         }
     }
    
@@ -105,7 +112,12 @@
                                 [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
     
     
-    PPHurdleReadyScene * battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
+//    PPHurdleReadyScene * battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
+//    battleScene.allEnemys = dictEnemy;
+//    battleScene->previousScene = self;
+//    [battleScene setEnemysArray];
+//    [battleScene setCurrentHurdle:0];
+      battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
     battleScene.allEnemys = dictEnemy;
     battleScene->previousScene = self;
     [battleScene setEnemysArray];
