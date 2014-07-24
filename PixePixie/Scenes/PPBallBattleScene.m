@@ -49,7 +49,7 @@ CGFloat vectorLength (CGVector vector) {
 @end
 
 @implementation PPBallBattleScene
-
+@synthesize hurdleReady;
 -(id)initWithSize:(CGSize)size
       PixiePlayer:(PPPixie *)pixieA
        PixieEnemy:(PPPixie *)pixieB
@@ -353,23 +353,24 @@ CGFloat vectorLength (CGVector vector) {
     NSLog(@"skillInfo=%@",skillInfo);
     [self showEnemySkillEventBegin:skillInfo];
     [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
-
+    
 }
 
 // 战斗结束过程
 -(void)hpBeenZeroMethod:(PPBattleSideNode *)battleside
 {
- 
+    
     if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
     {
 
         PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
         [enemyDeadContent setPosition:CGPointMake(160.0f, 300)];
         [self addChild:enemyDeadContent];
-        
+
         
         NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],
                                     @"context":@"请干下一个怪物"};
+        
         
         SKLabelNode * titleNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
         titleNameLabel.fontSize = 13;
@@ -378,18 +379,17 @@ CGFloat vectorLength (CGVector vector) {
         titleNameLabel.position = CGPointMake(0.0f,50);
         [enemyDeadContent addChild:titleNameLabel];
         
+        
         SKLabelNode * textContentLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
         textContentLabel.fontColor = [UIColor blueColor];
         textContentLabel.text = [alertInfo objectForKey:@"context"];
         textContentLabel.fontSize = 13;
-        
         textContentLabel.position = CGPointMake(0.0f,-50);
         [enemyDeadContent addChild:textContentLabel];
+
         
+        [self performSelectorOnMainThread:@selector(goNextEnemy) withObject:nil afterDelay:2];
 
-//        [self performSelectorOnMainThread:@selector(goNextEnemy) withObject:nil afterDelay:3];
-
-        [self goNextEnemy];
         
     } else {
         
@@ -406,8 +406,8 @@ CGFloat vectorLength (CGVector vector) {
 -(void)goNextEnemy
 {
     
-    [(PPHurdleReadyScene *)self->previousScene setCurrentHurdle:currentEnemyIndex];
-    [self.view presentScene:self->previousScene transition:[SKTransition doorwayWithDuration:1]];
+    [self.hurdleReady setCurrentHurdle:currentEnemyIndex];
+    [self.view presentScene:self.hurdleReady transition:[SKTransition doorwayWithDuration:1]];
     
 }
 -(void)addEnemySide:(CGFloat)direct
@@ -528,13 +528,18 @@ CGFloat vectorLength (CGVector vector) {
         
             if (arc4random()%2==0) {
                 
-                
+                [self setPlayerSideRoundEndState];
                 
             }else
             {
-
-                [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
                 
+                 [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+//                    if (arc4random()%2==0) {
+//                                    [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+//                    }else
+//                    {
+//                        
+//                    }
             }
             
             
@@ -582,7 +587,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)backButtonClick:(NSString *)backName
 {
-    [self.view presentScene:self->previousScene transition:[SKTransition doorsOpenVerticalWithDuration:1]];
+    [self.view presentScene:self.hurdleReady transition:[SKTransition doorsOpenVerticalWithDuration:1]];
 
 //    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
 //                                                      message:@"退出战斗会导致体力损失。确认退出战斗吗？"
@@ -846,6 +851,10 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)showEnemySkillEventBegin:(NSDictionary *)skillInfo
 {
+    
+    [self setPlayerSideRoundRunState];
+    
+    
     PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
     skillNode.delegate = self;
@@ -854,6 +863,7 @@ CGFloat vectorLength (CGVector vector) {
     
     NSLog(@"skillInfo=%@",skillInfo);
     [skillNode showSkillAnimate:skillInfo];
+    
 }
 
 -(void)showSkillEventBegin:(NSDictionary *)skillInfo
