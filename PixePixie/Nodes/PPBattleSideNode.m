@@ -51,15 +51,26 @@
     
     for (int i = 0; i < [ppixie.pixieSkills count]; i++) {
         
-        PPCustomButton *ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-                                                              andTitle:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"]
-                                                            withTarget:self
-                                                          withSelecter:@selector(skillClick:)];
-        ppixieSkillBtn.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
-        ppixieSkillBtn.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -30.0f);
-        [self addChild:ppixieSkillBtn];
+        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 30)];
+        
+        [passButton setLabelWithText:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+        passButton.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -10.0f);
+        
+        passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
+        [passButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+        [self addChild:passButton];
+        
+        
+//        PPCustomButton *ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
+//                                                              andTitle:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"]
+//                                                            withTarget:self
+//                                                          withSelecter:@selector(skillClick:)];
+//        ppixieSkillBtn.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
+//        ppixieSkillBtn.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -30.0f);
+//        [self addChild:ppixieSkillBtn];
         
     }
+    
 }
 
 -(void)setSideElementsForEnemy:(PPPixie *)ppixie
@@ -122,9 +133,9 @@
     }
 }
 
--(void)skillClick:(PPCustomButton *)sender
+-(void)skillClick:(NSString *)senderName
 {
-    NSDictionary *skillChoosed = [self.currentPPPixie.pixieSkills objectAtIndex:[sender.name intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
+    NSDictionary *skillChoosed = [self.currentPPPixie.pixieSkills objectAtIndex:[senderName intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
     
     if (self.target!=nil && self.skillSelector!=nil && [self.target respondsToSelector:self.skillSelector])
     {
@@ -143,8 +154,8 @@
 -(void)setSideSkillButtonDisable
 {
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
-       PPCustomButton *ppixieSkillBtn  =(PPCustomButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
-        [ppixieSkillBtn setStrokeColor:[UIColor redColor]];
+       PPSpriteButton *ppixieSkillBtn  =(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
+        [ppixieSkillBtn setColor:[UIColor redColor]];
         ppixieSkillBtn.userInteractionEnabled = NO;
     }
 }
@@ -152,8 +163,8 @@
 {
     
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
-        PPCustomButton *ppixieSkillBtn  =(PPCustomButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
-        [ppixieSkillBtn setStrokeColor:[UIColor clearColor]];
+        PPSpriteButton *ppixieSkillBtn  =(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
+        [ppixieSkillBtn setColor:[UIColor orangeColor]];
         ppixieSkillBtn.userInteractionEnabled = YES;
     }
     

@@ -368,8 +368,7 @@ CGFloat vectorLength (CGVector vector) {
         [self addChild:enemyDeadContent];
 
         
-        NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],
-                                    @"context":@"请干下一个怪物"};
+        NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"请干下一个怪物"};
         
         
         SKLabelNode * titleNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
