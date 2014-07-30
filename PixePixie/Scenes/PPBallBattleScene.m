@@ -29,7 +29,9 @@ CGFloat vectorLength (CGVector vector) {
 };
 
 @interface PPBallBattleScene () < SKPhysicsContactDelegate, UIAlertViewDelegate >
-
+{
+    BOOL isNotSkillRun;
+}
 @property (nonatomic, retain) PPPixie * pixiePlayer;
 @property (nonatomic, retain) PPPixie * pixieEnemy;
 
@@ -90,6 +92,7 @@ CGFloat vectorLength (CGVector vector) {
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
             [_trapFrames addObject:temp];
         }
+        
         
         self.playerSide = [[PPBattleSideNode alloc] init];
         self.playerSide.position= CGPointMake(self.size.width/2.0f, 30 + sizeFitFor5);
@@ -573,12 +576,13 @@ CGFloat vectorLength (CGVector vector) {
 }
 -(void)setPlayerSideRoundRunState
 {
-    
+    isNotSkillRun = YES;
     [self.playerSide setSideSkillButtonDisable];
     
 }
 -(void)setPlayerSideRoundEndState
 {
+    isNotSkillRun = NO;
     [self.playerSide setSideSkillButtonEnable];
 
 }
@@ -620,7 +624,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (touches.count > 1 || _isBallDragging || _isBallRolling) return;
+    if (touches.count > 1 || _isBallDragging || _isBallRolling || isNotSkillRun) return;
     
     UITouch * touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];

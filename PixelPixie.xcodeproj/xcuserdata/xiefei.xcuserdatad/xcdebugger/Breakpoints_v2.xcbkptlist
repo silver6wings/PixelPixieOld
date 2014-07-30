@@ -52,12 +52,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Nodes/PPBattleSideNode.m"
-            timestampString = "428245516.762387"
+            timestampString = "428331593.530865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-setSideSkillButtonDisable"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-enemyskillClick:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PixePixie/Models/PPBall.m"
+            timestampString = "428334387.64098"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-setToDefaultTexture"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

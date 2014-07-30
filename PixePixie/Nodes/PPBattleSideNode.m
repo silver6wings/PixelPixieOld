@@ -55,19 +55,10 @@
         
         [passButton setLabelWithText:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
         passButton.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -10.0f);
-        
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         [passButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
         
-        
-//        PPCustomButton *ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-//                                                              andTitle:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"]
-//                                                            withTarget:self
-//                                                          withSelecter:@selector(skillClick:)];
-//        ppixieSkillBtn.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
-//        ppixieSkillBtn.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -30.0f);
-//        [self addChild:ppixieSkillBtn];
         
     }
     
@@ -84,7 +75,6 @@
     
     [self addChild:ppixieBtn];
     
-    
     PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
     ppixieBtnLabel.fontSize = 10;
     NSLog(@"pixieName=%@",ppixie.pixieName);
@@ -92,7 +82,9 @@
     ppixieBtnLabel.position = CGPointMake(0, 0);
     [ppixieBtn addChild:ppixieBtnLabel];
     
+    
     self.currentPPPixieEnemy = ppixie;
+    
     
     PPBasicLabelNode *ppixieNameLabel=[[PPBasicLabelNode alloc] init];
     ppixieNameLabel.fontSize=12;
@@ -101,6 +93,7 @@
     [ppixieNameLabel setText:ppixie.pixieName];
     ppixieNameLabel.position = CGPointMake(ppixieBtn.position.x, ppixieBtn.position.y+15);
     [self addChild:ppixieNameLabel];
+    
     
     // 添加 HP bar
     barPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
@@ -122,6 +115,8 @@
 //        ppixieSkillBtn.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -30.0f);
 //        [self addChild:ppixieSkillBtn];
 //    }
+    
+    
 }
 
 -(void)physicsAttackClick:(PPCustomButton *)sender
