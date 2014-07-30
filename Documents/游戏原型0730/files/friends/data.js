@@ -1,0 +1,2707 @@
+﻿$axure.loadCurrentPage({
+  "url":"friends.html",
+  "generationDate":new Date(1406724390897.62),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable"],
+  "page":{
+    "packageId":"bf2e7278b189405985e65e8cf9a3fe3e",
+    "type":"Axure:Page",
+    "name":"Friends",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"应用字体",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"115f907faf3a4212818328ef4fb9e44d",
+          "label":"手机",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "size":{
+              "width":754,
+              "height":1478}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"49442bda98ed4a828c6bd7f705c8addd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "size":{
+                  "width":754,
+                  "height":1478}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/手机_u0.png"}},
+{
+          "id":"71bf53d145ce4d258fc44f9e8af7f044",
+          "label":"",
+          "type":"inlineFrame",
+          "styleType":"inlineFrame",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":60,
+              "y":260},
+            "size":{
+              "width":640,
+              "height":960}},
+          "adaptiveStyles":{
+},
+          "target":{
+            "targetType":"webUrl",
+            "urlLiteral":{
+              "exprType":"stringLiteral",
+              "value":"",
+              "stos":[]},
+            "includeVariables":false}},
+{
+          "id":"02308b426f2b43fbbdce2c4cf9a82363",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":60,
+              "y":260},
+            "size":{
+              "width":640,
+              "height":100}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"3efcd92381284a68b2aa0467acfc8146",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":60,
+                  "y":260},
+                "size":{
+                  "width":640,
+                  "height":100}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/u3.png"}},
+{
+          "id":"59b49d2f0b1d4636af43f9c1b594c768",
+          "label":"name",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":75,
+              "y":270},
+            "size":{
+              "width":210,
+              "height":30}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"388e0319799243109fd1d37b482d77da",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":75,
+                  "y":270},
+                "size":{
+                  "width":210,
+                  "height":30}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/name_u5.png"}},
+{
+          "id":"0e716f30b0754b1fb72c0896010b0c7c",
+          "label":"coin",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":75,
+              "y":320},
+            "size":{
+              "width":210,
+              "height":30}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"933a45c69509439e95348a84d12ade2f",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":75,
+                  "y":320},
+                "size":{
+                  "width":210,
+                  "height":30}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/name_u5.png"}},
+{
+          "id":"1730c3b9937649a8bf2f2aa212da8580",
+          "label":"tips",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":300,
+              "y":270},
+            "size":{
+              "width":210,
+              "height":30}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"bf8033fba3fb45998feff1bdbf875f8b",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":300,
+                  "y":270},
+                "size":{
+                  "width":210,
+                  "height":30}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/name_u5.png"}},
+{
+          "id":"34676bc26e9c4b368f9e22c96bc86d12",
+          "label":"magic stone",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":300,
+              "y":320},
+            "size":{
+              "width":210,
+              "height":30}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"beddb423a0944d67a568b19d68feb133",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":300,
+                  "y":320},
+                "size":{
+                  "width":210,
+                  "height":30}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1<br> (If visibility of shopping bar equals false and visibility of shopping bar option 1 equals false and visibility of shopping bar option 2 equals false and visibility of shopping&nbsp; bar option 3 equals false)",
+                  "isNewIfGroup":true,
+                  "condition":{
+                    "exprType":"binaryOp",
+                    "op":"&&",
+                    "leftExpr":{
+                      "exprType":"binaryOp",
+                      "op":"==",
+                      "leftExpr":{
+                        "exprType":"fcall",
+                        "functionName":"GetWidgetVisibility",
+                        "arguments":[{
+                            "exprType":"pathLiteral",
+                            "isThis":false,
+                            "isFocused":false,
+                            "isTarget":false,
+                            "value":["25ec19a28c7744728ad0de069038b9ca"]}]},
+                      "rightExpr":{
+                        "exprType":"booleanLiteral",
+                        "value":false}},
+                    "rightExpr":{
+                      "exprType":"binaryOp",
+                      "op":"&&",
+                      "leftExpr":{
+                        "exprType":"binaryOp",
+                        "op":"==",
+                        "leftExpr":{
+                          "exprType":"fcall",
+                          "functionName":"GetWidgetVisibility",
+                          "arguments":[{
+                              "exprType":"pathLiteral",
+                              "isThis":false,
+                              "isFocused":false,
+                              "isTarget":false,
+                              "value":["0639f3573115435e864d84df1f81802b"]}]},
+                        "rightExpr":{
+                          "exprType":"booleanLiteral",
+                          "value":false}},
+                      "rightExpr":{
+                        "exprType":"binaryOp",
+                        "op":"&&",
+                        "leftExpr":{
+                          "exprType":"binaryOp",
+                          "op":"==",
+                          "leftExpr":{
+                            "exprType":"fcall",
+                            "functionName":"GetWidgetVisibility",
+                            "arguments":[{
+                                "exprType":"pathLiteral",
+                                "isThis":false,
+                                "isFocused":false,
+                                "isTarget":false,
+                                "value":["6f7fba5a795346079703d0ab05bacc0d"]}]},
+                          "rightExpr":{
+                            "exprType":"booleanLiteral",
+                            "value":false}},
+                        "rightExpr":{
+                          "exprType":"binaryOp",
+                          "op":"==",
+                          "leftExpr":{
+                            "exprType":"fcall",
+                            "functionName":"GetWidgetVisibility",
+                            "arguments":[{
+                                "exprType":"pathLiteral",
+                                "isThis":false,
+                                "isFocused":false,
+                                "isTarget":false,
+                                "value":["2bd36408615f46a6bc227ccb20e7e2ce"]}]},
+                          "rightExpr":{
+                            "exprType":"booleanLiteral",
+                            "value":false}}}}},
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"Show shopping bar,<br>shopping bar option 1,<br>shopping bar option 2,<br>shopping&nbsp; bar option 3",
+                      "objectsToFades":[{
+                          "objectPath":["25ec19a28c7744728ad0de069038b9ca"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["0639f3573115435e864d84df1f81802b"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["6f7fba5a795346079703d0ab05bacc0d"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["2bd36408615f46a6bc227ccb20e7e2ce"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}}]}]},
+{
+                  "description":"用例 2<br> (Else If visibility of shopping bar equals true and visibility of shopping bar option 1 equals true and visibility of shopping bar option 2 equals true and visibility of shopping&nbsp; bar option 3 equals true)",
+                  "isNewIfGroup":false,
+                  "condition":{
+                    "exprType":"binaryOp",
+                    "op":"&&",
+                    "leftExpr":{
+                      "exprType":"binaryOp",
+                      "op":"==",
+                      "leftExpr":{
+                        "exprType":"fcall",
+                        "functionName":"GetWidgetVisibility",
+                        "arguments":[{
+                            "exprType":"pathLiteral",
+                            "isThis":false,
+                            "isFocused":false,
+                            "isTarget":false,
+                            "value":["25ec19a28c7744728ad0de069038b9ca"]}]},
+                      "rightExpr":{
+                        "exprType":"booleanLiteral",
+                        "value":true}},
+                    "rightExpr":{
+                      "exprType":"binaryOp",
+                      "op":"&&",
+                      "leftExpr":{
+                        "exprType":"binaryOp",
+                        "op":"==",
+                        "leftExpr":{
+                          "exprType":"fcall",
+                          "functionName":"GetWidgetVisibility",
+                          "arguments":[{
+                              "exprType":"pathLiteral",
+                              "isThis":false,
+                              "isFocused":false,
+                              "isTarget":false,
+                              "value":["0639f3573115435e864d84df1f81802b"]}]},
+                        "rightExpr":{
+                          "exprType":"booleanLiteral",
+                          "value":true}},
+                      "rightExpr":{
+                        "exprType":"binaryOp",
+                        "op":"&&",
+                        "leftExpr":{
+                          "exprType":"binaryOp",
+                          "op":"==",
+                          "leftExpr":{
+                            "exprType":"fcall",
+                            "functionName":"GetWidgetVisibility",
+                            "arguments":[{
+                                "exprType":"pathLiteral",
+                                "isThis":false,
+                                "isFocused":false,
+                                "isTarget":false,
+                                "value":["6f7fba5a795346079703d0ab05bacc0d"]}]},
+                          "rightExpr":{
+                            "exprType":"booleanLiteral",
+                            "value":true}},
+                        "rightExpr":{
+                          "exprType":"binaryOp",
+                          "op":"==",
+                          "leftExpr":{
+                            "exprType":"fcall",
+                            "functionName":"GetWidgetVisibility",
+                            "arguments":[{
+                                "exprType":"pathLiteral",
+                                "isThis":false,
+                                "isFocused":false,
+                                "isTarget":false,
+                                "value":["2bd36408615f46a6bc227ccb20e7e2ce"]}]},
+                          "rightExpr":{
+                            "exprType":"booleanLiteral",
+                            "value":true}}}}},
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"Hide shopping bar,<br>shopping bar option 1,<br>shopping bar option 2,<br>shopping&nbsp; bar option 3",
+                      "objectsToFades":[{
+                          "objectPath":["25ec19a28c7744728ad0de069038b9ca"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["0639f3573115435e864d84df1f81802b"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["6f7fba5a795346079703d0ab05bacc0d"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["2bd36408615f46a6bc227ccb20e7e2ce"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}}]}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/name_u5.png"}},
+{
+          "id":"ed501b765e224daf80fcdf8681e23d9e",
+          "label":"add more magic stone",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":480,
+              "y":320},
+            "size":{
+              "width":30,
+              "height":30}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"55217d86e2c34deca49718cd3c309043",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":480,
+                  "y":320},
+                "size":{
+                  "width":30,
+                  "height":30}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/add_more_magic_stone_u13.png"}},
+{
+          "id":"b12348cb66f94dccb3362f2a36cdbe23",
+          "label":"friends",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":525,
+              "y":270},
+            "size":{
+              "width":160,
+              "height":80}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"f5f24403cb8a453d9b5124e77ea20512",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":525,
+                  "y":270},
+                "size":{
+                  "width":160,
+                  "height":80}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open Friends in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"friends.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/friends_u15.png"}},
+{
+          "id":"a2e43479a4b5432ea14a53e6bc1e739f",
+          "label":"actor scene",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":60,
+              "y":360},
+            "size":{
+              "width":640,
+              "height":730}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"050a55908d5846e28faea53a3b481dd1",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":60,
+                  "y":360},
+                "size":{
+                  "width":640,
+                  "height":730}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/actor_scene_u17.png"}},
+{
+          "id":"402a8ab8802e4c5db281ac7e8ae83e4a",
+          "label":"optional bar",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":60,
+              "y":1090},
+            "size":{
+              "width":640,
+              "height":130}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"a6b73491537047539502e65b53c3a67d",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":60,
+                  "y":1090},
+                "size":{
+                  "width":640,
+                  "height":130}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/optional_bar_u19.png"}},
+{
+          "id":"a3546a77032f4e14ad10813b105ad8e6",
+          "label":"monster",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":75,
+              "y":1100},
+            "size":{
+              "width":110,
+              "height":110}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"598fff3917634ec29806e76c681ec759",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":75,
+                  "y":1100},
+                "size":{
+                  "width":110,
+                  "height":110}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open monster in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"monster.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/monster_u21.png"}},
+{
+          "id":"32d3416cc1bd4d8ba89fd1ffcb8b5e88",
+          "label":"knapsack",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":200,
+              "y":1100},
+            "size":{
+              "width":110,
+              "height":110}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"07605281390949799a13163b05ce481b",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":200,
+                  "y":1100},
+                "size":{
+                  "width":110,
+                  "height":110}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open knapsack in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"knapsack.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/monster_u21.png"}},
+{
+          "id":"ed27b13ac4234940865a2b542df9444f",
+          "label":"fighting",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":325,
+              "y":1100},
+            "size":{
+              "width":110,
+              "height":110}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"513484ca83c843cfb6c81313a2f19ac5",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":325,
+                  "y":1100},
+                "size":{
+                  "width":110,
+                  "height":110}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open fighting in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"fighting.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/monster_u21.png"}},
+{
+          "id":"d799ea9592c746debcc1b1edfb5d007a",
+          "label":"schedule",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":450,
+              "y":1100},
+            "size":{
+              "width":110,
+              "height":110}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"af68a9c62bd4483ba19480dd5a4f23c0",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":450,
+                  "y":1100},
+                "size":{
+                  "width":110,
+                  "height":110}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open schedule in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"schedule.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/monster_u21.png"}},
+{
+          "id":"dc98b814d4b241609283c553036f609d",
+          "label":"others",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":574,
+              "y":1100},
+            "size":{
+              "width":110,
+              "height":110}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"620c9e90c50f472c800b1297686d3b54",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":574,
+                  "y":1100},
+                "size":{
+                  "width":110,
+                  "height":110}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open others in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"others.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/monster_u21.png"}},
+{
+          "id":"f04b33b0138446c1b72ce56e75d07fd8",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":1125,
+              "y":545},
+            "size":{
+              "width":15,
+              "height":100}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"f1739187973a4423b2e14dbc88c36986",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":1125,
+                  "y":545},
+                "size":{
+                  "width":15,
+                  "height":100}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/u35.png"}},
+{
+          "id":"a6834ae9678542cda6185b6979713aa8",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":1100,
+              "y":845},
+            "size":{
+              "width":200,
+              "height":15}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"2db78cb44512441d914a745b55a0d608",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":1100,
+                  "y":845},
+                "size":{
+                  "width":200,
+                  "height":15}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/u37.png"}},
+{
+          "id":"e89441d9db4e4f8280bf225cc89e2fc9",
+          "label":"Friends list",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":60,
+              "y":370},
+            "size":{
+              "width":300,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"ed28549a9ea541ff84d2ec13f38719c8",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":60,
+                  "y":370},
+                "size":{
+                  "width":300,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/world_boss/friends_list_u31.png"}},
+{
+          "id":"b91f4ac8fe954026a2ca251ff4d9c62c",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":1050,
+              "y":1050},
+            "size":{
+              "width":200,
+              "height":10}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"9b04698b55e644b4ac1e7f02755dde83",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":1050,
+                  "y":1050},
+                "size":{
+                  "width":200,
+                  "height":10}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u37.png"}},
+{
+          "id":"0f054453de4d42029bcf9b33ad49eb45",
+          "label":"Friends option",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":75,
+              "y":445},
+            "size":{
+              "width":300,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b487737084854ec0bf48cc0bfbf23124",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":75,
+                  "y":445},
+                "size":{
+                  "width":300,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"Show friend list bar ,<br>friend example 1,<br>(Shape),<br>(Shape),<br>(Shape),<br>friend example 2,<br>(Shape),<br>(Shape),<br>(Shape),<br>Hide stranger list bar ,<br>stranger example 1,<br>(Shape),<br>(Shape),<br>(Shape),<br>(Shape),<br>stranger example 2,<br>(Shape),<br>(Shape),<br>(Shape),<br>(Shape)",
+                      "objectsToFades":[{
+                          "objectPath":["170ca86883cd46998420d74eafdfd887"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["4559e22fe8494ca49e1b027057275984"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["f17c70ea488b446c9479138c19799118"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["6e35f3879bb343158d4d54f9142451f5"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["1b6040edfb2c49fc9c794e278218f8be"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["207f63e896294bd080b7ff3affcdab7a"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["b088788dce9545f0b115dcb4aa3df3e5"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["186bd652941b417baa6246c874528ddf"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["7f66698265a6436ca9c9a8bde6c84849"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["06e311b5035d4c0e87ec0ecbe39134d8"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["923a55e3505d4171b50a2c0a17da6798"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["8894b07560f44d58a6df13971f20d6ec"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["ea3297cf4056470594715750623b5bcd"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["7ff37d43dd9444678ea93d7462a95bb0"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["de2414e1d8254be693f121e0ff457642"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["30a22d6e3c47497fa0541b0736087924"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["0f2479e5e4b34a1b8b9fc85280a4bc7f"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["ace9755c6bd24c4698ec1bbe287919e6"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["35f7e9e9bc01494d8a0997ab41ed4356"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["888d167f11274e9d9f8b63b17ca8c0f9"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}}]}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/world_boss/friends_list_u31.png"}},
+{
+          "id":"855374cb33d7471ab08a5e4192093370",
+          "label":"stranger option",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":385,
+              "y":445},
+            "size":{
+              "width":300,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"2d6a46e044014db28b21b39837284140",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":385,
+                  "y":445},
+                "size":{
+                  "width":300,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1<br> (If visibility of stranger list bar&nbsp; equals false and visibility of stranger example 1 equals false and visibility of (Shape) equals false and visibility of (Shape) equals false and visibility of (Shape) equals false)",
+                  "isNewIfGroup":false,
+                  "condition":{
+                    "exprType":"binaryOp",
+                    "op":"&&",
+                    "leftExpr":{
+                      "exprType":"binaryOp",
+                      "op":"==",
+                      "leftExpr":{
+                        "exprType":"fcall",
+                        "functionName":"GetWidgetVisibility",
+                        "arguments":[{
+                            "exprType":"pathLiteral",
+                            "isThis":false,
+                            "isFocused":false,
+                            "isTarget":false,
+                            "value":["06e311b5035d4c0e87ec0ecbe39134d8"]}]},
+                      "rightExpr":{
+                        "exprType":"booleanLiteral",
+                        "value":false}},
+                    "rightExpr":{
+                      "exprType":"binaryOp",
+                      "op":"&&",
+                      "leftExpr":{
+                        "exprType":"binaryOp",
+                        "op":"==",
+                        "leftExpr":{
+                          "exprType":"fcall",
+                          "functionName":"GetWidgetVisibility",
+                          "arguments":[{
+                              "exprType":"pathLiteral",
+                              "isThis":false,
+                              "isFocused":false,
+                              "isTarget":false,
+                              "value":["923a55e3505d4171b50a2c0a17da6798"]}]},
+                        "rightExpr":{
+                          "exprType":"booleanLiteral",
+                          "value":false}},
+                      "rightExpr":{
+                        "exprType":"binaryOp",
+                        "op":"&&",
+                        "leftExpr":{
+                          "exprType":"binaryOp",
+                          "op":"==",
+                          "leftExpr":{
+                            "exprType":"fcall",
+                            "functionName":"GetWidgetVisibility",
+                            "arguments":[{
+                                "exprType":"pathLiteral",
+                                "isThis":false,
+                                "isFocused":false,
+                                "isTarget":false,
+                                "value":["8894b07560f44d58a6df13971f20d6ec"]}]},
+                          "rightExpr":{
+                            "exprType":"booleanLiteral",
+                            "value":false}},
+                        "rightExpr":{
+                          "exprType":"binaryOp",
+                          "op":"&&",
+                          "leftExpr":{
+                            "exprType":"binaryOp",
+                            "op":"==",
+                            "leftExpr":{
+                              "exprType":"fcall",
+                              "functionName":"GetWidgetVisibility",
+                              "arguments":[{
+                                  "exprType":"pathLiteral",
+                                  "isThis":false,
+                                  "isFocused":false,
+                                  "isTarget":false,
+                                  "value":["ea3297cf4056470594715750623b5bcd"]}]},
+                            "rightExpr":{
+                              "exprType":"booleanLiteral",
+                              "value":false}},
+                          "rightExpr":{
+                            "exprType":"binaryOp",
+                            "op":"==",
+                            "leftExpr":{
+                              "exprType":"fcall",
+                              "functionName":"GetWidgetVisibility",
+                              "arguments":[{
+                                  "exprType":"pathLiteral",
+                                  "isThis":false,
+                                  "isFocused":false,
+                                  "isTarget":false,
+                                  "value":["de2414e1d8254be693f121e0ff457642"]}]},
+                            "rightExpr":{
+                              "exprType":"booleanLiteral",
+                              "value":false}}}}}},
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"Show stranger example 1,<br>stranger list bar ,<br>(Shape),<br>(Shape),<br>(Shape),<br>(Shape),<br>stranger example 2,<br>(Shape),<br>(Shape),<br>(Shape),<br>(Shape),<br>Hide friend list bar ,<br>friend example 1,<br>(Shape),<br>(Shape),<br>(Shape),<br>friend example 2,<br>(Shape),<br>(Shape),<br>(Shape)",
+                      "objectsToFades":[{
+                          "objectPath":["923a55e3505d4171b50a2c0a17da6798"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["06e311b5035d4c0e87ec0ecbe39134d8"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["8894b07560f44d58a6df13971f20d6ec"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["ea3297cf4056470594715750623b5bcd"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["7ff37d43dd9444678ea93d7462a95bb0"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["de2414e1d8254be693f121e0ff457642"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["30a22d6e3c47497fa0541b0736087924"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["0f2479e5e4b34a1b8b9fc85280a4bc7f"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["35f7e9e9bc01494d8a0997ab41ed4356"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["ace9755c6bd24c4698ec1bbe287919e6"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["888d167f11274e9d9f8b63b17ca8c0f9"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["170ca86883cd46998420d74eafdfd887"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["4559e22fe8494ca49e1b027057275984"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["f17c70ea488b446c9479138c19799118"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["6e35f3879bb343158d4d54f9142451f5"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["1b6040edfb2c49fc9c794e278218f8be"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["207f63e896294bd080b7ff3affcdab7a"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["b088788dce9545f0b115dcb4aa3df3e5"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["186bd652941b417baa6246c874528ddf"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["7f66698265a6436ca9c9a8bde6c84849"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}}]}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/world_boss/friends_list_u31.png"}},
+{
+          "id":"170ca86883cd46998420d74eafdfd887",
+          "label":"friend list bar ",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":75,
+              "y":505},
+            "size":{
+              "width":610,
+              "height":570}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"d2fbeee713fa4aa58312db138223d1cf",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":75,
+                  "y":505},
+                "size":{
+                  "width":610,
+                  "height":570}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/world_boss/friend_list_bar__u37.png"}},
+{
+          "id":"c82deb6f3fd241d5b633898c711af33f",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":375,
+              "y":445},
+            "size":{
+              "width":10,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"3d7c9ca0f22e446f8deb696712a0881d",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":375,
+                  "y":445},
+                "size":{
+                  "width":10,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/world_boss/u39.png"}},
+{
+          "id":"4559e22fe8494ca49e1b027057275984",
+          "label":"friend example 1",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":90,
+              "y":520},
+            "size":{
+              "width":580,
+              "height":98}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"ba0f7fa30a64462eabe775664d10fea2",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":90,
+                  "y":520},
+                "size":{
+                  "width":580,
+                  "height":98}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/friend_example_1_u47.png"}},
+{
+          "id":"f17c70ea488b446c9479138c19799118",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":102,
+              "y":530},
+            "size":{
+              "width":80,
+              "height":79}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"a3ed3171c1a149bc802fe8affeac0d57",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":102,
+                  "y":530},
+                "size":{
+                  "width":80,
+                  "height":79}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u49.png"}},
+{
+          "id":"6e35f3879bb343158d4d54f9142451f5",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":194,
+              "y":520},
+            "size":{
+              "width":280,
+              "height":98}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"0626ba93e62e420381fc99b13e1403cc",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":194,
+                  "y":520},
+                "size":{
+                  "width":280,
+                  "height":98}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u51.png"}},
+{
+          "id":"1b6040edfb2c49fc9c794e278218f8be",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":532,
+              "y":530},
+            "size":{
+              "width":80,
+              "height":80}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"8dd10868fbec499f84d4e5be4aeed041",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":532,
+                  "y":530},
+                "size":{
+                  "width":80,
+                  "height":80}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open have a look in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"have_a_look.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/u69.png"}},
+{
+          "id":"6fee5187bda349dda78777f3874781d8",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":958,
+              "y":790},
+            "size":{
+              "width":12,
+              "height":100}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"6d5fb18e7b33435a9a544f34aa46c02b",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":958,
+                  "y":790},
+                "size":{
+                  "width":12,
+                  "height":100}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u55.png"}},
+{
+          "id":"207f63e896294bd080b7ff3affcdab7a",
+          "label":"friend example 2",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":90,
+              "y":633},
+            "size":{
+              "width":580,
+              "height":98}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"790bbd787e4e4e6ab2adedfb2133f259",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":90,
+                  "y":633},
+                "size":{
+                  "width":580,
+                  "height":98}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/friend_example_1_u47.png"}},
+{
+          "id":"b088788dce9545f0b115dcb4aa3df3e5",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":102,
+              "y":643},
+            "size":{
+              "width":80,
+              "height":79}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b761aa2bf5b04048be8aa79c5ed9b3dd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":102,
+                  "y":643},
+                "size":{
+                  "width":80,
+                  "height":79}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u49.png"}},
+{
+          "id":"186bd652941b417baa6246c874528ddf",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":194,
+              "y":633},
+            "size":{
+              "width":280,
+              "height":98}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"454207f8a2334b2dacb1bfb62a70eb01",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":194,
+                  "y":633},
+                "size":{
+                  "width":280,
+                  "height":98}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u51.png"}},
+{
+          "id":"7f66698265a6436ca9c9a8bde6c84849",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":532,
+              "y":643},
+            "size":{
+              "width":80,
+              "height":80}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"ce7ef4932578406a82535d345fbeb7fc",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":532,
+                  "y":643},
+                "size":{
+                  "width":80,
+                  "height":80}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open have a look in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"have_a_look.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/u69.png"}},
+{
+          "id":"06e311b5035d4c0e87ec0ecbe39134d8",
+          "label":"stranger list bar ",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":75,
+              "y":505},
+            "size":{
+              "width":610,
+              "height":570},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"aeefe6b5a3cd46a5ae685424c5d9c4ac",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":75,
+                  "y":505},
+                "size":{
+                  "width":610,
+                  "height":570},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/world_boss/friend_list_bar__u37.png"}},
+{
+          "id":"923a55e3505d4171b50a2c0a17da6798",
+          "label":"stranger example 1",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":90,
+              "y":520},
+            "size":{
+              "width":580,
+              "height":98},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"3fa0dfbe8df44d3d99c7e4cfb5e2c645",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":90,
+                  "y":520},
+                "size":{
+                  "width":580,
+                  "height":98},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/friend_example_1_u47.png"}},
+{
+          "id":"8894b07560f44d58a6df13971f20d6ec",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":102,
+              "y":530},
+            "size":{
+              "width":80,
+              "height":79},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b23603b6f9984f76a14ca4613fab07a6",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":102,
+                  "y":530},
+                "size":{
+                  "width":80,
+                  "height":79},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u49.png"}},
+{
+          "id":"ea3297cf4056470594715750623b5bcd",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":194,
+              "y":520},
+            "size":{
+              "width":280,
+              "height":98},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"72194712ec184839b20070e3966d8963",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":194,
+                  "y":520},
+                "size":{
+                  "width":280,
+                  "height":98},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u51.png"}},
+{
+          "id":"7ff37d43dd9444678ea93d7462a95bb0",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":486,
+              "y":530},
+            "size":{
+              "width":80,
+              "height":80},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"c04623d640684fc18b69f509c47d9c9e",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":486,
+                  "y":530},
+                "size":{
+                  "width":80,
+                  "height":80},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open have a look in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"have_a_look.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/u69.png"}},
+{
+          "id":"de2414e1d8254be693f121e0ff457642",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":578,
+              "y":530},
+            "size":{
+              "width":80,
+              "height":80},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b1b63fa6f7e34089a4c10970deacd926",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":578,
+                  "y":530},
+                "size":{
+                  "width":80,
+                  "height":80},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/u69.png"}},
+{
+          "id":"30a22d6e3c47497fa0541b0736087924",
+          "label":"stranger example 2",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":91,
+              "y":633},
+            "size":{
+              "width":580,
+              "height":98},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"e446b700f65c4807acb2ab9af16571c8",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":91,
+                  "y":633},
+                "size":{
+                  "width":580,
+                  "height":98},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/friend_example_1_u47.png"}},
+{
+          "id":"0f2479e5e4b34a1b8b9fc85280a4bc7f",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":103,
+              "y":643},
+            "size":{
+              "width":80,
+              "height":79},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b12dbe87961645f988a52821634a0601",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":103,
+                  "y":643},
+                "size":{
+                  "width":80,
+                  "height":79},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u49.png"}},
+{
+          "id":"35f7e9e9bc01494d8a0997ab41ed4356",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":195,
+              "y":633},
+            "size":{
+              "width":280,
+              "height":98},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b3ae7c33e77d4deab0c3a22b55f5b9fa",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":195,
+                  "y":633},
+                "size":{
+                  "width":280,
+                  "height":98},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u51.png"}},
+{
+          "id":"ace9755c6bd24c4698ec1bbe287919e6",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":487,
+              "y":643},
+            "size":{
+              "width":80,
+              "height":80},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"682ff6c06301456995dfd2edc3dec77f",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":487,
+                  "y":643},
+                "size":{
+                  "width":80,
+                  "height":80},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open have a look in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"have_a_look.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/u69.png"}},
+{
+          "id":"888d167f11274e9d9f8b63b17ca8c0f9",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":579,
+              "y":643},
+            "size":{
+              "width":80,
+              "height":80},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"1a6bbe911d364b4b9da3897b55eaf680",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":579,
+                  "y":643},
+                "size":{
+                  "width":80,
+                  "height":80},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/u69.png"}},
+{
+          "id":"25ec19a28c7744728ad0de069038b9ca",
+          "label":"shopping bar",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":60,
+              "y":600},
+            "size":{
+              "width":640,
+              "height":250},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"52567f36c2cf4986ae62885485d5b80c",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":60,
+                  "y":600},
+                "size":{
+                  "width":640,
+                  "height":250},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/shopping_bar_u93.png"}},
+{
+          "id":"0639f3573115435e864d84df1f81802b",
+          "label":"shopping bar option 1",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":75,
+              "y":615},
+            "size":{
+              "width":180,
+              "height":220},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"f3875cfd0e1f4f6d9bb986ad40f376f8",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":75,
+                  "y":615},
+                "size":{
+                  "width":180,
+                  "height":220},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/shopping_bar_option_1_u95.png"}},
+{
+          "id":"6f7fba5a795346079703d0ab05bacc0d",
+          "label":"shopping bar option 2",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":270,
+              "y":615},
+            "size":{
+              "width":180,
+              "height":220},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"2e8a8e0bec0e4a7ab5218bc23d363c7d",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":270,
+                  "y":615},
+                "size":{
+                  "width":180,
+                  "height":220},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/shopping_bar_option_1_u95.png"}},
+{
+          "id":"2bd36408615f46a6bc227ccb20e7e2ce",
+          "label":"shopping  bar option 3",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":465,
+              "y":615},
+            "size":{
+              "width":180,
+              "height":220},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"44e690f7acbe4e979e86d22d1ca79835",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":465,
+                  "y":615},
+                "size":{
+                  "width":180,
+                  "height":220},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/shopping_bar_option_1_u95.png"}},
+{
+          "id":"55a7086cafd048369aed347148982ed4",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":75,
+              "y":370},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"c425eaa62a8246e7912e5921df017642",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":75,
+                  "y":370},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open HOME in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"home.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/u166.png"}},
+{
+          "id":"cc269b84ba104e61b0cbd5347be21f8c",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":525,
+              "y":370},
+            "size":{
+              "width":162,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b83abd0efb7a48b381f427cf2ef4643d",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":525,
+                  "y":370},
+                "size":{
+                  "width":162,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/friends/u97.png"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "115f907faf3a4212818328ef4fb9e44d":{
+      "scriptId":"u0"},
+    "49442bda98ed4a828c6bd7f705c8addd":{
+      "scriptId":"u1"},
+    "71bf53d145ce4d258fc44f9e8af7f044":{
+      "scriptId":"u2"},
+    "02308b426f2b43fbbdce2c4cf9a82363":{
+      "scriptId":"u3"},
+    "3efcd92381284a68b2aa0467acfc8146":{
+      "scriptId":"u4"},
+    "59b49d2f0b1d4636af43f9c1b594c768":{
+      "scriptId":"u5"},
+    "388e0319799243109fd1d37b482d77da":{
+      "scriptId":"u6"},
+    "0e716f30b0754b1fb72c0896010b0c7c":{
+      "scriptId":"u7"},
+    "933a45c69509439e95348a84d12ade2f":{
+      "scriptId":"u8"},
+    "1730c3b9937649a8bf2f2aa212da8580":{
+      "scriptId":"u9"},
+    "bf8033fba3fb45998feff1bdbf875f8b":{
+      "scriptId":"u10"},
+    "34676bc26e9c4b368f9e22c96bc86d12":{
+      "scriptId":"u11"},
+    "beddb423a0944d67a568b19d68feb133":{
+      "scriptId":"u12"},
+    "ed501b765e224daf80fcdf8681e23d9e":{
+      "scriptId":"u13"},
+    "55217d86e2c34deca49718cd3c309043":{
+      "scriptId":"u14"},
+    "b12348cb66f94dccb3362f2a36cdbe23":{
+      "scriptId":"u15"},
+    "f5f24403cb8a453d9b5124e77ea20512":{
+      "scriptId":"u16"},
+    "a2e43479a4b5432ea14a53e6bc1e739f":{
+      "scriptId":"u17"},
+    "050a55908d5846e28faea53a3b481dd1":{
+      "scriptId":"u18"},
+    "402a8ab8802e4c5db281ac7e8ae83e4a":{
+      "scriptId":"u19"},
+    "a6b73491537047539502e65b53c3a67d":{
+      "scriptId":"u20"},
+    "a3546a77032f4e14ad10813b105ad8e6":{
+      "scriptId":"u21"},
+    "598fff3917634ec29806e76c681ec759":{
+      "scriptId":"u22"},
+    "32d3416cc1bd4d8ba89fd1ffcb8b5e88":{
+      "scriptId":"u23"},
+    "07605281390949799a13163b05ce481b":{
+      "scriptId":"u24"},
+    "ed27b13ac4234940865a2b542df9444f":{
+      "scriptId":"u25"},
+    "513484ca83c843cfb6c81313a2f19ac5":{
+      "scriptId":"u26"},
+    "d799ea9592c746debcc1b1edfb5d007a":{
+      "scriptId":"u27"},
+    "af68a9c62bd4483ba19480dd5a4f23c0":{
+      "scriptId":"u28"},
+    "dc98b814d4b241609283c553036f609d":{
+      "scriptId":"u29"},
+    "620c9e90c50f472c800b1297686d3b54":{
+      "scriptId":"u30"},
+    "f04b33b0138446c1b72ce56e75d07fd8":{
+      "scriptId":"u31"},
+    "f1739187973a4423b2e14dbc88c36986":{
+      "scriptId":"u32"},
+    "a6834ae9678542cda6185b6979713aa8":{
+      "scriptId":"u33"},
+    "2db78cb44512441d914a745b55a0d608":{
+      "scriptId":"u34"},
+    "e89441d9db4e4f8280bf225cc89e2fc9":{
+      "scriptId":"u35"},
+    "ed28549a9ea541ff84d2ec13f38719c8":{
+      "scriptId":"u36"},
+    "b91f4ac8fe954026a2ca251ff4d9c62c":{
+      "scriptId":"u37"},
+    "9b04698b55e644b4ac1e7f02755dde83":{
+      "scriptId":"u38"},
+    "0f054453de4d42029bcf9b33ad49eb45":{
+      "scriptId":"u39"},
+    "b487737084854ec0bf48cc0bfbf23124":{
+      "scriptId":"u40"},
+    "855374cb33d7471ab08a5e4192093370":{
+      "scriptId":"u41"},
+    "2d6a46e044014db28b21b39837284140":{
+      "scriptId":"u42"},
+    "170ca86883cd46998420d74eafdfd887":{
+      "scriptId":"u43"},
+    "d2fbeee713fa4aa58312db138223d1cf":{
+      "scriptId":"u44"},
+    "c82deb6f3fd241d5b633898c711af33f":{
+      "scriptId":"u45"},
+    "3d7c9ca0f22e446f8deb696712a0881d":{
+      "scriptId":"u46"},
+    "4559e22fe8494ca49e1b027057275984":{
+      "scriptId":"u47"},
+    "ba0f7fa30a64462eabe775664d10fea2":{
+      "scriptId":"u48"},
+    "f17c70ea488b446c9479138c19799118":{
+      "scriptId":"u49"},
+    "a3ed3171c1a149bc802fe8affeac0d57":{
+      "scriptId":"u50"},
+    "6e35f3879bb343158d4d54f9142451f5":{
+      "scriptId":"u51"},
+    "0626ba93e62e420381fc99b13e1403cc":{
+      "scriptId":"u52"},
+    "1b6040edfb2c49fc9c794e278218f8be":{
+      "scriptId":"u53"},
+    "8dd10868fbec499f84d4e5be4aeed041":{
+      "scriptId":"u54"},
+    "6fee5187bda349dda78777f3874781d8":{
+      "scriptId":"u55"},
+    "6d5fb18e7b33435a9a544f34aa46c02b":{
+      "scriptId":"u56"},
+    "207f63e896294bd080b7ff3affcdab7a":{
+      "scriptId":"u57"},
+    "790bbd787e4e4e6ab2adedfb2133f259":{
+      "scriptId":"u58"},
+    "b088788dce9545f0b115dcb4aa3df3e5":{
+      "scriptId":"u59"},
+    "b761aa2bf5b04048be8aa79c5ed9b3dd":{
+      "scriptId":"u60"},
+    "186bd652941b417baa6246c874528ddf":{
+      "scriptId":"u61"},
+    "454207f8a2334b2dacb1bfb62a70eb01":{
+      "scriptId":"u62"},
+    "7f66698265a6436ca9c9a8bde6c84849":{
+      "scriptId":"u63"},
+    "ce7ef4932578406a82535d345fbeb7fc":{
+      "scriptId":"u64"},
+    "06e311b5035d4c0e87ec0ecbe39134d8":{
+      "scriptId":"u65"},
+    "aeefe6b5a3cd46a5ae685424c5d9c4ac":{
+      "scriptId":"u66"},
+    "923a55e3505d4171b50a2c0a17da6798":{
+      "scriptId":"u67"},
+    "3fa0dfbe8df44d3d99c7e4cfb5e2c645":{
+      "scriptId":"u68"},
+    "8894b07560f44d58a6df13971f20d6ec":{
+      "scriptId":"u69"},
+    "b23603b6f9984f76a14ca4613fab07a6":{
+      "scriptId":"u70"},
+    "ea3297cf4056470594715750623b5bcd":{
+      "scriptId":"u71"},
+    "72194712ec184839b20070e3966d8963":{
+      "scriptId":"u72"},
+    "7ff37d43dd9444678ea93d7462a95bb0":{
+      "scriptId":"u73"},
+    "c04623d640684fc18b69f509c47d9c9e":{
+      "scriptId":"u74"},
+    "de2414e1d8254be693f121e0ff457642":{
+      "scriptId":"u75"},
+    "b1b63fa6f7e34089a4c10970deacd926":{
+      "scriptId":"u76"},
+    "30a22d6e3c47497fa0541b0736087924":{
+      "scriptId":"u77"},
+    "e446b700f65c4807acb2ab9af16571c8":{
+      "scriptId":"u78"},
+    "0f2479e5e4b34a1b8b9fc85280a4bc7f":{
+      "scriptId":"u79"},
+    "b12dbe87961645f988a52821634a0601":{
+      "scriptId":"u80"},
+    "35f7e9e9bc01494d8a0997ab41ed4356":{
+      "scriptId":"u81"},
+    "b3ae7c33e77d4deab0c3a22b55f5b9fa":{
+      "scriptId":"u82"},
+    "ace9755c6bd24c4698ec1bbe287919e6":{
+      "scriptId":"u83"},
+    "682ff6c06301456995dfd2edc3dec77f":{
+      "scriptId":"u84"},
+    "888d167f11274e9d9f8b63b17ca8c0f9":{
+      "scriptId":"u85"},
+    "1a6bbe911d364b4b9da3897b55eaf680":{
+      "scriptId":"u86"},
+    "25ec19a28c7744728ad0de069038b9ca":{
+      "scriptId":"u87"},
+    "52567f36c2cf4986ae62885485d5b80c":{
+      "scriptId":"u88"},
+    "0639f3573115435e864d84df1f81802b":{
+      "scriptId":"u89"},
+    "f3875cfd0e1f4f6d9bb986ad40f376f8":{
+      "scriptId":"u90"},
+    "6f7fba5a795346079703d0ab05bacc0d":{
+      "scriptId":"u91"},
+    "2e8a8e0bec0e4a7ab5218bc23d363c7d":{
+      "scriptId":"u92"},
+    "2bd36408615f46a6bc227ccb20e7e2ce":{
+      "scriptId":"u93"},
+    "44e690f7acbe4e979e86d22d1ca79835":{
+      "scriptId":"u94"},
+    "55a7086cafd048369aed347148982ed4":{
+      "scriptId":"u95"},
+    "c425eaa62a8246e7912e5921df017642":{
+      "scriptId":"u96"},
+    "cc269b84ba104e61b0cbd5347be21f8c":{
+      "scriptId":"u97"},
+    "b83abd0efb7a48b381f427cf2ef4643d":{
+      "scriptId":"u98"}}});

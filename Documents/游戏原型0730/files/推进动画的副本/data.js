@@ -1,0 +1,496 @@
+﻿$axure.loadCurrentPage({
+  "url":"推进动画的副本.html",
+  "generationDate":new Date(1406724397507),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable"],
+  "page":{
+    "packageId":"253c12c20a294fc493674311336ac1ce",
+    "type":"Axure:Page",
+    "name":"推进动画的副本",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"应用字体",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"115f907faf3a4212818328ef4fb9e44d",
+          "label":"手机",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "size":{
+              "width":754,
+              "height":1478}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"49442bda98ed4a828c6bd7f705c8addd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "size":{
+                  "width":754,
+                  "height":1478}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/手机_u0.png"}},
+{
+          "id":"71bf53d145ce4d258fc44f9e8af7f044",
+          "label":"",
+          "type":"inlineFrame",
+          "styleType":"inlineFrame",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":60,
+              "y":260},
+            "size":{
+              "width":640,
+              "height":960}},
+          "adaptiveStyles":{
+},
+          "target":{
+            "targetType":"webUrl",
+            "urlLiteral":{
+              "exprType":"stringLiteral",
+              "value":"",
+              "stos":[]},
+            "includeVariables":false}},
+{
+          "id":"ee48471cd5954c6ba650fa6d19c0c075",
+          "label":"副本名",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":60,
+              "y":370},
+            "size":{
+              "width":270,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"fd81efb45511435fa1561583c9edffff",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":60,
+                  "y":370},
+                "size":{
+                  "width":270,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/copy_of_feed_to_monster/friends_list_u29.png"}},
+{
+          "id":"4ee9bfae3e974f9f9ebbdff3779e2983",
+          "label":"monster 1",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":200,
+              "y":1100},
+            "size":{
+              "width":110,
+              "height":110}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"c3389613ee954ba4876870330be61316",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":200,
+                  "y":1100},
+                "size":{
+                  "width":110,
+                  "height":110}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open 人物转变成球动画 in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"人物转变成球动画_1.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/home/monster_u21.png"}},
+{
+          "id":"232f6938ac234b6ab1a78665c96f3c9d",
+          "label":"mosnster2 ",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":325,
+              "y":1100},
+            "size":{
+              "width":110,
+              "height":110}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"3af82d79be77465ab186fec33a3026c5",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":325,
+                  "y":1100},
+                "size":{
+                  "width":110,
+                  "height":110}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/monster_u21.png"}},
+{
+          "id":"a276d2a7aee64b9b9a5c34703d19b6e4",
+          "label":"monster3",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":450,
+              "y":1100},
+            "size":{
+              "width":110,
+              "height":110}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b7560c22823741c08112574c17ff3067",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":450,
+                  "y":1100},
+                "size":{
+                  "width":110,
+                  "height":110}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/monster_u21.png"}},
+{
+          "id":"12fe21697303422dab15c719d875409d",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":228,
+              "y":1125},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"07b3c45fd986456391a5e1910e776cf7",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":228,
+                  "y":1125},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/feed3_u120.png"}},
+{
+          "id":"f17135cd11404a4ba4556c5658d1c3e2",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":351,
+              "y":1124},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"f6c00adc98cc47329d14b837bb2836e7",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":351,
+                  "y":1124},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/feed5_u124.png"}},
+{
+          "id":"50cb972cb32847eea3829a0841ed9286",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":475,
+              "y":1125},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"7fda4874f2dd491ea4f77e94a5a74bb1",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":475,
+                  "y":1125},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/feed5_u124.png"}},
+{
+          "id":"485354d899984f5cb8cb18324e2a482b",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":255,
+              "y":614},
+            "size":{
+              "width":250,
+              "height":250}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"bc91c291dfc4401bbb0051feb4d6045e",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":255,
+                  "y":614},
+                "size":{
+                  "width":250,
+                  "height":250}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/actor_u33.png"}},
+{
+          "id":"94b6b6683c12427b9c0d43848efee894",
+          "label":"acquire coin",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":162,
+              "y":320},
+            "size":{
+              "width":210,
+              "height":30}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"4ab19c28e7a543528ff62b71df9ce97a",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":162,
+                  "y":320},
+                "size":{
+                  "width":210,
+                  "height":30}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/name_u5.png"}},
+{
+          "id":"611d735f7d2a47159385811ebf3ba40f",
+          "label":"acquire pets",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":388,
+              "y":320},
+            "size":{
+              "width":210,
+              "height":30}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"f7cf06e6d16f4406ae6b0ed276fe5be9",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":388,
+                  "y":320},
+                "size":{
+                  "width":210,
+                  "height":30}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/name_u5.png"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "115f907faf3a4212818328ef4fb9e44d":{
+      "scriptId":"u0"},
+    "49442bda98ed4a828c6bd7f705c8addd":{
+      "scriptId":"u1"},
+    "71bf53d145ce4d258fc44f9e8af7f044":{
+      "scriptId":"u2"},
+    "ee48471cd5954c6ba650fa6d19c0c075":{
+      "scriptId":"u3"},
+    "fd81efb45511435fa1561583c9edffff":{
+      "scriptId":"u4"},
+    "4ee9bfae3e974f9f9ebbdff3779e2983":{
+      "scriptId":"u5"},
+    "c3389613ee954ba4876870330be61316":{
+      "scriptId":"u6"},
+    "232f6938ac234b6ab1a78665c96f3c9d":{
+      "scriptId":"u7"},
+    "3af82d79be77465ab186fec33a3026c5":{
+      "scriptId":"u8"},
+    "a276d2a7aee64b9b9a5c34703d19b6e4":{
+      "scriptId":"u9"},
+    "b7560c22823741c08112574c17ff3067":{
+      "scriptId":"u10"},
+    "12fe21697303422dab15c719d875409d":{
+      "scriptId":"u11"},
+    "07b3c45fd986456391a5e1910e776cf7":{
+      "scriptId":"u12"},
+    "f17135cd11404a4ba4556c5658d1c3e2":{
+      "scriptId":"u13"},
+    "f6c00adc98cc47329d14b837bb2836e7":{
+      "scriptId":"u14"},
+    "50cb972cb32847eea3829a0841ed9286":{
+      "scriptId":"u15"},
+    "7fda4874f2dd491ea4f77e94a5a74bb1":{
+      "scriptId":"u16"},
+    "485354d899984f5cb8cb18324e2a482b":{
+      "scriptId":"u17"},
+    "bc91c291dfc4401bbb0051feb4d6045e":{
+      "scriptId":"u18"},
+    "94b6b6683c12427b9c0d43848efee894":{
+      "scriptId":"u19"},
+    "4ab19c28e7a543528ff62b71df9ce97a":{
+      "scriptId":"u20"},
+    "611d735f7d2a47159385811ebf3ba40f":{
+      "scriptId":"u21"},
+    "f7cf06e6d16f4406ae6b0ed276fe5be9":{
+      "scriptId":"u22"}}});
