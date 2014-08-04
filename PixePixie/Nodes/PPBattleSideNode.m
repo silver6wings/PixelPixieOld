@@ -9,52 +9,17 @@
 @synthesize showInfoSelector;
 @synthesize hpBeenZeroSel;
 
--(void)setSideElementsForPet:(PPPixie *)ppixie
+-(void)setSideSkillsBtn:(PPPixie *)ppixie
 {
     
-    PPCustomButton*ppixieBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-                                                     andImage:@"ball_pixie_plant2.png"
-                                                   withTarget:self
-                                                 withSelecter:@selector(physicsAttackClick:)];
-    ppixieBtn.position = CGPointMake(-self.size.width/2.0f+ppixieBtn.frame.size.width/2.0f+20.0F, -10.0f);
-    [self addChild:ppixieBtn];
-    
-    
-    PPBasicLabelNode *ppixieBtnLabel=[[PPBasicLabelNode alloc] init];
-    ppixieBtnLabel.fontSize=10;
-    [ppixieBtnLabel setColor:[SKColor redColor]];
-    NSLog(@"pixieName=%@",ppixie.pixieName);
-    [ppixieBtnLabel setText:@"信息查看"];
-    ppixieBtnLabel.position = CGPointMake(0.0F, 0);
-    [ppixieBtn addChild:ppixieBtnLabel];
-    
-    self.currentPPPixie = ppixie;
-    
-    PPBasicLabelNode *ppixieNameLabel=[[PPBasicLabelNode alloc] init];
-    ppixieNameLabel.fontSize=12;
-    [ppixieNameLabel setColor:[SKColor blueColor]];
-    NSLog(@"pixieName=%@",ppixie.pixieName);
-    [ppixieNameLabel setText:ppixie.pixieName];
-    ppixieNameLabel.position = CGPointMake(ppixieBtn.position.x, ppixieBtn.position.y+15);
-    [self addChild:ppixieNameLabel];
-    
-    // 添加 HP bar
-    barPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
-    [barPlayerHP setMaxValue:ppixie.pixieHPmax andCurrentValue:ppixie.currentHP andShowType:PP_HPTYPE];
-    barPlayerHP->target = self;
-    barPlayerHP->animateEnd = @selector(animateEnd:);
-    barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
-    barPlayerHP.position = CGPointMake(ppixieBtn.position.x+40.0f,15.0);
-    [self addChild:barPlayerHP];
-    
     NSArray *skillsArray = [NSArray arrayWithArray:ppixie.pixieSkills];
+    self.currentPPPixie = ppixie;
     
     for (int i = 0; i < [ppixie.pixieSkills count]; i++) {
         
         PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 30)];
-        
         [passButton setLabelWithText:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        passButton.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -10.0f);
+        passButton.position = CGPointMake((320.0f/[ppixie.pixieSkills count]+10)*i-110, -10.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         [passButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
@@ -64,61 +29,118 @@
     
 }
 
--(void)setSideElementsForEnemy:(PPPixie *)ppixie
-{
+-(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie;{
     
-    PPCustomButton *ppixieBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-                                                      andImage:@"ball_pixie_plant2.png"
-                                                    withTarget:self
-                                                  withSelecter:@selector(physicsAttackClick:)];
-    ppixieBtn.position = CGPointMake(0.0f, -10.0f);
     
-    [self addChild:ppixieBtn];
+    PPCustomButton*ppixiePetBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
+                                                     andImage:@"ball_pixie_plant2.png"
+                                                   withTarget:self
+                                                 withSelecter:@selector(physicsAttackClick:)];
+    ppixiePetBtn.position = CGPointMake(-self.size.width/2.0f+ppixiePetBtn.frame.size.width/2.0f+10.0f, -10.0f);
+    [self addChild:ppixiePetBtn];
+    
+    
+    
+    PPBasicLabelNode *ppixiePetBtnLabel=[[PPBasicLabelNode alloc] init];
+    ppixiePetBtnLabel.fontSize=10;
+    [ppixiePetBtnLabel setColor:[SKColor redColor]];
+    NSLog(@"pixieName=%@",petppixie.pixieName);
+    [ppixiePetBtnLabel setText:@"信息查看"];
+    ppixiePetBtnLabel.position = CGPointMake(0.0F, 0);
+    [ppixiePetBtn addChild:ppixiePetBtnLabel];
+    
+   
+    
+    
+    self.currentPPPixie = petppixie;
+    self.currentPPPixieEnemy = enemyppixie;
+    
+    
+    PPBasicLabelNode *ppixiePetNameLabel=[[PPBasicLabelNode alloc] init];
+    ppixiePetNameLabel.fontSize=12;
+    [ppixiePetNameLabel setColor:[SKColor blueColor]];
+    NSLog(@"pixieName=%@",petppixie.pixieName);
+    [ppixiePetNameLabel setText:petppixie.pixieName];
+    ppixiePetNameLabel.position = CGPointMake(ppixiePetBtn.position.x, ppixiePetBtn.position.y+15);
+    [self addChild:ppixiePetNameLabel];
+    
+    
+    
+
+    
+    
+    
+    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40, 30)];
+    [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];
+    stopBtn.position = CGPointMake(0.0f, 10.0f);
+    stopBtn.name =@"stopBtn";
+    [stopBtn addTarget:self selector:@selector(stopBtnClick:) withObject:stopBtn.name forControlEvent:PPButtonControlEventTouchUpInside];
+    [self addChild:stopBtn];
+    
+    
+    
+    // 添加 HP bar
+    petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
+    [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP andShowType:PP_HPTYPE];
+    petPlayerHP->target = self;
+    petPlayerHP->animateEnd = @selector(animateEnd:);
+    petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
+    petPlayerHP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y);
+    [self addChild:petPlayerHP];
+    
+    
+    
+    
+
+    // 添加 HP bar
+    enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
+    [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP andShowType:PP_HPTYPE];
+    enemyPlayerHP->target=self;
+    enemyPlayerHP->animateEnd=@selector(animateEnd:);
+    enemyPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
+    enemyPlayerHP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y);
+    [self addChild:enemyPlayerHP];
+    
+    
+    
+    
+    
+    PPCustomButton *ppixieEnemyBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
+                                                           andImage:@"ball_pixie_plant2.png"
+                                                         withTarget:self
+                                                       withSelecter:@selector(physicsAttackClick:)];
+    ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x+enemyPlayerHP.size.width/2.0f+20.0f,-10.0f);
+    
+    [self addChild:ppixieEnemyBtn];
+    
+    
     
     PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
     ppixieBtnLabel.fontSize = 10;
-    NSLog(@"pixieName=%@",ppixie.pixieName);
+    NSLog(@"pixieName=%@",enemyppixie.pixieName);
     [ppixieBtnLabel setText:@"信息查看"];
     ppixieBtnLabel.position = CGPointMake(0, 0);
-    [ppixieBtn addChild:ppixieBtnLabel];
+    [ppixieEnemyBtn addChild:ppixieBtnLabel];
     
     
-    self.currentPPPixieEnemy = ppixie;
+    self.currentPPPixieEnemy = enemyppixie;
     
     
     PPBasicLabelNode *ppixieNameLabel=[[PPBasicLabelNode alloc] init];
     ppixieNameLabel.fontSize=12;
     [ppixieNameLabel setColor:[SKColor redColor]];
-    NSLog(@"pixieName=%@",ppixie.pixieName);
-    [ppixieNameLabel setText:ppixie.pixieName];
-    ppixieNameLabel.position = CGPointMake(ppixieBtn.position.x, ppixieBtn.position.y+15);
+    NSLog(@"pixieName=%@",enemyppixie.pixieName);
+    [ppixieNameLabel setText:enemyppixie.pixieName];
+    ppixieNameLabel.position = CGPointMake(ppixieEnemyBtn.position.x, ppixieEnemyBtn.position.y+15);
     [self addChild:ppixieNameLabel];
     
     
-    // 添加 HP bar
-    barPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
-    [barPlayerHP setMaxValue:ppixie.pixieHPmax andCurrentValue:ppixie.currentHP andShowType:PP_HPTYPE];
-    barPlayerHP->target=self;
-    barPlayerHP->animateEnd=@selector(animateEnd:);
-    barPlayerHP.anchorPoint = CGPointMake(0, 0.0);
-    barPlayerHP.position = CGPointMake(-40.0f,15.0);
-    [self addChild:barPlayerHP];
-    
-    
-//    for (int i=0; i<[ppixie.pixieSkills count]; i++) {
-//        PPCustomButton*ppixieSkillBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-//                                                              andTitle:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"]
-//                                                            withTarget:self
-//                                                          withSelecter:@selector(enemyskillClick:)];
-//        
-//        ppixieSkillBtn.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
-//        ppixieSkillBtn.position = CGPointMake(ppixieBtn.position.x+70.0f*i+70, -30.0f);
-//        [self addChild:ppixieSkillBtn];
-//    }
-    
     
 }
-
+-(void)stopBtnClick:(NSString *)stringname
+{
+    
+}
 -(void)physicsAttackClick:(PPCustomButton *)sender
 {
     if (self.target != nil && self.showInfoSelector != nil &&
@@ -136,6 +158,7 @@
     {
         [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
     }
+    
 }
 -(void)enemyskillClick:(PPCustomButton *)sender
 {
@@ -146,8 +169,10 @@
         [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
     }
 }
+
 -(void)setSideSkillButtonDisable
 {
+    
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
        PPSpriteButton *ppixieSkillBtn  =(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
         [ppixieSkillBtn setColor:[UIColor redColor]];
@@ -167,16 +192,16 @@
 
 -(void)animateEnd:(NSNumber *)currentHp
 {
-    if (barPlayerHP->currentValue <= 0.0f) {
-        if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
-            [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:self];
-        }
-    }
+//    if (barPlayerHP->currentValue <= 0.0f) {
+//        if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
+//            [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:self];
+//        }
+//    }
 }
 
 -(void)changeHPValue:(CGFloat)HPValue
 {
-    [barPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+//    [barPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
 }
 
 @end

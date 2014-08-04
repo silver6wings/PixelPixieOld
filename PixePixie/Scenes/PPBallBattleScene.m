@@ -43,8 +43,8 @@ CGFloat vectorLength (CGVector vector) {
 
 @property (nonatomic, retain) NSMutableArray * ballsElement;
 @property (nonatomic, retain) NSMutableArray * trapFrames;
-@property (nonatomic, retain) PPBattleSideNode * playerSide;
-@property (nonatomic, retain) PPBattleSideNode * enemySide;
+@property (nonatomic, retain) PPBattleSideNode * playerSkillSide;
+@property (nonatomic, retain) PPBattleSideNode * playerAndEnemySide;
 
 @property (nonatomic) SKSpriteNode * btSkill;
 @property (nonatomic) BOOL isTrapEnable;
@@ -56,6 +56,7 @@ CGFloat vectorLength (CGVector vector) {
       PixiePlayer:(PPPixie *)pixieA
        PixieEnemy:(PPPixie *)pixieB
 {
+    
     if (self = [super initWithSize:size]) {
         
         self.backgroundColor = [SKColor blackColor];
@@ -77,6 +78,7 @@ CGFloat vectorLength (CGVector vector) {
             bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320.0f, 362.0f)];
         }
         
+        
         bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
         [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_02.jpg"]]];
         [self addChild:bg];
@@ -94,18 +96,19 @@ CGFloat vectorLength (CGVector vector) {
         }
         
         
-        self.playerSide = [[PPBattleSideNode alloc] init];
-        self.playerSide.position= CGPointMake(self.size.width/2.0f, 30 + sizeFitFor5);
-        self.playerSide.size =  CGSizeMake(self.size.width, 60);
-        self.playerSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
-        self.playerSide.target = self;
-        self.playerSide.skillSelector = @selector(skillPlayerShowBegin:);
-        self.playerSide.showInfoSelector = @selector(showCurrentPlayerPetInfo:);
-        self.playerSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-        [self.playerSide setColor:[UIColor grayColor]];
-        [self.playerSide setSideElementsForPet:pixieA];
-        [self addChild:self.playerSide];
+        self.playerSkillSide = [[PPBattleSideNode alloc] init];
+        self.playerSkillSide.position= CGPointMake(self.size.width/2.0f, 30 + sizeFitFor5);
+        self.playerSkillSide.size =  CGSizeMake(self.size.width, 60);
+        self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
+        self.playerSkillSide.target = self;
+        self.playerSkillSide.skillSelector = @selector(skillPlayerShowBegin:);
+        self.playerSkillSide.showInfoSelector = @selector(showCurrentPlayerPetInfo:);
+        self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
+        [self.playerSkillSide setColor:[UIColor grayColor]];
+        [self.playerSkillSide setSideSkillsBtn:pixieA];
+        [self addChild:self.playerSkillSide];
      
+        
         
         // 添加 Walls
         CGFloat tWidth = 320.0f;
@@ -116,6 +119,7 @@ CGFloat vectorLength (CGVector vector) {
         [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM + sizeFitFor5)];
         [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM + sizeFitFor5)];
         
+        
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
         self.ballPlayer.name = @"ball_player";
@@ -123,6 +127,7 @@ CGFloat vectorLength (CGVector vector) {
         self.ballPlayer.physicsBody.categoryBitMask = kBallCategory;
         self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:self.ballPlayer];
+        
         
         // 添加粒子效果
         /*
@@ -165,13 +170,14 @@ CGFloat vectorLength (CGVector vector) {
     currentEnemyIndex = index;
     [self addEnemySide:sizeFitFor5];
     
-    if (CurrentDeviceRealSize.height>500) {
-        [self setBackTitleText:nil andPositionY:490.0f];
-    }else
-    {
-        [self setBackTitleText:nil andPositionY:450.0f];
-        
-    }
+//    if (CurrentDeviceRealSize.height>500) {
+//        [self setBackTitleText:nil andPositionY:490.0f];
+//    }else
+//    {
+//        [self setBackTitleText:nil andPositionY:450.0f];
+//        
+//    }
+    
 }
 
 -(void)showCurrentPlayerPetInfo:(PPPixie *) pet
@@ -198,22 +204,22 @@ CGFloat vectorLength (CGVector vector) {
         CGFloat hpchangresult = [PPDamageCaculate
                                  bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.currentAP
                                  andAddition:self.playerSide.currentPPPixie.pixieBuffs.attackAddition
-                                 andOppositeDefense:self.enemySide.currentPPPixieEnemy.currentDP
-                                 andOppositeDefAddition:self.enemySide.currentPPPixieEnemy.pixieBuffs.defenseAddition
-                                 andDexterity:self.enemySide.currentPPPixieEnemy.currentDEX];
+                                 andOppositeDefense:self.playerAndEnemySide.currentPPPixieEnemy.currentDP
+                                 andOppositeDefAddition:self.playerAndEnemySide.currentPPPixieEnemy.pixieBuffs.defenseAddition
+                                 andDexterity:self.playerAndEnemySide.currentPPPixieEnemy.currentDEX];
         */
         
         CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-        [self.enemySide changeHPValue:-damageCount];
-        NSLog(@"currentHP=%f",self.enemySide.currentPPPixieEnemy.currentHP);
+        [self.playerAndEnemySide changeHPValue:-damageCount];
+        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
         
         
     } else {
         
         /*
          CGFloat hpchangresult = [PPDamageCaculate
-         bloodChangeForPhysicalAttack:self.enemySide.currentPPPixieEnemy.currentAP
-         andAddition:self.enemySide.currentPPPixieEnemy.pixieBuffs.attackAddition
+         bloodChangeForPhysicalAttack:self.playerAndEnemySide.currentPPPixieEnemy.currentAP
+         andAddition:self.playerAndEnemySide.currentPPPixieEnemy.pixieBuffs.attackAddition
          andOppositeDefense:self.playerSide.currentPPPixie.currentDP
          andOppositeDefAddition:self.playerSide.currentPPPixie.pixieBuffs.defenseAddition
          andDexterity:self.playerSide.currentPPPixie.currentDEX];
@@ -239,9 +245,10 @@ CGFloat vectorLength (CGVector vector) {
             [additonLabel removeFromParent];
         }];
         
-        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
         
-        [self.playerSide changeHPValue:-damageCount];
+//        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+        
+//        [self.playerSide changeHPValue:-damageCount];
         
     }
     
@@ -276,7 +283,6 @@ CGFloat vectorLength (CGVector vector) {
     [skillNameLabel runAction:action];
     [ballsLabel runAction:action];
     
-
 }
 
 
@@ -284,6 +290,7 @@ CGFloat vectorLength (CGVector vector) {
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
 {
   
+    
     [self setPlayerSideRoundRunState];
 
     
@@ -299,6 +306,7 @@ CGFloat vectorLength (CGVector vector) {
             
         case 1:
         {
+            
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
                 for (PPBall * tBall in self.ballsElement) {
                     if ([tBall.name isEqualToString:@"ball_plant"]) {
@@ -315,6 +323,7 @@ CGFloat vectorLength (CGVector vector) {
                     if ([tBall.name isEqualToString:@"ball_plant"]) {
                         
                         //                    [tBall runAction:[SKAction moveTo:CGPointMake(tBall.position.x-10, tBall.position.y-20) duration:2]];
+                        
                         [tBall runAction:[SKAction moveBy:CGVectorMake((self.ballPlayer.position.x - tBall.position.x)/2.0f,
                                                                        (self.ballPlayer.position.y - tBall.position.y)/2.0f)
                                                  duration:2]];
@@ -346,7 +355,6 @@ CGFloat vectorLength (CGVector vector) {
     }
     
     
-
     
 }
 
@@ -400,7 +408,7 @@ CGFloat vectorLength (CGVector vector) {
         [alertCustom showCustomAlertWithInfo:dict];
         [self addChild:alertCustom];
         
-        [self.playerSide removeFromParent];
+//        [self.playerSide removeFromParent];
         
     }
 
@@ -415,9 +423,9 @@ CGFloat vectorLength (CGVector vector) {
 -(void)addEnemySide:(CGFloat)direct
 {
     
-    if(self.enemySide != nil){
-        [self.enemySide removeFromParent];
-        self.enemySide = nil;
+    if(self.playerAndEnemySide != nil){
+        [self.playerAndEnemySide removeFromParent];
+        self.playerAndEnemySide = nil;
     }
     
     if(self.ballEnemy != nil){
@@ -441,17 +449,17 @@ CGFloat vectorLength (CGVector vector) {
     self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
     [self addChild:self.ballEnemy];
     
-    self.enemySide = [[PPBattleSideNode alloc] init];
-    [self.enemySide setColor:[UIColor purpleColor]];
-    self.enemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-27-direct);
-    self.enemySide.name = PP_ENEMY_SIDE_NODE_NAME;
-    self.enemySide.size = CGSizeMake(self.size.width, 60);
-    self.enemySide.target = self;
-    self.enemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-    self.enemySide.skillSelector = @selector(skllEnemyBegain:);
-    self.enemySide.showInfoSelector = @selector(showCurrentEnemyInfo:);
-    [self.enemySide setSideElementsForEnemy:self.pixieEnemy];
-    [self addChild:self.enemySide];
+    self.playerAndEnemySide = [[PPBattleSideNode alloc] init];
+    [self.playerAndEnemySide setColor:[UIColor purpleColor]];
+    self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-27-direct);
+    self.playerAndEnemySide.name = PP_ENEMY_SIDE_NODE_NAME;
+    self.playerAndEnemySide.size = CGSizeMake(self.size.width, 60);
+    self.playerAndEnemySide.target = self;
+    self.playerAndEnemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
+    self.playerAndEnemySide.skillSelector = @selector(skllEnemyBegain:);
+    self.playerAndEnemySide.showInfoSelector = @selector(showCurrentEnemyInfo:);
+    [self.playerAndEnemySide setSideElements:self.pixiePlayer andEnemy:self.pixieEnemy];
+    [self addChild:self.playerAndEnemySide];
     
     currentEnemyIndex += 1;
     
@@ -463,7 +471,6 @@ CGFloat vectorLength (CGVector vector) {
     roundActionNum = 0;
     //随机怪物先攻击还是人物先开始攻击
     [self startBattle:@"战斗开始"];
-    
 
     
 }
@@ -577,13 +584,13 @@ CGFloat vectorLength (CGVector vector) {
 -(void)setPlayerSideRoundRunState
 {
     isNotSkillRun = YES;
-    [self.playerSide setSideSkillButtonDisable];
+    [self.playerSkillSide setSideSkillButtonDisable];
     
 }
 -(void)setPlayerSideRoundEndState
 {
     isNotSkillRun = NO;
-    [self.playerSide setSideSkillButtonEnable];
+    [self.playerSkillSide setSideSkillButtonEnable];
 
 }
 #pragma mark BackAlert
@@ -634,7 +641,7 @@ CGFloat vectorLength (CGVector vector) {
     if ([[touchedNode name] isEqualToString:@"ball_player"]) {
         
         _isBallDragging = YES;
-        _ballShadow = [PPBall ballWithPixie:self.playerSide.currentPPPixie];
+        _ballShadow = [PPBall ballWithPixie:self.pixiePlayer];
         _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
         _ballShadow.position = location;
         _ballShadow.alpha = 0.5f;
@@ -894,15 +901,15 @@ CGFloat vectorLength (CGVector vector) {
     if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
     {
         if (skillInfo.skillObject ==1) {
-            [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+//            [self.playerSide changeHPValue:skillInfo.HPChangeValue];
         } else {
-            [self.enemySide changeHPValue:skillInfo.HPChangeValue];
+            [self.playerAndEnemySide changeHPValue:skillInfo.HPChangeValue];
         }
     } else {
         if (skillInfo.skillObject ==1) {
-            [self.enemySide changeHPValue:skillInfo.HPChangeValue];
+            [self.playerAndEnemySide changeHPValue:skillInfo.HPChangeValue];
         } else {
-            [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+//            [self.playerSide changeHPValue:skillInfo.HPChangeValue];
         }
     }
     

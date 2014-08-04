@@ -15,12 +15,7 @@
     originalMax = maxValue;
     currentValue = currentV;
     
-    valueShowLabel=[[PPBasicLabelNode alloc] init];
-    valueShowLabel.text=[NSString stringWithFormat:@"%.f/%.f",currentV,maxV];
-    valueShowLabel.fontSize=10;
-    valueShowLabel.name = [NSString stringWithFormat:@"%d",PP_SKILLS_VALUE_LAEBEL_TAG];
-    valueShowLabel.position = CGPointMake(self.size.width+valueShowLabel.frame.size.width,0);
-    [self addChild:valueShowLabel];
+
     
     if (showType == PP_HPTYPE) {
         valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 6)];
@@ -29,9 +24,16 @@
         valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(90, 6)];
 
     }
-    valueShowNode.anchorPoint = CGPointMake(0, 0.0);
-    valueShowNode.position = CGPointMake(0.0f,0.0);
+    valueShowNode.anchorPoint = CGPointMake(0.5, 0.5);
+    valueShowNode.position = CGPointMake(0.0f,0.0f);
     [self addChild:valueShowNode];
+    
+    valueShowLabel=[[PPBasicLabelNode alloc] init];
+    valueShowLabel.text=[NSString stringWithFormat:@"%.f/%.f",currentV,maxV];
+    valueShowLabel.fontSize=10;
+    valueShowLabel.name = [NSString stringWithFormat:@"%d",PP_SKILLS_VALUE_LAEBEL_TAG];
+    valueShowLabel.position = CGPointMake(0,valueShowNode.position.y+10.0f);
+    [self addChild:valueShowLabel];
     
 }
 

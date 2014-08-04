@@ -3,7 +3,9 @@
 
 @interface PPBattleSideNode : PPBasicSpriteNode
 {
-    PPValueShowNode *barPlayerHP;
+    PPValueShowNode *enemyPlayerHP;
+    PPValueShowNode *petPlayerHP;
+    
     PPValueShowNode *barPlayerMP;
 }
 //回调对象
@@ -19,8 +21,9 @@
 @property(nonatomic, retain) PPPixie *currentPPPixie;
 @property(nonatomic, retain) PPPixie *currentPPPixieEnemy;
 
--(void)setSideElementsForPet:(PPPixie *)ppixie;
--(void)setSideElementsForEnemy:(PPPixie *)ppixie;
+-(void)setSideSkillsBtn:(PPPixie *)ppixie;
+-(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie;
+
 -(void)changeHPValue:(CGFloat)HPValue;
 -(void)setSideSkillButtonDisable;
 -(void)setSideSkillButtonEnable;
