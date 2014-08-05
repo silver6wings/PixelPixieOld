@@ -67,9 +67,6 @@
     
     
 
-    
-    
-    
     PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40, 30)];
     [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];
     stopBtn.position = CGPointMake(0.0f, 10.0f);
@@ -81,9 +78,9 @@
     
     // 添加 HP bar
     petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
-    [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP andShowType:PP_HPTYPE];
+    [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)];
     petPlayerHP->target = self;
-    petPlayerHP->animateEnd = @selector(animateEnd:);
+    petPlayerHP->animateEnd = @selector(animatePetEnd:);
     petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
     petPlayerHP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y);
     [self addChild:petPlayerHP];
@@ -94,9 +91,9 @@
 
     // 添加 HP bar
     enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
-    [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP andShowType:PP_HPTYPE];
+    [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
     enemyPlayerHP->target=self;
-    enemyPlayerHP->animateEnd=@selector(animateEnd:);
+    enemyPlayerHP->animateEnd=@selector(animateEnemyEnd:);
     enemyPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
     enemyPlayerHP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y);
     [self addChild:enemyPlayerHP];
@@ -190,18 +187,37 @@
     
 }
 
--(void)animateEnd:(NSNumber *)currentHp
+-(void)animatePetEnd:(NSNumber *)currentHp
 {
-//    if (barPlayerHP->currentValue <= 0.0f) {
-//        if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
-//            [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:self];
-//        }
-//    }
+    
+    if (petPlayerHP->currentValue <= 0.0f) {
+        if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
+            [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_PET_PLAYER_SIDE_NODE_NAME];
+        }
+    }
+    
 }
-
+-(void)animateEnemyEnd:(NSNumber *)currentHp
+{
+    
+    if (enemyPlayerHP->currentValue <= 0.0f) {
+        if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
+            [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_ENEMY_SIDE_NODE_NAME];
+        }
+    }
+    
+}
+-(void)changePetHPValue:(CGFloat)HPValue
+{
+    [petPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+}
+-(void)changeEnemyHPValue:(CGFloat)HPValue
+{
+    [enemyPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+}
 -(void)changeHPValue:(CGFloat)HPValue
 {
-//    [barPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+
 }
 
 @end

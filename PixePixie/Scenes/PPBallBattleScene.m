@@ -210,7 +210,7 @@ CGFloat vectorLength (CGVector vector) {
         */
         
         CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-        [self.playerAndEnemySide changeHPValue:-damageCount];
+        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
         NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
         
         
@@ -246,9 +246,9 @@ CGFloat vectorLength (CGVector vector) {
         }];
         
         
-//        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
         
-//        [self.playerSide changeHPValue:-damageCount];
+        [self.playerAndEnemySide changePetHPValue:-damageCount];
         
     }
     
@@ -368,10 +368,10 @@ CGFloat vectorLength (CGVector vector) {
 }
 
 // 战斗结束过程
--(void)hpBeenZeroMethod:(PPBattleSideNode *)battleside
+-(void)hpBeenZeroMethod:(NSString *)battlesideName
 {
     
-    if ([battleside.name isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
+    if ([battlesideName isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
     {
 
         PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
@@ -878,6 +878,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)showSkillEventBegin:(NSDictionary *)skillInfo
 {
+    
     PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300.0f)];
     skillNode.delegate = self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
@@ -901,15 +902,15 @@ CGFloat vectorLength (CGVector vector) {
     if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
     {
         if (skillInfo.skillObject ==1) {
-//            [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+            [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];
         } else {
-            [self.playerAndEnemySide changeHPValue:skillInfo.HPChangeValue];
+            [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         }
     } else {
         if (skillInfo.skillObject ==1) {
-            [self.playerAndEnemySide changeHPValue:skillInfo.HPChangeValue];
+            [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         } else {
-//            [self.playerSide changeHPValue:skillInfo.HPChangeValue];
+            [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];
         }
     }
     

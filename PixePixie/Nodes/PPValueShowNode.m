@@ -9,7 +9,7 @@
 
 @implementation PPValueShowNode
 
--(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV andShowType:(VALUESHOWTYPE)showType
+-(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV andShowType:(VALUESHOWTYPE)showType andAnchorPoint:(CGPoint )anchorPoint
 {
     maxValue = maxV;
     originalMax = maxValue;
@@ -24,8 +24,13 @@
         valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(90, 6)];
 
     }
-    valueShowNode.anchorPoint = CGPointMake(0.5, 0.5);
-    valueShowNode.position = CGPointMake(0.0f,0.0f);
+    valueShowNode.anchorPoint = anchorPoint;
+    valueShowNode.position = CGPointMake(-45.0f,0.0f);
+    if (anchorPoint.x==1.0f) {
+        
+        valueShowNode.position = CGPointMake(45.0f,0.0f);
+        
+    }
     [self addChild:valueShowNode];
     
     valueShowLabel=[[PPBasicLabelNode alloc] init];
