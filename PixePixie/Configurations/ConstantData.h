@@ -9,7 +9,7 @@ static const float kBallAngularDamping = 0.8f;      // 角阻尼系数
 static const float kBallFriction = 0.0f;            // 表面摩擦力
 static const float kBallRestitution = 1.0f;         // 弹性恢复系数
 
-static const float kBounceReduce = 0.8f;
+static const float kBounceReduce = 0.8f;            // 弹出去的按距离比例衰减系数
 
 // 最大元素个数
 static const int kElementTypeMax = 10;
@@ -38,7 +38,6 @@ typedef NS_ENUM(NSInteger, PPElementType)
     PPElementTypeWind         // 风
 };
 
-
 // 技能类型定义
 typedef NS_ENUM(NSInteger, PPSkillUniversalType)
 {
@@ -50,13 +49,22 @@ typedef NS_ENUM(NSInteger, PPSkillUniversalType)
     PPSkillTypeAppendDefense,          // 增加本体防御
 };
 
+// 球类型定义
+typedef NS_ENUM(NSInteger, PPBallType)
+{
+    PPBallTypeNone = 0,     // 无
+    PPBallTypePlayer,       // 玩家球
+    PPBallTypeEnemy,        // 敌方球
+    PPBallTypeCrystal,      // 连击球
+    PPBallTypeElement,      // 元素球
+    PPBallTypeTrap,         // 陷阱球
+};
+
 // 临时状态buff定义
 typedef NS_ENUM(NSInteger, PPBuffUniversalType)
 {
     PPBuffTypeAttackAddition = 0,              // 伤害加成
 };
-
-
 
 // 属性相克数值策划表
 static const float kElementInhibition[kElementTypeMax + 1][kElementTypeMax + 1] = {
@@ -88,9 +96,6 @@ static const int kElementMix[kElementTypeMax + 1][kElementTypeMax + 1] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 };
 
-
 @interface ConstantData : NSObject
-
 +(NSString *)elementName:(PPElementType)elementType;
-
 @end

@@ -1,9 +1,7 @@
 
+#import "PPPixie.h"
 
 @interface PPBall ()
-{
-    
-}
 @property (nonatomic) SKTexture * defaultTexture;
 @end
 
@@ -18,7 +16,9 @@
     NSString * imageName = [NSString stringWithFormat:@"%@%@%@",@"ball_",[ConstantData elementName:elementType],@".png"];
     if (imageName == nil) return nil;
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
+    tBall.ballType = PPBallTypeElement;
     
     if (tBall){
         
@@ -30,8 +30,8 @@
         [PPBall defaultBallPhysicsBody:tBall];
         
         tBall.pixie = nil;
-        
     }
+    
     return tBall;
 }
 
@@ -43,7 +43,9 @@
                                      pixie.pixieGeneration];
     if (imageName == nil) return nil;
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
+    tBall.ballType = PPBallTypePlayer;
     
     if (tBall){
         tBall.ballElementType = pixie.pixieElement;
@@ -58,7 +60,6 @@
 //    [additonLabel setText:@"%100"];
 //    [tBall addChild:additonLabel];
     
-    
     return tBall;
 }
 
@@ -71,9 +72,10 @@
                             pixieEnemy.pixieGeneration];
     
     if (imageName == nil) return nil;
-    
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
+    tBall.ballType = PPBallTypeEnemy;
     
     if (tBall){
         tBall.ballElementType = pixieEnemy.pixieElement;
@@ -82,7 +84,13 @@
     
         tBall.pixieEnemy = pixieEnemy;
     }
+    
     return tBall;
+}
+
+// 改为默认皮肤
+-(void)setToDefaultTexture{
+    [self runAction:[SKAction setTexture:_defaultTexture]];
 }
 
 // 默认的球的物理属性
@@ -96,18 +104,6 @@
     
     ball.physicsBody.dynamic = YES;                         // 说明物体是动态的
     ball.physicsBody.usesPreciseCollisionDetection = YES;   // 使用快速运动检测碰撞
-}
-
-
-
--(void)setAdditionLabel:(CGFloat )addition
-{
-    
-    
-}
-// 改为默认皮肤
--(void)setToDefaultTexture{
-    [self runAction:[SKAction setTexture:_defaultTexture]];
 }
 
 @end

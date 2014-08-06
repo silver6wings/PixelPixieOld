@@ -845,7 +845,6 @@
 		19F6ED8F18C6C09900BFFF9A = {
 			isa = PBXGroup;
 			children = (
-				D46936FE197D45C1006EC83E /* Configurations */,
 				19F6EDA318C6C09900BFFF9A /* PixePixie */,
 				19F6EDD718C6C65900BFFF9A /* Resource */,
 				19F6ED9A18C6C09900BFFF9A /* Frameworks */,
@@ -879,6 +878,7 @@
 				19F6EDAC18C6C09900BFFF9A /* PPAppDelegate.h */,
 				D449CFD9192BB296007179B1 /* PPAppDelegate.m */,
 				193DC47C19685B46007308C7 /* Header */,
+				D46936FE197D45C1006EC83E /* Configurations */,
 				D449CFD2192BB278007179B1 /* Basic */,
 				D43F42351947562A00B19F2F /* Controllers */,
 				D43F42381947562A00B19F2F /* Views */,
@@ -1016,8 +1016,7 @@
 				D4693701197D45C1006EC83E /* ConstantData.h */,
 				D4693702197D45C1006EC83E /* ConstantData.m */,
 			);
-			name = Configurations;
-			path = PixePixie/Configurations;
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		D4767AB9196D872D000B5B9C /* Tool */ = {
