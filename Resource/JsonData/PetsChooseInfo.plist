@@ -132,7 +132,7 @@
 					<key>skillname</key>
 					<string>阳光普照</string>
 					<key>skillcdrounds</key>
-					<integer>3</integer>
+					<integer>2</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -168,7 +168,7 @@
 					<key>skillname</key>
 					<string>木旋风</string>
 					<key>skillcdrounds</key>
-					<integer>3</integer>
+					<integer>4</integer>
 				</dict>
 			</array>
 		</dict>
@@ -216,7 +216,7 @@
 					<key>skillname</key>
 					<string>森林瞬起</string>
 					<key>skillcdrounds</key>
-					<integer>3</integer>
+					<integer>2</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -252,7 +252,7 @@
 					<key>skillname</key>
 					<string>木之誓言</string>
 					<key>skillcdrounds</key>
-					<integer>3</integer>
+					<integer>4</integer>
 				</dict>
 			</array>
 		</dict>
@@ -300,7 +300,7 @@
 					<key>skillname</key>
 					<string>森林瞬起</string>
 					<key>skillcdrounds</key>
-					<integer>3</integer>
+					<integer>2</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -336,7 +336,7 @@
 					<key>skillname</key>
 					<string>木之誓言</string>
 					<key>skillcdrounds</key>
-					<integer>3</integer>
+					<integer>4</integer>
 				</dict>
 			</array>
 		</dict>
@@ -384,7 +384,7 @@
 					<key>skillname</key>
 					<string>森林瞬起</string>
 					<key>skillcdrounds</key>
-					<integer>3</integer>
+					<integer>2</integer>
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
@@ -420,7 +420,7 @@
 					<key>skillname</key>
 					<string>木之誓言</string>
 					<key>skillcdrounds</key>
-					<integer>3</integer>
+					<integer>4</integer>
 				</dict>
 			</array>
 		</dict>

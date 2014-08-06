@@ -28,7 +28,7 @@ static NSString *joinTitle[]={
     if (self = [super initWithSize:size]) {
         
         self.backgroundColor = [UIColor purpleColor];
-        [self setBackTitleText:@"Schedule" andPositionY:360.0f];
+//        [self setBackTitleText:@"Schedule" andPositionY:360.0f];
         
         
         for (int i=0; i<5; i++) {

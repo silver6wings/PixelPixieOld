@@ -36,24 +36,24 @@
         [self addChild:buffButton];
     }
     
-    PPSpriteButton *moodButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(130.0f, 25.0f)];
+    PPSpriteButton *moodButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(30.0f, 30.0f)];
     [moodButton setLabelWithText:@"心情" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-    moodButton.position = CGPointMake(0.0f,-105.0f);
+    moodButton.position = CGPointMake(130.0f,-85.0f);
     moodButton.name = @"心情";
     [moodButton addTarget:self selector:@selector(moodButtonClick:) withObject:moodButton.name forControlEvent:PPButtonControlEventTouchUpInside];
     [self addChild:moodButton];
     
-    PPSpriteButton *hungryButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(130.0f, 25.0f)];
-    [hungryButton setLabelWithText:@"饥饿" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-    hungryButton.position = CGPointMake(0.0f,moodButton.position.y-30.0f);
-    hungryButton.name = @"饥饿";
-    [hungryButton addTarget:self selector:@selector(hungryButtonClick:) withObject:hungryButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-    [self addChild:hungryButton];
+//    PPSpriteButton *hungryButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(130.0f, 25.0f)];
+//    [hungryButton setLabelWithText:@"饥饿" andFont:[UIFont systemFontOfSize:15] withColor:nil];
+//    hungryButton.position = CGPointMake(0.0f,moodButton.position.y-30.0f);
+//    hungryButton.name = @"饥饿";
+//    [hungryButton addTarget:self selector:@selector(hungryButtonClick:) withObject:hungryButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+//    [self addChild:hungryButton];
     
     
-    PPSpriteButton *feedButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(50.0f, 50.0f)];
+    PPSpriteButton *feedButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(30.0f, 30.0f)];
     [feedButton setLabelWithText:@"喂食" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-    feedButton.position = CGPointMake(110.0f,moodButton.position.y-15);
+    feedButton.position = CGPointMake(moodButton.position.x,moodButton.position.y-40);
     feedButton.name = @"喂食";
     [feedButton addTarget:self selector:@selector(feedButtonClick:) withObject:feedButton.name forControlEvent:PPButtonControlEventTouchUpInside];
     [self addChild:feedButton];

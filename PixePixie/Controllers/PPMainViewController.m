@@ -174,8 +174,8 @@ NSString * menu[] = {
     
     CGRect NormalViewRect = CGRectMake(0.0f, 44.0f, skViewMain.frame.size.width, skViewMain.frame.size.height - 88);
     
-    mainView =[[PPMainView alloc] initWithFrame:NormalViewRect];
-    [skViewMain addSubview:mainView];
+//    mainView =[[PPMainView alloc] initWithFrame:NormalViewRect];
+//    [skViewMain addSubview:mainView];
     
     monsterMainView=[[PPMonsterMainView alloc] initWithFrame:NormalViewRect];
     [skViewMain addSubview:monsterMainView];
@@ -194,8 +194,7 @@ NSString * menu[] = {
     othersMainView=[[PPOthersMainView alloc] initWithFrame:NormalViewRect];
     [skViewMain addSubview:othersMainView];
     
-    [skViewMain bringSubviewToFront:mainView];
-    
+    [skViewMain bringSubviewToFront:monsterMainView];
     
     // Bar上方状态栏
     userInfoBar=[[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
@@ -262,6 +261,9 @@ NSString * menu[] = {
         [menuInfoBar addSubview:menuBtn];
     }
     
+    [self changeMenuState:0];
+
+    
     if (CurrentDeviceRealSize.height > 500) {
         UIView *upBlackBar = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
         [upBlackBar setBackgroundColor:[UIColor whiteColor]];
@@ -322,6 +324,7 @@ NSString * menu[] = {
 
 -(void)menuBtnClick:(UIButton *)sender
 {
+    
     [UIView animateWithDuration:0.2
                      animations:^{
                          [backToMain setFrame:CGRectMake(0.0f,
@@ -331,6 +334,9 @@ NSString * menu[] = {
                      }
                      completion:^(BOOL finished){
                      }];
+    
+   
+    [self changeMenuState:sender.tag-PP_MENU_BUTON_TAG];
     
     switch (sender.tag-PP_MENU_BUTON_TAG) {
         case 0:
@@ -394,8 +400,21 @@ NSString * menu[] = {
         default:
             break;
     }
+    
+    
 }
-
+-(void)changeMenuState:(int)index
+{
+    for (int i=0; i<PP_MENU_COUNT; i++) {
+        UIButton *buttonMenuTmp=(UIButton *)[menuInfoBar viewWithTag:PP_MENU_BUTON_TAG+i];
+        if (i==index) {
+            [buttonMenuTmp setBackgroundColor:[UIColor blueColor]];
+        }else
+        {
+            [buttonMenuTmp setBackgroundColor:[UIColor purpleColor]];
+        }
+    }
+}
 -(void)backToMainClick
 {
 //    if ([UIScreen mainScreen].bounds.size.height > 500) {
