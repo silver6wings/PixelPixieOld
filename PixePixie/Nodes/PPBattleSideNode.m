@@ -8,6 +8,7 @@
 @synthesize currentPPPixieEnemy;
 @synthesize showInfoSelector;
 @synthesize hpBeenZeroSel;
+@synthesize pauseSelector;
 
 -(void)setSideSkillsBtn:(PPPixie *)ppixie
 {
@@ -86,31 +87,43 @@
     [self addChild:stopBtn];
     
     
-    
     // 添加 HP bar
     petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
     [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)];
     petPlayerHP->target = self;
     petPlayerHP->animateEnd = @selector(animatePetEnd:);
     petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
-    petPlayerHP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y);
+    petPlayerHP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y+5.0f);
     [self addChild:petPlayerHP];
     
     
+    //能量条
+    petPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
+    [petPlayerMP setMaxValue:petppixie.pixieMPmax andCurrentValue:petppixie.currentMP andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)];
+    petPlayerMP->target = self;
+    petPlayerMP->animateEnd = @selector(animatePetEnd:);
+    petPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
+    petPlayerMP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y-15);
+    [self addChild:petPlayerMP];
     
     
-
     // 添加 HP bar
     enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
     [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
     enemyPlayerHP->target=self;
     enemyPlayerHP->animateEnd=@selector(animateEnemyEnd:);
     enemyPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
-    enemyPlayerHP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y);
+    enemyPlayerHP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y+5.0f);
     [self addChild:enemyPlayerHP];
     
     
-    
+    enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
+    [enemyPlayerMP setMaxValue:enemyppixie.pixieMPmax andCurrentValue:enemyppixie.currentMP andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
+    enemyPlayerMP->target = self;
+    enemyPlayerMP->animateEnd = @selector(animatePetEnd:);
+    enemyPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
+    enemyPlayerMP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y-15);
+    [self addChild:enemyPlayerMP];
     
     
     PPCustomButton *ppixieEnemyBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
@@ -147,6 +160,13 @@
 }
 -(void)stopBtnClick:(NSString *)stringname
 {
+    
+    if (self.target != nil && self.pauseSelector != nil &&
+        [self.target respondsToSelector:self.pauseSelector])
+    {
+        [self.target performSelectorInBackground:self.pauseSelector withObject:self.name];
+    }
+    
     
 }
 -(void)physicsAttackClick:(PPCustomButton *)sender

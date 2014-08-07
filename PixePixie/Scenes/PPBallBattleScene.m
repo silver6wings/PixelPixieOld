@@ -160,6 +160,14 @@ CGFloat vectorLength (CGVector vector) {
             [self.ballsElement addObject:tBall];
         }
         [self addRandomBalls:5];
+        
+        PPBall * comboBall = [PPBall ballWithCombo];
+        comboBall.physicsBody.categoryBitMask = kBallCategory;
+        comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + sizeFitFor5);
+        [comboBall setColor:[UIColor orangeColor]];
+        comboBall.physicsBody.contactTestBitMask = kBallCategory;
+        [self addChild:comboBall];
+        [self.ballsElement addObject:comboBall];
      
     }
     return self;
@@ -403,6 +411,7 @@ CGFloat vectorLength (CGVector vector) {
         
     } else {
         
+        
         NSDictionary *dict = @{@"title":@"宠物死了",@"context":@"你太sb了"};
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
         [alertCustom showCustomAlertWithInfo:dict];
@@ -457,11 +466,37 @@ CGFloat vectorLength (CGVector vector) {
     self.playerAndEnemySide.target = self;
     self.playerAndEnemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
     self.playerAndEnemySide.skillSelector = @selector(skllEnemyBegain:);
+    self.playerAndEnemySide.pauseSelector = @selector(pauseBtnClick:);
     self.playerAndEnemySide.showInfoSelector = @selector(showCurrentEnemyInfo:);
     [self.playerAndEnemySide setSideElements:self.pixiePlayer andEnemy:self.pixieEnemy];
     [self addChild:self.playerAndEnemySide];
     
     currentEnemyIndex += 1;
+    
+}
+
+-(void)pauseBtnClick:(NSString *)stringName
+{
+    
+    PPCustomAlertNode *alertNode=[[PPCustomAlertNode alloc] initWithFrame:CGRectMake(self.size.width/2.0f, self.size.height/2.0f, self.size.width, self.size.height)];
+    alertNode->target = self;
+    alertNode->btnClickSel = @selector(pauseMenuBtnClick:);
+    [alertNode setColor:[UIColor yellowColor]];
+    [alertNode showPauseMenuAlertWithTitle:@"游戏暂停了" andMessage:nil];
+    [self addChild:alertNode];
+    
+    
+    
+}
+-(void)pauseMenuBtnClick:(NSString *)btnStr
+{
+    NSLog(@"btnStr= %@",btnStr);
+    
+    if ([btnStr isEqualToString:@"button2"]) {
+        [self backButtonClick:nil];
+    }
+    
+    
     
 }
 #pragma mark round take turns

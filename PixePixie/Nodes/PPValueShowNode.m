@@ -21,7 +21,7 @@
         valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 6)];
 
     } else {
-        valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(90, 6)];
+        valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor yellowColor] size:CGSizeMake(90, 6)];
 
     }
     valueShowNode.anchorPoint = anchorPoint;
@@ -37,7 +37,7 @@
     valueShowLabel.text=[NSString stringWithFormat:@"%.f/%.f",currentV,maxV];
     valueShowLabel.fontSize=10;
     valueShowLabel.name = [NSString stringWithFormat:@"%d",PP_SKILLS_VALUE_LAEBEL_TAG];
-    valueShowLabel.position = CGPointMake(0,valueShowNode.position.y+10.0f);
+    valueShowLabel.position = CGPointMake(0,valueShowNode.position.y+5.0f);
     [self addChild:valueShowLabel];
     
 }

@@ -6,7 +6,8 @@
     PPValueShowNode *enemyPlayerHP;
     PPValueShowNode *petPlayerHP;
     
-    PPValueShowNode *barPlayerMP;
+    PPValueShowNode *petPlayerMP;
+    PPValueShowNode *enemyPlayerMP;
 }
 //回调对象
 @property(nonatomic, assign) id target;
@@ -16,6 +17,8 @@
 
 //回调方法
 @property(nonatomic, assign) SEL showInfoSelector;
+
+@property(nonatomic, assign) SEL pauseSelector;
 
 @property(nonatomic, assign) SEL hpBeenZeroSel;
 @property(nonatomic, retain) PPPixie *currentPPPixie;

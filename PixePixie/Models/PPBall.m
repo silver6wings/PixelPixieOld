@@ -87,7 +87,32 @@
     
     return tBall;
 }
-
+// 创建敌人的球
++(PPBall *)ballWithCombo
+{
+    
+    NSString * imageName = @"skill_plant.png";
+    
+    if (imageName == nil) return nil;
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    
+    PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
+    tBall.ballType = PPBallTypeElement;
+    
+    if (tBall){
+        
+        tBall.defaultTexture = tTexture;
+        tBall.name = @"combo";
+        tBall.ballElementType = PPElementTypeNone;
+        tBall.size = CGSizeMake(kBallSize, kBallSize);
+        
+        [PPBall defaultBallPhysicsBody:tBall];
+        
+        tBall.pixie = nil;
+    }
+    
+    return tBall;
+}
 // 改为默认皮肤
 -(void)setToDefaultTexture{
     [self runAction:[SKAction setTexture:_defaultTexture]];
