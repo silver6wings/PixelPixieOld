@@ -83,7 +83,7 @@
     tPixie.pixieSkills = [NSArray arrayWithArray:[petsDict objectForKey:@"enemySkills"]];
     
     tPixie.pixieBuffs = [[NSArray alloc] init];
-    tPixie.pixieBall = [PPBall ballWithEnemyPixie:tPixie];
+    tPixie.pixieBall = [PPBall ballWithPixieEnemy:tPixie];
     
     return tPixie;
 }

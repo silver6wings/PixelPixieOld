@@ -20,7 +20,6 @@
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
-    tBall.ballType = PPBallTypeElement;
     
     if (tBall){
         
@@ -34,10 +33,11 @@
         tBall.pixie = nil;
     }
     
+    tBall.ballType = PPBallTypeElement;
     return tBall;
 }
 
-// 创建宠物的球
+// 创建玩家宠物的球
 +(PPBall *)ballWithPixie:(PPPixie *)pixie{
     
     NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
@@ -47,7 +47,6 @@
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
-    tBall.ballType = PPBallTypePlayer;
     
     if (tBall){
         tBall.ballElementType = pixie.pixieElement;
@@ -62,11 +61,12 @@
 //    [additonLabel setText:@"%100"];
 //    [tBall addChild:additonLabel];
     
+    tBall.ballType = PPBallTypePlayer;
     return tBall;
 }
 
 // 创建敌人的球
-+(PPBall *)ballWithEnemyPixie:(PPPixie *)pixieEnemy;
++(PPBall *)ballWithPixieEnemy:(PPPixie *)pixieEnemy;
 {
     
     NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
@@ -77,7 +77,6 @@
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
-    tBall.ballType = PPBallTypeEnemy;
     
     if (tBall){
         tBall.ballElementType = pixieEnemy.pixieElement;
@@ -87,9 +86,11 @@
         tBall.pixieEnemy = pixieEnemy;
     }
     
+    tBall.ballType = PPBallTypeEnemy;
     return tBall;
 }
-// 创建敌人的球
+
+// 创建连击球
 +(PPBall *)ballWithCombo
 {
     
@@ -99,7 +100,6 @@
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
-    tBall.ballType = PPBallTypeElement;
     
     if (tBall){
         
@@ -113,8 +113,10 @@
         tBall.pixie = nil;
     }
     
+    tBall.ballType = PPBallTypeCombo;
     return tBall;
 }
+
 // 改为默认皮肤
 -(void)setToDefaultTexture{
     [self runAction:[SKAction setTexture:_defaultTexture]];
@@ -122,6 +124,7 @@
 
 // 默认的球的物理属性
 +(void)defaultBallPhysicsBody:(SKSpriteNode *)ball{
+    
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:kBallSize / 2];
     
     ball.physicsBody.linearDamping = kBallLinearDamping;    // 线阻尼系数

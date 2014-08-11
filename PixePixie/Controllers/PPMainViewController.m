@@ -336,9 +336,9 @@ NSString * menu[] = {
                      }];
     
    
-    [self changeMenuState:sender.tag-PP_MENU_BUTON_TAG];
+    [self changeMenuState:(int)sender.tag - PP_MENU_BUTON_TAG];
     
-    switch (sender.tag-PP_MENU_BUTON_TAG) {
+    switch (sender.tag - PP_MENU_BUTON_TAG) {
         case 0:
         {
             [monsterMainView setBackgroundColor:[UIColor redColor]];

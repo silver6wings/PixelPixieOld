@@ -11,7 +11,7 @@
 @property (nonatomic) PPPixie * pixieEnemy;
 
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
-+(PPBall *)ballWithEnemyPixie:(PPPixie *)pixieEnemy;
++(PPBall *)ballWithPixieEnemy:(PPPixie *)pixieEnemy;
 +(PPBall *)ballWithElement:(PPElementType)element;
 +(PPBall *)ballWithCombo;
 

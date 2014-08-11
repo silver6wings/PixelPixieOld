@@ -17,7 +17,7 @@ static const int kElementTypeMax = 10;
 // 元素类型定义
 typedef NS_ENUM(NSInteger, PPElementType)
 {
-    PPElementTypeNone = 0,        // 无
+    PPElementTypeNone = 0,    // 无
     
     PPElementTypeMetal,       // 金
     PPElementTypePlant,       // 木
@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, PPBallType)
     PPBallTypeNone = 0,     // 无
     PPBallTypePlayer,       // 玩家球
     PPBallTypeEnemy,        // 敌方球
-    PPBallTypeCrystal,      // 连击球
+    PPBallTypeCombo,        // 连击球
     PPBallTypeElement,      // 元素球
     PPBallTypeTrap,         // 陷阱球
 };
