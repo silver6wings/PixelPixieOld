@@ -1,23 +1,20 @@
-//
-//  PPMainScene.m
-//  PixelPixie
-//
-//  Created by xiefei on 5/21/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
+
 
 #import "PPMainScene.h"
 
 @implementation PPMainScene
 @synthesize chooseCouterpartSel=_chooseCouterpartSel;
 @synthesize chooseTarget=_chooseTarget;
+
 CGPoint couterpartPosition[]={
     {150.0f,300.0f}
 };
-NSString *couterpartName[]={
- @"有朋友给你的宠物喂食了!",
+
+NSString * couterpartName[]={
+    @"有朋友给你的宠物喂食了!",
     @"world boss"
 };
+
 - (id)initWithSize:(CGSize)size
 {
     if (self=[super initWithSize:size]) {
@@ -38,23 +35,22 @@ NSString *couterpartName[]={
         [worldBossButton addTarget:self selector:@selector(worldBossButtonClick:) withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:worldBossButton];
         
-        
         PPMonsterInfoNode *monsterInfo=[[PPMonsterInfoNode alloc] initWithColor:[UIColor cyanColor] size:CGSizeMake(320, 300)];
         [monsterInfo initMonsterInfo:nil];
         monsterInfo.position = CGPointMake(160.0f, 170);
         [self addChild:monsterInfo];
-
-        
     }
     return self;
 }
+
 -(void)monsterButtonClick:(NSString *)nameString
 {
     
 }
+
+
 -(void)worldBossButtonClick:(NSString *)nameString
 {
-    #warning 不知道咋改，WorldBoss先暂搁一下
     /*
     //战斗示例 方便连调
     NSDictionary *dictEnemy=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
@@ -83,8 +79,8 @@ NSString *couterpartName[]={
 //    [self.view presentScene:worldScene];
     
     */
-    
 }
+
 -(void)choosePassNumber
 {
     if (self.chooseTarget!=nil&&self.chooseCouterpartSel!=nil&&[self.chooseTarget respondsToSelector:self.chooseCouterpartSel]) {

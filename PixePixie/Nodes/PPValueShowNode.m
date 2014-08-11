@@ -18,7 +18,7 @@
 
     
     if (showType == PP_HPTYPE) {
-        valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(90, 6)];
+        valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(90, 6)];
 
     } else {
         valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor yellowColor] size:CGSizeMake(90, 6)];

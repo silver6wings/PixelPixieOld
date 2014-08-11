@@ -3,8 +3,8 @@
 
 @interface PPBattleSideNode : PPBasicSpriteNode
 {
-    PPValueShowNode *enemyPlayerHP;
     PPValueShowNode *petPlayerHP;
+    PPValueShowNode *enemyPlayerHP;
     
     PPValueShowNode *petPlayerMP;
     PPValueShowNode *enemyPlayerMP;
