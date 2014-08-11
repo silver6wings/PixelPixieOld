@@ -746,8 +746,8 @@ CGFloat vectorLength (CGVector vector) {
         NSLog(@"Doing Attack and Defend");
         _isBallRolling = NO;
         
-        // 添加少了的球
-//        [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
+        // 添加双方combo的球
+
        
         [self addRandomBalls:petCombos withElement:self.pixiePlayer.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
         NSLog(@"pet element=%d combos=%d  enemy element=%d combos=%d",self.pixiePlayer.pixieBall.ballElementType,petCombos,self.pixieEnemy.pixieBall.ballElementType,enemyCombos);
