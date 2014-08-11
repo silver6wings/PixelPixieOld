@@ -9,6 +9,8 @@
 			<string>1234</string>
 			<key>enemytype</key>
 			<integer>2</integer>
+			<key>enemyelementtype</key>
+			<integer>1</integer>
 			<key>enemyname</key>
 			<string>敌人1号</string>
 			<key>enemyimage</key>
@@ -93,6 +95,8 @@
 			<string>1234</string>
 			<key>enemytype</key>
 			<integer>2</integer>
+			<key>enemyelementtype</key>
+			<integer>1</integer>
 			<key>enemyname</key>
 			<string>敌人2号</string>
 			<key>enemyimage</key>
@@ -177,6 +181,8 @@
 			<string>1234</string>
 			<key>enemytype</key>
 			<integer>2</integer>
+			<key>enemyelementtype</key>
+			<integer>1</integer>
 			<key>enemyname</key>
 			<string>敌人3号</string>
 			<key>enemyimage</key>

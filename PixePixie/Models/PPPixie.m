@@ -78,8 +78,8 @@
     tPixie.pixieAP = 10;
     tPixie.pixieDP = 1;
     tPixie.pixieGeneration = [[petsDict objectForKey:@"enemystatus"] intValue];
-    
-    tPixie.pixieElement = [[petsDict objectForKey:@"enemytype"] intValue];
+    tPixie.pixieBall.ballElementType = [[petsDict objectForKey:@"enemyelementtype"] intValue];
+    tPixie.pixieElement = [[petsDict objectForKey:@"enemyelementtype"] intValue];
     tPixie.pixieSkills = [NSArray arrayWithArray:[petsDict objectForKey:@"enemySkills"]];
     
     tPixie.pixieBuffs = [[NSArray alloc] init];

@@ -64,6 +64,13 @@ CGFloat vectorLength (CGVector vector) {
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
         
+        enemyCombos = 0;
+        petCombos = 0;
+        
+        PPElementType petElement = pixieA.pixieBall.ballElementType;
+        PPElementType enemyElement = pixieB.pixieBall.ballElementType;
+        interCoefficient = kElementInhibition[petElement][enemyElement];
+        
         // 设置场景物理属性
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
@@ -151,23 +158,20 @@ CGFloat vectorLength (CGVector vector) {
         // 添加元素球
         self.ballsElement = [[NSMutableArray alloc] init];
         
-        for (int i = 0; i < 10; i++) {
-            PPBall * tBall = [PPBall ballWithElement:i%5+1];
-            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + sizeFitFor5);
-            tBall.physicsBody.categoryBitMask = kBallCategory;
-            tBall.physicsBody.contactTestBitMask = kBallCategory;
-            [self addChild:tBall];
-            [self.ballsElement addObject:tBall];
+        for (int i = 0; i < 5; i++) {
+            PPBall * comboBall = [PPBall ballWithCombo];
+            comboBall.physicsBody.categoryBitMask = kBallCategory;
+//            comboBall.name = PP_BALL_TYPE_COMBO_NAME;
+            comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + sizeFitFor5);
+            [comboBall setColor:[UIColor orangeColor]];
+            comboBall.physicsBody.contactTestBitMask = kBallCategory;
+            comboBall.physicsBody.node.name=PP_BALL_TYPE_COMBO_NAME;
+            [self addChild:comboBall];
+            [self.ballsElement addObject:comboBall];
         }
-        [self addRandomBalls:5];
         
-        PPBall * comboBall = [PPBall ballWithCombo];
-        comboBall.physicsBody.categoryBitMask = kBallCategory;
-        comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + sizeFitFor5);
-        [comboBall setColor:[UIColor orangeColor]];
-        comboBall.physicsBody.contactTestBitMask = kBallCategory;
-        [self addChild:comboBall];
-        [self.ballsElement addObject:comboBall];
+     
+        
      
     }
     return self;
@@ -614,7 +618,6 @@ CGFloat vectorLength (CGVector vector) {
         
     }];
     
-    
 }
 -(void)setPlayerSideRoundRunState
 {
@@ -632,6 +635,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)backButtonClick:(NSString *)backName
 {
+    
     [self.view presentScene:self.hurdleReady transition:[SKTransition doorsOpenVerticalWithDuration:1]];
 
 //    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
@@ -743,14 +747,20 @@ CGFloat vectorLength (CGVector vector) {
         _isBallRolling = NO;
         
         // 添加少了的球
-        [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
-        [self ballAttackEnd:(kBallNumberMax - (int)self.ballsElement.count)];
+//        [self addRandomBalls:(kBallNumberMax - (int)self.ballsElement.count)];
+       
+        [self addRandomBalls:petCombos withElement:self.pixiePlayer.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
+        NSLog(@"pet element=%d combos=%d  enemy element=%d combos=%d",self.pixiePlayer.pixieBall.ballElementType,petCombos,self.pixieEnemy.pixieBall.ballElementType,enemyCombos);
+        [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
         
         // 刷新技能
         _isTrapEnable = NO;
         for (PPBall * tBall in self.ballsElement) {
             [tBall setToDefaultTexture];
         }
+        
+        enemyCombos = 0;
+        petCombos = 0;
     }
 }
 
@@ -766,28 +776,131 @@ CGFloat vectorLength (CGVector vector) {
     
     if (!_isBallRolling) return;
     
-    SKPhysicsBody * playerBall, * hittedBall;
+//    SKPhysicsBody * playerBall, * hittedBall;
+    SKPhysicsBody * sholdToRemoveBody;
     
-    if (contact.bodyA == self.ballPlayer.physicsBody && contact.bodyB != self.ballEnemy.physicsBody) {
-        // 球A是玩家球 球B不是玩家球
-        playerBall = contact.bodyA;
-        hittedBall = contact.bodyB;
-        
-    } else if (contact.bodyB == self.ballPlayer.physicsBody && contact.bodyA != self.ballEnemy.physicsBody) {
-        // 球B是玩家球 球A不是玩家球
-        playerBall = contact.bodyB;
-        hittedBall = contact.bodyA;
-        
-    } else return;
-    
-    PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
-    PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
-//    [self  setAdditionLabel:kElementInhibition[attack][defend]] ;
-    if (kElementInhibition[attack][defend] >= 1.0f)
+    if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
     {
-        [hittedBall.node removeFromParent];
-        [self.ballsElement removeObject:hittedBall.node];
+        
+        if ((contact.bodyA == self.ballPlayer.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME])||(contact.bodyB == self.ballPlayer.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME])) {
+            //我方碰到连击球
+            
+            petCombos++;
+            
+        }else if((contact.bodyA == self.ballPlayer.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME])||(contact.bodyB == self.ballPlayer.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
+        {
+            //我方碰到敌方属性元素球
+            
+            
+            //确定需要remvoe的元素球
+            if (contact.bodyA == self.ballPlayer.physicsBody)
+            {
+                sholdToRemoveBody = contact.bodyB;
+                
+            }else
+            {
+                sholdToRemoveBody = contact.bodyA;
+
+            }
+            
+        }else if((contact.bodyA == self.ballPlayer.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME])||(contact.bodyB == self.ballPlayer.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
+        {
+            //我方碰到我方属性元素球
+            
+            
+            
+            
+            //确定需要remvoe的元素球
+            if (contact.bodyA == self.ballPlayer.physicsBody)
+            {
+                sholdToRemoveBody = contact.bodyB;
+                
+            }else
+            {
+                sholdToRemoveBody = contact.bodyA;
+                
+            }
+            
+        }
+        else
+        {
+            
+        }
+        
+        //判断当前我方是否满血
+        if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
+        {
+            [sholdToRemoveBody.node removeFromParent];
+            [self.ballsElement removeObject:sholdToRemoveBody.node];
+        }
+        
     }
+    else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)) {
+        
+        if ((contact.bodyA == self.ballEnemy.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME])||(contact.bodyB == self.ballEnemy.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME])) {
+            //敌方碰到连击球
+            
+            enemyCombos++;
+            
+        }else if((contact.bodyA == self.ballEnemy.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME])||(contact.bodyB == self.ballEnemy.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
+        {
+            //敌方碰到敌方属性元素球
+            
+            
+            if (contact.bodyA == self.ballEnemy.physicsBody)
+            {
+                sholdToRemoveBody = contact.bodyB;
+                
+            }else
+            {
+                sholdToRemoveBody = contact.bodyA;
+                
+            }
+            
+        }else if((contact.bodyA == self.ballEnemy.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME])||(contact.bodyB == self.ballEnemy.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
+        {
+            //敌方碰到我方属性元素球
+            
+            if (contact.bodyA == self.ballEnemy.physicsBody)
+            {
+                sholdToRemoveBody = contact.bodyB;
+                
+            }else
+            {
+                sholdToRemoveBody = contact.bodyA;
+                
+            }
+        }
+        else
+        {
+            
+        }
+        
+        //判断当前敌方是否满血
+        if (self.pixieEnemy.currentHP != self.pixieEnemy.pixieHPmax)
+        {
+            //不满血
+            
+            [sholdToRemoveBody.node removeFromParent];
+            [self.ballsElement removeObject:sholdToRemoveBody.node];
+            
+            
+        }
+        
+        
+    }else return;
+    
+//        else if (contact.bodyA == self.ballPlayer.physicsBody && contact.bodyA != self.ballEnemy.physicsBody) {
+//        // 球B是玩家球 球A不是玩家球
+//        playerBall = contact.bodyB;
+//        hittedBall = contact.bodyA;
+//        
+//    } else return;
+    
+//    PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
+//    PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
+////    [self  setAdditionLabel:kElementInhibition[attack][defend]] ;
+
     
     /*
      if (_isTrapEnable && ((PPBall *)hittedBall.node).ballElementType == PPElementTypePlant) {
@@ -798,7 +911,7 @@ CGFloat vectorLength (CGVector vector) {
      }
      */
     
-    NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
+//    NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
 }
 
 #pragma mark Custom Method
@@ -822,12 +935,14 @@ CGFloat vectorLength (CGVector vector) {
 }
 
 // 添加随机的球
--(void)addRandomBalls:(int)number{
+-(void)addRandomBalls:(int)number withElement:(PPElementType)element andNodeName:(NSString *)nodeName{
     
     for (int i = 0; i < number; i++) {
         
-        PPBall * tBall = [PPBall ballWithElement:arc4random()%5 + 1];
+        PPBall * tBall = [PPBall ballWithElement:element];
         tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+sizeFitFor5);
+        tBall.ballElementType = element;
+        tBall.physicsBody.node.name = nodeName;
         tBall.physicsBody.categoryBitMask = kBallCategory;
         tBall.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:tBall];

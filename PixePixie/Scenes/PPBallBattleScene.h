@@ -4,9 +4,16 @@
 @class PPHurdleReadyScene;
 @interface PPBallBattleScene : PPBasicScene <SkillShowEndDelegate>
 {
+    
     int roundIndex;
     BOOL roundRuning;
     int roundActionNum;
+    int enemyCombos;
+    int petCombos;
+    CGFloat interCoefficient;
+   
+    
+    
     @public
     int currentEnemyIndex;
     

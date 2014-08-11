@@ -14,6 +14,8 @@
 +(PPBall *)ballWithElement:(PPElementType) elementType{
     
     NSString * imageName = [NSString stringWithFormat:@"%@%@%@",@"ball_",[ConstantData elementName:elementType],@".png"];
+    NSLog(@"imageName=%@",imageName);
+    
     if (imageName == nil) return nil;
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     
