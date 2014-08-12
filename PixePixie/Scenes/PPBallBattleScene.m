@@ -59,13 +59,20 @@ CGFloat vectorLength (CGVector vector) {
     
     if (self = [super initWithSize:size]) {
         
+        
         self.backgroundColor = [SKColor blackColor];
         
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
         
+        
         enemyCombos = 0;
         petCombos = 0;
+        petAssimSameEleNum = 0;
+        petAssimDiffEleNum = 0;
+        enemyAssimDiffEleNum = 0;
+        enemyAssimSameEleNum = 0;
+
         
         PPElementType petElement = pixieA.pixieBall.ballElementType;
         PPElementType enemyElement = pixieB.pixieBall.ballElementType;
@@ -89,6 +96,7 @@ CGFloat vectorLength (CGVector vector) {
         bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
         [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_02.jpg"]]];
         [self addChild:bg];
+        
         
         // demo 初始化 skill parameter Hack
         _isTrapEnable = NO;
@@ -786,10 +794,15 @@ CGFloat vectorLength (CGVector vector) {
             //我方碰到连击球
             
             petCombos++;
+            [self.playerAndEnemySide changePetMPValue:100];
             
         }else if((contact.bodyA == self.ballPlayer.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME])||(contact.bodyB == self.ballPlayer.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
         {
+            
             //我方碰到敌方属性元素球
+            petAssimDiffEleNum ++;
+        
+            [self.playerAndEnemySide changePetHPValue:-100];
             
             
             //确定需要remvoe的元素球
@@ -805,10 +818,12 @@ CGFloat vectorLength (CGVector vector) {
             
         }else if((contact.bodyA == self.ballPlayer.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME])||(contact.bodyB == self.ballPlayer.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
         {
+            
+            
             //我方碰到我方属性元素球
-            
-            
-            
+            petAssimSameEleNum ++;
+            [self.playerAndEnemySide changePetHPValue:100];
+
             
             //确定需要remvoe的元素球
             if (contact.bodyA == self.ballPlayer.physicsBody)
@@ -821,11 +836,15 @@ CGFloat vectorLength (CGVector vector) {
                 
             }
             
+            
         }
         else
         {
             
+            
         }
+        
+        NSLog(@"currentHP=%f max=%f",self.pixiePlayer.currentHP,self.pixiePlayer.pixieHPmax);
         
         //判断当前我方是否满血
         if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
@@ -841,11 +860,16 @@ CGFloat vectorLength (CGVector vector) {
             //敌方碰到连击球
             
             enemyCombos++;
+            [self.playerAndEnemySide changeEnemyMPValue:100];
+
             
         }else if((contact.bodyA == self.ballEnemy.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME])||(contact.bodyB == self.ballEnemy.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
         {
-            //敌方碰到敌方属性元素球
             
+            //敌方碰到敌方属性元素球
+            enemyAssimSameEleNum++;
+            [self.playerAndEnemySide changeEnemyHPValue:100];
+
             
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
@@ -859,7 +883,11 @@ CGFloat vectorLength (CGVector vector) {
             
         }else if((contact.bodyA == self.ballEnemy.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME])||(contact.bodyB == self.ballEnemy.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
         {
+            
             //敌方碰到我方属性元素球
+            enemyAssimDiffEleNum++;
+            [self.playerAndEnemySide changeEnemyHPValue:-100];
+
             
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
@@ -870,6 +898,7 @@ CGFloat vectorLength (CGVector vector) {
                 sholdToRemoveBody = contact.bodyA;
                 
             }
+            
         }
         else
         {

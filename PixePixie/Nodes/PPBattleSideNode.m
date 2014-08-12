@@ -28,13 +28,13 @@
         
         
         
-        PPSpriteButton *  skillCdButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 15)];
-        [skillCdButton setLabelWithText:[NSString stringWithFormat:@"cd:%@",[[skillsArray objectAtIndex:i] objectForKey:@"skillcdrounds"]] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        skillCdButton.position = CGPointMake(passButton.position.x, passButton.position.y+15);
-        [skillCdButton setColor:[UIColor blackColor]];
-        skillCdButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
-        [skillCdButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-        [self addChild:skillCdButton];
+//        PPSpriteButton *  skillCdButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 15)];
+//        [skillCdButton setLabelWithText:[NSString stringWithFormat:@"cd:%@",[[skillsArray objectAtIndex:i] objectForKey:@"skillcdrounds"]] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+//        skillCdButton.position = CGPointMake(passButton.position.x, passButton.position.y+15);
+//        [skillCdButton setColor:[UIColor blackColor]];
+//        skillCdButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
+//        [skillCdButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+//        [self addChild:skillCdButton];
         
         
     }
@@ -156,7 +156,6 @@
     [self addChild:ppixieNameLabel];
     
     
-    
 }
 -(void)stopBtnClick:(NSString *)stringname
 {
@@ -240,11 +239,30 @@
 }
 -(void)changePetHPValue:(CGFloat)HPValue
 {
-    [petPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+    
+    self.currentPPPixie.currentHP = [petPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+    
 }
 -(void)changeEnemyHPValue:(CGFloat)HPValue
 {
-    [enemyPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+   
+
+    self.currentPPPixieEnemy.currentHP =  [enemyPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+    
+    
+}
+-(void)changePetMPValue:(CGFloat)HPValue
+{
+    
+    self.currentPPPixie.currentMP = [petPlayerMP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+
+}
+-(void)changeEnemyMPValue:(CGFloat)HPValue
+{
+    
+    self.currentPPPixieEnemy.currentMP =  [enemyPlayerMP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+    
+
 }
 -(void)changeHPValue:(CGFloat)HPValue
 {

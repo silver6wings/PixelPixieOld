@@ -26,9 +26,13 @@
 
 -(void)setSideSkillsBtn:(PPPixie *)ppixie;
 -(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie;
-
+//改变HP
 -(void)changePetHPValue:(CGFloat)HPValue;
 -(void)changeEnemyHPValue:(CGFloat)HPValue;
+//改变MP
+-(void)changePetMPValue:(CGFloat)HPValue;
+-(void)changeEnemyMPValue:(CGFloat)HPValue;
+
 -(void)setSideSkillButtonDisable;
 -(void)setSideSkillButtonEnable;
 

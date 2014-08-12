@@ -12,6 +12,6 @@
 
 -(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV andShowType:(VALUESHOWTYPE)showType andAnchorPoint:(CGPoint )anchorPoint;
 
--(void)valueShowChangeMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV;
+-(CGFloat)valueShowChangeMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV;
 
 @end

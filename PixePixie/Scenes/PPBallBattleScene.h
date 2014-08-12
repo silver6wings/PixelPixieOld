@@ -8,14 +8,23 @@
     int roundIndex;
     BOOL roundRuning;
     int roundActionNum;
-    int enemyCombos;
-    int petCombos;
-    CGFloat interCoefficient;
-   
     
+    int enemyCombos; //怪物连击数
+    int petCombos;  //宠物连击数
+    
+    
+    int petAssimSameEleNum;   //宠物吸收己方元素球个数
+    int petAssimDiffEleNum;   //宠物吸收敌方方元素球个数
+    int enemyAssimSameEleNum; //怪物吸收怪物方元素球个数
+    int enemyAssimDiffEleNum; //怪物吸收宠物方元素球个数
+    
+    
+    
+    CGFloat interCoefficient;  //怪物与宠物之间属性关系
     
     @public
     int currentEnemyIndex;
+    
     
 }
 @property(strong)PPHurdleReadyScene *hurdleReady;

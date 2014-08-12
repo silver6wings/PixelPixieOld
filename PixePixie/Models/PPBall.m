@@ -134,6 +134,7 @@
     
     ball.physicsBody.dynamic = YES;                         // 说明物体是动态的
     ball.physicsBody.usesPreciseCollisionDetection = YES;   // 使用快速运动检测碰撞
+    
 }
 
 @end

@@ -21,7 +21,7 @@
         valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(90, 6)];
 
     } else {
-        valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor yellowColor] size:CGSizeMake(90, 6)];
+        valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor orangeColor] size:CGSizeMake(90, 6)];
 
     }
     valueShowNode.anchorPoint = anchorPoint;
@@ -35,14 +35,18 @@
     
     valueShowLabel=[[PPBasicLabelNode alloc] init];
     valueShowLabel.text=[NSString stringWithFormat:@"%.f/%.f",currentV,maxV];
+    NSLog(@"currentV=%f,maxV=%f",currentV,maxV);
+    
     valueShowLabel.fontSize=10;
     valueShowLabel.name = [NSString stringWithFormat:@"%d",PP_SKILLS_VALUE_LAEBEL_TAG];
     valueShowLabel.position = CGPointMake(0,valueShowNode.position.y+5.0f);
     [self addChild:valueShowLabel];
     
+    [self valueShowChangeMaxValue:maxV andCurrentValue:currentV];
+    
 }
 
--(void)valueShowChangeMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV
+-(CGFloat)valueShowChangeMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV
 {
     
     maxValue = maxV + maxValue;
@@ -72,6 +76,8 @@
             [target performSelectorInBackground:animateEnd withObject:[NSNumber numberWithFloat:currentValue]];
         }
     }];
+    
+    return currentValue;
 
 }
 @end

@@ -51,27 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PixePixie/Models/PPBall.m"
-            timestampString = "429463510.88112"
+            filePath = "PixePixie/Nodes/PPValueShowNode.m"
+            timestampString = "429545642.015407"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "429463590.922099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "753"
-            endingLineNumber = "753"
-            landmarkName = "-update:"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-valueShowChangeMaxValue:andCurrentValue:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

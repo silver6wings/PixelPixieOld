@@ -159,12 +159,17 @@
                                                        andTitle:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"]
                                                      withTarget:self
                                                    withSelecter:@selector(spriteChooseClick:)];
+        
+        
         sprit1.name = [NSString stringWithFormat:@"%d", PP_PETS_CHOOSE_BTN_TAG + i];
         sprit1.position = CGPointMake(0.0, 100 * (i - 1));
         [spriteContent addChild:sprit1];
+        
     }
     
+    
     self.petsArray = [NSArray arrayWithArray:petsInfoArray];
+    
     
     SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     titilePass.name = @"eee";
@@ -176,11 +181,11 @@
     [spriteContent addChild:titilePass];
     
     
-    
 }
 
 -(void)spriteChooseClick:(PPCustomButton *)spriteBtn
 {
+    
     
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteBtn.name integerValue]-PP_PETS_CHOOSE_BTN_TAG];
     NSDictionary *choosedPet=[NSDictionary dictionaryWithDictionary:petsChoosedInfo];
