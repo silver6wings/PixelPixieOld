@@ -11,6 +11,8 @@
 
 -(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV andShowType:(VALUESHOWTYPE)showType andAnchorPoint:(CGPoint )anchorPoint
 {
+    
+    
     maxValue = maxV;
     originalMax = maxValue;
     currentValue = currentV;
@@ -32,6 +34,7 @@
         
     }
     [self addChild:valueShowNode];
+    
     
     valueShowLabel=[[PPBasicLabelNode alloc] init];
     valueShowLabel.text=[NSString stringWithFormat:@"%.f/%.f",currentV,maxV];

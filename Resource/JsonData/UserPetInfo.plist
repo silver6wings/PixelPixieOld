@@ -40,7 +40,7 @@
 					<key>skillhpchange</key>
 					<integer>156</integer>
 					<key>skillmpchange</key>
-					<integer>-109</integer>
+					<integer>-1009</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
@@ -60,7 +60,7 @@
 					<key>skillhpchange</key>
 					<integer>-178</integer>
 					<key>skillmpchange</key>
-					<integer>-139</integer>
+					<integer>-1390</integer>
 					<key>skilltype</key>
 					<integer>3</integer>
 					<key>skillobject</key>
@@ -80,7 +80,7 @@
 					<key>skillhpchange</key>
 					<integer>-244</integer>
 					<key>skillmpchange</key>
-					<integer>-123</integer>
+					<integer>-1023</integer>
 					<key>skilltype</key>
 					<integer>1</integer>
 					<key>skillobject</key>
@@ -130,7 +130,7 @@
 					<key>skillhpchange</key>
 					<integer>300</integer>
 					<key>skillmpchange</key>
-					<integer>-290</integer>
+					<integer>-1290</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
@@ -150,7 +150,7 @@
 					<key>skillhpchange</key>
 					<integer>-300</integer>
 					<key>skillmpchange</key>
-					<integer>-400</integer>
+					<integer>-800</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
@@ -170,7 +170,7 @@
 					<key>skillhpchange</key>
 					<integer>-555</integer>
 					<key>skillmpchange</key>
-					<integer>-223</integer>
+					<integer>-1003</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
@@ -220,7 +220,7 @@
 					<key>skillhpchange</key>
 					<integer>700</integer>
 					<key>skillmpchange</key>
-					<integer>-100</integer>
+					<integer>-1000</integer>
 					<key>skilltype</key>
 					<integer>1</integer>
 					<key>skillobject</key>
@@ -240,7 +240,7 @@
 					<key>skillhpchange</key>
 					<integer>-800</integer>
 					<key>skillmpchange</key>
-					<integer>-449</integer>
+					<integer>-809</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
@@ -260,7 +260,7 @@
 					<key>skillhpchange</key>
 					<integer>-554</integer>
 					<key>skillmpchange</key>
-					<integer>-344</integer>
+					<integer>-844</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>

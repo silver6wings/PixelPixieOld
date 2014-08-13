@@ -6,7 +6,7 @@
 @end
 
 @implementation PPBall
-@synthesize pixie, ballElementType, pixieEnemy;
+@synthesize sustainRounds,pixie, ballElementType, pixieEnemy;
 
 #pragma mark Factory Method
 

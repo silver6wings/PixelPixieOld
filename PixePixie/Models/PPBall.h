@@ -4,7 +4,7 @@
 
 @interface PPBall : SKSpriteNode
 
-@property (nonatomic) int rounds;
+@property (nonatomic) int sustainRounds;
 @property (nonatomic) PPBallType ballType;
 @property (nonatomic) PPElementType ballElementType;
 @property (nonatomic) PPPixie * pixie;
