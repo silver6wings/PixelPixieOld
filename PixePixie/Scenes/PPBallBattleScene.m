@@ -533,9 +533,9 @@ CGFloat vectorLength (CGVector vector) {
     [alertNode showPauseMenuAlertWithTitle:@"游戏暂停了" andMessage:nil];
     [self addChild:alertNode];
     
-    
-    
 }
+
+
 -(void)pauseMenuBtnClick:(NSString *)btnStr
 {
     NSLog(@"btnStr= %@",btnStr);
@@ -543,8 +543,6 @@ CGFloat vectorLength (CGVector vector) {
     if ([btnStr isEqualToString:@"button2"]) {
         [self backButtonClick:nil];
     }
-    
-    
     
 }
 #pragma mark round take turns
@@ -583,7 +581,6 @@ CGFloat vectorLength (CGVector vector) {
         
     }
     
-
     
 }
 -(void)roundRotateEnd
@@ -626,14 +623,15 @@ CGFloat vectorLength (CGVector vector) {
             {
                 
                  [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+                
 //                    if (arc4random()%2==0) {
 //                                    [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
 //                    }else
 //                    {
 //                        
 //                    }
+                
             }
-            
             
         }];
     
@@ -671,6 +669,8 @@ CGFloat vectorLength (CGVector vector) {
 }
 -(void)setPlayerSideRoundEndState
 {
+    [self changeBallsRoundsEnd];
+    
     isNotSkillRun = NO;
     [self.playerSkillSide setSideSkillButtonEnable];
 
@@ -703,8 +703,13 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)didMoveToView:(SKView *)view
 {
+    
     [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:2];
     [self setPlayerSideRoundRunState];
+    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixie.pixieElement andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
+    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixieEnemy.pixieElement andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
+
+    
 }
 
 -(void)willMoveFromView:(SKView *)view
@@ -998,7 +1003,33 @@ CGFloat vectorLength (CGVector vector) {
     
     [self addChild:wall];
 }
-
+-(void)changeBallsRoundsEnd
+{
+    
+    for (int i=0; i<[self.ballsElement count]; i++) {
+        
+        PPBall * tBall = [self.ballsElement objectAtIndex:i];
+        tBall.sustainRounds--;
+        
+        if (tBall.sustainRounds == 0) {
+            [tBall removeFromParent];
+            [self.ballsElement removeObject:tBall];
+        }
+        
+    }
+    
+}
+//-(void)removeBallsForRoundsEnd
+//{
+//    
+//    for (int i=0; i<[self.ballsElement count]; i++) {
+//        PPBall * tBall = [self.ballsElement objectAtIndex:i];
+//        if (tBall.sustainRounds <=0) {
+//            [tBall removeFromParent];
+//            [self.ballsElement removeObject:tBall];
+//        }
+//    }
+//}
 // 添加随机的球
 -(void)addRandomBalls:(int)number withElement:(PPElementType)element andNodeName:(NSString *)nodeName{
     
@@ -1158,6 +1189,7 @@ CGFloat vectorLength (CGVector vector) {
     
     if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
     {
+        
         if (skillInfo.skillObject ==1) {
             [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];
         } else {
@@ -1165,12 +1197,15 @@ CGFloat vectorLength (CGVector vector) {
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
             
         }
+        
     } else {
+        
         if (skillInfo.skillObject ==1) {
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         } else {
             [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];
         }
+        
     }
     
     [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
