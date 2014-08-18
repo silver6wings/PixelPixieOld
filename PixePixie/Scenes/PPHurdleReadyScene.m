@@ -31,16 +31,10 @@
 -(void)setCurrentHurdle:(int)currentIndex
 {
     
-
-
-    
-    
     SKNode *contentNode=[self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
     if (contentNode!=nil) {
         [contentNode removeFromParent];
     }
-    
-    
     
     SKNode *contentPetChooseNode=[self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
     if (contentPetChooseNode!=nil) {
@@ -64,11 +58,11 @@
     currentEnemyIndex = currentIndex;
     
     
-    
-    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor purpleColor] size:CGSizeMake(CurrentDeviceRealSize.width, 400)];
+    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor purpleColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
     hurdleReadyContentNode.name = PP_HURDLE_READY_CONTENT_NAME;
-    [hurdleReadyContentNode setPosition:CGPointMake(160.0f, 220)];
+    [hurdleReadyContentNode setPosition:CGPointMake(160.0f, 240)];
     [self addChild:hurdleReadyContentNode];
+    
     
     // 添加己方精灵
     _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
@@ -83,7 +77,7 @@
     statusLabel.text = [NSString stringWithFormat:@"遭遇怪物: %@ id:%d",[[self.enemysArray objectAtIndex:currentIndex] objectForKey:@"enemyname"],
                         [[[self.enemysArray objectAtIndex:currentIndex] objectForKey:@"enemyId"] intValue]];
     statusLabel.position = CGPointMake(0,
-                                      180.0f);
+                                      140.0f);
     [hurdleReadyContentNode addChild:statusLabel];
     
     
@@ -101,11 +95,13 @@
     NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
     @synchronized(texturesArray)
     {
+        
         for (int i = 1; i <= 43; i++) {
             NSString *textureName = [NSString stringWithFormat:@"变身效果01%03d.png", i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
             [texturesArray addObject:temp];
         }
+        
     }
     self.pixieAnimation = [NSMutableArray arrayWithArray:texturesArray];
     
@@ -113,15 +109,15 @@
     [_playerPixie runAction:[SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]
                  completion:^{
                      
+//                     PPSpriteButton *monsterButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(200.0f, 40.0f)];
+//                     [monsterButton setLabelWithText:@"choose pet to battle" andFont:[UIFont systemFontOfSize:15] withColor:nil];
+//                     monsterButton.position = CGPointMake(0.0f,-120.0f);
+//                     monsterButton.name = @"bt_start";
+//                     [monsterButton addTarget:self selector:@selector(battleStartButtonClick:) withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+//                     [hurdleReadyContentNode addChild:monsterButton];
                      
-                     PPSpriteButton *monsterButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(200.0f, 40.0f)];
-                     [monsterButton setLabelWithText:@"choose pet to battle" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-                     monsterButton.position = CGPointMake(0.0f,-150.0f);
-                     monsterButton.name = @"bt_start";
-                     [monsterButton addTarget:self selector:@selector(battleStartButtonClick:) withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-                     [hurdleReadyContentNode addChild:monsterButton];
+                     [self battleStartButtonClick:nil];
                      
-
                  }];
     
 }
@@ -129,11 +125,11 @@
 {
     
     
-    SKNode *contentNode=[self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
-    if (contentNode!=nil) {
-        [contentNode removeFromParent];
-    }
-    
+//    SKNode *contentNode=[self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
+//    if (contentNode!=nil) {
+//        [contentNode removeFromParent];
+//    }
+//    
     [self setPetsChooseContent];
     
 }
@@ -143,9 +139,9 @@
 {
     
     
-    SKSpriteNode *spriteContent = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(300, 350)];
+    SKSpriteNode *spriteContent = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(320, 100)];
     spriteContent.name = PP_HURDLE_PETCHOOSE_CONTENT_NAME;
-    spriteContent.position = CGPointMake(160.0, 260.0);
+    spriteContent.position = CGPointMake(480.0, 45.0);
     [self addChild:spriteContent];
     
     NSDictionary * dictUserPets = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserPetInfo"
@@ -154,16 +150,25 @@
     NSInteger petsCount = [petsInfoArray count];
     
     for (int i = 0; i < petsCount; i++) {
+//        
+//        PPSpriteButton *sprit1 = [PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f)
+//                                                       andTitle:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"]
+//                                                     withTarget:self
+//                                                   withSelecter:@selector(spriteChooseClick:)];
+//        
+//        
+//        sprit1.name = [NSString stringWithFormat:@"%d", PP_PETS_CHOOSE_BTN_TAG + i];
+//        sprit1.position = CGPointMake(100 * (i - 1),0.0);
+//        [spriteContent addChild:sprit1];
+//        
         
-        PPCustomButton *sprit1 = [PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f)
-                                                       andTitle:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"]
-                                                     withTarget:self
-                                                   withSelecter:@selector(spriteChooseClick:)];
         
-        
-        sprit1.name = [NSString stringWithFormat:@"%d", PP_PETS_CHOOSE_BTN_TAG + i];
-        sprit1.position = CGPointMake(0.0, 100 * (i - 1));
-        [spriteContent addChild:sprit1];
+        PPSpriteButton *petChooseButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80.0f, 80.0f)];
+        [petChooseButton setLabelWithText:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+        petChooseButton.position = CGPointMake(100 * (i - 1),0.0);
+        petChooseButton.name = [NSString stringWithFormat:@"%d", PP_PETS_CHOOSE_BTN_TAG + i];
+        [petChooseButton addTarget:self selector:@selector(spriteChooseClick:) withObject:petChooseButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+        [spriteContent addChild:petChooseButton];
         
     }
     
@@ -181,13 +186,17 @@
     [spriteContent addChild:titilePass];
     
     
+    SKAction *actionMove=[SKAction moveTo:CGPointMake(160.0f, spriteContent.position.y) duration:0.5];
+    [spriteContent runAction:actionMove];
+    
+    
 }
 
--(void)spriteChooseClick:(PPCustomButton *)spriteBtn
+-(void)spriteChooseClick:(NSString *)spriteName
 {
     
     
-    NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteBtn.name integerValue]-PP_PETS_CHOOSE_BTN_TAG];
+    NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
     NSDictionary *choosedPet=[NSDictionary dictionaryWithDictionary:petsChoosedInfo];
     // 初始化 ballScene
     

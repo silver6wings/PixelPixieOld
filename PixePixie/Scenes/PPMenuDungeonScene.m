@@ -15,6 +15,7 @@
         for (int i=0; i<5; i++) {
             PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(90, 60)];
             
+            
             [passButton setLabelWithText:[NSString stringWithFormat:@"副本 %d",5-i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
             passButton.position = CGPointMake(160.0f,i*70+60);
             

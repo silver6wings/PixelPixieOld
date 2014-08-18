@@ -18,7 +18,7 @@
     int enemyAssimSameEleNum; //怪物吸收怪物方元素球个数
     int enemyAssimDiffEleNum; //怪物吸收宠物方元素球个数
     
-    
+    int currentPhysicsAttack;
     
     CGFloat interCoefficient;  //怪物与宠物之间属性关系
     

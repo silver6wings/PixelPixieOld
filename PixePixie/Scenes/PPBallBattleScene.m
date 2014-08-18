@@ -72,6 +72,7 @@ CGFloat vectorLength (CGVector vector) {
         petAssimDiffEleNum = 0;
         enemyAssimDiffEleNum = 0;
         enemyAssimSameEleNum = 0;
+        currentPhysicsAttack = 0;
 
         
         PPElementType petElement = pixieA.pixieBall.ballElementType;
@@ -218,7 +219,7 @@ CGFloat vectorLength (CGVector vector) {
 {
     
     NSLog(@"nodeName=%@",nodeName);
-    
+
     
     if ([nodeName isEqual:PP_PET_PLAYER_SIDE_NODE_NAME]) {
         /*
@@ -234,6 +235,8 @@ CGFloat vectorLength (CGVector vector) {
         [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
         
         NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
+        
+        [self enemyPhysicsAttackMoveBall];
         
         
     } else {
@@ -258,19 +261,28 @@ CGFloat vectorLength (CGVector vector) {
         PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
         additonLabel.name  = @"EnemyPhysics";
         additonLabel.position = CGPointMake(160.0f, 200.0f);
-        [additonLabel setText:@"怪物物理攻击"];
+        [additonLabel setText:@"怪物弹球攻击"];
         [self addChild:additonLabel];
         
         
         SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
         [additonLabel runAction:actionScale completion:^{
             [additonLabel removeFromParent];
+            
+            
+            
+            
+            
+            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+            
+            [self.playerAndEnemySide changePetHPValue:-damageCount];
+            
+            [self enemyPhysicsAttackMoveBall];
+            
         }];
         
         
-        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-        
-        [self.playerAndEnemySide changePetHPValue:-damageCount];
+       
         
     }
     
@@ -567,8 +579,10 @@ CGFloat vectorLength (CGVector vector) {
     {
         if ([nodeName isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
             
-            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+//            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+            [self enemyPhysicsAttackMoveBall];
 
+            
         }else
         {
             [self setPlayerSideRoundEndState];
@@ -593,6 +607,18 @@ CGFloat vectorLength (CGVector vector) {
     [self setPlayerSideRoundEndState];
     
 }
+
+#pragma mark battle
+-(void)enemyPhysicsAttackMoveBall
+{
+    
+    [self.ballEnemy.physicsBody applyImpulse:
+     CGVectorMake(arc4random()%100,
+                  arc4random()%100)];
+    
+    [self setPlayerSideRoundRunState];
+}
+
 -(void)startBattle:(NSString *)text
 {
     
@@ -615,13 +641,14 @@ CGFloat vectorLength (CGVector vector) {
             [additonLabel removeFromParent];
             
         
-            if (arc4random()%2==0) {
+            if (arc4random()%20==0) {
                 
                 [self setPlayerSideRoundEndState];
                 
             }else
             {
                 
+                currentPhysicsAttack = 2;
                  [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
                 
 //                    if (arc4random()%2==0) {
@@ -780,7 +807,7 @@ CGFloat vectorLength (CGVector vector) {
         [self.ballPlayer.physicsBody applyImpulse:
          CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
                       (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce)];
-        
+        currentPhysicsAttack = 1;
         
         [_ballShadow removeFromParent];
         _isBallRolling = YES;
