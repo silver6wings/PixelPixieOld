@@ -21,6 +21,10 @@
 @property(nonatomic, assign) SEL pauseSelector;
 
 @property(nonatomic, assign) SEL hpBeenZeroSel;
+
+@property(nonatomic, assign) SEL hpChangeEnd;
+
+
 @property(nonatomic, retain) PPPixie *currentPPPixie;
 @property(nonatomic, retain) PPPixie *currentPPPixieEnemy;
 

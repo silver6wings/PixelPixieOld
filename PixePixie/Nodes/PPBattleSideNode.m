@@ -9,7 +9,7 @@
 @synthesize showInfoSelector;
 @synthesize hpBeenZeroSel;
 @synthesize pauseSelector;
-
+@synthesize hpChangeEnd;
 -(void)setSideSkillsBtn:(PPPixie *)ppixie
 {
     
@@ -91,7 +91,7 @@
     petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
     [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)];
     petPlayerHP->target = self;
-    petPlayerHP->animateEnd = @selector(animatePetEnd:);
+    petPlayerHP->animateEnd = @selector(animatePetHPEnd:);
     petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
     petPlayerHP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y+5.0f);
     [self addChild:petPlayerHP];
@@ -101,7 +101,7 @@
     petPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
     [petPlayerMP setMaxValue:petppixie.pixieMPmax andCurrentValue:petppixie.currentMP andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)];
     petPlayerMP->target = self;
-    petPlayerMP->animateEnd = @selector(animatePetEnd:);
+    petPlayerMP->animateEnd = @selector(animatePetMPEnd:);
     petPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
     petPlayerMP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y-15);
     [self addChild:petPlayerMP];
@@ -111,7 +111,7 @@
     enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
     [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
     enemyPlayerHP->target=self;
-    enemyPlayerHP->animateEnd=@selector(animateEnemyEnd:);
+    enemyPlayerHP->animateEnd=@selector(animateEnemyHPEnd:);
     enemyPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
     enemyPlayerHP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y+5.0f);
     [self addChild:enemyPlayerHP];
@@ -120,7 +120,7 @@
     enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
     [enemyPlayerMP setMaxValue:enemyppixie.pixieMPmax andCurrentValue:enemyppixie.currentMP andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
     enemyPlayerMP->target = self;
-    enemyPlayerMP->animateEnd = @selector(animatePetEnd:);
+    enemyPlayerMP->animateEnd = @selector(animateEnemyMPEnd:);
     enemyPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
     enemyPlayerMP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y-15);
     [self addChild:enemyPlayerMP];
@@ -216,24 +216,45 @@
     }
     
 }
+-(void)animatePetMPEnd:(NSNumber *)currentMp
+{
+    
+}
 
--(void)animatePetEnd:(NSNumber *)currentHp
+-(void)animateEnemyMPEnd:(NSNumber *)currentMp
+{
+    
+}
+
+-(void)animatePetHPEnd:(NSNumber *)currentHp
 {
     
     if (petPlayerHP->currentValue <= 0.0f) {
         if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
             [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_PET_PLAYER_SIDE_NODE_NAME];
         }
+    }else{
+        if (self.target != nil && self.hpChangeEnd != nil && [self.target respondsToSelector:self.hpChangeEnd]) {
+            [self.target performSelectorInBackground:self.hpChangeEnd withObject:PP_PET_PLAYER_SIDE_NODE_NAME];
+        }
+    
+        
     }
     
 }
--(void)animateEnemyEnd:(NSNumber *)currentHp
+-(void)animateEnemyHPEnd:(NSNumber *)currentHp
 {
     
     if (enemyPlayerHP->currentValue <= 0.0f) {
         if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
             [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_ENEMY_SIDE_NODE_NAME];
         }
+    }else{
+        if (self.target != nil && self.hpChangeEnd != nil && [self.target respondsToSelector:self.hpChangeEnd]) {
+            [self.target performSelectorInBackground:self.hpChangeEnd withObject:PP_ENEMY_SIDE_NODE_NAME];
+        }
+        
+        
     }
     
 }
