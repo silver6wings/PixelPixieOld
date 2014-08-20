@@ -57,8 +57,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "418"
             endingLineNumber = "418"
-            landmarkName = "-skllEnemyBegain:"
-            landmarkType = "5">
+            landmarkName = "@implementation PPBallBattleScene"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -84,12 +84,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "430155191.826249"
+            timestampString = "430237145.392856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "432"
-            endingLineNumber = "432"
-            landmarkName = "-hpChangeEndAnimate:"
+            startingLineNumber = "647"
+            endingLineNumber = "647"
+            landmarkName = "-enemyAttackDecision"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -100,92 +100,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "430155192.539568"
+            timestampString = "430237154.603983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "436"
-            endingLineNumber = "436"
-            landmarkName = "-hpChangeEndAnimate:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Nodes/PPBattleSideNode.m"
-            timestampString = "430155243.810955"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "-animateEnemyHPEnd:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Nodes/PPBattleSideNode.m"
-            timestampString = "430155245.715401"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "-animateEnemyHPEnd:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Nodes/PPBattleSideNode.m"
-            timestampString = "430155249.363295"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "-animatePetHPEnd:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Nodes/PPBattleSideNode.m"
-            timestampString = "430155252.355498"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "-animatePetHPEnd:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Nodes/PPBattleSideNode.m"
-            timestampString = "430155289.939197"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "-animatePetHPEnd:"
+            startingLineNumber = "587"
+            endingLineNumber = "587"
+            landmarkName = "-roundRotateMoved:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

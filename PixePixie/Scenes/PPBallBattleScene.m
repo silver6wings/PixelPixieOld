@@ -390,7 +390,7 @@ CGFloat vectorLength (CGVector vector) {
               
             }
             
-            [self performSelectorOnMainThread:@selector(roundRotateMoved:) withObject:PP_PET_PLAYER_SIDE_NODE_NAME afterDelay:2];
+//            [self performSelectorOnMainThread:@selector(roundRotateMoved:) withObject:PP_PET_PLAYER_SIDE_NODE_NAME afterDelay:2];
             
             
         }
@@ -421,7 +421,7 @@ CGFloat vectorLength (CGVector vector) {
     
     NSLog(@"skillInfo=%@",skillInfo);
     [self showEnemySkillEventBegin:skillInfo];
-    [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
+    
     
 }
 -(void)hpChangeEndAnimate:(NSString *)battlesideName
@@ -585,8 +585,8 @@ CGFloat vectorLength (CGVector vector) {
     {
         if ([nodeName isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
             
-            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-            
+//            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+            [self enemyAttackDecision];
 
             
         }else
@@ -602,11 +602,6 @@ CGFloat vectorLength (CGVector vector) {
         [self roundRotateEnd];
         
     }
-    
-    
-}
--(void)enemyAttackDecision
-{
     
     
 }
@@ -633,6 +628,33 @@ CGFloat vectorLength (CGVector vector) {
                   arc4random()%100+10)];
 
     [self setPlayerSideRoundRunState];
+}
+
+-(void)enemyAttackDecision
+{
+    
+    int decision = arc4random()%2;
+    
+    switch (decision) {
+        case 0:
+        {
+            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+            
+        }
+            break;
+        case 1:
+        {
+            [self skllEnemyBegain:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
+            
+        }
+            break;
+        default:
+        {
+            
+        }
+            break;
+    }
+    
 }
 
 -(void)startBattle:(NSString *)text
@@ -664,7 +686,9 @@ CGFloat vectorLength (CGVector vector) {
             }else
             {
                 
-                 [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+                [self enemyAttackDecision];
+                
+//                 [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
                 
 //                    if (arc4random()%2==0) {
 //                                    [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
@@ -873,11 +897,11 @@ CGFloat vectorLength (CGVector vector) {
         {
             
             
-            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-            
-            [self.playerAndEnemySide changePetHPValue:-damageCount];
-            
-            
+//            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+//            
+//            [self.playerAndEnemySide changePetHPValue:-damageCount];
+//            
+//            
             [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
 
             
@@ -1266,6 +1290,8 @@ CGFloat vectorLength (CGVector vector) {
     if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
     {
         
+        
+
         if (skillInfo.skillObject ==1) {
             [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];
         } else {
@@ -1276,6 +1302,9 @@ CGFloat vectorLength (CGVector vector) {
         
     } else {
         
+        
+        
+        
         if (skillInfo.skillObject ==1) {
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         } else {
@@ -1284,7 +1313,9 @@ CGFloat vectorLength (CGVector vector) {
         
     }
     
+    
     [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+
 
 }
 
