@@ -27,8 +27,8 @@
 -(void)setEnemysArray
 {
     self.enemysArray = [[NSArray alloc] initWithArray:[self.allEnemys objectForKey:@"EnemysInfo"]];
-
 }
+
 -(void)setCurrentHurdle:(int)currentIndex
 {
     

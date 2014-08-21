@@ -154,15 +154,7 @@ NSString * menu[] = {
 {
     menuAnimationTag = 0;
     
-    backToMain = [[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 54.0f, 50.0f,50.0f)];
-    [backToMain setTitle:@"back" forState:UIControlStateNormal];
-    [backToMain addTarget:self action:@selector(backToMainClick) forControlEvents:UIControlEventTouchUpInside];
-    [skViewMain addSubview:backToMain];
-    
-    CGRect NormalViewRect = CGRectMake(0.0f, 44.0f, skViewMain.frame.size.width, skViewMain.frame.size.height - 88);
-    
-//    mainView =[[PPMainView alloc] initWithFrame:NormalViewRect];
-//    [skViewMain addSubview:mainView];
+    CGRect NormalViewRect = CGRectMake(0.0f, 44.0f, skViewMain.frame.size.width, skViewMain.frame.size.height - 44.0f*2);
     
     monsterMainView=[[PPMonsterMainView alloc] initWithFrame:NormalViewRect];
     [skViewMain addSubview:monsterMainView];

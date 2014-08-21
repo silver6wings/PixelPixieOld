@@ -13,32 +13,17 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.backgroundColor = [UIColor yellowColor];
-
         [self changeToPassScene];
-       
-
-        
-        // Initialization code
     }
     return self;
 }
 
 -(void)changeToPassScene
 {
-    
     PPMenuThemeScene * mainScene = [[PPMenuThemeScene alloc] initWithSize:self.bounds.size];
-    mainScene.scaleMode = SKSceneScaleModeFill;
+    mainScene.scaleMode = SKSceneScaleModeAspectFit;
     [self presentScene:mainScene];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
