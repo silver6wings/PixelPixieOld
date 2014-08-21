@@ -677,12 +677,12 @@
 				D44D9EA51976C61700C69C15 /* PPMenuDungeonScene.m */,
 				192F743D1969124D006C6586 /* PPHurdleReadyScene.h */,
 				192F743E1969124D006C6586 /* PPHurdleReadyScene.m */,
+				192F74451969124D006C6586 /* PPPetChooseScene.h */,
+				192F74461969124D006C6586 /* PPPetChooseScene.m */,
 				192F743B1969124D006C6586 /* PPBallBattleScene.h */,
 				192F743C1969124D006C6586 /* PPBallBattleScene.m */,
 				192F74431969124D006C6586 /* PPPassNumberScene.h */,
 				192F74441969124D006C6586 /* PPPassNumberScene.m */,
-				192F74451969124D006C6586 /* PPPetChooseScene.h */,
-				192F74461969124D006C6586 /* PPPetChooseScene.m */,
 			);
 			name = Fighting;
 			sourceTree = "<group>";

@@ -1,11 +1,9 @@
 
 @interface PPMainViewController : PPBasicViewController
 {
-    
     int menuAnimationTag;
-    UIView *userInfoBar;
-    UIView *menuInfoBar;
-    
+    UIView * userInfoBar;
+    UIView * menuInfoBar;
     
 }
 

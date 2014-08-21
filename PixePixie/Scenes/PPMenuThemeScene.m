@@ -65,12 +65,12 @@
             passDictInfo=[NSDictionary dictionaryWithDictionary:[passArray objectAtIndex:index]];
         }
         
-        PPMenuDungeonScene * choosePetScene = [[PPMenuDungeonScene alloc] initWithSize:self.view.bounds.size];
-        choosePetScene.passDictInfo=passDictInfo;
-        choosePetScene->previousScene=self;
-        choosePetScene.scaleMode = SKSceneScaleModeAspectFill;
+        PPMenuDungeonScene * menuDungeonScene = [[PPMenuDungeonScene alloc] initWithSize:self.view.bounds.size];
+        menuDungeonScene.passDictInfo=passDictInfo;
+        menuDungeonScene->previousScene=self;
+        menuDungeonScene.scaleMode = SKSceneScaleModeAspectFill;
     
-        [self.view presentScene:choosePetScene transition:[SKTransition doorsOpenVerticalWithDuration:1]];
+        [self.view presentScene:menuDungeonScene];
 }
 
 @end

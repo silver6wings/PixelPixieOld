@@ -30,14 +30,6 @@ NSString * menu[] = {
     @"Others"
 };
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -65,9 +57,7 @@ NSString * menu[] = {
     NSString * isNotFirstEnter = [PPCommonTool contentFromUserDefaultKey:PP_FIRST_LOG_IN];
     
     if ([isNotFirstEnter isEqualToString:@"1"]) {
-        
         [self enterMainScene];
-        
     } else {
         
         UIView *contentView=[[UIView alloc] initWithFrame:CGRectMake(10, 100, 300, 200)];
@@ -78,7 +68,6 @@ NSString * menu[] = {
         [titleLabel setText:@"下面请告诉我你的名字："];
         [contentView addSubview:titleLabel];
     
-        
         UITextField *textFiled=[[UITextField alloc] initWithFrame:CGRectMake(40.0f, 50.0f, 150, 50)];
         [textFiled addTarget:self action:@selector(textFieldResign:) forControlEvents:UIControlEventEditingDidEndOnExit];
         [textFiled setBackgroundColor:[UIColor redColor]];
@@ -94,14 +83,12 @@ NSString * menu[] = {
         
         [self.view addSubview:contentView];
     }
-    
-    // Do any additional setup after loading the view.
 }
 
 -(void)textInputConfirmClick
 {
-    UIView *contentView=[self.view viewWithTag:PP_CONTENT_TAG];
-    if (contentView!=nil)
+    UIView *contentView = [self.view viewWithTag:PP_CONTENT_TAG];
+    if (contentView != nil)
     {
         [contentView removeFromSuperview];
     }
@@ -157,17 +144,17 @@ NSString * menu[] = {
     [PPCommonTool setContent:@"1" forContentKey:PP_FIRST_LOG_IN];
     [self enterMainScene];
 }
+
 -(void)textFieldResign:(UITextField *)textField
 {
     [textField resignFirstResponder];
 }
+
 -(void)enterMainScene
 {
-    
     menuAnimationTag = 0;
     
-    
-    backToMain=[[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 54.0f, 50.0f,50.0f)];
+    backToMain = [[UIButton alloc] initWithFrame:CGRectMake(-50.0f, 54.0f, 50.0f,50.0f)];
     [backToMain setTitle:@"back" forState:UIControlStateNormal];
     [backToMain addTarget:self action:@selector(backToMainClick) forControlEvents:UIControlEventTouchUpInside];
     [skViewMain addSubview:backToMain];

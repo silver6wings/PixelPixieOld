@@ -14,6 +14,7 @@
 @synthesize enemysArray;
 @synthesize petsArray;
 @synthesize allEnemys;
+
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
         [self setBackTitleText:@"遭遇怪物" andPositionY:450.0f];
@@ -40,7 +41,6 @@
     if (contentPetChooseNode!=nil) {
         [contentPetChooseNode removeFromParent];
     }
-
     
     if ([self.enemysArray count] <= currentIndex)
     {
@@ -57,12 +57,10 @@
     
     currentEnemyIndex = currentIndex;
     
-    
     PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor purpleColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
     hurdleReadyContentNode.name = PP_HURDLE_READY_CONTENT_NAME;
     [hurdleReadyContentNode setPosition:CGPointMake(160.0f, 240)];
     [self addChild:hurdleReadyContentNode];
-    
     
     // 添加己方精灵
     _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
@@ -123,8 +121,6 @@
 }
 -(void)battleStartButtonClick:(NSString *)stringname
 {
-    
-    
 //    SKNode *contentNode=[self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
 //    if (contentNode!=nil) {
 //        [contentNode removeFromParent];
@@ -137,8 +133,6 @@
 
 -(void)setPetsChooseContent
 {
-    
-    
     SKSpriteNode *spriteContent = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(320, 100)];
     spriteContent.name = PP_HURDLE_PETCHOOSE_CONTENT_NAME;
     spriteContent.position = CGPointMake(480.0, 45.0);
@@ -160,9 +154,7 @@
 //        sprit1.name = [NSString stringWithFormat:@"%d", PP_PETS_CHOOSE_BTN_TAG + i];
 //        sprit1.position = CGPointMake(100 * (i - 1),0.0);
 //        [spriteContent addChild:sprit1];
-//        
-        
-        
+//
         PPSpriteButton *petChooseButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80.0f, 80.0f)];
         [petChooseButton setLabelWithText:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
         petChooseButton.position = CGPointMake(100 * (i - 1),0.0);
@@ -171,10 +163,7 @@
         [spriteContent addChild:petChooseButton];
         
     }
-    
-    
     self.petsArray = [NSArray arrayWithArray:petsInfoArray];
-    
     
     SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     titilePass.name = @"eee";
@@ -185,26 +174,18 @@
     titilePass.position = CGPointMake(0.0f,-150.0f);
     [spriteContent addChild:titilePass];
     
-    
     SKAction *actionMove=[SKAction moveTo:CGPointMake(160.0f, spriteContent.position.y) duration:0.5];
     [spriteContent runAction:actionMove];
-    
-    
 }
 
 -(void)spriteChooseClick:(NSString *)spriteName
 {
-    
-    
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
     NSDictionary *choosedPet=[NSDictionary dictionaryWithDictionary:petsChoosedInfo];
+    
     // 初始化 ballScene
-    
-    
     PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:choosedPet];
     PPPixie * enemyPixie = [PPPixie birthEnemyPixieWithPetsInfo:[self.enemysArray objectAtIndex:currentEnemyIndex]];
-
-    
     
     PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
                                                                 PixiePlayer:playerPixie
@@ -212,11 +193,9 @@
     ballScene.hurdleReady = self;
     [ballScene setEnemyAtIndex:currentEnemyIndex];
     ballScene.scaleMode = SKSceneScaleModeAspectFill;
-    [self.view presentScene:ballScene
-                 transition:[SKTransition doorsOpenVerticalWithDuration:0.5f]];
-    
-    
+    [self.view presentScene:ballScene];
 }
+
 #pragma mark - add a scroling uiview
 
 - (void)didMoveToView:(SKView *)view
@@ -224,16 +203,10 @@
     // Called immediately after a scene is presented by a view.
     [super didMoveToView:view];
     [self setBackgroundColor:[UIColor cyanColor]];
-
-
 }
 
 -(void)startBattle:(PPPixie *)ppsprite
 {
-    
-  
-    
-    
 }
 
 //得到应用程序Documents文件夹下的目标路径
@@ -247,12 +220,11 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
- 
 }
 
 -(void)backButtonClick:(NSString *)backName
 {
-    [self.view presentScene:previousScene transition:[SKTransition doorwayWithDuration:1.0]];
+    [self.view presentScene:previousScene];
 }
 
 @end
