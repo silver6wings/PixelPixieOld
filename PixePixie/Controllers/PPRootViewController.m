@@ -1,9 +1,14 @@
-#import "PPMainViewController.h"
-#import "PPCommonTool.h"
-#import "PPChoosePetScrollView.h"
-@interface PPMainViewController ()
+
+#import "PPRootViewController.h"
+
+@interface PPRootViewController ()
 {
-    PPMainView *mainView;
+    int menuAnimationTag;
+    UIView * userInfoBar;
+    UIView * menuInfoBar;
+    SKView * skViewMain;
+    UIButton *backToMain;
+    
     PPMonsterMainView *monsterMainView;
     PPKnapsackMainView *knapsackMainView;
     PPFightingMainView*fightingMainView;
@@ -12,7 +17,7 @@
 }
 @end
 
-@implementation PPMainViewController
+@implementation PPRootViewController
 
 NSString * userInfo[] = {
     @"Name",
@@ -31,27 +36,18 @@ NSString * menu[] = {
 };
 
 
--(void)viewDidAppear:(BOOL)animated
-{
-//    if ([UIScreen mainScreen].bounds.size.height > 500) {
-//      [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
-//    }
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMainScene:) name:PP_BACK_TO_MAIN_VIEW object:nil];
+#warning 这里删掉没问题吧？
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMainScene:) name:PP_BACK_TO_MAIN_VIEW object:nil];
     
     if (CurrentDeviceRealSize.height > 500) {
         skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
     } else {
         skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 480.0f)];
     }
-    [skViewMain setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:skViewMain];
     
     NSString * isNotFirstEnter = [PPCommonTool contentFromUserDefaultKey:PP_FIRST_LOG_IN];
@@ -233,26 +229,27 @@ NSString * menu[] = {
     for (int i=0; i<PP_MENU_COUNT; i++) {
         UIButton  *menuBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         [menuBtn setFrame:CGRectMake(i*skViewMain.frame.size.width/PP_MENU_COUNT,2.0f, 50.0f, 40.0f)];
-        menuBtn.tag=PP_MENU_BUTON_TAG+i;
         [menuBtn.titleLabel setFont:[UIFont systemFontOfSize:8]];
         [menuBtn addTarget:self action:@selector(menuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [menuBtn setTitle:menu[i] forState:UIControlStateNormal];
+        menuBtn.tag = PP_MENU_BUTON_TAG + i;
         [menuInfoBar addSubview:menuBtn];
     }
     
     [self changeMenuState:0];
 
     
+    // 添加上下两个条
+    
     if (CurrentDeviceRealSize.height > 500) {
         UIView *upBlackBar = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
-        [upBlackBar setBackgroundColor:[UIColor whiteColor]];
+        [upBlackBar setBackgroundColor:[UIColor blackColor]];
         [self.view addSubview:upBlackBar];
         
         UIView *downBlackBar = [[UIView alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height-44.0f, 320.0f, 44.0f)];
-        [downBlackBar setBackgroundColor:[UIColor whiteColor]];
+        [downBlackBar setBackgroundColor:[UIColor blackColor]];
         [self.view addSubview:downBlackBar];
     }
-    
     
 }
 -(void)counterpartEnter:(id)obj
@@ -265,6 +262,8 @@ NSString * menu[] = {
     [ppTable1 ppsetTableViewWithData:productInfoArray];
     [self.view addSubview:ppTable1];
 }
+
+/*
 -(void)backToMainScene:(NSNotification *)notifi
 {
    
@@ -273,8 +272,9 @@ NSString * menu[] = {
         [skViewMain bringSubviewToFront:menuInfoBar];
         [skViewMain bringSubviewToFront:userInfoBar];
     }
-    
 }
+*/
+
 -(void)enterBattle:(NSNumber *)passNumber
 {
     UIView *passNumView=[self.view viewWithTag:PP_PASSNUM_CHOOSE_TABLE_TAG];
@@ -282,10 +282,7 @@ NSString * menu[] = {
     passNumber=nil;
     
     [UIView animateWithDuration:0.1 animations:^{
-        
         [backToMain setFrame:CGRectMake(0.0f, backToMain.frame.origin.y, backToMain.frame.size.width, backToMain.frame.size.height)];
-        
-        
     } completion:^(BOOL finished){}];
     
     [self menuDownAnimation];

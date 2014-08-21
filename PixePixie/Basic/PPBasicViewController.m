@@ -9,17 +9,16 @@
 {
     [super loadView];
     
-    SKView * mainView = [[SKView alloc] initWithFrame:self.view.bounds];
-    self.view = mainView;
+    SKView * selfView = [[SKView alloc] initWithFrame:self.view.bounds];
+    self.view = selfView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    skViewMain = (SKView *)self.view;
-    skViewMain.showsFPS = NO;
-    skViewMain.showsNodeCount = NO;
+    SKView * tempSKView = (SKView *)self.view;
+    tempSKView.showsFPS = NO;
+    tempSKView.showsNodeCount = NO;
 }
 
 

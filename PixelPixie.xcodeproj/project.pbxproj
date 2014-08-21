@@ -93,7 +93,7 @@
 		193DC4981968608B007308C7 /* PPBasicSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC48F1968608B007308C7 /* PPBasicSpriteNode.m */; };
 		193DC4991968608B007308C7 /* PPBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4911968608B007308C7 /* PPBasicViewController.m */; };
 		193DC49B1968608B007308C7 /* PPSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4951968608B007308C7 /* PPSceneManager.m */; };
-		193DC49E196860FE007308C7 /* PPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC49D196860FE007308C7 /* PPMainViewController.m */; };
+		193DC49E196860FE007308C7 /* PPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC49D196860FE007308C7 /* PPRootViewController.m */; };
 		193DC4A61968610F007308C7 /* PPPassNumberScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4A21968610F007308C7 /* PPPassNumberScroll.m */; };
 		193DC4A71968610F007308C7 /* PPTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4A41968610F007308C7 /* PPTableView.m */; };
 		193DC4AD19686162007308C7 /* PPPixie.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4AB19686162007308C7 /* PPPixie.m */; };
@@ -308,8 +308,8 @@
 		193DC4911968608B007308C7 /* PPBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBasicViewController.m; path = PixePixie/Basic/PPBasicViewController.m; sourceTree = SOURCE_ROOT; };
 		193DC4941968608B007308C7 /* PPSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSceneManager.h; path = PixePixie/Basic/PPSceneManager.h; sourceTree = SOURCE_ROOT; };
 		193DC4951968608B007308C7 /* PPSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSceneManager.m; path = PixePixie/Basic/PPSceneManager.m; sourceTree = SOURCE_ROOT; };
-		193DC49C196860FE007308C7 /* PPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMainViewController.h; path = PixePixie/Controllers/PPMainViewController.h; sourceTree = SOURCE_ROOT; };
-		193DC49D196860FE007308C7 /* PPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPMainViewController.m; path = PixePixie/Controllers/PPMainViewController.m; sourceTree = SOURCE_ROOT; };
+		193DC49C196860FE007308C7 /* PPRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPRootViewController.h; path = PixePixie/Controllers/PPRootViewController.h; sourceTree = SOURCE_ROOT; };
+		193DC49D196860FE007308C7 /* PPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPRootViewController.m; path = PixePixie/Controllers/PPRootViewController.m; sourceTree = SOURCE_ROOT; };
 		193DC4A11968610F007308C7 /* PPPassNumberScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPassNumberScroll.h; path = PixePixie/Views/PPPassNumberScroll.h; sourceTree = SOURCE_ROOT; };
 		193DC4A21968610F007308C7 /* PPPassNumberScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPassNumberScroll.m; path = PixePixie/Views/PPPassNumberScroll.m; sourceTree = SOURCE_ROOT; };
 		193DC4A31968610F007308C7 /* PPTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPTableView.h; path = PixePixie/Views/PPTableView.h; sourceTree = SOURCE_ROOT; };
@@ -954,8 +954,8 @@
 		D43F42351947562A00B19F2F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				193DC49C196860FE007308C7 /* PPMainViewController.h */,
-				193DC49D196860FE007308C7 /* PPMainViewController.m */,
+				193DC49C196860FE007308C7 /* PPRootViewController.h */,
+				193DC49D196860FE007308C7 /* PPRootViewController.m */,
 			);
 			name = Controllers;
 			path = ViewsAndControllers;
@@ -1297,7 +1297,7 @@
 				192F744E1969124D006C6586 /* PPPacksackScene.m in Sources */,
 				193DC4971968608B007308C7 /* PPBasicScene.m in Sources */,
 				D4767AB8196D7E79000B5B9C /* PPActivityDetailScene.m in Sources */,
-				193DC49E196860FE007308C7 /* PPMainViewController.m in Sources */,
+				193DC49E196860FE007308C7 /* PPRootViewController.m in Sources */,
 				192F74501969124D006C6586 /* PPPetChooseScene.m in Sources */,
 				19CBA8C31907C77600A249AB /* PPBall.m in Sources */,
 				193DC4A71968610F007308C7 /* PPTableView.m in Sources */,
