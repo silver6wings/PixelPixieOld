@@ -1,13 +1,13 @@
 
 #import "PPSkillNode.h"
-#import "PPCustomAlertNode.h"
+
 @class PPHurdleReadyScene;
+
 @interface PPBallBattleScene : PPBasicScene <SkillShowEndDelegate>
 {
-    
     int roundIndex;
-    BOOL roundRuning;
     int roundActionNum;
+    BOOL roundRuning;
     
     int enemyCombos; //怪物连击数
     int petCombos;  //宠物连击数
@@ -24,12 +24,14 @@
     
     @public
     int currentEnemyIndex;
-    
-    
 }
-@property(strong)PPHurdleReadyScene *hurdleReady;
+
+@property(strong) PPHurdleReadyScene *hurdleReady;
+
 -(id)initWithSize:(CGSize)size
       PixiePlayer:(PPPixie *)pixieA
        PixieEnemy:(PPPixie *)pixieB;
+
 -(void)setEnemyAtIndex:(int)index;
+
 @end

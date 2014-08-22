@@ -194,7 +194,7 @@
     
 #warning Bug出在这的下一步
     
-    /*
+    
     PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
                                                                 PixiePlayer:playerPixie
                                                                  PixieEnemy:enemyPixie];
@@ -203,7 +203,7 @@
     [ballScene setEnemyAtIndex:currentEnemyIndex];
     ballScene.scaleMode = SKSceneScaleModeAspectFill;
     [self.view presentScene:ballScene];
-    */
+    
     
 }
 

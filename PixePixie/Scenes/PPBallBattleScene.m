@@ -50,6 +50,7 @@ CGFloat vectorLength (CGVector vector) {
 
 @implementation PPBallBattleScene
 @synthesize hurdleReady;
+
 -(id)initWithSize:(CGSize)size
       PixiePlayer:(PPPixie *)pixieA
        PixieEnemy:(PPPixie *)pixieB
@@ -57,12 +58,10 @@ CGFloat vectorLength (CGVector vector) {
     
     if (self = [super initWithSize:size]) {
         
-        
         self.backgroundColor = [SKColor blackColor];
         
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
-        
         
         enemyCombos = 0;
         petCombos = 0;
@@ -412,35 +411,21 @@ CGFloat vectorLength (CGVector vector) {
     
     
 }
+
 -(void)hpChangeEndAnimate:(NSString *)battlesideName
 {
-    
-    if ([battlesideName isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
-    {
-        
-        
-    }else
-    {
-        
-        
-    }
-    
-    
 }
+
 // 战斗结束过程
 -(void)hpBeenZeroMethod:(NSString *)battlesideName
 {
-    
     if ([battlesideName isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
     {
-
         PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
         [enemyDeadContent setPosition:CGPointMake(160.0f, 300)];
         [self addChild:enemyDeadContent];
 
-        
         NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"请干下一个怪物"};
-        
         
         SKLabelNode * titleNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
         titleNameLabel.fontSize = 13;
@@ -457,12 +442,9 @@ CGFloat vectorLength (CGVector vector) {
         textContentLabel.position = CGPointMake(0.0f,-50);
         [enemyDeadContent addChild:textContentLabel];
 
-        
         [self performSelectorOnMainThread:@selector(goNextEnemy) withObject:nil afterDelay:2];
-
         
     } else {
-        
         
         NSDictionary *dict = @{@"title":@"宠物死了",@"context":@"你太sb了"};
         PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
@@ -472,15 +454,14 @@ CGFloat vectorLength (CGVector vector) {
 //        [self.playerSide removeFromParent];
         
     }
-
 }
+
 -(void)goNextEnemy
 {
-    
     [self.hurdleReady setCurrentHurdle:currentEnemyIndex];
     [self.view presentScene:self.hurdleReady transition:[SKTransition doorwayWithDuration:1]];
-    
 }
+
 -(void)addEnemySide:(CGFloat)direct
 {
     
@@ -550,23 +531,21 @@ CGFloat vectorLength (CGVector vector) {
     }
     
 }
+
 #pragma mark round take turns
+
 -(void)roundRotateBegin
 {
-    
     roundActionNum = 0;
     //随机怪物先攻击还是人物先开始攻击
     [self startBattle:@"战斗开始"];
-
-    
 }
 
 -(void)roundRotateMoved:(NSString *)nodeName
 {
-    
     [self setPlayerSideRoundRunState];
     
-    roundActionNum+=1;
+    roundActionNum += 1;
     
     //如果回合的一半
     if(roundActionNum==1)
@@ -575,23 +554,14 @@ CGFloat vectorLength (CGVector vector) {
             
 //            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
             [self enemyAttackDecision];
-
-            
         }else
         {
-            
             [self setPlayerSideRoundEndState];
-            
         }
-        
     }else
     {
-        
         [self roundRotateEnd];
-        
     }
-    
-    
 }
 
 -(void)roundRotateEnd
@@ -606,21 +576,18 @@ CGFloat vectorLength (CGVector vector) {
 }
 
 #pragma mark battle
+
 -(void)enemyPhysicsAttackMoveBall
 {
-    
     _isBallRolling = YES;
-
     [self.ballEnemy.physicsBody applyImpulse:
      CGVectorMake(arc4random()%100+10,
                   arc4random()%100+10)];
-
     [self setPlayerSideRoundRunState];
 }
 
 -(void)enemyAttackDecision
 {
-    
     int decision = arc4random()%2;
     
     switch (decision) {
@@ -648,52 +615,44 @@ CGFloat vectorLength (CGVector vector) {
 -(void)startBattle:(NSString *)text
 {
     
-        PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
-        if (labelNode) {
-            [labelNode removeFromParent];
+    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
+    if (labelNode) {
+        [labelNode removeFromParent];
+    }
+    
+    
+    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+    additonLabel.name  = @"RoundLabel";
+    additonLabel.fontColor = [UIColor yellowColor];
+    additonLabel.position = CGPointMake(160.0f, 200.0f);
+    [additonLabel setText:text];
+    [self addChild:additonLabel];
+    
+    
+    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
+    [additonLabel runAction:actionScale completion:^{
+        [additonLabel removeFromParent];
+        
+        //判断敌方和我方谁先发动攻击
+        if (arc4random()%200==0) {
+            [self setPlayerSideRoundEndState];
+        }else
+        {
+            [self enemyAttackDecision];
+            
+            //                 [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+            //                    if (arc4random()%2==0) {
+            //                                    [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+            //                    }else
+            //                    {
+            //
+            //                    }
         }
-
-    
-        PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
-        additonLabel.name  = @"RoundLabel";
-        additonLabel.fontColor = [UIColor yellowColor];
-        additonLabel.position = CGPointMake(160.0f, 200.0f);
-        [additonLabel setText:text];
-        [self addChild:additonLabel];
-    
-
-        SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
-        [additonLabel runAction:actionScale completion:^{
-            [additonLabel removeFromParent];
-            
-          //判断敌方和我方谁先发动攻击
-            if (arc4random()%200==0) {
-                
-                [self setPlayerSideRoundEndState];
-                
-            }else
-            {
-                
-                [self enemyAttackDecision];
-                
-//                 [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-                
-//                    if (arc4random()%2==0) {
-//                                    [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-//                    }else
-//                    {
-//                        
-//                    }
-                
-            }
-            
-        }];
-    
-    
+    }];
 }
+
 -(void)setRoundEndNumberLabel:(NSString *)text
 {
-    
     PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
     if (labelNode) {
         [labelNode removeFromParent];
@@ -715,12 +674,14 @@ CGFloat vectorLength (CGVector vector) {
     }];
     
 }
+
 -(void)setPlayerSideRoundRunState
 {
     isNotSkillRun = YES;
     [self.playerSkillSide setSideSkillButtonDisable];
     
 }
+
 -(void)setPlayerSideRoundEndState
 {
     [self changeBallsRoundsEnd];
@@ -729,6 +690,7 @@ CGFloat vectorLength (CGVector vector) {
     [self.playerSkillSide setSideSkillButtonEnable];
 
 }
+
 #pragma mark BackAlert
 
 -(void)backButtonClick:(NSString *)backName
@@ -762,8 +724,6 @@ CGFloat vectorLength (CGVector vector) {
     [self setPlayerSideRoundRunState];
     [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixie.pixieElement andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
     [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixieEnemy.pixieElement andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
-
-    
 }
 
 -(void)willMoveFromView:(SKView *)view
@@ -883,21 +843,12 @@ CGFloat vectorLength (CGVector vector) {
             
         }else
         {
-            
-            
 //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
 //            
 //            [self.playerAndEnemySide changePetHPValue:-damageCount];
-//            
-//            
+            
             [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
-
-            
-     
-            
-            
         }
-        
     }
 }
 
@@ -1118,6 +1069,7 @@ CGFloat vectorLength (CGVector vector) {
 //        }
 //    }
 //}
+
 // 添加随机的球
 -(void)addRandomBalls:(int)number withElement:(PPElementType)element andNodeName:(NSString *)nodeName{
     
@@ -1289,10 +1241,6 @@ CGFloat vectorLength (CGVector vector) {
         }
         
     } else {
-        
-        
-        
-        
         if (skillInfo.skillObject ==1) {
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         } else {
