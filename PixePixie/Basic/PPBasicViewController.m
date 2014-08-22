@@ -1,14 +1,12 @@
-#import "PPBasicViewController.h"
 
-@interface PPBasicViewController ()
-@end
+/*
+#import "PPBasicViewController.h"
 
 @implementation PPBasicViewController
 
 -(void)loadView
 {
     [super loadView];
-    
     SKView * selfView = [[SKView alloc] initWithFrame:self.view.bounds];
     self.view = selfView;
 }
@@ -21,11 +19,10 @@
     tempSKView.showsNodeCount = NO;
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
-
 @end
+*/

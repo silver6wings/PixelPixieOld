@@ -1,7 +1,7 @@
 
-#import "PPBattleSideNode.h"
+#import "PPBattleInfoLayer.h"
 
-@implementation PPBattleSideNode
+@implementation PPBattleInfoLayer
 @synthesize target=_target;
 @synthesize skillSelector=_skillSelector;
 @synthesize currentPPPixie;
@@ -51,8 +51,6 @@
     ppixiePetBtn.position = CGPointMake(-self.size.width/2.0f+ppixiePetBtn.frame.size.width/2.0f+10.0f, -10.0f);
     [self addChild:ppixiePetBtn];
     
-    
-    
     PPBasicLabelNode *ppixiePetBtnLabel=[[PPBasicLabelNode alloc] init];
     ppixiePetBtnLabel.fontSize=10;
     [ppixiePetBtnLabel setColor:[SKColor redColor]];
@@ -61,12 +59,8 @@
     ppixiePetBtnLabel.position = CGPointMake(0.0F, 0);
     [ppixiePetBtn addChild:ppixiePetBtnLabel];
     
-   
-    
-    
     self.currentPPPixie = petppixie;
     self.currentPPPixieEnemy = enemyppixie;
-    
     
     PPBasicLabelNode *ppixiePetNameLabel=[[PPBasicLabelNode alloc] init];
     ppixiePetNameLabel.fontSize=12;
@@ -75,9 +69,6 @@
     [ppixiePetNameLabel setText:petppixie.pixieName];
     ppixiePetNameLabel.position = CGPointMake(ppixiePetBtn.position.x, ppixiePetBtn.position.y+15);
     [self addChild:ppixiePetNameLabel];
-    
-    
-    
 
     PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40, 30)];
     [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];

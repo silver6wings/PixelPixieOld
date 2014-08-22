@@ -28,11 +28,11 @@ NSString * userInfo[] = {
 };
 
 NSString * menu[] = {
-    @"Monster",
-    @"Knapsack",
-    @"Fighting",
-    @"Schedule",
-    @"Others"
+    @"精灵",
+    @"背包",
+    @"战斗",
+    @"日常",
+    @"其它"
 };
 
 
@@ -43,11 +43,7 @@ NSString * menu[] = {
 #warning 这里删掉没问题吧？
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMainScene:) name:PP_BACK_TO_MAIN_VIEW object:nil];
     
-    if (CurrentDeviceRealSize.height > 500) {
-        skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
-    } else {
-        skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 480.0f)];
-    }
+    skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, PP_FIT_TOP_SIZE, 320.0f, 480.0f)];
     [self.view addSubview:skViewMain];
     
     NSString * isNotFirstEnter = [PPCommonTool contentFromUserDefaultKey:PP_FIRST_LOG_IN];
@@ -240,7 +236,6 @@ NSString * menu[] = {
 
     
     // 添加上下两个条
-    
     if (CurrentDeviceRealSize.height > 500) {
         UIView *upBlackBar = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
         [upBlackBar setBackgroundColor:[UIColor blackColor]];

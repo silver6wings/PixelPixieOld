@@ -31,11 +31,6 @@
 
 -(void)menuDungeonGoForward:(NSString *)stringName
 {
-    CGFloat sizeFitFor5 = 0.0f;
-    if (CurrentDeviceRealSize.height > 500) {
-        sizeFitFor5 = 44.0f;
-    }
-    
     PPBasicSpriteNode *goForwardContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor darkGrayColor] size:CGSizeMake(320.0f, 360)];
     goForwardContent.name = PP_GOFORWARD_MENU_DUNGEON_FIGHTING;
     [goForwardContent setPosition:CGPointMake(160.0f, 200.0f)];

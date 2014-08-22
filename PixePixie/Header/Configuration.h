@@ -4,6 +4,7 @@
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 
+
 #define CurrentDeviceRealSize [UIScreen mainScreen].bounds.size
 #define CustomAlertFrame CGRectMake(160.0f,300.0f, 320.0f, 200)
 
@@ -11,6 +12,8 @@ typedef enum {
     PP_HPTYPE,
     PP_MPTYPE
 }VALUESHOWTYPE;
+
+#define PP_FIT_TOP_SIZE ((CurrentDeviceRealSize.height > 500) ? (44.0f) : (0.0f))
 
 #define PP_FIRST_LOG_IN  @"firstenter"
 #define PP_PET_SKILL_SHOW_NODE_NAME @"petskillshow"

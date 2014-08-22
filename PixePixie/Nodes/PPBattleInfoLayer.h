@@ -1,7 +1,8 @@
 
+
 @class PPValueShowNode;
 
-@interface PPBattleSideNode : PPBasicSpriteNode
+@interface PPBattleInfoLayer : PPBasicSpriteNode
 {
     PPValueShowNode *petPlayerHP;
     PPValueShowNode *enemyPlayerHP;

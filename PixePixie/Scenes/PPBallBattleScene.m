@@ -6,8 +6,6 @@
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
 #define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(362 - kBallSize)+SPACE_BOTTOM
 
-static CGFloat sizeFitFor5;     // 适配Retina4英寸屏幕的上界值
-
 static const uint32_t kBallCategory      =  0x1 << 0;
 static const uint32_t kGroundCategory    =  0x1 << 1;
 
@@ -43,8 +41,8 @@ CGFloat vectorLength (CGVector vector) {
 
 @property (nonatomic, retain) NSMutableArray * ballsElement;
 @property (nonatomic, retain) NSMutableArray * trapFrames;
-@property (nonatomic, retain) PPBattleSideNode * playerSkillSide;
-@property (nonatomic, retain) PPBattleSideNode * playerAndEnemySide;
+@property (nonatomic, retain) PPBattleInfoLayer * playerSkillSide;
+@property (nonatomic, retain) PPBattleInfoLayer * playerAndEnemySide;
 
 @property (nonatomic) SKSpriteNode * btSkill;
 @property (nonatomic) BOOL isTrapEnable;
@@ -85,14 +83,6 @@ CGFloat vectorLength (CGVector vector) {
         
         // 添加背景图片
         SKSpriteNode * bg;
-        if (CurrentDeviceRealSize.height > 500) {
-            sizeFitFor5 = 44.0f;
-            bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320.0f, 450.0f)];
-        } else {
-            sizeFitFor5 = 0.0f;
-            bg = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320.0f, 362.0f)];
-        }
-        
         
         bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
         [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_02.jpg"]]];
@@ -112,8 +102,8 @@ CGFloat vectorLength (CGVector vector) {
         }
         
         
-        self.playerSkillSide = [[PPBattleSideNode alloc] init];
-        self.playerSkillSide.position= CGPointMake(self.size.width/2.0f, 30 + sizeFitFor5);
+        self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
+        self.playerSkillSide.position= CGPointMake(self.size.width/2.0f, 30 + PP_FIT_TOP_SIZE);
         self.playerSkillSide.size =  CGSizeMake(self.size.width, 60);
         self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSkillSide.target = self;
@@ -124,23 +114,21 @@ CGFloat vectorLength (CGVector vector) {
         [self.playerSkillSide setColor:[UIColor grayColor]];
         [self.playerSkillSide setSideSkillsBtn:pixieA];
         [self addChild:self.playerSkillSide];
-     
-        
         
         // 添加 Walls
         CGFloat tWidth = 320.0f;
         CGFloat tHeight = 362.0f;
         
-        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + sizeFitFor5)];
-        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + sizeFitFor5)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM + sizeFitFor5)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM + sizeFitFor5)];
+        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
+        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
+        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
+        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         
         
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
         self.ballPlayer.name = @"ball_player";
-        self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + sizeFitFor5);
+        self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
         self.ballPlayer.physicsBody.categoryBitMask = kBallCategory;
         self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:self.ballPlayer];
@@ -161,7 +149,7 @@ CGFloat vectorLength (CGVector vector) {
          _btSkill = [SKSpriteNode spriteNodeWithImageNamed:@"skill_plant.png"];
          _btSkill.size = CGSizeMake(30, 30);
          _btSkill.name = @"bt_skill";
-         _btSkill.position = CGPointMake(280, 45+sizeFitFor5);
+         _btSkill.position = CGPointMake(280, 45+PP_FIT_TOP_SIZE);
          [self addChild:_btSkill];
          */
         
@@ -172,7 +160,7 @@ CGFloat vectorLength (CGVector vector) {
             PPBall * comboBall = [PPBall ballWithCombo];
             comboBall.physicsBody.categoryBitMask = kBallCategory;
 //            comboBall.name = PP_BALL_TYPE_COMBO_NAME;
-            comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + sizeFitFor5);
+            comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
             [comboBall setColor:[UIColor orangeColor]];
             comboBall.physicsBody.contactTestBitMask = kBallCategory;
             comboBall.physicsBody.node.name=PP_BALL_TYPE_COMBO_NAME;
@@ -190,7 +178,7 @@ CGFloat vectorLength (CGVector vector) {
 {
     
     currentEnemyIndex = index;
-    [self addEnemySide:sizeFitFor5];
+    [self addEnemySide:PP_FIT_TOP_SIZE];
     
 //    if (CurrentDeviceRealSize.height>500) {
 //        [self setBackTitleText:nil andPositionY:490.0f];
@@ -517,12 +505,12 @@ CGFloat vectorLength (CGVector vector) {
     
     // 添加 Ball of Enemey
     self.ballEnemy = self.pixieEnemy.pixieBall;
-    self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + sizeFitFor5);
+    self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
     self.ballEnemy.physicsBody.categoryBitMask = kBallCategory;
     self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
     [self addChild:self.ballEnemy];
     
-    self.playerAndEnemySide = [[PPBattleSideNode alloc] init];
+    self.playerAndEnemySide = [[PPBattleInfoLayer alloc] init];
     [self.playerAndEnemySide setColor:[UIColor purpleColor]];
     self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-27-direct);
     self.playerAndEnemySide.name = PP_ENEMY_SIDE_NODE_NAME;
@@ -1139,7 +1127,7 @@ CGFloat vectorLength (CGVector vector) {
     
     if (countToGenerate == 0) {
         PPBall * tBall = [PPBall ballWithElement:element];
-        tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+sizeFitFor5);
+        tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
         tBall.ballElementType = element;
         tBall.physicsBody.node.name = nodeName;
         tBall.physicsBody.categoryBitMask = kBallCategory;
@@ -1160,7 +1148,7 @@ CGFloat vectorLength (CGVector vector) {
         if (i!=countToGenerate-1) {
             
             PPBall * tBall = [PPBall ballWithElement:element];
-            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+sizeFitFor5);
+            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
             tBall.ballElementType = element;
             tBall.physicsBody.node.name = nodeName;
             tBall.physicsBody.categoryBitMask = kBallCategory;
@@ -1174,7 +1162,7 @@ CGFloat vectorLength (CGVector vector) {
         }else
         {
             PPBall * tBall = [PPBall ballWithElement:element];
-            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+sizeFitFor5);
+            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
             tBall.ballElementType = element;
             tBall.physicsBody.node.name = nodeName;
             tBall.physicsBody.categoryBitMask = kBallCategory;
@@ -1256,7 +1244,7 @@ CGFloat vectorLength (CGVector vector) {
     PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
     skillNode.delegate = self;
-    skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+sizeFitFor5);
+    skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);
     [self addChild:skillNode];
     
     NSLog(@"skillInfo=%@",skillInfo);
@@ -1270,7 +1258,7 @@ CGFloat vectorLength (CGVector vector) {
     PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300.0f)];
     skillNode.delegate = self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
-    skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+sizeFitFor5);
+    skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);
     [self addChild:skillNode];
     NSLog(@"skillInfo=%@",skillInfo);
     
