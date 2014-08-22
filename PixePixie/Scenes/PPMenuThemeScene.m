@@ -10,6 +10,7 @@
         self.backgroundColor = [UIColor blueColor];
         [self setBackTitleText:@"世界地图" andPositionY:450.0f];
         
+        
         for (int i = 0; i < 3; i++) {
           PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80, 80)];
             switch (i) {

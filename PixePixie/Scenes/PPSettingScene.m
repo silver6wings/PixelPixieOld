@@ -19,7 +19,8 @@ static NSString *monsterBtnTitle[]={
     if (self = [super initWithSize:size]) {
 
         self.backgroundColor = [UIColor purpleColor];
-//        [self setBackTitleText:@"Other" andPositionY:360.0f];
+        [self setBackTitleText:@"Other" andPositionY:360.0f];
+        
 
         for (int i=0; i<4; i++) {
             PPSpriteButton *monsterButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(200.0f, 40.0f)];

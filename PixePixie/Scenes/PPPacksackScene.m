@@ -19,7 +19,7 @@ static NSString *monsterBtnTitle[]={
 {
     if (self=[super initWithSize:size]) {
         self.backgroundColor = [UIColor blueColor];
-//        [self setBackTitleText:@"Knapsack" andPositionY:360.0f];
+        [self setBackTitleText:@"Knapsack" andPositionY:360.0f];
 
         PPBasicSpriteNode *contentSpriteNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor blueColor] size:CGSizeMake(280, 200)];
         contentSpriteNode.position=CGPointMake(160.0f, 230);

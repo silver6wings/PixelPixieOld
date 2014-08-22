@@ -38,19 +38,32 @@ NSString * menu[] = {
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
 #warning 这里删掉没问题吧？
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMainScene:) name:PP_BACK_TO_MAIN_VIEW object:nil];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMonsterScene:) name:PP_BACK_TO_MAIN_VIEW object:nil];
+
+
     skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, PP_FIT_TOP_SIZE, 320.0f, 480.0f)];
     [self.view addSubview:skViewMain];
     
+    
     NSString * isNotFirstEnter = [PPCommonTool contentFromUserDefaultKey:PP_FIRST_LOG_IN];
     
+    
+    
+    
     if ([isNotFirstEnter isEqualToString:@"1"]) {
+        
+        
         [self enterMainScene];
+        
+        
     } else {
+        
         
         UIView *contentView=[[UIView alloc] initWithFrame:CGRectMake(10, 100, 300, 200)];
         [contentView setBackgroundColor:[UIColor cyanColor]];
@@ -59,12 +72,14 @@ NSString * menu[] = {
         [titleLabel setBackgroundColor:[UIColor yellowColor]];
         [titleLabel setText:@"下面请告诉我你的名字："];
         [contentView addSubview:titleLabel];
-    
+        
+        
         UITextField *textFiled=[[UITextField alloc] initWithFrame:CGRectMake(40.0f, 50.0f, 150, 50)];
         [textFiled addTarget:self action:@selector(textFieldResign:) forControlEvents:UIControlEventEditingDidEndOnExit];
         [textFiled setBackgroundColor:[UIColor redColor]];
         [contentView addSubview:textFiled];
         
+
         
         UIButton *buttonConfirm=[UIButton buttonWithType:UIButtonTypeCustom];
         [buttonConfirm setTitle:@"确定" forState:UIControlStateNormal];
@@ -74,6 +89,7 @@ NSString * menu[] = {
         [contentView addSubview:buttonConfirm];
         
         [self.view addSubview:contentView];
+    
     }
 }
 
@@ -124,10 +140,12 @@ NSString * menu[] = {
     
 
     [self.view addSubview:viewContent];
+    
 }
 
 -(void)petsChooseCofirmBtnClick:(UIButton *)sender
 {
+    
     UIView *contentView=[self.view viewWithTag:PP_CHOOSE_PET_CONTENT_TAG];
     if (contentView) {
         [contentView removeFromSuperview];
@@ -135,6 +153,7 @@ NSString * menu[] = {
     
     [PPCommonTool setContent:@"1" forContentKey:PP_FIRST_LOG_IN];
     [self enterMainScene];
+    
 }
 
 -(void)textFieldResign:(UITextField *)textField
@@ -179,7 +198,6 @@ NSString * menu[] = {
             case 0:
             {
                 [userInfoBtn setFrame:CGRectMake(5.0f,2.0f, 100.0f,18.0f)];
-                
                 
             }
                 break;
@@ -258,6 +276,21 @@ NSString * menu[] = {
     [self.view addSubview:ppTable1];
 }
 
+
+-(void)backToMonsterScene:(NSNotification *)notifi
+{
+    
+//    [skViewMain bringSubviewToFront:monsterMainView];
+    [self menuBtnClick:nil];
+    [self changeMenuState:0];
+    if ([[notifi object] isEqualToString:PP_BACK_TO_MAIN_VIEW_FIGHTING]) {
+        
+        [skViewMain bringSubviewToFront:menuInfoBar];
+        [skViewMain bringSubviewToFront:userInfoBar];
+        
+    }
+}
+
 /*
 -(void)backToMainScene:(NSNotification *)notifi
 {
@@ -308,6 +341,10 @@ NSString * menu[] = {
     
    
     [self changeMenuState:(int)sender.tag - PP_MENU_BUTON_TAG];
+    
+    if (sender == nil) {
+         [skViewMain bringSubviewToFront:monsterMainView];
+    }
     
     switch (sender.tag - PP_MENU_BUTON_TAG) {
         case 0:
@@ -376,6 +413,7 @@ NSString * menu[] = {
 }
 -(void)changeMenuState:(int)index
 {
+    
     for (int i=0; i<PP_MENU_COUNT; i++) {
         UIButton *buttonMenuTmp=(UIButton *)[menuInfoBar viewWithTag:PP_MENU_BUTON_TAG+i];
         if (i==index) {
@@ -385,23 +423,24 @@ NSString * menu[] = {
             [buttonMenuTmp setBackgroundColor:[UIColor purpleColor]];
         }
     }
-}
--(void)backToMainClick
-{
-//    if ([UIScreen mainScreen].bounds.size.height > 500) {
-//
-//    [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
-//        
-//    }
     
-//    [skViewMain presentScene:mainScene];
-//    [UIView animateWithDuration:0.1 animations:^{
-//        
-//        [backToMain setFrame:CGRectMake(-backToMain.frame.size.width, backToMain.frame.origin.y, backToMain.frame.size.width, backToMain.frame.size.height)];
-//        
-//    } completion:^(BOOL finished){}];
-//    [self menuUpAnimation];
 }
+//-(void)backToMainClick
+//{
+////    if ([UIScreen mainScreen].bounds.size.height > 500) {
+////
+////    [skViewMain setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 480.0f)];
+////        
+////    }
+//    
+////    [skViewMain presentScene:mainScene];
+////    [UIView animateWithDuration:0.1 animations:^{
+////        
+////        [backToMain setFrame:CGRectMake(-backToMain.frame.size.width, backToMain.frame.origin.y, backToMain.frame.size.width, backToMain.frame.size.height)];
+////        
+////    } completion:^(BOOL finished){}];
+////    [self menuUpAnimation];
+//}
 
 -(void)menuUpAnimation
 {

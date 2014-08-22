@@ -10,19 +10,95 @@
 
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
+        
+        
+        
         [self setBackTitleText:@"小场景推进" andPositionY:450.0f];
+        
+        [self introduceInfoLabel:@"场景介绍"];
+        
+        
+        
         [self setBackgroundColor:[UIColor purpleColor]];
-        for (int i = 0; i < 5; i++) {
-            PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(90, 60)];
-            
-            [passButton setLabelWithText:[NSString stringWithFormat:@"副本 %d",5-i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-            passButton.position = CGPointMake(160.0f,i*70+60);
-            passButton.name = [NSString stringWithFormat:@"%d",i+PP_SECONDARY_PASSNUM_BTN_TAG];
-            [passButton addTarget:self selector:@selector(menuDungeonGoForward:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-            [self addChild:passButton];
-        }
+    
     }
     return self;
+}
+
+-(void)introduceInfoLabel:(NSString *)text
+{
+    
+    PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 350)];
+    [enemyDeadContent setPosition:CGPointMake(160.0f, 200.0f)];
+    [self addChild:enemyDeadContent];
+    
+    
+    
+    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
+    if (labelNode) {
+        [labelNode removeFromParent];
+    }
+    
+    
+    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+    additonLabel.name  = @"titleLabel";
+    additonLabel.fontColor = [UIColor redColor];
+    additonLabel.position = CGPointMake(0.0f, 100.0f);
+    [additonLabel setText:text];
+    [enemyDeadContent addChild:additonLabel];
+    
+    
+    
+    PPBasicLabelNode *infoContentLabel= [[PPBasicLabelNode alloc] init];
+    infoContentLabel.name  = @"contentLabel";
+    infoContentLabel.fontColor = [UIColor redColor];
+    infoContentLabel.position = CGPointMake(0.0f, 0.0f);
+    [infoContentLabel setText:@"介绍内容"];
+    [enemyDeadContent addChild:infoContentLabel];
+    
+    
+    PPSpriteButton *  confirmButton = [PPSpriteButton buttonWithColor:[UIColor blueColor] andSize:CGSizeMake(90, 60)];
+    
+    [confirmButton setLabelWithText:@"知道了" andFont:[UIFont systemFontOfSize:15] withColor:nil];
+    confirmButton.position = CGPointMake(0.0f,-100.0f);
+
+    [confirmButton addTarget:self selector:@selector(confirmBtnClick:) withObject:enemyDeadContent forControlEvent:PPButtonControlEventTouchUpInside];
+    [enemyDeadContent addChild:confirmButton];
+    
+    
+    
+    
+//    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
+//    [additonLabel runAction:actionScale completion:^{
+//        [additonLabel removeFromParent];
+//        [self addPassChoose];
+//    }];
+    
+}
+-(void)confirmBtnClick:(PPBasicSpriteNode *)contentNode
+{
+    
+    if (contentNode != nil) {
+        [contentNode removeFromParent];
+        contentNode = nil;
+    }
+    
+    [self addPassChoose];
+
+   
+}
+-(void)addPassChoose
+{
+    for (int i = 0; i < 5; i++) {
+        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(90, 60)];
+        
+        [passButton setLabelWithText:[NSString stringWithFormat:@"副本 %d",5-i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+        passButton.position = CGPointMake(160.0f,i*70+60);
+        passButton.name = [NSString stringWithFormat:@"%d",i+PP_SECONDARY_PASSNUM_BTN_TAG];
+        [passButton addTarget:self selector:@selector(menuDungeonGoForward:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+        [self addChild:passButton];
+    }
+    
 }
 
 -(void)secondaryPassChoose:(NSString *)stringname
