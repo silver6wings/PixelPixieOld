@@ -180,8 +180,12 @@
 
 -(void)spriteChooseClick:(NSString *)spriteName
 {
+    #warning Bug出在这
+    /*
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
     NSDictionary *choosedPet=[NSDictionary dictionaryWithDictionary:petsChoosedInfo];
+    
+    
     
     // 初始化 ballScene
     PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:choosedPet];
@@ -194,6 +198,7 @@
     [ballScene setEnemyAtIndex:currentEnemyIndex];
     ballScene.scaleMode = SKSceneScaleModeAspectFill;
     [self.view presentScene:ballScene];
+    */
 }
 
 #pragma mark - add a scroling uiview
