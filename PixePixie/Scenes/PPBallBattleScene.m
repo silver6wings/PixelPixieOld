@@ -1,7 +1,7 @@
 
 
 #import "PPBallBattleScene.h"
-
+#import "PPBattleInfoLayer.h"
 #define SPACE_BOTTOM 60
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
 #define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(362 - kBallSize)+SPACE_BOTTOM
@@ -81,10 +81,9 @@ CGFloat vectorLength (CGVector vector) {
         self.physicsWorld.contactDelegate = self;
         
         // 添加背景图片
-        SKSpriteNode * bg;
+        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_02.jpg"]]];
         
         bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        [bg setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_02.jpg"]]];
         [self addChild:bg];
         
         
