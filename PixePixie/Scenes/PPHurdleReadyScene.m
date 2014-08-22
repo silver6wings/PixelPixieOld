@@ -180,25 +180,31 @@
 
 -(void)spriteChooseClick:(NSString *)spriteName
 {
-    #warning Bug出在这
-    /*
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
     NSDictionary *choosedPet=[NSDictionary dictionaryWithDictionary:petsChoosedInfo];
-    
-    
     
     // 初始化 ballScene
     PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:choosedPet];
     PPPixie * enemyPixie = [PPPixie birthEnemyPixieWithPetsInfo:[self.enemysArray objectAtIndex:currentEnemyIndex]];
     
+    if (playerPixie == nil || enemyPixie == nil) {
+        NSLog(@"nil Pixie");
+        return;
+    }
+    
+#warning Bug出在这的下一步
+    
+    /*
     PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
                                                                 PixiePlayer:playerPixie
                                                                  PixieEnemy:enemyPixie];
+    
     ballScene.hurdleReady = self;
     [ballScene setEnemyAtIndex:currentEnemyIndex];
     ballScene.scaleMode = SKSceneScaleModeAspectFill;
     [self.view presentScene:ballScene];
     */
+    
 }
 
 #pragma mark - add a scroling uiview
