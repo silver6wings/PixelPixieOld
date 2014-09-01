@@ -37,15 +37,10 @@ NSString * menu[] = {
 
 
 - (void)viewDidLoad
-{
-    
+{    
     [super viewDidLoad];
     
-#warning 这里删掉没问题吧？
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToMonsterScene:) name:PP_BACK_TO_MAIN_VIEW object:nil];
-
 
     skViewMain=[[SKView alloc] initWithFrame:CGRectMake(0.0f, PP_FIT_TOP_SIZE, 320.0f, 480.0f)];
     [self.view addSubview:skViewMain];

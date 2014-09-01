@@ -1,4 +1,6 @@
+
 #import "PPMenuDungeonScene.h"
+
 @interface PPMenuDungeonScene()
 {
     PPHurdleReadyScene * battleScene;
@@ -10,9 +12,6 @@
 
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
-        
-        
-        
         [self setBackTitleText:@"小场景推进" andPositionY:450.0f];
         
         
@@ -21,25 +20,20 @@
         
         
         [self setBackgroundColor:[UIColor purpleColor]];
-    
     }
     return self;
 }
 
 -(void)introduceInfoLabel:(NSString *)text
 {
-    
     PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 350)];
     [enemyDeadContent setPosition:CGPointMake(160.0f, 200.0f)];
     [self addChild:enemyDeadContent];
-    
-    
     
     PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
     if (labelNode) {
         [labelNode removeFromParent];
     }
-    
     
     PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
     additonLabel.name  = @"titleLabel";
@@ -48,15 +42,12 @@
     [additonLabel setText:text];
     [enemyDeadContent addChild:additonLabel];
     
-    
-    
     PPBasicLabelNode *infoContentLabel= [[PPBasicLabelNode alloc] init];
     infoContentLabel.name  = @"contentLabel";
     infoContentLabel.fontColor = [UIColor redColor];
     infoContentLabel.position = CGPointMake(0.0f, 0.0f);
     [infoContentLabel setText:@"介绍内容"];
     [enemyDeadContent addChild:infoContentLabel];
-    
     
     PPSpriteButton *  confirmButton = [PPSpriteButton buttonWithColor:[UIColor blueColor] andSize:CGSizeMake(90, 60)];
     
@@ -65,8 +56,6 @@
 
     [confirmButton addTarget:self selector:@selector(confirmBtnClick:) withObject:enemyDeadContent forControlEvent:PPButtonControlEventTouchUpInside];
     [enemyDeadContent addChild:confirmButton];
-    
-    
     
     
 //    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
@@ -119,11 +108,14 @@
 
 -(void)menuDungeonGoForward:(NSString *)stringName
 {
+    // 这里删除了之前的动画
+    /*
     PPBasicSpriteNode *goForwardContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor darkGrayColor] size:CGSizeMake(320.0f, 360)];
     goForwardContent.name = PP_GOFORWARD_MENU_DUNGEON_FIGHTING;
     [goForwardContent setPosition:CGPointMake(160.0f, 200.0f)];
     [self addChild:goForwardContent];
     
+
     SKLabelNode *skillNameLabel = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     [skillNameLabel setFontSize:20];
     skillNameLabel.fontColor = [UIColor whiteColor];
@@ -163,6 +155,9 @@
                  completion:^{
                  [self enterHurdleReady];
                  }];
+     */
+    
+    [self enterHurdleReady];
 }
 
 -(void)enterHurdleReady

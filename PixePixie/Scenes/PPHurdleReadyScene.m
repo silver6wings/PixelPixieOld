@@ -192,9 +192,6 @@
         return;
     }
     
-#warning Bug出在这的下一步
-    
-    
     PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
                                                                 PixiePlayer:playerPixie
                                                                  PixieEnemy:enemyPixie];
