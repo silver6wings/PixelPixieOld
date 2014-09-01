@@ -1254,6 +1254,7 @@ CGFloat vectorLength (CGVector vector) {
             
         }
         
+        
         [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
 
         
