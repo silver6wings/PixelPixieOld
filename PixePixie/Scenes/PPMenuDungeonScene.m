@@ -15,8 +15,9 @@
         
         [self setBackTitleText:@"小场景推进" andPositionY:450.0f];
         
-        [self introduceInfoLabel:@"场景介绍"];
         
+        [self addPassChoose];
+
         
         
         [self setBackgroundColor:[UIColor purpleColor]];
@@ -83,7 +84,6 @@
         contentNode = nil;
     }
     
-    [self addPassChoose];
 
    
 }
@@ -97,6 +97,18 @@
         passButton.name = [NSString stringWithFormat:@"%d",i+PP_SECONDARY_PASSNUM_BTN_TAG];
         [passButton addTarget:self selector:@selector(menuDungeonGoForward:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
+        
+        
+        
+        PPSpriteButton *  passIntroduceButton = [PPSpriteButton buttonWithColor:[UIColor redColor] andSize:CGSizeMake(30, 30)];
+        [passIntroduceButton setLabelWithText:[NSString stringWithFormat:@"%d信息",5-i] andFont:[UIFont systemFontOfSize:11] withColor:nil];
+        passIntroduceButton.position = CGPointMake(passButton.position.x+60.0f,passButton.position.y+15.0f);
+        passIntroduceButton.name = [NSString stringWithFormat:@"副本%d介绍",5-i];
+        [passIntroduceButton addTarget:self selector:@selector(introduceInfoLabel:) withObject:passIntroduceButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+        [self addChild:passIntroduceButton];
+        
+        
+        
     }
     
 }

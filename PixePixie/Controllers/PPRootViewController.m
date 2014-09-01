@@ -409,6 +409,7 @@ NSString * menu[] = {
             break;
     }
     
+    [monsterMainView hideMonstorShowBtns];
     
 }
 -(void)changeMenuState:(int)index

@@ -10,8 +10,7 @@
 static NSString *monsterBtnTitle[]={
     @"Sell Monster",
     @"Euo Fusion",
-    @"Talent Tree",
-    @"Monster Box"
+    @"Talent Tree"
 };
 @implementation PPMonsterScene
 - (id)initWithSize:(CGSize)size
@@ -25,7 +24,7 @@ static NSString *monsterBtnTitle[]={
         
         PPSpriteButton *showMonsterBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40.0f, 100.0f)];
         [showMonsterBtn setLabelWithText:@"show" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        showMonsterBtn.name = @"showMonsterName0";
+        showMonsterBtn.name = @"showMonsterName";
         showMonsterBtn.position = CGPointMake(22.0f,180.0f);
         [showMonsterBtn addTarget:self selector:@selector(showMonsterBtnClick:) withObject:showMonsterBtn forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:showMonsterBtn];
@@ -42,30 +41,24 @@ static NSString *monsterBtnTitle[]={
     if ([showBtn.color isEqual:[UIColor orangeColor]]) {
         showBtn.color = [UIColor blueColor];
         
-        for (int i=0; i<4; i++) {
+        for (int i=0; i<3; i++) {
+            
             PPSpriteButton *monsterButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(200.0f, 40.0f)];
             [monsterButton setLabelWithText:monsterBtnTitle[i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-            monsterButton.position = CGPointMake(160.0f,i*80+80.0f);
+            monsterButton.position = CGPointMake(160.0f,i*100+80.0f);
             monsterButton.name = [NSString stringWithFormat:@"%d",i];
             [monsterButton addTarget:self selector:@selector(monsterButtonClick:) withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
             [self addChild:monsterButton];
+            
         }
-        
         
     }else
     {
-        showBtn.color = [UIColor orangeColor];
-        for (int i=0; i<4; i++) {
-            SKNode *monsterButton = [self childNodeWithName:[NSString stringWithFormat:@"%d",i]];
-            [monsterButton removeFromParent];
-            
-          
-        }
+        [self hideShowbtns];
     }
     
-
-
 }
+
 -(void)showPetInfo
 {
     
@@ -161,5 +154,25 @@ static NSString *monsterBtnTitle[]={
 -(void)didMoveToView:(SKView *)view
 {
 
+}
+- (void)willMoveFromView:(SKView *)view
+{
+    [self hideShowbtns];
+
+    
+}
+-(void)hideShowbtns
+{
+    
+    PPSpriteButton *btn=(PPSpriteButton *)[self childNodeWithName:@"showMonsterName"];
+    
+    
+    btn.color = [UIColor orangeColor];
+
+    for (int i=0; i<3; i++) {
+        SKNode *monsterButton = [self childNodeWithName:[NSString stringWithFormat:@"%d",i]];
+        [monsterButton removeFromParent];
+    }
+    
 }
 @end

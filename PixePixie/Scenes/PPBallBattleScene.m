@@ -252,18 +252,11 @@ CGFloat vectorLength (CGVector vector) {
         [additonLabel runAction:actionScale completion:^{
             [additonLabel removeFromParent];
             
-            
-            
-            
-            
             [self enemyPhysicsAttackMoveBall];
             
         }];
         
     }
-    
-//    [self performSelectorOnMainThread:@selector(roundRotateMoved:) withObject:nodeName afterDelay:1];
-
     
 }
 
@@ -376,8 +369,6 @@ CGFloat vectorLength (CGVector vector) {
               
             }
             
-//            [self performSelectorOnMainThread:@selector(roundRotateMoved:) withObject:PP_PET_PLAYER_SIDE_NODE_NAME afterDelay:2];
-            
             
         }
             break;
@@ -413,6 +404,8 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)hpChangeEndAnimate:(NSString *)battlesideName
 {
+    
+    
 }
 
 // 战斗结束过程
@@ -535,9 +528,11 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)roundRotateBegin
 {
+    
     roundActionNum = 0;
     //随机怪物先攻击还是人物先开始攻击
-    [self startBattle:@"战斗开始"];
+    [self startBattle:@"回合开始"];
+    
 }
 
 -(void)roundRotateMoved:(NSString *)nodeName
@@ -568,10 +563,12 @@ CGFloat vectorLength (CGVector vector) {
   
     roundActionNum = 0;
     roundIndex += 1;
+    
     [self setRoundEndNumberLabel:[NSString stringWithFormat:@"%d回合结束",roundIndex]];
 
-    [self setPlayerSideRoundEndState];
-    
+    [self setPlayerSideRoundRunState];
+
+    [self performSelector:@selector(roundRotateBegin) withObject:nil afterDelay:3];
 }
 
 #pragma mark battle
@@ -579,6 +576,7 @@ CGFloat vectorLength (CGVector vector) {
 -(void)enemyPhysicsAttackMoveBall
 {
     _isBallRolling = YES;
+    
     [self.ballEnemy.physicsBody applyImpulse:
      CGVectorMake(arc4random()%100+10,
                   arc4random()%100+10)];
@@ -633,10 +631,13 @@ CGFloat vectorLength (CGVector vector) {
         [additonLabel removeFromParent];
         
         //判断敌方和我方谁先发动攻击
-        if (arc4random()%200==0) {
-            [self setPlayerSideRoundEndState];
-        }else
-        {
+//        if (arc4random()%200==0) {
+//            
+//            [self setPlayerSideRoundEndState];
+//            
+//        }else
+//        {
+        
             [self enemyAttackDecision];
             
             //                 [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
@@ -646,16 +647,14 @@ CGFloat vectorLength (CGVector vector) {
             //                    {
             //
             //                    }
-        }
+//        }
     }];
+    
+    [self creatCombosTotal];
 }
 
 -(void)setRoundEndNumberLabel:(NSString *)text
 {
-    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
-    if (labelNode) {
-        [labelNode removeFromParent];
-    }
     
     
     PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
@@ -732,6 +731,12 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    if (_isBallRolling == YES) {
+        return;
+    }
+    
+    
     if (touches.count > 1 || _isBallDragging || _isBallRolling || isNotSkillRun) return;
     
     UITouch * touch = [touches anyObject];
@@ -781,6 +786,7 @@ CGFloat vectorLength (CGVector vector) {
         CGPoint location = [touch locationInNode:self];
         _ballShadow.position = location;
     }
+    
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -802,6 +808,7 @@ CGFloat vectorLength (CGVector vector) {
         [_ballShadow removeFromParent];
         _isBallRolling = YES;
     }
+    
 }
 
 // 每帧处理程序
@@ -809,15 +816,11 @@ CGFloat vectorLength (CGVector vector) {
 {
     // 如果球都停止了
     if (_isBallRolling && [self isAllStopRolling]) {
-        NSLog(@"Doing Attack and Defend");
-        _isBallRolling = NO;
         
-        // 添加双方combo的球
-
-       
-        [self addRandomBalls:petCombos withElement:self.pixiePlayer.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
-        NSLog(@"pet element=%d combos=%d  enemy element=%d combos=%d",self.pixiePlayer.pixieBall.ballElementType,petCombos,self.pixieEnemy.pixieBall.ballElementType,enemyCombos);
-        [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
+        
+        NSLog(@"Doing Attack and Defend");
+        
+        _isBallRolling = NO;
         
         // 刷新技能
         _isTrapEnable = NO;
@@ -825,16 +828,15 @@ CGFloat vectorLength (CGVector vector) {
             [tBall setToDefaultTexture];
         }
         
-        enemyCombos = 0;
-        petCombos = 0;
+
         
         if(currentPhysicsAttack==1)
         {
             
-        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
-
-        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
+//        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+//        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
+//
+//        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
             
             
             [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
@@ -848,9 +850,22 @@ CGFloat vectorLength (CGVector vector) {
             
             [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
         }
+        
+        [self setPlayerSideRoundEndState];
     }
 }
 
+// 添加双方combo的球
+-(void)creatCombosTotal
+{
+    
+    [self addRandomBalls:petCombos withElement:self.pixiePlayer.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
+    NSLog(@"pet element=%d combos=%d  enemy element=%d combos=%d",self.pixiePlayer.pixieBall.ballElementType,petCombos,self.pixieEnemy.pixieBall.ballElementType,enemyCombos);
+    [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
+    
+    enemyCombos = 0;
+    petCombos = 0;
+}
 -(void)ballStopAssimilateCount:(NSInteger)balls
 {
     
@@ -1239,17 +1254,22 @@ CGFloat vectorLength (CGVector vector) {
             
         }
         
-    } else {
+        [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
+
+        
+    }else {
+        
         if (skillInfo.skillObject ==1) {
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         } else {
             [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];
         }
         
+        [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+
     }
     
     
-    [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
 
 
 }

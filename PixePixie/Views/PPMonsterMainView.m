@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        PPMonsterScene* mainScene = [[PPMonsterScene alloc] initWithSize:self.bounds.size];
+        mainScene = [[PPMonsterScene alloc] initWithSize:self.bounds.size];
         mainScene.scaleMode = SKSceneScaleModeFill;
         [self presentScene:mainScene];
         self.backgroundColor = [UIColor redColor];
@@ -22,5 +22,8 @@
     }
     return self;
 }
-
+-(void)hideMonstorShowBtns
+{
+    [mainScene hideShowbtns];
+}
 @end
