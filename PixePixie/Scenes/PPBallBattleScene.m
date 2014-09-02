@@ -529,6 +529,8 @@ CGFloat vectorLength (CGVector vector) {
 -(void)roundRotateBegin
 {
     
+    [self setPlayerSideRoundRunState];
+
     roundActionNum = 0;
     //随机怪物先攻击还是人物先开始攻击
     [self startBattle:@"回合开始"];
@@ -550,6 +552,7 @@ CGFloat vectorLength (CGVector vector) {
             [self enemyAttackDecision];
         }else
         {
+
             [self setPlayerSideRoundEndState];
         }
     }else
@@ -569,6 +572,7 @@ CGFloat vectorLength (CGVector vector) {
     [self setPlayerSideRoundRunState];
 
     [self performSelector:@selector(roundRotateBegin) withObject:nil afterDelay:3];
+    
 }
 
 #pragma mark battle
@@ -587,25 +591,25 @@ CGFloat vectorLength (CGVector vector) {
 {
     int decision = arc4random()%2;
     
-    switch (decision) {
-        case 0:
-        {
-            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-            
-        }
-            break;
-        case 1:
-        {
+//    switch (decision) {
+//        case 0:
+//        {
+//            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+//            
+//        }
+//            break;
+//        case 1:
+//        {
             [self skllEnemyBegain:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
             
-        }
-            break;
-        default:
-        {
-            
-        }
-            break;
-    }
+//        }
+//            break;
+//        default:
+//        {
+//            
+//        }
+//            break;
+//    }
     
 }
 
@@ -851,7 +855,6 @@ CGFloat vectorLength (CGVector vector) {
             [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
         }
         
-        [self setPlayerSideRoundEndState];
     }
 }
 
@@ -865,6 +868,9 @@ CGFloat vectorLength (CGVector vector) {
     
     enemyCombos = 0;
     petCombos = 0;
+    
+    [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
+
 }
 -(void)ballStopAssimilateCount:(NSInteger)balls
 {
@@ -1035,6 +1041,11 @@ CGFloat vectorLength (CGVector vector) {
      */
     
 //    NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
+    
+    
+    
+    [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
+    
 }
 
 #pragma mark Custom Method

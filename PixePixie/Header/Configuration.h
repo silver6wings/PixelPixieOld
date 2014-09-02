@@ -28,6 +28,8 @@ typedef enum {
 #define PP_BALL_TYPE_COMBO_NAME @"comboballname"
 #define PP_BALL_TYPE_PET_ELEMENT_NAME @"petelementball"
 #define PP_BALL_TYPE_ENEMY_ELEMENT_NAME @"enemyelementball"
+#define PP_PET_COMBOS_NAME @"petcombos"
+#define PP_ENEMY_COMBOS_NAME @"enemycombos"
 
 #define PP_MENU_COUNT 5
 #define PP_USER_BUTON_TAG 50
@@ -39,4 +41,5 @@ typedef enum {
 #define PP_SKILLS_VALUE_LAEBEL_TAG 500
 #define PP_CONTENT_TAG 600
 #define PP_CHOOSE_PET_CONTENT_TAG 700
+
 

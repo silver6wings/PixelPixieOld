@@ -48,7 +48,7 @@
 					<key>skillobject</key>
 					<integer>0</integer>
 					<key>skillname</key>
-					<string>弹幕冲击</string>
+					<string>敌人弹幕冲击</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -66,7 +66,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>冰晶之触</string>
+					<string>敌人冰晶之触</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>
@@ -84,7 +84,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>闪烁</string>
+					<string>敌人闪烁</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 				</dict>

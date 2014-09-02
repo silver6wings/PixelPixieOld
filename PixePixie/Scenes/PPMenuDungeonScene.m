@@ -90,7 +90,6 @@
         
         
         
-        
         PPSpriteButton *  passIntroduceButton = [PPSpriteButton buttonWithColor:[UIColor redColor] andSize:CGSizeMake(30, 30)];
         [passIntroduceButton setLabelWithText:[NSString stringWithFormat:@"%d信息",5-i] andFont:[UIFont systemFontOfSize:11] withColor:nil];
         passIntroduceButton.position = CGPointMake(passButton.position.x+60.0f,passButton.position.y+15.0f);

@@ -48,16 +48,13 @@
                                                      andImage:@"ball_pixie_plant2.png"
                                                    withTarget:self
                                                  withSelecter:@selector(physicsAttackClick:)];
-    ppixiePetBtn.position = CGPointMake(-self.size.width/2.0f+ppixiePetBtn.frame.size.width/2.0f+10.0f, -10.0f);
+    ppixiePetBtn.position = CGPointMake(-self.size.width/2.0f+ppixiePetBtn.frame.size.width/2.0f+10.0f, 0.0f);
     [self addChild:ppixiePetBtn];
     
-    PPBasicLabelNode *ppixiePetBtnLabel=[[PPBasicLabelNode alloc] init];
-    ppixiePetBtnLabel.fontSize=10;
-    [ppixiePetBtnLabel setColor:[SKColor redColor]];
-    NSLog(@"pixieName=%@",petppixie.pixieName);
-    [ppixiePetBtnLabel setText:@"信息查看"];
-    ppixiePetBtnLabel.position = CGPointMake(0.0F, 0);
-    [ppixiePetBtn addChild:ppixiePetBtnLabel];
+    
+
+    
+    
     
     self.currentPPPixie = petppixie;
     self.currentPPPixieEnemy = enemyppixie;
@@ -69,6 +66,19 @@
     [ppixiePetNameLabel setText:petppixie.pixieName];
     ppixiePetNameLabel.position = CGPointMake(ppixiePetBtn.position.x, ppixiePetBtn.position.y+15);
     [self addChild:ppixiePetNameLabel];
+    
+    
+    
+    PPBasicLabelNode *ppixiePetBtnLabel=[[PPBasicLabelNode alloc] init];
+    ppixiePetBtnLabel.fontSize=10;
+    ppixiePetBtnLabel.name = PP_PET_COMBOS_NAME;
+    [ppixiePetBtnLabel setColor:[SKColor redColor]];
+    NSLog(@"pixieName=%@",petppixie.pixieName);
+    [ppixiePetBtnLabel setText:@"连击:0"];
+    ppixiePetBtnLabel.position = CGPointMake(ppixiePetNameLabel.position.x,ppixiePetNameLabel.position.y-40);
+    [self addChild:ppixiePetBtnLabel];
+    
+    
 
     PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40, 30)];
     [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];
@@ -121,18 +131,13 @@
                                                            andImage:@"ball_pixie_plant2.png"
                                                          withTarget:self
                                                        withSelecter:@selector(physicsAttackClick:)];
-    ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x+enemyPlayerHP.size.width/2.0f+20.0f,-10.0f);
+    ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x+enemyPlayerHP.size.width/2.0f+20.0f,ppixiePetBtn.position.y);
     
     [self addChild:ppixieEnemyBtn];
     
     
     
-    PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
-    ppixieBtnLabel.fontSize = 10;
-    NSLog(@"pixieName=%@",enemyppixie.pixieName);
-    [ppixieBtnLabel setText:@"信息查看"];
-    ppixieBtnLabel.position = CGPointMake(0, 0);
-    [ppixieEnemyBtn addChild:ppixieBtnLabel];
+
     
     
     self.currentPPPixieEnemy = enemyppixie;
@@ -146,7 +151,27 @@
     ppixieNameLabel.position = CGPointMake(ppixieEnemyBtn.position.x, ppixieEnemyBtn.position.y+15);
     [self addChild:ppixieNameLabel];
     
+    PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
+    ppixieBtnLabel.fontSize = 10;
+    ppixieBtnLabel.name = PP_ENEMY_COMBOS_NAME;
+    NSLog(@"pixieName=%@",enemyppixie.pixieName);
+    [ppixieBtnLabel setText:@"连击:0"];
+    ppixieBtnLabel.position = CGPointMake(ppixieNameLabel.position.x, ppixiePetBtnLabel.position.y);
+    [self addChild:ppixieBtnLabel];
     
+    
+}
+-(void)setComboLabelText:(int)petCombos  withEnemy:(int)enemyCombos
+{
+    NSLog(@"combos:%d,%d",petCombos,enemyCombos);
+    
+    PPBasicLabelNode *petCombosLabel=(PPBasicLabelNode *)[self childNodeWithName:PP_PET_COMBOS_NAME];
+    PPBasicLabelNode *enemyCombosLabel=(PPBasicLabelNode *)[self childNodeWithName:PP_ENEMY_COMBOS_NAME];
+    
+    [petCombosLabel setText:[NSString stringWithFormat:@"连击:%d",petCombos]];
+    [enemyCombosLabel setText:[NSString stringWithFormat:@"连击:%d",enemyCombos]];
+
+
 }
 -(void)stopBtnClick:(NSString *)stringname
 {

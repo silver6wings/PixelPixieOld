@@ -40,5 +40,6 @@
 
 -(void)setSideSkillButtonDisable;
 -(void)setSideSkillButtonEnable;
+-(void)setComboLabelText:(int)petCombos  withEnemy:(int)enemyCombos;
 
 @end
