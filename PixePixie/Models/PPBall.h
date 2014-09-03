@@ -14,7 +14,7 @@
 +(PPBall *)ballWithPixieEnemy:(PPPixie *)pixieEnemy;
 +(PPBall *)ballWithElement:(PPElementType)element;
 +(PPBall *)ballWithCombo;
-
+-(void)setRoundsLabel:(int)rounds;
 -(void)setToDefaultTexture;
 
 @end

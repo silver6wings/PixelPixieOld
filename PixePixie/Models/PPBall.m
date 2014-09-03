@@ -33,10 +33,27 @@
         tBall.pixie = nil;
     }
     
+    PPBasicLabelNode *roundsLabel = [[PPBasicLabelNode alloc] init];
+    roundsLabel.name = @"roundsLabel";
+    roundsLabel.fontColor = [UIColor redColor];
+    roundsLabel.position = CGPointMake(10, 10);
+    [roundsLabel setText:@"0"];
+     roundsLabel.fontSize=15;
+
+    [tBall addChild:roundsLabel];
+
+    
     tBall.ballType = PPBallTypeElement;
     return tBall;
 }
-
+-(void)setRoundsLabel:(int)rounds
+{
+    
+    PPBasicLabelNode *roundsLabel =(PPBasicLabelNode *)[self childNodeWithName:@"roundsLabel"];
+    [roundsLabel setText:[NSString stringWithFormat:@"%d",rounds]];
+    
+    
+}
 // 创建玩家宠物的球
 +(PPBall *)ballWithPixie:(PPPixie *)pixie{
     

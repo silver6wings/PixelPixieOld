@@ -1074,11 +1074,14 @@ CGFloat vectorLength (CGVector vector) {
         
         PPBall * tBall = [self.ballsElement objectAtIndex:i];
         tBall.sustainRounds--;
-        
+        [tBall setRoundsLabel:tBall.sustainRounds];
+
         if (tBall.sustainRounds == 0) {
             [tBall removeFromParent];
             [self.ballsElement removeObject:tBall];
         }
+        
+
         
     }
     
@@ -1111,7 +1114,7 @@ CGFloat vectorLength (CGVector vector) {
         tBall.sustainRounds = lastBallSustainRounds;
         tBall.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:tBall];
-        
+        [tBall setRoundsLabel:tBall.sustainRounds];
         [self.ballsElement addObject:tBall];
         return;
     }
@@ -1130,7 +1133,8 @@ CGFloat vectorLength (CGVector vector) {
             tBall.physicsBody.node.name = nodeName;
             tBall.physicsBody.categoryBitMask = kBallCategory;
             tBall.sustainRounds = kBallSustainRounds;
-            
+            [tBall setRoundsLabel:tBall.sustainRounds];
+
             tBall.physicsBody.contactTestBitMask = kBallCategory;
             [self addChild:tBall];
             
@@ -1145,6 +1149,8 @@ CGFloat vectorLength (CGVector vector) {
             tBall.physicsBody.categoryBitMask = kBallCategory;
             tBall.sustainRounds = lastBallSustainRounds;
             tBall.physicsBody.contactTestBitMask = kBallCategory;
+            [tBall setRoundsLabel:tBall.sustainRounds];
+
             [self addChild:tBall];
             
             [self.ballsElement addObject:tBall];
