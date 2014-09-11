@@ -24,6 +24,7 @@
 }
 -(void)creatPassNumberScroll:(NSDictionary *)passInfo with:(SKScene *)sceneTmp
 {
+    
     self.scene=sceneTmp;
     NSArray *passArray=[NSArray arrayWithArray:[passInfo objectForKey:@"transcriptinfo"]];
     NSInteger passCount=[passArray count];
@@ -57,6 +58,7 @@
         [imageView setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[dict objectForKey:@"passimage"] ofType:@"png"]]];
         [imageView setBackgroundColor:[UIColor greenColor]];
         [scrollContent addSubview:imageView];
+        
         
         UILabel *labelPassText=[[UILabel alloc] initWithFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y+imageView.frame.size.height, 220.0f, 60.0f)];
         [labelPassText setFont:[UIFont boldSystemFontOfSize:15]];

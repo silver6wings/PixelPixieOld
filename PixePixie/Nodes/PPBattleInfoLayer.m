@@ -15,17 +15,16 @@
     
     NSArray *skillsArray = [NSArray arrayWithArray:ppixie.pixieSkills];
     self.currentPPPixie = ppixie;
+    NSLog(@"pixieSkills count=%d",[ppixie.pixieSkills count]);
     
     for (int i = 0; i < [ppixie.pixieSkills count]; i++) {
         
-        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 45)];
+        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40, 45)];
         [passButton setLabelWithText:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        passButton.position = CGPointMake((320.0f/[ppixie.pixieSkills count]+10)*i-110, -10.0f);
+        passButton.position = CGPointMake(60*i-120, -10.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         [passButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
-        
-        
         
         
 //        PPSpriteButton *  skillCdButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 15)];

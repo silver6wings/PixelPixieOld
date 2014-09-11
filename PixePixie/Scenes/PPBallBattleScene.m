@@ -464,6 +464,7 @@ CGFloat vectorLength (CGVector vector) {
     self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
     [self addChild:self.ballEnemy];
     
+    
     self.playerAndEnemySide = [[PPBattleInfoLayer alloc] init];
     [self.playerAndEnemySide setColor:[UIColor purpleColor]];
     self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-27-direct);
@@ -563,8 +564,8 @@ CGFloat vectorLength (CGVector vector) {
     _isBallRolling = YES;
     
     [self.ballEnemy.physicsBody applyImpulse:
-     CGVectorMake(arc4random()%100+10,
-                  arc4random()%100+10)];
+     CGVectorMake(100+10,
+                  100+10)];
     [self setPlayerSideRoundRunState];
 }
 
@@ -572,25 +573,25 @@ CGFloat vectorLength (CGVector vector) {
 {
     int decision = arc4random()%2;
     
-//    switch (decision) {
-//        case 0:
-//        {
-//            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-//            
-//        }
-//            break;
-//        case 1:
-//        {
+    switch (decision) {
+        case 0:
+        {
+            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+            
+        }
+            break;
+        case 1:
+        {
             [self skllEnemyBegain:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
             
-//        }
-//            break;
-//        default:
-//        {
-//            
-//        }
-//            break;
-//    }
+        }
+            break;
+        default:
+        {
+            
+        }
+            break;
+    }
     
 }
 
@@ -861,7 +862,6 @@ CGFloat vectorLength (CGVector vector) {
         
             [self.playerAndEnemySide changePetHPValue:-500];
             
-            
             //确定需要remvoe的元素球
             if (contact.bodyA == self.ballPlayer.physicsBody)
             {
@@ -875,7 +875,6 @@ CGFloat vectorLength (CGVector vector) {
             
         }else if((contact.bodyA == self.ballPlayer.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME])||(contact.bodyB == self.ballPlayer.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
         {
-            
             
             //我方碰到我方属性元素球
             petAssimSameEleNum ++;
@@ -893,8 +892,7 @@ CGFloat vectorLength (CGVector vector) {
                 
             }
             
-            
-        }
+       }
         else
         {
             
@@ -919,7 +917,6 @@ CGFloat vectorLength (CGVector vector) {
             enemyCombos++;
             [self.playerAndEnemySide changeEnemyMPValue:500];
 
-            
         }else if((contact.bodyA == self.ballEnemy.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME])||(contact.bodyB == self.ballEnemy.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
         {
             
@@ -945,7 +942,6 @@ CGFloat vectorLength (CGVector vector) {
             enemyAssimDiffEleNum++;
             [self.playerAndEnemySide changeEnemyHPValue:-500];
 
-            
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
                 sholdToRemoveBody = contact.bodyB;
@@ -969,7 +965,6 @@ CGFloat vectorLength (CGVector vector) {
             
             [sholdToRemoveBody.node removeFromParent];
             [self.ballsElement removeObject:sholdToRemoveBody.node];
-            
             
         }
         
@@ -998,7 +993,6 @@ CGFloat vectorLength (CGVector vector) {
      */
     
 //    NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
-    
     
     
     [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
@@ -1090,6 +1084,8 @@ CGFloat vectorLength (CGVector vector) {
             tBall.physicsBody.node.name = nodeName;
             tBall.physicsBody.categoryBitMask = kBallCategory;
             tBall.sustainRounds = kBallSustainRounds;
+            NSLog(@"kBallSustainRounds = %d",kBallSustainRounds);
+            
             [tBall setRoundsLabel:tBall.sustainRounds];
 
             tBall.physicsBody.contactTestBitMask = kBallCategory;
@@ -1097,8 +1093,10 @@ CGFloat vectorLength (CGVector vector) {
             
             [self.ballsElement addObject:tBall];
             
+            
         }else
         {
+            
             PPBall * tBall = [PPBall ballWithElement:element];
             tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
             tBall.ballElementType = element;
@@ -1106,11 +1104,14 @@ CGFloat vectorLength (CGVector vector) {
             tBall.physicsBody.categoryBitMask = kBallCategory;
             tBall.sustainRounds = lastBallSustainRounds;
             tBall.physicsBody.contactTestBitMask = kBallCategory;
+            NSLog(@"lastBallSustainRounds = %d",lastBallSustainRounds);
+
             [tBall setRoundsLabel:tBall.sustainRounds];
 
             [self addChild:tBall];
             
             [self.ballsElement addObject:tBall];
+            
         }
     }
 }
