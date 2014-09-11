@@ -12,6 +12,8 @@ static const float kBallRestitution = 1.0f;         // 弹性恢复系数
 
 static const float kBounceReduce = 0.8f;            // 弹出去的按距离比例衰减系数
 
+static const float kStopThreshold = 5.0f;
+
 // 最大元素个数
 static const int kElementTypeMax = 10;
 

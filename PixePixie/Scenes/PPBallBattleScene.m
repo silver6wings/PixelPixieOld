@@ -113,15 +113,13 @@ CGFloat vectorLength (CGVector vector) {
         [self.playerSkillSide setSideSkillsBtn:pixieA];
         [self addChild:self.playerSkillSide];
         
-        // 添加 Walls
+        // 添加围墙
         CGFloat tWidth = 320.0f;
         CGFloat tHeight = 362.0f;
         
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(0, tHeight / 2 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
-        [self addWalls:CGSizeMake(kWallThick*2, tHeight) atPosition:CGPointMake(tWidth, tHeight / 2 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
-        
         
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
@@ -166,15 +164,11 @@ CGFloat vectorLength (CGVector vector) {
             [self.ballsElement addObject:comboBall];
         }
         
-     
-        
-     
     }
     return self;
 }
 -(void)setEnemyAtIndex:(int)index
 {
-    
     currentEnemyIndex = index;
     [self addEnemySide:PP_FIT_TOP_SIZE];
     
@@ -185,7 +179,6 @@ CGFloat vectorLength (CGVector vector) {
 //        [self setBackTitleText:nil andPositionY:450.0f];
 //        
 //    }
-    
 }
 
 -(void)showCurrentPlayerPetInfo:(PPPixie *) pet
@@ -217,10 +210,6 @@ CGFloat vectorLength (CGVector vector) {
                                  andOppositeDefAddition:self.playerAndEnemySide.currentPPPixieEnemy.pixieBuffs.defenseAddition
                                  andDexterity:self.playerAndEnemySide.currentPPPixieEnemy.currentDEX];
         */
-    
-
-        
-        
         
     } else {
         
@@ -257,7 +246,6 @@ CGFloat vectorLength (CGVector vector) {
         }];
         
     }
-    
 }
 
 -(void)ballAttackEnd:(NSInteger)ballsCount
@@ -289,13 +277,11 @@ CGFloat vectorLength (CGVector vector) {
 }
 
 
-
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
 {
   
     CGFloat mpToConsume = [[skillInfo objectForKey:@"skillmpchange"] floatValue];
     NSLog(@"currentMP=%f mptoConsume=%f",self.playerAndEnemySide.currentPPPixie.currentMP,mpToConsume);
-    
     
     if (self.playerAndEnemySide.currentPPPixie.currentMP<fabsf(mpToConsume)) {
         
@@ -395,17 +381,12 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
 {
-    
     NSLog(@"skillInfo=%@",skillInfo);
     [self showEnemySkillEventBegin:skillInfo];
-    
-    
 }
 
 -(void)hpChangeEndAnimate:(NSString *)battlesideName
 {
-    
-    
 }
 
 // 战斗结束过程
@@ -717,21 +698,7 @@ CGFloat vectorLength (CGVector vector) {
     }
 }
 
-#pragma mark SKScene
-
--(void)didMoveToView:(SKView *)view
-{
-    
-    [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:2];
-    [self setPlayerSideRoundRunState];
-    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixie.pixieElement andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
-    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixieEnemy.pixieElement andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
-}
-
--(void)willMoveFromView:(SKView *)view
-{
-    //    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-}
+#pragma mark UIResponder
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -739,7 +706,6 @@ CGFloat vectorLength (CGVector vector) {
     if (_isBallRolling == YES) {
         return;
     }
-    
     
     if (touches.count > 1 || _isBallDragging || _isBallRolling || isNotSkillRun) return;
     
@@ -812,15 +778,31 @@ CGFloat vectorLength (CGVector vector) {
         [_ballShadow removeFromParent];
         _isBallRolling = YES;
     }
-    
 }
 
-// 每帧处理程序
+#pragma mark SKScene
+
+-(void)didMoveToView:(SKView *)view
+{
+    [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:2];
+    [self setPlayerSideRoundRunState];
+    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixie.pixieElement andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
+    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixieEnemy.pixieElement andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
+}
+
+-(void)willMoveFromView:(SKView *)view
+{
+}
+
+// 每帧处理程序开始
 -(void)update:(NSTimeInterval)currentTime
+{
+}
+
+-(void)didSimulatePhysics
 {
     // 如果球都停止了
     if (_isBallRolling && [self isAllStopRolling]) {
-        
         
         NSLog(@"Doing Attack and Defend");
         
@@ -832,50 +814,25 @@ CGFloat vectorLength (CGVector vector) {
             [tBall setToDefaultTexture];
         }
         
-
-        
-        if(currentPhysicsAttack==1)
+        if(currentPhysicsAttack == 1)
         {
-            
-//        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-//        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
-//
-//        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
-            
-            
+            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
+            //
+            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
             [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
-
-            
         }else
         {
-//            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-//            
-//            [self.playerAndEnemySide changePetHPValue:-damageCount];
+            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+            //
+            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
             
             [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
         }
-        
     }
 }
 
-// 添加双方combo的球
--(void)creatCombosTotal
-{
-    
-    [self addRandomBalls:petCombos withElement:self.pixiePlayer.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
-    NSLog(@"pet element=%d combos=%d  enemy element=%d combos=%d",self.pixiePlayer.pixieBall.ballElementType,petCombos,self.pixieEnemy.pixieBall.ballElementType,enemyCombos);
-    [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
-    
-    enemyCombos = 0;
-    petCombos = 0;
-    
-    [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
 
-}
--(void)ballStopAssimilateCount:(NSInteger)balls
-{
-    
-}
 
 #pragma mark SKPhysicsContactDelegate
 
@@ -1050,6 +1007,36 @@ CGFloat vectorLength (CGVector vector) {
 
 #pragma mark Custom Method
 
+// 是否所有的球都停止了滚动
+-(BOOL)isAllStopRolling{
+    
+    if (vectorLength(self.ballPlayer.physicsBody.velocity) < kStopThreshold) {
+        self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+        self.ballPlayer.physicsBody.resting = YES;
+    }
+    
+    if (vectorLength(self.ballEnemy.physicsBody.velocity) < kStopThreshold) {
+        self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+        self.ballEnemy.physicsBody.resting = YES;
+    }
+    
+    for (PPBall * tBall in self.ballsElement) {
+        if (vectorLength(tBall.physicsBody.velocity) < kStopThreshold) {
+            tBall.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+            tBall.physicsBody.resting = YES;
+        }
+    }
+    
+    if (!self.ballPlayer.physicsBody.resting) return NO;
+    if (!self.ballEnemy.physicsBody.resting) return NO;
+    
+    for (PPBall * tBall in self.ballsElement) {
+        if (!tBall.physicsBody.resting) return NO;
+    }
+    
+    return YES;
+}
+
 // 添加四周的墙
 -(void)addWalls:(CGSize)nodeSize atPosition:(CGPoint)nodePosition{
     
@@ -1067,36 +1054,6 @@ CGFloat vectorLength (CGVector vector) {
     
     [self addChild:wall];
 }
--(void)changeBallsRoundsEnd
-{
-    
-    for (int i=0; i<[self.ballsElement count]; i++) {
-        
-        PPBall * tBall = [self.ballsElement objectAtIndex:i];
-        tBall.sustainRounds--;
-        [tBall setRoundsLabel:tBall.sustainRounds];
-
-        if (tBall.sustainRounds == 0) {
-            [tBall removeFromParent];
-            [self.ballsElement removeObject:tBall];
-        }
-        
-
-        
-    }
-    
-}
-//-(void)removeBallsForRoundsEnd
-//{
-//    
-//    for (int i=0; i<[self.ballsElement count]; i++) {
-//        PPBall * tBall = [self.ballsElement objectAtIndex:i];
-//        if (tBall.sustainRounds <=0) {
-//            [tBall removeFromParent];
-//            [self.ballsElement removeObject:tBall];
-//        }
-//    }
-//}
 
 // 添加随机的球
 -(void)addRandomBalls:(int)number withElement:(PPElementType)element andNodeName:(NSString *)nodeName{
@@ -1155,65 +1112,51 @@ CGFloat vectorLength (CGVector vector) {
             
             [self.ballsElement addObject:tBall];
         }
-        
     }
-    
 }
 
-// 是否所有的球都停止了滚动
--(BOOL)isAllStopRolling{
-    
-    CGFloat vectorLengthVelocity=vectorLength(self.ballPlayer.physicsBody.velocity);
-    
-    if (vectorLengthVelocity > 0) {
-        NSLog(@"value = %f",vectorLengthVelocity);
-        //        if (vectorLengthVelocity<criticalValue) {
-        //
-        //            self.ballPlayer.physicsBody.velocity=CGVectorMake(self.ballPlayer.physicsBody.velocity.dx/dampingValue, self.ballPlayer.physicsBody.velocity.dy/dampingValue);
-        //        }
-        //        if (vectorLengthVelocity<5.0f) {
-        //             self.ballPlayer.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
-        //        }
-        return NO;
-    }
-    
-    CGFloat vectorBallVelocity = vectorLength(self.ballEnemy.physicsBody.velocity);
-    
-    if (vectorBallVelocity > 0) {
+-(void)changeBallsRoundsEnd
+{
+    for (int i=0; i<[self.ballsElement count]; i++) {
         
-        //        if (vectorBallVelocity<criticalValue) {
-        //
-        //            self.ballEnemy.physicsBody.velocity=CGVectorMake(self.ballEnemy.physicsBody.velocity.dx/dampingValue, self.ballEnemy.physicsBody.velocity.dy/dampingValue);
-        //        }
-        //
-        if (vectorLengthVelocity < 5.0f) {
-            self.ballEnemy.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
-        }
+        PPBall * tBall = [self.ballsElement objectAtIndex:i];
+        tBall.sustainRounds--;
+        [tBall setRoundsLabel:tBall.sustainRounds];
         
-        return NO;
-    }
-    
-    BOOL isAllOtherBallStop = YES;
-    for (PPBall * tBall in self.ballsElement) {
-        if (vectorLength(tBall.physicsBody.velocity) > 0) {
-            //            if (vectorLength(tBall.physicsBody.velocity) <criticalValue) {
-            //
-            //               tBall.physicsBody.velocity=CGVectorMake(tBall.physicsBody.velocity.dx/dampingValue, tBall.physicsBody.velocity.dy/dampingValue);
-            //
-            //                if (vectorLength(tBall.physicsBody.velocity)<10.0f) {
-            //
-            //                    self.ballEnemy.physicsBody.velocity=CGVectorMake(0.0f, 0.0f);
-            //                }
-            isAllOtherBallStop = NO;
-            break;
+        if (tBall.sustainRounds == 0) {
+            [tBall removeFromParent];
+            [self.ballsElement removeObject:tBall];
         }
     }
+}
+
+//-(void)removeBallsForRoundsEnd
+//{
+//
+//    for (int i=0; i<[self.ballsElement count]; i++) {
+//        PPBall * tBall = [self.ballsElement objectAtIndex:i];
+//        if (tBall.sustainRounds <=0) {
+//            [tBall removeFromParent];
+//            [self.ballsElement removeObject:tBall];
+//        }
+//    }
+//}
+
+// 添加双方combo的球
+-(void)creatCombosTotal
+{
+    [self addRandomBalls:petCombos withElement:self.pixiePlayer.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
+    NSLog(@"pet element=%d combos=%d  enemy element=%d combos=%d",self.pixiePlayer.pixieBall.ballElementType,petCombos,self.pixieEnemy.pixieBall.ballElementType,enemyCombos);
+    [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
     
-    if (vectorLengthVelocity == 0 && vectorBallVelocity == 0 && isAllOtherBallStop) {
-        return YES;
-    } else {
-        return NO;
-    }
+    enemyCombos = 0;
+    petCombos = 0;
+    
+    [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
+}
+
+-(void)ballStopAssimilateCount:(NSInteger)balls
+{
 }
 
 #pragma mark SkillBeginAnimateDelegate
