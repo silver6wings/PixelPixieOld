@@ -92,6 +92,46 @@
 					<key>skillcontinue</key>
 					<integer>0</integer>
 				</dict>
+				<dict>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-244</integer>
+					<key>skillmpchange</key>
+					<integer>-1023</integer>
+					<key>skilltype</key>
+					<integer>1</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>木系掌控</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-244</integer>
+					<key>skillmpchange</key>
+					<integer>-1023</integer>
+					<key>skilltype</key>
+					<integer>1</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>木系掌控</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -182,6 +222,46 @@
 					<key>skillcontinue</key>
 					<integer>0</integer>
 				</dict>
+				<dict>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-555</integer>
+					<key>skillmpchange</key>
+					<integer>-1003</integer>
+					<key>skilltype</key>
+					<integer>0</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>木旋风</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-555</integer>
+					<key>skillmpchange</key>
+					<integer>-1003</integer>
+					<key>skilltype</key>
+					<integer>0</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>木旋风</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -247,6 +327,46 @@
 					<integer>1</integer>
 					<key>skillname</key>
 					<string>光合作用</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-554</integer>
+					<key>skillmpchange</key>
+					<integer>-844</integer>
+					<key>skilltype</key>
+					<integer>0</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>木之誓言</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-554</integer>
+					<key>skillmpchange</key>
+					<integer>-844</integer>
+					<key>skilltype</key>
+					<integer>0</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>木之誓言</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 					<key>skillcontinue</key>
