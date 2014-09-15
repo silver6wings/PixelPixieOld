@@ -17,6 +17,9 @@ static const float kStopThreshold = 5.0f;
 // 最大元素个数
 static const int kElementTypeMax = 10;
 
+// 最大元素个数
+static const int volocityAddition = 3;
+
 // 元素类型定义
 typedef NS_ENUM(NSInteger, PPElementType)
 {

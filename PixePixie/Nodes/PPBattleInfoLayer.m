@@ -281,10 +281,8 @@
 }
 -(void)changeEnemyHPValue:(CGFloat)HPValue
 {
-   
-
+  
     self.currentPPPixieEnemy.currentHP =  [enemyPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
-    
     
 }
 -(void)changePetMPValue:(CGFloat)HPValue

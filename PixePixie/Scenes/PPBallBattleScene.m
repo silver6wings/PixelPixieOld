@@ -161,7 +161,7 @@ CGFloat vectorLength (CGVector vector) {
             comboBall.physicsBody.contactTestBitMask = kBallCategory;
             comboBall.physicsBody.node.name=PP_BALL_TYPE_COMBO_NAME;
             [self addChild:comboBall];
-            [self.ballsElement addObject:comboBall];
+//            [self.ballsElement addObject:comboBall];
         }
         
     }
@@ -562,7 +562,7 @@ CGFloat vectorLength (CGVector vector) {
 -(void)enemyPhysicsAttackMoveBall
 {
     _isBallRolling = YES;
-    
+    currentPhysicsAttack = 2;
     [self.ballEnemy.physicsBody applyImpulse:
      CGVectorMake(100+10,
                   100+10)];
@@ -636,6 +636,9 @@ CGFloat vectorLength (CGVector vector) {
 //        }
     }];
     
+    [self changeBallsRoundsEnd];
+
+    
     [self creatCombosTotal];
 }
 
@@ -668,7 +671,6 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)setPlayerSideRoundEndState
 {
-    [self changeBallsRoundsEnd];
     
     isNotSkillRun = NO;
     [self.playerSkillSide setSideSkillButtonEnable];
@@ -703,6 +705,8 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+
     
     if (_isBallRolling == YES) {
         return;
@@ -787,8 +791,9 @@ CGFloat vectorLength (CGVector vector) {
 {
     [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:2];
     [self setPlayerSideRoundRunState];
-    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixie.pixieElement andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
-    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixieEnemy.pixieElement andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
+    
+//    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixie.pixieElement andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
+//    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixieEnemy.pixieElement andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
 }
 
 -(void)willMoveFromView:(SKView *)view
@@ -848,11 +853,31 @@ CGFloat vectorLength (CGVector vector) {
     if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
     {
         
+        
+        //如果双方人物球相撞
+        
+        if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)){
+            
+            if (currentPhysicsAttack==1) {
+                self.ballPlayer.physicsBody.velocity=CGVectorMake(self.ballPlayer.physicsBody.velocity.dx*volocityAddition, self.ballPlayer.physicsBody.velocity.dy*volocityAddition);
+                
+            }else if(currentPhysicsAttack ==2)
+            {
+                
+                self.ballEnemy.physicsBody.velocity=CGVectorMake(self.ballEnemy.physicsBody.velocity.dx*volocityAddition, self.ballEnemy.physicsBody.velocity.dy*volocityAddition);
+                
+            }
+            
+            return;
+        }
+        
         if ((contact.bodyA == self.ballPlayer.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME])||(contact.bodyB == self.ballPlayer.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME])) {
             //我方碰到连击球
             
             petCombos++;
-            [self.playerAndEnemySide changePetMPValue:500];
+            [self.playerAndEnemySide changePetMPValue:100];
+            
+            return;
             
         }else if((contact.bodyA == self.ballPlayer.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME])||(contact.bodyB == self.ballPlayer.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
         {
@@ -860,7 +885,7 @@ CGFloat vectorLength (CGVector vector) {
             //我方碰到敌方属性元素球
             petAssimDiffEleNum ++;
         
-            [self.playerAndEnemySide changePetHPValue:-500];
+            [self.playerAndEnemySide changePetHPValue:-100];
             
             //确定需要remvoe的元素球
             if (contact.bodyA == self.ballPlayer.physicsBody)
@@ -878,7 +903,7 @@ CGFloat vectorLength (CGVector vector) {
             
             //我方碰到我方属性元素球
             petAssimSameEleNum ++;
-            [self.playerAndEnemySide changePetHPValue:500];
+            [self.playerAndEnemySide changePetHPValue:100];
 
             
             //确定需要remvoe的元素球
@@ -896,7 +921,6 @@ CGFloat vectorLength (CGVector vector) {
         else
         {
             
-            
         }
         
         NSLog(@"currentHP=%f max=%f",self.pixiePlayer.currentHP,self.pixiePlayer.pixieHPmax);
@@ -911,11 +935,29 @@ CGFloat vectorLength (CGVector vector) {
     }
     else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)) {
         
+        //如果双方人物球相撞
+        
+        if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody)){
+            
+        if (currentPhysicsAttack==1) {
+            self.ballPlayer.physicsBody.velocity=CGVectorMake(self.ballPlayer.physicsBody.velocity.dx*volocityAddition, self.ballPlayer.physicsBody.velocity.dy*volocityAddition);
+            
+        }else if(currentPhysicsAttack ==2)
+        {
+            
+            self.ballEnemy.physicsBody.velocity=CGVectorMake(self.ballEnemy.physicsBody.velocity.dx*volocityAddition, self.ballEnemy.physicsBody.velocity.dy*volocityAddition);
+            
+        }
+            return;
+        }
+        
+        
         if ((contact.bodyA == self.ballEnemy.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME])||(contact.bodyB == self.ballEnemy.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME])) {
             //敌方碰到连击球
             
             enemyCombos++;
             [self.playerAndEnemySide changeEnemyMPValue:500];
+            return;
 
         }else if((contact.bodyA == self.ballEnemy.physicsBody&&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME])||(contact.bodyB == self.ballEnemy.physicsBody&&[contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
         {
@@ -955,11 +997,14 @@ CGFloat vectorLength (CGVector vector) {
         }
         else
         {
-            
+          
         }
         
+        NSLog(@"currentHP=%f max=%f",self.pixiePlayer.currentHP,self.pixiePlayer.pixieHPmax);
+
+        
         //判断当前敌方是否满血
-        if (self.pixieEnemy.currentHP != self.pixieEnemy.pixieHPmax)
+        if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
         {
             //不满血
             
@@ -1052,6 +1097,10 @@ CGFloat vectorLength (CGVector vector) {
 // 添加随机的球
 -(void)addRandomBalls:(int)number withElement:(PPElementType)element andNodeName:(NSString *)nodeName{
     
+    if (number <=0) {
+        return;
+    }
+    
     int countToGenerate=number/kBallSustainRounds;
     int lastBallSustainRounds = number%kBallSustainRounds;
 
@@ -1072,6 +1121,12 @@ CGFloat vectorLength (CGVector vector) {
     
     if (lastBallSustainRounds != 0) {
         countToGenerate++;
+    }
+    
+    if (countToGenerate>5) {
+        
+        countToGenerate=5;
+        lastBallSustainRounds = kBallSustainRounds;
     }
     
     for (int i = 0; i < countToGenerate; i++) {
@@ -1124,7 +1179,7 @@ CGFloat vectorLength (CGVector vector) {
         tBall.sustainRounds--;
         [tBall setRoundsLabel:tBall.sustainRounds];
         
-        if (tBall.sustainRounds == 0) {
+        if (tBall.sustainRounds <= 0) {
             [tBall removeFromParent];
             [self.ballsElement removeObject:tBall];
         }

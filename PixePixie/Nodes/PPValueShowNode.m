@@ -45,14 +45,18 @@
     valueShowLabel.position = CGPointMake(0,valueShowNode.position.y+5.0f);
     [self addChild:valueShowLabel];
     
-    [self valueShowChangeMaxValue:maxV andCurrentValue:currentV];
+     
+    [self valueShowChangeMaxValue:0 andCurrentValue:currentV];
     
 }
 
 -(CGFloat)valueShowChangeMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV
 {
     
+    
+    
     maxValue = maxV + maxValue;
+    
     currentValue = currentV+currentValue;
     if (currentValue<=0.0f) {
         currentValue = 0.0f;

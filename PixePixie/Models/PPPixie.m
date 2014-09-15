@@ -52,6 +52,8 @@
     tPixie.pixieMPmax = 1000*[[petsDict objectForKey:@"petstatus"] intValue];
     tPixie.pixieName = [petsDict objectForKey:@"petname"];
     tPixie.currentHP = tPixie.pixieHPmax;
+    NSLog(@"currentHP=%f hpmax=%f",tPixie.currentHP,tPixie.pixieHPmax);
+    
     tPixie.currentMP = tPixie.pixieMPmax/2.0f;
     
     tPixie.currentAP = 10;
