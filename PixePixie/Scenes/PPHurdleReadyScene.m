@@ -114,28 +114,18 @@
 //                     [monsterButton addTarget:self selector:@selector(battleStartButtonClick:) withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
 //                     [hurdleReadyContentNode addChild:monsterButton];
                      
-                     [self battleStartButtonClick:nil];
                      
+                     [self setPetsChooseContent];
                  }];
-    
 }
--(void)battleStartButtonClick:(NSString *)stringname
-{
-//    SKNode *contentNode=[self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
-//    if (contentNode!=nil) {
-//        [contentNode removeFromParent];
-//    }
-//    
-    [self setPetsChooseContent];
-    
-}
+
 #pragma mark - add a pet choose node
 
 -(void)setPetsChooseContent
 {
     SKSpriteNode *spriteContent = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(320, 100)];
     spriteContent.name = PP_HURDLE_PETCHOOSE_CONTENT_NAME;
-    spriteContent.position = CGPointMake(480.0, 45.0);
+    spriteContent.position = CGPointMake(160.0, -50.0);
     [self addChild:spriteContent];
     
     NSDictionary * dictUserPets = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserPetInfo"
@@ -174,7 +164,8 @@
     titilePass.position = CGPointMake(0.0f,-150.0f);
     [spriteContent addChild:titilePass];
     
-    SKAction *actionMove=[SKAction moveTo:CGPointMake(160.0f, spriteContent.position.y) duration:0.5];
+    // 显示精灵选择菜单
+    SKAction * actionMove=[SKAction moveTo:CGPointMake(160.0, 50) duration:0.5];
     [spriteContent runAction:actionMove];
 }
 

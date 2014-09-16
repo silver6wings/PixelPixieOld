@@ -12,14 +12,12 @@ static const float kBallRestitution = 1.0f;         // 弹性恢复系数
 
 static const float kBounceReduce = 0.8f;            // 弹出去的按距离比例衰减系数
 
-static const float kStopThreshold = 5.0f;
+static const float kStopThreshold = 5.0f;   // 速度停止阈值
+static const float kVelocityAddition = 1.1f;      // 撞击加速系数
 
-// 最大元素个数
+
+// 最大元素类型个数
 static const int kElementTypeMax = 10;
-
-// 最大元素个数
-static const int volocityAddition = 3;
-
 // 元素类型定义
 typedef NS_ENUM(NSInteger, PPElementType)
 {
