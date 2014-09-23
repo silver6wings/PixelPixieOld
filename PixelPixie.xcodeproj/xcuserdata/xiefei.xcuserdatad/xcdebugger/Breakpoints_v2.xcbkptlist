@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "431272283.630808"
+            timestampString = "433171037.274221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "-skillPlayerShowBegin:"
             landmarkType = "5">
          </BreakpointContent>
@@ -87,7 +87,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1184"
             endingLineNumber = "1184"
-            landmarkName = "-changeBallsRoundsEnd"
+            landmarkName = "-creatCombosTotal"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

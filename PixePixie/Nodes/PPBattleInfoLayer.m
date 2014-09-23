@@ -17,11 +17,11 @@
     self.currentPPPixie = ppixie;
     NSLog(@"pixieSkills count=%d",[ppixie.pixieSkills count]);
     
-    for (int i = 0; i < [ppixie.pixieSkills count]; i++) {
+    for (int i = 0; i < 4.0f; i++) {
         
-        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40, 45)];
+        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(50.0f, 50.0f)];
         [passButton setLabelWithText:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        passButton.position = CGPointMake(60*i-120, -10.0f);
+        passButton.position = CGPointMake(65*i-112.0f, -10.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         [passButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
@@ -35,128 +35,125 @@
 //        [skillCdButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
 //        [self addChild:skillCdButton];
         
-        
     }
     
-}
-
--(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie;{
     
-    
-    PPCustomButton*ppixiePetBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-                                                     andImage:@"ball_pixie_plant2.png"
-                                                   withTarget:self
-                                                 withSelecter:@selector(physicsAttackClick:)];
-    ppixiePetBtn.position = CGPointMake(-self.size.width/2.0f+ppixiePetBtn.frame.size.width/2.0f+10.0f, 0.0f);
-    [self addChild:ppixiePetBtn];
-    
-    
-
-    
-    
-    
-    self.currentPPPixie = petppixie;
-    self.currentPPPixieEnemy = enemyppixie;
-    
-    PPBasicLabelNode *ppixiePetNameLabel=[[PPBasicLabelNode alloc] init];
-    ppixiePetNameLabel.fontSize=12;
-    [ppixiePetNameLabel setColor:[SKColor blueColor]];
-    NSLog(@"pixieName=%@",petppixie.pixieName);
-    [ppixiePetNameLabel setText:petppixie.pixieName];
-    ppixiePetNameLabel.position = CGPointMake(ppixiePetBtn.position.x, ppixiePetBtn.position.y+15);
-    [self addChild:ppixiePetNameLabel];
-    
-    
-    
-    PPBasicLabelNode *ppixiePetBtnLabel=[[PPBasicLabelNode alloc] init];
-    ppixiePetBtnLabel.fontSize=10;
-    ppixiePetBtnLabel.name = PP_PET_COMBOS_NAME;
-    [ppixiePetBtnLabel setColor:[SKColor redColor]];
-    NSLog(@"pixieName=%@",petppixie.pixieName);
-    [ppixiePetBtnLabel setText:@"连击:0"];
-    ppixiePetBtnLabel.position = CGPointMake(ppixiePetNameLabel.position.x,ppixiePetNameLabel.position.y-40);
-    [self addChild:ppixiePetBtnLabel];
-    
-    
-
-    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40, 30)];
+    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(32.5, 32.5)];
     [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-    stopBtn.position = CGPointMake(0.0f, 10.0f);
+    stopBtn.position = CGPointMake(130.0f,0.0f);
     stopBtn.name =@"stopBtn";
     [stopBtn addTarget:self selector:@selector(stopBtnClick:) withObject:stopBtn.name forControlEvent:PPButtonControlEventTouchUpInside];
     [self addChild:stopBtn];
     
     
+}
+
+-(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie;{
+    
+    PPSpriteButton *ppixiePetBtn=[PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"ball_pixie_plant2.png"] andSize:CGSizeMake(32.5f, 32.5f)];
+    [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
+    ppixiePetBtn.position = CGPointMake(-121.5f, 0.0f);
+    [self addChild:ppixiePetBtn];
+
+
+    self.currentPPPixie = petppixie;
+    self.currentPPPixieEnemy = enemyppixie;
+    
+    
+//    PPBasicLabelNode *ppixiePetNameLabel=[[PPBasicLabelNode alloc] init];
+//    ppixiePetNameLabel.fontSize=12;
+//    [ppixiePetNameLabel setColor:[SKColor blueColor]];
+//    NSLog(@"pixieName=%@",petppixie.pixieName);
+//    [ppixiePetNameLabel setText:petppixie.pixieName];
+//    ppixiePetNameLabel.position = CGPointMake(ppixiePetBtn.position.x, ppixiePetBtn.position.y+15);
+//    [self addChild:ppixiePetNameLabel];
+    
+    
+    
+//    PPBasicLabelNode *ppixiePetBtnLabel=[[PPBasicLabelNode alloc] init];
+//    ppixiePetBtnLabel.fontSize=10;
+//    ppixiePetBtnLabel.name = PP_PET_COMBOS_NAME;
+//    [ppixiePetBtnLabel setColor:[SKColor redColor]];
+//    NSLog(@"pixieName=%@",petppixie.pixieName);
+//    [ppixiePetBtnLabel setText:@"连击:0"];
+//    ppixiePetBtnLabel.position = CGPointMake(ppixiePetNameLabel.position.x,ppixiePetNameLabel.position.y-40);
+//    [self addChild:ppixiePetBtnLabel];
+    
+    
+
+//    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40, 30)];
+//    [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];
+//    stopBtn.position = CGPointMake(0.0f, 10.0f);
+//    stopBtn.name =@"stopBtn";
+//    [stopBtn addTarget:self selector:@selector(stopBtnClick:) withObject:stopBtn.name forControlEvent:PPButtonControlEventTouchUpInside];
+//    [self addChild:stopBtn];
+    
+    
     // 添加 HP bar
-    petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
+    petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(100.0f, 20)];
     [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)];
     petPlayerHP->target = self;
     petPlayerHP->animateEnd = @selector(animatePetHPEnd:);
     petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
-    petPlayerHP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y+5.0f);
+    petPlayerHP.position = CGPointMake(-52.5,10.0f);
     [self addChild:petPlayerHP];
     
     
     //能量条
-    petPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
+    petPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(100, 10)];
     [petPlayerMP setMaxValue:petppixie.pixieMPmax andCurrentValue:petppixie.currentMP andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)];
     petPlayerMP->target = self;
     petPlayerMP->animateEnd = @selector(animatePetMPEnd:);
     petPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
-    petPlayerMP.position = CGPointMake(-stopBtn.size.width/2.0f-petPlayerHP.size.width/2.0f,ppixiePetBtn.position.y-15);
+    petPlayerMP.position = CGPointMake(petPlayerHP.position.x,ppixiePetBtn.position.y-10);
     [self addChild:petPlayerMP];
     
     
     // 添加 HP bar
-    enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
+    enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(petPlayerHP.size.width, petPlayerHP.size.height)];
     [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
     enemyPlayerHP->target=self;
     enemyPlayerHP->animateEnd=@selector(animateEnemyHPEnd:);
     enemyPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
-    enemyPlayerHP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y+5.0f);
+    enemyPlayerHP.position = CGPointMake(52.5,petPlayerHP.position.y);
     [self addChild:enemyPlayerHP];
     
     
-    enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(90, 6)];
+    enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(petPlayerMP.size.width, petPlayerMP.size.height)];
     [enemyPlayerMP setMaxValue:enemyppixie.pixieMPmax andCurrentValue:enemyppixie.currentMP andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
     enemyPlayerMP->target = self;
     enemyPlayerMP->animateEnd = @selector(animateEnemyMPEnd:);
     enemyPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
-    enemyPlayerMP.position = CGPointMake(stopBtn.size.width/2.0f+enemyPlayerHP.size.width/2.0f,ppixiePetBtn.position.y-15);
+    enemyPlayerMP.position = CGPointMake(enemyPlayerHP.position.x,petPlayerMP.position.y);
     [self addChild:enemyPlayerMP];
     
     
-    PPCustomButton *ppixieEnemyBtn = [PPCustomButton buttonWithSize:CGSizeMake(30.0f, 30.0f)
-                                                           andImage:@"ball_pixie_plant2.png"
-                                                         withTarget:self
-                                                       withSelecter:@selector(physicsAttackClick:)];
+    
+    PPSpriteButton *ppixieEnemyBtn=[PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"ball_pixie_plant2.png"] andSize:CGSizeMake(32.5f, 32.5f)];
+    [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x+enemyPlayerHP.size.width/2.0f+20.0f,ppixiePetBtn.position.y);
-    
     [self addChild:ppixieEnemyBtn];
-    
-    
-    
 
     
     
     self.currentPPPixieEnemy = enemyppixie;
     
     
-    PPBasicLabelNode *ppixieNameLabel=[[PPBasicLabelNode alloc] init];
-    ppixieNameLabel.fontSize=12;
-    [ppixieNameLabel setColor:[SKColor redColor]];
-    NSLog(@"pixieName=%@",enemyppixie.pixieName);
-    [ppixieNameLabel setText:enemyppixie.pixieName];
-    ppixieNameLabel.position = CGPointMake(ppixieEnemyBtn.position.x, ppixieEnemyBtn.position.y+15);
-    [self addChild:ppixieNameLabel];
+//    PPBasicLabelNode *ppixieNameLabel=[[PPBasicLabelNode alloc] init];
+//    ppixieNameLabel.fontSize=12;
+//    [ppixieNameLabel setColor:[SKColor redColor]];
+//    NSLog(@"pixieName=%@",enemyppixie.pixieName);
+//    [ppixieNameLabel setText:enemyppixie.pixieName];
+//    ppixieNameLabel.position = CGPointMake(ppixieEnemyBtn.position.x, ppixieEnemyBtn.position.y+15);
+//    [self addChild:ppixieNameLabel];
     
-    PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
-    ppixieBtnLabel.fontSize = 10;
-    ppixieBtnLabel.name = PP_ENEMY_COMBOS_NAME;
-    NSLog(@"pixieName=%@",enemyppixie.pixieName);
-    [ppixieBtnLabel setText:@"连击:0"];
-    ppixieBtnLabel.position = CGPointMake(ppixieNameLabel.position.x, ppixiePetBtnLabel.position.y);
-    [self addChild:ppixieBtnLabel];
+//    PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
+//    ppixieBtnLabel.fontSize = 10;
+//    ppixieBtnLabel.name = PP_ENEMY_COMBOS_NAME;
+//    NSLog(@"pixieName=%@",enemyppixie.pixieName);
+//    [ppixieBtnLabel setText:@"连击:0"];
+//    ppixieBtnLabel.position = CGPointMake(ppixieNameLabel.position.x, ppixiePetBtnLabel.position.y);
+//    [self addChild:ppixieBtnLabel];
     
     
 }

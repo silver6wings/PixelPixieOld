@@ -102,16 +102,18 @@ CGFloat vectorLength (CGVector vector) {
         
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
         self.playerSkillSide.position= CGPointMake(self.size.width/2.0f, 30 + PP_FIT_TOP_SIZE);
-        self.playerSkillSide.size =  CGSizeMake(self.size.width, 60);
+        self.playerSkillSide.size =  CGSizeMake(self.size.width, 80.0f);
         self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSkillSide.target = self;
         self.playerSkillSide.skillSelector = @selector(skillPlayerShowBegin:);
         self.playerSkillSide.showInfoSelector = @selector(showCurrentPlayerPetInfo:);
         self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-       
+        
         [self.playerSkillSide setColor:[UIColor grayColor]];
         [self.playerSkillSide setSideSkillsBtn:pixieA];
         [self addChild:self.playerSkillSide];
+        
+        
         
         // 添加围墙
         CGFloat tWidth = 320.0f;
@@ -469,7 +471,7 @@ CGFloat vectorLength (CGVector vector) {
     [self.playerAndEnemySide setColor:[UIColor purpleColor]];
     self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-27-direct);
     self.playerAndEnemySide.name = PP_ENEMY_SIDE_NODE_NAME;
-    self.playerAndEnemySide.size = CGSizeMake(self.size.width, 60);
+    self.playerAndEnemySide.size = CGSizeMake(self.size.width, 80.0f);
     self.playerAndEnemySide.target = self;
     self.playerAndEnemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
      self.playerAndEnemySide.hpChangeEnd = @selector(hpChangeEndAnimate:);
@@ -853,8 +855,6 @@ CGFloat vectorLength (CGVector vector) {
     if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
     //如果我方人物球撞击到物体
     {
-        
-        
         
         if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)){
             
