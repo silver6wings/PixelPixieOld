@@ -72,6 +72,7 @@ CGFloat vectorLength (CGVector vector) {
         enemyAssimSameEleNum = 0;
         currentPhysicsAttack = 0;
 
+        
         PPElementType petElement = pixieA.pixieBall.ballElementType;
         PPElementType enemyElement = pixieB.pixieBall.ballElementType;
         interCoefficient = kElementInhibition[petElement][enemyElement];
@@ -93,10 +94,13 @@ CGFloat vectorLength (CGVector vector) {
         _trapFrames = [[NSMutableArray alloc] init];
         
         for (int i=1; i <= 40; i++) {
+            
             NSString * textureName = [NSString stringWithFormat:@"陷阱%04d.png", i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
             [_trapFrames addObject:temp];
+            
         }
+        
         
         // 添加状态条
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
@@ -108,9 +112,13 @@ CGFloat vectorLength (CGVector vector) {
         self.playerSkillSide.showInfoSelector = @selector(showCurrentPlayerPetInfo:);
         self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
         
+        
+        
         [self.playerSkillSide setColor:[UIColor grayColor]];
         [self.playerSkillSide setSideSkillsBtn:pixieA];
         [self addChild:self.playerSkillSide];
+        
+        
         
         // 添加围墙
         CGFloat tWidth = 320.0f;
@@ -119,6 +127,7 @@ CGFloat vectorLength (CGVector vector) {
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         
+        
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
         self.ballPlayer.name = @"ball_player";
@@ -126,6 +135,7 @@ CGFloat vectorLength (CGVector vector) {
         self.ballPlayer.physicsBody.categoryBitMask = kBallCategory;
         self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
         [self addChild:self.ballPlayer];
+        
         
         // 添加元素球
         self.ballsElement = [[NSMutableArray alloc] init];
@@ -258,6 +268,7 @@ CGFloat vectorLength (CGVector vector) {
     self.playerAndEnemySide.showInfoSelector = @selector(showCurrentEnemyInfo:);
     [self.playerAndEnemySide setSideElements:self.pixiePlayer andEnemy:self.pixieEnemy];
     [self addChild:self.playerAndEnemySide];
+    
     
     currentEnemyIndex += 1;
 }
@@ -941,6 +952,7 @@ CGFloat vectorLength (CGVector vector) {
     [additonLabel runAction:actionScale completion:^{
         [additonLabel removeFromParent];
     }];
+    
 }
 
 -(void)setPlayerSideRoundRunState

@@ -19,6 +19,7 @@
     bgSprite.position = CGPointMake(0.0f,0.0f);
     [self addChild:bgSprite];
     
+    
     self.currentPPPixie = ppixie;
     NSLog(@"pixieSkills count=%d",[ppixie.pixieSkills count]);
     
@@ -62,7 +63,7 @@
     bgSprite.size = CGSizeMake(320.0f, 80.0f);
     bgSprite.position = CGPointMake(0.0f,0.0f);
     [self addChild:bgSprite];
-    
+
     
     PPSpriteButton *ppixiePetBtn=[PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"header_portrait.png"] andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
@@ -84,14 +85,14 @@
     
     
     
-//    PPBasicLabelNode *ppixiePetBtnLabel=[[PPBasicLabelNode alloc] init];
-//    ppixiePetBtnLabel.fontSize=10;
-//    ppixiePetBtnLabel.name = PP_PET_COMBOS_NAME;
-//    [ppixiePetBtnLabel setColor:[SKColor redColor]];
-//    NSLog(@"pixieName=%@",petppixie.pixieName);
-//    [ppixiePetBtnLabel setText:@"连击:0"];
-//    ppixiePetBtnLabel.position = CGPointMake(ppixiePetNameLabel.position.x,ppixiePetNameLabel.position.y-40);
-//    [self addChild:ppixiePetBtnLabel];
+    PPBasicLabelNode *ppixiePetBtnLabel=[[PPBasicLabelNode alloc] init];
+    ppixiePetBtnLabel.fontSize=10;
+    ppixiePetBtnLabel.name = PP_PET_COMBOS_NAME;
+    [ppixiePetBtnLabel setColor:[SKColor redColor]];
+    NSLog(@"pixieName=%@",petppixie.pixieName);
+    [ppixiePetBtnLabel setText:@"连击:0"];
+    ppixiePetBtnLabel.position = CGPointMake(ppixiePetBtn.position.x,ppixiePetBtn.position.y-40);
+    [self addChild:ppixiePetBtnLabel];
     
     
 
@@ -103,7 +104,9 @@
 //    [self addChild:stopBtn];
     
     
+    
     // 添加 HP bar
+    
     petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(100.0f, 20)];
     [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)];
     petPlayerHP->target = self;
@@ -125,7 +128,7 @@
     
     // 添加 HP bar
     enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(petPlayerHP.size.width, petPlayerHP.size.height)];
-    [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
+    [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP  andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
     enemyPlayerHP->target=self;
     enemyPlayerHP->animateEnd=@selector(animateEnemyHPEnd:);
     enemyPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
@@ -133,6 +136,7 @@
     [self addChild:enemyPlayerHP];
     
     
+
     enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(petPlayerMP.size.width, petPlayerMP.size.height)];
     [enemyPlayerMP setMaxValue:enemyppixie.pixieMPmax andCurrentValue:enemyppixie.currentMP andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f)];
     enemyPlayerMP->target = self;
@@ -149,10 +153,9 @@
     [self addChild:ppixieEnemyBtn];
 
     
-    
     self.currentPPPixieEnemy = enemyppixie;
     
-    
+
 //    PPBasicLabelNode *ppixieNameLabel=[[PPBasicLabelNode alloc] init];
 //    ppixieNameLabel.fontSize=12;
 //    [ppixieNameLabel setColor:[SKColor redColor]];
@@ -161,13 +164,16 @@
 //    ppixieNameLabel.position = CGPointMake(ppixieEnemyBtn.position.x, ppixieEnemyBtn.position.y+15);
 //    [self addChild:ppixieNameLabel];
     
-//    PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
-//    ppixieBtnLabel.fontSize = 10;
-//    ppixieBtnLabel.name = PP_ENEMY_COMBOS_NAME;
-//    NSLog(@"pixieName=%@",enemyppixie.pixieName);
-//    [ppixieBtnLabel setText:@"连击:0"];
-//    ppixieBtnLabel.position = CGPointMake(ppixieNameLabel.position.x, ppixiePetBtnLabel.position.y);
-//    [self addChild:ppixieBtnLabel];
+    
+    
+    PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
+    ppixieBtnLabel.fontSize = 10;
+    ppixieBtnLabel.name = PP_ENEMY_COMBOS_NAME;
+    NSLog(@"pixieName=%@",enemyppixie.pixieName);
+    [ppixieBtnLabel setText:@"连击:0"];
+    ppixieBtnLabel.position = CGPointMake(ppixieEnemyBtn.position.x, ppixiePetBtnLabel.position.y);
+    [self addChild:ppixieBtnLabel];
+    
     
     
 }
@@ -175,8 +181,10 @@
 {
     NSLog(@"combos:%d,%d",petCombos,enemyCombos);
     
+    
     PPBasicLabelNode *petCombosLabel=(PPBasicLabelNode *)[self childNodeWithName:PP_PET_COMBOS_NAME];
     PPBasicLabelNode *enemyCombosLabel=(PPBasicLabelNode *)[self childNodeWithName:PP_ENEMY_COMBOS_NAME];
+    
     
     [petCombosLabel setText:[NSString stringWithFormat:@"连击:%d",petCombos]];
     [enemyCombosLabel setText:[NSString stringWithFormat:@"连击:%d",enemyCombos]];
