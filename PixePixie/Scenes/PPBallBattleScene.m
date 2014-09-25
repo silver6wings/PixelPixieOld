@@ -2,7 +2,7 @@
 
 #import "PPBallBattleScene.h"
 #import "PPBattleInfoLayer.h"
-#define SPACE_BOTTOM 60
+#define SPACE_BOTTOM 80
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
 #define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(362 - kBallSize)+SPACE_BOTTOM
 
@@ -81,9 +81,10 @@ CGFloat vectorLength (CGVector vector) {
         self.physicsWorld.contactDelegate = self;
         
         // 添加背景图片
-        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bg_02.jpg"]]];
+        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:@"wall_plant.png"];
+        bg.size = CGSizeMake(320.0f, 320.0f);
         
-        bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        bg.position = CGPointMake(CGRectGetMidX(self.frame), 160.0f+SPACE_BOTTOM+PP_FIT_TOP_SIZE);
         [self addChild:bg];
         
         
@@ -101,7 +102,7 @@ CGFloat vectorLength (CGVector vector) {
         
         
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
-        self.playerSkillSide.position= CGPointMake(self.size.width/2.0f, 30 + PP_FIT_TOP_SIZE);
+        self.playerSkillSide.position= CGPointMake(self.size.width/2.0f, 40 + PP_FIT_TOP_SIZE);
         self.playerSkillSide.size =  CGSizeMake(self.size.width, 80.0f);
         self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSkillSide.target = self;
@@ -117,11 +118,11 @@ CGFloat vectorLength (CGVector vector) {
         
         // 添加围墙
         CGFloat tWidth = 320.0f;
-        CGFloat tHeight = 362.0f;
+        CGFloat tHeight = 320.0f;
         
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
-        [self addWalls:CGSizeMake(tWidth, kWallThick*2) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
+        [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
+        [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
@@ -469,7 +470,7 @@ CGFloat vectorLength (CGVector vector) {
     
     self.playerAndEnemySide = [[PPBattleInfoLayer alloc] init];
     [self.playerAndEnemySide setColor:[UIColor purpleColor]];
-    self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-27-direct);
+    self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-40-direct);
     self.playerAndEnemySide.name = PP_ENEMY_SIDE_NODE_NAME;
     self.playerAndEnemySide.size = CGSizeMake(self.size.width, 80.0f);
     self.playerAndEnemySide.target = self;

@@ -156,6 +156,7 @@
 		19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6EDA618C6C09900BFFF9A /* InfoPlist.strings */; };
 		19F6EDAA18C6C09900BFFF9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F6EDA918C6C09900BFFF9A /* main.m */; };
 		D413CB611945FF62004B4FDE /* PPSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = D413CB601945FF62004B4FDE /* PPSkill.m */; };
+		D42C9A6719D2F09100BCE28A /* ui_fighting.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D42C9A6619D2F09100BCE28A /* ui_fighting.atlas */; };
 		D43F421B1947548F00B19F2F /* PPMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F42121947548F00B19F2F /* PPMainScene.m */; };
 		D44935C41948B52E00F3B5B9 /* UserPetInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */; };
 		D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD9192BB296007179B1 /* PPAppDelegate.m */; };
@@ -387,6 +388,7 @@
 		19F6EDC118C6C09900BFFF9A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D413CB5F1945FF62004B4FDE /* PPSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSkill.h; path = Models/PPSkill.h; sourceTree = "<group>"; };
 		D413CB601945FF62004B4FDE /* PPSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkill.m; path = Models/PPSkill.m; sourceTree = "<group>"; };
+		D42C9A6619D2F09100BCE28A /* ui_fighting.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = ui_fighting.atlas; path = Resource/Images/ui_fighting.atlas; sourceTree = "<group>"; };
 		D43F42111947548F00B19F2F /* PPMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMainScene.h; sourceTree = "<group>"; };
 		D43F42121947548F00B19F2F /* PPMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMainScene.m; sourceTree = "<group>"; };
 		D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPetInfo.plist; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 		190BF48D18C6C85C006B0AE6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D42C9A6619D2F09100BCE28A /* ui_fighting.atlas */,
 				D4AE4CB1196EDA5100FC24EF /* MainView */,
 				19CBA8CA1907C98000A249AB /* test */,
 				190CF088191230B900370760 /* background */,
@@ -1123,6 +1126,7 @@
 				193C25E11913F00400E2C1BA /* Cirrus0001.png in Resources */,
 				D457012D194F430700C2EFCE /* EnemyInfo.plist in Resources */,
 				19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */,
+				D42C9A6719D2F09100BCE28A /* ui_fighting.atlas in Resources */,
 				19145E1D1913F472005C6AD4 /* 陷阱0046.png in Resources */,
 				19145E051913F472005C6AD4 /* 陷阱0022.png in Resources */,
 				193C25E21913F00400E2C1BA /* Cirrus0002.png in Resources */,

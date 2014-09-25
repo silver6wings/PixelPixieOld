@@ -12,7 +12,7 @@
 			<key>petname</key>
 			<string>精灵宝贝</string>
 			<key>petimage</key>
-			<string>ball_pixie_plant2.png</string>
+			<string>ball_fire3.png</string>
 			<key>petstatus</key>
 			<integer>1</integer>
 			<key>petvalueinfo</key>
@@ -142,7 +142,7 @@
 			<key>petname</key>
 			<string>精灵</string>
 			<key>petimage</key>
-			<string>ball_pixie_plant2.png</string>
+			<string>ball_fire3.png</string>
 			<key>petstatus</key>
 			<integer>2</integer>
 			<key>petvalueinfo</key>
@@ -272,7 +272,7 @@
 			<key>petname</key>
 			<string>精灵王</string>
 			<key>petimage</key>
-			<string>ball_pixie_plant2.png</string>
+			<string>ball_fire3.png</string>
 			<key>petstatus</key>
 			<integer>3</integer>
 			<key>petvalueinfo</key>

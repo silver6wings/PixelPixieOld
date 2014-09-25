@@ -13,15 +13,25 @@
 -(void)setSideSkillsBtn:(PPPixie *)ppixie
 {
     
+    // 添加背景图片
+    SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithImageNamed:@"footer_back.png"];
+    bgSprite.size = CGSizeMake(320.0f, 80.0f);
+    bgSprite.position = CGPointMake(0.0f,0.0f);
+    [self addChild:bgSprite];
+    
+    
     NSArray *skillsArray = [NSArray arrayWithArray:ppixie.pixieSkills];
     self.currentPPPixie = ppixie;
     NSLog(@"pixieSkills count=%d",[ppixie.pixieSkills count]);
     
+    
     for (int i = 0; i < 4.0f; i++) {
         
-        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(50.0f, 50.0f)];
-        [passButton setLabelWithText:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        passButton.position = CGPointMake(65*i-112.0f, -10.0f);
+//        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(50.0f, 50.0f)];
+        PPSpriteButton *  passButton = [PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"header_buffbar1.png"] andSize:CGSizeMake(50.0f, 50.0f)];
+
+//        [passButton setLabelWithText:[[skillsArray objectAtIndex:i] objectForKey:@"skillname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+        passButton.position = CGPointMake(65*i-112.0f, 0.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         [passButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
@@ -38,8 +48,8 @@
     }
     
     
-    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(32.5, 32.5)];
-    [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];
+    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"footer_play.png"] andSize:CGSizeMake(32.5, 32.5)];
+//    [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];
     stopBtn.position = CGPointMake(130.0f,0.0f);
     stopBtn.name =@"stopBtn";
     [stopBtn addTarget:self selector:@selector(stopBtnClick:) withObject:stopBtn.name forControlEvent:PPButtonControlEventTouchUpInside];
@@ -50,9 +60,16 @@
 
 -(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie;{
     
-    PPSpriteButton *ppixiePetBtn=[PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"ball_pixie_plant2.png"] andSize:CGSizeMake(32.5f, 32.5f)];
+    // 添加背景图片
+    SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithImageNamed:@"header_back.png"];
+    bgSprite.size = CGSizeMake(320.0f, 80.0f);
+    bgSprite.position = CGPointMake(0.0f,0.0f);
+    [self addChild:bgSprite];
+    
+    
+    PPSpriteButton *ppixiePetBtn=[PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"header_portrait.png"] andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
-    ppixiePetBtn.position = CGPointMake(-121.5f, 0.0f);
+    ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
     [self addChild:ppixiePetBtn];
 
 
@@ -129,7 +146,7 @@
     
     
     
-    PPSpriteButton *ppixieEnemyBtn=[PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"ball_pixie_plant2.png"] andSize:CGSizeMake(32.5f, 32.5f)];
+    PPSpriteButton *ppixieEnemyBtn=[PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"header_portrait.png"] andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x+enemyPlayerHP.size.width/2.0f+20.0f,ppixiePetBtn.position.y);
     [self addChild:ppixieEnemyBtn];
