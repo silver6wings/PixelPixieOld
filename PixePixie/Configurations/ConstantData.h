@@ -1,4 +1,5 @@
 
+
 static const int kWallThick = 1;                    // 墙的厚度
 static const int kBallNumberMax = 15;               // 球的最大数量
 static const int kBallRadius = 15;                  // 球的半径
@@ -10,14 +11,14 @@ static const float kBallAngularDamping = 0.8f;      // 角阻尼系数
 static const float kBallFriction = 0.0f;            // 表面摩擦力
 static const float kBallRestitution = 1.0f;         // 弹性恢复系数
 
-static const float kBounceReduce = 0.8f;            // 弹出去的按距离比例衰减系数
-
-static const float kStopThreshold = 5.0f;   // 速度停止阈值
-static const float kVelocityAddition = 1.1f;      // 撞击加速系数
-
+static const float kAutoAttackMax = 50.0f;          // 自动攻击最大力量限制
+static const float kBounceReduce = 0.5f;            // 弹出去的按距离比例衰减系数
+static const float kStopThreshold = 5.0f;           // 速度停止阈值
+static const float kVelocityAddition = 1.1f;        // 撞击加速系数
 
 // 最大元素类型个数
 static const int kElementTypeMax = 10;
+
 // 元素类型定义
 typedef NS_ENUM(NSInteger, PPElementType)
 {

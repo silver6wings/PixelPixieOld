@@ -19,13 +19,11 @@
     bgSprite.position = CGPointMake(0.0f,0.0f);
     [self addChild:bgSprite];
     
-    
-    NSArray *skillsArray = [NSArray arrayWithArray:ppixie.pixieSkills];
     self.currentPPPixie = ppixie;
     NSLog(@"pixieSkills count=%d",[ppixie.pixieSkills count]);
     
     
-    for (int i = 0; i < 4.0f; i++) {
+    for (int i = 0; i < 4; i++) {
         
 //        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(50.0f, 50.0f)];
         PPSpriteButton *  passButton = [PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"header_buffbar1.png"] andSize:CGSizeMake(50.0f, 50.0f)];
@@ -47,14 +45,13 @@
         
     }
     
-    
+    //暂停按钮
     PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithTexture:[SKTexture textureWithImageNamed:@"footer_play.png"] andSize:CGSizeMake(32.5, 32.5)];
 //    [stopBtn setLabelWithText:@"暂停" andFont:[UIFont systemFontOfSize:15] withColor:nil];
     stopBtn.position = CGPointMake(130.0f,0.0f);
     stopBtn.name =@"stopBtn";
     [stopBtn addTarget:self selector:@selector(stopBtnClick:) withObject:stopBtn.name forControlEvent:PPButtonControlEventTouchUpInside];
     [self addChild:stopBtn];
-    
     
 }
 
