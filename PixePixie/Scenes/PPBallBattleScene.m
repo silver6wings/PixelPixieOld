@@ -151,10 +151,45 @@ CGFloat vectorLength (CGVector vector) {
             [self addChild:comboBall];
 //            [self.ballsElement addObject:comboBall];
         }
+        
+        
+        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkingBallsMove) userInfo:nil repeats:YES];
     }
     return self;
 }
-
+-(void)checkingBallsMove
+{
+    
+    // 如果球都停止了
+    if ([self isAllStopRolling]&&_isBallRolling) {
+        
+        NSLog(@"Doing Attack and Defend");
+        _isBallRolling = NO;
+        
+        // 刷新技能
+        _isTrapEnable = NO;
+        for (PPBall * tBall in self.ballsElement) {
+            [tBall setToDefaultTexture];
+        }
+        
+        if(currentPhysicsAttack == 1)
+        {
+            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
+            //
+            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
+            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+        }else
+        {
+            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
+            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
+        }
+    }
+    
+    NSLog(@"test=123");
+    
+}
 -(void)setEnemyAtIndex:(int)index
 {
     currentEnemyIndex = index;
@@ -427,32 +462,50 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)didSimulatePhysics
 {
-    // 如果球都停止了
-    if (_isBallRolling && [self isAllStopRolling]) {
     
-        NSLog(@"Doing Attack and Defend");
-        _isBallRolling = NO;
-        
-        // 刷新技能
-        _isTrapEnable = NO;
-        for (PPBall * tBall in self.ballsElement) {
-            [tBall setToDefaultTexture];
-        }
-        
-        if(currentPhysicsAttack == 1)
-        {
-            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
-            //
-            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
-            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
-        }else
-        {
-            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
-            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
-        }
-    }
+//    if (vectorLength(self.ballPlayer.physicsBody.velocity) < kStopThreshold ) {
+//        self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+//        self.ballPlayer.physicsBody.resting = YES;
+//    }
+//    
+//    if (vectorLength(self.ballEnemy.physicsBody.velocity) < kStopThreshold) {
+//        self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+//        self.ballEnemy.physicsBody.resting = YES;
+//    }
+//    
+//    for (PPBall * tBall in self.ballsElement) {
+//        if (vectorLength(tBall.physicsBody.velocity) < kStopThreshold) {
+//            tBall.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+//            tBall.physicsBody.resting = YES;
+//        }
+//    }
+
+//    // 如果球都停止了
+//    if ([self isAllStopRolling]) {
+//    
+//        NSLog(@"Doing Attack and Defend");
+//        _isBallRolling = NO;
+//        
+//        // 刷新技能
+//        _isTrapEnable = NO;
+//        for (PPBall * tBall in self.ballsElement) {
+//            [tBall setToDefaultTexture];
+//        }
+//        
+//        if(currentPhysicsAttack == 1)
+//        {
+//            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+//            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
+//            //
+//            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
+//            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+//        }else
+//        {
+//            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+//            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
+//            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
+//        }
+//    }
 }
 
 
@@ -648,7 +701,7 @@ CGFloat vectorLength (CGVector vector) {
 // 是否所有的球都停止了滚动
 -(BOOL)isAllStopRolling{
     
-    if (vectorLength(self.ballPlayer.physicsBody.velocity) > kStopThreshold) {
+    if (vectorLength(self.ballPlayer.physicsBody.velocity) > kStopThreshold ) {
         return NO;
     } else {
         self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
@@ -750,20 +803,24 @@ CGFloat vectorLength (CGVector vector) {
             [self.ballsElement addObject:tBall];
         }else
         {
-            PPBall * tBall = [PPBall ballWithElement:element];
-            tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
-            tBall.ballElementType = element;
-            tBall.physicsBody.node.name = nodeName;
-            tBall.physicsBody.categoryBitMask = kBallCategory;
-            tBall.sustainRounds = lastBallSustainRounds;
-            tBall.physicsBody.contactTestBitMask = kBallCategory;
-            NSLog(@"lastBallSustainRounds = %d",lastBallSustainRounds);
-
-            [tBall setRoundsLabel:tBall.sustainRounds];
-
-            [self addChild:tBall];
             
-            [self.ballsElement addObject:tBall];
+            if (lastBallSustainRounds!=0) {
+                PPBall * tBall = [PPBall ballWithElement:element];
+                tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
+                tBall.ballElementType = element;
+                tBall.physicsBody.node.name = nodeName;
+                tBall.physicsBody.categoryBitMask = kBallCategory;
+                tBall.sustainRounds = lastBallSustainRounds;
+                tBall.physicsBody.contactTestBitMask = kBallCategory;
+                NSLog(@"lastBallSustainRounds = %d",lastBallSustainRounds);
+                
+                [tBall setRoundsLabel:tBall.sustainRounds];
+                
+                [self addChild:tBall];
+                
+                [self.ballsElement addObject:tBall];
+            }
+            
         }
     }
 }
@@ -937,6 +994,7 @@ CGFloat vectorLength (CGVector vector) {
     float randomY = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
     [self.ballEnemy.physicsBody applyImpulse:CGVectorMake(randomX, randomY)];
     [self setPlayerSideRoundRunState];
+    _isBallRolling = YES;
 }
 
 -(void)setRoundEndNumberLabel:(NSString *)text

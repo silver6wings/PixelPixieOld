@@ -112,7 +112,7 @@
     petPlayerHP->target = self;
     petPlayerHP->animateEnd = @selector(animatePetHPEnd:);
     petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
-    petPlayerHP.position = CGPointMake(-52.5,10.0f);
+    petPlayerHP.position = CGPointMake(-52.5,20.0f);
     [self addChild:petPlayerHP];
     
     
@@ -122,7 +122,7 @@
     petPlayerMP->target = self;
     petPlayerMP->animateEnd = @selector(animatePetMPEnd:);
     petPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
-    petPlayerMP.position = CGPointMake(petPlayerHP.position.x,ppixiePetBtn.position.y-10);
+    petPlayerMP.position = CGPointMake(petPlayerHP.position.x,ppixiePetBtn.position.y-20);
     [self addChild:petPlayerMP];
     
     
