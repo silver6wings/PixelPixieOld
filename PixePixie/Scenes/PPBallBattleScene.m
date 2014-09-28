@@ -545,7 +545,7 @@ CGFloat vectorLength (CGVector vector) {
         {
             petCombos++;
             [self.playerAndEnemySide changePetMPValue:100];
-            
+
             return;
             
         } else if (
@@ -557,6 +557,7 @@ CGFloat vectorLength (CGVector vector) {
         {
             petAssimDiffEleNum ++;
             [self.playerAndEnemySide changePetHPValue:-100];
+            [self addHPValueChangeLabel:-100 position:self.ballPlayer.position];
 
             //确定需要remove的元素球
             if (contact.bodyA == self.ballPlayer.physicsBody)
@@ -575,6 +576,7 @@ CGFloat vectorLength (CGVector vector) {
         {
             petAssimSameEleNum ++;
             [self.playerAndEnemySide changePetHPValue:100];
+            [self addHPValueChangeLabel:100 position:self.ballPlayer.position];
 
             //确定需要remove的元素球
             if (contact.bodyA == self.ballPlayer.physicsBody)
@@ -628,6 +630,7 @@ CGFloat vectorLength (CGVector vector) {
         {
             enemyAssimSameEleNum++;
             [self.playerAndEnemySide changeEnemyHPValue:500];
+            [self addHPValueChangeLabel:500 position:self.ballPlayer.position];
 
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
@@ -645,8 +648,10 @@ CGFloat vectorLength (CGVector vector) {
                  [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
         //敌方碰到我方属性元素球
         {
+            
             enemyAssimDiffEleNum++;
             [self.playerAndEnemySide changeEnemyHPValue:-500];
+            [self addHPValueChangeLabel:-500 position:self.ballPlayer.position];
 
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
@@ -657,6 +662,7 @@ CGFloat vectorLength (CGVector vector) {
                 sholdToRemoveBody = contact.bodyA;
                 
             }
+            
         }
 
         NSLog(@"currentHP=%f max=%f",self.pixiePlayer.currentHP,self.pixiePlayer.pixieHPmax);
@@ -692,6 +698,7 @@ CGFloat vectorLength (CGVector vector) {
     
 //    NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
     
+    
     [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
     
 }
@@ -701,6 +708,7 @@ CGFloat vectorLength (CGVector vector) {
 // 是否所有的球都停止了滚动
 -(BOOL)isAllStopRolling{
     
+    
     if (vectorLength(self.ballPlayer.physicsBody.velocity) > kStopThreshold ) {
         return NO;
     } else {
@@ -708,11 +716,14 @@ CGFloat vectorLength (CGVector vector) {
         self.ballPlayer.physicsBody.resting = YES;
     }
     
+    
     if (vectorLength(self.ballEnemy.physicsBody.velocity) > kStopThreshold) {
         return NO;
     } else {
+        
         self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
         self.ballEnemy.physicsBody.resting = YES;
+        
     }
     
     for (PPBall * tBall in self.ballsElement) {
@@ -731,7 +742,9 @@ CGFloat vectorLength (CGVector vector) {
         if (!tBall.physicsBody.resting) return NO;
     }
     
+    
     return YES;
+    
 }
 
 // 添加四周的墙
@@ -996,7 +1009,32 @@ CGFloat vectorLength (CGVector vector) {
     [self setPlayerSideRoundRunState];
     _isBallRolling = YES;
 }
-
+-(void)addHPValueChangeLabel:(int)value position:(CGPoint)labelPosition
+{
+    
+    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+    additonLabel.name  = @"hpchange";
+    additonLabel.fontColor = [UIColor redColor];
+    additonLabel.position = labelPosition;
+    if (value>0) {
+        
+        [additonLabel setText:[NSString stringWithFormat:@"+%d",value]];
+        
+    }else
+    {
+        [additonLabel setText:[NSString stringWithFormat:@"%d",value]];
+        
+    }
+    [self addChild:additonLabel];
+    
+    
+    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
+    [additonLabel runAction:actionScale completion:^{
+        [additonLabel removeFromParent];
+    }];
+    
+    
+}
 -(void)setRoundEndNumberLabel:(NSString *)text
 {
     PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];

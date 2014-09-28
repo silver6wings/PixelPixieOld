@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "433429272.061445"
+            timestampString = "433564781.842626"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1412"
-            endingLineNumber = "1412">
+            startingLineNumber = "1450"
+            endingLineNumber = "1450">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
