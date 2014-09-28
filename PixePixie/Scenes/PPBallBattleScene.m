@@ -172,13 +172,17 @@ CGFloat vectorLength (CGVector vector) {
             [tBall setToDefaultTexture];
         }
         
+        
         if(currentPhysicsAttack == 1)
         {
+            
             //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
             //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
             //
             //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
             [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+            
+            
         }else
         {
             //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
