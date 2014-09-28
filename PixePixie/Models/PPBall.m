@@ -61,7 +61,7 @@
                                      [ConstantData elementName:PPElementTypePlant],
                                      pixie.pixieGeneration];
     if (imageName == nil) return nil;
-    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:@"skill_fire.png"];
     
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
@@ -91,7 +91,10 @@
                             pixieEnemy.pixieGeneration];
     
     if (imageName == nil) return nil;
-    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+//    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:@"ball_fire3.png"];
+    
+    NSLog(@"imageName=%@",imageName);
     
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     

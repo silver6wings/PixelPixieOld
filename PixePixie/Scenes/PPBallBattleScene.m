@@ -634,7 +634,7 @@ CGFloat vectorLength (CGVector vector) {
         {
             enemyAssimSameEleNum++;
             [self.playerAndEnemySide changeEnemyHPValue:500];
-            [self addHPValueChangeLabel:500 position:self.ballPlayer.position];
+            [self addHPValueChangeLabel:500 position:self.ballEnemy.position];
 
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
@@ -655,7 +655,7 @@ CGFloat vectorLength (CGVector vector) {
             
             enemyAssimDiffEleNum++;
             [self.playerAndEnemySide changeEnemyHPValue:-500];
-            [self addHPValueChangeLabel:-500 position:self.ballPlayer.position];
+            [self addHPValueChangeLabel:-500 position:self.ballEnemy.position];
 
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
@@ -677,6 +677,7 @@ CGFloat vectorLength (CGVector vector) {
             [sholdToRemoveBody.node removeFromParent];
             [self.ballsElement removeObject:sholdToRemoveBody.node];
         }
+        
     } else return;
     
 //        else if (contact.bodyA == self.ballPlayer.physicsBody && contact.bodyA != self.ballEnemy.physicsBody) {

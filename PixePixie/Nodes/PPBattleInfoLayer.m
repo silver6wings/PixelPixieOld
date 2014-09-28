@@ -178,6 +178,7 @@
     
     
 }
+
 -(void)setComboLabelText:(int)petCombos  withEnemy:(int)enemyCombos
 {
     NSLog(@"combos:%d,%d",petCombos,enemyCombos);
