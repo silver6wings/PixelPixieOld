@@ -7,13 +7,12 @@
 #define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
 #define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(320 - kBallSize)+SPACE_BOTTOM
 
-static const uint32_t kBallCategory      =  0x1 << 0;
-static const uint32_t kGroundCategory    =  0x1 << 1;
-
-/*
- static const CGFloat criticalValue = 20.1;  // 临界值
- static const CGFloat dampingValue  = 1.5;   // 衰减系数
-*/
+// 物理实体类型
+typedef NS_OPTIONS (int, EntityCategory)
+{
+    EntityCategoryBall    =  0x1 << 0,
+    EntityCategoryWall    =  0x1 << 1,
+};
 
 // 计算两点间距离
 CGFloat distanceBetweenPoints (CGPoint first, CGPoint second) {
@@ -31,6 +30,7 @@ CGFloat vectorLength (CGVector vector) {
 {
     BOOL isNotSkillRun;
 }
+
 @property (nonatomic, retain) PPPixie * pixiePlayer;
 @property (nonatomic, retain) PPPixie * pixieEnemy;
 
@@ -40,7 +40,7 @@ CGFloat vectorLength (CGVector vector) {
 @property (nonatomic) PPBall * ballShadow;
 @property (nonatomic) PPBall * ballEnemy;
 
-@property (nonatomic, retain) NSMutableArray * ballsElement;
+@property (nonatomic, retain) NSMutableArray * ballsNeutral;
 @property (nonatomic, retain) NSMutableArray * trapFrames;
 @property (nonatomic, retain) PPBattleInfoLayer * playerSkillSide;
 @property (nonatomic, retain) PPBattleInfoLayer * playerAndEnemySide;
@@ -54,12 +54,9 @@ CGFloat vectorLength (CGVector vector) {
 
 -(id)initWithSize:(CGSize)size
       PixiePlayer:(PPPixie *)pixieA
-       PixieEnemy:(PPPixie *)pixieB
-{
+       PixieEnemy:(PPPixie *)pixieB{
     
     if (self = [super initWithSize:size]) {
-        
-        self.backgroundColor = [SKColor blackColor];
         
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
@@ -72,7 +69,7 @@ CGFloat vectorLength (CGVector vector) {
         enemyAssimSameEleNum = 0;
         currentPhysicsAttack = 0;
 
-        
+        // 设置敌我属性
         PPElementType petElement = pixieA.pixieBall.ballElementType;
         PPElementType enemyElement = pixieB.pixieBall.ballElementType;
         interCoefficient = kElementInhibition[petElement][enemyElement];
@@ -92,15 +89,11 @@ CGFloat vectorLength (CGVector vector) {
         
 #warning hardcode 预加载 动画 frames
         _trapFrames = [[NSMutableArray alloc] init];
-        
         for (int i=1; i <= 40; i++) {
-            
             NSString * textureName = [NSString stringWithFormat:@"陷阱%04d.png", i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
             [_trapFrames addObject:temp];
-            
         }
-        
         
         // 添加状态条
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
@@ -109,263 +102,117 @@ CGFloat vectorLength (CGVector vector) {
         self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSkillSide.target = self;
         self.playerSkillSide.skillSelector = @selector(skillPlayerShowBegin:);
-        self.playerSkillSide.showInfoSelector = @selector(showCurrentPlayerPetInfo:);
+//        self.playerSkillSide.showInfoSelector = @selector(showCurrentPlayerPetInfo:);
         self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-        
-        
         
         [self.playerSkillSide setColor:[UIColor grayColor]];
         [self.playerSkillSide setSideSkillsBtn:pixieA];
         [self addChild:self.playerSkillSide];
         
-        
-        
         // 添加围墙
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         CGFloat tWidth = 320.0f;
         CGFloat tHeight = 320.0f;
-        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
-        
-        
+    
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
         self.ballPlayer.name = @"ball_player";
         self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
-        self.ballPlayer.physicsBody.categoryBitMask = kBallCategory;
-        self.ballPlayer.physicsBody.contactTestBitMask = kBallCategory;
+        self.ballPlayer.physicsBody.categoryBitMask = EntityCategoryBall;
+        self.ballPlayer.physicsBody.contactTestBitMask = EntityCategoryBall;
         [self addChild:self.ballPlayer];
         
-        
-        // 添加元素球
-        self.ballsElement = [[NSMutableArray alloc] init];
+        // 添加连击球
+        self.ballsNeutral = [[NSMutableArray alloc] init];
         
         for (int i = 0; i < 5; i++) {
             PPBall * comboBall = [PPBall ballWithCombo];
-            comboBall.physicsBody.categoryBitMask = kBallCategory;
-//            comboBall.name = PP_BALL_TYPE_COMBO_NAME;
             comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
-            [comboBall setColor:[UIColor orangeColor]];
-            comboBall.physicsBody.contactTestBitMask = kBallCategory;
-            comboBall.physicsBody.node.name=PP_BALL_TYPE_COMBO_NAME;
+            comboBall.name = PP_BALL_TYPE_COMBO_NAME;
+            comboBall.physicsBody.contactTestBitMask = EntityCategoryBall;
+            comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
             [self addChild:comboBall];
-//            [self.ballsElement addObject:comboBall];
+            
+            //[self.ballsNeutral addObject:comboBall];
         }
         
-        
-        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkingBallsMove) userInfo:nil repeats:YES];
+        // 开启定时器检测
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkingBallsMove) userInfo:nil repeats:YES];
     }
     return self;
 }
--(void)checkingBallsMove
+
+#pragma mark SKScene
+
+-(void)didMoveToView:(SKView *)view
 {
-    
-    // 如果球都停止了
-    if ([self isAllStopRolling]&&_isBallRolling) {
-        
-        NSLog(@"Doing Attack and Defend");
-        _isBallRolling = NO;
-        
-        // 刷新技能
-        _isTrapEnable = NO;
-        for (PPBall * tBall in self.ballsElement) {
-            [tBall setToDefaultTexture];
-        }
-        
-        
-        if(currentPhysicsAttack == 1)
-        {
-            
-            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
-            //
-            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
-            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
-            
-            
-        }else
-        {
-            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
-            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
-        }
-    }
-    
-    NSLog(@"test=123");
-    
-}
--(void)setEnemyAtIndex:(int)index
-{
-    currentEnemyIndex = index;
-    [self addEnemySide:PP_FIT_TOP_SIZE];
-    
-//    if (CurrentDeviceRealSize.height>500) {
-//        [self setBackTitleText:nil andPositionY:490.0f];
-//    }
-//    else
-//    {
-//        [self setBackTitleText:nil andPositionY:450.0f];
-//    }
+    [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:1.0f];
 }
 
--(void)showCurrentPlayerPetInfo:(PPPixie *) pet
+-(void)willMoveFromView:(SKView *)view
 {
 }
 
--(void)showCurrentEnemyInfo:(PPPixie *)enemy
+// 每帧处理程序开始
+-(void)update:(NSTimeInterval)currentTime
 {
 }
 
-#pragma mark SkillShow
-
-// 战斗结束过程
--(void)hpBeenZeroMethod:(NSString *)battlesideName
-{
-    if ([battlesideName isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
-    {
-        PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
-        [enemyDeadContent setPosition:CGPointMake(160.0f, 300)];
-        [self addChild:enemyDeadContent];
-
-        NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"请干下一个怪物"};
-        
-        SKLabelNode * titleNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
-        titleNameLabel.fontSize = 13;
-        titleNameLabel.fontColor = [UIColor blueColor];
-        titleNameLabel.text = [alertInfo objectForKey:@"title"];
-        titleNameLabel.position = CGPointMake(0.0f,50);
-        [enemyDeadContent addChild:titleNameLabel];
-        
-        
-        SKLabelNode * textContentLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
-        textContentLabel.fontColor = [UIColor blueColor];
-        textContentLabel.text = [alertInfo objectForKey:@"context"];
-        textContentLabel.fontSize = 13;
-        textContentLabel.position = CGPointMake(0.0f,-50);
-        [enemyDeadContent addChild:textContentLabel];
-
-        [self performSelectorOnMainThread:@selector(goNextEnemy) withObject:nil afterDelay:2];
-        
-    } else {
-        
-        NSDictionary *dict = @{@"title":@"宠物死了",@"context":@"你太sb了"};
-        PPCustomAlertNode *alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
-        [alertCustom showCustomAlertWithInfo:dict];
-        [self addChild:alertCustom];
-        
-//        [self.playerSide removeFromParent];
-        
-    }
-}
-
--(void)goNextEnemy
-{
-    [self.hurdleReady setCurrentHurdle:currentEnemyIndex];
-    [self.view presentScene:self.hurdleReady transition:[SKTransition doorwayWithDuration:1]];
-}
-
--(void)addEnemySide:(CGFloat)direct
+-(void)didSimulatePhysics
 {
     
-    if(self.playerAndEnemySide != nil){
-        [self.playerAndEnemySide removeFromParent];
-        self.playerAndEnemySide = nil;
-    }
+    //    if (vectorLength(self.ballPlayer.physicsBody.velocity) < kStopThreshold ) {
+    //        self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+    //        self.ballPlayer.physicsBody.resting = YES;
+    //    }
+    //
+    //    if (vectorLength(self.ballEnemy.physicsBody.velocity) < kStopThreshold) {
+    //        self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+    //        self.ballEnemy.physicsBody.resting = YES;
+    //    }
+    //
+    //    for (PPBall * tBall in self.ballsNeutral) {
+    //        if (vectorLength(tBall.physicsBody.velocity) < kStopThreshold) {
+    //            tBall.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+    //            tBall.physicsBody.resting = YES;
+    //        }
+    //    }
     
-    if(self.ballEnemy != nil){
-        [self.ballEnemy removeFromParent];
-        self.ballEnemy = nil;
-    }
-    
-    
-//    NSDictionary * dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
-//                                [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-//    
-//    NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
-//    NSDictionary *chooseEnemyDict = [NSDictionary dictionaryWithDictionary:[enemys objectAtIndex:currentEnemyIndex]];
-//    PPPixie *eneplayerPixie = [PPPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
-    
-    
-    // 添加 Ball of Enemey
-    self.ballEnemy = self.pixieEnemy.pixieBall;
-    self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
-    self.ballEnemy.physicsBody.categoryBitMask = kBallCategory;
-    self.ballEnemy.physicsBody.contactTestBitMask = kBallCategory;
-    [self addChild:self.ballEnemy];
-    
-    
-    self.playerAndEnemySide = [[PPBattleInfoLayer alloc] init];
-    [self.playerAndEnemySide setColor:[UIColor purpleColor]];
-    self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-40-direct);
-    self.playerAndEnemySide.name = PP_ENEMY_SIDE_NODE_NAME;
-    self.playerAndEnemySide.size = CGSizeMake(self.size.width, 80.0f);
-    self.playerAndEnemySide.target = self;
-    self.playerAndEnemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-     self.playerAndEnemySide.hpChangeEnd = @selector(hpChangeEndAnimate:);
-    self.playerAndEnemySide.skillSelector = @selector(skillPlayerShowBegin:);
-    self.playerAndEnemySide.pauseSelector = @selector(pauseBtnClick:);
-    self.playerAndEnemySide.showInfoSelector = @selector(showCurrentEnemyInfo:);
-    [self.playerAndEnemySide setSideElements:self.pixiePlayer andEnemy:self.pixieEnemy];
-    [self addChild:self.playerAndEnemySide];
-    
-    
-    currentEnemyIndex += 1;
+    //    // 如果球都停止了
+    //    if ([self isAllStopRolling]) {
+    //
+    //        NSLog(@"Doing Attack and Defend");
+    //        _isBallRolling = NO;
+    //
+    //        // 刷新技能
+    //        _isTrapEnable = NO;
+    //        for (PPBall * tBall in self.ballsNeutral) {
+    //            [tBall setToDefaultTexture];
+    //        }
+    //
+    //        if(currentPhysicsAttack == 1)
+    //        {
+    //            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+    //            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
+    //            //
+    //            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
+    //            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+    //        }else
+    //        {
+    //            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+    //            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
+    //            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
+    //        }
+    //    }
 }
 
--(void)pauseBtnClick:(NSString *)stringName
-{
-    
-    PPCustomAlertNode *alertNode=[[PPCustomAlertNode alloc] initWithFrame:CGRectMake(self.size.width/2.0f, self.size.height/2.0f, self.size.width, self.size.height)];
-    alertNode->target = self;
-    alertNode->btnClickSel = @selector(pauseMenuBtnClick:);
-    [alertNode setColor:[UIColor yellowColor]];
-    [alertNode showPauseMenuAlertWithTitle:@"游戏暂停了" andMessage:nil];
-    [self addChild:alertNode];
-    
-}
-
-
--(void)pauseMenuBtnClick:(NSString *)btnStr
-{
-    NSLog(@"btnStr= %@",btnStr);
-    
-    if ([btnStr isEqualToString:@"button2"]) {
-        [self backButtonClick:nil];
-    }
-    
-}
-
-#pragma mark BackAlert
-
--(void)backButtonClick:(NSString *)backName
-{
-    
-    [self.view presentScene:self.hurdleReady transition:[SKTransition doorsOpenVerticalWithDuration:1]];
-
-//    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
-//                                                      message:@"退出战斗会导致体力损失。确认退出战斗吗？"
-//                                                     delegate:self
-//                                            cancelButtonTitle:@"确定"
-//                                            otherButtonTitles:@"取消", nil];
-//    [alertView show];
-
-}
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0) {
-        [(PPFightingMainView *)self.view changeToPassScene];
-        [[NSNotificationCenter defaultCenter] postNotificationName:PP_BACK_TO_MAIN_VIEW object:PP_BACK_TO_MAIN_VIEW_FIGHTING];
-    }
-}
 
 #pragma mark UIResponder
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-
-    
     if (_isBallRolling == YES) {
         return;
     }
@@ -377,8 +224,8 @@ CGFloat vectorLength (CGVector vector) {
     SKSpriteNode * touchedNode = (SKSpriteNode *)[self nodeAtPoint:location];
     
     // 点击自己的球
-    if ([[touchedNode name] isEqualToString:@"ball_player"]) {
-        
+    if ([[touchedNode name] isEqualToString:@"ball_player"])
+    {
         _isBallDragging = YES;
         _ballShadow = [PPBall ballWithPixie:self.pixiePlayer];
         _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
@@ -386,23 +233,13 @@ CGFloat vectorLength (CGVector vector) {
         _ballShadow.alpha = 0.5f;
         _ballShadow.physicsBody = nil;
         [self addChild:_ballShadow];
-        
-        //粒子效果
-        /*
-         SKEmitterNode *snow = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"ballTest"
-         ofType:@"sks"]];
-         snow.name=@"ball_player";
-         snow.position = CGPointMake(0.0f, 0.0f);
-         [_ballShadow addChild:snow];
-         snow.targetNode = self;
-         */
     }
     
     // 点击技能按钮
-    if ([[touchedNode name] isEqualToString:@"bt_skill"]) {
+    if ([[touchedNode name] isEqualToString:@"bt_skill"])
+    {
         _isTrapEnable = YES;
-        
-        for (PPBall * tBall in self.ballsElement) {
+        for (PPBall * tBall in self.ballsNeutral) {
             if ([tBall.name isEqualToString:@"ball_plant"]) {
                 [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
             }
@@ -444,88 +281,17 @@ CGFloat vectorLength (CGVector vector) {
     }
 }
 
-#pragma mark SKScene
-
--(void)didMoveToView:(SKView *)view
-{
-    [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:1.0f];
-    
-    
-//    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixie.pixieElement andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
-//    [self addRandomBalls:15 withElement:self.playerAndEnemySide.currentPPPixieEnemy.pixieElement andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
-}
-
--(void)willMoveFromView:(SKView *)view
-{
-}
-
-// 每帧处理程序开始
--(void)update:(NSTimeInterval)currentTime
-{
-}
-
--(void)didSimulatePhysics
-{
-    
-//    if (vectorLength(self.ballPlayer.physicsBody.velocity) < kStopThreshold ) {
-//        self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-//        self.ballPlayer.physicsBody.resting = YES;
-//    }
-//    
-//    if (vectorLength(self.ballEnemy.physicsBody.velocity) < kStopThreshold) {
-//        self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-//        self.ballEnemy.physicsBody.resting = YES;
-//    }
-//    
-//    for (PPBall * tBall in self.ballsElement) {
-//        if (vectorLength(tBall.physicsBody.velocity) < kStopThreshold) {
-//            tBall.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-//            tBall.physicsBody.resting = YES;
-//        }
-//    }
-
-//    // 如果球都停止了
-//    if ([self isAllStopRolling]) {
-//    
-//        NSLog(@"Doing Attack and Defend");
-//        _isBallRolling = NO;
-//        
-//        // 刷新技能
-//        _isTrapEnable = NO;
-//        for (PPBall * tBall in self.ballsElement) {
-//            [tBall setToDefaultTexture];
-//        }
-//        
-//        if(currentPhysicsAttack == 1)
-//        {
-//            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-//            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
-//            //
-//            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
-//            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
-//        }else
-//        {
-//            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-//            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
-//            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
-//        }
-//    }
-}
-
-
-
 #pragma mark SKPhysicsContactDelegate
 
 // 碰撞事件
--(void)didBeginContact:(SKPhysicsContact *)contact{
-    
+-(void)didBeginContact:(SKPhysicsContact *)contact
+{
     if (!_isBallRolling) return;
     
-//    SKPhysicsBody * playerBall, * hittedBall;
     SKPhysicsBody * sholdToRemoveBody;
     
     if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
-    //如果我方人物球撞击到物体
+        //如果我方人物球撞击到物体
     {
         
         if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)){
@@ -545,11 +311,11 @@ CGFloat vectorLength (CGVector vector) {
         
         if ((contact.bodyA == self.ballPlayer.physicsBody && [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]) ||
             (contact.bodyB == self.ballPlayer.physicsBody && [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]))
-        //我方碰到连击球
+            //我方碰到连击球
         {
             petCombos++;
             [self.playerAndEnemySide changePetMPValue:100];
-
+            
             return;
             
         } else if (
@@ -557,12 +323,12 @@ CGFloat vectorLength (CGVector vector) {
                     [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]) ||
                    (contact.bodyB == self.ballPlayer.physicsBody &&
                     [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
-        //我方碰到敌方属性元素球
+            //我方碰到敌方属性元素球
         {
             petAssimDiffEleNum ++;
             [self.playerAndEnemySide changePetHPValue:-100];
             [self addHPValueChangeLabel:-100 position:self.ballPlayer.position];
-
+            
             //确定需要remove的元素球
             if (contact.bodyA == self.ballPlayer.physicsBody)
             {
@@ -576,12 +342,12 @@ CGFloat vectorLength (CGVector vector) {
                     [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]) ||
                    (contact.bodyB == self.ballPlayer.physicsBody &&
                     [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
-        //我方碰到我方属性元素球
+            //我方碰到我方属性元素球
         {
             petAssimSameEleNum ++;
             [self.playerAndEnemySide changePetHPValue:100];
             [self addHPValueChangeLabel:100 position:self.ballPlayer.position];
-
+            
             //确定需要remove的元素球
             if (contact.bodyA == self.ballPlayer.physicsBody)
             {
@@ -590,7 +356,7 @@ CGFloat vectorLength (CGVector vector) {
             {
                 sholdToRemoveBody = contact.bodyA;
             }
-    
+            
         }
         
         NSLog(@"currentHP=%f max=%f",self.pixiePlayer.currentHP,self.pixiePlayer.pixieHPmax);
@@ -599,11 +365,11 @@ CGFloat vectorLength (CGVector vector) {
         if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
         {
             [sholdToRemoveBody.node removeFromParent];
-            [self.ballsElement removeObject:sholdToRemoveBody.node];
+            [self.ballsNeutral removeObject:sholdToRemoveBody.node];
         }
         
     } else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
-    //如果敌方人物球撞击到物体
+        //如果敌方人物球撞击到物体
     {
         if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody)){
             
@@ -620,7 +386,7 @@ CGFloat vectorLength (CGVector vector) {
         
         if ((contact.bodyA == self.ballEnemy.physicsBody && [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]) ||
             (contact.bodyB == self.ballEnemy.physicsBody && [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]))
-        //敌方碰到连击球
+            //敌方碰到连击球
         {
             enemyCombos++;
             [self.playerAndEnemySide changeEnemyMPValue:500];
@@ -630,12 +396,12 @@ CGFloat vectorLength (CGVector vector) {
                  [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]) ||
                 (contact.bodyB == self.ballEnemy.physicsBody &&
                  [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
-        //敌方碰到敌方属性元素球
+            //敌方碰到敌方属性元素球
         {
             enemyAssimSameEleNum++;
             [self.playerAndEnemySide changeEnemyHPValue:500];
             [self addHPValueChangeLabel:500 position:self.ballEnemy.position];
-
+            
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
                 sholdToRemoveBody = contact.bodyB;
@@ -650,13 +416,13 @@ CGFloat vectorLength (CGVector vector) {
                  [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]) ||
                 (contact.bodyB == self.ballEnemy.physicsBody &&
                  [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
-        //敌方碰到我方属性元素球
+            //敌方碰到我方属性元素球
         {
             
             enemyAssimDiffEleNum++;
             [self.playerAndEnemySide changeEnemyHPValue:-500];
             [self addHPValueChangeLabel:-500 position:self.ballEnemy.position];
-
+            
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
                 sholdToRemoveBody = contact.bodyB;
@@ -668,29 +434,29 @@ CGFloat vectorLength (CGVector vector) {
             }
             
         }
-
+        
         NSLog(@"currentHP=%f max=%f",self.pixiePlayer.currentHP,self.pixiePlayer.pixieHPmax);
-
+        
         if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
-        //当前己方不满血
+            //当前己方不满血
         {
             [sholdToRemoveBody.node removeFromParent];
-            [self.ballsElement removeObject:sholdToRemoveBody.node];
+            [self.ballsNeutral removeObject:sholdToRemoveBody.node];
         }
         
     } else return;
     
-//        else if (contact.bodyA == self.ballPlayer.physicsBody && contact.bodyA != self.ballEnemy.physicsBody) {
-//        // 球B是玩家球 球A不是玩家球
-//        playerBall = contact.bodyB;
-//        hittedBall = contact.bodyA;
-//        
-//    } else return;
+    //        else if (contact.bodyA == self.ballPlayer.physicsBody && contact.bodyA != self.ballEnemy.physicsBody) {
+    //        // 球B是玩家球 球A不是玩家球
+    //        playerBall = contact.bodyB;
+    //        hittedBall = contact.bodyA;
+    //
+    //    } else return;
     
-//    PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
-//    PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
-////    [self  setAdditionLabel:kElementInhibition[attack][defend]] ;
-
+    //    PPElementType attack = ((PPBall *)playerBall.node).ballElementType;
+    //    PPElementType defend = ((PPBall *)hittedBall.node).ballElementType;
+    ////    [self  setAdditionLabel:kElementInhibition[attack][defend]] ;
+    
     
     /*
      if (_isTrapEnable && ((PPBall *)hittedBall.node).ballElementType == PPElementTypePlant) {
@@ -701,18 +467,64 @@ CGFloat vectorLength (CGVector vector) {
      }
      */
     
-//    NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
-    
+    //    NSLog(@"%@ - %@ - %f", [ConstantData elementName:attack], [ConstantData elementName:defend], kElementInhibition[attack][defend]);
     
     [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
+}
+
+#pragma mark BackAlert
+
+-(void)backButtonClick:(NSString *)backName
+{
     
+    [self.view presentScene:self.hurdleReady transition:[SKTransition doorsOpenVerticalWithDuration:1]];
+    
+    //    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
+    //                                                      message:@"退出战斗会导致体力损失。确认退出战斗吗？"
+    //                                                     delegate:self
+    //                                            cancelButtonTitle:@"确定"
+    //                                            otherButtonTitles:@"取消", nil];
+    //    [alertView show];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [(PPFightingMainView *)self.view changeToPassScene];
+        [[NSNotificationCenter defaultCenter] postNotificationName:PP_BACK_TO_MAIN_VIEW object:PP_BACK_TO_MAIN_VIEW_FIGHTING];
+    }
+}
+
+#pragma mark PauseButton
+
+-(void)pauseBtnClick:(NSString *)stringName
+{
+    
+    PPCustomAlertNode *alertNode = [[PPCustomAlertNode alloc] initWithFrame:CGRectMake(self.size.width/2.0f,
+                                                                                       self.size.height/2.0f,
+                                                                                       self.size.width, self.size.height)];
+    alertNode->target = self;
+    alertNode->btnClickSel = @selector(pauseMenuBtnClick:);
+    [alertNode setColor:[UIColor yellowColor]];
+    [alertNode showPauseMenuAlertWithTitle:@"游戏暂停了" andMessage:nil];
+    [self addChild:alertNode];
+    
+}
+
+-(void)pauseMenuBtnClick:(NSString *)btnStr
+{
+    NSLog(@"btnStr= %@",btnStr);
+    
+    if ([btnStr isEqualToString:@"button2"]) {
+        [self backButtonClick:nil];
+    }
 }
 
 #pragma mark Custom Method
 
 // 是否所有的球都停止了滚动
 -(BOOL)isAllStopRolling{
-    
     
     if (vectorLength(self.ballPlayer.physicsBody.velocity) > kStopThreshold ) {
         return NO;
@@ -721,17 +533,14 @@ CGFloat vectorLength (CGVector vector) {
         self.ballPlayer.physicsBody.resting = YES;
     }
     
-    
     if (vectorLength(self.ballEnemy.physicsBody.velocity) > kStopThreshold) {
         return NO;
     } else {
-        
         self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
         self.ballEnemy.physicsBody.resting = YES;
-        
     }
     
-    for (PPBall * tBall in self.ballsElement) {
+    for (PPBall * tBall in self.ballsNeutral) {
         if (vectorLength(tBall.physicsBody.velocity) > kStopThreshold) {
             return NO;
         } else {
@@ -742,38 +551,180 @@ CGFloat vectorLength (CGVector vector) {
     
     if (!self.ballPlayer.physicsBody.resting) return NO;
     if (!self.ballEnemy.physicsBody.resting) return NO;
-    
-    for (PPBall * tBall in self.ballsElement) {
-        if (!tBall.physicsBody.resting) return NO;
-    }
-    
+    for (PPBall * tBall in self.ballsNeutral) if (!tBall.physicsBody.resting) return NO;
     
     return YES;
-    
 }
 
+-(void)checkingBallsMove
+{
+    // 如果球都停止了
+    if ([self isAllStopRolling] && _isBallRolling) {
+        
+        NSLog(@"Doing Attack and Defend");
+        _isBallRolling = NO;
+        
+        // 刷新技能
+        _isTrapEnable = NO;
+        for (PPBall * tBall in self.ballsNeutral) [tBall setToDefaultTexture];
+        
+        if(currentPhysicsAttack == 1)
+        {
+            
+            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
+            //
+            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
+            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+            
+        }else
+        {
+            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
+            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
+            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
+        }
+    }
+}
+
+-(void)setEnemyAtIndex:(int)index
+{
+    currentEnemyIndex = index;
+    [self addEnemySide:PP_FIT_TOP_SIZE];
+}
+
+// 战斗结束过程
+-(void)hpBeenZeroMethod:(NSString *)battlesideName
+{
+    if ([battlesideName isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
+    {
+        PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
+        [enemyDeadContent setPosition:CGPointMake(160.0f, 300)];
+        [self addChild:enemyDeadContent];
+
+        NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"请干下一个怪物"};
+        
+        SKLabelNode * titleNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+        titleNameLabel.fontSize = 13;
+        titleNameLabel.fontColor = [UIColor blueColor];
+        titleNameLabel.text = [alertInfo objectForKey:@"title"];
+        titleNameLabel.position = CGPointMake(0.0f,50);
+        [enemyDeadContent addChild:titleNameLabel];
+        
+        
+        SKLabelNode * textContentLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+        textContentLabel.fontColor = [UIColor blueColor];
+        textContentLabel.text = [alertInfo objectForKey:@"context"];
+        textContentLabel.fontSize = 13;
+        textContentLabel.position = CGPointMake(0.0f,-50);
+        [enemyDeadContent addChild:textContentLabel];
+
+        [self performSelectorOnMainThread:@selector(goNextEnemy) withObject:nil afterDelay:2];
+        
+    } else {
+        
+        NSDictionary * dict = @{@"title":@"宠物死了",@"context":@"你太sb了"};
+        PPCustomAlertNode * alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
+        [alertCustom showCustomAlertWithInfo:dict];
+        [self addChild:alertCustom];
+        
+    }
+}
+
+-(void)goNextEnemy
+{
+    [self.hurdleReady setCurrentHurdle:currentEnemyIndex];
+    [self.view presentScene:self.hurdleReady transition:[SKTransition doorwayWithDuration:1]];
+}
+
+// 添加敌方单位各个元素
+-(void)addEnemySide:(CGFloat)direct
+{
+    if(self.playerAndEnemySide != nil){
+        [self.playerAndEnemySide removeFromParent];
+        self.playerAndEnemySide = nil;
+    }
+    
+    if(self.ballEnemy != nil){
+        [self.ballEnemy removeFromParent];
+        self.ballEnemy = nil;
+    }
+    
+//    NSDictionary * dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
+//                                [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
+//    
+//    NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
+//    NSDictionary *chooseEnemyDict = [NSDictionary dictionaryWithDictionary:[enemys objectAtIndex:currentEnemyIndex]];
+//    PPPixie *eneplayerPixie = [PPPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
+    
+    
+    // 添加 Ball of Enemey
+    self.ballEnemy = self.pixieEnemy.pixieBall;
+    self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
+    self.ballEnemy.physicsBody.categoryBitMask = EntityCategoryBall;
+    self.ballEnemy.physicsBody.contactTestBitMask = EntityCategoryBall;
+    [self addChild:self.ballEnemy];
+    
+    self.playerAndEnemySide = [[PPBattleInfoLayer alloc] init];
+    [self.playerAndEnemySide setColor:[UIColor purpleColor]];
+    self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-40-direct);
+    self.playerAndEnemySide.name = PP_ENEMY_SIDE_NODE_NAME;
+    self.playerAndEnemySide.size = CGSizeMake(self.size.width, 80.0f);
+    self.playerAndEnemySide.target = self;
+    self.playerAndEnemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
+    self.playerAndEnemySide.hpChangeEnd = @selector(hpChangeEndAnimate:);
+    self.playerAndEnemySide.skillSelector = @selector(skillPlayerShowBegin:);
+    self.playerAndEnemySide.pauseSelector = @selector(pauseBtnClick:);
+//    self.playerAndEnemySide.showInfoSelector = @selector(showCurrentEnemyInfo:);
+    [self.playerAndEnemySide setSideElements:self.pixiePlayer andEnemy:self.pixieEnemy];
+    [self addChild:self.playerAndEnemySide];
+    
+    currentEnemyIndex += 1;
+}
+
+
 // 添加四周的墙
--(void)addWalls:(CGSize)nodeSize atPosition:(CGPoint)nodePosition{
-    
+-(void)addWalls:(CGSize)nodeSize atPosition:(CGPoint)nodePosition
+{
     SKSpriteNode * wall = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:nodeSize];
-    
     wall.position = nodePosition;
     wall.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wall.size];
-    
     wall.physicsBody.affectedByGravity = NO;
     wall.physicsBody.dynamic = NO;
     wall.physicsBody.friction = 0.1;
-    wall.physicsBody.categoryBitMask = kGroundCategory;
-    //wall.physicsBody.contactTestBitMask = kBallCategory;
+    wall.physicsBody.categoryBitMask = EntityCategoryWall;
+    //wall.physicsBody.contactTestBitMask = EntityCategoryBall;
     //wall.physicsBody.collisionBitMask = 0;
     
     [self addChild:wall];
 }
 
-// 添加随机的球
--(void)addRandomBalls:(int)number withElement:(PPElementType)element andNodeName:(NSString *)nodeName{
+// 结算combo添加元素球
+-(void)creatCombosTotal
+{
+    [self addRandomBalls:petCombos
+             withElement:self.pixiePlayer.pixieBall.ballElementType
+             andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
     
-    if (number <=0) return;
+    /*
+     NSLog(@"pet element=%ld combos=%d  enemy element=%ld combos=%d",
+     self.pixiePlayer.pixieBall.ballElementType,
+     petCombos,
+     self.pixieEnemy.pixieBall.ballElementType,
+     enemyCombos);
+     */
+    
+    [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
+    
+    enemyCombos = 0;
+    petCombos = 0;
+    
+    [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
+}
+
+// 添加随机的元素球
+-(void)addRandomBalls:(int)number withElement:(PPElementType)element andNodeName:(NSString *)nodeName
+{
+    if (number <= 0) return;
     
     int countToGenerate=number/kBallSustainRounds;
     int lastBallSustainRounds = number%kBallSustainRounds;
@@ -783,12 +734,13 @@ CGFloat vectorLength (CGVector vector) {
         tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
         tBall.ballElementType = element;
         tBall.physicsBody.node.name = nodeName;
-        tBall.physicsBody.categoryBitMask = kBallCategory;
+        tBall.physicsBody.categoryBitMask = EntityCategoryBall;
         tBall.sustainRounds = lastBallSustainRounds;
-        tBall.physicsBody.contactTestBitMask = kBallCategory;
-        [self addChild:tBall];
+        tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
         [tBall setRoundsLabel:tBall.sustainRounds];
-        [self.ballsElement addObject:tBall];
+        
+        [self addChild:tBall];
+        [self.ballsNeutral addObject:tBall];
         return;
     }
     
@@ -809,91 +761,63 @@ CGFloat vectorLength (CGVector vector) {
             tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
             tBall.ballElementType = element;
             tBall.physicsBody.node.name = nodeName;
-            tBall.physicsBody.categoryBitMask = kBallCategory;
+            tBall.physicsBody.categoryBitMask = EntityCategoryBall;
             tBall.sustainRounds = kBallSustainRounds;
             NSLog(@"kBallSustainRounds = %d",kBallSustainRounds);
             
             [tBall setRoundsLabel:tBall.sustainRounds];
 
-            tBall.physicsBody.contactTestBitMask = kBallCategory;
+            tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
             [self addChild:tBall];
             
-            [self.ballsElement addObject:tBall];
+            [self.ballsNeutral addObject:tBall];
         }else
         {
-            
             if (lastBallSustainRounds!=0) {
                 PPBall * tBall = [PPBall ballWithElement:element];
                 tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
                 tBall.ballElementType = element;
                 tBall.physicsBody.node.name = nodeName;
-                tBall.physicsBody.categoryBitMask = kBallCategory;
+                tBall.physicsBody.categoryBitMask = EntityCategoryBall;
                 tBall.sustainRounds = lastBallSustainRounds;
-                tBall.physicsBody.contactTestBitMask = kBallCategory;
+                tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
                 NSLog(@"lastBallSustainRounds = %d",lastBallSustainRounds);
                 
                 [tBall setRoundsLabel:tBall.sustainRounds];
-                
                 [self addChild:tBall];
                 
-                [self.ballsElement addObject:tBall];
+                [self.ballsNeutral addObject:tBall];
             }
-            
         }
     }
 }
 
 -(void)changeBallsRoundsEnd
 {
-    for (int i=0; i<[self.ballsElement count]; i++) {
+    for (int i = 0; i < [self.ballsNeutral count]; i++) {
         
-        PPBall * tBall = [self.ballsElement objectAtIndex:i];
+        PPBall * tBall = [self.ballsNeutral objectAtIndex:i];
         tBall.sustainRounds--;
         [tBall setRoundsLabel:tBall.sustainRounds];
         
         if (tBall.sustainRounds <= 0) {
             [tBall removeFromParent];
-            [self.ballsElement removeObject:tBall];
+            [self.ballsNeutral removeObject:tBall];
         }
     }
 }
 
 //-(void)removeBallsForRoundsEnd
 //{
-//
-//    for (int i=0; i<[self.ballsElement count]; i++) {
-//        PPBall * tBall = [self.ballsElement objectAtIndex:i];
-//        if (tBall.sustainRounds <=0) {
+//    for (int i = 0; i < [self.ballsNeutral count]; i++) {
+//        PPBall * tBall = [self.ballsNeutral objectAtIndex:i];
+//        if (tBall.sustainRounds <= 0) {
 //            [tBall removeFromParent];
-//            [self.ballsElement removeObject:tBall];
+//            [self.ballsNeutral removeObject:tBall];
 //        }
 //    }
 //}
 
-// 添加双方combo的球
--(void)creatCombosTotal
-{
-    [self addRandomBalls:petCombos
-             withElement:self.pixiePlayer.pixieBall.ballElementType
-             andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
-    
-    NSLog(@"pet element=%d combos=%d  enemy element=%d combos=%d",
-          self.pixiePlayer.pixieBall.ballElementType,
-          petCombos,
-          self.pixieEnemy.pixieBall.ballElementType,
-          enemyCombos);
-    
-    [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
-    
-    enemyCombos = 0;
-    petCombos = 0;
-    
-    [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
-}
-
--(void)ballStopAssimilateCount:(NSInteger)balls
-{
-}
 
 #pragma mark Rounds and Turns
 
@@ -1191,7 +1115,7 @@ CGFloat vectorLength (CGVector vector) {
         {
             
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
-                for (PPBall * tBall in self.ballsElement) {
+                for (PPBall * tBall in self.ballsNeutral) {
                     if ([tBall.name isEqualToString:@"ball_plant"]) {
                         [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
                         
@@ -1202,7 +1126,7 @@ CGFloat vectorLength (CGVector vector) {
             }
             
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"木系掌控"]) {
-                for (PPBall * tBall in self.ballsElement) {
+                for (PPBall * tBall in self.ballsNeutral) {
                     if ([tBall.name isEqualToString:@"ball_plant"]) {
                         
                         //                    [tBall runAction:[SKAction moveTo:CGPointMake(tBall.position.x-10, tBall.position.y-20) duration:2]];

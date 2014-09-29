@@ -22,6 +22,15 @@
     }
     return self;
 }
+
+- (void)didMoveToView:(SKView *)view
+{
+    // Called immediately after a scene is presented by a view.
+    [super didMoveToView:view];
+    [self setBackgroundColor:[UIColor cyanColor]];
+}
+
+
 #pragma mark - add current Hurdle
 
 -(void)setEnemysArray
@@ -172,41 +181,28 @@
 -(void)spriteChooseClick:(NSString *)spriteName
 {
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
-    NSDictionary *choosedPet=[NSDictionary dictionaryWithDictionary:petsChoosedInfo];
+    NSDictionary *choosedPet = [NSDictionary dictionaryWithDictionary:petsChoosedInfo];
     
     // 初始化 ballScene
     PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:choosedPet];
     PPPixie * enemyPixie = [PPPixie birthEnemyPixieWithPetsInfo:[self.enemysArray objectAtIndex:currentEnemyIndex]];
+    if (playerPixie == nil || enemyPixie == nil) return;
     
-    if (playerPixie == nil || enemyPixie == nil) {
-        NSLog(@"nil Pixie");
-        return;
-    }
-    
+    // 创建战斗场景并显示
     PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
                                                                 PixiePlayer:playerPixie
                                                                  PixieEnemy:enemyPixie];
     
+    ballScene.scaleMode = SKSceneScaleModeAspectFill;
     ballScene.hurdleReady = self;
     [ballScene setEnemyAtIndex:currentEnemyIndex];
-    ballScene.scaleMode = SKSceneScaleModeAspectFill;
     [self.view presentScene:ballScene];
-    
-    
 }
 
 #pragma mark - add a scroling uiview
 
-- (void)didMoveToView:(SKView *)view
-{
-    // Called immediately after a scene is presented by a view.
-    [super didMoveToView:view];
-    [self setBackgroundColor:[UIColor cyanColor]];
-}
 
--(void)startBattle:(PPPixie *)ppsprite
-{
-}
+
 
 //得到应用程序Documents文件夹下的目标路径
 -(NSString *)getPersonalSetTargetPath
