@@ -102,12 +102,12 @@ CGFloat vectorLength (CGVector vector) {
         self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSkillSide.target = self;
         self.playerSkillSide.skillSelector = @selector(skillPlayerShowBegin:);
-//        self.playerSkillSide.showInfoSelector = @selector(showCurrentPlayerPetInfo:);
+        self.playerSkillSide.pauseSelector = @selector(pauseBtnClick:);
         self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-        
         [self.playerSkillSide setColor:[UIColor grayColor]];
         [self.playerSkillSide setSideSkillsBtn:pixieA];
         [self addChild:self.playerSkillSide];
+        
         
         // 添加围墙
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
@@ -478,13 +478,7 @@ CGFloat vectorLength (CGVector vector) {
 {
     
     [self.view presentScene:self.hurdleReady transition:[SKTransition doorsOpenVerticalWithDuration:1]];
-    
-    //    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"注意"
-    //                                                      message:@"退出战斗会导致体力损失。确认退出战斗吗？"
-    //                                                     delegate:self
-    //                                            cancelButtonTitle:@"确定"
-    //                                            otherButtonTitles:@"取消", nil];
-    //    [alertView show];
+
     
 }
 
@@ -571,16 +565,10 @@ CGFloat vectorLength (CGVector vector) {
         if(currentPhysicsAttack == 1)
         {
             
-            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
-            //
-            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
             [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
             
         }else
         {
-            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
             [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
         }
     }
@@ -1058,6 +1046,7 @@ CGFloat vectorLength (CGVector vector) {
     SKAction *action = [SKAction fadeAlphaTo:0.0f duration:5];
     [skillNameLabel runAction:action];
     [ballsLabel runAction:action];
+    
 }
 
 
@@ -1066,6 +1055,8 @@ CGFloat vectorLength (CGVector vector) {
     
     CGFloat mpToConsume = [[skillInfo objectForKey:@"skillmpchange"] floatValue];
     NSLog(@"currentMP=%f mptoConsume=%f",self.playerAndEnemySide.currentPPPixie.currentMP,mpToConsume);
+    NSLog(@"skillInfo=%@",skillInfo);
+    
     
     if (self.playerAndEnemySide.currentPPPixie.currentMP<fabsf(mpToConsume)) {
         
@@ -1139,6 +1130,9 @@ CGFloat vectorLength (CGVector vector) {
                 
             }
             
+            
+            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+
             
         }
             break;
