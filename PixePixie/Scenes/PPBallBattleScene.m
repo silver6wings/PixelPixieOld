@@ -135,7 +135,7 @@ CGFloat vectorLength (CGVector vector) {
             comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
             [self addChild:comboBall];
             
-            //[self.ballsNeutral addObject:comboBall];
+            [self.ballsNeutral addObject:comboBall];
         }
         
         // 开启定时器检测
@@ -162,52 +162,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)didSimulatePhysics
 {
-    
-    //    if (vectorLength(self.ballPlayer.physicsBody.velocity) < kStopThreshold ) {
-    //        self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-    //        self.ballPlayer.physicsBody.resting = YES;
-    //    }
-    //
-    //    if (vectorLength(self.ballEnemy.physicsBody.velocity) < kStopThreshold) {
-    //        self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-    //        self.ballEnemy.physicsBody.resting = YES;
-    //    }
-    //
-    //    for (PPBall * tBall in self.ballsNeutral) {
-    //        if (vectorLength(tBall.physicsBody.velocity) < kStopThreshold) {
-    //            tBall.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-    //            tBall.physicsBody.resting = YES;
-    //        }
-    //    }
-    
-    //    // 如果球都停止了
-    //    if ([self isAllStopRolling]) {
-    //
-    //        NSLog(@"Doing Attack and Defend");
-    //        _isBallRolling = NO;
-    //
-    //        // 刷新技能
-    //        _isTrapEnable = NO;
-    //        for (PPBall * tBall in self.ballsNeutral) {
-    //            [tBall setToDefaultTexture];
-    //        }
-    //
-    //        if(currentPhysicsAttack == 1)
-    //        {
-    //            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-    //            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
-    //            //
-    //            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
-    //            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
-    //        }else
-    //        {
-    //            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-    //            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
-    //            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
-    //        }
-    //    }
 }
-
 
 #pragma mark UIResponder
 
@@ -795,14 +750,15 @@ CGFloat vectorLength (CGVector vector) {
 -(void)changeBallsRoundsEnd
 {
     for (int i = 0; i < [self.ballsNeutral count]; i++) {
-        
         PPBall * tBall = [self.ballsNeutral objectAtIndex:i];
-        tBall.sustainRounds--;
-        [tBall setRoundsLabel:tBall.sustainRounds];
-        
-        if (tBall.sustainRounds <= 0) {
-            [tBall removeFromParent];
-            [self.ballsNeutral removeObject:tBall];
+        if (![tBall.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]) {
+            tBall.sustainRounds--;
+            [tBall setRoundsLabel:tBall.sustainRounds];
+            
+            if (tBall.sustainRounds <= 0) {
+                [tBall removeFromParent];
+                [self.ballsNeutral removeObject:tBall];
+            }
         }
     }
 }

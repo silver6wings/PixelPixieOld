@@ -43,6 +43,12 @@ typedef NS_ENUM(NSInteger, PPElementType)
     PPElementTypeWind         // 风
 };
 
+// 血条显示
+typedef enum {
+    PP_HPTYPE,
+    PP_MPTYPE
+}VALUESHOWTYPE;
+
 // 技能类型定义
 typedef NS_ENUM(NSInteger, PPSkillUniversalType)
 {
@@ -100,6 +106,8 @@ static const int kElementMix[kElementTypeMax + 1][kElementTypeMax + 1] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 };
+
+
 
 @interface ConstantData : NSObject
 +(NSString *)elementName:(PPElementType)elementType;

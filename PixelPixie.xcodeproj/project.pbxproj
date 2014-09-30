@@ -146,6 +146,13 @@
 		1959D693191515C900865D27 /* 变身效果01042.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D667191515C900865D27 /* 变身效果01042.png */; };
 		1959D694191515C900865D27 /* 变身效果01043.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D668191515C900865D27 /* 变身效果01043.png */; };
 		1959D69619152E9700865D27 /* skill_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D69519152E9700865D27 /* skill_plant.png */; };
+		196738BB19DA5A2D002C5172 /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 196738BA19DA5A2D002C5172 /* TextureManager.m */; };
+		196738C419DA5BF6002C5172 /* ball_elements.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 196738BD19DA5BF6002C5172 /* ball_elements.atlas */; };
+		196738C519DA5BF6002C5172 /* ball_magic.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 196738BE19DA5BF6002C5172 /* ball_magic.atlas */; };
+		196738C619DA5BF6002C5172 /* ball_pixie.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 196738BF19DA5BF6002C5172 /* ball_pixie.atlas */; };
+		196738C719DA5BF6002C5172 /* ball_table.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 196738C019DA5BF6002C5172 /* ball_table.atlas */; };
+		196738C819DA5BF6002C5172 /* skill_icon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 196738C119DA5BF6002C5172 /* skill_icon.atlas */; };
+		196738CB19DA5C19002C5172 /* skill_screen.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 196738CA19DA5C19002C5172 /* skill_screen.atlas */; };
 		19CBA8C31907C77600A249AB /* PPBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C21907C77600A249AB /* PPBall.m */; };
 		19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C51907C7D000A249AB /* PPPlayer.m */; };
 		19F28E2D1969181B0006ABFF /* PPCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F28E2C1969181B0006ABFF /* PPCustomButton.m */; };
@@ -162,8 +169,6 @@
 		D449CFDA192BB296007179B1 /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D449CFD9192BB296007179B1 /* PPAppDelegate.m */; };
 		D44D9EA61976C61700C69C15 /* PPMenuDungeonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D44D9EA51976C61700C69C15 /* PPMenuDungeonScene.m */; };
 		D44D9EA91976D0AA00C69C15 /* PPSkillButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D44D9EA81976D0AA00C69C15 /* PPSkillButtonNode.m */; };
-		D4545B321949E04D007EABE3 /* ballTest.sks in Resources */ = {isa = PBXBuildFile; fileRef = D4545B301949E04D007EABE3 /* ballTest.sks */; };
-		D4545B331949E04D007EABE3 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D4545B311949E04D007EABE3 /* spark.png */; };
 		D457012D194F430700C2EFCE /* EnemyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D457012C194F430700C2EFCE /* EnemyInfo.plist */; };
 		D45C3F83196A975F00A78E88 /* PPSpriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D45C3F82196A975F00A78E88 /* PPSpriteButton.m */; };
 		D4693703197D45C1006EC83E /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = D4693700197D45C1006EC83E /* ConfigData.m */; };
@@ -369,6 +374,14 @@
 		1959D667191515C900865D27 /* 变身效果01042.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01042.png"; sourceTree = "<group>"; };
 		1959D668191515C900865D27 /* 变身效果01043.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01043.png"; sourceTree = "<group>"; };
 		1959D69519152E9700865D27 /* skill_plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skill_plant.png; path = Resource/Image/test/skill_plant.png; sourceTree = "<group>"; };
+		196738B919DA5A2D002C5172 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		196738BA19DA5A2D002C5172 /* TextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
+		196738BD19DA5BF6002C5172 /* ball_elements.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = ball_elements.atlas; path = Resource/Images/ball_elements.atlas; sourceTree = "<group>"; };
+		196738BE19DA5BF6002C5172 /* ball_magic.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = ball_magic.atlas; path = Resource/Images/ball_magic.atlas; sourceTree = "<group>"; };
+		196738BF19DA5BF6002C5172 /* ball_pixie.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = ball_pixie.atlas; path = Resource/Images/ball_pixie.atlas; sourceTree = "<group>"; };
+		196738C019DA5BF6002C5172 /* ball_table.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = ball_table.atlas; path = Resource/Images/ball_table.atlas; sourceTree = "<group>"; };
+		196738C119DA5BF6002C5172 /* skill_icon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = skill_icon.atlas; path = Resource/Images/skill_icon.atlas; sourceTree = "<group>"; };
+		196738CA19DA5C19002C5172 /* skill_screen.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = skill_screen.atlas; path = Resource/Images/skill_screen.atlas; sourceTree = "<group>"; };
 		19CBA8C11907C77600A249AB /* PPBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBall.h; path = Models/PPBall.h; sourceTree = "<group>"; };
 		19CBA8C21907C77600A249AB /* PPBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBall.m; path = Models/PPBall.m; sourceTree = "<group>"; };
 		19CBA8C41907C7D000A249AB /* PPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPlayer.h; path = Models/PPPlayer.h; sourceTree = "<group>"; };
@@ -397,8 +410,6 @@
 		D44D9EA51976C61700C69C15 /* PPMenuDungeonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMenuDungeonScene.m; sourceTree = "<group>"; };
 		D44D9EA71976D0AA00C69C15 /* PPSkillButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSkillButtonNode.h; path = PixePixie/Nodes/PPSkillButtonNode.h; sourceTree = SOURCE_ROOT; };
 		D44D9EA81976D0AA00C69C15 /* PPSkillButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkillButtonNode.m; path = PixePixie/Nodes/PPSkillButtonNode.m; sourceTree = SOURCE_ROOT; };
-		D4545B301949E04D007EABE3 /* ballTest.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ballTest.sks; sourceTree = "<group>"; };
-		D4545B311949E04D007EABE3 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		D457012C194F430700C2EFCE /* EnemyInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnemyInfo.plist; sourceTree = "<group>"; };
 		D45C3F81196A975F00A78E88 /* PPSpriteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSpriteButton.h; path = PixePixie/Nodes/PPSpriteButton.h; sourceTree = SOURCE_ROOT; };
 		D45C3F82196A975F00A78E88 /* PPSpriteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSpriteButton.m; path = PixePixie/Nodes/PPSpriteButton.m; sourceTree = SOURCE_ROOT; };
@@ -468,7 +479,6 @@
 		190BF48D18C6C85C006B0AE6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				D42C9A6619D2F09100BCE28A /* ui_fighting.atlas */,
 				D4AE4CB1196EDA5100FC24EF /* MainView */,
 				19CBA8CA1907C98000A249AB /* test */,
 				190CF088191230B900370760 /* background */,
@@ -829,6 +839,20 @@
 			path = Resource/Image/test/transform;
 			sourceTree = "<group>";
 		};
+		196738BC19DA5BD2002C5172 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				196738BD19DA5BF6002C5172 /* ball_elements.atlas */,
+				196738BE19DA5BF6002C5172 /* ball_magic.atlas */,
+				196738BF19DA5BF6002C5172 /* ball_pixie.atlas */,
+				196738C019DA5BF6002C5172 /* ball_table.atlas */,
+				196738C119DA5BF6002C5172 /* skill_icon.atlas */,
+				196738CA19DA5C19002C5172 /* skill_screen.atlas */,
+				D42C9A6619D2F09100BCE28A /* ui_fighting.atlas */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		19CBA8CA1907C98000A249AB /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -904,7 +928,7 @@
 			isa = PBXGroup;
 			children = (
 				D4877A3F196C314E009509E5 /* Images.xcassets */,
-				D4545B2F1949E024007EABE3 /* Particle */,
+				196738BC19DA5BD2002C5172 /* Images */,
 				D4916A15193F62CF00662F88 /* JsonData */,
 				190BF48D18C6C85C006B0AE6 /* Image */,
 			);
@@ -996,16 +1020,6 @@
 			path = PPBasic;
 			sourceTree = "<group>";
 		};
-		D4545B2F1949E024007EABE3 /* Particle */ = {
-			isa = PBXGroup;
-			children = (
-				D4545B301949E04D007EABE3 /* ballTest.sks */,
-				D4545B311949E04D007EABE3 /* spark.png */,
-			);
-			name = Particle;
-			path = Resource/Particle;
-			sourceTree = "<group>";
-		};
 		D46936FE197D45C1006EC83E /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1013,6 +1027,8 @@
 				D4693702197D45C1006EC83E /* ConstantData.m */,
 				D46936FF197D45C1006EC83E /* ConfigData.h */,
 				D4693700197D45C1006EC83E /* ConfigData.m */,
+				196738B919DA5A2D002C5172 /* TextureManager.h */,
+				196738BA19DA5A2D002C5172 /* TextureManager.m */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -1115,6 +1131,7 @@
 			files = (
 				190CF0821912309D00370760 /* pixie_plant3_battle0.png in Resources */,
 				1959D69619152E9700865D27 /* skill_plant.png in Resources */,
+				196738C719DA5BF6002C5172 /* ball_table.atlas in Resources */,
 				19145E091913F472005C6AD4 /* 陷阱0026.png in Resources */,
 				19145DFE1913F472005C6AD4 /* 陷阱0015.png in Resources */,
 				1959D670191515C900865D27 /* 变身效果01007.png in Resources */,
@@ -1141,12 +1158,14 @@
 				19145E141913F472005C6AD4 /* 陷阱0037.png in Resources */,
 				D4AE4CBB196EDA5100FC24EF /* fire_selected.png in Resources */,
 				19145DFD1913F472005C6AD4 /* 陷阱0014.png in Resources */,
+				196738C619DA5BF6002C5172 /* ball_pixie.atlas in Resources */,
 				1959D681191515C900865D27 /* 变身效果01024.png in Resources */,
 				19145DFF1913F472005C6AD4 /* 陷阱0016.png in Resources */,
 				19145E081913F472005C6AD4 /* 陷阱0025.png in Resources */,
 				D4AE4CBA196EDA5100FC24EF /* fire.png in Resources */,
 				1959D68D191515C900865D27 /* 变身效果01036.png in Resources */,
 				193C25DA1913EF9500E2C1BA /* bg_02.jpg in Resources */,
+				196738C819DA5BF6002C5172 /* skill_icon.atlas in Resources */,
 				D4AE4CBF196EDA5100FC24EF /* water.png in Resources */,
 				1959D671191515C900865D27 /* 变身效果01008.png in Resources */,
 				1959D67D191515C900865D27 /* 变身效果01020.png in Resources */,
@@ -1163,6 +1182,7 @@
 				190CF0791912277400370760 /* ball_water.png in Resources */,
 				1959D680191515C900865D27 /* 变身效果01023.png in Resources */,
 				19145DF51913F472005C6AD4 /* 陷阱0006.png in Resources */,
+				196738C519DA5BF6002C5172 /* ball_magic.atlas in Resources */,
 				19145DF81913F472005C6AD4 /* 陷阱0009.png in Resources */,
 				19145E121913F472005C6AD4 /* 陷阱0035.png in Resources */,
 				190CF08A191230C700370760 /* bg_01.png in Resources */,
@@ -1214,8 +1234,8 @@
 				19145DF11913F472005C6AD4 /* 陷阱0002.png in Resources */,
 				193C25E51913F00400E2C1BA /* Cirrus0005.png in Resources */,
 				19145E1C1913F472005C6AD4 /* 陷阱0045.png in Resources */,
-				D4545B321949E04D007EABE3 /* ballTest.sks in Resources */,
 				1959D676191515C900865D27 /* 变身效果01013.png in Resources */,
+				196738C419DA5BF6002C5172 /* ball_elements.atlas in Resources */,
 				19145E061913F472005C6AD4 /* 陷阱0023.png in Resources */,
 				19145E211913F472005C6AD4 /* 陷阱0050.png in Resources */,
 				1959D687191515C900865D27 /* 变身效果01030.png in Resources */,
@@ -1223,7 +1243,6 @@
 				1959D66A191515C900865D27 /* 变身效果01001.png in Resources */,
 				19145E0B1913F472005C6AD4 /* 陷阱0028.png in Resources */,
 				1959D694191515C900865D27 /* 变身效果01043.png in Resources */,
-				D4545B331949E04D007EABE3 /* spark.png in Resources */,
 				19145DF71913F472005C6AD4 /* 陷阱0008.png in Resources */,
 				19145DFB1913F472005C6AD4 /* 陷阱0012.png in Resources */,
 				1959D67C191515C900865D27 /* 变身效果01019.png in Resources */,
@@ -1237,6 +1256,7 @@
 				19145E0A1913F472005C6AD4 /* 陷阱0027.png in Resources */,
 				193C25E41913F00400E2C1BA /* Cirrus0004.png in Resources */,
 				19145DF41913F472005C6AD4 /* 陷阱0005.png in Resources */,
+				196738CB19DA5C19002C5172 /* skill_screen.atlas in Resources */,
 				190CF087191230AD00370760 /* ball_pixie_plant3.png in Resources */,
 				19145E151913F472005C6AD4 /* 陷阱0038.png in Resources */,
 				1959D677191515C900865D27 /* 变身效果01014.png in Resources */,
@@ -1295,6 +1315,7 @@
 				192F74511969124D006C6586 /* PPSettingScene.m in Sources */,
 				192F744E1969124D006C6586 /* PPPacksackScene.m in Sources */,
 				193DC4971968608B007308C7 /* PPBasicScene.m in Sources */,
+				196738BB19DA5A2D002C5172 /* TextureManager.m in Sources */,
 				D4767AB8196D7E79000B5B9C /* PPActivityDetailScene.m in Sources */,
 				193DC49E196860FE007308C7 /* PPRootViewController.m in Sources */,
 				19CBA8C31907C77600A249AB /* PPBall.m in Sources */,

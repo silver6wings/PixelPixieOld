@@ -7,11 +7,14 @@
     id target;
     SEL animateEnd;
     CGFloat originalMax;
-    
 }
 
--(void)setMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV andShowType:(VALUESHOWTYPE)showType andAnchorPoint:(CGPoint )anchorPoint;
+-(void)setMaxValue:(CGFloat)maxV
+   andCurrentValue:(CGFloat)currentV
+       andShowType:(VALUESHOWTYPE)showType
+    andAnchorPoint:(CGPoint )anchorPoint;
 
--(CGFloat)valueShowChangeMaxValue:(CGFloat)maxV andCurrentValue:(CGFloat)currentV;
+-(CGFloat)valueShowChangeMaxValue:(CGFloat)maxV
+                  andCurrentValue:(CGFloat)currentV;
 
 @end
