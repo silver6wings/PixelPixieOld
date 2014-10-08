@@ -5,8 +5,11 @@
 @property (nonatomic) SKTexture * defaultTexture;
 @end
 
+
+
+
 @implementation PPBall
-@synthesize sustainRounds,pixie, ballElementType, pixieEnemy;
+@synthesize sustainRounds,pixie, ballElementType, pixieEnemy,ballStatus;
 
 #pragma mark Factory Method
 
@@ -38,10 +41,10 @@
     roundsLabel.fontColor = [UIColor redColor];
     roundsLabel.position = CGPointMake(10, 10);
     [roundsLabel setText:@"0"];
-     roundsLabel.fontSize=15;
-
+    roundsLabel.fontSize=15;
+    
     [tBall addChild:roundsLabel];
-
+    
     
     tBall.ballType = PPBallTypeElement;
     return tBall;
@@ -58,8 +61,8 @@
 +(PPBall *)ballWithPixie:(PPPixie *)pixie{
     
     NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
-                                     [ConstantData elementName:PPElementTypePlant],
-                                     pixie.pixieGeneration];
+                            [ConstantData elementName:PPElementTypePlant],
+                            pixie.pixieGeneration];
     if (imageName == nil) return nil;
     SKTexture * tTexture = [SKTexture textureWithImageNamed:@"skill_fire.png"];
     
@@ -73,10 +76,10 @@
         tBall.pixie = pixie;
     }
     
-//    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
-//    additonLabel.position = CGPointMake(0.0f, 10.0f);
-//    [additonLabel setText:@"%100"];
-//    [tBall addChild:additonLabel];
+    //    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+    //    additonLabel.position = CGPointMake(0.0f, 10.0f);
+    //    [additonLabel setText:@"%100"];
+    //    [tBall addChild:additonLabel];
     
     tBall.ballType = PPBallTypePlayer;
     return tBall;
@@ -91,7 +94,7 @@
                             pixieEnemy.pixieGeneration];
     
     if (imageName == nil) return nil;
-//    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    //    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     SKTexture * tTexture = [SKTexture textureWithImageNamed:@"ball_fire3.png"];
     
     NSLog(@"imageName=%@",imageName);
@@ -102,7 +105,7 @@
         tBall.ballElementType = pixieEnemy.pixieElement;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
         [PPBall defaultBallPhysicsBody:tBall];
-    
+        
         tBall.pixieEnemy = pixieEnemy;
     }
     
@@ -114,7 +117,7 @@
 +(PPBall *)ballWithCombo
 {
     
-    NSString * imageName = @"skill_plant.png";
+    NSString * imageName = @"ball_pixie_plant3.png";
     
     if (imageName == nil) return nil;
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];

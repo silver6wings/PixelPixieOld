@@ -20,7 +20,7 @@
     
     CGFloat interCoefficient;   // 宠物与对手之间属性克制关系
     
-    @public
+@public
     int currentEnemyIndex;
 }
 

@@ -34,16 +34,26 @@
                    withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
         
+        
+        if ([ppixie.pixieSkills count]>i) {
+            PPBasicLabelNode *skillName = [[PPBasicLabelNode alloc] init];
+            skillName.fontSize = 12;
+            [skillName setText:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"]];
+            [skillName setPosition:CGPointMake(passButton.position.x, passButton.position.y-30.0f-skillName.frame.size.height/2.0f)];
+            [self addChild:skillName];
+        }
+        
+        
         /*
-        PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(50.0f, 50.0f)];
-        PPSpriteButton *  skillCdButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 15)];
-        [skillCdButton setLabelWithText:[NSString stringWithFormat:@"cd:%@",[[skillsArray objectAtIndex:i] objectForKey:@"skillcdrounds"]] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        skillCdButton.position = CGPointMake(passButton.position.x, passButton.position.y+15);
-        [skillCdButton setColor:[UIColor blackColor]];
-        skillCdButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
-        [skillCdButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-        [self addChild:skillCdButton];
-        */
+         PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(50.0f, 50.0f)];
+         PPSpriteButton *  skillCdButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 15)];
+         [skillCdButton setLabelWithText:[NSString stringWithFormat:@"cd:%@",[[skillsArray objectAtIndex:i] objectForKey:@"skillcdrounds"]] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+         skillCdButton.position = CGPointMake(passButton.position.x, passButton.position.y+15);
+         [skillCdButton setColor:[UIColor blackColor]];
+         skillCdButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
+         [skillCdButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+         [self addChild:skillCdButton];
+         */
     }
     
     //暂停按钮
@@ -126,10 +136,10 @@
     enemyPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
     enemyPlayerMP.position = CGPointMake(enemyPlayerHP.position.x,petPlayerMP.position.y);
     [self addChild:enemyPlayerMP];
-
+    
     // 敌方头像
     PPSpriteButton * ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:@"header_portrait"]
-                                                               andSize:CGSizeMake(32.5f, 32.5f)];
+                                                                andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
     [self addChild:ppixieEnemyBtn];
@@ -218,7 +228,7 @@
 -(void)setSideSkillButtonDisable
 {
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
-       PPSpriteButton *ppixieSkillBtn  =(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
+        PPSpriteButton *ppixieSkillBtn  =(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
         [ppixieSkillBtn setColor:[UIColor redColor]];
         ppixieSkillBtn.userInteractionEnabled = NO;
     }

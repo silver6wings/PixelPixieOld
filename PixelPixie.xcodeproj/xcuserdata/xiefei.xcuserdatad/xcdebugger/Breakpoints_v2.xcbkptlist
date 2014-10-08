@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "433765414.603612"
+            timestampString = "434477630.238101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1626"
-            endingLineNumber = "1626">
+            startingLineNumber = "1784"
+            endingLineNumber = "1784">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -66,13 +66,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "433765414.603612"
+            timestampString = "434477630.238101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1319"
-            endingLineNumber = "1319"
-            landmarkName = "-showSkillEventBegin:"
-            landmarkType = "5">
+            startingLineNumber = "1477"
+            endingLineNumber = "1477">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -82,13 +80,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "433765414.603612"
+            timestampString = "434477630.238101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1325"
-            endingLineNumber = "1325"
-            landmarkName = "-showSkillEventBegin:"
-            landmarkType = "5">
+            startingLineNumber = "1483"
+            endingLineNumber = "1483">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
