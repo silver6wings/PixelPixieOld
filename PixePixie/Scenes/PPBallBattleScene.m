@@ -87,16 +87,25 @@ CGFloat vectorLength (CGVector vector) {
         bg.position = CGPointMake(CGRectGetMidX(self.frame), 160.0f + SPACE_BOTTOM + PP_FIT_TOP_SIZE);
         [self addChild:bg];
         
-#warning hardcode 初始化 skill parameter Hack
+        
+        
         _isTrapEnable = NO;
         
-#warning hardcode 预加载 动画 frames
+        
+        SKTextureAtlas *textureAtlas = [SKTextureAtlas atlasNamed:@"forestRise.atlas"];
+        [textureAtlas preloadWithCompletionHandler:^{
+           
+        }];
+        
+        NSLog(@"textureAtlas=%d =%@",[textureAtlas.textureNames count],textureAtlas.textureNames);
+        
         _trapFrames = [[NSMutableArray alloc] init];
-        for (int i=1; i <= 40; i++) {
-            NSString * textureName = [NSString stringWithFormat:@"陷阱%04d.png", i];
-            SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
+        
+        for (int i=0; i <[textureAtlas.textureNames count]; i++) {
+            SKTexture * temp = [SKTexture textureWithImage:[UIImage imageNamed:[textureAtlas.textureNames objectAtIndex:i]]];
             [_trapFrames addObject:temp];
         }
+        
         
         // 添加状态条
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
@@ -111,12 +120,16 @@ CGFloat vectorLength (CGVector vector) {
         [self.playerSkillSide setSideSkillsBtn:pixieA];
         [self addChild:self.playerSkillSide];
         
+        
+        
         // 添加围墙
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         CGFloat tWidth = 320.0f;
         CGFloat tHeight = 320.0f;
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
+        
+        
         
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
@@ -339,19 +352,19 @@ CGFloat vectorLength (CGVector vector) {
             //我方碰到敌方属性元素球
         {
             
-            PPPhysicsBodyStatus emlementBodyStatus;
+            NSNumber * emlementBodyStatus;
             
-//            if (contact.bodyA == self.ballPlayer.physicsBody) {
-//                emlementBodyStatus = contact.bodyB.bodyStatusValue;
-//                
-//            }else
-//            {
-//                emlementBodyStatus = contact.bodyA.bodyStatusValue;
-//                
-//            }
+            if (contact.bodyA == self.ballPlayer.physicsBody) {
+                emlementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
+                
+            }else
+            {
+                emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
+                
+            }
             
-            switch (emlementBodyStatus) {
-                case PPPhysicsBodyStatusForest:
+            switch ([emlementBodyStatus intValue]) {
+                case 1:
                 {
                     
                     petAssimDiffEleNum ++;
@@ -1170,7 +1183,7 @@ CGFloat vectorLength (CGVector vector) {
                 
                 for (PPBall * tBall in self.ballsNeutral) {
                     if (tBall.ballElementType == PPElementTypePlant) {
-//                        tBall.physicsBody.bodyStatusValue = PPPhysicsBodyStatusForest;
+                        tBall.physicsBody.PPBallPhysicsBodyStatus = @1;
                         [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
                         
                     }

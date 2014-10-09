@@ -1,23 +1,28 @@
 
+#import <objc/runtime.h>
 
 @class PPPixie;
 
-@interface SKPhysicsBody (PPPhysicsBodyStatus) //为SKPhysicsBody类添加状态属性
-
-@property(nonatomic,assign)PPPhysicsBodyStatus bodyStatusValue;//方法
-
+@interface NSObject (ExtendedProperties)
+@property (nonatomic, strong, readwrite) id PPBallPhysicsBodyStatus;
 @end
 
-@implementation SKPhysicsBody (PPPhysicsBodyStatus)
-@dynamic bodyStatusValue;
-//-(PPPhysicsBodyStatus)getbodyStatusValue
-//{
-//    return _bodyStatusValue;
-//}
-//-(void)setbodyStatusValue:(PPPhysicsBodyStatus)ppbodyStatus
-//{
-//    _bodyStatusValue = ppbodyStatus;
-//}
+// Implementation
+
+static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKey";
+
+@implementation NSObject (ExtendedProperties)
+
+- (id)PPBallPhysicsBodyStatus
+{
+    return objc_getAssociatedObject(self, MyObjectMyCustomPorpertyKey);
+}
+
+- (void)setPPBallPhysicsBodyStatus:(id)myCustomProperty
+{
+    objc_setAssociatedObject(self, MyObjectMyCustomPorpertyKey, myCustomProperty, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 @end
 
 @interface PPBall : SKSpriteNode

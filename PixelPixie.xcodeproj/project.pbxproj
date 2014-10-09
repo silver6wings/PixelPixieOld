@@ -199,6 +199,7 @@
 		D4AE4CC9196EED6400FC24EF /* PPOptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CC8196EED6400FC24EF /* PPOptionsScene.m */; };
 		D4AE4CCC196EED7B00FC24EF /* PPHelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CCB196EED7B00FC24EF /* PPHelpScene.m */; };
 		D4BE5ABF19513FFD001F72DE /* PPBuff.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE5ABE19513FFD001F72DE /* PPBuff.m */; };
+		D4BF767019E6712F003CFFAB /* forestRise.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D4BF766F19E6712F003CFFAB /* forestRise.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -459,6 +460,7 @@
 		D4AE4CCB196EED7B00FC24EF /* PPHelpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHelpScene.m; sourceTree = "<group>"; };
 		D4BE5ABD19513FFD001F72DE /* PPBuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBuff.h; path = Models/PPBuff.h; sourceTree = "<group>"; };
 		D4BE5ABE19513FFD001F72DE /* PPBuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBuff.m; path = Models/PPBuff.m; sourceTree = "<group>"; };
+		D4BF766F19E6712F003CFFAB /* forestRise.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = forestRise.atlas; path = Resource/Images/forestRise.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -842,6 +844,7 @@
 		196738BC19DA5BD2002C5172 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D4BF766F19E6712F003CFFAB /* forestRise.atlas */,
 				196738BD19DA5BF6002C5172 /* ball_elements.atlas */,
 				196738BE19DA5BF6002C5172 /* ball_magic.atlas */,
 				196738BF19DA5BF6002C5172 /* ball_pixie.atlas */,
@@ -1134,6 +1137,7 @@
 				196738C719DA5BF6002C5172 /* ball_table.atlas in Resources */,
 				19145E091913F472005C6AD4 /* 陷阱0026.png in Resources */,
 				19145DFE1913F472005C6AD4 /* 陷阱0015.png in Resources */,
+				D4BF767019E6712F003CFFAB /* forestRise.atlas in Resources */,
 				1959D670191515C900865D27 /* 变身效果01007.png in Resources */,
 				190CF086191230AD00370760 /* ball_pixie_plant2.png in Resources */,
 				1959D675191515C900865D27 /* 变身效果01012.png in Resources */,
