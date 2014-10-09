@@ -64,6 +64,7 @@ CGFloat vectorLength (CGVector vector) {
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
         
+        
         enemyCombos = 0;
         petCombos = 0;
         petAssimSameEleNum = 0;
@@ -72,21 +73,23 @@ CGFloat vectorLength (CGVector vector) {
         enemyAssimSameEleNum = 0;
         currentPhysicsAttack = 0;
         
+        
         // 设置敌我属性
         PPElementType petElement = pixieA.pixieBall.ballElementType;
         PPElementType enemyElement = pixieB.pixieBall.ballElementType;
         interCoefficient = kElementInhibition[petElement][enemyElement];
         
+        
         // 设置场景物理属性
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
+        
         
         // 添加背景图片
         SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:@"wall_plant.png"];
         bg.size = CGSizeMake(320.0f, 320.0f);
         bg.position = CGPointMake(CGRectGetMidX(self.frame), 160.0f + SPACE_BOTTOM + PP_FIT_TOP_SIZE);
         [self addChild:bg];
-        
         
         
         _isTrapEnable = NO;
@@ -106,7 +109,6 @@ CGFloat vectorLength (CGVector vector) {
             [_trapFrames addObject:temp];
         }
         
-        
         // 添加状态条
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
         self.playerSkillSide.position= CGPointMake(self.size.width/2.0f, 40 + PP_FIT_TOP_SIZE);
@@ -121,14 +123,12 @@ CGFloat vectorLength (CGVector vector) {
         [self addChild:self.playerSkillSide];
         
         
-        
         // 添加围墙
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         CGFloat tWidth = 320.0f;
         CGFloat tHeight = 320.0f;
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
-        
         
         
         // 添加己方玩家球
@@ -138,6 +138,7 @@ CGFloat vectorLength (CGVector vector) {
         self.ballPlayer.physicsBody.categoryBitMask = EntityCategoryBall;
         self.ballPlayer.physicsBody.contactTestBitMask = EntityCategoryBall;
         [self addChild:self.ballPlayer];
+        
         
         // 添加连击球
         self.ballsNeutral = [[NSMutableArray alloc] init];
@@ -157,8 +158,11 @@ CGFloat vectorLength (CGVector vector) {
         
         // 开启定时器检测
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkingBallsMove) userInfo:nil repeats:YES];
+        
     }
+    
     return self;
+    
 }
 
 #pragma mark SKScene

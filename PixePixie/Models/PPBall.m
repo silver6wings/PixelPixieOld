@@ -57,13 +57,19 @@
     
     
 }
+
 // 创建玩家宠物的球
 +(PPBall *)ballWithPixie:(PPPixie *)pixie{
     
     NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
                             [ConstantData elementName:PPElementTypePlant],
                             pixie.pixieGeneration];
+//    NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
+//                            [ConstantData elementName:PPElementTypePlant],
+//                            pixie.pixieGeneration];
+
     if (imageName == nil) return nil;
+    
     SKTexture * tTexture = [SKTexture textureWithImageNamed:@"skill_fire.png"];
     
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
@@ -117,7 +123,7 @@
 +(PPBall *)ballWithCombo
 {
     
-    NSString * imageName = @"ball_pixie_plant3.png";
+    NSString * imageName = @"combo_ball.png";
     
     if (imageName == nil) return nil;
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
