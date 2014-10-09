@@ -82,4 +82,15 @@
     return ui_fighting;
 }
 
++(SKTextureAtlas *)pixie_info
+{
+    static dispatch_once_t pred_ui_fighting;
+    __strong static SKTextureAtlas * ui_fighting = nil;
+    dispatch_once(&pred_ui_fighting, ^{
+        ui_fighting = [SKTextureAtlas atlasNamed:@"pixie_info"];
+    });
+    
+    return ui_fighting;
+}
+
 @end

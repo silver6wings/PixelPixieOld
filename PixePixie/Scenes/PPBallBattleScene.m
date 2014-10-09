@@ -30,6 +30,7 @@ CGFloat vectorLength (CGVector vector) {
 @interface PPBallBattleScene () < SKPhysicsContactDelegate, UIAlertViewDelegate >
 {
     BOOL isNotSkillRun;
+    NSString *sceneTypeString;
 }
 
 @property (nonatomic, retain) PPPixie * pixiePlayer;
@@ -57,9 +58,26 @@ CGFloat vectorLength (CGVector vector) {
 
 -(id)initWithSize:(CGSize)size
       PixiePlayer:(PPPixie *)pixieA
-       PixieEnemy:(PPPixie *)pixieB{
+       PixieEnemy:(PPPixie *)pixieB andSceneType:(PPElementType)sceneType{
     
     if (self = [super initWithSize:size]) {
+        
+        switch (sceneType) {
+            case PPElementTypePlant:
+            {
+                sceneTypeString = @"plant";
+            }
+                break;
+            case PPElementTypeFire:
+            {
+                sceneTypeString = @"fire";
+
+            }
+                break;
+                
+            default:
+                break;
+        }
         
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
@@ -85,8 +103,10 @@ CGFloat vectorLength (CGVector vector) {
         self.physicsWorld.contactDelegate = self;
         
         
+        
         // 添加背景图片
-        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:@"wall_plant.png"];
+        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@_wall_back.png",sceneTypeString]];
+        
         bg.size = CGSizeMake(320.0f, 320.0f);
         bg.position = CGPointMake(CGRectGetMidX(self.frame), 160.0f + SPACE_BOTTOM + PP_FIT_TOP_SIZE);
         [self addChild:bg];
@@ -119,7 +139,7 @@ CGFloat vectorLength (CGVector vector) {
         self.playerSkillSide.pauseSelector = @selector(pauseBtnClick:);
         self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
         [self.playerSkillSide setColor:[UIColor grayColor]];
-        [self.playerSkillSide setSideSkillsBtn:pixieA];
+        [self.playerSkillSide setSideSkillsBtn:pixieA andSceneString:sceneTypeString];
         [self addChild:self.playerSkillSide];
         
         
@@ -732,7 +752,7 @@ CGFloat vectorLength (CGVector vector) {
     self.playerAndEnemySide.skillSelector = @selector(skillPlayerShowBegin:);
     self.playerAndEnemySide.pauseSelector = @selector(pauseBtnClick:);
     //    self.playerAndEnemySide.showInfoSelector = @selector(showCurrentEnemyInfo:);
-    [self.playerAndEnemySide setSideElements:self.pixiePlayer andEnemy:self.pixieEnemy];
+    [self.playerAndEnemySide setSideElements:self.pixiePlayer andEnemy:self.pixieEnemy andSceneString:sceneTypeString];
     [self addChild:self.playerAndEnemySide];
     
     

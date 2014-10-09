@@ -52,27 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "434537021.724069"
+            timestampString = "434556814.988446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1635"
-            endingLineNumber = "1635">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "434537021.724069"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-initWithSize:PixiePlayer:PixieEnemy:"
-            landmarkType = "5">
+            startingLineNumber = "1655"
+            endingLineNumber = "1655">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

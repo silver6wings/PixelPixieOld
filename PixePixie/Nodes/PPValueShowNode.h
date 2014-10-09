@@ -12,7 +12,7 @@
 -(void)setMaxValue:(CGFloat)maxV
    andCurrentValue:(CGFloat)currentV
        andShowType:(VALUESHOWTYPE)showType
-    andAnchorPoint:(CGPoint )anchorPoint;
+    andAnchorPoint:(CGPoint )anchorPoint andElementTypeString:(NSString *)typeString;
 
 -(CGFloat)valueShowChangeMaxValue:(CGFloat)maxV
                   andCurrentValue:(CGFloat)currentV;

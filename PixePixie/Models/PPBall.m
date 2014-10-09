@@ -70,8 +70,7 @@
 
     if (imageName == nil) return nil;
     
-    SKTexture * tTexture = [SKTexture textureWithImageNamed:@"skill_fire.png"];
-    
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@%d_ball.png",PPElementTypeString[pixie.pixieElement],pixie.pixieGeneration]];
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
     if (tBall){
@@ -101,7 +100,8 @@
     
     if (imageName == nil) return nil;
     //    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
-    SKTexture * tTexture = [SKTexture textureWithImageNamed:@"ball_fire3.png"];
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@%d_ball.png",PPElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration]];
+    
     
     NSLog(@"imageName=%@",imageName);
     

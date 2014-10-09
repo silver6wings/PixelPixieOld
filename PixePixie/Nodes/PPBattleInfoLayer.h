@@ -29,8 +29,8 @@
 @property(nonatomic, retain) PPPixie *currentPPPixie;
 @property(nonatomic, retain) PPPixie *currentPPPixieEnemy;
 
--(void)setSideSkillsBtn:(PPPixie *)ppixie;
--(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie;
+-(void)setSideSkillsBtn:(PPPixie *)ppixie andSceneString:(NSString *)sceneString;
+-(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie andSceneString:(NSString *)sceneString;
 
 //改变HP
 -(void)changePetHPValue:(CGFloat)HPValue;

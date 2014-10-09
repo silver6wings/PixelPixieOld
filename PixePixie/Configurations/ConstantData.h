@@ -19,6 +19,23 @@ static const float kVelocityAddition = 1.1f;        // 撞击加速系数
 // 最大元素类型个数
 static const int kElementTypeMax = 10;
 
+static  NSString *PPElementTypeString[]={
+    @"",
+    @"",
+    @"plant",
+    @"",
+    @"fire",
+    @"",
+    @"",
+    @"",
+    @"",
+    @"",
+    @"",
+    @"",
+    @"",
+    @""
+};
+
 // 元素类型定义
 typedef NS_ENUM(NSInteger, PPElementType)
 {

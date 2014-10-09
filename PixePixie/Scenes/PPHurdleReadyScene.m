@@ -4,6 +4,7 @@
 @interface PPHurdleReadyScene ()
 {
     int currentEnemyIndex;
+    PPElementType chooseSceneType;
 }
 @property (retain,nonatomic) NSArray *enemysArray;
 @property (nonatomic) SKSpriteNode * playerPixie;
@@ -18,6 +19,7 @@
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
         [self setBackTitleText:@"遭遇怪物" andPositionY:450.0f];
+        chooseSceneType = PPElementTypePlant;
 
     }
     return self;
@@ -143,17 +145,7 @@
     NSInteger petsCount = [petsInfoArray count];
     
     for (int i = 0; i < petsCount; i++) {
-//        
-//        PPSpriteButton *sprit1 = [PPCustomButton buttonWithSize:CGSizeMake(80.0f, 80.0f)
-//                                                       andTitle:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"]
-//                                                     withTarget:self
-//                                                   withSelecter:@selector(spriteChooseClick:)];
-//        
-//        
-//        sprit1.name = [NSString stringWithFormat:@"%d", PP_PETS_CHOOSE_BTN_TAG + i];
-//        sprit1.position = CGPointMake(100 * (i - 1),0.0);
-//        [spriteContent addChild:sprit1];
-//
+
         PPSpriteButton *petChooseButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80.0f, 80.0f)];
         [petChooseButton setLabelWithText:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
         petChooseButton.position = CGPointMake(100 * (i - 1),0.0);
@@ -162,6 +154,26 @@
         [spriteContent addChild:petChooseButton];
         
     }
+    
+    NSString *string[]={@"木系场景",@"火系场景"};
+    
+    for (int i = 0; i < 2; i++) {
+        
+        PPSpriteButton *sceneTypeChooseButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80.0f, 80.0f)];
+        [sceneTypeChooseButton setLabelWithText:string[i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+        sceneTypeChooseButton.position = CGPointMake(100 * (i - 1),200.0);
+        sceneTypeChooseButton.name =[NSString stringWithFormat:@"%d",i];
+        if (i==0) {
+            sceneTypeChooseButton.color = [UIColor blueColor];
+        }
+        [sceneTypeChooseButton addTarget:self selector:@selector(sceneChooseClick:) withObject:sceneTypeChooseButton forControlEvent:PPButtonControlEventTouchUpInside];
+        [spriteContent addChild:sceneTypeChooseButton];
+        
+    }
+    
+    
+    
+    
     self.petsArray = [NSArray arrayWithArray:petsInfoArray];
     
     SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
@@ -177,7 +189,42 @@
     SKAction * actionMove=[SKAction moveTo:CGPointMake(160.0, 50) duration:0.5];
     [spriteContent runAction:actionMove];
 }
+-(void)sceneChooseClick:(PPSpriteButton *)btn
+{
+    
+    PPBasicSpriteNode *contentSprite= (PPBasicSpriteNode *)[self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
+    
+    for (int i=0;i<5;i++) {
+        PPSpriteButton *btnObj=(PPSpriteButton *)[contentSprite childNodeWithName:[NSString stringWithFormat:@"%d",i]];
+        if (btnObj == btn) {
+            btnObj.color = [UIColor blueColor];
+        }else
+        {
+            btnObj.color = [UIColor orangeColor];
 
+        }
+        
+    }
+    
+    switch ([btn.name intValue]) {
+        case 0:
+        {
+            
+            chooseSceneType = PPElementTypePlant;
+        }
+            break;
+        case 1:
+        {
+            chooseSceneType = PPElementTypeFire;
+
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
 -(void)spriteChooseClick:(NSString *)spriteName
 {
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
@@ -188,10 +235,12 @@
     PPPixie * enemyPixie = [PPPixie birthEnemyPixieWithPetsInfo:[self.enemysArray objectAtIndex:currentEnemyIndex]];
     if (playerPixie == nil || enemyPixie == nil) return;
     
+    
+    
     // 创建战斗场景并显示
     PPBallBattleScene * ballScene = [[PPBallBattleScene alloc] initWithSize:CurrentDeviceRealSize
                                                                 PixiePlayer:playerPixie
-                                                                 PixieEnemy:enemyPixie];
+                                                                 PixieEnemy:enemyPixie  andSceneType:chooseSceneType];
     
     ballScene.scaleMode = SKSceneScaleModeAspectFill;
     ballScene.hurdleReady = self;

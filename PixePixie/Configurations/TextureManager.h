@@ -19,5 +19,6 @@
 +(SKTextureAtlas *)skill_screen;
 
 +(SKTextureAtlas *)ui_fighting;
++(SKTextureAtlas *)pixie_info;
 
 @end
