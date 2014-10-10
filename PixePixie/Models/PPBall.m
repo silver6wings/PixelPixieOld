@@ -16,7 +16,7 @@
 // 创建元素球
 +(PPBall *)ballWithElement:(PPElementType) elementType{
     
-    NSString * imageName = [NSString stringWithFormat:@"%@%@%@",@"ball_",[ConstantData elementName:elementType],@".png"];
+    NSString * imageName = [NSString stringWithFormat:@"%@%@%@",@"ball_", kPPElementTypeString[elementType],@".png"];
     NSLog(@"imageName=%@",imageName);
     
     if (imageName == nil) return nil;
@@ -27,7 +27,7 @@
     if (tBall){
         
         tBall.defaultTexture = tTexture;
-        tBall.name = [NSString stringWithFormat:@"ball_%@",[ConstantData elementName:elementType]];
+        tBall.name = [NSString stringWithFormat:@"ball_%@", kPPElementTypeString[elementType]];
         tBall.ballElementType = elementType;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
         
@@ -62,7 +62,7 @@
 +(PPBall *)ballWithPixie:(PPPixie *)pixie{
     
     NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
-                            [ConstantData elementName:PPElementTypePlant],
+                            kPPElementTypeString[PPElementTypePlant],
                             pixie.pixieGeneration];
 //    NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
 //                            [ConstantData elementName:PPElementTypePlant],
@@ -70,7 +70,7 @@
 
     if (imageName == nil) return nil;
     
-    SKTexture * tTexture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@%d_ball.png",PPElementTypeString[pixie.pixieElement],pixie.pixieGeneration]];
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@%d_ball.png",kPPElementTypeString[pixie.pixieElement],pixie.pixieGeneration]];
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
     if (tBall){
@@ -95,12 +95,12 @@
 {
     
     NSString * imageName = [NSString stringWithFormat:@"ball_pixie_%@%d.png",
-                            [ConstantData elementName:PPElementTypePlant],
+                            kPPElementTypeString[PPElementTypePlant],
                             pixieEnemy.pixieGeneration];
     
     if (imageName == nil) return nil;
     //    SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
-    SKTexture * tTexture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@%d_ball.png",PPElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration]];
+    SKTexture * tTexture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@%d_ball.png",kPPElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration]];
     
     
     NSLog(@"imageName=%@",imageName);

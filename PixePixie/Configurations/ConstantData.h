@@ -19,21 +19,19 @@ static const float kVelocityAddition = 1.1f;        // 撞击加速系数
 // 最大元素类型个数
 static const int kElementTypeMax = 10;
 
-static  NSString *PPElementTypeString[]={
-    @"",
-    @"",
+// 元素对应字符串
+static  NSString * kPPElementTypeString[kElementTypeMax+1] = {
+    @"none",
+    @"metal",
     @"plant",
-    @"",
+    @"water",
     @"fire",
-    @"",
-    @"",
-    @"",
-    @"",
-    @"",
-    @"",
-    @"",
-    @"",
-    @""
+    @"earth",
+    @"steel",
+    @"posion",
+    @"ice",
+    @"blaze",
+    @"stone"
 };
 
 // 元素类型定义
@@ -133,8 +131,3 @@ static const int kElementMix[kElementTypeMax + 1][kElementTypeMax + 1] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 };
 
-
-
-@interface ConstantData : NSObject
-+(NSString *)elementName:(PPElementType)elementType;
-@end

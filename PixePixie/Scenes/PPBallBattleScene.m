@@ -121,7 +121,7 @@ CGFloat vectorLength (CGVector vector) {
            
         }];
         
-        NSLog(@"textureAtlas=%d =%@",[textureAtlas.textureNames count],textureAtlas.textureNames);
+        NSLog(@"textureAtlas=%lu =%@",(unsigned long)[textureAtlas.textureNames count],textureAtlas.textureNames);
         
         _trapFrames = [[NSMutableArray alloc] init];
         

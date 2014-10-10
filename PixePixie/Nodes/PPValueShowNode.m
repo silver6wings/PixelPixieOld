@@ -21,33 +21,32 @@
     currentValue = currentV;
     
     if (showType == PP_HPTYPE) {
-        valueShowNode = [PPBasicSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_hpbar",typeString]]];
-        valueShowNode.size = CGSizeMake(100.0, 20.0f);
-        valueShowNode.position = CGPointMake(0.0f, 0.0f);
+        valueShowNode = [PPBasicSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:
+                                                                  [NSString stringWithFormat:@"%@_header_hpbar",typeString]]];
+        valueShowNode.size = CGSizeMake(100, 20);
+        valueShowNode.position = CGPointMake(0, 0);
         valueShowNode.zPosition = 1;
         [self addChild:valueShowNode];
         
         
-        SKSpriteNode *spriteHpBar = [SKSpriteNode spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@_header_hpfull.png",typeString]];
-        spriteHpBar.position = CGPointMake(46.0f, 0.0f);
-        spriteHpBar.size = CGSizeMake(92.0, 10.0f);
+        SKSpriteNode * spriteHpBar = [SKSpriteNode spriteNodeWithImageNamed:
+                                     [NSString stringWithFormat:@"%@_header_hpfull.png",typeString]];
+        spriteHpBar.position = CGPointMake(45, 0);
+        spriteHpBar.size = CGSizeMake(93, 11);
         NSLog(@"self.size.width=%f,height=%f",self.size.width,self.size.height);
         
-        SKCropNode *crop = [[SKCropNode alloc]init];
+        SKCropNode * crop = [[SKCropNode alloc]init];
         if (anchorPoint.x == 0.0f) {
-            spriteHpBar.position = CGPointMake(46.0f, 0.0f);
-            crop.position = CGPointMake(-46.0f, 0.0f);
+            spriteHpBar.position = CGPointMake(46, 0);
+            crop.position = CGPointMake(-46, 0);
         } else if (anchorPoint.x == 1.0f) {
-            spriteHpBar.position = CGPointMake(-46.0f, 0.0f);
-            crop.position = CGPointMake(46.0f, 0.0f);
+            spriteHpBar.position = CGPointMake(-46, 0);
+            crop.position = CGPointMake(46, 0);
         }
-        
-        
-        
         
         crop.zPosition = 2.0f;
         maskHpNode = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_hpfull",typeString]]];
-        maskHpNode.size = CGSizeMake(92, 10);
+        maskHpNode.size = CGSizeMake(93, 11);
         maskHpNode.anchorPoint = anchorPoint;
         crop.maskNode = maskHpNode;
         [crop addChild:spriteHpBar];
@@ -56,30 +55,30 @@
     } else {
         
         valueShowNode = [PPBasicSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpbar",typeString]]];
-        valueShowNode.size = CGSizeMake(100.0, 10.0f);
-        valueShowNode.position = CGPointMake(0.0f, 0.0f);
+        valueShowNode.size = CGSizeMake(100, 10);
+        valueShowNode.position = CGPointMake(0, 0);
         valueShowNode.zPosition = 1;
         [self addChild:valueShowNode];
         
-        SKSpriteNode * spriteHpBar = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpfull",typeString]]];
-        spriteHpBar.size = CGSizeMake(96.0, 10.0f);
+        SKSpriteNode * spriteMpBar = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpfull",typeString]]];
+        spriteMpBar.size = CGSizeMake(96, 7);
         NSLog(@"self.size.width=%f,height=%f",self.size.width,self.size.height);
     
         SKCropNode * crop = [[SKCropNode alloc]init];
         if (anchorPoint.x == 0.0f) {
-            spriteHpBar.position = CGPointMake(48.0f, 0.0f);
-            crop.position = CGPointMake(-48.0f, 0.0f);
-        } else if (anchorPoint.x==1.0f) {
-            spriteHpBar.position = CGPointMake(-48.0f, 0.0f);
-            crop.position = CGPointMake(48.0f, 0.0f);
+            spriteMpBar.position = CGPointMake(48, 0);
+            crop.position = CGPointMake(-48, 0);
+        } else if (anchorPoint.x == 1.0f) {
+            spriteMpBar.position = CGPointMake(-48, 0);
+            crop.position = CGPointMake(48, 0);
         }
         crop.zPosition = 2;
         
         maskHpNode = [SKSpriteNode  spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpfull.png",typeString]]];
-        maskHpNode.size = CGSizeMake(96, 10);
+        maskHpNode.size = CGSizeMake(96, 7);
         maskHpNode.anchorPoint = anchorPoint;
         crop.maskNode = maskHpNode;
-        [crop addChild:spriteHpBar];
+        [crop addChild:spriteMpBar];
         [valueShowNode addChild:crop];
     }
 }

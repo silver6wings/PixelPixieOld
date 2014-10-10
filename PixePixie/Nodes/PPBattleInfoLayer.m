@@ -72,7 +72,7 @@
 {
     
     
-    NSLog(@"pet type=%@ status=%d enemytype=%@ status=%d",PPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration,PPElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration);
+    NSLog(@"pet type=%@ status=%d enemytype=%@ status=%d",kPPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration,kPPElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration);
     
     
     
@@ -86,10 +86,10 @@
     [self addChild:bgSprite];
     
     
-    NSLog(@"petimagename=%@",[NSString stringWithFormat:@"%@%d_portrait",PPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]);
+    NSLog(@"petimagename=%@",[NSString stringWithFormat:@"%@%d_portrait",kPPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]);
     
     // 己方头像
-    PPSpriteButton *ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",PPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
+    PPSpriteButton *ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kPPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
                                                              andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
@@ -109,19 +109,21 @@
     [self addChild:ppixiePetBtnLabel];
     
     // 己方生命条
-    petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(100.0f, 20)];
+    petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(100.0f, 20)];
     [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP
-                 andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f) andElementTypeString:PPElementTypeString[petppixie.pixieElement]];
+                 andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)
+        andElementTypeString:kPPElementTypeString[petppixie.pixieElement]];
     petPlayerHP->target = self;
     petPlayerHP->animateEnd = @selector(animatePetHPEnd:);
     petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
-    petPlayerHP.position = CGPointMake(-52.5,20.0f);
+    petPlayerHP.position = CGPointMake(-52.5,20.0);
     [self addChild:petPlayerHP];
     
     // 己方能量条
-    petPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(100, 10)];
+    petPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(100, 10)];
     [petPlayerMP setMaxValue:petppixie.pixieMPmax andCurrentValue:petppixie.currentMP
-                 andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f) andElementTypeString:PPElementTypeString[petppixie.pixieElement]];
+                 andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(0.0f, 0.5f)
+        andElementTypeString:kPPElementTypeString[petppixie.pixieElement]];
     petPlayerMP->target = self;
     petPlayerMP->animateEnd = @selector(animatePetMPEnd:);
     petPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
@@ -129,10 +131,10 @@
     [self addChild:petPlayerMP];
     
     // 敌方生命条
-    enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor]
+    enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor]
                                                     size:CGSizeMake(petPlayerHP.size.width, petPlayerHP.size.height)];
     [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP
-                   andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f) andElementTypeString:PPElementTypeString[enemyppixie.pixieElement]];
+                   andShowType:PP_HPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f) andElementTypeString:kPPElementTypeString[enemyppixie.pixieElement]];
     enemyPlayerHP->target = self;
     enemyPlayerHP->animateEnd = @selector(animateEnemyHPEnd:);
     enemyPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
@@ -140,10 +142,10 @@
     [self addChild:enemyPlayerHP];
     
     // 敌方能量条
-    enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor whiteColor]
+    enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor]
                                                     size:CGSizeMake(petPlayerMP.size.width, petPlayerMP.size.height)];
     [enemyPlayerMP setMaxValue:enemyppixie.pixieMPmax andCurrentValue:enemyppixie.currentMP
-                   andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f) andElementTypeString:PPElementTypeString[enemyppixie.pixieElement]];
+                   andShowType:PP_MPTYPE andAnchorPoint:CGPointMake(1.0f, 0.5f) andElementTypeString:kPPElementTypeString[enemyppixie.pixieElement]];
     enemyPlayerMP->target = self;
     enemyPlayerMP->animateEnd = @selector(animateEnemyMPEnd:);
     enemyPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
@@ -151,7 +153,7 @@
     [self addChild:enemyPlayerMP];
     
     // 敌方头像
-    PPSpriteButton * ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",PPElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
+    PPSpriteButton * ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kPPElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
                                                                 andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
