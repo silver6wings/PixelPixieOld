@@ -93,7 +93,7 @@
                                                              andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
-    ppixiePetBtn.xScale = -1.0f;
+    ppixiePetBtn.xScale = 1.0f;
     [self addChild:ppixiePetBtn];
     
     
@@ -155,6 +155,7 @@
                                                                 andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
+    ppixieEnemyBtn.xScale = -1.0f;
     [self addChild:ppixieEnemyBtn];
     
     

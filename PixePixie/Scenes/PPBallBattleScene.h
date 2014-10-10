@@ -28,7 +28,8 @@
 
 -(id)initWithSize:(CGSize)size
       PixiePlayer:(PPPixie *)pixieA
-       PixieEnemy:(PPPixie *)pixieB andSceneType:(PPElementType)sceneType;
+       PixieEnemy:(PPPixie *)pixieB
+     andSceneType:(PPElementType)sceneType;
 
 -(void)setEnemyAtIndex:(int)index;
 

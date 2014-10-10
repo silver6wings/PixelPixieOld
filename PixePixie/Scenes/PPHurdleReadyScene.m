@@ -155,7 +155,7 @@
         
     }
     
-    NSString *string[]={@"木系场景",@"火系场景"};
+    NSString *string[]={@"木系场景", @"火系场景"};
     
     for (int i = 0; i < 2; i++) {
         
