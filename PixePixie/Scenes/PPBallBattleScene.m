@@ -171,6 +171,7 @@ CGFloat vectorLength (CGVector vector) {
             comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
             comboBall.name = PP_BALL_TYPE_COMBO_NAME;
             comboBall.physicsBody.contactTestBitMask = EntityCategoryBall;
+            comboBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:i];
             comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
             [self addChild:comboBall];
             [self.ballsCombos addObject:comboBall];
@@ -195,6 +196,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)willMoveFromView:(SKView *)view
 {
+    
 }
 
 // 每帧处理程序开始
@@ -365,6 +367,16 @@ CGFloat vectorLength (CGVector vector) {
             //我方碰到连击球
         {
             
+            NSLog(@"bodyStatus=%d",[contact.bodyB.PPBallPhysicsBodyStatus intValue]);
+            
+            if (contact.bodyA == self.ballPlayer.physicsBody) {
+                [[self.ballsCombos objectAtIndex:[contact.bodyB.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
+            }else
+            {
+                [[self.ballsCombos objectAtIndex:[contact.bodyA.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
+
+            }
+            
             petCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
             [self.playerAndEnemySide changePetMPValue:100];
@@ -391,7 +403,6 @@ CGFloat vectorLength (CGVector vector) {
             switch ([emlementBodyStatus intValue]) {
                 case 1:
                 {
-                    
                     petAssimDiffEleNum ++;
                     
                     [self.playerAndEnemySide changePetHPValue:-100];
@@ -465,6 +476,7 @@ CGFloat vectorLength (CGVector vector) {
     } else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
         //如果敌方人物球撞击到物体
     {
+        
         if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody)){
             
             if (currentPhysicsAttack == 1) {
@@ -482,6 +494,20 @@ CGFloat vectorLength (CGVector vector) {
             (contact.bodyB == self.ballEnemy.physicsBody && [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]))
             //敌方碰到连击球
         {
+              NSLog(@"bodyStatus=%d",[contact.bodyB.PPBallPhysicsBodyStatus intValue]);
+            
+            
+            if (contact.bodyA == self.ballEnemy.physicsBody) {
+                
+                [[self.ballsCombos objectAtIndex:[contact.bodyB.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
+                
+            }else
+            {
+                
+                [[self.ballsCombos objectAtIndex:[contact.bodyA.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
+                
+            }
+            
             enemyCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
             [self.playerAndEnemySide changeEnemyMPValue:500];

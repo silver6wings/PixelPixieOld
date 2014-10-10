@@ -33,6 +33,8 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 @property (nonatomic) PPElementType ballElementType;
 @property (nonatomic) PPPixie * pixie;
 @property (nonatomic) PPPixie * pixieEnemy;
+@property (nonatomic,retain)NSArray *comboBallTexture;
+@property (nonatomic,retain)PPBasicSpriteNode *comboBallSprite;
 
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
 +(PPBall *)ballWithPixieEnemy:(PPPixie *)pixieEnemy;
@@ -40,5 +42,7 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 +(PPBall *)ballWithCombo;
 -(void)setRoundsLabel:(int)rounds;
 -(void)setToDefaultTexture;
+-(void)startComboAnimation;
+
 
 @end

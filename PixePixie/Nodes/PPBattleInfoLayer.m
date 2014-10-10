@@ -28,7 +28,7 @@
     
     // 添加技能槽
     for (int i = 0; i < 4; i++) {
-        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar1",sceneString]]
+        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:[NSString stringWithFormat:@"%@_none",sceneString]]
                                                                 andSize:CGSizeMake(50.0f, 50.0f)];
         passButton.position = CGPointMake(65*i - 112.0f, 0.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
@@ -59,22 +59,18 @@
     }
     
     //暂停按钮
-    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_footer_play",sceneString]]
+    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_footer_pause",sceneString]]
                                                           andSize:CGSizeMake(32.5, 32.5)];
     stopBtn.position = CGPointMake(130.0f, 0.0f);
     stopBtn.name = @"stopBtn";
     [stopBtn addTarget:self selector:@selector(stopBtnClick:)
             withObject:stopBtn.name forControlEvent:PPButtonControlEventTouchUpInside];
     [self addChild:stopBtn];
+    
 }
 
 -(void)setSideElements:(PPPixie *)petppixie andEnemy:(PPPixie *)enemyppixie andSceneString:(NSString *)sceneString
 {
-    
-    
-    NSLog(@"pet type=%@ status=%d enemytype=%@ status=%d",kPPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration,kPPElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration);
-    
-    
     
     self.currentPPPixie = petppixie;
     self.currentPPPixieEnemy = enemyppixie;
@@ -85,8 +81,6 @@
     bgSprite.position = CGPointMake(0.0f,0.0f);
     [self addChild:bgSprite];
     
-    
-    NSLog(@"petimagename=%@",[NSString stringWithFormat:@"%@%d_portrait",kPPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]);
     
     // 己方头像
     PPSpriteButton *ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kPPElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
@@ -141,6 +135,7 @@
     enemyPlayerHP.position = CGPointMake(52.5,petPlayerHP.position.y);
     [self addChild:enemyPlayerHP];
     
+    
     // 敌方能量条
     enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor]
                                                     size:CGSizeMake(petPlayerMP.size.width, petPlayerMP.size.height)];
@@ -151,6 +146,7 @@
     enemyPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
     enemyPlayerMP.position = CGPointMake(enemyPlayerHP.position.x,petPlayerMP.position.y);
     [self addChild:enemyPlayerMP];
+    
     
     // 敌方头像
     PPSpriteButton * ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kPPElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]

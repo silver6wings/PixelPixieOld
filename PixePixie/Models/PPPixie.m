@@ -54,7 +54,7 @@
     tPixie.currentHP = tPixie.pixieHPmax;
     NSLog(@"currentHP=%f hpmax=%f",tPixie.currentHP,tPixie.pixieHPmax);
     
-    tPixie.currentMP = tPixie.pixieMPmax/2.0f;
+    tPixie.currentMP = 0.0f;
     
     tPixie.currentAP = 10;
     tPixie.currentDP = 1;
@@ -77,7 +77,7 @@
     tPixie.pixieMPmax = 1000*[[petsDict objectForKey:@"enemystatus"] intValue];
     tPixie.pixieName = [petsDict objectForKey:@"enemyname"];
     tPixie.currentHP = tPixie.pixieHPmax;
-    tPixie.currentMP = tPixie.pixieMPmax/2.0f;
+    tPixie.currentMP = 0.0f;
     tPixie.pixieAP = 10;
     tPixie.pixieDP = 1;
     tPixie.pixieGeneration = [[petsDict objectForKey:@"enemystatus"] intValue];

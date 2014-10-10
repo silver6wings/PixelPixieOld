@@ -9,7 +9,7 @@
 
 
 @implementation PPBall
-@synthesize sustainRounds,pixie, ballElementType, pixieEnemy,ballStatus;
+@synthesize sustainRounds,pixie, ballElementType, pixieEnemy,ballStatus,comboBallTexture,comboBallSprite;
 
 #pragma mark Factory Method
 
@@ -88,6 +88,7 @@
     
     tBall.ballType = PPBallTypePlayer;
     return tBall;
+    
 }
 
 // 创建敌人的球
@@ -108,15 +109,18 @@
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
     if (tBall){
+        
         tBall.ballElementType = pixieEnemy.pixieElement;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
         [PPBall defaultBallPhysicsBody:tBall];
-        
         tBall.pixieEnemy = pixieEnemy;
+        
     }
+    
     
     tBall.ballType = PPBallTypeEnemy;
     return tBall;
+    
 }
 
 // 创建连击球
@@ -125,10 +129,24 @@
     
     NSString * imageName = @"combo_ball.png";
     
+ 
+    
+    
     if (imageName == nil) return nil;
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
+    
+    NSMutableArray *textureArray=[[NSMutableArray alloc] init];
+    for (int i=0; i<25; i++) {
+        SKTexture *textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"combo_ball_00%d",i]];
+        [textureArray addObject:textureCombo];
+    }
+    tBall.comboBallTexture = textureArray;
+    
+    
+   
+    
     
     if (tBall){
         
@@ -149,6 +167,24 @@
 // 改为默认皮肤
 -(void)setToDefaultTexture{
     [self runAction:[SKAction setTexture:_defaultTexture]];
+}
+-(void)startComboAnimation
+{
+    if (self.comboBallSprite !=nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
+    }
+    
+    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+    [self addChild:self.comboBallSprite];
+    
+    
+    [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:0.02] completion:^{
+        [self.comboBallSprite removeFromParent];
+      }];
+    
 }
 
 // 默认的球的物理属性

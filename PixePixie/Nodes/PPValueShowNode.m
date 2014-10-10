@@ -4,8 +4,8 @@
 {
     PPBasicSpriteNode * valueShowNode;
     PPBasicLabelNode * valueShowLabel;
-    SKSpriteNode * maskHpNode;
-    SKSpriteNode * maskMpNode;
+    SKSpriteNode * maskValueNode;
+
 }
 @end
 
@@ -49,12 +49,12 @@
         }
         [crop addChild:spriteHpBar];
         
-        maskHpNode = [SKSpriteNode spriteNodeWithTexture:
+        maskValueNode = [SKSpriteNode spriteNodeWithTexture:
                       [[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_hpfull",typeString]]];
-        maskHpNode.size = CGSizeMake(92, 11);
-        maskHpNode.position = CGPointMake(0, 1);
-        maskHpNode.anchorPoint = anchorPoint;
-        crop.maskNode = maskHpNode;
+        maskValueNode.size = CGSizeMake(92, 11);
+        maskValueNode.position = CGPointMake(0, 1);
+        maskValueNode.anchorPoint = anchorPoint;
+        crop.maskNode = maskValueNode;
         
         [valueShowNode addChild:crop];
         
@@ -81,13 +81,17 @@
         }
         crop.zPosition = 2;
         
-        maskMpNode = [SKSpriteNode  spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpfull.png",typeString]]];
-        maskMpNode.size = CGSizeMake(96, 7);
-        maskMpNode.anchorPoint = anchorPoint;
-        crop.maskNode = maskMpNode;
+        
+        maskValueNode = [SKSpriteNode  spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpfull.png",typeString]]];
+        maskValueNode.size = CGSizeMake(96, 7);
+        maskValueNode.anchorPoint = anchorPoint;
+        crop.maskNode = maskValueNode;
         [crop addChild:spriteMpBar];
         [valueShowNode addChild:crop];
+        
     }
+    [self valueShowChangeMaxValue:0 andCurrentValue:0];
+    
 }
 
 
@@ -149,7 +153,7 @@
     xToValue >= 1.0f ? xToValue = 1.0f : xToValue;
     
     SKAction * actionChangeHP = [SKAction scaleXTo:xToValue duration:1];
-    [maskHpNode runAction:actionChangeHP completion:^{
+    [maskValueNode runAction:actionChangeHP completion:^{
         if (target != nil && animateEnd != nil && [target respondsToSelector:animateEnd]) {
             [target performSelectorInBackground:animateEnd withObject:[NSNumber numberWithFloat:currentValue]];
         }
