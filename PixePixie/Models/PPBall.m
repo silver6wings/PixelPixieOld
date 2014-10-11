@@ -52,7 +52,7 @@
 // 创建元素球
 +(PPBall *)ballWithElement:(PPElementType) elementType{
     
-    NSString * imageName = [NSString stringWithFormat:@"%@%@%@",@"ball_", kPPElementTypeString[elementType],@".png"];
+    NSString * imageName = [NSString stringWithFormat:@"%@_ball.png", kPPElementTypeString[elementType]];
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     

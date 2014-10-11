@@ -5,7 +5,6 @@
     PPBasicSpriteNode * valueShowNode;
     PPBasicLabelNode * valueShowLabel;
     SKSpriteNode * maskValueNode;
-
 }
 @end
 
@@ -16,7 +15,6 @@
        andShowType:(VALUESHOWTYPE)showType
     andAnchorPoint:(CGPoint )anchorPoint andElementTypeString:(NSString *)typeString
 {
-    
     maxValue = maxV;
     originalMax = maxValue;
     currentValue = currentV;
@@ -59,7 +57,6 @@
         [valueShowNode addChild:crop];
         
     } else {
-        
         // 能量条
         valueShowNode = [PPBasicSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpbar",typeString]]];
         valueShowNode.size = CGSizeMake(100, 10);
@@ -79,16 +76,15 @@
             spriteMpBar.position = CGPointMake(-48, 0);
             crop.position = CGPointMake(48, 0);
         }
-        crop.zPosition = 2;
-        
+        crop.zPosition = 2.0f;
         
         maskValueNode = [SKSpriteNode  spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpfull.png",typeString]]];
         maskValueNode.size = CGSizeMake(96, 7);
         maskValueNode.anchorPoint = anchorPoint;
         crop.maskNode = maskValueNode;
         [crop addChild:spriteMpBar];
-        [valueShowNode addChild:crop];
         
+        [valueShowNode addChild:crop];
     }
     [self valueShowChangeMaxValue:0 andCurrentValue:0];
     

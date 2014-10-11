@@ -7,17 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		190CF0751912277400370760 /* ball_earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF0701912277400370760 /* ball_earth.png */; };
-		190CF0761912277400370760 /* ball_fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF0711912277400370760 /* ball_fire.png */; };
-		190CF0771912277400370760 /* ball_metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF0721912277400370760 /* ball_metal.png */; };
-		190CF0781912277400370760 /* ball_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF0731912277400370760 /* ball_plant.png */; };
-		190CF0791912277400370760 /* ball_water.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF0741912277400370760 /* ball_water.png */; };
 		190CF0801912309D00370760 /* pixie_plant2_battle0.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF07C1912309D00370760 /* pixie_plant2_battle0.png */; };
 		190CF0811912309D00370760 /* pixie_plant2_battle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF07D1912309D00370760 /* pixie_plant2_battle1.png */; };
 		190CF0821912309D00370760 /* pixie_plant3_battle0.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF07E1912309D00370760 /* pixie_plant3_battle0.png */; };
 		190CF0831912309D00370760 /* pixie_plant3_battle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF07F1912309D00370760 /* pixie_plant3_battle1.png */; };
-		190CF086191230AD00370760 /* ball_pixie_plant2.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF084191230AD00370760 /* ball_pixie_plant2.png */; };
-		190CF087191230AD00370760 /* ball_pixie_plant3.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF085191230AD00370760 /* ball_pixie_plant3.png */; };
 		1917DFF718C8551300E54F02 /* PPElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917DFF618C8551300E54F02 /* PPElement.m */; };
 		192F743519691241006C6586 /* PPFightingMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F742A19691241006C6586 /* PPFightingMainView.m */; };
 		192F743619691241006C6586 /* PPKnapsackMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F742C19691241006C6586 /* PPKnapsackMainView.m */; };
@@ -90,6 +83,7 @@
 		1959D694191515C900865D27 /* 变身效果01043.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D668191515C900865D27 /* 变身效果01043.png */; };
 		1959D69619152E9700865D27 /* skill_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D69519152E9700865D27 /* skill_plant.png */; };
 		196738BB19DA5A2D002C5172 /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 196738BA19DA5A2D002C5172 /* TextureManager.m */; };
+		1992B3EC19E91F1900BFE51E /* animationCount.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1992B3EB19E91F1900BFE51E /* animationCount.plist */; };
 		19CBA8C31907C77600A249AB /* PPBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C21907C77600A249AB /* PPBall.m */; };
 		19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C51907C7D000A249AB /* PPPlayer.m */; };
 		19F28E2D1969181B0006ABFF /* PPCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F28E2C1969181B0006ABFF /* PPCustomButton.m */; };
@@ -155,17 +149,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		190CF0701912277400370760 /* ball_earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_earth.png; path = Resource/Image/balls_element/ball_earth.png; sourceTree = "<group>"; };
-		190CF0711912277400370760 /* ball_fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_fire.png; path = Resource/Image/balls_element/ball_fire.png; sourceTree = "<group>"; };
-		190CF0721912277400370760 /* ball_metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_metal.png; path = Resource/Image/balls_element/ball_metal.png; sourceTree = "<group>"; };
-		190CF0731912277400370760 /* ball_plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_plant.png; path = Resource/Image/balls_element/ball_plant.png; sourceTree = "<group>"; };
-		190CF0741912277400370760 /* ball_water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_water.png; path = Resource/Image/balls_element/ball_water.png; sourceTree = "<group>"; };
 		190CF07C1912309D00370760 /* pixie_plant2_battle0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pixie_plant2_battle0.png; path = Resource/Image/pixie/pixie_plant2_battle0.png; sourceTree = "<group>"; };
 		190CF07D1912309D00370760 /* pixie_plant2_battle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pixie_plant2_battle1.png; path = Resource/Image/pixie/pixie_plant2_battle1.png; sourceTree = "<group>"; };
 		190CF07E1912309D00370760 /* pixie_plant3_battle0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pixie_plant3_battle0.png; path = Resource/Image/pixie/pixie_plant3_battle0.png; sourceTree = "<group>"; };
 		190CF07F1912309D00370760 /* pixie_plant3_battle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pixie_plant3_battle1.png; path = Resource/Image/pixie/pixie_plant3_battle1.png; sourceTree = "<group>"; };
-		190CF084191230AD00370760 /* ball_pixie_plant2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_pixie_plant2.png; path = Resource/Image/balls_pixie/ball_pixie_plant2.png; sourceTree = "<group>"; };
-		190CF085191230AD00370760 /* ball_pixie_plant3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball_pixie_plant3.png; path = Resource/Image/balls_pixie/ball_pixie_plant3.png; sourceTree = "<group>"; };
 		1917DFF518C8551300E54F02 /* PPElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPElement.h; path = Models/PPElement.h; sourceTree = "<group>"; };
 		1917DFF618C8551300E54F02 /* PPElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPElement.m; path = Models/PPElement.m; sourceTree = "<group>"; };
 		192F742919691241006C6586 /* PPFightingMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPFightingMainView.h; path = PixePixie/Views/PPFightingMainView.h; sourceTree = SOURCE_ROOT; };
@@ -272,6 +259,7 @@
 		1959D69519152E9700865D27 /* skill_plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skill_plant.png; path = Resource/Image/test/skill_plant.png; sourceTree = "<group>"; };
 		196738B919DA5A2D002C5172 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		196738BA19DA5A2D002C5172 /* TextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
+		1992B3EB19E91F1900BFE51E /* animationCount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = animationCount.plist; sourceTree = "<group>"; };
 		19CBA8C11907C77600A249AB /* PPBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBall.h; path = Models/PPBall.h; sourceTree = "<group>"; };
 		19CBA8C21907C77600A249AB /* PPBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBall.m; path = Models/PPBall.m; sourceTree = "<group>"; };
 		19CBA8C41907C7D000A249AB /* PPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPlayer.h; path = Models/PPPlayer.h; sourceTree = "<group>"; };
@@ -387,32 +375,9 @@
 			children = (
 				D4AE4CB1196EDA5100FC24EF /* MainView */,
 				19CBA8CA1907C98000A249AB /* test */,
-				190CF06F1912273600370760 /* balls_element */,
-				190CF07A1912305900370760 /* ball_pixie */,
 				190CF07B1912306C00370760 /* pixie */,
 			);
 			name = Image;
-			sourceTree = "<group>";
-		};
-		190CF06F1912273600370760 /* balls_element */ = {
-			isa = PBXGroup;
-			children = (
-				190CF0701912277400370760 /* ball_earth.png */,
-				190CF0711912277400370760 /* ball_fire.png */,
-				190CF0721912277400370760 /* ball_metal.png */,
-				190CF0731912277400370760 /* ball_plant.png */,
-				190CF0741912277400370760 /* ball_water.png */,
-			);
-			name = balls_element;
-			sourceTree = "<group>";
-		};
-		190CF07A1912305900370760 /* ball_pixie */ = {
-			isa = PBXGroup;
-			children = (
-				190CF084191230AD00370760 /* ball_pixie_plant2.png */,
-				190CF085191230AD00370760 /* ball_pixie_plant3.png */,
-			);
-			name = ball_pixie;
 			sourceTree = "<group>";
 		};
 		190CF07B1912306C00370760 /* pixie */ = {
@@ -667,6 +632,7 @@
 		196738BC19DA5BD2002C5172 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1992B3EB19E91F1900BFE51E /* animationCount.plist */,
 				D4BF768A19E69B20003CFFAB /* ui_world */,
 				D4BF767119E6928D003CFFAB /* ball_elements.atlas */,
 				D4BF767219E6928D003CFFAB /* ball_magic.atlas */,
@@ -983,12 +949,10 @@
 				190CF0821912309D00370760 /* pixie_plant3_battle0.png in Resources */,
 				1959D69619152E9700865D27 /* skill_plant.png in Resources */,
 				1959D670191515C900865D27 /* 变身效果01007.png in Resources */,
-				190CF086191230AD00370760 /* ball_pixie_plant2.png in Resources */,
 				1959D675191515C900865D27 /* 变身效果01012.png in Resources */,
 				D4BF768819E6928D003CFFAB /* ui_talent.atlas in Resources */,
 				D44935C41948B52E00F3B5B9 /* UserPetInfo.plist in Resources */,
 				1959D691191515C900865D27 /* 变身效果01040.png in Resources */,
-				190CF0761912277400370760 /* ball_fire.png in Resources */,
 				D457012D194F430700C2EFCE /* EnemyInfo.plist in Resources */,
 				19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */,
 				1959D68E191515C900865D27 /* 变身效果01037.png in Resources */,
@@ -1014,7 +978,6 @@
 				1959D68F191515C900865D27 /* 变身效果01038.png in Resources */,
 				1959D68C191515C900865D27 /* 变身效果01035.png in Resources */,
 				1959D693191515C900865D27 /* 变身效果01042.png in Resources */,
-				190CF0791912277400370760 /* ball_water.png in Resources */,
 				1959D680191515C900865D27 /* 变身效果01023.png in Resources */,
 				1959D673191515C900865D27 /* 变身效果01010.png in Resources */,
 				D4BF769619E69B20003CFFAB /* fire_map.png in Resources */,
@@ -1027,10 +990,8 @@
 				1959D672191515C900865D27 /* 变身效果01009.png in Resources */,
 				1959D689191515C900865D27 /* 变身效果01032.png in Resources */,
 				1959D686191515C900865D27 /* 变身效果01029.png in Resources */,
-				190CF0771912277400370760 /* ball_metal.png in Resources */,
+				1992B3EC19E91F1900BFE51E /* animationCount.plist in Resources */,
 				D4AE4CBC196EDA5100FC24EF /* petchooseback.png in Resources */,
-				190CF0781912277400370760 /* ball_plant.png in Resources */,
-				190CF0751912277400370760 /* ball_earth.png in Resources */,
 				1959D669191515C900865D27 /* 变身效果01000.png in Resources */,
 				D4AE4CBE196EDA5100FC24EF /* soil_selected.png in Resources */,
 				D4BF767F19E6928D003CFFAB /* ball_magic.atlas in Resources */,
@@ -1063,7 +1024,6 @@
 				1959D684191515C900865D27 /* 变身效果01027.png in Resources */,
 				D4BF768319E6928D003CFFAB /* fire_burn.png in Resources */,
 				D4BF768619E6928D003CFFAB /* skill_screen.atlas in Resources */,
-				190CF087191230AD00370760 /* ball_pixie_plant3.png in Resources */,
 				D4BF769819E69B20003CFFAB /* plant_map.png in Resources */,
 				1959D677191515C900865D27 /* 变身效果01014.png in Resources */,
 				1959D66F191515C900865D27 /* 变身效果01006.png in Resources */,

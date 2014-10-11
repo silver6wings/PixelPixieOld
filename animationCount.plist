@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>--- ball_buff ---</key>
+	<string></string>
+	<key>plant_root_ball</key>
+	<integer>22</integer>
+	<key>--- ball_element ---</key>
+	<string></string>
+	<key>fire_aura</key>
+	<integer>15</integer>
+	<key>fire_hit</key>
+	<integer>11</integer>
+	<key>fire_run</key>
+	<integer>15</integer>
+	<key>fire_step</key>
+	<integer>15</integer>
+	<key>plant_aura</key>
+	<integer>15</integer>
+	<key>plant_hit</key>
+	<integer>15</integer>
+	<key>plant_run</key>
+	<integer>15</integer>
+	<key>plant_step</key>
+	<integer>15</integer>
+	<key>--- ball_magic ---</key>
+	<string></string>
+	<key>magic_ball</key>
+	<integer>10</integer>
+	<key>--- ball_table ---</key>
+	<string></string>
+	<key>combo_ball</key>
+	<integer>25</integer>
+	<key>element_birth</key>
+	<integer>24</integer>
+	<key>pixie_heal</key>
+	<integer>15</integer>
+	<key>--- skill_screen ---</key>
+	<string></string>
+	<key>fire_blade_cast</key>
+	<integer>19</integer>
+</dict>
+</plist>
