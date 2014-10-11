@@ -2,9 +2,9 @@
 
 static const int kWallThick = 1;                    // 墙的厚度
 static const int kBallNumberMax = 15;               // 球的最大数量
-static const int kBallRadius = 15;                  // 球的半径
-static const int kBallSize = kBallRadius * 2;       // 球的直径
-static const int kBallSustainRounds = 5;            // 球的持续回合
+static const int kBallSize = 30;                    // 默认球的直径
+static const int kBallSizePixie = 40;               // 宠物球的直径
+static const int kBallSustainRounds = 5;            // 元素球持续回合最大值
 
 static const float kBallLinearDamping = 0.6f;       // 线阻尼系数
 static const float kBallAngularDamping = 0.8f;      // 角阻尼系数
@@ -15,6 +15,8 @@ static const float kAutoAttackMax = 50.0f;          // 自动攻击最大力量�
 static const float kBounceReduce = 0.5f;            // 弹出去的按距离比例衰减系数
 static const float kStopThreshold = 5.0f;           // 速度停止阈值
 static const float kVelocityAddition = 1.1f;        // 撞击加速系数
+
+static const float kFrameInterval = 0.04f;          // FPS默认25
 
 // 最大元素类型个数
 static const int kElementTypeMax = 10;
@@ -65,7 +67,6 @@ typedef NS_ENUM(NSInteger, PPPhysicsBodyStatus)
     PPPhysicsBodyStatusForest
     
 };
-
 
 // 血条显示
 typedef enum {

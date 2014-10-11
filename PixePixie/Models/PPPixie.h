@@ -18,7 +18,7 @@
 @property (nonatomic, assign) CGFloat pixieDP;          // 基础防御力 DefendPoint;
 @property (nonatomic, assign) CGFloat pixieDEX;         // 基础闪避值 Dexterity
 @property (nonatomic, assign) CGFloat pixieDEF;         // 基础格挡值 Defense
-@property (nonatomic,assign) CGFloat pixiePrecedence;   // 基础发招优先速度
+@property (nonatomic, assign) CGFloat pixiePrecedence;  // 基础发招优先速度
 
 @property (nonatomic, assign) CGFloat currentHP;        // 当前生命值
 @property (nonatomic, assign) CGFloat currentMP;        // 当前魔法值
@@ -26,13 +26,13 @@
 @property (nonatomic, assign) CGFloat currentDP;        // 当前防御力
 @property (nonatomic, assign) CGFloat currentDEX;       // 当前闪避值
 @property (nonatomic, assign) CGFloat currentDEF;       // 当前格挡值
-@property (nonatomic,assign) CGFloat currentPrecedence;   // 当前发招优先速度
+@property (nonatomic, assign) CGFloat currentPrecedence;// 当前发招优先速度
 
 @property (nonatomic) PPElementType pixieElement;       // 宠物的元素属性
 @property (nonatomic, assign) int pixieGeneration;      // 第几个进化态
-@property (nonatomic, retain) NSArray *pixieSkills;     // 技能
-@property (nonatomic, retain) NSArray *pixieBuffs;      // 附加状态
-@property (nonatomic) PPBall *pixieBall;                // 小球
+@property (nonatomic, retain) NSArray * pixieSkills;    // 技能
+@property (nonatomic, retain) NSArray * pixieBuffs;     // 附加状态
+@property (nonatomic) PPBall * pixieBall;               // 小球
 
 -(CGFloat)countPhysicalDamageTo:(PPPixie *)targetPixie;
 -(CGFloat)countMagicalDamageTo:(PPPixie *)targetPixie

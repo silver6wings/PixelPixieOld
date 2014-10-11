@@ -27,22 +27,23 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 
 @interface PPBall : SKSpriteNode
 
-@property (nonatomic,assign)int ballStatus;
+@property (nonatomic,assign) int ballStatus;
 @property (nonatomic) int sustainRounds;
 @property (nonatomic) PPBallType ballType;
 @property (nonatomic) PPElementType ballElementType;
 @property (nonatomic) PPPixie * pixie;
 @property (nonatomic) PPPixie * pixieEnemy;
-@property (nonatomic,retain)NSArray *comboBallTexture;
-@property (nonatomic,retain)PPBasicSpriteNode *comboBallSprite;
+
+@property (nonatomic,retain) NSArray * comboBallTexture;
+@property (nonatomic,retain) PPBasicSpriteNode * comboBallSprite;
 
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
 +(PPBall *)ballWithPixieEnemy:(PPPixie *)pixieEnemy;
 +(PPBall *)ballWithElement:(PPElementType)element;
 +(PPBall *)ballWithCombo;
+
 -(void)setRoundsLabel:(int)rounds;
 -(void)setToDefaultTexture;
 -(void)startComboAnimation;
-
 
 @end
