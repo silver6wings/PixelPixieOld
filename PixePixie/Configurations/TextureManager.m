@@ -43,6 +43,7 @@
     return tAtlas;
 }
 
+
 +(SKTextureAtlas *) skill_icon
 {
     __strong static SKTextureAtlas * tAtlas = nil;

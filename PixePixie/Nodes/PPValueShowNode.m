@@ -79,14 +79,18 @@
         crop.zPosition = 2.0f;
         
         maskValueNode = [SKSpriteNode  spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpfull.png",typeString]]];
-        maskValueNode.size = CGSizeMake(96, 7);
+        maskValueNode.size = CGSizeMake(0, 0);
         maskValueNode.anchorPoint = anchorPoint;
         crop.maskNode = maskValueNode;
         [crop addChild:spriteMpBar];
-        
         [valueShowNode addChild:crop];
+        
+        SKAction * actionChangeHP = [SKAction scaleXTo:0.0f duration:1];
+        [maskValueNode runAction:actionChangeHP completion:^{
+            maskValueNode.size = CGSizeMake(96, 7);
+
+        }];
     }
-    [self valueShowChangeMaxValue:0 andCurrentValue:0];
     
 }
 

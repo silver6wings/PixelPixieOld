@@ -119,9 +119,72 @@
     [self runAction:[SKAction setTexture:_defaultTexture]];
 }
 
+#pragma mark animation  //球体各种动画
+
+-(void)startElementBallHitAnimation
+{
+    
+    // 创建连击动画
+    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 10; i++) {
+        SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kPPElementTypeString[self.pixie.pixieElement],i]];
+        [textureArray addObject:textureCombo];
+    }
+    self.comboBallTexture = textureArray;
+    
+    
+    if (self.comboBallSprite != nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
+    }
+    
+    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+    [self addChild:self.comboBallSprite];
+    
+    [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:kFrameInterval]
+                         completion:^{
+                             [self.comboBallSprite removeFromParent];
+    }];
+    
+}
+
+-(void)startPixieHealAnimation
+{
+    // 创建连击动画
+    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 15; i++) {
+        SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"pixie_heal_00%02d",i]];
+        [textureArray addObject:textureCombo];
+    }
+    self.comboBallTexture = textureArray;
+    
+    
+    if (self.comboBallSprite != nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
+    }
+    
+    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+    [self addChild:self.comboBallSprite];
+    
+    [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:kFrameInterval]
+                         completion:^{
+                             [self.comboBallSprite removeFromParent];
+                         }];
+    
+    
+    
+    
+}
+
 // 连击球动画
 -(void)startComboAnimation
 {
+    
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
         self.comboBallSprite = nil;
@@ -136,6 +199,7 @@
                          completion:^{
         [self.comboBallSprite removeFromParent];
       }];
+    
 }
 
 // 默认的球的物理属性

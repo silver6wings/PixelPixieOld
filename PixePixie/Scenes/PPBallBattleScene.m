@@ -123,12 +123,7 @@ CGFloat vectorLength (CGVector vector) {
         
         NSLog(@"textureAtlas=%lu =%@",(unsigned long)[textureAtlas.textureNames count],textureAtlas.textureNames);
         
-        _trapFrames = [[NSMutableArray alloc] init];
-        
-        for (int i=0; i <[textureAtlas.textureNames count]; i++) {
-            SKTexture * temp = [SKTexture textureWithImage:[UIImage imageNamed:[textureAtlas.textureNames objectAtIndex:i]]];
-            [_trapFrames addObject:temp];
-        }
+       
         
         // 添加状态条
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
@@ -355,7 +350,6 @@ CGFloat vectorLength (CGVector vector) {
                 
             }else if(currentPhysicsAttack == 2)
             {
-                
                 self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
                                                                    self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
             }
@@ -379,7 +373,7 @@ CGFloat vectorLength (CGVector vector) {
             
             petCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
-            [self.playerAndEnemySide changePetMPValue:100];
+            [self.playerAndEnemySide changePetMPValue:200];
             
             return;
             
@@ -454,7 +448,7 @@ CGFloat vectorLength (CGVector vector) {
             petAssimSameEleNum ++;
             [self.playerAndEnemySide changePetHPValue:100];
             [self addHPValueChangeLabel:100 position:self.ballPlayer.position];
-            
+            [self.ballPlayer startPixieHealAnimation];
             //确定需要remove的元素球
             if (contact.bodyA == self.ballPlayer.physicsBody)
             {
@@ -882,6 +876,7 @@ CGFloat vectorLength (CGVector vector) {
             [self addChild:tBall];
             
             [self.ballsNeutral addObject:tBall];
+            
         }else
         {
             if (lastBallSustainRounds!=0) {
@@ -899,6 +894,7 @@ CGFloat vectorLength (CGVector vector) {
                 [self addChild:tBall];
                 
                 [self.ballsNeutral addObject:tBall];
+                
             }
         }
     }
@@ -1232,10 +1228,18 @@ CGFloat vectorLength (CGVector vector) {
             
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
                 
+                NSMutableArray *animanArryay = [[NSMutableArray alloc] init];
+                
+                for (int i=0; i <10; i++) {
+                    SKTexture * temp = [[TextureManager ball_magic] textureNamed:[NSString stringWithFormat:@"magic_ball_00%02d",i]];
+                    [animanArryay addObject:temp];
+                }
+                
+                
                 for (PPBall * tBall in self.ballsNeutral) {
                     if (tBall.ballElementType == PPElementTypePlant) {
                         tBall.physicsBody.PPBallPhysicsBodyStatus = @1;
-                        [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
+                        [tBall runAction:[SKAction animateWithTextures:animanArryay timePerFrame:0.05f]];
                         
                     }
                 }

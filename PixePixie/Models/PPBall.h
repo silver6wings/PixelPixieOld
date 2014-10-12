@@ -45,5 +45,6 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 -(void)setRoundsLabel:(int)rounds;
 -(void)setToDefaultTexture;
 -(void)startComboAnimation;
-
+-(void)startPixieHealAnimation;
+-(void)startElementBallHitAnimation;
 @end
