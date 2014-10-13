@@ -10,6 +10,8 @@
 
 @interface TextureManager : NSObject
 
++(SKAction *)getAnimation:(NSString *)name;
+
 +(SKTextureAtlas *)ball_elements;
 +(SKTextureAtlas *)ball_magic;
 +(SKTextureAtlas *)ball_pixie;
