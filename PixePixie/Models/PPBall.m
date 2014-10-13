@@ -124,10 +124,12 @@
 -(void)startElementBallHitAnimation
 {
     
-    // 创建连击动画
+    // 创建元素撞击动画
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
-        SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kPPElementTypeString[self.pixie.pixieElement],i]];
+        SKTexture * textureCombo = [[TextureManager ball_elements] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kPPElementTypeString[self.ballElementType],i]];
+        NSLog(@"textureName=%@",[NSString stringWithFormat:@"%@_hit_00%02d",kPPElementTypeString[self.ballElementType],i]);
+
         [textureArray addObject:textureCombo];
     }
     self.comboBallTexture = textureArray;
@@ -201,6 +203,66 @@
       }];
     
 }
+
+-(void)startMagicballAnimation
+{
+    // 创建变陷阱动画
+    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 10; i++) {
+        SKTexture * textureCombo = [[TextureManager ball_magic] textureNamed:[NSString stringWithFormat:@"magic_ball_00%02d",i]];
+        [textureArray addObject:textureCombo];
+    }
+    self.comboBallTexture = textureArray;
+    
+    
+    if (self.comboBallSprite != nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
+    }
+    
+    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+    [self addChild:self.comboBallSprite];
+    
+    [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:kFrameInterval]
+                         completion:^{
+                             [self.comboBallSprite removeFromParent];
+    }];
+    
+
+}
+-(void)startPlantrootAnimation
+{
+    
+    // 创建被缠绕动画
+    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 22; i++) {
+        SKTexture * textureCombo = [[TextureManager ball_buffer] textureNamed:[NSString stringWithFormat:@"plant_root_ball_00%02d",i]];
+        [textureArray addObject:textureCombo];
+    }
+    self.comboBallTexture = textureArray;
+    
+    
+    if (self.comboBallSprite != nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
+    }
+    
+    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+    [self addChild:self.comboBallSprite];
+    
+    [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:kFrameInterval]
+                         completion:^{
+                             [self.comboBallSprite removeFromParent];
+                         }];
+    
+
+    
+}
+
 
 // 默认的球的物理属性
 +(void)defaultBallPhysicsBody:(PPBall *)ball{

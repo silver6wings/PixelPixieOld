@@ -42,9 +42,14 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 +(PPBall *)ballWithElement:(PPElementType)element;
 +(PPBall *)ballWithCombo;
 
+
 -(void)setRoundsLabel:(int)rounds;
 -(void)setToDefaultTexture;
 -(void)startComboAnimation;
 -(void)startPixieHealAnimation;
 -(void)startElementBallHitAnimation;
+-(void)startMagicballAnimation;
+-(void)startPlantrootAnimation;
+
+
 @end

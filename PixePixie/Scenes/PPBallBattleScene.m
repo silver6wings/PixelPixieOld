@@ -361,8 +361,6 @@ CGFloat vectorLength (CGVector vector) {
             //我方碰到连击球
         {
             
-            NSLog(@"bodyStatus=%d",[contact.bodyB.PPBallPhysicsBodyStatus intValue]);
-            
             if (contact.bodyA == self.ballPlayer.physicsBody) {
                 [[self.ballsCombos objectAtIndex:[contact.bodyB.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
             }else
@@ -383,59 +381,79 @@ CGFloat vectorLength (CGVector vector) {
             //我方碰到敌方属性元素球
         {
             
+            
             NSNumber * emlementBodyStatus;
             
             if (contact.bodyA == self.ballPlayer.physicsBody) {
                 emlementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
                 
+                if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+                    
+                     NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
+                    
+                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    return;
+                }
+
             }else
             {
+                
+                  NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
+                
                 emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
+               
+                if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+                      [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    return;
+                }
                 
             }
             
-            switch ([emlementBodyStatus intValue]) {
-                case 1:
-                {
-                    petAssimDiffEleNum ++;
-                    
-                    [self.playerAndEnemySide changePetHPValue:-100];
-                    [self addHPValueChangeLabel:-100 position:self.ballPlayer.position];
-                    
-                    //确定需要remove的元素球
-                    if (contact.bodyA == self.ballPlayer.physicsBody)
-                    {
-                        sholdToRemoveBody = contact.bodyB;
-                    }else{
-                        sholdToRemoveBody = contact.bodyA;
-                    }
-                    
-                    
-                }
-                    break;
-                    
-                default:
-                {
-                    
-                    
-                    petAssimDiffEleNum ++;
-                    
-                    [self.playerAndEnemySide changePetHPValue:-100];
-                    [self addHPValueChangeLabel:-100 position:self.ballPlayer.position];
-                    
-                    //确定需要remove的元素球
-                    if (contact.bodyA == self.ballPlayer.physicsBody)
-                    {
-                        sholdToRemoveBody = contact.bodyB;
-                    }else{
-                        sholdToRemoveBody = contact.bodyA;
-                    }
-                    
-                    
-                }
-                    break;
-            }
+           
             
+            
+            
+//            switch ([emlementBodyStatus intValue]) {
+//                case 1:
+//                {
+//                    petAssimDiffEleNum ++;
+//                    
+//                    [self.playerAndEnemySide changePetHPValue:-100];
+//                    [self addHPValueChangeLabel:-100 position:self.ballPlayer.position];
+//                    
+//                    //确定需要remove的元素球
+//                    if (contact.bodyA == self.ballPlayer.physicsBody)
+//                    {
+//                        sholdToRemoveBody = contact.bodyB;
+//                    }else{
+//                        sholdToRemoveBody = contact.bodyA;
+//                    }
+//                    
+//                    
+//                }
+//                    break;
+//                    
+//                default:
+//                {
+//                    
+//                    petAssimDiffEleNum ++;
+//                    
+//                    [self.playerAndEnemySide changePetHPValue:-100];
+//                    [self addHPValueChangeLabel:-100 position:self.ballPlayer.position];
+//                    
+//                    //确定需要remove的元素球
+//                    if (contact.bodyA == self.ballPlayer.physicsBody)
+//                    {
+//                        sholdToRemoveBody = contact.bodyB;
+//                    }else{
+//                        sholdToRemoveBody = contact.bodyA;
+//                    }
+//                    
+//                    
+//                }
+//                    break;
+//            }
+//            
             
             
         } else if ((contact.bodyA == self.ballPlayer.physicsBody &&
@@ -444,6 +462,32 @@ CGFloat vectorLength (CGVector vector) {
                     [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
             //我方碰到我方属性元素球
         {
+            
+            
+            NSNumber * emlementBodyStatus;
+            
+            if (contact.bodyA == self.ballPlayer.physicsBody) {
+                emlementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
+                
+                if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    return;
+                }
+                
+            }else
+            {
+                
+                emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
+                
+                if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    return;
+                }
+                
+            }
+            
+            NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
+            
             
             petAssimSameEleNum ++;
             [self.playerAndEnemySide changePetHPValue:100];
@@ -458,6 +502,8 @@ CGFloat vectorLength (CGVector vector) {
                 sholdToRemoveBody = contact.bodyA;
             }
             
+     
+
         }
         
         //判断当前我方是否满血
@@ -514,9 +560,40 @@ CGFloat vectorLength (CGVector vector) {
             //敌方碰到敌方属性元素球
         {
             
+            
+            
+            NSNumber * emlementBodyStatus;
+            
+            if (contact.bodyA == self.ballEnemy.physicsBody) {
+                emlementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
+                
+                if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+                    
+                    NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
+                    
+                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    return;
+                }
+                
+            }else
+            {
+                
+                NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
+                
+                emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
+                
+                if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    return;
+                }
+                
+            }
+            
+            
+            
             enemyAssimSameEleNum++;
-            [self.playerAndEnemySide changeEnemyHPValue:500];
-            [self addHPValueChangeLabel:500 position:self.ballEnemy.position];
+            [self.playerAndEnemySide changeEnemyHPValue:100];
+            [self addHPValueChangeLabel:100 position:self.ballEnemy.position];
             
             if (contact.bodyA == self.ballEnemy.physicsBody)
             {
@@ -536,19 +613,86 @@ CGFloat vectorLength (CGVector vector) {
         {
             
             //敌方碰到我方属性元素球
-            enemyAssimDiffEleNum++;
-            [self.playerAndEnemySide changeEnemyHPValue:-500];
-            [self addHPValueChangeLabel:-500 position:self.ballEnemy.position];
+
             
-            if (contact.bodyA == self.ballEnemy.physicsBody)
-            {
-                sholdToRemoveBody = contact.bodyB;
+            NSNumber * emlementBodyStatus;
+            
+            if (contact.bodyA == self.ballEnemy.physicsBody) {
+                emlementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
+                
+                if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+                    
+                    NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
+                    
+                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    return;
+                }
                 
             }else
             {
-                sholdToRemoveBody = contact.bodyA;
+                
+                
+                emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
+                NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
+
+                if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    return;
+                }
+                
             }
             
+            
+            switch ([emlementBodyStatus intValue]) {
+                case 1:
+                {
+                    //森林瞬起
+                    enemyAssimDiffEleNum++;
+                    
+                    [self.ballEnemy startPlantrootAnimation];
+                    self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+                
+//                    [self.playerAndEnemySide changeEnemyHPValue:-100];
+//                    [self addHPValueChangeLabel:-100 position:self.ballEnemy.position];
+//                    
+//                    if (contact.bodyA == self.ballEnemy.physicsBody)
+//                    {
+//                        sholdToRemoveBody = contact.bodyB;
+//                        
+//                    }else
+//                    {
+//                        sholdToRemoveBody = contact.bodyA;
+//                    }
+                    
+                    
+                }
+                    break;
+                    
+                default:
+                {
+                    
+                    enemyAssimDiffEleNum++;
+                    [self.playerAndEnemySide changeEnemyHPValue:-100];
+                    [self addHPValueChangeLabel:-100 position:self.ballEnemy.position];
+                    
+                    if (contact.bodyA == self.ballEnemy.physicsBody)
+                    {
+                        sholdToRemoveBody = contact.bodyB;
+                        
+                    }else
+                    {
+                        sholdToRemoveBody = contact.bodyA;
+                    }
+                    
+                    
+                }
+                    break;
+            }
+            
+
+            
+            
+         
         }
         
         NSLog(@"currentHP=%f max=%f",self.pixiePlayer.currentHP,self.pixiePlayer.pixieHPmax);
@@ -564,6 +708,8 @@ CGFloat vectorLength (CGVector vector) {
     
     
 }
+
+
 - (void)didEndContact:(SKPhysicsContact *)contact
 {
     
@@ -912,7 +1058,21 @@ CGFloat vectorLength (CGVector vector) {
             [tBall removeFromParent];
             [self.ballsNeutral removeObject:tBall];
         }
+        
     }
+}
+
+-(void)setPhysicsTagValue
+{
+    
+    for (int i = 0; i < [self.ballsNeutral count]; i++) {
+        
+        PPBall * tBall = [self.ballsNeutral objectAtIndex:i];
+        
+        tBall.physicsBody.PPBallPhysicsBodyStatus=[NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+i];
+        
+    }
+    
 }
 
 //-(void)removeBallsForRoundsEnd
@@ -1011,6 +1171,7 @@ CGFloat vectorLength (CGVector vector) {
     }];
     [self changeBallsRoundsEnd];
     [self creatCombosTotal];
+    [self setPhysicsTagValue];
 }
 
 -(void)enemyAttackDecision
@@ -1228,19 +1389,19 @@ CGFloat vectorLength (CGVector vector) {
             
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
                 
-                NSMutableArray *animanArryay = [[NSMutableArray alloc] init];
-                
-                for (int i=0; i <10; i++) {
-                    SKTexture * temp = [[TextureManager ball_magic] textureNamed:[NSString stringWithFormat:@"magic_ball_00%02d",i]];
-                    [animanArryay addObject:temp];
-                }
+//                NSMutableArray *animanArryay = [[NSMutableArray alloc] init];
+//                
+//                for (int i=0; i <10; i++) {
+//                    SKTexture * temp = [[TextureManager ball_magic] textureNamed:[NSString stringWithFormat:@"magic_ball_00%02d",i]];
+//                    [animanArryay addObject:temp];
+//                }
                 
                 
                 for (PPBall * tBall in self.ballsNeutral) {
                     if (tBall.ballElementType == PPElementTypePlant) {
                         tBall.physicsBody.PPBallPhysicsBodyStatus = @1;
-                        [tBall runAction:[SKAction animateWithTextures:animanArryay timePerFrame:0.05f]];
-                        
+//                        [tBall runAction:[SKAction animateWithTextures:animanArryay timePerFrame:0.05f]];
+                        [tBall startMagicballAnimation];
                     }
                 }
             }

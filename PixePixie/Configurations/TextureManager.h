@@ -16,6 +16,7 @@
 +(SKTextureAtlas *)ball_magic;
 +(SKTextureAtlas *)ball_pixie;
 +(SKTextureAtlas *)ball_table;
++(SKTextureAtlas *)ball_buffer;
 
 +(SKTextureAtlas *)skill_icon;
 +(SKTextureAtlas *)skill_screen;

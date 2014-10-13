@@ -38,7 +38,15 @@
     });
     return tAtlas;
 }
-
++(SKTextureAtlas *)ball_buffer
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"ball_buff"];
+    });
+    return tAtlas;
+}
 +(SKTextureAtlas *)ball_pixie
 {
     __strong static SKTextureAtlas * tAtlas = nil;
