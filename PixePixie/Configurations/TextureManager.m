@@ -1,7 +1,6 @@
 
 #import "TextureManager.h"
 
-
 @implementation TextureManager
 
 +(SKAction *)getAnimation:(NSString *)name

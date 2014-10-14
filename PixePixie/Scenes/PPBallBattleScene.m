@@ -26,9 +26,9 @@ CGFloat vectorLength (CGVector vector) {
     return sqrt( vector.dx * vector.dx + vector.dy * vector.dy );
 };
 
-
 @interface PPBallBattleScene () < SKPhysicsContactDelegate, UIAlertViewDelegate >
 {
+    long frameFlag;
     BOOL isNotSkillRun;
     NSString *sceneTypeString;
 }
@@ -42,7 +42,7 @@ CGFloat vectorLength (CGVector vector) {
 @property (nonatomic) PPBall * ballShadow;
 @property (nonatomic) PPBall * ballEnemy;
 
-@property (nonatomic, retain) NSMutableArray * ballsNeutral;
+@property (nonatomic, retain) NSMutableArray * ballsElement;
 @property (nonatomic, retain) NSMutableArray * ballsCombos;
 @property (nonatomic, retain) NSMutableArray * trapFrames;
 @property (nonatomic, retain) PPBattleInfoLayer * playerSkillSide;
@@ -63,67 +63,39 @@ CGFloat vectorLength (CGVector vector) {
     
     if (self = [super initWithSize:size]) {
         
-        switch (sceneType) {
-            case PPElementTypePlant:
-            {
-                sceneTypeString = @"plant";
-            }
-                break;
-            case PPElementTypeFire:
-            {
-                sceneTypeString = @"fire";
-
-            }
-                break;
-                
-            default:
-                break;
-        }
+        _isTrapEnable = NO;
         
+        // 帧数间隔计数
+        frameFlag = 0;
+        
+        // 处理参数
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
+        sceneTypeString = kPPElementTypeString[sceneType];
         
-        
-        enemyCombos = 0;
+        // 初始化宠物基础数据
         petCombos = 0;
         petAssimSameEleNum = 0;
         petAssimDiffEleNum = 0;
+        enemyCombos = 0;
         enemyAssimDiffEleNum = 0;
         enemyAssimSameEleNum = 0;
         currentPhysicsAttack = 0;
         
-        
-        // 设置敌我属性
+        // 设置敌我元素属性
         PPElementType petElement = pixieA.pixieBall.ballElementType;
         PPElementType enemyElement = pixieB.pixieBall.ballElementType;
         interCoefficient = kElementInhibition[petElement][enemyElement];
-        
         
         // 设置场景物理属性
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
         
-        
-        
         // 添加背景图片
         SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@_wall_back.png",sceneTypeString]];
-        
         bg.size = CGSizeMake(320.0f, 320.0f);
         bg.position = CGPointMake(CGRectGetMidX(self.frame), 160.0f + SPACE_BOTTOM + PP_FIT_TOP_SIZE);
         [self addChild:bg];
-        
-        
-        _isTrapEnable = NO;
-        
-        
-        SKTextureAtlas *textureAtlas = [SKTextureAtlas atlasNamed:@"forestRise.atlas"];
-        [textureAtlas preloadWithCompletionHandler:^{
-           
-        }];
-        
-        NSLog(@"textureAtlas=%lu =%@",(unsigned long)[textureAtlas.textureNames count],textureAtlas.textureNames);
-        
-       
         
         // 添加状态条
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
@@ -138,14 +110,12 @@ CGFloat vectorLength (CGVector vector) {
         [self.playerSkillSide setSideSkillsBtn:pixieA andSceneString:sceneTypeString];
         [self addChild:self.playerSkillSide];
         
-        
         // 添加围墙
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         CGFloat tWidth = 320.0f;
         CGFloat tHeight = 320.0f;
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, tHeight + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
         [self addWalls:CGSizeMake(tWidth, kWallThick) atPosition:CGPointMake(tWidth / 2, 0 + SPACE_BOTTOM + PP_FIT_TOP_SIZE)];
-        
         
         // 添加己方玩家球
         self.ballPlayer = pixieA.pixieBall;
@@ -155,13 +125,11 @@ CGFloat vectorLength (CGVector vector) {
         self.ballPlayer.physicsBody.contactTestBitMask = EntityCategoryBall;
         [self addChild:self.ballPlayer];
         
-        
         // 添加连击球
-        self.ballsNeutral = [[NSMutableArray alloc] init];
+        self.ballsElement = [[NSMutableArray alloc] init];
         self.ballsCombos = [[NSMutableArray alloc] init];
         
         for (int i = 0; i < 5; i++) {
-            
             PPBall * comboBall = [PPBall ballWithCombo];
             comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
             comboBall.name = PP_BALL_TYPE_COMBO_NAME;
@@ -170,16 +138,9 @@ CGFloat vectorLength (CGVector vector) {
             comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
             [self addChild:comboBall];
             [self.ballsCombos addObject:comboBall];
-            
         }
-        
-        // 开启定时器检测
-        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkingBallsMove) userInfo:nil repeats:YES];
-        
     }
-    
     return self;
-    
 }
 
 #pragma mark SKScene
@@ -190,63 +151,19 @@ CGFloat vectorLength (CGVector vector) {
 }
 
 -(void)willMoveFromView:(SKView *)view
-{
-    
-}
+{}
 
 // 每帧处理程序开始
 -(void)update:(NSTimeInterval)currentTime
 {
+    frameFlag++;
+    frameFlag %= 60;
 }
 
 -(void)didSimulatePhysics
 {
-    
-    //    if (vectorLength(self.ballPlayer.physicsBody.velocity) < kStopThreshold ) {
-    //        self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-    //        self.ballPlayer.physicsBody.resting = YES;
-    //    }
-    //
-    //    if (vectorLength(self.ballEnemy.physicsBody.velocity) < kStopThreshold) {
-    //        self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-    //        self.ballEnemy.physicsBody.resting = YES;
-    //    }
-    //
-    //    for (PPBall * tBall in self.ballsNeutral) {
-    //        if (vectorLength(tBall.physicsBody.velocity) < kStopThreshold) {
-    //            tBall.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-    //            tBall.physicsBody.resting = YES;
-    //        }
-    //    }
-    
-    //    // 如果球都停止了
-    //    if ([self isAllStopRolling]) {
-    //
-    //        NSLog(@"Doing Attack and Defend");
-    //        _isBallRolling = NO;
-    //
-    //        // 刷新技能
-    //        _isTrapEnable = NO;
-    //        for (PPBall * tBall in self.ballsNeutral) {
-    //            [tBall setToDefaultTexture];
-    //        }
-    //
-    //        if(currentPhysicsAttack == 1)
-    //        {
-    //            //        CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-    //            //        [self.playerAndEnemySide changeEnemyHPValue:-damageCount];
-    //            //
-    //            //        NSLog(@"currentHP=%f",self.playerAndEnemySide.currentPPPixieEnemy.currentHP);
-    //            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
-    //        }else
-    //        {
-    //            //            CGFloat damageCount = [_pixiePlayer countPhysicalDamageTo:_pixieEnemy];
-    //            //            [self.playerAndEnemySide changePetHPValue:-damageCount];
-    //            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
-    //        }
-    //    }
+    if (frameFlag == 30) [self checkingBallsMove];
 }
-
 
 #pragma mark UIResponder
 
@@ -278,7 +195,7 @@ CGFloat vectorLength (CGVector vector) {
     if ([[touchedNode name] isEqualToString:@"bt_skill"])
     {
         _isTrapEnable = YES;
-        for (PPBall * tBall in self.ballsNeutral) {
+        for (PPBall * tBall in self.ballsElement) {
             if ([tBall.name isEqualToString:@"ball_plant"]) {
                 [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
             }
@@ -391,7 +308,7 @@ CGFloat vectorLength (CGVector vector) {
                     
                      NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
                     
-                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    [[self.ballsElement objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
                     return;
                 }
 
@@ -403,7 +320,7 @@ CGFloat vectorLength (CGVector vector) {
                 emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
                
                 if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
-                      [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                      [[self.ballsElement objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
                     return;
                 }
                 
@@ -470,7 +387,7 @@ CGFloat vectorLength (CGVector vector) {
                 emlementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
                 
                 if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
-                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    [[self.ballsElement objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
                     return;
                 }
                 
@@ -480,7 +397,7 @@ CGFloat vectorLength (CGVector vector) {
                 emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
                 
                 if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
-                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    [[self.ballsElement objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
                     return;
                 }
                 
@@ -510,7 +427,7 @@ CGFloat vectorLength (CGVector vector) {
         if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
         {
             [sholdToRemoveBody.node removeFromParent];
-            [self.ballsNeutral removeObject:sholdToRemoveBody.node];
+            [self.ballsElement removeObject:sholdToRemoveBody.node];
         }
         
     } else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
@@ -571,7 +488,7 @@ CGFloat vectorLength (CGVector vector) {
                     
                     NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
                     
-                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    [[self.ballsElement objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
                     return;
                 }
                 
@@ -583,7 +500,7 @@ CGFloat vectorLength (CGVector vector) {
                 emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
                 
                 if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
-                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    [[self.ballsElement objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
                     return;
                 }
                 
@@ -624,7 +541,7 @@ CGFloat vectorLength (CGVector vector) {
                     
                     NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
                     
-                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    [[self.ballsElement objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
                     return;
                 }
                 
@@ -636,7 +553,7 @@ CGFloat vectorLength (CGVector vector) {
                 NSLog(@"element bodyStatus=%d",[emlementBodyStatus intValue]);
 
                 if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
-                    [[self.ballsNeutral objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
+                    [[self.ballsElement objectAtIndex:[emlementBodyStatus intValue]-PP_ELEMENT_NAME_TAG] startElementBallHitAnimation];
                     return;
                 }
                 
@@ -701,7 +618,7 @@ CGFloat vectorLength (CGVector vector) {
             //当前己方不满血
         {
             [sholdToRemoveBody.node removeFromParent];
-            [self.ballsNeutral removeObject:sholdToRemoveBody.node];
+            [self.ballsElement removeObject:sholdToRemoveBody.node];
         }
         
     } else return;
@@ -779,7 +696,7 @@ CGFloat vectorLength (CGVector vector) {
         self.ballEnemy.physicsBody.resting = YES;
     }
     
-    for (PPBall * tBall in self.ballsNeutral) {
+    for (PPBall * tBall in self.ballsElement) {
         if (vectorLength(tBall.physicsBody.velocity) > kStopThreshold) {
             return NO;
         } else {
@@ -812,7 +729,7 @@ CGFloat vectorLength (CGVector vector) {
         
         // 刷新技能
         _isTrapEnable = NO;
-        for (PPBall * tBall in self.ballsNeutral) [tBall setToDefaultTexture];
+        for (PPBall * tBall in self.ballsElement) [tBall setToDefaultTexture];
         
         if(currentPhysicsAttack == 1)
         {
@@ -989,7 +906,7 @@ CGFloat vectorLength (CGVector vector) {
         
         
         [self addChild:tBall];
-        [self.ballsNeutral addObject:tBall];
+        [self.ballsElement addObject:tBall];
         return;
         
     }
@@ -1021,7 +938,7 @@ CGFloat vectorLength (CGVector vector) {
             tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
             [self addChild:tBall];
             
-            [self.ballsNeutral addObject:tBall];
+            [self.ballsElement addObject:tBall];
             
         }else
         {
@@ -1039,7 +956,7 @@ CGFloat vectorLength (CGVector vector) {
                 [tBall setRoundsLabel:tBall.sustainRounds];
                 [self addChild:tBall];
                 
-                [self.ballsNeutral addObject:tBall];
+                [self.ballsElement addObject:tBall];
                 
             }
         }
@@ -1048,15 +965,15 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)changeBallsRoundsEnd
 {
-    for (int i = 0; i < [self.ballsNeutral count]; i++) {
+    for (int i = 0; i < [self.ballsElement count]; i++) {
         
-        PPBall * tBall = [self.ballsNeutral objectAtIndex:i];
+        PPBall * tBall = [self.ballsElement objectAtIndex:i];
         tBall.sustainRounds--;
         [tBall setRoundsLabel:tBall.sustainRounds];
         
         if (tBall.sustainRounds <= 0) {
             [tBall removeFromParent];
-            [self.ballsNeutral removeObject:tBall];
+            [self.ballsElement removeObject:tBall];
         }
         
     }
@@ -1065,9 +982,9 @@ CGFloat vectorLength (CGVector vector) {
 -(void)setPhysicsTagValue
 {
     
-    for (int i = 0; i < [self.ballsNeutral count]; i++) {
+    for (int i = 0; i < [self.ballsElement count]; i++) {
         
-        PPBall * tBall = [self.ballsNeutral objectAtIndex:i];
+        PPBall * tBall = [self.ballsElement objectAtIndex:i];
         
         tBall.physicsBody.PPBallPhysicsBodyStatus=[NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+i];
         
@@ -1077,11 +994,11 @@ CGFloat vectorLength (CGVector vector) {
 
 //-(void)removeBallsForRoundsEnd
 //{
-//    for (int i = 0; i < [self.ballsNeutral count]; i++) {
-//        PPBall * tBall = [self.ballsNeutral objectAtIndex:i];
+//    for (int i = 0; i < [self.ballsElement count]; i++) {
+//        PPBall * tBall = [self.ballsElement objectAtIndex:i];
 //        if (tBall.sustainRounds <= 0) {
 //            [tBall removeFromParent];
-//            [self.ballsNeutral removeObject:tBall];
+//            [self.ballsElement removeObject:tBall];
 //        }
 //    }
 //}
@@ -1397,7 +1314,7 @@ CGFloat vectorLength (CGVector vector) {
 //                }
                 
                 
-                for (PPBall * tBall in self.ballsNeutral) {
+                for (PPBall * tBall in self.ballsElement) {
                     if (tBall.ballElementType == PPElementTypePlant) {
                         tBall.physicsBody.PPBallPhysicsBodyStatus = @1;
 //                        [tBall runAction:[SKAction animateWithTextures:animanArryay timePerFrame:0.05f]];
@@ -1408,7 +1325,7 @@ CGFloat vectorLength (CGVector vector) {
             
             
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"木系掌控"]) {
-                for (PPBall * tBall in self.ballsNeutral) {
+                for (PPBall * tBall in self.ballsElement) {
                     if ([tBall.name isEqualToString:@"ball_plant"]) {
                         
                         //                    [tBall runAction:[SKAction moveTo:CGPointMake(tBall.position.x-10, tBall.position.y-20) duration:2]];

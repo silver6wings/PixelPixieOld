@@ -27,17 +27,17 @@ static NSString *monsterBtnTitle[]={
         switch (0) {
             case 0:
             {
-                boxTexture = [SKTexture textureWithImageNamed:@"ball_pixie_plant2.png"];
+                boxTexture = [SKTexture textureWithImageNamed:@"skill_plant.png"];
             }
                 break;
             case 1:
             {
-                boxTexture = [SKTexture textureWithImageNamed:@"ball_pixie_plant3.png"];
+                boxTexture = [SKTexture textureWithImageNamed:@"skill_plant.png"];
             }
                 break;
             case 2:
             {
-                boxTexture = [SKTexture textureWithImageNamed:@"ball_pixie_plant2.png"];
+                boxTexture = [SKTexture textureWithImageNamed:@"skill_plant.png"];
                 
             }
                 break;

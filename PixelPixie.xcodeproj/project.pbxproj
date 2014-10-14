@@ -654,7 +654,6 @@
 			isa = PBXGroup;
 			children = (
 				1959D63C191515C900865D27 /* transform */,
-				1959D69519152E9700865D27 /* skill_plant.png */,
 			);
 			name = test;
 			sourceTree = "<group>";
@@ -723,6 +722,7 @@
 			isa = PBXGroup;
 			children = (
 				D4877A3F196C314E009509E5 /* Images.xcassets */,
+				1959D69519152E9700865D27 /* skill_plant.png */,
 				196738BC19DA5BD2002C5172 /* Images */,
 				D4916A15193F62CF00662F88 /* JsonData */,
 				190BF48D18C6C85C006B0AE6 /* Image */,

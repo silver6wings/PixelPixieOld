@@ -229,9 +229,9 @@
                          completion:^{
                              [self.comboBallSprite removeFromParent];
     }];
-    
-
 }
+
+
 -(void)startPlantrootAnimation
 {
     
