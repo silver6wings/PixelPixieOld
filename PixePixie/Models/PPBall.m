@@ -119,11 +119,10 @@
     [self runAction:[SKAction setTexture:_defaultTexture]];
 }
 
-#pragma mark animation  //球体各种动画
+#pragma mark Animation  球体各种动画
 
 -(void)startElementBallHitAnimation
 {
-    
     // 创建元素撞击动画
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
@@ -152,9 +151,10 @@
     
 }
 
+
+// 创建连击动画
 -(void)startPixieHealAnimation
 {
-    // 创建连击动画
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 15; i++) {
         SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"pixie_heal_00%02d",i]];
@@ -177,10 +177,6 @@
                          completion:^{
                              [self.comboBallSprite removeFromParent];
                          }];
-    
-    
-    
-    
 }
 
 // 连击球动画
@@ -204,9 +200,10 @@
     
 }
 
+
+// 创建变陷阱动画
 -(void)startMagicballAnimation
 {
-    // 创建变陷阱动画
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
         SKTexture * textureCombo = [[TextureManager ball_magic] textureNamed:[NSString stringWithFormat:@"magic_ball_00%02d",i]];
@@ -231,11 +228,9 @@
     }];
 }
 
-
+// 创建被缠绕动画
 -(void)startPlantrootAnimation
 {
-    
-    // 创建被缠绕动画
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 22; i++) {
         SKTexture * textureCombo = [[TextureManager ball_buffer] textureNamed:[NSString stringWithFormat:@"plant_root_ball_00%02d",i]];
