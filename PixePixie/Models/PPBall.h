@@ -26,7 +26,11 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 @end
 
 @interface PPBall : SKSpriteNode
-
+{
+    @public
+    id target;
+    SEL animationEndSel;
+}
 @property (nonatomic,assign) int ballStatus;
 @property (nonatomic) int sustainRounds;
 @property (nonatomic) PPBallType ballType;
@@ -47,7 +51,9 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 -(void)setToDefaultTexture;
 -(void)startComboAnimation;
 -(void)startPixieHealAnimation;
--(void)startElementBallHitAnimation;
+-(void)startPixieAccelerateAnimation:(CGVector)velocity;
+-(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed;
+-(void)startElementBirthAnimation;
 -(void)startMagicballAnimation;
 -(void)startPlantrootAnimation;
 

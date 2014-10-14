@@ -112,7 +112,7 @@
 
 #pragma mark Animation  球体各种动画
 
--(void)startElementBallHitAnimation
+-(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed
 {
     // 创建元素撞击动画
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
@@ -137,10 +137,47 @@
     
     [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:kFrameInterval]
                          completion:^{
-                             [self.comboBallSprite removeFromParent];
+                             
+                             if (isNeed) {
+                                 [self.comboBallSprite removeFromParent];
+                                 [self removeFromParent];
+                                 [ballArray removeObject:self];
+                             }else
+                             {
+                                 [self.comboBallSprite removeFromParent];
+
+                             }
+                            
+//                             if (target!=nil&&animationEndSel!=nil&&[target respondsToSelector:animationEndSel]) {
+//                                 [self performSelectorOnMainThread:animationEndSel withObject:self waitUntilDone:YES];
+//                             }
     }];
 }
+-(void)startPixieAccelerateAnimation:(CGVector)velocity
+{
+    
+    NSLog(@"velocity.x=%f y=%f",velocity.dx,velocity.dy);
+   double rotaion = atan(velocity.dx/velocity.dy);
+    NSLog(@"velocity.x=%f y=%f rotaion=%f",velocity.dx,velocity.dy,rotaion);
 
+    if (self.comboBallSprite != nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
+    }
+    
+    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite.size = CGSizeMake(100.0f, 100.0f);
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+    [self addChild:self.comboBallSprite];
+    self.comboBallSprite.zRotation = rotaion;
+    [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_run",kPPElementTypeString[self.ballElementType]]]
+                         completion:^{
+                             [self.comboBallSprite removeFromParent];
+    }];
+    
+    
+    
+}
 // 治疗动画
 -(void)startPixieHealAnimation
 {
@@ -229,6 +266,27 @@
                          completion:^{
                              [self.comboBallSprite removeFromParent];
                          }];
+}
+-(void)startElementBirthAnimation
+{
+    
+    
+    if (self.comboBallSprite != nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
+    }
+    
+    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+    [self addChild:self.comboBallSprite];
+    
+    [self.comboBallSprite runAction:[[TextureManager ball_table] getAnimation:@"element_birth"]
+                         completion:^{
+                             [self.comboBallSprite removeFromParent];
+    }];
+    
+    
 }
 
 
