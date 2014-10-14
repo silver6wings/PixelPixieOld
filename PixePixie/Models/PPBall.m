@@ -5,7 +5,6 @@
 @property (nonatomic) SKTexture * defaultTexture;
 @end
 
-
 @implementation PPBall
 @synthesize sustainRounds,pixie, ballElementType, pixieEnemy, ballStatus, comboBallTexture, comboBallSprite;
 
@@ -67,7 +66,7 @@
         tBall.pixie = nil;
     }
     
-    PPBasicLabelNode *roundsLabel = [[PPBasicLabelNode alloc] init];
+    PPBasicLabelNode * roundsLabel = [[PPBasicLabelNode alloc] init];
     roundsLabel.name = @"roundsLabel";
     roundsLabel.fontColor = [UIColor redColor];
     roundsLabel.position = CGPointMake(10, 10);
@@ -84,15 +83,7 @@
     NSString * imageName = @"combo_ball.png";
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
-    
-    // 创建连击动画
-    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 25; i++) {
-        SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"combo_ball_00%d",i]];
-        [textureArray addObject:textureCombo];
-    }
-    tBall.comboBallTexture = textureArray;
-    
+     
     if (tBall)
     {
         tBall.ballType = PPBallTypeCombo;
@@ -109,7 +100,7 @@
 // 设置元素球的持续回合
 -(void)setRoundsLabel:(int)rounds
 {
-    PPBasicLabelNode * roundsLabel =(PPBasicLabelNode *)[self childNodeWithName:@"roundsLabel"];
+    PPBasicLabelNode * roundsLabel = (PPBasicLabelNode *)[self childNodeWithName:@"roundsLabel"];
     [roundsLabel setText:[NSString stringWithFormat:@"%d",rounds]];
 }
 
@@ -148,11 +139,9 @@
                          completion:^{
                              [self.comboBallSprite removeFromParent];
     }];
-    
 }
 
-
-// 创建连击动画
+// 治疗动画
 -(void)startPixieHealAnimation
 {
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
@@ -179,7 +168,7 @@
                          }];
 }
 
-// 连击球动画
+// 连击能量动画
 -(void)startComboAnimation
 {
     
@@ -193,25 +182,14 @@
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     
-    [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:kFrameInterval]
-                         completion:^{
-        [self.comboBallSprite removeFromParent];
-      }];
-    
+    [self.comboBallSprite runAction:[[TextureManager ball_table] getAnimation:@"combo_ball"]
+                         completion:^{[self.comboBallSprite removeFromParent];}];
 }
 
 
-// 创建变陷阱动画
+// 变身陷阱动画
 -(void)startMagicballAnimation
 {
-    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 10; i++) {
-        SKTexture * textureCombo = [[TextureManager ball_magic] textureNamed:[NSString stringWithFormat:@"magic_ball_00%02d",i]];
-        [textureArray addObject:textureCombo];
-    }
-    self.comboBallTexture = textureArray;
-    
-    
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
         self.comboBallSprite = nil;
@@ -222,10 +200,8 @@
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     
-    [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:kFrameInterval]
-                         completion:^{
-                             [self.comboBallSprite removeFromParent];
-    }];
+    [self.comboBallSprite runAction:[[TextureManager ball_magic] getAnimation:@"magic_ball"]
+                         completion:^{[self.comboBallSprite removeFromParent];}];
 }
 
 // 创建被缠绕动画
@@ -253,9 +229,6 @@
                          completion:^{
                              [self.comboBallSprite removeFromParent];
                          }];
-    
-
-    
 }
 
 

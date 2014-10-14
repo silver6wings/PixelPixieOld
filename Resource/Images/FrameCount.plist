@@ -21,7 +21,7 @@
 	<key>plant_step</key>
 	<integer>15</integer>
 	<key>magic_ball</key>
-	<integer>10</integer>
+	<integer>20</integer>
 	<key>combo_ball</key>
 	<integer>25</integer>
 	<key>element_birth</key>
