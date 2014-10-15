@@ -1,5 +1,6 @@
 
 #import "PPMenuThemeScene.h"
+static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
 
 @implementation PPMenuThemeScene
 
@@ -10,28 +11,30 @@
         self.backgroundColor = [UIColor blueColor];
         [self setBackTitleText:@"世界地图" andPositionY:450.0f];
         
+
+        
         for (int i = 0; i < 3; i++) {
             
-            PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80, 80)];
+//            PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80, 80)];
+            PPSpriteButton *  passButton = [PPSpriteButton buttonWithImageNamed:[NSString stringWithFormat:@"map_icon_%@",stringMenuTheme[i]]];
+            [passButton setLabelWithText:stringMenuTheme[i]
+                                 andFont:[UIFont systemFontOfSize:15] withColor:nil];
             switch (i) {
                 case 0:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"场景 %d",i+1]
-                                         andFont:[UIFont systemFontOfSize:15] withColor:nil];
+                    
                     passButton.position = CGPointMake(80.0f,80.0f);
                 }
                     break;
                 case 1:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"场景 %d",i+1]
-                                         andFont:[UIFont systemFontOfSize:15] withColor:nil];
+
                     passButton.position = CGPointMake(120.0f,380.0f);
                 }
                     break;
                 case 2:
                 {
-                    [passButton setLabelWithText:[NSString stringWithFormat:@"场景 %d",i+1]
-                                         andFont:[UIFont systemFontOfSize:15] withColor:nil];
+
                     passButton.position = CGPointMake(220.0f,180.0f);
                 }
                     break;
@@ -66,9 +69,14 @@
         if (passCount > index) {
             passDictInfo=[NSDictionary dictionaryWithDictionary:[passArray objectAtIndex:index]];
         }
+    
+    //火属性
+    if (index==0) {
+        index = 4;
+    }
         
         PPMenuDungeonScene * menuDungeonScene = [[PPMenuDungeonScene alloc] initWithSize:self.view.bounds.size
-                                                                              andElement:PPElementTypeFire];
+                                                                              andElement:index];
     
         menuDungeonScene.passDictInfo = passDictInfo;
         menuDungeonScene->previousScene = self;

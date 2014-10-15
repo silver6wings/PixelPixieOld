@@ -5,10 +5,10 @@
 @end
 
 @implementation PPMenuDungeonScene
-@synthesize passDictInfo;
 
 -(id)initWithSize:(CGSize)size andElement:(PPElementType)elementType{
     if (self = [super initWithSize:size]) {
+        currentElementType = elementType;
         [self setBackTitleText:@"小场景" andPositionY:450.0f];
         [self setBackgroundColor:[UIColor purpleColor]];
         NSString * mapName = [NSString stringWithFormat:@"map_scene_%@.png", kElementTypeString[elementType]];
@@ -101,6 +101,7 @@
 
     PPHurdleReadyScene * battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
     battleScene.allEnemys = dictEnemy;
+    battleScene->chooseSceneType = currentElementType;
     battleScene->previousScene = self;
     [battleScene setEnemysArray];
     [battleScene setCurrentHurdle:0];

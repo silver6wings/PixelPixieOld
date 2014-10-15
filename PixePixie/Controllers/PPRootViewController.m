@@ -173,6 +173,7 @@ NSString * menu[] = {
     [userInfoBar setBackgroundColor:[UIColor purpleColor]];
     [skViewMain addSubview:userInfoBar];
     
+    
     for (int i = 0; i < PP_MENU_COUNT; i++) {
         UIButton  *userInfoBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         switch (i) {

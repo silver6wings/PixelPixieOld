@@ -4,7 +4,6 @@
 @interface PPHurdleReadyScene ()
 {
     int currentEnemyIndex;
-    PPElementType chooseSceneType;
 }
 @property (retain,nonatomic) NSArray *enemysArray;
 @property (nonatomic) SKSpriteNode * playerPixie;
@@ -68,45 +67,86 @@
     
     currentEnemyIndex = currentIndex;
     
-    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor purpleColor] size:CGSizeMake(CurrentDeviceRealSize.width, 300)];
+    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(CurrentDeviceRealSize.width, 480.0f)];
     hurdleReadyContentNode.name = PP_HURDLE_READY_CONTENT_NAME;
     [hurdleReadyContentNode setPosition:CGPointMake(160.0f, 240)];
     [self addChild:hurdleReadyContentNode];
     
-    // 添加己方精灵
-    _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
-    _playerPixie.position = CGPointMake(30.0f,100);
-    _playerPixie.size = CGSizeMake(_playerPixie.frame.size.width/3, _playerPixie.frame.size.height/3);
-    [hurdleReadyContentNode addChild:_playerPixie];
+//    PPBasicSpriteNode *forwardSprite=[[PPBasicSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_forward_0000.png",kElementTypeString[chooseSceneType]]]]];
+    PPBasicSpriteNode *forwardSprite=[[PPBasicSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@_forward_0000.png",kElementTypeString[chooseSceneType]]]];
+    forwardSprite.position = CGPointMake(0.0f, 0.0f);
+    [hurdleReadyContentNode addChild:forwardSprite];
     
     
-    SKLabelNode *statusLabel = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
-    statusLabel.fontSize = 15;
-    statusLabel.fontColor = [UIColor redColor];
-    statusLabel.text = [NSString stringWithFormat:@"遭遇怪物: %@ id:%d",[[self.enemysArray objectAtIndex:currentIndex] objectForKey:@"enemyname"],
-                        [[[self.enemysArray objectAtIndex:currentIndex] objectForKey:@"enemyId"] intValue]];
-    statusLabel.position = CGPointMake(0,
-                                      140.0f);
-    [hurdleReadyContentNode addChild:statusLabel];
     
-    
-    // 添加敌方精灵
-    SKSpriteNode * enemyPixie = [SKSpriteNode spriteNodeWithImageNamed:@"pixie_plant2_battle1.png"];
-    enemyPixie.position = CGPointMake(0.0f,20.0f);
-    enemyPixie.size = CGSizeMake(enemyPixie.size.width/2.0f, enemyPixie.size.height/2.0f);
-    [hurdleReadyContentNode addChild:enemyPixie];
-    SKAction *testAction=[SKAction scaleTo:2.0f duration:1.0f];
-    [enemyPixie runAction:testAction];
-    [statusLabel runAction:testAction];
-    
-    
-    // 预加载变身动画
     NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
     @synchronized(texturesArray)
     {
         
-        for (int i = 1; i <= 43; i++) {
-            NSString *textureName = [NSString stringWithFormat:@"变身效果01%03d.png", i];
+        for (int i = 0; i < 20; i++) {
+            NSString *textureName = [NSString stringWithFormat:@"%@_forward_00%02d.png",kElementTypeString[chooseSceneType],i];
+            NSLog(@"imageName=%@",[NSString stringWithFormat:@"%@_forward_00%02d.png",kElementTypeString[chooseSceneType],i]);
+            
+            SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
+            [texturesArray addObject:temp];
+        }
+        
+    }
+    
+    [forwardSprite runAction:[SKAction animateWithTextures:texturesArray timePerFrame:0.1] completion:^{
+        [forwardSprite removeFromParent];
+        [self addChangeStatus:hurdleReadyContentNode];
+    
+    }];
+    
+    
+    
+    
+//    // 添加己方精灵
+//    _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
+//    _playerPixie.position = CGPointMake(30.0f,100);
+//    _playerPixie.size = CGSizeMake(_playerPixie.frame.size.width/3, _playerPixie.frame.size.height/3);
+//    [hurdleReadyContentNode addChild:_playerPixie];
+//    
+//    
+//    SKLabelNode *statusLabel = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+//    statusLabel.fontSize = 15;
+//    statusLabel.fontColor = [UIColor redColor];
+//    statusLabel.text = [NSString stringWithFormat:@"遭遇怪物: %@ id:%d",[[self.enemysArray objectAtIndex:currentIndex] objectForKey:@"enemyname"],
+//                        [[[self.enemysArray objectAtIndex:currentIndex] objectForKey:@"enemyId"] intValue]];
+//    statusLabel.position = CGPointMake(0,
+//                                      140.0f);
+//    [hurdleReadyContentNode addChild:statusLabel];
+//    
+//    
+//    // 添加敌方精灵
+//    SKSpriteNode * enemyPixie = [SKSpriteNode spriteNodeWithImageNamed:@"pixie_plant2_battle1.png"];
+//    enemyPixie.position = CGPointMake(0.0f,20.0f);
+//    enemyPixie.size = CGSizeMake(enemyPixie.size.width/2.0f, enemyPixie.size.height/2.0f);
+//    [hurdleReadyContentNode addChild:enemyPixie];
+//    SKAction *testAction=[SKAction scaleTo:2.0f duration:1.0f];
+//    [enemyPixie runAction:testAction];
+//    [statusLabel runAction:testAction];
+    
+    
+
+}
+-(void)addChangeStatus:(PPBasicSpriteNode *)contentSprite
+{
+    
+    // 添加己方精灵
+    _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"fire_shield_cast_0000.png"];
+    _playerPixie.position = CGPointMake(0.0f,0.0f);
+    _playerPixie.size = CGSizeMake(320.0f, 480.0f);
+    [contentSprite addChild:_playerPixie];
+ //预加载变身动画
+    
+    NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
+    @synchronized(texturesArray)
+    {
+        
+        for (int i = 0; i < 27; i++) {
+            NSString *textureName = [NSString stringWithFormat:@"fire_shield_cast_00%02d.png", i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
             [texturesArray addObject:temp];
         }
@@ -117,19 +157,10 @@
     
     [_playerPixie runAction:[SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]
                  completion:^{
-                     
-//                     PPSpriteButton *monsterButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(200.0f, 40.0f)];
-//                     [monsterButton setLabelWithText:@"choose pet to battle" andFont:[UIFont systemFontOfSize:15] withColor:nil];
-//                     monsterButton.position = CGPointMake(0.0f,-120.0f);
-//                     monsterButton.name = @"bt_start";
-//                     [monsterButton addTarget:self selector:@selector(battleStartButtonClick:) withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-//                     [hurdleReadyContentNode addChild:monsterButton];
-                     
-                     
+                     [_playerPixie removeFromParent];
                      [self setPetsChooseContent];
                  }];
 }
-
 #pragma mark - add a pet choose node
 
 -(void)setPetsChooseContent
@@ -155,7 +186,7 @@
         
     }
     
-    NSString *string[]={@"木系场景", @"火系场景"};
+    NSString *string[2]={@"木系场景", @"火系场景"};
     
     for (int i = 0; i < 2; i++) {
         
