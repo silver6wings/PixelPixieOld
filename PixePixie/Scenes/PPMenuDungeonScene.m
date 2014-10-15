@@ -11,7 +11,8 @@
     if (self = [super initWithSize:size]) {
         [self setBackTitleText:@"小场景" andPositionY:450.0f];
         [self setBackgroundColor:[UIColor purpleColor]];
-        
+        NSString * mapName = [NSString stringWithFormat:@"map_scene_%@.png", kPPElementTypeString[elementType]];
+        [self addChild:[SKSpriteNode spriteNodeWithImageNamed:mapName]];
         [self addPassChoose];
     }
     return self;
