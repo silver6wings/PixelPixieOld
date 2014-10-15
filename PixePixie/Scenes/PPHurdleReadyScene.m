@@ -67,7 +67,8 @@
     
     currentEnemyIndex = currentIndex;
     
-    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(CurrentDeviceRealSize.width, 480.0f)];
+//    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(CurrentDeviceRealSize.width, 480.0f)];
+    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@_encounter.png",kElementTypeString[chooseSceneType]]]];
     hurdleReadyContentNode.name = PP_HURDLE_READY_CONTENT_NAME;
     [hurdleReadyContentNode setPosition:CGPointMake(160.0f, 240)];
     [self addChild:hurdleReadyContentNode];
