@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		190CF0801912309D00370760 /* pixie_plant2_battle0.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF07C1912309D00370760 /* pixie_plant2_battle0.png */; };
-		190CF0811912309D00370760 /* pixie_plant2_battle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF07D1912309D00370760 /* pixie_plant2_battle1.png */; };
-		190CF0821912309D00370760 /* pixie_plant3_battle0.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF07E1912309D00370760 /* pixie_plant3_battle0.png */; };
-		190CF0831912309D00370760 /* pixie_plant3_battle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 190CF07F1912309D00370760 /* pixie_plant3_battle1.png */; };
 		1917DFF718C8551300E54F02 /* PPElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917DFF618C8551300E54F02 /* PPElement.m */; };
 		192F743519691241006C6586 /* PPFightingMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F742A19691241006C6586 /* PPFightingMainView.m */; };
 		192F743619691241006C6586 /* PPKnapsackMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192F742C19691241006C6586 /* PPKnapsackMainView.m */; };
@@ -37,51 +33,6 @@
 		193DC4B8196861D5007308C7 /* PPSkillNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4B3196861D5007308C7 /* PPSkillNode.m */; };
 		193DC4B9196861D5007308C7 /* PPValueShowNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4B5196861D5007308C7 /* PPValueShowNode.m */; };
 		193DC4BC19686C18007308C7 /* PPBasicLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 193DC4BB19686C18007308C7 /* PPBasicLabelNode.m */; };
-		1959D669191515C900865D27 /* 变身效果01000.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D63D191515C900865D27 /* 变身效果01000.png */; };
-		1959D66A191515C900865D27 /* 变身效果01001.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D63E191515C900865D27 /* 变身效果01001.png */; };
-		1959D66B191515C900865D27 /* 变身效果01002.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D63F191515C900865D27 /* 变身效果01002.png */; };
-		1959D66C191515C900865D27 /* 变身效果01003.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D640191515C900865D27 /* 变身效果01003.png */; };
-		1959D66D191515C900865D27 /* 变身效果01004.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D641191515C900865D27 /* 变身效果01004.png */; };
-		1959D66E191515C900865D27 /* 变身效果01005.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D642191515C900865D27 /* 变身效果01005.png */; };
-		1959D66F191515C900865D27 /* 变身效果01006.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D643191515C900865D27 /* 变身效果01006.png */; };
-		1959D670191515C900865D27 /* 变身效果01007.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D644191515C900865D27 /* 变身效果01007.png */; };
-		1959D671191515C900865D27 /* 变身效果01008.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D645191515C900865D27 /* 变身效果01008.png */; };
-		1959D672191515C900865D27 /* 变身效果01009.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D646191515C900865D27 /* 变身效果01009.png */; };
-		1959D673191515C900865D27 /* 变身效果01010.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D647191515C900865D27 /* 变身效果01010.png */; };
-		1959D674191515C900865D27 /* 变身效果01011.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D648191515C900865D27 /* 变身效果01011.png */; };
-		1959D675191515C900865D27 /* 变身效果01012.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D649191515C900865D27 /* 变身效果01012.png */; };
-		1959D676191515C900865D27 /* 变身效果01013.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D64A191515C900865D27 /* 变身效果01013.png */; };
-		1959D677191515C900865D27 /* 变身效果01014.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D64B191515C900865D27 /* 变身效果01014.png */; };
-		1959D678191515C900865D27 /* 变身效果01015.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D64C191515C900865D27 /* 变身效果01015.png */; };
-		1959D679191515C900865D27 /* 变身效果01016.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D64D191515C900865D27 /* 变身效果01016.png */; };
-		1959D67A191515C900865D27 /* 变身效果01017.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D64E191515C900865D27 /* 变身效果01017.png */; };
-		1959D67B191515C900865D27 /* 变身效果01018.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D64F191515C900865D27 /* 变身效果01018.png */; };
-		1959D67C191515C900865D27 /* 变身效果01019.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D650191515C900865D27 /* 变身效果01019.png */; };
-		1959D67D191515C900865D27 /* 变身效果01020.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D651191515C900865D27 /* 变身效果01020.png */; };
-		1959D67E191515C900865D27 /* 变身效果01021.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D652191515C900865D27 /* 变身效果01021.png */; };
-		1959D67F191515C900865D27 /* 变身效果01022.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D653191515C900865D27 /* 变身效果01022.png */; };
-		1959D680191515C900865D27 /* 变身效果01023.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D654191515C900865D27 /* 变身效果01023.png */; };
-		1959D681191515C900865D27 /* 变身效果01024.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D655191515C900865D27 /* 变身效果01024.png */; };
-		1959D682191515C900865D27 /* 变身效果01025.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D656191515C900865D27 /* 变身效果01025.png */; };
-		1959D683191515C900865D27 /* 变身效果01026.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D657191515C900865D27 /* 变身效果01026.png */; };
-		1959D684191515C900865D27 /* 变身效果01027.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D658191515C900865D27 /* 变身效果01027.png */; };
-		1959D685191515C900865D27 /* 变身效果01028.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D659191515C900865D27 /* 变身效果01028.png */; };
-		1959D686191515C900865D27 /* 变身效果01029.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D65A191515C900865D27 /* 变身效果01029.png */; };
-		1959D687191515C900865D27 /* 变身效果01030.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D65B191515C900865D27 /* 变身效果01030.png */; };
-		1959D688191515C900865D27 /* 变身效果01031.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D65C191515C900865D27 /* 变身效果01031.png */; };
-		1959D689191515C900865D27 /* 变身效果01032.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D65D191515C900865D27 /* 变身效果01032.png */; };
-		1959D68A191515C900865D27 /* 变身效果01033.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D65E191515C900865D27 /* 变身效果01033.png */; };
-		1959D68B191515C900865D27 /* 变身效果01034.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D65F191515C900865D27 /* 变身效果01034.png */; };
-		1959D68C191515C900865D27 /* 变身效果01035.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D660191515C900865D27 /* 变身效果01035.png */; };
-		1959D68D191515C900865D27 /* 变身效果01036.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D661191515C900865D27 /* 变身效果01036.png */; };
-		1959D68E191515C900865D27 /* 变身效果01037.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D662191515C900865D27 /* 变身效果01037.png */; };
-		1959D68F191515C900865D27 /* 变身效果01038.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D663191515C900865D27 /* 变身效果01038.png */; };
-		1959D690191515C900865D27 /* 变身效果01039.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D664191515C900865D27 /* 变身效果01039.png */; };
-		1959D691191515C900865D27 /* 变身效果01040.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D665191515C900865D27 /* 变身效果01040.png */; };
-		1959D692191515C900865D27 /* 变身效果01041.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D666191515C900865D27 /* 变身效果01041.png */; };
-		1959D693191515C900865D27 /* 变身效果01042.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D667191515C900865D27 /* 变身效果01042.png */; };
-		1959D694191515C900865D27 /* 变身效果01043.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D668191515C900865D27 /* 变身效果01043.png */; };
-		1959D69619152E9700865D27 /* skill_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959D69519152E9700865D27 /* skill_plant.png */; };
 		196738BB19DA5A2D002C5172 /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 196738BA19DA5A2D002C5172 /* TextureManager.m */; };
 		1992B3EE19E9269C00BFE51E /* FrameCount.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1992B3ED19E9269B00BFE51E /* FrameCount.plist */; };
 		1992B3F219E926E700BFE51E /* skill_buff.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1992B3F119E926E600BFE51E /* skill_buff.atlas */; };
@@ -191,6 +142,62 @@
 		1999AC7719EE64D500B25ED2 /* fire_shield_cast_0024.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AC0E19EE64D500B25ED2 /* fire_shield_cast_0024.png */; };
 		1999AC7819EE64D500B25ED2 /* fire_shield_cast_0025.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AC0F19EE64D500B25ED2 /* fire_shield_cast_0025.png */; };
 		1999AC7919EE64D500B25ED2 /* fire_shield_cast_0026.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AC1019EE64D500B25ED2 /* fire_shield_cast_0026.png */; };
+		1999AC7B19EE6CCF00B25ED2 /* skill_plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AC7A19EE6CCF00B25ED2 /* skill_plant.png */; };
+		1999AD2719EE6D3F00B25ED2 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACEF19EE6D3F00B25ED2 /* fire.png */; };
+		1999AD2819EE6D3F00B25ED2 /* fire_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF019EE6D3F00B25ED2 /* fire_selected.png */; };
+		1999AD2919EE6D3F00B25ED2 /* petchooseback.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF119EE6D3F00B25ED2 /* petchooseback.png */; };
+		1999AD2A19EE6D3F00B25ED2 /* pixie_plant2_battle0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF219EE6D3F00B25ED2 /* pixie_plant2_battle0.png */; };
+		1999AD2B19EE6D3F00B25ED2 /* pixie_plant2_battle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF319EE6D3F00B25ED2 /* pixie_plant2_battle1.png */; };
+		1999AD2C19EE6D3F00B25ED2 /* pixie_plant3_battle0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF419EE6D3F00B25ED2 /* pixie_plant3_battle0.png */; };
+		1999AD2D19EE6D3F00B25ED2 /* pixie_plant3_battle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF519EE6D3F00B25ED2 /* pixie_plant3_battle1.png */; };
+		1999AD2E19EE6D3F00B25ED2 /* soil.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF619EE6D3F00B25ED2 /* soil.png */; };
+		1999AD2F19EE6D3F00B25ED2 /* soil_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF719EE6D3F00B25ED2 /* soil_selected.png */; };
+		1999AD3019EE6D3F00B25ED2 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF819EE6D3F00B25ED2 /* water.png */; };
+		1999AD3119EE6D3F00B25ED2 /* water_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACF919EE6D3F00B25ED2 /* water_selected.png */; };
+		1999AD3219EE6D3F00B25ED2 /* 变身效果01000.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACFB19EE6D3F00B25ED2 /* 变身效果01000.png */; };
+		1999AD3319EE6D3F00B25ED2 /* 变身效果01001.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACFC19EE6D3F00B25ED2 /* 变身效果01001.png */; };
+		1999AD3419EE6D3F00B25ED2 /* 变身效果01002.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACFD19EE6D3F00B25ED2 /* 变身效果01002.png */; };
+		1999AD3519EE6D3F00B25ED2 /* 变身效果01003.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACFE19EE6D3F00B25ED2 /* 变身效果01003.png */; };
+		1999AD3619EE6D3F00B25ED2 /* 变身效果01004.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999ACFF19EE6D3F00B25ED2 /* 变身效果01004.png */; };
+		1999AD3719EE6D3F00B25ED2 /* 变身效果01005.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0019EE6D3F00B25ED2 /* 变身效果01005.png */; };
+		1999AD3819EE6D3F00B25ED2 /* 变身效果01006.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0119EE6D3F00B25ED2 /* 变身效果01006.png */; };
+		1999AD3919EE6D3F00B25ED2 /* 变身效果01007.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0219EE6D3F00B25ED2 /* 变身效果01007.png */; };
+		1999AD3A19EE6D3F00B25ED2 /* 变身效果01008.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0319EE6D3F00B25ED2 /* 变身效果01008.png */; };
+		1999AD3B19EE6D3F00B25ED2 /* 变身效果01009.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0419EE6D3F00B25ED2 /* 变身效果01009.png */; };
+		1999AD3C19EE6D3F00B25ED2 /* 变身效果01010.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0519EE6D3F00B25ED2 /* 变身效果01010.png */; };
+		1999AD3D19EE6D3F00B25ED2 /* 变身效果01011.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0619EE6D3F00B25ED2 /* 变身效果01011.png */; };
+		1999AD3E19EE6D3F00B25ED2 /* 变身效果01012.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0719EE6D3F00B25ED2 /* 变身效果01012.png */; };
+		1999AD3F19EE6D3F00B25ED2 /* 变身效果01013.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0819EE6D3F00B25ED2 /* 变身效果01013.png */; };
+		1999AD4019EE6D3F00B25ED2 /* 变身效果01014.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0919EE6D3F00B25ED2 /* 变身效果01014.png */; };
+		1999AD4119EE6D3F00B25ED2 /* 变身效果01015.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0A19EE6D3F00B25ED2 /* 变身效果01015.png */; };
+		1999AD4219EE6D3F00B25ED2 /* 变身效果01016.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0B19EE6D3F00B25ED2 /* 变身效果01016.png */; };
+		1999AD4319EE6D3F00B25ED2 /* 变身效果01017.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0C19EE6D3F00B25ED2 /* 变身效果01017.png */; };
+		1999AD4419EE6D3F00B25ED2 /* 变身效果01018.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0D19EE6D3F00B25ED2 /* 变身效果01018.png */; };
+		1999AD4519EE6D3F00B25ED2 /* 变身效果01019.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0E19EE6D3F00B25ED2 /* 变身效果01019.png */; };
+		1999AD4619EE6D3F00B25ED2 /* 变身效果01020.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD0F19EE6D3F00B25ED2 /* 变身效果01020.png */; };
+		1999AD4719EE6D3F00B25ED2 /* 变身效果01021.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1019EE6D3F00B25ED2 /* 变身效果01021.png */; };
+		1999AD4819EE6D3F00B25ED2 /* 变身效果01022.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1119EE6D3F00B25ED2 /* 变身效果01022.png */; };
+		1999AD4919EE6D3F00B25ED2 /* 变身效果01023.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1219EE6D3F00B25ED2 /* 变身效果01023.png */; };
+		1999AD4A19EE6D3F00B25ED2 /* 变身效果01024.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1319EE6D3F00B25ED2 /* 变身效果01024.png */; };
+		1999AD4B19EE6D3F00B25ED2 /* 变身效果01025.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1419EE6D3F00B25ED2 /* 变身效果01025.png */; };
+		1999AD4C19EE6D3F00B25ED2 /* 变身效果01026.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1519EE6D3F00B25ED2 /* 变身效果01026.png */; };
+		1999AD4D19EE6D3F00B25ED2 /* 变身效果01027.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1619EE6D3F00B25ED2 /* 变身效果01027.png */; };
+		1999AD4E19EE6D3F00B25ED2 /* 变身效果01028.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1719EE6D3F00B25ED2 /* 变身效果01028.png */; };
+		1999AD4F19EE6D3F00B25ED2 /* 变身效果01029.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1819EE6D3F00B25ED2 /* 变身效果01029.png */; };
+		1999AD5019EE6D3F00B25ED2 /* 变身效果01030.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1919EE6D3F00B25ED2 /* 变身效果01030.png */; };
+		1999AD5119EE6D3F00B25ED2 /* 变身效果01031.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1A19EE6D3F00B25ED2 /* 变身效果01031.png */; };
+		1999AD5219EE6D3F00B25ED2 /* 变身效果01032.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1B19EE6D3F00B25ED2 /* 变身效果01032.png */; };
+		1999AD5319EE6D3F00B25ED2 /* 变身效果01033.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1C19EE6D3F00B25ED2 /* 变身效果01033.png */; };
+		1999AD5419EE6D3F00B25ED2 /* 变身效果01034.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1D19EE6D3F00B25ED2 /* 变身效果01034.png */; };
+		1999AD5519EE6D3F00B25ED2 /* 变身效果01035.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1E19EE6D3F00B25ED2 /* 变身效果01035.png */; };
+		1999AD5619EE6D3F00B25ED2 /* 变身效果01036.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD1F19EE6D3F00B25ED2 /* 变身效果01036.png */; };
+		1999AD5719EE6D3F00B25ED2 /* 变身效果01037.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2019EE6D3F00B25ED2 /* 变身效果01037.png */; };
+		1999AD5819EE6D3F00B25ED2 /* 变身效果01038.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2119EE6D3F00B25ED2 /* 变身效果01038.png */; };
+		1999AD5919EE6D3F00B25ED2 /* 变身效果01039.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2219EE6D3F00B25ED2 /* 变身效果01039.png */; };
+		1999AD5A19EE6D3F00B25ED2 /* 变身效果01040.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2319EE6D3F00B25ED2 /* 变身效果01040.png */; };
+		1999AD5B19EE6D3F00B25ED2 /* 变身效果01041.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2419EE6D3F00B25ED2 /* 变身效果01041.png */; };
+		1999AD5C19EE6D3F00B25ED2 /* 变身效果01042.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2519EE6D3F00B25ED2 /* 变身效果01042.png */; };
+		1999AD5D19EE6D3F00B25ED2 /* 变身效果01043.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2619EE6D3F00B25ED2 /* 变身效果01043.png */; };
 		19CBA8C31907C77600A249AB /* PPBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C21907C77600A249AB /* PPBall.m */; };
 		19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C51907C7D000A249AB /* PPPlayer.m */; };
 		19F28E2D1969181B0006ABFF /* PPCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F28E2C1969181B0006ABFF /* PPCustomButton.m */; };
@@ -223,13 +230,6 @@
 		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
 		D4AE4CAE196ED01E00FC24EF /* PPChoosePetScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CAD196ED01E00FC24EF /* PPChoosePetScrollView.m */; };
 		D4AE4CB0196ED1D100FC24EF /* PetsChooseInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CAF196ED1D100FC24EF /* PetsChooseInfo.plist */; };
-		D4AE4CBA196EDA5100FC24EF /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB3196EDA5100FC24EF /* fire.png */; };
-		D4AE4CBB196EDA5100FC24EF /* fire_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB4196EDA5100FC24EF /* fire_selected.png */; };
-		D4AE4CBC196EDA5100FC24EF /* petchooseback.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB5196EDA5100FC24EF /* petchooseback.png */; };
-		D4AE4CBD196EDA5100FC24EF /* soil.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB6196EDA5100FC24EF /* soil.png */; };
-		D4AE4CBE196EDA5100FC24EF /* soil_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB7196EDA5100FC24EF /* soil_selected.png */; };
-		D4AE4CBF196EDA5100FC24EF /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB8196EDA5100FC24EF /* water.png */; };
-		D4AE4CC0196EDA5100FC24EF /* water_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CB9196EDA5100FC24EF /* water_selected.png */; };
 		D4AE4CC3196EED0400FC24EF /* PPNewsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CC2196EED0400FC24EF /* PPNewsScene.m */; };
 		D4AE4CC6196EED4C00FC24EF /* PPMonsterBookScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CC5196EED4C00FC24EF /* PPMonsterBookScene.m */; };
 		D4AE4CC9196EED6400FC24EF /* PPOptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CC8196EED6400FC24EF /* PPOptionsScene.m */; };
@@ -245,10 +245,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		190CF07C1912309D00370760 /* pixie_plant2_battle0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pixie_plant2_battle0.png; path = Resource/Image/pixie/pixie_plant2_battle0.png; sourceTree = "<group>"; };
-		190CF07D1912309D00370760 /* pixie_plant2_battle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pixie_plant2_battle1.png; path = Resource/Image/pixie/pixie_plant2_battle1.png; sourceTree = "<group>"; };
-		190CF07E1912309D00370760 /* pixie_plant3_battle0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pixie_plant3_battle0.png; path = Resource/Image/pixie/pixie_plant3_battle0.png; sourceTree = "<group>"; };
-		190CF07F1912309D00370760 /* pixie_plant3_battle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pixie_plant3_battle1.png; path = Resource/Image/pixie/pixie_plant3_battle1.png; sourceTree = "<group>"; };
 		1917DFF518C8551300E54F02 /* PPElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPElement.h; path = Models/PPElement.h; sourceTree = "<group>"; };
 		1917DFF618C8551300E54F02 /* PPElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPElement.m; path = Models/PPElement.m; sourceTree = "<group>"; };
 		192F742919691241006C6586 /* PPFightingMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPFightingMainView.h; path = PixePixie/Views/PPFightingMainView.h; sourceTree = SOURCE_ROOT; };
@@ -308,51 +304,6 @@
 		193DC4B5196861D5007308C7 /* PPValueShowNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPValueShowNode.m; path = PixePixie/Nodes/PPValueShowNode.m; sourceTree = SOURCE_ROOT; };
 		193DC4BA19686C0A007308C7 /* PPBasicLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBasicLabelNode.h; path = PixePixie/Basic/PPBasicLabelNode.h; sourceTree = SOURCE_ROOT; };
 		193DC4BB19686C18007308C7 /* PPBasicLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBasicLabelNode.m; path = PixePixie/Basic/PPBasicLabelNode.m; sourceTree = SOURCE_ROOT; };
-		1959D63D191515C900865D27 /* 变身效果01000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01000.png"; sourceTree = "<group>"; };
-		1959D63E191515C900865D27 /* 变身效果01001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01001.png"; sourceTree = "<group>"; };
-		1959D63F191515C900865D27 /* 变身效果01002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01002.png"; sourceTree = "<group>"; };
-		1959D640191515C900865D27 /* 变身效果01003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01003.png"; sourceTree = "<group>"; };
-		1959D641191515C900865D27 /* 变身效果01004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01004.png"; sourceTree = "<group>"; };
-		1959D642191515C900865D27 /* 变身效果01005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01005.png"; sourceTree = "<group>"; };
-		1959D643191515C900865D27 /* 变身效果01006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01006.png"; sourceTree = "<group>"; };
-		1959D644191515C900865D27 /* 变身效果01007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01007.png"; sourceTree = "<group>"; };
-		1959D645191515C900865D27 /* 变身效果01008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01008.png"; sourceTree = "<group>"; };
-		1959D646191515C900865D27 /* 变身效果01009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01009.png"; sourceTree = "<group>"; };
-		1959D647191515C900865D27 /* 变身效果01010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01010.png"; sourceTree = "<group>"; };
-		1959D648191515C900865D27 /* 变身效果01011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01011.png"; sourceTree = "<group>"; };
-		1959D649191515C900865D27 /* 变身效果01012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01012.png"; sourceTree = "<group>"; };
-		1959D64A191515C900865D27 /* 变身效果01013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01013.png"; sourceTree = "<group>"; };
-		1959D64B191515C900865D27 /* 变身效果01014.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01014.png"; sourceTree = "<group>"; };
-		1959D64C191515C900865D27 /* 变身效果01015.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01015.png"; sourceTree = "<group>"; };
-		1959D64D191515C900865D27 /* 变身效果01016.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01016.png"; sourceTree = "<group>"; };
-		1959D64E191515C900865D27 /* 变身效果01017.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01017.png"; sourceTree = "<group>"; };
-		1959D64F191515C900865D27 /* 变身效果01018.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01018.png"; sourceTree = "<group>"; };
-		1959D650191515C900865D27 /* 变身效果01019.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01019.png"; sourceTree = "<group>"; };
-		1959D651191515C900865D27 /* 变身效果01020.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01020.png"; sourceTree = "<group>"; };
-		1959D652191515C900865D27 /* 变身效果01021.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01021.png"; sourceTree = "<group>"; };
-		1959D653191515C900865D27 /* 变身效果01022.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01022.png"; sourceTree = "<group>"; };
-		1959D654191515C900865D27 /* 变身效果01023.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01023.png"; sourceTree = "<group>"; };
-		1959D655191515C900865D27 /* 变身效果01024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01024.png"; sourceTree = "<group>"; };
-		1959D656191515C900865D27 /* 变身效果01025.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01025.png"; sourceTree = "<group>"; };
-		1959D657191515C900865D27 /* 变身效果01026.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01026.png"; sourceTree = "<group>"; };
-		1959D658191515C900865D27 /* 变身效果01027.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01027.png"; sourceTree = "<group>"; };
-		1959D659191515C900865D27 /* 变身效果01028.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01028.png"; sourceTree = "<group>"; };
-		1959D65A191515C900865D27 /* 变身效果01029.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01029.png"; sourceTree = "<group>"; };
-		1959D65B191515C900865D27 /* 变身效果01030.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01030.png"; sourceTree = "<group>"; };
-		1959D65C191515C900865D27 /* 变身效果01031.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01031.png"; sourceTree = "<group>"; };
-		1959D65D191515C900865D27 /* 变身效果01032.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01032.png"; sourceTree = "<group>"; };
-		1959D65E191515C900865D27 /* 变身效果01033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01033.png"; sourceTree = "<group>"; };
-		1959D65F191515C900865D27 /* 变身效果01034.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01034.png"; sourceTree = "<group>"; };
-		1959D660191515C900865D27 /* 变身效果01035.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01035.png"; sourceTree = "<group>"; };
-		1959D661191515C900865D27 /* 变身效果01036.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01036.png"; sourceTree = "<group>"; };
-		1959D662191515C900865D27 /* 变身效果01037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01037.png"; sourceTree = "<group>"; };
-		1959D663191515C900865D27 /* 变身效果01038.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01038.png"; sourceTree = "<group>"; };
-		1959D664191515C900865D27 /* 变身效果01039.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01039.png"; sourceTree = "<group>"; };
-		1959D665191515C900865D27 /* 变身效果01040.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01040.png"; sourceTree = "<group>"; };
-		1959D666191515C900865D27 /* 变身效果01041.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01041.png"; sourceTree = "<group>"; };
-		1959D667191515C900865D27 /* 变身效果01042.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01042.png"; sourceTree = "<group>"; };
-		1959D668191515C900865D27 /* 变身效果01043.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01043.png"; sourceTree = "<group>"; };
-		1959D69519152E9700865D27 /* skill_plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skill_plant.png; path = Resource/Image/test/skill_plant.png; sourceTree = "<group>"; };
 		196738B919DA5A2D002C5172 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		196738BA19DA5A2D002C5172 /* TextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
 		1992B3ED19E9269B00BFE51E /* FrameCount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FrameCount.plist; path = Resource/Images/FrameCount.plist; sourceTree = "<group>"; };
@@ -463,6 +414,62 @@
 		1999AC0E19EE64D500B25ED2 /* fire_shield_cast_0024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire_shield_cast_0024.png; sourceTree = "<group>"; };
 		1999AC0F19EE64D500B25ED2 /* fire_shield_cast_0025.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire_shield_cast_0025.png; sourceTree = "<group>"; };
 		1999AC1019EE64D500B25ED2 /* fire_shield_cast_0026.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire_shield_cast_0026.png; sourceTree = "<group>"; };
+		1999AC7A19EE6CCF00B25ED2 /* skill_plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skill_plant.png; path = Resource/Images/skill_plant.png; sourceTree = "<group>"; };
+		1999ACEF19EE6D3F00B25ED2 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		1999ACF019EE6D3F00B25ED2 /* fire_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire_selected.png; sourceTree = "<group>"; };
+		1999ACF119EE6D3F00B25ED2 /* petchooseback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petchooseback.png; sourceTree = "<group>"; };
+		1999ACF219EE6D3F00B25ED2 /* pixie_plant2_battle0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixie_plant2_battle0.png; sourceTree = "<group>"; };
+		1999ACF319EE6D3F00B25ED2 /* pixie_plant2_battle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixie_plant2_battle1.png; sourceTree = "<group>"; };
+		1999ACF419EE6D3F00B25ED2 /* pixie_plant3_battle0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixie_plant3_battle0.png; sourceTree = "<group>"; };
+		1999ACF519EE6D3F00B25ED2 /* pixie_plant3_battle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixie_plant3_battle1.png; sourceTree = "<group>"; };
+		1999ACF619EE6D3F00B25ED2 /* soil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soil.png; sourceTree = "<group>"; };
+		1999ACF719EE6D3F00B25ED2 /* soil_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soil_selected.png; sourceTree = "<group>"; };
+		1999ACF819EE6D3F00B25ED2 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		1999ACF919EE6D3F00B25ED2 /* water_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water_selected.png; sourceTree = "<group>"; };
+		1999ACFB19EE6D3F00B25ED2 /* 变身效果01000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01000.png"; sourceTree = "<group>"; };
+		1999ACFC19EE6D3F00B25ED2 /* 变身效果01001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01001.png"; sourceTree = "<group>"; };
+		1999ACFD19EE6D3F00B25ED2 /* 变身效果01002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01002.png"; sourceTree = "<group>"; };
+		1999ACFE19EE6D3F00B25ED2 /* 变身效果01003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01003.png"; sourceTree = "<group>"; };
+		1999ACFF19EE6D3F00B25ED2 /* 变身效果01004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01004.png"; sourceTree = "<group>"; };
+		1999AD0019EE6D3F00B25ED2 /* 变身效果01005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01005.png"; sourceTree = "<group>"; };
+		1999AD0119EE6D3F00B25ED2 /* 变身效果01006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01006.png"; sourceTree = "<group>"; };
+		1999AD0219EE6D3F00B25ED2 /* 变身效果01007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01007.png"; sourceTree = "<group>"; };
+		1999AD0319EE6D3F00B25ED2 /* 变身效果01008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01008.png"; sourceTree = "<group>"; };
+		1999AD0419EE6D3F00B25ED2 /* 变身效果01009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01009.png"; sourceTree = "<group>"; };
+		1999AD0519EE6D3F00B25ED2 /* 变身效果01010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01010.png"; sourceTree = "<group>"; };
+		1999AD0619EE6D3F00B25ED2 /* 变身效果01011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01011.png"; sourceTree = "<group>"; };
+		1999AD0719EE6D3F00B25ED2 /* 变身效果01012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01012.png"; sourceTree = "<group>"; };
+		1999AD0819EE6D3F00B25ED2 /* 变身效果01013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01013.png"; sourceTree = "<group>"; };
+		1999AD0919EE6D3F00B25ED2 /* 变身效果01014.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01014.png"; sourceTree = "<group>"; };
+		1999AD0A19EE6D3F00B25ED2 /* 变身效果01015.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01015.png"; sourceTree = "<group>"; };
+		1999AD0B19EE6D3F00B25ED2 /* 变身效果01016.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01016.png"; sourceTree = "<group>"; };
+		1999AD0C19EE6D3F00B25ED2 /* 变身效果01017.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01017.png"; sourceTree = "<group>"; };
+		1999AD0D19EE6D3F00B25ED2 /* 变身效果01018.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01018.png"; sourceTree = "<group>"; };
+		1999AD0E19EE6D3F00B25ED2 /* 变身效果01019.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01019.png"; sourceTree = "<group>"; };
+		1999AD0F19EE6D3F00B25ED2 /* 变身效果01020.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01020.png"; sourceTree = "<group>"; };
+		1999AD1019EE6D3F00B25ED2 /* 变身效果01021.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01021.png"; sourceTree = "<group>"; };
+		1999AD1119EE6D3F00B25ED2 /* 变身效果01022.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01022.png"; sourceTree = "<group>"; };
+		1999AD1219EE6D3F00B25ED2 /* 变身效果01023.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01023.png"; sourceTree = "<group>"; };
+		1999AD1319EE6D3F00B25ED2 /* 变身效果01024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01024.png"; sourceTree = "<group>"; };
+		1999AD1419EE6D3F00B25ED2 /* 变身效果01025.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01025.png"; sourceTree = "<group>"; };
+		1999AD1519EE6D3F00B25ED2 /* 变身效果01026.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01026.png"; sourceTree = "<group>"; };
+		1999AD1619EE6D3F00B25ED2 /* 变身效果01027.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01027.png"; sourceTree = "<group>"; };
+		1999AD1719EE6D3F00B25ED2 /* 变身效果01028.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01028.png"; sourceTree = "<group>"; };
+		1999AD1819EE6D3F00B25ED2 /* 变身效果01029.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01029.png"; sourceTree = "<group>"; };
+		1999AD1919EE6D3F00B25ED2 /* 变身效果01030.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01030.png"; sourceTree = "<group>"; };
+		1999AD1A19EE6D3F00B25ED2 /* 变身效果01031.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01031.png"; sourceTree = "<group>"; };
+		1999AD1B19EE6D3F00B25ED2 /* 变身效果01032.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01032.png"; sourceTree = "<group>"; };
+		1999AD1C19EE6D3F00B25ED2 /* 变身效果01033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01033.png"; sourceTree = "<group>"; };
+		1999AD1D19EE6D3F00B25ED2 /* 变身效果01034.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01034.png"; sourceTree = "<group>"; };
+		1999AD1E19EE6D3F00B25ED2 /* 变身效果01035.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01035.png"; sourceTree = "<group>"; };
+		1999AD1F19EE6D3F00B25ED2 /* 变身效果01036.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01036.png"; sourceTree = "<group>"; };
+		1999AD2019EE6D3F00B25ED2 /* 变身效果01037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01037.png"; sourceTree = "<group>"; };
+		1999AD2119EE6D3F00B25ED2 /* 变身效果01038.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01038.png"; sourceTree = "<group>"; };
+		1999AD2219EE6D3F00B25ED2 /* 变身效果01039.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01039.png"; sourceTree = "<group>"; };
+		1999AD2319EE6D3F00B25ED2 /* 变身效果01040.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01040.png"; sourceTree = "<group>"; };
+		1999AD2419EE6D3F00B25ED2 /* 变身效果01041.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01041.png"; sourceTree = "<group>"; };
+		1999AD2519EE6D3F00B25ED2 /* 变身效果01042.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01042.png"; sourceTree = "<group>"; };
+		1999AD2619EE6D3F00B25ED2 /* 变身效果01043.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01043.png"; sourceTree = "<group>"; };
 		19CBA8C11907C77600A249AB /* PPBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBall.h; path = Models/PPBall.h; sourceTree = "<group>"; };
 		19CBA8C21907C77600A249AB /* PPBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBall.m; path = Models/PPBall.m; sourceTree = "<group>"; };
 		19CBA8C41907C7D000A249AB /* PPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPlayer.h; path = Models/PPPlayer.h; sourceTree = "<group>"; };
@@ -521,13 +528,6 @@
 		D4AE4CAC196ED01E00FC24EF /* PPChoosePetScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPChoosePetScrollView.h; path = PixePixie/Views/PPChoosePetScrollView.h; sourceTree = SOURCE_ROOT; };
 		D4AE4CAD196ED01E00FC24EF /* PPChoosePetScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPChoosePetScrollView.m; path = PixePixie/Views/PPChoosePetScrollView.m; sourceTree = SOURCE_ROOT; };
 		D4AE4CAF196ED1D100FC24EF /* PetsChooseInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PetsChooseInfo.plist; sourceTree = "<group>"; };
-		D4AE4CB3196EDA5100FC24EF /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
-		D4AE4CB4196EDA5100FC24EF /* fire_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire_selected.png; sourceTree = "<group>"; };
-		D4AE4CB5196EDA5100FC24EF /* petchooseback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petchooseback.png; sourceTree = "<group>"; };
-		D4AE4CB6196EDA5100FC24EF /* soil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soil.png; sourceTree = "<group>"; };
-		D4AE4CB7196EDA5100FC24EF /* soil_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soil_selected.png; sourceTree = "<group>"; };
-		D4AE4CB8196EDA5100FC24EF /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
-		D4AE4CB9196EDA5100FC24EF /* water_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water_selected.png; sourceTree = "<group>"; };
 		D4AE4CC1196EED0400FC24EF /* PPNewsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNewsScene.h; sourceTree = "<group>"; };
 		D4AE4CC2196EED0400FC24EF /* PPNewsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNewsScene.m; sourceTree = "<group>"; };
 		D4AE4CC4196EED4C00FC24EF /* PPMonsterBookScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMonsterBookScene.h; sourceTree = "<group>"; };
@@ -562,27 +562,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		190BF48D18C6C85C006B0AE6 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				D4AE4CB1196EDA5100FC24EF /* MainView */,
-				19CBA8CA1907C98000A249AB /* test */,
-				190CF07B1912306C00370760 /* pixie */,
-			);
-			name = Image;
-			sourceTree = "<group>";
-		};
-		190CF07B1912306C00370760 /* pixie */ = {
-			isa = PBXGroup;
-			children = (
-				190CF07C1912309D00370760 /* pixie_plant2_battle0.png */,
-				190CF07D1912309D00370760 /* pixie_plant2_battle1.png */,
-				190CF07E1912309D00370760 /* pixie_plant3_battle0.png */,
-				190CF07F1912309D00370760 /* pixie_plant3_battle1.png */,
-			);
-			name = pixie;
-			sourceTree = "<group>";
-		};
 		1917DFF418C8545200E54F02 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -769,61 +748,10 @@
 			name = PPBall;
 			sourceTree = "<group>";
 		};
-		1959D63C191515C900865D27 /* transform */ = {
-			isa = PBXGroup;
-			children = (
-				1959D63D191515C900865D27 /* 变身效果01000.png */,
-				1959D63E191515C900865D27 /* 变身效果01001.png */,
-				1959D63F191515C900865D27 /* 变身效果01002.png */,
-				1959D640191515C900865D27 /* 变身效果01003.png */,
-				1959D641191515C900865D27 /* 变身效果01004.png */,
-				1959D642191515C900865D27 /* 变身效果01005.png */,
-				1959D643191515C900865D27 /* 变身效果01006.png */,
-				1959D644191515C900865D27 /* 变身效果01007.png */,
-				1959D645191515C900865D27 /* 变身效果01008.png */,
-				1959D646191515C900865D27 /* 变身效果01009.png */,
-				1959D647191515C900865D27 /* 变身效果01010.png */,
-				1959D648191515C900865D27 /* 变身效果01011.png */,
-				1959D649191515C900865D27 /* 变身效果01012.png */,
-				1959D64A191515C900865D27 /* 变身效果01013.png */,
-				1959D64B191515C900865D27 /* 变身效果01014.png */,
-				1959D64C191515C900865D27 /* 变身效果01015.png */,
-				1959D64D191515C900865D27 /* 变身效果01016.png */,
-				1959D64E191515C900865D27 /* 变身效果01017.png */,
-				1959D64F191515C900865D27 /* 变身效果01018.png */,
-				1959D650191515C900865D27 /* 变身效果01019.png */,
-				1959D651191515C900865D27 /* 变身效果01020.png */,
-				1959D652191515C900865D27 /* 变身效果01021.png */,
-				1959D653191515C900865D27 /* 变身效果01022.png */,
-				1959D654191515C900865D27 /* 变身效果01023.png */,
-				1959D655191515C900865D27 /* 变身效果01024.png */,
-				1959D656191515C900865D27 /* 变身效果01025.png */,
-				1959D657191515C900865D27 /* 变身效果01026.png */,
-				1959D658191515C900865D27 /* 变身效果01027.png */,
-				1959D659191515C900865D27 /* 变身效果01028.png */,
-				1959D65A191515C900865D27 /* 变身效果01029.png */,
-				1959D65B191515C900865D27 /* 变身效果01030.png */,
-				1959D65C191515C900865D27 /* 变身效果01031.png */,
-				1959D65D191515C900865D27 /* 变身效果01032.png */,
-				1959D65E191515C900865D27 /* 变身效果01033.png */,
-				1959D65F191515C900865D27 /* 变身效果01034.png */,
-				1959D660191515C900865D27 /* 变身效果01035.png */,
-				1959D661191515C900865D27 /* 变身效果01036.png */,
-				1959D662191515C900865D27 /* 变身效果01037.png */,
-				1959D663191515C900865D27 /* 变身效果01038.png */,
-				1959D664191515C900865D27 /* 变身效果01039.png */,
-				1959D665191515C900865D27 /* 变身效果01040.png */,
-				1959D666191515C900865D27 /* 变身效果01041.png */,
-				1959D667191515C900865D27 /* 变身效果01042.png */,
-				1959D668191515C900865D27 /* 变身效果01043.png */,
-			);
-			name = transform;
-			path = Resource/Image/test/transform;
-			sourceTree = "<group>";
-		};
 		196738BC19DA5BD2002C5172 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1999AC7A19EE6CCF00B25ED2 /* skill_plant.png */,
 				1992B3ED19E9269B00BFE51E /* FrameCount.plist */,
 				1999ABA519EE64D500B25ED2 /* const_encounter */,
 				1999ABD019EE64D500B25ED2 /* const_map */,
@@ -970,12 +898,83 @@
 			path = Resource/Images/const_skill;
 			sourceTree = "<group>";
 		};
-		19CBA8CA1907C98000A249AB /* test */ = {
+		1999ACED19EE6D3F00B25ED2 /* OldImage */ = {
 			isa = PBXGroup;
 			children = (
-				1959D63C191515C900865D27 /* transform */,
+				1999ACEE19EE6D3F00B25ED2 /* pixie */,
+				1999ACFA19EE6D3F00B25ED2 /* transform */,
 			);
-			name = test;
+			name = OldImage;
+			path = Resource/OldImage;
+			sourceTree = "<group>";
+		};
+		1999ACEE19EE6D3F00B25ED2 /* pixie */ = {
+			isa = PBXGroup;
+			children = (
+				1999ACEF19EE6D3F00B25ED2 /* fire.png */,
+				1999ACF019EE6D3F00B25ED2 /* fire_selected.png */,
+				1999ACF119EE6D3F00B25ED2 /* petchooseback.png */,
+				1999ACF219EE6D3F00B25ED2 /* pixie_plant2_battle0.png */,
+				1999ACF319EE6D3F00B25ED2 /* pixie_plant2_battle1.png */,
+				1999ACF419EE6D3F00B25ED2 /* pixie_plant3_battle0.png */,
+				1999ACF519EE6D3F00B25ED2 /* pixie_plant3_battle1.png */,
+				1999ACF619EE6D3F00B25ED2 /* soil.png */,
+				1999ACF719EE6D3F00B25ED2 /* soil_selected.png */,
+				1999ACF819EE6D3F00B25ED2 /* water.png */,
+				1999ACF919EE6D3F00B25ED2 /* water_selected.png */,
+			);
+			path = pixie;
+			sourceTree = "<group>";
+		};
+		1999ACFA19EE6D3F00B25ED2 /* transform */ = {
+			isa = PBXGroup;
+			children = (
+				1999ACFB19EE6D3F00B25ED2 /* 变身效果01000.png */,
+				1999ACFC19EE6D3F00B25ED2 /* 变身效果01001.png */,
+				1999ACFD19EE6D3F00B25ED2 /* 变身效果01002.png */,
+				1999ACFE19EE6D3F00B25ED2 /* 变身效果01003.png */,
+				1999ACFF19EE6D3F00B25ED2 /* 变身效果01004.png */,
+				1999AD0019EE6D3F00B25ED2 /* 变身效果01005.png */,
+				1999AD0119EE6D3F00B25ED2 /* 变身效果01006.png */,
+				1999AD0219EE6D3F00B25ED2 /* 变身效果01007.png */,
+				1999AD0319EE6D3F00B25ED2 /* 变身效果01008.png */,
+				1999AD0419EE6D3F00B25ED2 /* 变身效果01009.png */,
+				1999AD0519EE6D3F00B25ED2 /* 变身效果01010.png */,
+				1999AD0619EE6D3F00B25ED2 /* 变身效果01011.png */,
+				1999AD0719EE6D3F00B25ED2 /* 变身效果01012.png */,
+				1999AD0819EE6D3F00B25ED2 /* 变身效果01013.png */,
+				1999AD0919EE6D3F00B25ED2 /* 变身效果01014.png */,
+				1999AD0A19EE6D3F00B25ED2 /* 变身效果01015.png */,
+				1999AD0B19EE6D3F00B25ED2 /* 变身效果01016.png */,
+				1999AD0C19EE6D3F00B25ED2 /* 变身效果01017.png */,
+				1999AD0D19EE6D3F00B25ED2 /* 变身效果01018.png */,
+				1999AD0E19EE6D3F00B25ED2 /* 变身效果01019.png */,
+				1999AD0F19EE6D3F00B25ED2 /* 变身效果01020.png */,
+				1999AD1019EE6D3F00B25ED2 /* 变身效果01021.png */,
+				1999AD1119EE6D3F00B25ED2 /* 变身效果01022.png */,
+				1999AD1219EE6D3F00B25ED2 /* 变身效果01023.png */,
+				1999AD1319EE6D3F00B25ED2 /* 变身效果01024.png */,
+				1999AD1419EE6D3F00B25ED2 /* 变身效果01025.png */,
+				1999AD1519EE6D3F00B25ED2 /* 变身效果01026.png */,
+				1999AD1619EE6D3F00B25ED2 /* 变身效果01027.png */,
+				1999AD1719EE6D3F00B25ED2 /* 变身效果01028.png */,
+				1999AD1819EE6D3F00B25ED2 /* 变身效果01029.png */,
+				1999AD1919EE6D3F00B25ED2 /* 变身效果01030.png */,
+				1999AD1A19EE6D3F00B25ED2 /* 变身效果01031.png */,
+				1999AD1B19EE6D3F00B25ED2 /* 变身效果01032.png */,
+				1999AD1C19EE6D3F00B25ED2 /* 变身效果01033.png */,
+				1999AD1D19EE6D3F00B25ED2 /* 变身效果01034.png */,
+				1999AD1E19EE6D3F00B25ED2 /* 变身效果01035.png */,
+				1999AD1F19EE6D3F00B25ED2 /* 变身效果01036.png */,
+				1999AD2019EE6D3F00B25ED2 /* 变身效果01037.png */,
+				1999AD2119EE6D3F00B25ED2 /* 变身效果01038.png */,
+				1999AD2219EE6D3F00B25ED2 /* 变身效果01039.png */,
+				1999AD2319EE6D3F00B25ED2 /* 变身效果01040.png */,
+				1999AD2419EE6D3F00B25ED2 /* 变身效果01041.png */,
+				1999AD2519EE6D3F00B25ED2 /* 变身效果01042.png */,
+				1999AD2619EE6D3F00B25ED2 /* 变身效果01043.png */,
+			);
+			path = transform;
 			sourceTree = "<group>";
 		};
 		19F6ED8F18C6C09900BFFF9A = {
@@ -1042,10 +1041,9 @@
 			isa = PBXGroup;
 			children = (
 				D4877A3F196C314E009509E5 /* Images.xcassets */,
-				1959D69519152E9700865D27 /* skill_plant.png */,
 				196738BC19DA5BD2002C5172 /* Images */,
 				D4916A15193F62CF00662F88 /* JsonData */,
-				190BF48D18C6C85C006B0AE6 /* Image */,
+				1999ACED19EE6D3F00B25ED2 /* OldImage */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -1168,29 +1166,6 @@
 			path = Resource/JsonData;
 			sourceTree = "<group>";
 		};
-		D4AE4CB1196EDA5100FC24EF /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				D4AE4CB2196EDA5100FC24EF /* PetTypeChoose */,
-			);
-			name = MainView;
-			path = Resource/Image/MainView;
-			sourceTree = "<group>";
-		};
-		D4AE4CB2196EDA5100FC24EF /* PetTypeChoose */ = {
-			isa = PBXGroup;
-			children = (
-				D4AE4CB3196EDA5100FC24EF /* fire.png */,
-				D4AE4CB4196EDA5100FC24EF /* fire_selected.png */,
-				D4AE4CB5196EDA5100FC24EF /* petchooseback.png */,
-				D4AE4CB6196EDA5100FC24EF /* soil.png */,
-				D4AE4CB7196EDA5100FC24EF /* soil_selected.png */,
-				D4AE4CB8196EDA5100FC24EF /* water.png */,
-				D4AE4CB9196EDA5100FC24EF /* water_selected.png */,
-			);
-			path = PetTypeChoose;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1243,130 +1218,137 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				190CF0821912309D00370760 /* pixie_plant3_battle0.png in Resources */,
-				1959D69619152E9700865D27 /* skill_plant.png in Resources */,
-				1959D670191515C900865D27 /* 变身效果01007.png in Resources */,
+				1999AD5919EE6D3F00B25ED2 /* 变身效果01039.png in Resources */,
+				1999AC7B19EE6CCF00B25ED2 /* skill_plant.png in Resources */,
 				1999AC1B19EE64D500B25ED2 /* fire_forward_0009.png in Resources */,
 				1999AC1F19EE64D500B25ED2 /* fire_forward_0013.png in Resources */,
+				1999AD5719EE6D3F00B25ED2 /* 变身效果01037.png in Resources */,
 				1999AC1A19EE64D500B25ED2 /* fire_forward_0008.png in Resources */,
-				1959D675191515C900865D27 /* 变身效果01012.png in Resources */,
 				1999AC6A19EE64D500B25ED2 /* fire_shield_cast_0011.png in Resources */,
+				1999AD4019EE6D3F00B25ED2 /* 变身效果01014.png in Resources */,
 				1999AC5619EE64D500B25ED2 /* fire_blade_cast_0015.png in Resources */,
 				1999AC3419EE64D500B25ED2 /* plant_forward_0013.png in Resources */,
 				1999AC2619EE64D500B25ED2 /* plant_encounter.png in Resources */,
 				1999AC5419EE64D500B25ED2 /* fire_blade_cast_0013.png in Resources */,
+				1999AD3C19EE6D3F00B25ED2 /* 变身效果01010.png in Resources */,
+				1999AD2A19EE6D3F00B25ED2 /* pixie_plant2_battle0.png in Resources */,
 				D4BF768819E6928D003CFFAB /* ui_talent.atlas in Resources */,
 				1999AC6B19EE64D500B25ED2 /* fire_shield_cast_0012.png in Resources */,
 				1999AC3319EE64D500B25ED2 /* plant_forward_0012.png in Resources */,
+				1999AD4319EE6D3F00B25ED2 /* 变身效果01017.png in Resources */,
+				1999AD5319EE6D3F00B25ED2 /* 变身效果01033.png in Resources */,
 				1999AC1519EE64D500B25ED2 /* fire_forward_0003.png in Resources */,
+				1999AD3A19EE6D3F00B25ED2 /* 变身效果01008.png in Resources */,
 				D44935C41948B52E00F3B5B9 /* UserPetInfo.plist in Resources */,
-				1959D691191515C900865D27 /* 变身效果01040.png in Resources */,
 				1992B3EE19E9269C00BFE51E /* FrameCount.plist in Resources */,
 				1999AC7019EE64D500B25ED2 /* fire_shield_cast_0017.png in Resources */,
 				D457012D194F430700C2EFCE /* EnemyInfo.plist in Resources */,
+				1999AD3619EE6D3F00B25ED2 /* 变身效果01004.png in Resources */,
+				1999AD2719EE6D3F00B25ED2 /* fire.png in Resources */,
+				1999AD4E19EE6D3F00B25ED2 /* 变身效果01028.png in Resources */,
 				1999AC4119EE64D500B25ED2 /* map_icon_plant.png in Resources */,
 				1999AC2919EE64D500B25ED2 /* plant_forward_0002.png in Resources */,
+				1999AD5219EE6D3F00B25ED2 /* 变身效果01032.png in Resources */,
 				19F6EDA818C6C09900BFFF9A /* InfoPlist.strings in Resources */,
+				1999AD4519EE6D3F00B25ED2 /* 变身效果01019.png in Resources */,
+				1999AD5B19EE6D3F00B25ED2 /* 变身效果01041.png in Resources */,
 				1999AC3119EE64D500B25ED2 /* plant_forward_0010.png in Resources */,
 				1999AC3E19EE64D500B25ED2 /* map_all_03.png in Resources */,
 				1999AC6519EE64D500B25ED2 /* fire_shield_cast_0006.png in Resources */,
+				1999AD4919EE6D3F00B25ED2 /* 变身效果01023.png in Resources */,
 				1999AC4619EE64D500B25ED2 /* ui_fit_top.png in Resources */,
+				1999AD3719EE6D3F00B25ED2 /* 变身效果01005.png in Resources */,
+				1999AD5519EE6D3F00B25ED2 /* 变身效果01035.png in Resources */,
 				1999AC5719EE64D500B25ED2 /* fire_blade_cast_0016.png in Resources */,
 				1999AC6319EE64D500B25ED2 /* fire_shield_cast_0004.png in Resources */,
+				1999AD5419EE6D3F00B25ED2 /* 变身效果01034.png in Resources */,
+				1999AD4219EE6D3F00B25ED2 /* 变身效果01016.png in Resources */,
 				1999AC2419EE64D500B25ED2 /* fire_forward_0018.png in Resources */,
+				1999AD3119EE6D3F00B25ED2 /* water_selected.png in Resources */,
+				1999AD3219EE6D3F00B25ED2 /* 变身效果01000.png in Resources */,
 				1999AC4319EE64D500B25ED2 /* map_scene_metal.png in Resources */,
 				1999AC4A19EE64D500B25ED2 /* fire_blade_cast_0003.png in Resources */,
 				1999AC4019EE64D500B25ED2 /* map_icon_metal.png in Resources */,
 				1999AC3B19EE64D500B25ED2 /* map_all_00.png in Resources */,
-				1959D68E191515C900865D27 /* 变身效果01037.png in Resources */,
-				1959D67A191515C900865D27 /* 变身效果01017.png in Resources */,
-				1959D67B191515C900865D27 /* 变身效果01018.png in Resources */,
-				190CF0831912309D00370760 /* pixie_plant3_battle1.png in Resources */,
 				1999AC1119EE64D500B25ED2 /* fire_encounter.png in Resources */,
 				1999AC4E19EE64D500B25ED2 /* fire_blade_cast_0007.png in Resources */,
+				1999AD3919EE6D3F00B25ED2 /* 变身效果01007.png in Resources */,
 				1999AC2D19EE64D500B25ED2 /* plant_forward_0006.png in Resources */,
 				1999AC7819EE64D500B25ED2 /* fire_shield_cast_0025.png in Resources */,
 				D4AE4CB0196ED1D100FC24EF /* PetsChooseInfo.plist in Resources */,
-				D4AE4CBB196EDA5100FC24EF /* fire_selected.png in Resources */,
+				1999AD2F19EE6D3F00B25ED2 /* soil_selected.png in Resources */,
 				1999AC7519EE64D500B25ED2 /* fire_shield_cast_0022.png in Resources */,
-				1959D681191515C900865D27 /* 变身效果01024.png in Resources */,
+				1999AD5D19EE6D3F00B25ED2 /* 变身效果01043.png in Resources */,
 				D4BF767E19E6928D003CFFAB /* ball_elements.atlas in Resources */,
+				1999AD5819EE6D3F00B25ED2 /* 变身效果01038.png in Resources */,
 				1999AC5819EE64D500B25ED2 /* fire_blade_cast_0017.png in Resources */,
 				1999AC1C19EE64D500B25ED2 /* fire_forward_0010.png in Resources */,
 				1999AC4D19EE64D500B25ED2 /* fire_blade_cast_0006.png in Resources */,
+				1999AD3F19EE6D3F00B25ED2 /* 变身效果01013.png in Resources */,
 				1999AC1D19EE64D500B25ED2 /* fire_forward_0011.png in Resources */,
 				1999AC1219EE64D500B25ED2 /* fire_forward_0000.png in Resources */,
-				D4AE4CBA196EDA5100FC24EF /* fire.png in Resources */,
 				1999AC4419EE64D500B25ED2 /* map_scene_plant.png in Resources */,
 				1999AC5C19EE64D500B25ED2 /* fire_blade_cast_0021.png in Resources */,
-				1959D68D191515C900865D27 /* 变身效果01036.png in Resources */,
+				1999AD4819EE6D3F00B25ED2 /* 变身效果01022.png in Resources */,
+				1999AD3419EE6D3F00B25ED2 /* 变身效果01002.png in Resources */,
 				1999AC1819EE64D500B25ED2 /* fire_forward_0006.png in Resources */,
+				1999AD5A19EE6D3F00B25ED2 /* 变身效果01040.png in Resources */,
 				1999AC2319EE64D500B25ED2 /* fire_forward_0017.png in Resources */,
-				D4AE4CBF196EDA5100FC24EF /* water.png in Resources */,
 				1992B3F419E926FB00BFE51E /* ball_buff.atlas in Resources */,
+				1999AD3E19EE6D3F00B25ED2 /* 变身效果01012.png in Resources */,
 				1999AC3219EE64D500B25ED2 /* plant_forward_0011.png in Resources */,
+				1999AD4419EE6D3F00B25ED2 /* 变身效果01018.png in Resources */,
 				D4BF768519E6928D003CFFAB /* skill_icon.atlas in Resources */,
 				1999AC2C19EE64D500B25ED2 /* plant_forward_0005.png in Resources */,
-				1959D671191515C900865D27 /* 变身效果01008.png in Resources */,
 				1999AC6819EE64D500B25ED2 /* fire_shield_cast_0009.png in Resources */,
 				1999AC4819EE64D500B25ED2 /* fire_blade_cast_0001.png in Resources */,
 				1999AC7219EE64D500B25ED2 /* fire_shield_cast_0019.png in Resources */,
 				1999AC3A19EE64D500B25ED2 /* plant_forward_0019.png in Resources */,
-				1959D67D191515C900865D27 /* 变身效果01020.png in Resources */,
-				1959D678191515C900865D27 /* 变身效果01015.png in Resources */,
-				1959D685191515C900865D27 /* 变身效果01028.png in Resources */,
 				1999AC6419EE64D500B25ED2 /* fire_shield_cast_0005.png in Resources */,
 				1999AC6E19EE64D500B25ED2 /* fire_shield_cast_0015.png in Resources */,
 				1999AC3719EE64D500B25ED2 /* plant_forward_0016.png in Resources */,
+				1999AD5619EE6D3F00B25ED2 /* 变身效果01036.png in Resources */,
 				1999AC6119EE64D500B25ED2 /* fire_shield_cast_0002.png in Resources */,
 				1999AC4F19EE64D500B25ED2 /* fire_blade_cast_0008.png in Resources */,
 				1999AC7619EE64D500B25ED2 /* fire_shield_cast_0023.png in Resources */,
 				1999AC6F19EE64D500B25ED2 /* fire_shield_cast_0016.png in Resources */,
-				1959D68F191515C900865D27 /* 变身效果01038.png in Resources */,
-				1959D68C191515C900865D27 /* 变身效果01035.png in Resources */,
 				1999AC3C19EE64D500B25ED2 /* map_all_01.png in Resources */,
-				1959D693191515C900865D27 /* 变身效果01042.png in Resources */,
-				1959D680191515C900865D27 /* 变身效果01023.png in Resources */,
 				1999AC7119EE64D500B25ED2 /* fire_shield_cast_0018.png in Resources */,
 				1999AC5219EE64D500B25ED2 /* fire_blade_cast_0011.png in Resources */,
 				1999AC3819EE64D500B25ED2 /* plant_forward_0017.png in Resources */,
 				1999AC5019EE64D500B25ED2 /* fire_blade_cast_0009.png in Resources */,
-				1959D673191515C900865D27 /* 变身效果01010.png in Resources */,
 				1999AC1E19EE64D500B25ED2 /* fire_forward_0012.png in Resources */,
 				D4BF768219E6928D003CFFAB /* pixie_info.atlas in Resources */,
-				190CF0811912309D00370760 /* pixie_plant2_battle1.png in Resources */,
-				1959D66C191515C900865D27 /* 变身效果01003.png in Resources */,
+				1999AD2819EE6D3F00B25ED2 /* fire_selected.png in Resources */,
+				1999AD3B19EE6D3F00B25ED2 /* 变身效果01009.png in Resources */,
+				1999AD3819EE6D3F00B25ED2 /* 变身效果01006.png in Resources */,
 				1999AC4B19EE64D500B25ED2 /* fire_blade_cast_0004.png in Resources */,
-				1959D68A191515C900865D27 /* 变身效果01033.png in Resources */,
 				1999AC6C19EE64D500B25ED2 /* fire_shield_cast_0013.png in Resources */,
+				1999AD4D19EE6D3F00B25ED2 /* 变身效果01027.png in Resources */,
 				1999AC2019EE64D500B25ED2 /* fire_forward_0014.png in Resources */,
-				1959D692191515C900865D27 /* 变身效果01041.png in Resources */,
-				1959D672191515C900865D27 /* 变身效果01009.png in Resources */,
-				1959D689191515C900865D27 /* 变身效果01032.png in Resources */,
-				1959D686191515C900865D27 /* 变身效果01029.png in Resources */,
 				1999AC3F19EE64D500B25ED2 /* map_icon_fire.png in Resources */,
-				D4AE4CBC196EDA5100FC24EF /* petchooseback.png in Resources */,
-				1959D669191515C900865D27 /* 变身效果01000.png in Resources */,
-				D4AE4CBE196EDA5100FC24EF /* soil_selected.png in Resources */,
+				1999AD2E19EE6D3F00B25ED2 /* soil.png in Resources */,
+				1999AD2919EE6D3F00B25ED2 /* petchooseback.png in Resources */,
+				1999AD5C19EE6D3F00B25ED2 /* 变身效果01042.png in Resources */,
 				1999AC3019EE64D500B25ED2 /* plant_forward_0009.png in Resources */,
 				1999AC2119EE64D500B25ED2 /* fire_forward_0015.png in Resources */,
 				1999AC2B19EE64D500B25ED2 /* plant_forward_0004.png in Resources */,
 				D4BF767F19E6928D003CFFAB /* ball_magic.atlas in Resources */,
 				1999AC4719EE64D500B25ED2 /* fire_blade_cast_0000.png in Resources */,
-				1959D66D191515C900865D27 /* 变身效果01004.png in Resources */,
-				1959D674191515C900865D27 /* 变身效果01011.png in Resources */,
 				1999AC1619EE64D500B25ED2 /* fire_forward_0004.png in Resources */,
+				1999AD4A19EE6D3F00B25ED2 /* 变身效果01024.png in Resources */,
+				1999AD4B19EE6D3F00B25ED2 /* 变身效果01025.png in Resources */,
+				1999AD5119EE6D3F00B25ED2 /* 变身效果01031.png in Resources */,
 				1999AC2519EE64D500B25ED2 /* fire_forward_0019.png in Resources */,
 				1999AC6919EE64D500B25ED2 /* fire_shield_cast_0010.png in Resources */,
-				1959D688191515C900865D27 /* 变身效果01031.png in Resources */,
-				D4AE4CC0196EDA5100FC24EF /* water_selected.png in Resources */,
 				1999AC4219EE64D500B25ED2 /* map_scene_fire.png in Resources */,
-				190CF0801912309D00370760 /* pixie_plant2_battle0.png in Resources */,
+				1999AD4F19EE6D3F00B25ED2 /* 变身效果01029.png in Resources */,
 				1999AC5D19EE64D500B25ED2 /* fire_blade_cast_0022.png in Resources */,
-				1959D67F191515C900865D27 /* 变身效果01022.png in Resources */,
 				D4916A17193F636C00662F88 /* PassInfo.plist in Resources */,
 				1999AC3519EE64D500B25ED2 /* plant_forward_0014.png in Resources */,
+				1999AD3319EE6D3F00B25ED2 /* 变身效果01001.png in Resources */,
 				1999AC6619EE64D500B25ED2 /* fire_shield_cast_0007.png in Resources */,
+				1999AD3D19EE6D3F00B25ED2 /* 变身效果01011.png in Resources */,
 				1999AC7319EE64D500B25ED2 /* fire_shield_cast_0020.png in Resources */,
 				1999AC7419EE64D500B25ED2 /* fire_shield_cast_0021.png in Resources */,
 				1999AC7719EE64D500B25ED2 /* fire_shield_cast_0024.png in Resources */,
@@ -1376,50 +1358,43 @@
 				D4BF768719E6928D003CFFAB /* ui_fighting.atlas in Resources */,
 				1999AC1719EE64D500B25ED2 /* fire_forward_0005.png in Resources */,
 				1999AC4C19EE64D500B25ED2 /* fire_blade_cast_0005.png in Resources */,
-				1959D679191515C900865D27 /* 变身效果01016.png in Resources */,
-				1959D68B191515C900865D27 /* 变身效果01034.png in Resources */,
 				1999AC2A19EE64D500B25ED2 /* plant_forward_0003.png in Resources */,
 				1999AC3D19EE64D500B25ED2 /* map_all_02.png in Resources */,
 				1999AC6019EE64D500B25ED2 /* fire_shield_cast_0001.png in Resources */,
+				1999AD4719EE6D3F00B25ED2 /* 变身效果01021.png in Resources */,
+				1999AD4C19EE6D3F00B25ED2 /* 变身效果01026.png in Resources */,
+				1999AD2C19EE6D3F00B25ED2 /* pixie_plant3_battle0.png in Resources */,
 				1999AC5119EE64D500B25ED2 /* fire_blade_cast_0010.png in Resources */,
+				1999AD3519EE6D3F00B25ED2 /* 变身效果01003.png in Resources */,
 				D4BF768019E6928D003CFFAB /* ball_table.atlas in Resources */,
+				1999AD3019EE6D3F00B25ED2 /* water.png in Resources */,
 				1999AC1319EE64D500B25ED2 /* fire_forward_0001.png in Resources */,
 				1999AC6D19EE64D500B25ED2 /* fire_shield_cast_0014.png in Resources */,
 				1999AC3919EE64D500B25ED2 /* plant_forward_0018.png in Resources */,
+				1999AD4119EE6D3F00B25ED2 /* 变身效果01015.png in Resources */,
 				1999AC1419EE64D500B25ED2 /* fire_forward_0002.png in Resources */,
 				1999AC5A19EE64D500B25ED2 /* fire_blade_cast_0019.png in Resources */,
 				1999AC5319EE64D500B25ED2 /* fire_blade_cast_0012.png in Resources */,
 				1999AC2F19EE64D500B25ED2 /* plant_forward_0008.png in Resources */,
-				1959D66B191515C900865D27 /* 变身效果01002.png in Resources */,
-				1959D67E191515C900865D27 /* 变身效果01021.png in Resources */,
-				1959D690191515C900865D27 /* 变身效果01039.png in Resources */,
-				1959D676191515C900865D27 /* 变身效果01013.png in Resources */,
 				1999AC6219EE64D500B25ED2 /* fire_shield_cast_0003.png in Resources */,
 				1999AC4519EE64D500B25ED2 /* ui_fit_bottom.png in Resources */,
-				1959D687191515C900865D27 /* 变身效果01030.png in Resources */,
 				1999AC2719EE64D500B25ED2 /* plant_forward_0000.png in Resources */,
-				1959D66A191515C900865D27 /* 变身效果01001.png in Resources */,
 				1999AC1919EE64D500B25ED2 /* fire_forward_0007.png in Resources */,
-				1959D694191515C900865D27 /* 变身效果01043.png in Resources */,
 				1999AC5E19EE64D500B25ED2 /* fire_blade_cast_0023.png in Resources */,
-				1959D67C191515C900865D27 /* 变身效果01019.png in Resources */,
-				1959D682191515C900865D27 /* 变身效果01025.png in Resources */,
 				1999AC5B19EE64D500B25ED2 /* fire_blade_cast_0020.png in Resources */,
-				D4AE4CBD196EDA5100FC24EF /* soil.png in Resources */,
-				1959D683191515C900865D27 /* 变身效果01026.png in Resources */,
 				1999AC3619EE64D500B25ED2 /* plant_forward_0015.png in Resources */,
-				1959D66E191515C900865D27 /* 变身效果01005.png in Resources */,
-				1959D684191515C900865D27 /* 变身效果01027.png in Resources */,
 				1992B3F219E926E700BFE51E /* skill_buff.atlas in Resources */,
 				1999AC2819EE64D500B25ED2 /* plant_forward_0001.png in Resources */,
 				1999AC2E19EE64D500B25ED2 /* plant_forward_0007.png in Resources */,
+				1999AD2B19EE6D3F00B25ED2 /* pixie_plant2_battle1.png in Resources */,
 				1999AC4919EE64D500B25ED2 /* fire_blade_cast_0002.png in Resources */,
 				1999AC5F19EE64D500B25ED2 /* fire_shield_cast_0000.png in Resources */,
-				1959D677191515C900865D27 /* 变身效果01014.png in Resources */,
 				1999AC2219EE64D500B25ED2 /* fire_forward_0016.png in Resources */,
+				1999AD5019EE6D3F00B25ED2 /* 变身效果01030.png in Resources */,
+				1999AD4619EE6D3F00B25ED2 /* 变身效果01020.png in Resources */,
+				1999AD2D19EE6D3F00B25ED2 /* pixie_plant3_battle1.png in Resources */,
 				1999AC6719EE64D500B25ED2 /* fire_shield_cast_0008.png in Resources */,
 				1999AC7919EE64D500B25ED2 /* fire_shield_cast_0026.png in Resources */,
-				1959D66F191515C900865D27 /* 变身效果01006.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
