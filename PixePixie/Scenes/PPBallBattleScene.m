@@ -30,7 +30,7 @@ CGFloat vectorLength (CGVector vector) {
 {
     long frameFlag;
     BOOL isNotSkillRun;
-    NSString *sceneTypeString;
+    NSString * sceneTypeString;
 }
 
 @property (nonatomic, retain) PPPixie * pixiePlayer;
@@ -71,7 +71,7 @@ CGFloat vectorLength (CGVector vector) {
         // 处理参数
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
-        sceneTypeString = kPPElementTypeString[sceneType];
+        sceneTypeString = kElementTypeString[sceneType];
         
         // 初始化宠物基础数据
         petCombos = 0;
@@ -169,10 +169,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (_isBallRolling == YES) {
-        return;
-    }
-    
+    if (_isBallRolling == YES) return;
     if (touches.count > 1 || _isBallDragging || _isBallRolling || isNotSkillRun) return;
     
     UITouch * touch = [touches anyObject];
@@ -225,10 +222,6 @@ CGFloat vectorLength (CGVector vector) {
         [self.ballPlayer.physicsBody applyImpulse:
          CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
                       (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce)];
-        
-        NSLog(@"vector x=%f   vector y=%f",
-              (self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
-              (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce);
         
         currentPhysicsAttack = 1;
         
@@ -291,10 +284,7 @@ CGFloat vectorLength (CGVector vector) {
                     [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
             //我方碰到敌方属性元素球
         {
-            
-            
             NSNumber * emlementBodyStatus = [self dealPixieBallAndElementBall:contact andPetBall:self.ballPlayer];
-            
             if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
                 return;
             
@@ -309,9 +299,6 @@ CGFloat vectorLength (CGVector vector) {
 
             if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
                 return;
-            
-     
-
         }
         
         //判断当前我方是否满血
@@ -410,10 +397,7 @@ CGFloat vectorLength (CGVector vector) {
                 }
                     break;
             }
-
         }
-        
-        NSLog(@"currentHP=%f max=%f",self.pixiePlayer.currentHP,self.pixiePlayer.pixieHPmax);
         
         if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
             //当前己方不满血
@@ -427,44 +411,42 @@ CGFloat vectorLength (CGVector vector) {
     
 }
 
-
-- (void)didEndContact:(SKPhysicsContact *)contact
-{
-    
-}
+- (void)didEndContact:(SKPhysicsContact *)contact{}
 
 #pragma mark Deal ball contact
+
 -(NSNumber *)dealPixieBallAndElementBall:(SKPhysicsContact *)contact andPetBall:(PPBall *)pixieball
 {
-    NSNumber * emlementBodyStatus = nil;
-    PPBall *elmentBallTmp = nil;
+    NSNumber * elementBodyStatus = nil;
+    PPBall * elementBallTmp = nil;
     if (contact.bodyA == pixieball.physicsBody) {
-        emlementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
-        elmentBallTmp=(PPBall *)contact.bodyB.node ;
+        elementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
+        elementBallTmp=(PPBall *)contact.bodyB.node ;
         
     }else
     {
-                elmentBallTmp=(PPBall *)contact.bodyA.node ;
-        emlementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
+        
+        elementBallTmp=(PPBall *)contact.bodyA.node ;
+        elementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
         
     }
     
     
-    if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
+    if ([elementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
         
 
         if (self.ballPlayer == pixieball) {
             
-            if (self.ballPlayer.ballElementType == elmentBallTmp.ballElementType) {
+            if (self.ballPlayer.ballElementType == elementBallTmp.ballElementType) {
                 
                 if (self.playerAndEnemySide.currentPPPixie.currentHP <self.playerAndEnemySide.currentPPPixie.pixieHPmax) {
                     [self.playerAndEnemySide changePetHPValue:200];
                     [self addHPValueChangeLabel:200 position:pixieball.position];
                     petAssimSameEleNum ++;
-                    [elmentBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
                 }else
                 {
-                    [elmentBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
 
                 }
                 
@@ -476,59 +458,47 @@ CGFloat vectorLength (CGVector vector) {
                     [self.playerAndEnemySide changePetHPValue:-200];
                     [self addHPValueChangeLabel:-200 position:pixieball.position];
                     petAssimDiffEleNum ++;
-                    [elmentBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
 
                 }else
                 {
-                    [elmentBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
 
                 }
-                
-           
-
             }
             
-        }else
-        {
-            
-            
-            if (self.ballEnemy.ballElementType == elmentBallTmp.ballElementType) {
+        } else {
+            if (self.ballEnemy.ballElementType == elementBallTmp.ballElementType) {
                 if (self.playerAndEnemySide.currentPPPixie.currentHP <self.playerAndEnemySide.currentPPPixie.pixieHPmax) {
 
                 [self.playerAndEnemySide changeEnemyHPValue:200];
                 [self addHPValueChangeLabel:200 position:pixieball.position];
                 enemyAssimSameEleNum ++;
-                    [elmentBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
 
                 }else
                 {
-                    [elmentBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
 
                 }
-            }else
-            {
+            } else {
                 
-                if (self.playerAndEnemySide.currentPPPixie.currentHP >=0.0f) {
+                if (self.playerAndEnemySide.currentPPPixie.currentHP >= 0.0f) {
 
                 [self.playerAndEnemySide changeEnemyHPValue:-200];
                 [self addHPValueChangeLabel:-200 position:pixieball.position];
                 enemyAssimDiffEleNum ++;
-                    [elmentBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
 
                 }else
                 {
-                    [elmentBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
-
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
                 }
             }
-            
         }
-        
     }
-
     
-    return emlementBodyStatus;
-    
+    return elementBodyStatus;
 }
 
 

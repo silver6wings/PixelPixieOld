@@ -2,8 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>____ball_buff____</key>
+	<string>____</string>
 	<key>plant_root_ball</key>
 	<integer>22</integer>
+	<key>____ball_element____</key>
+	<string>____</string>
 	<key>fire_aura</key>
 	<integer>15</integer>
 	<key>fire_hit</key>
@@ -20,15 +24,23 @@
 	<integer>15</integer>
 	<key>plant_step</key>
 	<integer>15</integer>
+	<key>____ball_magic____</key>
+	<string>____</string>
 	<key>magic_ball</key>
 	<integer>20</integer>
+	<key>____ball_table____</key>
+	<string>____</string>
 	<key>combo_ball</key>
 	<integer>25</integer>
 	<key>element_birth</key>
 	<integer>24</integer>
 	<key>pixie_heal</key>
 	<integer>15</integer>
+	<key>____const_skill____</key>
+	<string>____</string>
 	<key>fire_blade_cast</key>
-	<integer>19</integer>
+	<integer>24</integer>
+	<key>fire_shield_cast</key>
+	<integer>27</integer>
 </dict>
 </plist>

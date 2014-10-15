@@ -26,16 +26,17 @@
 
 @interface TextureManager : NSObject
 
++(SKTextureAtlas *)ball_buff;
 +(SKTextureAtlas *)ball_elements;
 +(SKTextureAtlas *)ball_magic;
-+(SKTextureAtlas *)ball_pixie;
 +(SKTextureAtlas *)ball_table;
-+(SKTextureAtlas *)ball_buffer;
 
++(SKTextureAtlas *)pixie_info;
+
++(SKTextureAtlas *)skill_buff;
 +(SKTextureAtlas *)skill_icon;
-+(SKTextureAtlas *)skill_screen;
 
 +(SKTextureAtlas *)ui_fighting;
-+(SKTextureAtlas *)pixie_info;
++(SKTextureAtlas *)ui_talent;
 
 @end

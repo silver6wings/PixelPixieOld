@@ -15,7 +15,7 @@
 {
     if (pixie == nil) return nil;
     NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
-                            kPPElementTypeString[pixie.pixieElement],pixie.pixieGeneration];
+                            kElementTypeString[pixie.pixieElement],pixie.pixieGeneration];
     PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
     
     if (tBall){
@@ -35,7 +35,7 @@
 {
     if (pixieEnemy == nil) return nil;
     NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
-                            kPPElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration];
+                            kElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration];
     PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
     
     if (tBall){
@@ -51,7 +51,7 @@
 // 创建元素球
 +(PPBall *)ballWithElement:(PPElementType) elementType{
     
-    NSString * imageName = [NSString stringWithFormat:@"%@_ball.png", kPPElementTypeString[elementType]];
+    NSString * imageName = [NSString stringWithFormat:@"%@_ball.png", kElementTypeString[elementType]];
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
@@ -59,7 +59,7 @@
     {
         tBall.ballType = PPBallTypeElement;
         tBall.defaultTexture = tTexture;
-        tBall.name = [NSString stringWithFormat:@"ball_%@", kPPElementTypeString[elementType]];
+        tBall.name = [NSString stringWithFormat:@"ball_%@", kElementTypeString[elementType]];
         tBall.ballElementType = elementType;
         tBall.size = CGSizeMake(kBallSize, kBallSize);
         [PPBall defaultBallPhysicsBody:tBall];
@@ -117,8 +117,8 @@
     // 创建元素撞击动画
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
-        SKTexture * textureCombo = [[TextureManager ball_elements] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kPPElementTypeString[self.ballElementType],i]];
-        NSLog(@"textureName=%@",[NSString stringWithFormat:@"%@_hit_00%02d",kPPElementTypeString[self.ballElementType],i]);
+        SKTexture * textureCombo = [[TextureManager ball_elements] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]];
+        NSLog(@"textureName=%@",[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]);
 
         [textureArray addObject:textureCombo];
     }
@@ -153,11 +153,11 @@
 //                             }
     }];
 }
+
 -(void)startPixieAccelerateAnimation:(CGVector)velocity
 {
-    
     NSLog(@"velocity.x=%f y=%f",velocity.dx,velocity.dy);
-   double rotaion = atan(velocity.dx/velocity.dy);
+   double rotaion = atan(velocity.dy/velocity.dx);
     NSLog(@"velocity.x=%f y=%f rotaion=%f",velocity.dx,velocity.dy,rotaion);
 
     if (self.comboBallSprite != nil) {
@@ -170,14 +170,12 @@
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     self.comboBallSprite.zRotation = rotaion;
-    [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_run",kPPElementTypeString[self.ballElementType]]]
+    [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_run",kElementTypeString[self.ballElementType]]]
                          completion:^{
                              [self.comboBallSprite removeFromParent];
     }];
-    
-    
-    
 }
+
 // 治疗动画
 -(void)startPixieHealAnimation
 {
@@ -208,7 +206,6 @@
 // 连击能量动画
 -(void)startComboAnimation
 {
-    
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
         self.comboBallSprite = nil;
@@ -246,7 +243,7 @@
 {
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 22; i++) {
-        SKTexture * textureCombo = [[TextureManager ball_buffer] textureNamed:[NSString stringWithFormat:@"plant_root_ball_00%02d",i]];
+        SKTexture * textureCombo = [[TextureManager ball_buff] textureNamed:[NSString stringWithFormat:@"plant_root_ball_00%02d",i]];
         [textureArray addObject:textureCombo];
     }
     self.comboBallTexture = textureArray;
@@ -267,10 +264,9 @@
                              [self.comboBallSprite removeFromParent];
                          }];
 }
+
 -(void)startElementBirthAnimation
 {
-    
-    
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
         self.comboBallSprite = nil;
@@ -285,8 +281,6 @@
                          completion:^{
                              [self.comboBallSprite removeFromParent];
     }];
-    
-    
 }
 
 

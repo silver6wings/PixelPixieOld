@@ -3,6 +3,17 @@
 
 @implementation TextureManager
 
+
++(SKTextureAtlas *)ball_buff
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"ball_buff"];
+    });
+    return tAtlas;
+}
+
 +(SKTextureAtlas *)ball_elements
 {
     __strong static SKTextureAtlas * tAtlas = nil;
@@ -22,24 +33,6 @@
     });
     return tAtlas;
 }
-+(SKTextureAtlas *)ball_buffer
-{
-    __strong static SKTextureAtlas * tAtlas = nil;
-    static dispatch_once_t pred;
-    dispatch_once(&pred, ^{
-        tAtlas = [SKTextureAtlas atlasNamed:@"ball_buff"];
-    });
-    return tAtlas;
-}
-+(SKTextureAtlas *)ball_pixie
-{
-    __strong static SKTextureAtlas * tAtlas = nil;
-    static dispatch_once_t pred;
-    dispatch_once(&pred, ^{
-        tAtlas = [SKTextureAtlas atlasNamed:@"ball_pixie"];
-    });
-    return tAtlas;
-}
 
 +(SKTextureAtlas *)ball_table
 {
@@ -47,6 +40,26 @@
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
         tAtlas = [SKTextureAtlas atlasNamed:@"ball_table"];
+    });
+    return tAtlas;
+}
+
++(SKTextureAtlas *)pixie_info
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"pixie_info"];
+    });
+    return tAtlas;
+}
+
++(SKTextureAtlas *)skill_buff
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"skill_buff"];
     });
     return tAtlas;
 }
@@ -61,16 +74,6 @@
     return tAtlas;
 }
 
-+(SKTextureAtlas *)skill_screen
-{
-    __strong static SKTextureAtlas * tAtlas = nil;
-    static dispatch_once_t pred;
-    dispatch_once(&pred, ^{
-        tAtlas = [SKTextureAtlas atlasNamed:@"skill_screen"];
-    });
-    return tAtlas;
-}
-
 +(SKTextureAtlas *)ui_fighting
 {
     __strong static SKTextureAtlas * tAtlas = nil;
@@ -81,12 +84,12 @@
     return tAtlas;
 }
 
-+(SKTextureAtlas *)pixie_info
++(SKTextureAtlas *)ui_talent
 {
     __strong static SKTextureAtlas * tAtlas = nil;
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
-        tAtlas = [SKTextureAtlas atlasNamed:@"pixie_info"];
+        tAtlas = [SKTextureAtlas atlasNamed:@"ui_talent"];
     });
     return tAtlas;
 }
