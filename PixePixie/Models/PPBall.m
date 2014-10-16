@@ -187,6 +187,7 @@
     switch ([num intValue]) {
         case 0:
         {
+            
             [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_run",kElementTypeString[self.ballElementType]]]
                                  completion:^{
                                      [self.comboBallSprite removeFromParent];
