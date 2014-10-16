@@ -74,7 +74,8 @@
     
     self.currentPPPixie = petppixie;
     self.currentPPPixieEnemy = enemyppixie;
-    
+    isHaveDead = NO;
+
     // 添加上方背景图片
     SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_back",sceneString]]];
     bgSprite.size = CGSizeMake(320.0f, 80.0f);
@@ -267,11 +268,18 @@
 
 -(void)animatePetHPEnd:(NSNumber *)currentHp
 {
+    
     if (petPlayerHP->currentValue <= 0.0f) {
-        if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
-            [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_PET_PLAYER_SIDE_NODE_NAME];
+        if (!isHaveDead) {
+            if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
+                isHaveDead = YES;
+                [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_PET_PLAYER_SIDE_NODE_NAME];
+            }
         }
+
     }else{
+        isHaveDead = NO;
+
         if (self.target != nil && self.hpChangeEnd != nil && [self.target respondsToSelector:self.hpChangeEnd]) {
             [self.target performSelectorInBackground:self.hpChangeEnd withObject:PP_PET_PLAYER_SIDE_NODE_NAME];
         }

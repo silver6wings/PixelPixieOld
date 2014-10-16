@@ -20,17 +20,19 @@
     self.skill.MPChangeValue = [[skillInfo objectForKey:@"skillmpchange"] floatValue];
     self.skill.skillObject = [[skillInfo objectForKey:@"skillobject"] floatValue];
     
-    SKSpriteNode *skillAnimate = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
-    skillAnimate.size = CGSizeMake(self.frame.size.width, 242);
+    
+    SKSpriteNode *skillAnimate = [SKSpriteNode spriteNodeWithImageNamed:@"fire_blade_cast_0000"];
+    skillAnimate.size = CGSizeMake(self.frame.size.width, 150.0f);
     skillAnimate.position = CGPointMake(0.0f,0.0f);
-
     [self addChild:skillAnimate];
+    
+    
     
     NSMutableArray *textureNameArray=[[NSMutableArray alloc] init];
     @synchronized(textureNameArray)
     {
-        for (int i=1; i <= 43; i++) {
-            NSString *textureName = [NSString stringWithFormat:@"变身效果01%03d.png", i];
+        for (int i=0; i <24; i++) {
+            NSString *textureName = [NSString stringWithFormat:@"fire_blade_cast_00%02d.png", i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
             [textureNameArray addObject:temp];
             
@@ -38,7 +40,7 @@
     }
     self.skill.animateTextures =[NSMutableArray arrayWithArray:textureNameArray];
     
-    [skillAnimate runAction:[SKAction animateWithTextures:self.skill.animateTextures timePerFrame:0.02f]
+    [skillAnimate runAction:[SKAction animateWithTextures:self.skill.animateTextures timePerFrame:0.05f]
                  completion:^{
         [self endAnimateWithSkill];
     }];

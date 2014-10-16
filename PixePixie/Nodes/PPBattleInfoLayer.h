@@ -9,6 +9,7 @@
     
     PPValueShowNode *petPlayerMP;
     PPValueShowNode *enemyPlayerMP;
+    BOOL isHaveDead;
 }
 //回调对象
 @property(nonatomic, assign) id target;

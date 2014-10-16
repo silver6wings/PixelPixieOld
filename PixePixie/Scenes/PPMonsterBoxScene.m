@@ -59,6 +59,8 @@
     PPBasicSpriteNode *contentSpriteNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor blueColor] size:CGSizeMake(280, 200)];
     contentSpriteNode.position=CGPointMake(160.0f, 150);
     contentSpriteNode.name = @"contentMonsterBox";
+    
+    
     SKTexture *boxTexture = nil;
     switch ([stringName intValue]) {
         case 0:

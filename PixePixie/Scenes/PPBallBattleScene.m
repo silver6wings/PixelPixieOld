@@ -221,7 +221,8 @@ CGFloat vectorLength (CGVector vector) {
         [self.ballPlayer.physicsBody applyImpulse:
          CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
                       (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce)];
-        
+        [self.ballPlayer startPixieAccelerateAnimation:CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
+                                                                   (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce) andType:@1];
         currentPhysicsAttack = 1;
         
         [_ballShadow removeFromParent];
@@ -247,13 +248,13 @@ CGFloat vectorLength (CGVector vector) {
             if (currentPhysicsAttack == 1) {
                 self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
                                                                     self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity];
+                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
                 
             }else if(currentPhysicsAttack == 2)
             {
                 self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
                                                                    self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
-                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity];
+                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
                 
             }
             return;
@@ -283,6 +284,7 @@ CGFloat vectorLength (CGVector vector) {
                     [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
             //我方碰到敌方属性元素球
         {
+            
             NSNumber * emlementBodyStatus = [self dealPixieBallAndElementBall:contact andPetBall:self.ballPlayer];
             if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
                 return;
@@ -362,27 +364,36 @@ CGFloat vectorLength (CGVector vector) {
                  [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
         {
             
-            //敌方碰到我方属性元素球
-            NSNumber * emlementBodyStatus = [self dealPixieBallAndElementBall:contact andPetBall:self.ballEnemy];
-            
-            if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
-                return;
-            
-            switch ([emlementBodyStatus intValue]) {
+            NSNumber *elementBallSkillStatus =[self dealPallMoveSkillStatus:contact andPetBall:self.ballEnemy];
+            switch ([elementBallSkillStatus intValue]) {
                 case 1:
                 {
+                    if (self.ballEnemy.physicsBody == contact.bodyA) {
+                        [contact.bodyB.node removeFromParent];
+                    }else
+                    {
+                        [contact.bodyA.node removeFromParent];
+                    }
                     //森林瞬起
                     enemyAssimDiffEleNum++;
                     [self.ballEnemy startPlantrootAnimation];
                     self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+                  
                 }
                     break;
                     
                 default:
                 {
+                    //敌方碰到我方属性元素球
+                    NSNumber * emlementBodyStatus = [self dealPixieBallAndElementBall:contact andPetBall:self.ballEnemy];
+                    
+                    
+                    if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
+                        return;
                 }
                     break;
             }
+            
         }
         
         if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
@@ -420,18 +431,19 @@ CGFloat vectorLength (CGVector vector) {
                     [self.playerAndEnemySide changePetHPValue:200];
                     [self addHPValueChangeLabel:200 position:pixieball.position];
                     petAssimSameEleNum ++;
-                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                 } else {
-                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO andScene:self];
                 }
             } else {
                 if (self.playerAndEnemySide.currentPPPixie.currentHP >= 0.0f) {
                     [self.playerAndEnemySide changePetHPValue:-200];
                     [self addHPValueChangeLabel:-200 position:pixieball.position];
                     petAssimDiffEleNum ++;
-                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
+                    
                 } else {
-                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO andScene:self];
                 }
             }
         } else {
@@ -440,10 +452,10 @@ CGFloat vectorLength (CGVector vector) {
                     [self.playerAndEnemySide changeEnemyHPValue:200];
                     [self addHPValueChangeLabel:200 position:pixieball.position];
                     enemyAssimSameEleNum ++;
-                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                 }else
                 {
-                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO andScene:self];
                     
                 }
             } else {
@@ -453,11 +465,11 @@ CGFloat vectorLength (CGVector vector) {
                     [self.playerAndEnemySide changeEnemyHPValue:-200];
                     [self addHPValueChangeLabel:-200 position:pixieball.position];
                     enemyAssimDiffEleNum ++;
-                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                     
                 }else
                 {
-                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES];
+                    [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                 }
             }
         }
@@ -466,6 +478,20 @@ CGFloat vectorLength (CGVector vector) {
     return elementBodyStatus;
 }
 
+-(NSNumber *)dealPallMoveSkillStatus:(SKPhysicsContact *)contact andPetBall:(PPBall *)pixieball
+{
+    NSNumber *skillStatus = nil;
+    
+    if (pixieball.physicsBody == contact.bodyA) {
+        skillStatus = contact.bodyB.PPBallSkillStatus;
+        
+    }else
+    {
+        skillStatus = contact.bodyA.PPBallSkillStatus;
+
+    }
+    return skillStatus;
+}
 
 #pragma mark BackAlert
 
@@ -828,7 +854,9 @@ CGFloat vectorLength (CGVector vector) {
         
         PPBall * tBall = [self.ballsElement objectAtIndex:i];
         
+
         tBall.physicsBody.PPBallPhysicsBodyStatus=[NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+i];
+        
         
     }
     
@@ -963,6 +991,7 @@ CGFloat vectorLength (CGVector vector) {
     float randomX = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
     float randomY = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
     [self.ballEnemy.physicsBody applyImpulse:CGVectorMake(randomX, randomY)];
+    [self.ballEnemy startPixieAccelerateAnimation:CGVectorMake(randomX, randomY) andType:@1];
     [self setPlayerSideRoundRunState];
     _isBallRolling = YES;
 }
@@ -1158,9 +1187,9 @@ CGFloat vectorLength (CGVector vector) {
                 
                 for (PPBall * tBall in self.ballsElement) {
                     if (tBall.ballElementType == PPElementTypePlant) {
-                        tBall.physicsBody.PPBallPhysicsBodyStatus = @1;
-                        //                        [tBall runAction:[SKAction animateWithTextures:animanArryay timePerFrame:0.05f]];
+                        tBall.physicsBody.PPBallSkillStatus= @1;
                         [tBall startMagicballAnimation];
+                        
                     }
                 }
             }
@@ -1309,7 +1338,7 @@ CGFloat vectorLength (CGVector vector) {
 {
     [self setPlayerSideRoundRunState];
     
-    PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300)];
+    PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
     skillNode.delegate = self;
     skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);
@@ -1321,7 +1350,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)showSkillEventBegin:(NSDictionary *)skillInfo
 {
-    PPSkillNode * skillNode = [PPSkillNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(self.size.width, 300.0f)];
+    PPSkillNode * skillNode = [PPSkillNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(self.size.width, 300.0f)];
     skillNode.delegate = self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
     skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);

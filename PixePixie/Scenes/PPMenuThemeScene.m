@@ -8,9 +8,9 @@ static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
 {
     if (self = [super initWithSize:size]) {
         
-        self.backgroundColor = [UIColor blueColor];
         [self setBackTitleText:@"世界地图" andPositionY:450.0f];
-        
+
+        [self addChild:[SKSpriteNode spriteNodeWithImageNamed:@"map_all_03.png"]];
 
         
         for (int i = 0; i < 3; i++) {

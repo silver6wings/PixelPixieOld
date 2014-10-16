@@ -5,11 +5,13 @@
 
 @interface NSObject (ExtendedProperties)
 @property (nonatomic, strong, readwrite) id PPBallPhysicsBodyStatus;
+@property (nonatomic, strong, readwrite) id PPBallSkillStatus;
 @end
 
 // Implementation
 
 static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKey";
+static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyKey1";
 
 @implementation NSObject (ExtendedProperties)
 
@@ -21,6 +23,16 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 - (void)setPPBallPhysicsBodyStatus:(id)myCustomProperty
 {
     objc_setAssociatedObject(self, MyObjectMyCustomPorpertyKey, myCustomProperty, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (id)PPBallSkillStatus
+{
+    return objc_getAssociatedObject(self, MyObjectMyCustomPorpertyKey1);
+}
+
+- (void)setPPBallSkillStatus:(id)myCustomProperty
+{
+    objc_setAssociatedObject(self, MyObjectMyCustomPorpertyKey1, myCustomProperty, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
@@ -51,8 +63,8 @@ static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKe
 -(void)setToDefaultTexture;
 -(void)startComboAnimation;
 -(void)startPixieHealAnimation;
--(void)startPixieAccelerateAnimation:(CGVector)velocity;
--(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed;
+-(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSNumber *)num;
+-(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed andScene:(PPBasicScene *)battleScene;
 -(void)startElementBirthAnimation;
 -(void)startMagicballAnimation;
 -(void)startPlantrootAnimation;
