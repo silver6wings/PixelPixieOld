@@ -85,23 +85,19 @@
     {
         
         for (int i = 0; i < 20; i++) {
-            NSString *textureName = [NSString stringWithFormat:@"%@_forward_00%02d.png",kElementTypeString[chooseSceneType],i];
-            NSLog(@"imageName=%@",[NSString stringWithFormat:@"%@_forward_00%02d.png",kElementTypeString[chooseSceneType],i]);
-            
+            NSString * textureName =
+            [NSString stringWithFormat:@"%@_forward_%04d.png", kElementTypeString[chooseSceneType],i];
             SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
             [texturesArray addObject:temp];
         }
         
     }
     
-    [forwardSprite runAction:[SKAction animateWithTextures:texturesArray timePerFrame:0.1] completion:^{
+    [forwardSprite runAction:[SKAction animateWithTextures:texturesArray timePerFrame:kFrameInterval]
+                  completion:^{
         [forwardSprite removeFromParent];
         [self addChangeStatus:hurdleReadyContentNode];
-    
     }];
-    
-    
-    
     
 //    // 添加己方精灵
 //    _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"变身效果01000"];
