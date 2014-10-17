@@ -65,6 +65,7 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
 -(void)startPixieHealAnimation;
 -(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSNumber *)num;
 -(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed andScene:(PPBasicScene *)battleScene;
+-(void)startRemoveAnimation:(NSMutableArray *)ballArray  andScene:(PPBasicScene *)battleScene;
 -(void)startElementBirthAnimation;
 -(void)startMagicballAnimation;
 -(void)startPlantrootAnimation;

@@ -167,6 +167,33 @@
     ppixieBtnLabel.position = CGPointMake(ppixieEnemyBtn.position.x, ppixiePetBtnLabel.position.y);
     [self addChild:ppixieBtnLabel];
     
+    
+    
+    for (int i = 0; i < [currentPPPixie.pixieBuffs count]; i++)
+    {
+        // 添加宠物buff槽
+            PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixie.pixieElement],i+1]]
+                                                                    andSize:CGSizeMake(25.0f, 25.0f)];
+            passButton.position = CGPointMake(30*i - 90.0f, -20.0f);
+            passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
+            [passButton addTarget:self selector:@selector(skillClick:)
+                       withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+            [self addChild:passButton];
+        
+    }
+    for (int i = 0; i < [currentPPPixieEnemy.pixieBuffs count]; i++)
+    {
+        // 添加怪物buff槽
+        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixieEnemy.pixieElement],i+1]]
+                                                                andSize:CGSizeMake(25.0f, 25.0f)];
+        passButton.position = CGPointMake(30*i -30.0f+enemyPlayerHP.position.x, -20.0f);
+        passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
+        [passButton addTarget:self selector:@selector(skillClick:)
+                   withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+        [self addChild:passButton];
+        
+    }
+    
     //    PPBasicLabelNode *ppixiePetNameLabel=[[PPBasicLabelNode alloc] init];
     //    ppixiePetNameLabel.fontSize=12;
     //    [ppixiePetNameLabel setColor:[SKColor blueColor]];
@@ -257,7 +284,10 @@
         ppixieSkillBtn.userInteractionEnabled = YES;
     }
 }
+-(void)setBufferBar:(NSArray *)buffs
+{
 
+}
 -(void)animatePetMPEnd:(NSNumber *)currentMp
 {
 }

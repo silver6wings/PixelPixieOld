@@ -44,5 +44,7 @@
 -(void)setSideSkillButtonDisable;
 -(void)setSideSkillButtonEnable;
 -(void)setComboLabelText:(int)petCombos  withEnemy:(int)enemyCombos;
+-(void)setBufferBar:(NSArray *)buffs;
+
 
 @end

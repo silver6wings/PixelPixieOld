@@ -228,6 +228,7 @@ CGFloat vectorLength (CGVector vector) {
         [_ballShadow removeFromParent];
         _isBallRolling = YES;
     }
+    
 }
 
 #pragma mark SKPhysicsContactDelegate
@@ -840,8 +841,7 @@ CGFloat vectorLength (CGVector vector) {
         [tBall setRoundsLabel:tBall.sustainRounds];
         
         if (tBall.sustainRounds <= 0) {
-            [tBall removeFromParent];
-            [self.ballsElement removeObject:tBall];
+            [tBall startRemoveAnimation:self.ballsElement andScene:self];
         }
         
     }
@@ -1184,7 +1184,7 @@ CGFloat vectorLength (CGVector vector) {
                 //                    [animanArryay addObject:temp];
                 //                }
                 
-                
+                self.ballEnemy.physicsBody.dynamic = NO;
                 for (PPBall * tBall in self.ballsElement) {
                     if (tBall.ballElementType == PPElementTypePlant) {
                         tBall.physicsBody.PPBallSkillStatus= @1;
