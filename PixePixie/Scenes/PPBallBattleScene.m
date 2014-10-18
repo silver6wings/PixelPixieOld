@@ -379,6 +379,8 @@ CGFloat vectorLength (CGVector vector) {
                     enemyAssimDiffEleNum++;
                     [self.ballEnemy startPlantrootAnimation];
                     self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+                    self.ballEnemy.physicsBody.dynamic = NO;
+                    [self.ballEnemy addBuffWithName:@"snare" andRoundNum:1];
                   
                 }
                     break;
@@ -449,7 +451,7 @@ CGFloat vectorLength (CGVector vector) {
             }
         } else {
             if (self.ballEnemy.ballElementType == elementBallTmp.ballElementType) {
-                if (self.playerAndEnemySide.currentPPPixie.currentHP <self.playerAndEnemySide.currentPPPixie.pixieHPmax) {
+                if (self.playerAndEnemySide.currentPPPixieEnemy.currentHP <self.playerAndEnemySide.currentPPPixieEnemy.pixieHPmax) {
                     [self.playerAndEnemySide changeEnemyHPValue:200];
                     [self addHPValueChangeLabel:200 position:pixieball.position];
                     enemyAssimSameEleNum ++;
@@ -461,7 +463,7 @@ CGFloat vectorLength (CGVector vector) {
                 }
             } else {
                 
-                if (self.playerAndEnemySide.currentPPPixie.currentHP >= 0.0f) {
+                if (self.playerAndEnemySide.currentPPPixieEnemy.currentHP >= 0.0f) {
                     
                     [self.playerAndEnemySide changeEnemyHPValue:-200];
                     [self addHPValueChangeLabel:-200 position:pixieball.position];
@@ -522,6 +524,7 @@ CGFloat vectorLength (CGVector vector) {
     alertNode->target = self;
     alertNode->btnClickSel = @selector(pauseMenuBtnClick:);
     [alertNode setColor:[UIColor yellowColor]];
+    alertNode.zPosition =10;
     [alertNode showPauseMenuAlertWithTitle:@"游戏暂停了" andMessage:nil];
     [self addChild:alertNode];
     
@@ -845,6 +848,11 @@ CGFloat vectorLength (CGVector vector) {
         }
         
     }
+    
+    [self.ballEnemy changeBuffRound];
+    
+    [self creatCombosTotal];
+
 }
 
 -(void)setPhysicsTagValue
@@ -956,9 +964,10 @@ CGFloat vectorLength (CGVector vector) {
         //                    }
         //        }
     }];
+    
     [self changeBallsRoundsEnd];
-    [self creatCombosTotal];
     [self setPhysicsTagValue];
+    
 }
 
 -(void)enemyAttackDecision
@@ -1184,7 +1193,6 @@ CGFloat vectorLength (CGVector vector) {
                 //                    [animanArryay addObject:temp];
                 //                }
                 
-                self.ballEnemy.physicsBody.dynamic = NO;
                 for (PPBall * tBall in self.ballsElement) {
                     if (tBall.ballElementType == PPElementTypePlant) {
                         tBall.physicsBody.PPBallSkillStatus= @1;
@@ -1233,7 +1241,6 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
 {
-    NSLog(@"skillInfo=%@",skillInfo);
     [self showEnemySkillEventBegin:skillInfo];
 }
 
@@ -1344,8 +1351,7 @@ CGFloat vectorLength (CGVector vector) {
     skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);
     [self addChild:skillNode];
     
-    NSLog(@"skillInfo=%@",skillInfo);
-    [skillNode showSkillAnimate:skillInfo];
+    [skillNode showSkillAnimate:skillInfo andElement:PPElementTypeFire];
 }
 
 -(void)showSkillEventBegin:(NSDictionary *)skillInfo
@@ -1355,9 +1361,8 @@ CGFloat vectorLength (CGVector vector) {
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
     skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);
     [self addChild:skillNode];
-    NSLog(@"skillInfo=%@",skillInfo);
     
-    [skillNode showSkillAnimate:skillInfo];
+    [skillNode showSkillAnimate:skillInfo andElement:PPElementTypeFire];
 }
 
 #pragma mark SkillEndAnimateDelegate

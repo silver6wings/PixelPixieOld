@@ -6,7 +6,7 @@
 @end
 
 @implementation PPBall
-@synthesize sustainRounds,pixie, ballElementType, pixieEnemy, ballStatus, comboBallTexture, comboBallSprite;
+@synthesize sustainRounds,pixie, ballElementType, pixieEnemy, ballStatus, comboBallTexture, comboBallSprite,ballBuffs;
 
 #pragma mark Factory Method
 
@@ -37,7 +37,8 @@
     NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
                             kElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration];
     PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
-    
+    tBall.ballBuffs = [[NSMutableArray alloc] init];
+
     if (tBall){
         tBall.ballType = PPBallTypeEnemy;
         tBall.ballElementType = pixieEnemy.pixieElement;
@@ -53,6 +54,7 @@
     
     NSString * imageName = [NSString stringWithFormat:@"%@_ball.png", kElementTypeString[elementType]];
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
+    
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
     
     if (tBall)
@@ -112,7 +114,49 @@
 {
     [self runAction:[SKAction setTexture:_defaultTexture]];
 }
+#pragma mark buff manage
 
+-(void)addBuffWithName:(NSString *)buffName andRoundNum:(int)continueRound
+{
+    PPBuff *buff=[[PPBuff alloc] init];
+    buff.buffName = buffName;
+    buff.continueRound = continueRound;
+    buff.buffId = @"1";
+    
+    [self.ballBuffs addObject:buff];
+    
+}
+-(void)changeBuffRound
+{
+
+    for (int i=0;i<[self.ballBuffs count]; i++) {
+        PPBuff *buff = [self.ballBuffs objectAtIndex:i];
+        buff.continueRound--;
+        NSLog(@"continueRound =%d",buff.continueRound);
+        
+        if (buff.continueRound<0) {
+            [self removeBuff:buff];
+            
+        }
+    }
+}
+
+-(void)removeBuff:(PPBuff *)buff
+{
+    switch ([buff.buffId intValue]) {
+        case 1:
+        {
+            self.physicsBody.dynamic = YES;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self.ballBuffs removeObject:buff];
+
+}
 #pragma mark Animation  球体各种动画
 
 -(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed andScene:(PPBasicScene *)battleScene
@@ -304,6 +348,7 @@
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
+    
     
 //    [self.comboBallSprite runAction:[[TextureManager ball_magic] getAnimation:@"magic_ball"]
 //                         completion:^{[self.comboBallSprite removeFromParent];}];

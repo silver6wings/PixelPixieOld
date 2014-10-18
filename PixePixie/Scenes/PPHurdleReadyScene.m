@@ -183,21 +183,21 @@
         
     }
     
-    NSString *string[2]={@"木系场景", @"火系场景"};
-    
-    for (int i = 0; i < 2; i++) {
-        
-        PPSpriteButton *sceneTypeChooseButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80.0f, 80.0f)];
-        [sceneTypeChooseButton setLabelWithText:string[i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-        sceneTypeChooseButton.position = CGPointMake(100 * (i - 1),200.0);
-        sceneTypeChooseButton.name =[NSString stringWithFormat:@"%d",i];
-        if (i==0) {
-            sceneTypeChooseButton.color = [UIColor blueColor];
-        }
-        [sceneTypeChooseButton addTarget:self selector:@selector(sceneChooseClick:) withObject:sceneTypeChooseButton forControlEvent:PPButtonControlEventTouchUpInside];
-        [spriteContent addChild:sceneTypeChooseButton];
-        
-    }
+//    NSString *string[2]={@"木系场景", @"火系场景"};
+//    
+//    for (int i = 0; i < 2; i++) {
+//        
+//        PPSpriteButton *sceneTypeChooseButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80.0f, 80.0f)];
+//        [sceneTypeChooseButton setLabelWithText:string[i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+//        sceneTypeChooseButton.position = CGPointMake(100 * (i - 1),200.0);
+//        sceneTypeChooseButton.name =[NSString stringWithFormat:@"%d",i];
+//        if (i==0) {
+//            sceneTypeChooseButton.color = [UIColor blueColor];
+//        }
+//        [sceneTypeChooseButton addTarget:self selector:@selector(sceneChooseClick:) withObject:sceneTypeChooseButton forControlEvent:PPButtonControlEventTouchUpInside];
+//        [spriteContent addChild:sceneTypeChooseButton];
+//        
+//    }
     
     
     

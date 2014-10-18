@@ -319,10 +319,16 @@
 -(void)animateEnemyHPEnd:(NSNumber *)currentHp
 {
     if (enemyPlayerHP->currentValue <= 0.0f) {
+        if (!isHaveDead) {
+
         if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
+            isHaveDead = YES;
             [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_ENEMY_SIDE_NODE_NAME];
         }
+        }
     } else {
+        isHaveDead = NO;
+
         if (self.target != nil && self.hpChangeEnd != nil && [self.target respondsToSelector:self.hpChangeEnd]) {
             [self.target performSelectorInBackground:self.hpChangeEnd withObject:PP_ENEMY_SIDE_NODE_NAME];
         }

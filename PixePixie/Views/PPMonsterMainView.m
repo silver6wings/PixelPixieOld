@@ -22,6 +22,7 @@
     }
     return self;
 }
+
 -(void)hideMonstorShowBtns
 {
     [mainScene hideShowbtns];

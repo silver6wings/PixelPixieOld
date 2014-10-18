@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class PPMenuThemeScene;
 @interface PPFightingMainView : SKView
 {
+    @public
+    PPMenuThemeScene * mainScene;
    
 }
 -(void)changeToPassScene;

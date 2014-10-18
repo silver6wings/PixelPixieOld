@@ -331,6 +331,8 @@ NSString * menu[] = {
     switch (sender.tag - PP_MENU_BUTON_TAG) {
         case 0:
         {
+            
+            
             [monsterMainView setBackgroundColor:[UIColor redColor]];
             [skViewMain bringSubviewToFront:monsterMainView];
             
@@ -356,7 +358,7 @@ NSString * menu[] = {
         case 2:
         {
             [skViewMain bringSubviewToFront:fightingMainView];
-            
+            fightingMainView->mainScene->backButton.hidden = NO;
 //            [self menuDownAnimation];
 //            PPPassNumberScene * passScene = [[PPPassNumberScene alloc] initWithSize:CurrentDeviceRealSize];
 //            passScene.scaleMode = SKSceneScaleModeAspectFill;

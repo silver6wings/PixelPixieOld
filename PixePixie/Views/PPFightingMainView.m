@@ -21,7 +21,7 @@
 
 -(void)changeToPassScene
 {
-    PPMenuThemeScene * mainScene = [[PPMenuThemeScene alloc] initWithSize:self.bounds.size];
+    mainScene = [[PPMenuThemeScene alloc] initWithSize:self.bounds.size];
     mainScene.scaleMode = SKSceneScaleModeAspectFit;
     [self presentScene:mainScene];
 }

@@ -3,6 +3,7 @@
 static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
 @interface PPMenuThemeScene ()<UIScrollViewDelegate>
 {
+   
 }
 
 @end
@@ -56,6 +57,11 @@ static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
 }
 -(void)didMoveToView:(SKView *)view
 {
+    UIView *contentView= [self.view viewWithTag:PP_MAP_SCROLL_VIEW_TAG];
+    if (contentView) {
+        [contentView removeFromSuperview];
+        contentView = nil;
+    }
     
     UIScrollView * contentScrollView = [[UIScrollView alloc]initWithFrame:self.view.frame];
     contentScrollView.delegate = self;
@@ -105,7 +111,7 @@ static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
     [self.view addSubview:contentScrollView];
     
     
-    UIButton *  backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+     backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton setBackgroundColor:[UIColor orangeColor]];
     [backButton setTitle:@"返回" forState:UIControlStateNormal];
         [backButton setFrame:CGRectMake(15.0f, contentScrollView.frame.origin.y+10, 45.0f, 30.0f)];
@@ -124,6 +130,11 @@ static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
 //    }
     
 }
+
+-(void)willMoveFromView:(SKView *)view
+{
+    backButton.hidden = YES;
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
@@ -136,8 +147,9 @@ static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
     
 }
 
--(void)backButtonClick:(UIButton *)backName
+-(void)backButtonClick:(UIButton *)backBtn
 {
+    backBtn.hidden = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:PP_BACK_TO_MAIN_VIEW object:PP_BACK_TO_MAIN_VIEW_FIGHTING];
 }
 

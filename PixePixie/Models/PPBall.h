@@ -39,10 +39,14 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
 
 @interface PPBall : SKSpriteNode
 {
+    
     @public
     id target;
     SEL animationEndSel;
+    
 }
+
+@property (nonatomic,retain) NSMutableArray *ballBuffs;
 @property (nonatomic,assign) int ballStatus;
 @property (nonatomic) int sustainRounds;
 @property (nonatomic) PPBallType ballType;
@@ -58,6 +62,9 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
 +(PPBall *)ballWithElement:(PPElementType)element;
 +(PPBall *)ballWithCombo;
 
+//buff
+-(void)addBuffWithName:(NSString *)buffName andRoundNum:(int)continueRound;
+-(void)changeBuffRound;
 
 -(void)setRoundsLabel:(int)rounds;
 -(void)setToDefaultTexture;

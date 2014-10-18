@@ -5,8 +5,9 @@
 @synthesize skill;
 @synthesize delegate = mdelegate;
 
--(void)showSkillAnimate:(NSDictionary *)skillInfo
+-(void)showSkillAnimate:(NSDictionary *)skillInfo andElement:(PPElementType) element;
 {
+    
     self.skill=[[PPSkill alloc] init];
     
     SKLabelNode *skillNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
@@ -28,17 +29,30 @@
     
     
     
-    NSMutableArray *textureNameArray=[[NSMutableArray alloc] init];
-    @synchronized(textureNameArray)
+    NSString * plistName = [[NSBundle mainBundle] pathForResource:@"FrameCount" ofType:@"plist"];
+    NSDictionary * plistDic = [[NSDictionary alloc] initWithContentsOfFile:plistName];
+    NSNumber * frameCount = [plistDic objectForKey:[NSString stringWithFormat:@"%@_%@_cast",kElementTypeString[element],[skillInfo objectForKey:@"animateTexturename"]]];
+    
+    
+    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [frameCount intValue]; i++)
     {
-        for (int i=0; i <24; i++) {
-            NSString *textureName = [NSString stringWithFormat:@"fire_blade_cast_00%02d.png", i];
-            SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
-            [textureNameArray addObject:temp];
-            
-        }
+        SKTexture * textureCombo = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@_%@_cast_00%02d",kElementTypeString[element],[skillInfo objectForKey:@"animateTexturename"],i]];
+        [textureArray addObject:textureCombo];
     }
-    self.skill.animateTextures =[NSMutableArray arrayWithArray:textureNameArray];
+    
+    
+//    NSMutableArray *textureNameArray=[[NSMutableArray alloc] init];
+//    @synchronized(textureNameArray)
+//    {
+//        for (int i=0; i <24; i++) {
+//            NSString *textureName = [NSString stringWithFormat:@"fire_blade_cast_00%02d.png", i];
+//            SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
+//            [textureNameArray addObject:temp];
+//            
+//        }
+//    }
+    self.skill.animateTextures =[NSMutableArray arrayWithArray:textureArray];
     
     [skillAnimate runAction:[SKAction animateWithTextures:self.skill.animateTextures timePerFrame:0.05f]
                  completion:^{

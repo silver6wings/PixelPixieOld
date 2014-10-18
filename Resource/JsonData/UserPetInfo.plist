@@ -314,7 +314,7 @@
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
-					<string>imagename</string>
+					<string>blade</string>
 					<key>animatetexturecount</key>
 					<integer>20</integer>
 					<key>skillhpchange</key>
@@ -326,7 +326,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>光合作用</string>
+					<string>狼焰斩</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 					<key>skillcontinue</key>
@@ -334,7 +334,7 @@
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
-					<string>imagename</string>
+					<string>shield</string>
 					<key>animatetexturecount</key>
 					<integer>20</integer>
 					<key>skillhpchange</key>
@@ -346,7 +346,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>木之誓言</string>
+					<string>狼焰防御</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 					<key>skillcontinue</key>
@@ -366,7 +366,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>木之誓言</string>
+					<string>狼焰斩</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 					<key>skillcontinue</key>
@@ -374,7 +374,7 @@
 				</dict>
 				<dict>
 					<key>animateTexturename</key>
-					<string>imagename</string>
+					<string>blade</string>
 					<key>animatetexturecount</key>
 					<integer>20</integer>
 					<key>skillhpchange</key>
@@ -386,7 +386,7 @@
 					<key>skillobject</key>
 					<integer>1</integer>
 					<key>skillname</key>
-					<string>木之誓言</string>
+					<string>狼焰斩</string>
 					<key>skillcdrounds</key>
 					<integer>3</integer>
 					<key>skillcontinue</key>
