@@ -1,7 +1,11 @@
 
 #import "PPMenuThemeScene.h"
 static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
+@interface PPMenuThemeScene ()<UIScrollViewDelegate>
+{
+}
 
+@end
 @implementation PPMenuThemeScene
 
 - (id)initWithSize:(CGSize)size
@@ -9,44 +13,44 @@ static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
     if (self = [super initWithSize:size]) {
         
         [self setBackTitleText:@"世界地图" andPositionY:450.0f];
-
-        [self addChild:[SKSpriteNode spriteNodeWithImageNamed:@"map_all_03.png"]];
-   
-        
-        for (int i = 0; i < 3; i++) {
-            
-//            PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80, 80)];
-            PPSpriteButton *  passButton = [PPSpriteButton buttonWithImageNamed:[NSString stringWithFormat:@"map_icon_%@",stringMenuTheme[i]]];
-            [passButton setLabelWithText:stringMenuTheme[i]
-                                 andFont:[UIFont systemFontOfSize:15] withColor:nil];
-            switch (i) {
-                case 0:
-                {
-                    
-                    passButton.position = CGPointMake(80.0f,80.0f);
-                }
-                    break;
-                case 1:
-                {
-
-                    passButton.position = CGPointMake(120.0f,380.0f);
-                }
-                    break;
-                case 2:
-                {
-
-                    passButton.position = CGPointMake(220.0f,180.0f);
-                }
-                    break;
-                default:
-                    break;
-            }
-            
-            passButton.name = [NSString stringWithFormat:@"%d", i + PP_PASSNUM_CHOOSE_TABLE_TAG];
-            [passButton addTarget:self selector:@selector(passChoose:)
-                       withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-            [self addChild:passButton];
-        }
+//
+//        [self addChild:[SKSpriteNode spriteNodeWithImageNamed:@"map_all_03.png"]];
+//   
+//        
+//        for (int i = 0; i < 3; i++) {
+//            
+////            PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80, 80)];
+//            PPSpriteButton *  passButton = [PPSpriteButton buttonWithImageNamed:[NSString stringWithFormat:@"map_icon_%@",stringMenuTheme[i]]];
+//            [passButton setLabelWithText:stringMenuTheme[i]
+//                                 andFont:[UIFont systemFontOfSize:15] withColor:nil];
+//            switch (i) {
+//                case 0:
+//                {
+//                    
+//                    passButton.position = CGPointMake(80.0f,80.0f);
+//                }
+//                    break;
+//                case 1:
+//                {
+//
+//                    passButton.position = CGPointMake(120.0f,380.0f);
+//                }
+//                    break;
+//                case 2:
+//                {
+//
+//                    passButton.position = CGPointMake(220.0f,180.0f);
+//                }
+//                    break;
+//                default:
+//                    break;
+//            }
+//            
+//            passButton.name = [NSString stringWithFormat:@"%d", i + PP_PASSNUM_CHOOSE_TABLE_TAG];
+//            [passButton addTarget:self selector:@selector(passChoose:)
+//                       withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+//            [self addChild:passButton];
+//        }
     }
     return self;
 }
@@ -54,6 +58,7 @@ static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
 {
     
     UIScrollView * contentScrollView = [[UIScrollView alloc]initWithFrame:self.view.frame];
+    contentScrollView.delegate = self;
     contentScrollView.tag = PP_MAP_SCROLL_VIEW_TAG;
     contentScrollView.contentSize = CGSizeMake(self.view.frame.size.width*4, self.view.frame.size.height);
     contentScrollView.backgroundColor = [UIColor whiteColor];
@@ -100,8 +105,38 @@ static NSString *stringMenuTheme[3]={@"fire",@"metal",@"plant"};
     [self.view addSubview:contentScrollView];
     
     
+    UIButton *  backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setBackgroundColor:[UIColor orangeColor]];
+    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        [backButton setFrame:CGRectMake(15.0f, contentScrollView.frame.origin.y+10, 45.0f, 30.0f)];
+    [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+    
+    
+//    if (title != nil) {
+//        backButtonTitle = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(120, 30)];
+//        [backButtonTitle setLabelWithText:title andFont:[UIFont systemFontOfSize:15] withColor:nil];
+//        backButtonTitle.position = CGPointMake(backButton.position.x+backButton.size.width/2.0f+backButtonTitle.size.width/2.0f,backButton.position.y);
+//        backButtonTitle.zPosition = backButton.zPosition;
+//        [backButtonTitle addTarget:self selector:@selector(backTitleClick:) withObject:title forControlEvent:PPButtonControlEventTouchUpInside];
+//        [self addChild:backButtonTitle];
+//        
+//    }
+    
 }
--(void)backButtonClick:(NSString *)backName
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    if (scrollView.contentOffset.x<=0) {
+        scrollView.contentOffset = CGPointMake(0.0f, scrollView.contentOffset.y);
+    }else if(scrollView.contentOffset.x>=scrollView.contentSize.width-self.view.frame.size.width)
+    {
+        scrollView.contentOffset = CGPointMake(scrollView.contentSize.width-self.view.frame.size.width, scrollView.contentOffset.y);
+    }
+    
+}
+
+-(void)backButtonClick:(UIButton *)backName
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:PP_BACK_TO_MAIN_VIEW object:PP_BACK_TO_MAIN_VIEW_FIGHTING];
 }
