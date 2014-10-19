@@ -138,6 +138,7 @@
     [contentSprite addChild:_playerPixie];
  //预加载变身动画
     
+    
     NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
     @synchronized(texturesArray)
     {
@@ -155,6 +156,7 @@
     [_playerPixie runAction:[SKAction animateWithTextures:self.pixieAnimation timePerFrame:0.02f]
                  completion:^{
                      [_playerPixie removeFromParent];
+                     _playerPixie = nil;
                      [self setPetsChooseContent];
                  }];
 }
@@ -162,7 +164,14 @@
 
 -(void)setPetsChooseContent
 {
-    SKSpriteNode *spriteContent = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(320, 100)];
+    PPBasicSpriteNode *enemyNode = [[PPBasicSpriteNode alloc] init];
+    [enemyNode setSize:CGSizeMake(125.0f, 125.0f)];
+    [enemyNode setPosition:CGPointMake(self.size.width/2.0f, self.size.height/2.0f)];
+    [enemyNode setTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@3_encounter",kElementTypeString[chooseSceneType]]]];
+    [self addChild:enemyNode];
+
+    
+    SKSpriteNode *spriteContent = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(320, 100)];
     spriteContent.name = PP_HURDLE_PETCHOOSE_CONTENT_NAME;
     spriteContent.position = CGPointMake(160.0, -50.0);
     [self addChild:spriteContent];
@@ -255,6 +264,8 @@
 }
 -(void)spriteChooseClick:(NSString *)spriteName
 {
+
+    
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
     NSDictionary *choosedPet = [NSDictionary dictionaryWithDictionary:petsChoosedInfo];
     

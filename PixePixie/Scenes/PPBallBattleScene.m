@@ -30,6 +30,8 @@ CGFloat vectorLength (CGVector vector) {
     long frameFlag;
     BOOL isNotSkillRun;
     NSString * sceneTypeString;
+    BOOL isNotSkillShowTime;
+    
 }
 
 @property (nonatomic, retain) PPPixie * pixiePlayer;
@@ -90,6 +92,7 @@ CGFloat vectorLength (CGVector vector) {
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
         
+        
         // 添加背景图片
         SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@_wall_back.png",sceneTypeString]];
         bg.size = CGSizeMake(320.0f, 320.0f);
@@ -146,6 +149,7 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)didMoveToView:(SKView *)view
 {
+    [self setPlayerSideRoundRunState];
     [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:1.0f];
 }
 
@@ -224,7 +228,7 @@ CGFloat vectorLength (CGVector vector) {
         [self.ballPlayer startPixieAccelerateAnimation:CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
                                                                    (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce) andType:@1];
         currentPhysicsAttack = 1;
-        
+        [self setPlayerSideRoundRunState];
         [_ballShadow removeFromParent];
         _isBallRolling = YES;
     }
@@ -377,7 +381,7 @@ CGFloat vectorLength (CGVector vector) {
                     }
                     //森林瞬起
                     enemyAssimDiffEleNum++;
-                    [self.ballEnemy startPlantrootAnimation];
+                    [self.ballEnemy startPlantrootAppearOrDisappear:YES];
                     self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
                     self.ballEnemy.physicsBody.dynamic = NO;
                     [self.ballEnemy addBuffWithName:@"snare" andRoundNum:1];
@@ -579,7 +583,6 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)checkingBallsMove
 {
-    
     // 如果球都停止了
     if (_isBallRolling && [self isAllStopRolling]) {
         
@@ -603,6 +606,8 @@ CGFloat vectorLength (CGVector vector) {
         
         
     }
+    
+    
     
 }
 
@@ -755,6 +760,13 @@ CGFloat vectorLength (CGVector vector) {
         
         PPBall * tBall = [PPBall ballWithElement:element];
         tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
+//        if (tBall.position.x>=290) {
+//            tBall.position = CGPointMake(290.0f, tBall.position.y);
+//        }
+//        if (fabsf(tBall.position.y)>380) {
+//            tBall.position = CGPointMake(tBall.position.x, 380);
+//
+//        }
         tBall.ballElementType = element;
         tBall.physicsBody.node.name = nodeName;
         tBall.name =nodeName;
@@ -782,12 +794,21 @@ CGFloat vectorLength (CGVector vector) {
         lastBallSustainRounds = kBallSustainRounds;
     }
     
+    if (lastBallSustainRounds!=0) {
+        
     for (int i = 0; i < countToGenerate; i++) {
         
         if (i != countToGenerate-1) {
             
             PPBall * tBall = [PPBall ballWithElement:element];
             tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
+//            if (tBall.position.x>=290) {
+//                tBall.position = CGPointMake(290.0f, tBall.position.y);
+//            }
+//            if (fabsf(tBall.position.y)>380) {
+//                tBall.position = CGPointMake(tBall.position.x, 380);
+//                
+//            }
             tBall.ballElementType = element;
             tBall.physicsBody.node.name = nodeName;
             tBall.name = nodeName;
@@ -809,9 +830,17 @@ CGFloat vectorLength (CGVector vector) {
             
         }else
         {
-            if (lastBallSustainRounds!=0) {
+            
                 PPBall * tBall = [PPBall ballWithElement:element];
                 tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
+//                if (tBall.position.x>=290) {
+//                    tBall.position = CGPointMake(290.0f, tBall.position.y);
+//                }
+//                if (fabsf(tBall.position.y)>=380) {
+//                    tBall.position = CGPointMake(tBall.position.x, 380);
+//                    
+//                }
+            
                 tBall.ballElementType = element;
                 tBall.physicsBody.node.name = nodeName;
                 tBall.name = nodeName;
@@ -828,7 +857,42 @@ CGFloat vectorLength (CGVector vector) {
                 
                 [self.ballsElement addObject:tBall];
                 
-            }
+        }
+     }
+    }else
+    {
+        
+        for (int i = 0; i < countToGenerate; i++) {
+        
+                
+                PPBall * tBall = [PPBall ballWithElement:element];
+                tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
+//                if (tBall.position.x>=290) {
+//                    tBall.position = CGPointMake(290.0f, tBall.position.y);
+//                }
+//                if (fabsf(tBall.position.y)>380) {
+//                    tBall.position = CGPointMake(tBall.position.x, 380);
+//                    
+//                }
+                tBall.ballElementType = element;
+                tBall.physicsBody.node.name = nodeName;
+                tBall.name = nodeName;
+                tBall->target = self;
+                tBall->animationEndSel = @selector(elementBallAnimationEnd:);
+                tBall.physicsBody.categoryBitMask = EntityCategoryBall;
+                tBall.sustainRounds = kBallSustainRounds;
+                NSLog(@"kBallSustainRounds = %d",kBallSustainRounds);
+                
+                [tBall setRoundsLabel:tBall.sustainRounds];
+                
+                tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
+                
+                [self addChild:tBall];
+                [tBall startElementBirthAnimation];
+                
+                
+                [self.ballsElement addObject:tBall];
+                
         }
     }
 }
@@ -885,7 +949,6 @@ CGFloat vectorLength (CGVector vector) {
 -(void)roundRotateBegin
 {
     roundActionNum = 0;
-    [self setPlayerSideRoundRunState];
     [self startBattle:@"回合开始"];
 }
 
@@ -918,7 +981,6 @@ CGFloat vectorLength (CGVector vector) {
     roundIndex += 1;
     
     [self setRoundEndNumberLabel:[NSString stringWithFormat:@"%d回合结束",roundIndex]];
-    [self setPlayerSideRoundRunState];
     [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:3];
 }
 
@@ -975,11 +1037,15 @@ CGFloat vectorLength (CGVector vector) {
     switch (decision) {
         case 0:
         {
+            [self setPlayerSideRoundRunState];
+
             [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
         }
             break;
         case 1:
         {
+            [self setPlayerSideRoundRunState];
+
             [self skllEnemyBegain:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
         }
             break;
@@ -1048,12 +1114,14 @@ CGFloat vectorLength (CGVector vector) {
 {
     isNotSkillRun = YES;
     [self.playerSkillSide setSideSkillButtonDisable];
+    
 }
 
 -(void)setPlayerSideRoundEndState
 {
     isNotSkillRun = NO;
     [self.playerSkillSide setSideSkillButtonEnable];
+
 }
 
 -(void)physicsAttackBegin:(NSString *)nodeName
@@ -1079,7 +1147,6 @@ CGFloat vectorLength (CGVector vector) {
          andDexterity:self.playerSide.currentPPPixie.currentDEX];
          */
         
-        [self setPlayerSideRoundRunState];
         
         PPBasicLabelNode * labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"EnemyPhysics"];
         if (labelNode) [labelNode removeFromParent];
@@ -1132,10 +1199,18 @@ CGFloat vectorLength (CGVector vector) {
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
 {
     
+  
+    
     CGFloat mpToConsume = [[skillInfo objectForKey:@"skillmpchange"] floatValue];
     NSLog(@"currentMP=%f mptoConsume=%f",self.playerAndEnemySide.currentPPPixie.currentMP,mpToConsume);
     NSLog(@"skillInfo=%@",skillInfo);
+    [self setPlayerSideRoundRunState];
     
+    if (isNotSkillShowTime) {
+        return;
+    }
+    isNotSkillShowTime = YES;
+
     
     if (self.playerAndEnemySide.currentPPPixie.currentMP<fabsf(mpToConsume)) {
         
@@ -1156,9 +1231,11 @@ CGFloat vectorLength (CGVector vector) {
         SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
         [additonLabel runAction:actionScale completion:^{
             [additonLabel removeFromParent];
-            
+            isNotSkillShowTime = NO;
+            [self setPlayerSideRoundEndState];
+
         }];
-        
+
         return ;
     }else
     {
@@ -1193,8 +1270,11 @@ CGFloat vectorLength (CGVector vector) {
                 
                 for (PPBall * tBall in self.ballsElement) {
                     if (tBall.ballElementType == PPElementTypePlant) {
-                        tBall.physicsBody.PPBallSkillStatus= @1;
-                        [tBall startMagicballAnimation];
+                        if ([ tBall.physicsBody.PPBallSkillStatus intValue]!=1) {
+                            tBall.physicsBody.PPBallSkillStatus= @1;
+                            [tBall startMagicballAnimation];
+                        }
+                        
                         
                     }
                 }
@@ -1343,7 +1423,7 @@ CGFloat vectorLength (CGVector vector) {
 {
     [self setPlayerSideRoundRunState];
     
-    PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(self.size.width, 300)];
+    PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
     skillNode.delegate = self;
     skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);
@@ -1354,7 +1434,11 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)showSkillEventBegin:(NSDictionary *)skillInfo
 {
-    PPSkillNode * skillNode = [PPSkillNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(self.size.width, 300.0f)];
+    
+    [self setPlayerSideRoundRunState];
+
+    
+    PPSkillNode * skillNode = [PPSkillNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(self.size.width, 300.0f)];
     skillNode.delegate = self;
     skillNode.name = PP_PET_SKILL_SHOW_NODE_NAME;
     skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);
@@ -1369,7 +1453,7 @@ CGFloat vectorLength (CGVector vector) {
 {
     
     NSLog(@"skillInfo=%@ HP:%f MP:%f",skillInfo,skillInfo.HPChangeValue,skillInfo.MPChangeValue);
-    
+    isNotSkillShowTime = NO;
     if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
     {
         if (skillInfo.skillObject ==1) {
@@ -1390,6 +1474,9 @@ CGFloat vectorLength (CGVector vector) {
         [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
         
     }
+    
+    [self setPlayerSideRoundEndState];
+
 }
 
 #pragma mark ball delegate

@@ -37,6 +37,7 @@
     NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
                             kElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration];
     PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
+ 
     tBall.ballBuffs = [[NSMutableArray alloc] init];
 
     if (tBall){
@@ -146,6 +147,7 @@
     switch ([buff.buffId intValue]) {
         case 1:
         {
+            [self startPlantrootAppearOrDisappear:NO];
             self.physicsBody.dynamic = YES;
         }
             break;
@@ -377,30 +379,40 @@
     
 }
 // 创建被缠绕动画
--(void)startPlantrootAnimation
+-(void)startPlantrootAppearOrDisappear:(BOOL)appearOrDisappear
 {
-    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 22; i++) {
-        SKTexture * textureCombo = [[TextureManager ball_buff] textureNamed:[NSString stringWithFormat:@"plant_root_ball_00%02d",i]];
-        [textureArray addObject:textureCombo];
+    
+    if (self.comboBallSprite == nil) {
+        self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+        self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
+        [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+        [self addChild:self.comboBallSprite];
+
+
+    }else
+    {
+        
+        SKAction *action=nil;
+        
+        //yes为appear动画
+        if (appearOrDisappear) {
+            action= [[TextureManager ball_buff] getAnimation:@"plant_root_appear"];
+            [self.comboBallSprite runAction:action
+                                 completion:^{
+                                 }];
+        }else
+        {
+            action= [[TextureManager ball_buff] getAnimation:@"plant_root_disappear"];
+            [self.comboBallSprite runAction:action
+                                 completion:^{
+                                     [self.comboBallSprite removeFromParent];
+                                     self.comboBallSprite = nil;
+                                 }];
+        }
+        
     }
-    self.comboBallTexture = textureArray;
     
-    
-    if (self.comboBallSprite != nil) {
-        [self.comboBallSprite removeFromParent];
-        self.comboBallSprite = nil;
-    }
-    
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
-    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
-    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
-    [self addChild:self.comboBallSprite];
-    
-    [self.comboBallSprite runAction:[SKAction animateWithTextures:self.comboBallTexture timePerFrame:kFrameInterval]
-                         completion:^{
-                             [self.comboBallSprite removeFromParent];
-                         }];
+   
 }
 
 -(void)startElementBirthAnimation
@@ -436,10 +448,19 @@
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
+    
+    
+    PPBasicSpriteNode *textureNode=[PPBasicSpriteNode spriteNodeWithTexture:self.texture];
+    textureNode.size= CGSizeMake(kBallSize, kBallSize);
+    [self.comboBallSprite addChild:textureNode];
+    
     SKAction *actionAura=[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_aura",kElementTypeString[self.ballElementType]]];
     SKAction *actionAuraContray = [[TextureManager ball_elements] getAnimationContrary:[NSString stringWithFormat:@"%@_aura",kElementTypeString[self.ballElementType]]];
     NSArray *arrayAnimation = [NSArray arrayWithObjects:actionAura,actionAuraContray, nil];
     SKAction *actionSqueues=[SKAction sequence:arrayAnimation];
+  
+    
+    
     
     [self.comboBallSprite runAction:[SKAction repeatActionForever:actionSqueues]
                          completion:^{

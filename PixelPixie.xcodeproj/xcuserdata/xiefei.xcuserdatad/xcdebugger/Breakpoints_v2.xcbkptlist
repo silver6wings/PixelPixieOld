@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "435331180.079252"
+            timestampString = "435427663.889041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1796"
-            endingLineNumber = "1796">
+            startingLineNumber = "1883"
+            endingLineNumber = "1883">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -66,11 +66,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "435331180.079252"
+            timestampString = "435427663.889041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1508"
-            endingLineNumber = "1508">
+            startingLineNumber = "1595"
+            endingLineNumber = "1595">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -95,29 +95,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PixePixie/Models/PPBall.m"
-            timestampString = "435331474.193709"
+            filePath = "PixePixie/Nodes/PPBattleInfoLayer.m"
+            timestampString = "435429416.990272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "-changeBuffRound"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Models/PPBall.m"
-            timestampString = "435331574.451921"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-changeBuffRound"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
+            landmarkName = "-enemyskillClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -75,7 +75,7 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
 -(void)startRemoveAnimation:(NSMutableArray *)ballArray  andScene:(PPBasicScene *)battleScene;
 -(void)startElementBirthAnimation;
 -(void)startMagicballAnimation;
--(void)startPlantrootAnimation;
+-(void)startPlantrootAppearOrDisappear:(BOOL)appearOrDisappear;
 
 
 @end

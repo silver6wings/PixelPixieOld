@@ -32,8 +32,8 @@
                                                                 andSize:CGSizeMake(50.0f, 50.0f)];
         passButton.position = CGPointMake(65*i - 112.0f, 0.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
-        [passButton addTarget:self selector:@selector(skillClick:)
-                   withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+        [passButton addTarget:self selector:@selector(skillSideClick:)
+                   withObject:passButton forControlEvent:PPButtonControlEventTouchUp];
         [self addChild:passButton];
         
         
@@ -176,7 +176,7 @@
                                                                     andSize:CGSizeMake(25.0f, 25.0f)];
             passButton.position = CGPointMake(30*i - 90.0f, -20.0f);
             passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
-            [passButton addTarget:self selector:@selector(skillClick:)
+            [passButton addTarget:self selector:@selector(buffBtnClick:)
                        withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
             [self addChild:passButton];
         
@@ -188,7 +188,7 @@
                                                                 andSize:CGSizeMake(25.0f, 25.0f)];
         passButton.position = CGPointMake(30*i -30.0f+enemyPlayerHP.position.x, -20.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
-        [passButton addTarget:self selector:@selector(skillClick:)
+        [passButton addTarget:self selector:@selector(buffBtnClick:)
                    withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
         
@@ -245,15 +245,30 @@
         [self.target performSelectorInBackground:self.showInfoSelector withObject:self.name];
     }
 }
-
--(void)skillClick:(NSString *)senderName
+-(void)buffBtnClick:(NSString *)senderName
 {
-    NSDictionary *skillChoosed = [self.currentPPPixie.pixieSkills objectAtIndex:[senderName intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
+
+
+    
+    
+}
+
+-(void)skillSideClick:(PPSpriteButton *)sender
+{
+    
+    [self performSelectorOnMainThread:@selector(setSideSkillButtonDisable) withObject:nil waitUntilDone:YES];
+    
+    [self performSelectorOnMainThread:@selector(setSideSkillButtonEnable) withObject:nil afterDelay:2];
+
+    NSDictionary *skillChoosed = [self.currentPPPixie.pixieSkills objectAtIndex:[sender.name intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
+
     
     if (self.target!=nil && self.skillSelector!=nil && [self.target respondsToSelector:self.skillSelector])
     {
         [self.target performSelectorInBackground:self.skillSelector withObject:skillChoosed];
+        
     }
+    
 }
 
 -(void)enemyskillClick:(PPCustomButton *)sender
@@ -273,6 +288,8 @@
         [ppixieSkillBtn setColor:[UIColor redColor]];
         ppixieSkillBtn.userInteractionEnabled = NO;
     }
+    
+    
 }
 
 -(void)setSideSkillButtonEnable

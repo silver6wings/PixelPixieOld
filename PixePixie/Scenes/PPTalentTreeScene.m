@@ -20,14 +20,15 @@
     
     PPBasicSpriteNode *backTree=[[PPBasicSpriteNode alloc] initWithTexture:[[TextureManager ui_talent] textureNamed:[NSString stringWithFormat:@"%@_tree",kElementTypeString[elementType]]]];
     backTree.position = CGPointMake(self.size.width/2.0f, self.size.height/2.0f);
-    backTree.size = CGSizeMake(backTree.size.width/2.0f, backTree.size.height/2.0f);
+//    backTree.size = CGSizeMake(389,447);
     [self addChild:backTree];
     
     
     for (int i = 0; i < 10; i++) {
         
         PPSpriteButton * monstersButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_talent] textureNamed:[NSString stringWithFormat:@"%@_tree_%@",kElementTypeString[elementType],stringTree0[i]]]];
-        monstersButton.position = CGPointMake(-30.0f,40*i-backTree.size.height);
+//        monstersButton.position = CGPointMake(30.0f*(i%3),40*(i/3)-backTree.size.height);
+        monstersButton.position = CGPointMake(80.0f*(i%3)-50.0f,60*(i/3)-100.0f);
         monstersButton.size = CGSizeMake(monstersButton.size.width/2.0f, monstersButton.size.height/2.0f);
         monstersButton.name = [NSString stringWithFormat:@"%d",i];
         [monstersButton addTarget:self selector:@selector(monstersButtonClick:) withObject:monstersButton.name forControlEvent:PPButtonControlEventTouchUpInside];
