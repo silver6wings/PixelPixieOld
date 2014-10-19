@@ -527,8 +527,6 @@ CGFloat vectorLength (CGVector vector) {
     alertNode.zPosition =10;
     [alertNode showPauseMenuAlertWithTitle:@"游戏暂停了" andMessage:nil];
     [self addChild:alertNode];
-    
-    
 }
 
 -(void)pauseMenuBtnClick:(NSString *)btnStr
