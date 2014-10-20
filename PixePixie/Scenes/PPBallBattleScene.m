@@ -25,6 +25,11 @@ CGFloat vectorLength (CGVector vector) {
     return sqrt( vector.dx * vector.dx + vector.dy * vector.dy );
 };
 
+// 计算向量长度
+int velocityValue (int x,int y) {
+    return (int)sqrtf( x * x + y * y );
+};
+
 @interface PPBallBattleScene () < SKPhysicsContactDelegate, UIAlertViewDelegate >
 {
     long frameFlag;
@@ -69,6 +74,8 @@ CGFloat vectorLength (CGVector vector) {
         // 帧数间隔计数
         frameFlag = 0;
         
+        
+    
         // 处理参数
         self.pixiePlayer = pixieA;
         self.pixieEnemy = pixieB;
@@ -135,6 +142,7 @@ CGFloat vectorLength (CGVector vector) {
         
         self.ballPlayer.physicsBody.categoryBitMask = EntityCategoryBall;
         self.ballPlayer.physicsBody.contactTestBitMask = EntityCategoryBall;
+        self.ballPlayer.physicsBody.density=1.0f;
         [self addChild:self.ballPlayer];
         
         // 添加连击球
@@ -164,18 +172,26 @@ CGFloat vectorLength (CGVector vector) {
 }
 
 -(void)willMoveFromView:(SKView *)view
-{}
+{
+ 
+
+}
 
 // 每帧处理程序开始
 -(void)update:(NSTimeInterval)currentTime
 {
+    
     frameFlag++;
-    frameFlag %= 60;
+    frameFlag %= 30;
+    
+
+    
+    
 }
 
 -(void)didSimulatePhysics
 {
-    if (frameFlag == 30) [self checkingBallsMove];
+    if (frameFlag == 15) [self checkingBallsMove];
 }
 
 #pragma mark UIResponder
@@ -654,10 +670,26 @@ CGFloat vectorLength (CGVector vector) {
         }
         
         
+    }else
+    {
+        
+        if (velocityValue((int)self.ballPlayer.physicsBody.velocity.dx, (int)self.ballPlayer.physicsBody.velocity.dy)<kVelocityMininValue) {
+            self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+        }
+        
+        if (velocityValue((int)self.ballEnemy.physicsBody.velocity.dx, (int)self.ballEnemy.physicsBody.velocity.dy)<kVelocityMininValue) {
+            self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+        }
+        
+        for (SKNode *obj in self.ballsCombos) {
+            if (velocityValue((int)obj.physicsBody.velocity.dx, (int)obj.physicsBody.velocity.dy)<kVelocityMininValue)
+            {
+                obj.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
+
+                
+            }
+        }
     }
-    
-    
-    
 }
 
 -(void)setEnemyAtIndex:(int)index

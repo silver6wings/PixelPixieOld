@@ -77,6 +77,8 @@ NSString * menu[] = {
         
         [self.view addSubview:contentView];
     }
+    
+
 }
 
 -(void)textInputConfirmClick
