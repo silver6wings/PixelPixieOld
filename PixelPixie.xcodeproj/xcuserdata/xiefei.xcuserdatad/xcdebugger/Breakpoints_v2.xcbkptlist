@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "435465945.581127"
+            timestampString = "435469112.759714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1885"
-            endingLineNumber = "1885">
+            startingLineNumber = "1943"
+            endingLineNumber = "1943">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -66,11 +66,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "435465945.581127"
+            timestampString = "435469112.759714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1597"
-            endingLineNumber = "1597">
+            startingLineNumber = "1655"
+            endingLineNumber = "1655">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -102,6 +102,22 @@
             startingLineNumber = "272"
             endingLineNumber = "272"
             landmarkName = "-enemyskillClick:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PixePixie/Models/PPBall.m"
+            timestampString = "435474373.876533"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
+            landmarkName = "-startPlantrootAppearOrDisappear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

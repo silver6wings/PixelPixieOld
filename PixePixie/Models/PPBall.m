@@ -1,9 +1,13 @@
 
 #import "PPPixie.h"
 
+
+
 @interface PPBall ()
 @property (nonatomic) SKTexture * defaultTexture;
 @end
+
+
 
 @implementation PPBall
 @synthesize sustainRounds,pixie, ballElementType, pixieEnemy, ballStatus, comboBallTexture, comboBallSprite,ballBuffs;
@@ -222,9 +226,10 @@
     
       NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 23; i >= 0; i--) {
+        
         SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_00%02d",i]];
-
         [textureArray addObject:textureCombo];
+        
     }
         
     
@@ -253,43 +258,52 @@
 
 -(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSNumber *)num
 {
-    NSLog(@"velocity.x=%f y=%f",velocity.dx,velocity.dy);
-   double rotaion = atan(velocity.dy/velocity.dx);
-    NSLog(@"velocity.x=%f y=%f rotaion=%f",velocity.dx,velocity.dy,rotaion);
+    NSLog(@"accelerate=%f",sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy ));
+    
+    
+    if (sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy )>=kBallAccelerateMin) {
+        
+        NSLog(@"velocity.x=%f y=%f",velocity.dx,velocity.dy);
+        double rotaion = atan(velocity.dy/velocity.dx);
+        NSLog(@"velocity.x=%f y=%f rotaion=%f",velocity.dx,velocity.dy,rotaion);
+        
+        if (self.comboBallSprite != nil) {
+            [self.comboBallSprite removeFromParent];
+            self.comboBallSprite = nil;
+        }
+        
+        self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+        self.comboBallSprite.size = CGSizeMake(100.0f, 100.0f);
+        [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+        [self addChild:self.comboBallSprite];
+        self.comboBallSprite.zRotation = rotaion;
+        switch ([num intValue]) {
+            case 0:
+            {
+                
+                [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_run",kElementTypeString[self.ballElementType]]]
+                                     completion:^{
+                                         [self.comboBallSprite removeFromParent];
+                                     }];
+            }
+                break;
+            case 1:
+            {
+                [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_step",kElementTypeString[self.ballElementType]]]
+                                     completion:^{
+                                         [self.comboBallSprite removeFromParent];
+                                     }];
+            }
+                break;
+                
+                
+            default:
+                break;
+        }
 
-    if (self.comboBallSprite != nil) {
-        [self.comboBallSprite removeFromParent];
-        self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
-    self.comboBallSprite.size = CGSizeMake(100.0f, 100.0f);
-    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
-    [self addChild:self.comboBallSprite];
-    self.comboBallSprite.zRotation = rotaion;
-    switch ([num intValue]) {
-        case 0:
-        {
-            
-            [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_run",kElementTypeString[self.ballElementType]]]
-                                 completion:^{
-                                     [self.comboBallSprite removeFromParent];
-                                 }];
-        }
-            break;
-        case 1:
-        {
-            [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_step",kElementTypeString[self.ballElementType]]]
-                                 completion:^{
-                                     [self.comboBallSprite removeFromParent];
-                                 }];
-        }
-            break;
-            
-            
-        default:
-            break;
-    }
+    
     
 }
 
@@ -341,6 +355,7 @@
 // 变身陷阱动画
 -(void)startMagicballAnimation
 {
+    
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
         self.comboBallSprite = nil;
@@ -355,13 +370,14 @@
 //    [self.comboBallSprite runAction:[[TextureManager ball_magic] getAnimation:@"magic_ball"]
 //                         completion:^{[self.comboBallSprite removeFromParent];}];
     
+    
+    
     [self runAction:[[TextureManager ball_magic] getAnimation:@"magic_ball"]
                          completion:^{
                              [self.comboBallSprite removeFromParent];
-                             
                              [self addStatusBall:@"plant"];
 
-                         }];
+      }];
     
 }
 -(void)addStatusBall:(NSString *)type
@@ -382,15 +398,15 @@
 -(void)startPlantrootAppearOrDisappear:(BOOL)appearOrDisappear
 {
     
-    if (self.comboBallSprite == nil) {
+    if (self.comboBallSprite != nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
+    }
+
         self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
         self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
         [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
         [self addChild:self.comboBallSprite];
-
-
-    }else
-    {
         
         SKAction *action=nil;
         
@@ -409,8 +425,6 @@
                                      self.comboBallSprite = nil;
                                  }];
         }
-        
-    }
     
    
 }

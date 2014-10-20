@@ -10,6 +10,7 @@ static const float kBallLinearDamping = 0.6f;       // 线阻尼系数
 static const float kBallAngularDamping = 0.8f;      // 角阻尼系数
 static const float kBallFriction = 0.0f;            // 表面摩擦力
 static const float kBallRestitution = 1.0f;         // 弹性恢复系数
+static const float kBallAccelerateMin = 15.0f;         // 速度最小的阈值
 
 static const float kAutoAttackMax = 50.0f;          // 自动攻击最大力量限制
 static const float kBounceReduce = 0.5f;            // 弹出去的按距离比例衰减系数

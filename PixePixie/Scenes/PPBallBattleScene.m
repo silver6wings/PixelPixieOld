@@ -123,6 +123,16 @@ CGFloat vectorLength (CGVector vector) {
         self.ballPlayer = pixieA.pixieBall;
         self.ballPlayer.name = @"ball_player";
         self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
+        
+        self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
+        if (self.ballPlayer.position.x>=290) {
+            self.ballPlayer.position = CGPointMake(290.0f, self.ballPlayer.position.y);
+        }
+        if (fabsf(self.ballPlayer.position.y)>380) {
+            self.ballPlayer.position = CGPointMake(self.ballPlayer.position.x, 380);
+            
+        }
+        
         self.ballPlayer.physicsBody.categoryBitMask = EntityCategoryBall;
         self.ballPlayer.physicsBody.contactTestBitMask = EntityCategoryBall;
         [self addChild:self.ballPlayer];
@@ -240,8 +250,6 @@ CGFloat vectorLength (CGVector vector) {
 // 碰撞事件
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
-    if (!_isBallRolling) return;
-    
     SKPhysicsBody * sholdToRemoveBody;
     
     if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
@@ -250,18 +258,18 @@ CGFloat vectorLength (CGVector vector) {
         
         if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)){
             
-            if (currentPhysicsAttack == 1) {
-                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
-                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
-                
-            }else if(currentPhysicsAttack == 2)
-            {
-                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
-                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
-                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
-                
-            }
+//            if (currentPhysicsAttack == 1) {
+//                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
+//                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
+//                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
+//                
+//            }else if(currentPhysicsAttack == 2)
+//            {
+//                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
+//                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
+//                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
+//                
+//            }
             return;
         }
         
@@ -319,15 +327,15 @@ CGFloat vectorLength (CGVector vector) {
     {
         
         if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody)){
-            
-            if (currentPhysicsAttack == 1) {
-                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
-                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-            }else if(currentPhysicsAttack == 2)
-            {
-                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
-                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
-            }
+//
+//            if (currentPhysicsAttack == 1) {
+//                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
+//                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
+//            }else if(currentPhysicsAttack == 2)
+//            {
+//                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
+//                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
+//            }
             return;
         }
         
@@ -403,16 +411,57 @@ CGFloat vectorLength (CGVector vector) {
             
         }
         
-        if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
-            //当前己方不满血
-        {
-            [sholdToRemoveBody.node removeFromParent];
-            [self.ballsElement removeObject:sholdToRemoveBody.node];
-        }
     } else return;
 }
 
-- (void)didEndContact:(SKPhysicsContact *)contact{}
+- (void)didEndContact:(SKPhysicsContact *)contact{
+
+
+    if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
+        //如果我方人物球撞击到物体
+    {
+        
+        if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)){
+            
+            if (currentPhysicsAttack == 1) {
+                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
+                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
+                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
+                
+            }else if(currentPhysicsAttack == 2)
+            {
+                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
+                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
+                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
+                
+            }
+            return;
+        }
+        } else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
+        //如果敌方人物球撞击到物体
+    {
+        
+        if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody)){
+            
+            if (currentPhysicsAttack == 1) {
+                
+                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
+                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
+            }else if(currentPhysicsAttack == 2)
+            {
+                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
+                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
+            }
+            return;
+        }
+        
+    } else return;
+
+
+
+
+
+}
 
 #pragma mark Deal ball contact
 
@@ -685,6 +734,13 @@ CGFloat vectorLength (CGVector vector) {
     // 添加 Ball of Enemey
     self.ballEnemy = self.pixieEnemy.pixieBall;
     self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
+    if (self.ballEnemy.position.x>=290) {
+        self.ballEnemy.position = CGPointMake(290.0f, self.ballPlayer.position.y);
+    }
+    if (fabsf(self.ballEnemy.position.y)>380) {
+        self.ballEnemy.position = CGPointMake(self.ballPlayer.position.x, 380);
+        
+    }
     self.ballEnemy.physicsBody.categoryBitMask = EntityCategoryBall;
     self.ballEnemy.physicsBody.contactTestBitMask = EntityCategoryBall;
     [self addChild:self.ballEnemy];
@@ -756,17 +812,18 @@ CGFloat vectorLength (CGVector vector) {
     int countToGenerate=number/kBallSustainRounds;
     int lastBallSustainRounds = number%kBallSustainRounds;
     
-    if (countToGenerate == 0) {
+    if (countToGenerate == 0 && lastBallSustainRounds!=0) {
+        
         
         PPBall * tBall = [PPBall ballWithElement:element];
         tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
-//        if (tBall.position.x>=290) {
-//            tBall.position = CGPointMake(290.0f, tBall.position.y);
-//        }
-//        if (fabsf(tBall.position.y)>380) {
-//            tBall.position = CGPointMake(tBall.position.x, 380);
-//
-//        }
+        if (tBall.position.x>=290) {
+            tBall.position = CGPointMake(290.0f, tBall.position.y);
+        }
+        if (fabsf(tBall.position.y)>380) {
+            tBall.position = CGPointMake(tBall.position.x, 380);
+
+        }
         tBall.ballElementType = element;
         tBall.physicsBody.node.name = nodeName;
         tBall.name =nodeName;
@@ -802,13 +859,13 @@ CGFloat vectorLength (CGVector vector) {
             
             PPBall * tBall = [PPBall ballWithElement:element];
             tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
-//            if (tBall.position.x>=290) {
-//                tBall.position = CGPointMake(290.0f, tBall.position.y);
-//            }
-//            if (fabsf(tBall.position.y)>380) {
-//                tBall.position = CGPointMake(tBall.position.x, 380);
-//                
-//            }
+            if (tBall.position.x>=290) {
+                tBall.position = CGPointMake(290.0f, tBall.position.y);
+            }
+            if (fabsf(tBall.position.y)>380) {
+                tBall.position = CGPointMake(tBall.position.x, 380);
+                
+            }
             tBall.ballElementType = element;
             tBall.physicsBody.node.name = nodeName;
             tBall.name = nodeName;
@@ -833,13 +890,13 @@ CGFloat vectorLength (CGVector vector) {
             
                 PPBall * tBall = [PPBall ballWithElement:element];
                 tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
-//                if (tBall.position.x>=290) {
-//                    tBall.position = CGPointMake(290.0f, tBall.position.y);
-//                }
-//                if (fabsf(tBall.position.y)>=380) {
-//                    tBall.position = CGPointMake(tBall.position.x, 380);
-//                    
-//                }
+                if (tBall.position.x>=290) {
+                    tBall.position = CGPointMake(290.0f, tBall.position.y);
+                }
+                if (fabsf(tBall.position.y)>=380) {
+                    tBall.position = CGPointMake(tBall.position.x, 380);
+                    
+                }
             
                 tBall.ballElementType = element;
                 tBall.physicsBody.node.name = nodeName;
@@ -867,13 +924,13 @@ CGFloat vectorLength (CGVector vector) {
                 
                 PPBall * tBall = [PPBall ballWithElement:element];
                 tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
-//                if (tBall.position.x>=290) {
-//                    tBall.position = CGPointMake(290.0f, tBall.position.y);
-//                }
-//                if (fabsf(tBall.position.y)>380) {
-//                    tBall.position = CGPointMake(tBall.position.x, 380);
-//                    
-//                }
+                if (tBall.position.x>=290) {
+                    tBall.position = CGPointMake(290.0f, tBall.position.y);
+                }
+                if (fabsf(tBall.position.y)>380) {
+                    tBall.position = CGPointMake(tBall.position.x, 380);
+                    
+                }
                 tBall.ballElementType = element;
                 tBall.physicsBody.node.name = nodeName;
                 tBall.name = nodeName;
@@ -963,7 +1020,6 @@ CGFloat vectorLength (CGVector vector) {
     {
         if ([nodeName isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
             
-            //            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
             [self enemyAttackDecision];
         }else
         {
@@ -973,6 +1029,7 @@ CGFloat vectorLength (CGVector vector) {
     {
         [self roundRotateEnd];
     }
+    
 }
 
 -(void)roundRotateEnd
@@ -1033,19 +1090,17 @@ CGFloat vectorLength (CGVector vector) {
 -(void)enemyAttackDecision
 {
     int decision = arc4random() % 2;
-    
+    [self setPlayerSideRoundRunState];
+
     switch (decision) {
         case 0:
         {
-            [self setPlayerSideRoundRunState];
 
             [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
         }
             break;
         case 1:
         {
-            [self setPlayerSideRoundRunState];
-
             [self skllEnemyBegain:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
         }
             break;
@@ -1206,10 +1261,7 @@ CGFloat vectorLength (CGVector vector) {
     NSLog(@"skillInfo=%@",skillInfo);
     [self setPlayerSideRoundRunState];
     
-    if (isNotSkillShowTime) {
-        
-        return;
-    }
+  
 
     
     if (self.playerAndEnemySide.currentPPPixie.currentMP<fabsf(mpToConsume)) {
@@ -1245,6 +1297,11 @@ CGFloat vectorLength (CGVector vector) {
     }
     
     
+    if (isNotSkillShowTime) {
+        
+        return;
+    }
+    
     
     NSLog(@"skillInfo=%@",skillInfo);
     
@@ -1270,16 +1327,17 @@ CGFloat vectorLength (CGVector vector) {
                 //                    [animanArryay addObject:temp];
                 //                }
                 
+                
                 for (PPBall * tBall in self.ballsElement) {
                     if (tBall.ballElementType == PPElementTypePlant) {
                         if ([ tBall.physicsBody.PPBallSkillStatus intValue]!=1) {
                             tBall.physicsBody.PPBallSkillStatus= @1;
                             [tBall startMagicballAnimation];
+                    
                         }
-                        
-                        
                     }
                 }
+                
             }
             
             
