@@ -1207,9 +1207,9 @@ CGFloat vectorLength (CGVector vector) {
     [self setPlayerSideRoundRunState];
     
     if (isNotSkillShowTime) {
+        
         return;
     }
-    isNotSkillShowTime = YES;
 
     
     if (self.playerAndEnemySide.currentPPPixie.currentMP<fabsf(mpToConsume)) {
@@ -1258,6 +1258,8 @@ CGFloat vectorLength (CGVector vector) {
             
         case 1:
         {
+            isNotSkillShowTime = YES;
+
             
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
                 
@@ -1434,7 +1436,8 @@ CGFloat vectorLength (CGVector vector) {
 
 -(void)showSkillEventBegin:(NSDictionary *)skillInfo
 {
-    
+    isNotSkillShowTime = YES;
+
     [self setPlayerSideRoundRunState];
 
     
@@ -1475,7 +1478,6 @@ CGFloat vectorLength (CGVector vector) {
         
     }
     
-    [self setPlayerSideRoundEndState];
 
 }
 

@@ -256,10 +256,6 @@
 -(void)skillSideClick:(PPSpriteButton *)sender
 {
     
-    [self performSelectorOnMainThread:@selector(setSideSkillButtonDisable) withObject:nil waitUntilDone:YES];
-    
-    [self performSelectorOnMainThread:@selector(setSideSkillButtonEnable) withObject:nil afterDelay:2];
-
     NSDictionary *skillChoosed = [self.currentPPPixie.pixieSkills objectAtIndex:[sender.name intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
 
     
