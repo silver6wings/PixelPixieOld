@@ -266,6 +266,9 @@ int velocityValue (int x, int y) {
 // 碰撞事件
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
+    
+    if (!_isBallRolling) return;
+    
     SKPhysicsBody * sholdToRemoveBody;
     
     if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
@@ -302,9 +305,16 @@ int velocityValue (int x, int y) {
                 
             }
             
+            
+            
             petCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
-            [self.playerAndEnemySide changePetMPValue:200];
+            
+            [self.playerAndEnemySide changePetMPValue:300];
+            [self addValueChangeLabel:300 position:self.ballPlayer.position andColor:@"white"];
+            
+
+            
             
             return;
             
@@ -368,7 +378,9 @@ int velocityValue (int x, int y) {
             }
             enemyCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
-            [self.playerAndEnemySide changeEnemyMPValue:500];
+            [self.playerAndEnemySide changeEnemyMPValue:300];
+            [self addValueChangeLabel:300 position:self.ballEnemy.position andColor:@"white"];
+
             return;
         }
         else if((contact.bodyA == self.ballEnemy.physicsBody &&
@@ -501,7 +513,7 @@ int velocityValue (int x, int y) {
                 
                 if (self.playerAndEnemySide.currentPPPixie.currentHP < self.playerAndEnemySide.currentPPPixie.pixieHPmax) {
                     [self.playerAndEnemySide changePetHPValue:200];
-                    [self addHPValueChangeLabel:200 position:pixieball.position];
+                    [self addValueChangeLabel:200 position:pixieball.position andColor:@"blue"];
                     petAssimSameEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                 } else {
@@ -510,7 +522,7 @@ int velocityValue (int x, int y) {
             } else {
                 if (self.playerAndEnemySide.currentPPPixie.currentHP >= 0.0f) {
                     [self.playerAndEnemySide changePetHPValue:-200];
-                    [self addHPValueChangeLabel:-200 position:pixieball.position];
+                    [self addValueChangeLabel:-200 position:pixieball.position andColor:@"red"];
                     petAssimDiffEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                     
@@ -522,7 +534,7 @@ int velocityValue (int x, int y) {
             if (self.ballEnemy.ballElementType == elementBallTmp.ballElementType) {
                 if (self.playerAndEnemySide.currentPPPixieEnemy.currentHP <self.playerAndEnemySide.currentPPPixieEnemy.pixieHPmax) {
                     [self.playerAndEnemySide changeEnemyHPValue:200];
-                    [self addHPValueChangeLabel:200 position:pixieball.position];
+                    [self addValueChangeLabel:200 position:pixieball.position andColor:@"blue"];
                     enemyAssimSameEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                 }else
@@ -535,7 +547,7 @@ int velocityValue (int x, int y) {
                 if (self.playerAndEnemySide.currentPPPixieEnemy.currentHP >= 0.0f) {
                     
                     [self.playerAndEnemySide changeEnemyHPValue:-200];
-                    [self addHPValueChangeLabel:-200 position:pixieball.position];
+                    [self addValueChangeLabel:-200 position:pixieball.position andColor:@"red"];
                     enemyAssimDiffEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                     
@@ -1034,7 +1046,7 @@ int velocityValue (int x, int y) {
 
 -(SKNode *)getNumber:(int)number AndColor:(NSString *)color {
     
-    SKNode * tNode = [SKNode node];
+    SKNode * tNode = [[SKNode alloc] init];
     float width = 13.0f;
     
     // 拼接图片
@@ -1171,7 +1183,6 @@ int velocityValue (int x, int y) {
 
 -(void)enemyDoPhysicsAttack
 {
-    _isBallRolling = YES;
     currentPhysicsAttack = 2;
     
     float randomX = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
@@ -1181,27 +1192,22 @@ int velocityValue (int x, int y) {
     [self setPlayerSideRoundRunState];
     _isBallRolling = YES;
 }
--(void)addHPValueChangeLabel:(int)value position:(CGPoint)labelPosition
+-(void)addValueChangeLabel:(int)value position:(CGPoint)labelPosition andColor:(NSString *)string
 {
     
-    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+//    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+   SKNode * additonLabel = [self getNumber:value AndColor:string];
     additonLabel.name  = @"hpchange";
-    additonLabel.fontColor = [UIColor redColor];
+//    additonLabel.fontColor = [UIColor redColor];
     additonLabel.position = labelPosition;
-    if (value>0) {
-        
-        [additonLabel setText:[NSString stringWithFormat:@"+%d",value]];
-        
-    }else
-    {
-        [additonLabel setText:[NSString stringWithFormat:@"%d",value]];
-        
-    }
     [self addChild:additonLabel];
     
     
-    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
-    [additonLabel runAction:actionScale completion:^{
+    SKAction *actionScale = [SKAction scaleBy:2.0 duration:0.5];
+    SKAction *actionFade = [SKAction fadeAlphaTo:0.0f duration:0.5];
+    SKAction *showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale,actionFade, nil]];
+    
+    [additonLabel runAction:showAction completion:^{
         [additonLabel removeFromParent];
     }];
     
