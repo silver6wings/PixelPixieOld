@@ -14,9 +14,8 @@ static const float kBallAccelerateMin = 15.0f;         // 速度最小的阈值
 
 static const float kAutoAttackMax = 50.0f;          // 自动攻击最大力量限制
 static const float kBounceReduce = 0.5f;            // 弹出去的按距离比例衰减系数
-static const float kStopThreshold = 5.0f;           // 速度停止阈值
 static const float kVelocityAddition = 1.1f;        // 撞击加速系数
-static const float kVelocityMininValue = 15;        // 球速阈值
+static const float kStopThreshold = 5.0f;           // 球速度停止阈值
 
 static const float kFrameInterval = 0.04f;          // FPS默认25
 

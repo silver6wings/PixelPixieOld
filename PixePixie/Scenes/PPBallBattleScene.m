@@ -26,7 +26,7 @@ CGFloat vectorLength (CGVector vector) {
 };
 
 // 计算向量长度
-int velocityValue (int x,int y) {
+int velocityValue (int x, int y) {
     return (int)sqrtf( x * x + y * y );
 };
 
@@ -668,25 +668,25 @@ int velocityValue (int x,int y) {
             [self  showPhysicsAttackAnimation:PP_ENEMY_SIDE_NODE_NAME];
             
         }
-        
-        
+    
     }else
+        //
     {
-        
-        if (velocityValue((int)self.ballPlayer.physicsBody.velocity.dx, (int)self.ballPlayer.physicsBody.velocity.dy)<kVelocityMininValue) {
+        if (velocityValue((int)self.ballPlayer.physicsBody.velocity.dx,
+                          (int)self.ballPlayer.physicsBody.velocity.dy) < kStopThreshold) {
             self.ballPlayer.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
         }
         
-        if (velocityValue((int)self.ballEnemy.physicsBody.velocity.dx, (int)self.ballEnemy.physicsBody.velocity.dy)<kVelocityMininValue) {
+        if (velocityValue((int)self.ballEnemy.physicsBody.velocity.dx,
+                          (int)self.ballEnemy.physicsBody.velocity.dy) < kStopThreshold) {
             self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
         }
         
         for (SKNode *obj in self.ballsCombos) {
-            if (velocityValue((int)obj.physicsBody.velocity.dx, (int)obj.physicsBody.velocity.dy)<kVelocityMininValue)
+            if (velocityValue((int)obj.physicsBody.velocity.dx,
+                              (int)obj.physicsBody.velocity.dy) < kStopThreshold)
             {
                 obj.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
-
-                
             }
         }
     }

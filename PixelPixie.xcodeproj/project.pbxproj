@@ -198,6 +198,7 @@
 		1999AD5B19EE6D3F00B25ED2 /* 变身效果01041.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2419EE6D3F00B25ED2 /* 变身效果01041.png */; };
 		1999AD5C19EE6D3F00B25ED2 /* 变身效果01042.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2519EE6D3F00B25ED2 /* 变身效果01042.png */; };
 		1999AD5D19EE6D3F00B25ED2 /* 变身效果01043.png in Resources */ = {isa = PBXBuildFile; fileRef = 1999AD2619EE6D3F00B25ED2 /* 变身效果01043.png */; };
+		199EFF2C19F613B9003074D7 /* ui_number.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 199EFF2B19F613B9003074D7 /* ui_number.atlas */; };
 		19CBA8C31907C77600A249AB /* PPBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C21907C77600A249AB /* PPBall.m */; };
 		19CBA8C61907C7D000A249AB /* PPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBA8C51907C7D000A249AB /* PPPlayer.m */; };
 		19F28E2D1969181B0006ABFF /* PPCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F28E2C1969181B0006ABFF /* PPCustomButton.m */; };
@@ -470,6 +471,7 @@
 		1999AD2419EE6D3F00B25ED2 /* 变身效果01041.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01041.png"; sourceTree = "<group>"; };
 		1999AD2519EE6D3F00B25ED2 /* 变身效果01042.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01042.png"; sourceTree = "<group>"; };
 		1999AD2619EE6D3F00B25ED2 /* 变身效果01043.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "变身效果01043.png"; sourceTree = "<group>"; };
+		199EFF2B19F613B9003074D7 /* ui_number.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = ui_number.atlas; path = Resource/Images/ui_number.atlas; sourceTree = "<group>"; };
 		19CBA8C11907C77600A249AB /* PPBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPBall.h; path = Models/PPBall.h; sourceTree = "<group>"; };
 		19CBA8C21907C77600A249AB /* PPBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPBall.m; path = Models/PPBall.m; sourceTree = "<group>"; };
 		19CBA8C41907C7D000A249AB /* PPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPlayer.h; path = Models/PPPlayer.h; sourceTree = "<group>"; };
@@ -764,6 +766,7 @@
 				1992B3F119E926E600BFE51E /* skill_buff.atlas */,
 				D4BF767919E6928D003CFFAB /* skill_icon.atlas */,
 				D4BF767B19E6928D003CFFAB /* ui_fighting.atlas */,
+				199EFF2B19F613B9003074D7 /* ui_number.atlas */,
 				D4BF767C19E6928D003CFFAB /* ui_talent.atlas */,
 			);
 			name = Images;
@@ -1194,6 +1197,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Psyches;
+				TargetAttributes = {
+					19F6ED9718C6C09900BFFF9A = {
+						DevelopmentTeam = QGW73K39GN;
+					};
+				};
 			};
 			buildConfigurationList = 19F6ED9318C6C09900BFFF9A /* Build configuration list for PBXProject "PixelPixie" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1386,6 +1394,7 @@
 				1992B3F219E926E700BFE51E /* skill_buff.atlas in Resources */,
 				1999AC2819EE64D500B25ED2 /* plant_forward_0001.png in Resources */,
 				1999AC2E19EE64D500B25ED2 /* plant_forward_0007.png in Resources */,
+				199EFF2C19F613B9003074D7 /* ui_number.atlas in Resources */,
 				1999AD2B19EE6D3F00B25ED2 /* pixie_plant2_battle1.png in Resources */,
 				1999AC4919EE64D500B25ED2 /* fire_blade_cast_0002.png in Resources */,
 				1999AC5F19EE64D500B25ED2 /* fire_shield_cast_0000.png in Resources */,
@@ -1555,13 +1564,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xu Dong Wang (GUU9M6HSRA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PixePixie/PixelPixie-Prefix.pch";
 				INFOPLIST_FILE = "PixePixie/PixelPixie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = PixelPixie;
-				PROVISIONING_PROFILE = "2ce5c968-0e7a-44d0-926f-ab4974e5eff0";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1573,13 +1583,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xu Dong Wang (GUU9M6HSRA)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PixePixie/PixelPixie-Prefix.pch";
 				INFOPLIST_FILE = "PixePixie/PixelPixie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = PixelPixie;
-				PROVISIONING_PROFILE = "2ce5c968-0e7a-44d0-926f-ab4974e5eff0";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
