@@ -53,6 +53,7 @@
 +(SKTextureAtlas *)skill_icon;
 
 +(SKTextureAtlas *)ui_fighting;
++(SKTextureAtlas *)ui_number;
 +(SKTextureAtlas *)ui_talent;
 
 @end

@@ -1032,6 +1032,32 @@ int velocityValue (int x, int y) {
 //    }
 //}
 
+-(SKNode *)getNumber:(int)number AndColor:(NSString *)color {
+    
+    SKNode * tNode = [SKNode node];
+    float width = 13.0f;
+    
+    // 拼接图片
+    int i = 0;
+    while (number > 0) {
+        i++;
+        int tNum = number % 10;
+        number /= 10;
+        
+        NSString * tNumName = [NSString stringWithFormat:@"%@_%d.png", color, tNum];
+        SKSpriteNode * tNumNode = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_number] textureNamed:tNumName]];
+        tNumNode.position = CGPointMake(-width * i, 0);
+        tNumNode.xScale = 0.5;
+        tNumNode.yScale = 0.5;
+        [tNode addChild:tNumNode];
+    }
+    
+    // 调整位置居中
+    for (SKSpriteNode * numNode in [tNode children]) {
+        numNode.position = CGPointMake(numNode.position.x + (i+1) * width / 2, numNode.position.y);
+    }
+    return tNode;
+}
 
 #pragma mark Rounds and Turns
 

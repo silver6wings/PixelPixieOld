@@ -84,6 +84,16 @@
     return tAtlas;
 }
 
++(SKTextureAtlas *)ui_number
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"ui_number"];
+    });
+    return tAtlas;
+}
+
 +(SKTextureAtlas *)ui_talent
 {
     __strong static SKTextureAtlas * tAtlas = nil;
