@@ -128,7 +128,7 @@
     // 添加己方精灵
     _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"fire_shield_cast_0000.png"];
     _playerPixie.position = CGPointMake(0.0f,0.0f);
-    _playerPixie.size = CGSizeMake(320.0f, 480.0f);
+    _playerPixie.size = CGSizeMake(320.0f, 150.0f);
     [contentSprite addChild:_playerPixie];
     
     //预加载变身动画

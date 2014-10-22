@@ -151,6 +151,7 @@
     switch ([buff.buffId intValue]) {
         case 1:
         {
+            self.physicsBody.PPBallSkillStatus=0;
             [self startPlantrootAppearOrDisappear:NO];
             self.physicsBody.dynamic = YES;
         }

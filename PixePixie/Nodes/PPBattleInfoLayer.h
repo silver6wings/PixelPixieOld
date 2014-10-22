@@ -46,5 +46,6 @@
 -(void)setComboLabelText:(int)petCombos  withEnemy:(int)enemyCombos;
 -(void)setBufferBar:(NSArray *)buffs;
 
+-(void)shakeHeadPortrait:(NSString *)stringSide andCompletion:(PPBallBattleScene *)sceneBattle;
 
 @end

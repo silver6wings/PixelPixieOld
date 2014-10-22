@@ -12,7 +12,10 @@
         [self setBackTitleText:@"小场景" andPositionY:450.0f];
         [self setBackgroundColor:[UIColor purpleColor]];
         NSString * mapName = [NSString stringWithFormat:@"map_scene_%@.png", kElementTypeString[elementType]];
-        [self addChild:[SKSpriteNode spriteNodeWithImageNamed:mapName]];
+        SKSpriteNode *spriteBackNode=[SKSpriteNode spriteNodeWithImageNamed:mapName];
+        spriteBackNode.position = CGPointMake(self.size.width/2.0f, self.size.height/2.0f);
+        spriteBackNode.size = CGSizeMake(320.0f, 480.0f);
+        [self addChild:spriteBackNode];
         [self addPassChoose];
     }
     return self;

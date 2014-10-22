@@ -1,6 +1,11 @@
 
 #import "PPBattleInfoLayer.h"
-
+@interface PPBattleInfoLayer()
+{
+    PPSpriteButton *ppixiePetBtn;
+    PPSpriteButton * ppixieEnemyBtn;
+}
+@end
 @implementation PPBattleInfoLayer
 
 @synthesize target=_target;
@@ -27,8 +32,15 @@
     NSLog(@"pixieSkills count=%lu", (unsigned long)[ppixie.pixieSkills count]);
     
     // 添加技能槽
-    for (int i = 0; i < 4; i++) {
-        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:[NSString stringWithFormat:@"%@_none",sceneString]]
+    for (int i = 0; i < [ppixie.pixieSkills count]; i++) {
+        NSDictionary *dictSkill=[ppixie.pixieSkills objectAtIndex:i];
+        
+        NSString *stringSkillBtn = [dictSkill objectForKey:@"skillbtntexture"];
+        if (stringSkillBtn==nil) {
+            stringSkillBtn = [NSString stringWithFormat:@"%@_none",sceneString];
+        }
+        
+        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:stringSkillBtn]
                                                                 andSize:CGSizeMake(50.0f, 50.0f)];
         passButton.position = CGPointMake(65*i - 112.0f, 0.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
@@ -84,7 +96,7 @@
     
     
     // 己方头像
-    PPSpriteButton *ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
+    ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
                                                              andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
@@ -149,8 +161,9 @@
     [self addChild:enemyPlayerMP];
     
     
+    
     // 敌方头像
-    PPSpriteButton * ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
+    ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
                                                                 andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
@@ -356,7 +369,43 @@
 {
     self.currentPPPixieEnemy.currentHP =  [enemyPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
 }
+-(void)shakeHeadPortrait:(NSString *)stringSide andCompletion:(PPBallBattleScene *)sceneBattle
+{
+    if ([stringSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
+        
+        SKAction *actionLeft=[SKAction moveByX:-10 y:0.0f duration:0.1];
+        SKAction *actionRight=[SKAction moveByX:20 y:0.0f duration:0.1];
+        SKAction *actionOrigin=[SKAction moveTo:ppixieEnemyBtn.position duration:0.1];
+        SKAction *actionTotal=[SKAction sequence:[NSArray arrayWithObjects:actionLeft,actionRight,actionOrigin,nil]];
+        
+        [ppixieEnemyBtn runAction:actionTotal completion:^{
+          
+            [sceneBattle physicsAttackAnimationEnd:stringSide];
+        
+        }];
+        
 
+        
+    }else
+    {
+        SKAction *actionLeft=[SKAction moveByX:-10 y:0.0f duration:0.1];
+        SKAction *actionRight=[SKAction moveByX:20 y:0.0f duration:0.1];
+        SKAction *actionOrigin=[SKAction moveTo:ppixiePetBtn.position duration:0.1];
+        SKAction *actionTotal=[SKAction sequence:[NSArray arrayWithObjects:actionLeft,actionRight,actionOrigin,nil]];
+        
+        [ppixiePetBtn runAction:actionTotal completion:^{
+            
+            [sceneBattle physicsAttackAnimationEnd:stringSide];
+
+        }];
+    }
+    
+    
+}
+-(int)physicsAttackHPChangeValueCalculate
+{
+    return 300;
+}
 -(void)changePetMPValue:(CGFloat)HPValue
 {
     self.currentPPPixie.currentMP = [petPlayerMP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
