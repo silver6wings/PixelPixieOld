@@ -571,10 +571,14 @@
 				1917DFF618C8551300E54F02 /* PPElement.m */,
 				19CBA8C41907C7D000A249AB /* PPPlayer.h */,
 				19CBA8C51907C7D000A249AB /* PPPlayer.m */,
-				193DC47D19685C71007308C7 /* PPPixie */,
-				193DC47E19685C90007308C7 /* PPSkill */,
-				193DC47F19685CC2007308C7 /* PPBuff */,
-				193DC48019685CDD007308C7 /* PPBall */,
+				193DC4AA19686162007308C7 /* PPPixie.h */,
+				193DC4AB19686162007308C7 /* PPPixie.m */,
+				D413CB5F1945FF62004B4FDE /* PPSkill.h */,
+				D413CB601945FF62004B4FDE /* PPSkill.m */,
+				D4BE5ABD19513FFD001F72DE /* PPBuff.h */,
+				D4BE5ABE19513FFD001F72DE /* PPBuff.m */,
+				19CBA8C11907C77600A249AB /* PPBall.h */,
+				19CBA8C21907C77600A249AB /* PPBall.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -712,42 +716,6 @@
 			);
 			name = Header;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		193DC47D19685C71007308C7 /* PPPixie */ = {
-			isa = PBXGroup;
-			children = (
-				193DC4AA19686162007308C7 /* PPPixie.h */,
-				193DC4AB19686162007308C7 /* PPPixie.m */,
-			);
-			name = PPPixie;
-			sourceTree = "<group>";
-		};
-		193DC47E19685C90007308C7 /* PPSkill */ = {
-			isa = PBXGroup;
-			children = (
-				D413CB5F1945FF62004B4FDE /* PPSkill.h */,
-				D413CB601945FF62004B4FDE /* PPSkill.m */,
-			);
-			name = PPSkill;
-			sourceTree = "<group>";
-		};
-		193DC47F19685CC2007308C7 /* PPBuff */ = {
-			isa = PBXGroup;
-			children = (
-				D4BE5ABD19513FFD001F72DE /* PPBuff.h */,
-				D4BE5ABE19513FFD001F72DE /* PPBuff.m */,
-			);
-			name = PPBuff;
-			sourceTree = "<group>";
-		};
-		193DC48019685CDD007308C7 /* PPBall */ = {
-			isa = PBXGroup;
-			children = (
-				19CBA8C11907C77600A249AB /* PPBall.h */,
-				19CBA8C21907C77600A249AB /* PPBall.m */,
-			);
-			name = PPBall;
 			sourceTree = "<group>";
 		};
 		196738BC19DA5BD2002C5172 /* Images */ = {

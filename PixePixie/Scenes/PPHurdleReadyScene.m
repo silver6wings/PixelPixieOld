@@ -26,9 +26,7 @@
 
 - (void)didMoveToView:(SKView *)view
 {
-    // Called immediately after a scene is presented by a view.
     [super didMoveToView:view];
-    [self setBackgroundColor:[UIColor cyanColor]];
 }
 
 
@@ -41,21 +39,19 @@
 
 -(void)setCurrentHurdle:(int)currentIndex
 {
-    
-    SKNode *contentNode=[self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
-    if (contentNode!=nil) {
+    SKNode *contentNode = [self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
+    if (contentNode != nil) {
         [contentNode removeFromParent];
     }
     
-    SKNode *contentPetChooseNode=[self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
-    if (contentPetChooseNode!=nil) {
+    SKNode *contentPetChooseNode = [self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
+    if (contentPetChooseNode != nil) {
         [contentPetChooseNode removeFromParent];
     }
     
     if ([self.enemysArray count] <= currentIndex)
     {
         NSLog(@"战斗结束，结算奖励");
-        
         NSDictionary *dict = @{@"title":@"最后一个怪物死了",
                                @"context":@"副本结束"};
         PPCustomAlertNode *alertCustom = [[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
@@ -78,9 +74,7 @@
     forwardSprite.position = CGPointMake(0.0f, 0.0f);
     [hurdleReadyContentNode addChild:forwardSprite];
     
-    
-    
-    NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
+    NSMutableArray * texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
     @synchronized(texturesArray)
     {
         
@@ -136,9 +130,8 @@
     _playerPixie.position = CGPointMake(0.0f,0.0f);
     _playerPixie.size = CGSizeMake(320.0f, 480.0f);
     [contentSprite addChild:_playerPixie];
- //预加载变身动画
     
-    
+    //预加载变身动画
     NSMutableArray *texturesArray = [[NSMutableArray alloc] initWithCapacity:44];
     @synchronized(texturesArray)
     {
@@ -208,12 +201,9 @@
 //        
 //    }
     
-    
-    
-    
     self.petsArray = [NSArray arrayWithArray:petsInfoArray];
     
-    SKLabelNode *titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKLabelNode * titilePass = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     titilePass.name = @"eee";
     titilePass.text = @"选择它去战斗吧";
     titilePass.fontSize = 15;
@@ -229,24 +219,20 @@
 -(void)sceneChooseClick:(PPSpriteButton *)btn
 {
     
-    PPBasicSpriteNode *contentSprite= (PPBasicSpriteNode *)[self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
+    PPBasicSpriteNode * contentSprite= (PPBasicSpriteNode *)[self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
     
-    for (int i=0;i<5;i++) {
-        PPSpriteButton *btnObj=(PPSpriteButton *)[contentSprite childNodeWithName:[NSString stringWithFormat:@"%d",i]];
+    for (int i = 0; i < 5; i++) {
+        PPSpriteButton * btnObj = (PPSpriteButton *)[contentSprite childNodeWithName:[NSString stringWithFormat:@"%d",i]];
         if (btnObj == btn) {
             btnObj.color = [UIColor blueColor];
-        }else
-        {
+        }else{
             btnObj.color = [UIColor orangeColor];
-
         }
-        
     }
     
     switch ([btn.name intValue]) {
         case 0:
         {
-            
             chooseSceneType = PPElementTypePlant;
         }
             break;
@@ -256,7 +242,6 @@
 
         }
             break;
-            
         default:
             break;
     }
@@ -267,7 +252,7 @@
 
     
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
-    NSDictionary *choosedPet = [NSDictionary dictionaryWithDictionary:petsChoosedInfo];
+    NSDictionary * choosedPet = [NSDictionary dictionaryWithDictionary:petsChoosedInfo];
     
     // 初始化 ballScene
     PPPixie * playerPixie = [PPPixie birthPixieWithPetsInfo:choosedPet];

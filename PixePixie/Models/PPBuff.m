@@ -12,6 +12,4 @@
 @synthesize cdRoundsAttAdd;
 @synthesize cdRoundsDefAdd;
 
-
-
 @end

@@ -91,13 +91,13 @@ typedef NS_ENUM(NSInteger, PPElementType)
     PPElementTypeWind         // 风
 };
 
+/*
 typedef NS_ENUM(NSInteger, PPPhysicsBodyStatus)
 {
-    
     PPPhysicsBodyStatusNone = 0,
-    PPPhysicsBodyStatusForest
-    
+    PPPhysicsBodyStatusRoot
 };
+*/
 
 // 血条显示
 typedef enum {
@@ -132,6 +132,4 @@ typedef NS_ENUM(NSInteger, PPBuffUniversalType)
 {
     PPBuffTypeAttackAddition = 0,              // 伤害加成
 };
-
-
 

@@ -513,7 +513,7 @@ int velocityValue (int x, int y) {
                 
                 if (self.playerAndEnemySide.currentPPPixie.currentHP < self.playerAndEnemySide.currentPPPixie.pixieHPmax) {
                     [self.playerAndEnemySide changePetHPValue:200];
-                    [self addValueChangeLabel:200 position:pixieball.position andColor:@"blue"];
+                    [self addValueChangeLabel:200 position:pixieball.position andColor:@"green"];
                     petAssimSameEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                 } else {
@@ -534,7 +534,7 @@ int velocityValue (int x, int y) {
             if (self.ballEnemy.ballElementType == elementBallTmp.ballElementType) {
                 if (self.playerAndEnemySide.currentPPPixieEnemy.currentHP <self.playerAndEnemySide.currentPPPixieEnemy.pixieHPmax) {
                     [self.playerAndEnemySide changeEnemyHPValue:200];
-                    [self addValueChangeLabel:200 position:pixieball.position andColor:@"blue"];
+                    [self addValueChangeLabel:200 position:pixieball.position andColor:@"green"];
                     enemyAssimSameEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                 }else
@@ -1047,9 +1047,11 @@ int velocityValue (int x, int y) {
 -(SKNode *)getNumber:(int)number AndColor:(NSString *)color {
     
     SKNode * tNode = [[SKNode alloc] init];
+    if (number < 1 || color == nil) return tNode;
+    
     float width = 13.0f;
     
-    // 拼接图片
+    // 拼接数字图片
     int i = 0;
     while (number > 0) {
         i++;
@@ -1192,6 +1194,7 @@ int velocityValue (int x, int y) {
     [self setPlayerSideRoundRunState];
     _isBallRolling = YES;
 }
+
 -(void)addValueChangeLabel:(int)value position:(CGPoint)labelPosition andColor:(NSString *)string
 {
     
@@ -1202,17 +1205,15 @@ int velocityValue (int x, int y) {
     additonLabel.position = labelPosition;
     [self addChild:additonLabel];
     
-    
-    SKAction *actionScale = [SKAction scaleBy:2.0 duration:0.5];
-    SKAction *actionFade = [SKAction fadeAlphaTo:0.0f duration:0.5];
-    SKAction *showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale,actionFade, nil]];
+    SKAction *actionScale = [SKAction scaleBy:1.5 duration:0.2];
+    SKAction *actionFade = [SKAction fadeAlphaTo:0.0f duration:0.3];
+    SKAction *showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale, actionFade, nil]];
     
     [additonLabel runAction:showAction completion:^{
         [additonLabel removeFromParent];
     }];
-    
-    
 }
+
 -(void)setRoundEndNumberLabel:(NSString *)text
 {
     PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
