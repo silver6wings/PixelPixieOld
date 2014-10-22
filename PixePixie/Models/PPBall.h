@@ -46,7 +46,7 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
     
 }
 
-@property (nonatomic,retain) NSMutableArray *ballBuffs;
+@property (nonatomic,retain) NSMutableArray * ballBuffs;
 @property (nonatomic,assign) int ballStatus;
 @property (nonatomic) int sustainRounds;
 @property (nonatomic) PPBallType ballType;
@@ -70,7 +70,7 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
 -(void)setToDefaultTexture;
 -(void)startComboAnimation;
 -(void)startPixieHealAnimation;
--(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSNumber *)num;
+-(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSString *)pose;
 -(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed andScene:(PPBasicScene *)battleScene;
 -(void)startRemoveAnimation:(NSMutableArray *)ballArray  andScene:(PPBasicScene *)battleScene;
 -(void)startElementBirthAnimation;

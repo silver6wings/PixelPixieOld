@@ -231,7 +231,6 @@
         [textureArray addObject:textureCombo];
         
     }
-        
     
 //    if (self.comboBallSprite != nil) {
 //        [self.comboBallSprite removeFromParent];
@@ -244,67 +243,38 @@
 //    [self.comboBallSprite setPosition:self.position];
 //    [battleScene addChild:self.comboBallSprite];
 //    [self removeFromParent];
+    
     [ballArray removeObject:self];
-    
-    
     [self runAction:[SKAction animateWithTextures:textureArray timePerFrame:0.05]
                          completion:^{
                              [self removeFromParent];
-
                          }];
-    
-    
 }
 
--(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSNumber *)num
+// 添加效果
+-(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSString *)pose
 {
-    NSLog(@"accelerate=%f",sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy ));
+    if (sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy ) < kBallAccelerateMin) return;
+        
+    double rotaion = atan(velocity.dy/velocity.dx);
     
-    
-    if (sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy )>=kBallAccelerateMin) {
-        
-        NSLog(@"velocity.x=%f y=%f",velocity.dx,velocity.dy);
-        double rotaion = atan(velocity.dy/velocity.dx);
-        NSLog(@"velocity.x=%f y=%f rotaion=%f",velocity.dx,velocity.dy,rotaion);
-        
-        if (self.comboBallSprite != nil) {
-            [self.comboBallSprite removeFromParent];
-            self.comboBallSprite = nil;
-        }
-        
-        self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
-        self.comboBallSprite.size = CGSizeMake(100.0f, 100.0f);
-        [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
-        [self addChild:self.comboBallSprite];
-        self.comboBallSprite.zRotation = rotaion;
-        switch ([num intValue]) {
-            case 0:
-            {
-                
-                [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_run",kElementTypeString[self.ballElementType]]]
-                                     completion:^{
-                                         [self.comboBallSprite removeFromParent];
-                                     }];
-            }
-                break;
-            case 1:
-            {
-                [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_step",kElementTypeString[self.ballElementType]]]
-                                     completion:^{
-                                         [self.comboBallSprite removeFromParent];
-                                     }];
-            }
-                break;
-                
-                
-            default:
-                break;
-        }
-
+    // 这里还需要优化
+    if (self.comboBallSprite != nil) {
+        [self.comboBallSprite removeFromParent];
+        self.comboBallSprite = nil;
     }
     
+    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite.size = CGSizeMake(100.0f, 100.0f);
+    self.comboBallSprite.zRotation = rotaion;
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+    [self addChild:self.comboBallSprite];
     
-    
+    [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:
+                                     [NSString stringWithFormat:@"%@_%@", kElementTypeString[self.ballElementType], pose]]
+                         completion:^{
+                             [self.comboBallSprite removeFromParent];
+                         }];
 }
 
 // 治疗动画

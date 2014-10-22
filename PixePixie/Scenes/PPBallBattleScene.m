@@ -251,8 +251,9 @@ int velocityValue (int x, int y) {
         [self.ballPlayer.physicsBody applyImpulse:
          CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
                       (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce)];
-        [self.ballPlayer startPixieAccelerateAnimation:CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
-                                                                   (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce) andType:@1];
+        [self.ballPlayer startPixieAccelerateAnimation:
+         CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
+                      (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce) andType:@"step"];
         currentPhysicsAttack = 1;
         [self setPlayerSideRoundRunState];
         [_ballShadow removeFromParent];
@@ -266,7 +267,6 @@ int velocityValue (int x, int y) {
 // 碰撞事件
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
-    
     if (!_isBallRolling) return;
     
     SKPhysicsBody * sholdToRemoveBody;
@@ -275,47 +275,25 @@ int velocityValue (int x, int y) {
         //如果我方人物球撞击到物体
     {
         
-        if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)){
-            
-//            if (currentPhysicsAttack == 1) {
-//                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
-//                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-//                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
-//                
-//            }else if(currentPhysicsAttack == 2)
-//            {
-//                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
-//                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
-//                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
-//                
-//            }
-            return;
-        }
+        if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)) return;
         
         if ((contact.bodyA == self.ballPlayer.physicsBody && [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]) ||
             (contact.bodyB == self.ballPlayer.physicsBody && [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]))
             //我方碰到连击球
         {
-            
             if (contact.bodyA == self.ballPlayer.physicsBody) {
                 [[self.ballsCombos objectAtIndex:[contact.bodyB.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
-            }else
-            {
+            } else {
                 [[self.ballsCombos objectAtIndex:[contact.bodyA.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
                 
             }
-            
-            
             
             petCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
             
             [self.playerAndEnemySide changePetMPValue:300];
             [self addValueChangeLabel:300 position:self.ballPlayer.position andColor:@"white"];
-            
 
-            
-            
             return;
             
         } else if ((contact.bodyA == self.ballPlayer.physicsBody &&[contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]) ||
@@ -352,18 +330,7 @@ int velocityValue (int x, int y) {
         //如果敌方人物球撞击到物体
     {
         
-        if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody)){
-//
-//            if (currentPhysicsAttack == 1) {
-//                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
-//                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-//            }else if(currentPhysicsAttack == 2)
-//            {
-//                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
-//                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
-//            }
-            return;
-        }
+        if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody)) return;
         
         if ((contact.bodyA == self.ballEnemy.physicsBody && [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]) ||
             (contact.bodyB == self.ballEnemy.physicsBody && [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_COMBO_NAME]))
@@ -382,113 +349,94 @@ int velocityValue (int x, int y) {
             [self addValueChangeLabel:300 position:self.ballEnemy.position andColor:@"white"];
 
             return;
-        }
-        else if((contact.bodyA == self.ballEnemy.physicsBody &&
-                 [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]) ||
-                (contact.bodyB == self.ballEnemy.physicsBody &&
-                 [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
+        } else if((contact.bodyA == self.ballEnemy.physicsBody &&
+                   [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]) ||
+                  (contact.bodyB == self.ballEnemy.physicsBody &&
+                   [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_ENEMY_ELEMENT_NAME]))
             //敌方碰到敌方属性元素球
         {
-            
-            
             NSNumber * emlementBodyStatus = [self dealPixieBallAndElementBall:contact andPetBall:self.ballEnemy];
-            
-            if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
-                return;
-            
-            
-            
-        }
-        else if((contact.bodyA == self.ballEnemy.physicsBody &&
-                 [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]) ||
-                (contact.bodyB == self.ballEnemy.physicsBody &&
-                 [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
+            if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) return;
+        } else if((contact.bodyA == self.ballEnemy.physicsBody &&
+                  [contact.bodyB.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]) ||
+                 (contact.bodyB == self.ballEnemy.physicsBody &&
+                  [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]))
         {
-            
-            NSNumber *elementBallSkillStatus =[self dealPallMoveSkillStatus:contact andPetBall:self.ballEnemy];
+            NSNumber * elementBallSkillStatus = [self dealPallMoveSkillStatus:contact andPetBall:self.ballEnemy];
             switch ([elementBallSkillStatus intValue]) {
                 case 1:
                 {
                     if (self.ballEnemy.physicsBody == contact.bodyA) {
                         [contact.bodyB.node removeFromParent];
-                    }else
-                    {
+                    } else {
                         [contact.bodyA.node removeFromParent];
                     }
                     //森林瞬起
-                    enemyAssimDiffEleNum++;
+                    enemyAssimDiffEleNum ++;
                     [self.ballEnemy startPlantrootAppearOrDisappear:YES];
                     self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
                     self.ballEnemy.physicsBody.dynamic = NO;
                     [self.ballEnemy addBuffWithName:@"snare" andRoundNum:1];
-                  
                 }
                     break;
-                    
                 default:
                 {
                     //敌方碰到我方属性元素球
                     NSNumber * emlementBodyStatus = [self dealPixieBallAndElementBall:contact andPetBall:self.ballEnemy];
-                    
-                    
                     if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
                         return;
                 }
                     break;
             }
-            
         }
-        
     } else return;
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact{
 
-
+    // 处理速度特效
     if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
         //如果我方人物球撞击到物体
     {
-        
-        if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody)){
-            
+        if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
+        {
             if (currentPhysicsAttack == 1) {
                 self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
                                                                     self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
-                
-            }else if(currentPhysicsAttack == 2)
-            {
+                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"run"];
+                return;
+            }
+            
+            if(currentPhysicsAttack == 2) {
                 self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
                                                                    self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
-                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@0];
-                
+                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"run"];
+                return;
             }
+        } else {
+            [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"step"];
             return;
         }
-        } else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
+    } else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
         //如果敌方人物球撞击到物体
     {
-        
-        if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody)){
-            
+        if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
+        {
             if (currentPhysicsAttack == 1) {
-                
                 self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
                                                                     self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-            }else if(currentPhysicsAttack == 2)
-            {
+                return;
+            }
+            if(currentPhysicsAttack == 2) {
                 self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
                                                                    self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
+                return;
             }
+        } else {
+            [self.ballEnemy startPixieAccelerateAnimation:self.ballEnemy.physicsBody.velocity andType:@"step"];
             return;
         }
-        
-    } else return;
-
-
-
-
-
+    }
 }
 
 #pragma mark Deal ball contact
@@ -1190,7 +1138,7 @@ int velocityValue (int x, int y) {
     float randomX = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
     float randomY = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
     [self.ballEnemy.physicsBody applyImpulse:CGVectorMake(randomX, randomY)];
-    [self.ballEnemy startPixieAccelerateAnimation:CGVectorMake(randomX, randomY) andType:@1];
+    [self.ballEnemy startPixieAccelerateAnimation:CGVectorMake(randomX, randomY) andType:@"step"];
     [self setPlayerSideRoundRunState];
     _isBallRolling = YES;
 }
