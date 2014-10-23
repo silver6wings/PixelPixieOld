@@ -191,6 +191,7 @@
         self.comboBallSprite = nil;
     }
     
+    
     self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
@@ -199,28 +200,29 @@
         [battleScene addChild:self.comboBallSprite];
         [self removeFromParent];
         [ballArray removeObject:self];
+
         
     }else
     {
         [self addChild:self.comboBallSprite];
+
     }
     
     [self.comboBallSprite runAction:actionHit
                          completion:^{
-                             
-//                             if (isNeed) {
-//                                 [self.comboBallSprite removeFromParent];
-//
-//                             }else
-//                             {
+                             if (isNeed) {
+                                 
                                  [self.comboBallSprite removeFromParent];
 
-//                             }
-                            
-//                             if (target!=nil&&animationEndSel!=nil&&[target respondsToSelector:animationEndSel]) {
-//                                 [self performSelectorOnMainThread:animationEndSel withObject:self waitUntilDone:YES];
-//                             }
+                             }else
+                             {
+                                 [self startAuraAnimation];
+
+                             }
+
     }];
+    
+    
 }
 -(void)startRemoveAnimation:(NSMutableArray *)ballArray  andScene:(PPBasicScene *)battleScene
 {
@@ -424,6 +426,7 @@
 }
 -(void)startAuraAnimation
 {
+    
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
         self.comboBallSprite = nil;

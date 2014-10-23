@@ -26,6 +26,8 @@
 
 @property(nonatomic, assign) SEL hpChangeEnd;
 
+@property(nonatomic, assign) SEL skillInvalidSel;
+
 
 @property(nonatomic, retain) PPPixie *currentPPPixie;
 @property(nonatomic, retain) PPPixie *currentPPPixieEnemy;

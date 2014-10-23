@@ -115,6 +115,7 @@ int velocityValue (int x, int y) {
         self.playerSkillSide.skillSelector = @selector(skillPlayerShowBegin:);
         self.playerSkillSide.pauseSelector = @selector(pauseBtnClick:);
         self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
+        self.playerSkillSide.skillInvalidSel = @selector(skillInvalidBtnClick:);
         [self.playerSkillSide setColor:[UIColor grayColor]];
         [self.playerSkillSide setSideSkillsBtn:pixieA andSceneString:sceneTypeString];
         [self addChild:self.playerSkillSide];
@@ -267,9 +268,7 @@ int velocityValue (int x, int y) {
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
     if (!_isBallRolling) return;
-    
-    SKPhysicsBody * sholdToRemoveBody;
-    
+        
     if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
         //如果我方人物球撞击到物体
     {
@@ -307,18 +306,29 @@ int velocityValue (int x, int y) {
                     [contact.bodyA.node.name isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME])
             //我方碰到我方属性元素球
         {
-            NSNumber * emlementBodyStatus = [self dealPixieBallAndElementBall:contact andPetBall:self.ballPlayer];
+           
             
-            if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
-                return;
-        }
+            NSNumber * elementBallSkillStatus = [self dealPallMoveSkillStatus:contact andPetBall:self.ballPlayer];
+            switch ([elementBallSkillStatus intValue]) {
+                case 1:
+                {
+                    //魔法球状态
+                   
+                }
+                    break;
+                default:
+                {
+                    //敌方碰到我方属性元素球
+                    NSNumber * emlementBodyStatus = [self dealPixieBallAndElementBall:contact andPetBall:self.ballPlayer];
+                    if ([emlementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG)
+                        return;
+                }
+                    break;
+            }
+
         
-        //判断当前我方是否满血
-        if (self.pixiePlayer.currentHP != self.pixiePlayer.pixieHPmax)
-        {
-            [sholdToRemoveBody.node removeFromParent];
-            [self.ballsElement removeObject:sholdToRemoveBody.node];
         }
+    
         
     } else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
         //如果敌方人物球撞击到物体
@@ -621,6 +631,7 @@ int velocityValue (int x, int y) {
 
                     enemyAssimSameEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
+                    
                 }else
                 {
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO andScene:self];
@@ -1452,19 +1463,41 @@ int velocityValue (int x, int y) {
     [ballsLabel runAction:action];
     
 }
+-(void)skillInvalidBtnClick:(NSDictionary *)skillInfo
+{
+    
+    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"mpisnotenough"];
+    if (labelNode) {
+        [labelNode removeFromParent];
+    }
+    
+    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+    additonLabel.name  = @"mpisnotenough";
+    additonLabel.fontColor = [UIColor redColor];
+    additonLabel.position = CGPointMake(160.0f, 200.0f);
+    [additonLabel setText:@"技能不可用"];
+    [self addChild:additonLabel];
+    
+    
+    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
+    [additonLabel runAction:actionScale completion:^{
+        [additonLabel removeFromParent];
+        isNotSkillShowTime = NO;
+        [self setPlayerSideRoundEndState];
+        
+    }];
+
+}
 
 
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
 {
     
-  
     
     CGFloat mpToConsume = [[skillInfo objectForKey:@"skillmpchange"] floatValue];
     NSLog(@"currentMP=%f mptoConsume=%f",self.playerAndEnemySide.currentPPPixie.currentMP,mpToConsume);
     NSLog(@"skillInfo=%@",skillInfo);
     [self setPlayerSideRoundRunState];
-    
-  
 
     
     if (self.playerAndEnemySide.currentPPPixie.currentMP<fabsf(mpToConsume)) {
@@ -1473,7 +1506,6 @@ int velocityValue (int x, int y) {
         if (labelNode) {
             [labelNode removeFromParent];
         }
-        
         
         PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
         additonLabel.name  = @"mpisnotenough";
@@ -1578,6 +1610,8 @@ int velocityValue (int x, int y) {
         default:
             break;
     }
+    
+    
 }
 
 -(void)skllEnemyBegain:(NSDictionary *)skillInfo
@@ -1604,17 +1638,15 @@ int velocityValue (int x, int y) {
     if ([stringSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
         
          [self.playerAndEnemySide changeEnemyHPValue:-[self physicsAttackHPChangeValueCalculate]];
-        [self roundRotateMoved:stringSide];
+         [self roundRotateMoved:stringSide];
 
-    
     }else
     {
+        
           [self.playerAndEnemySide changePetHPValue:-[self physicsAttackHPChangeValueCalculate]];
-        [self roundRotateMoved:stringSide];
-
-
+          [self roundRotateMoved:stringSide];
+        
     }
-    
 }
 
 -(void)showPhysicsAttackAnimation:(NSString *)attackSide
@@ -1744,7 +1776,6 @@ int velocityValue (int x, int y) {
 -(void)skillEndEvent:(PPSkill *)skillInfo withSelfName:(NSString *)nodeName
 {
     
-    NSLog(@"skillInfo=%@ HP:%f MP:%f",skillInfo,skillInfo.HPChangeValue,skillInfo.MPChangeValue);
     isNotSkillShowTime = NO;
     if ([nodeName isEqualToString:PP_ENEMY_SKILL_SHOW_NODE_NAME])
     {

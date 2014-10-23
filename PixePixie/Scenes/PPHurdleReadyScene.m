@@ -176,8 +176,12 @@
     
     for (int i = 0; i < petsCount; i++) {
 
-        PPSpriteButton *petChooseButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80.0f, 80.0f)];
+//        PPSpriteButton *petChooseButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(80.0f, 80.0f)];
+        
+        PPSpriteButton *petChooseButton = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[[petsInfoArray objectAtIndex:i] objectForKey:@"petimage"]] andSize:CGSizeMake(80, 80)];
+        NSLog(@"petimage=%@",[[petsInfoArray objectAtIndex:i] objectForKey:@"petimage"]);
         [petChooseButton setLabelWithText:[[petsInfoArray objectAtIndex:i] objectForKey:@"petname"] andFont:[UIFont systemFontOfSize:15] withColor:nil];
+        [petChooseButton.label setPosition:CGPointMake(0.0f, -42.0f)];
         petChooseButton.position = CGPointMake(100 * (i - 1),0.0);
         petChooseButton.name = [NSString stringWithFormat:@"%d", PP_PETS_CHOOSE_BTN_TAG + i];
         [petChooseButton addTarget:self selector:@selector(spriteChooseClick:) withObject:petChooseButton.name forControlEvent:PPButtonControlEventTouchUpInside];

@@ -31,7 +31,7 @@
 @property (nonatomic) PPElementType pixieElement;       // 宠物的元素属性
 @property (nonatomic, assign) int pixieGeneration;      // 第几个进化态
 @property (nonatomic, retain) NSArray * pixieSkills;    // 技能
-@property (nonatomic, retain) NSArray * pixieBuffs;     // 附加状态
+@property (nonatomic, retain) NSMutableArray * pixieBuffs;     // 附加状态
 @property (nonatomic) PPBall * pixieBall;               // 小球
 
 -(CGFloat)countPhysicalDamageTo:(PPPixie *)targetPixie;

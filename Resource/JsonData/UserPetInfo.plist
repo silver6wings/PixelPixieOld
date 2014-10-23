@@ -8,11 +8,11 @@
 			<key>petid</key>
 			<string>1234</string>
 			<key>petelementtype</key>
-			<integer>2</integer>
+			<integer>4</integer>
 			<key>petname</key>
-			<string>精灵宝贝</string>
+			<string>火精灵</string>
 			<key>petimage</key>
-			<string>ball_fire3.png</string>
+			<string>fire3_ball</string>
 			<key>petstatus</key>
 			<integer>1</integer>
 			<key>petvalueinfo</key>
@@ -33,6 +33,8 @@
 			<key>pixieSkills</key>
 			<array>
 				<dict>
+					<key>skillstatus</key>
+					<string>valid</string>
 					<key>animateTexturename</key>
 					<string>imagename</string>
 					<key>animatetexturecount</key>
@@ -55,6 +57,8 @@
 					<integer>0</integer>
 				</dict>
 				<dict>
+					<key>skillstatus</key>
+					<string>invalid</string>
 					<key>animateTexturename</key>
 					<string>imagename</string>
 					<key>animatetexturecount</key>
@@ -75,6 +79,30 @@
 					<integer>3</integer>
 				</dict>
 				<dict>
+					<key>skillstatus</key>
+					<string>invalid</string>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-244</integer>
+					<key>skillmpchange</key>
+					<integer>-1023</integer>
+					<key>skilltype</key>
+					<integer>1</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>木系掌控</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>skillstatus</key>
+					<string>invalid</string>
 					<key>animateTexturename</key>
 					<string>imagename</string>
 					<key>animatetexturecount</key>
@@ -102,9 +130,9 @@
 			<key>petelementtype</key>
 			<integer>2</integer>
 			<key>petname</key>
-			<string>精灵</string>
+			<string>木精灵</string>
 			<key>petimage</key>
-			<string>ball_fire3.png</string>
+			<string>plant2_ball</string>
 			<key>petstatus</key>
 			<integer>2</integer>
 			<key>petvalueinfo</key>
@@ -125,26 +153,8 @@
 			<key>pixieSkills</key>
 			<array>
 				<dict>
-					<key>animateTexturename</key>
-					<string>imagename</string>
-					<key>animatetexturecount</key>
-					<integer>20</integer>
-					<key>skillhpchange</key>
-					<integer>300</integer>
-					<key>skillmpchange</key>
-					<integer>-1290</integer>
-					<key>skilltype</key>
-					<integer>0</integer>
-					<key>skillobject</key>
-					<integer>0</integer>
-					<key>skillname</key>
-					<string>阳光普照</string>
-					<key>skillcdrounds</key>
-					<integer>3</integer>
-					<key>skillcontinue</key>
-					<integer>0</integer>
-				</dict>
-				<dict>
+					<key>skillstatus</key>
+					<string>valid</string>
 					<key>animateTexturename</key>
 					<string>imagename</string>
 					<key>animatetexturecount</key>
@@ -167,6 +177,52 @@
 					<integer>0</integer>
 				</dict>
 				<dict>
+					<key>skillstatus</key>
+					<string>invalid</string>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>300</integer>
+					<key>skillmpchange</key>
+					<integer>-1290</integer>
+					<key>skilltype</key>
+					<integer>0</integer>
+					<key>skillobject</key>
+					<integer>0</integer>
+					<key>skillname</key>
+					<string>阳光普照</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>skillstatus</key>
+					<string>invalid</string>
+					<key>animateTexturename</key>
+					<string>imagename</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-555</integer>
+					<key>skillmpchange</key>
+					<integer>-1003</integer>
+					<key>skilltype</key>
+					<integer>0</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>木旋风</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>skillstatus</key>
+					<string>learned</string>
 					<key>animateTexturename</key>
 					<string>imagename</string>
 					<key>animatetexturecount</key>
@@ -194,9 +250,9 @@
 			<key>petelementtype</key>
 			<integer>2</integer>
 			<key>petname</key>
-			<string>精灵王</string>
+			<string>木精灵王</string>
 			<key>petimage</key>
-			<string>ball_fire3.png</string>
+			<string>plant3_encounter</string>
 			<key>petstatus</key>
 			<integer>3</integer>
 			<key>petvalueinfo</key>
@@ -217,6 +273,8 @@
 			<key>pixieSkills</key>
 			<array>
 				<dict>
+					<key>skillstatus</key>
+					<string>valid</string>
 					<key>animateTexturename</key>
 					<string>imagename</string>
 					<key>animatetexturecount</key>
@@ -239,6 +297,8 @@
 					<integer>0</integer>
 				</dict>
 				<dict>
+					<key>skillstatus</key>
+					<string>valid</string>
 					<key>animateTexturename</key>
 					<string>blade</string>
 					<key>animatetexturecount</key>
@@ -261,6 +321,30 @@
 					<integer>0</integer>
 				</dict>
 				<dict>
+					<key>skillstatus</key>
+					<string>invalid</string>
+					<key>animateTexturename</key>
+					<string>shield</string>
+					<key>animatetexturecount</key>
+					<integer>20</integer>
+					<key>skillhpchange</key>
+					<integer>-554</integer>
+					<key>skillmpchange</key>
+					<integer>-200</integer>
+					<key>skilltype</key>
+					<integer>0</integer>
+					<key>skillobject</key>
+					<integer>1</integer>
+					<key>skillname</key>
+					<string>狼焰防御</string>
+					<key>skillcdrounds</key>
+					<integer>3</integer>
+					<key>skillcontinue</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>skillstatus</key>
+					<string>invalid</string>
 					<key>animateTexturename</key>
 					<string>shield</string>
 					<key>animatetexturecount</key>

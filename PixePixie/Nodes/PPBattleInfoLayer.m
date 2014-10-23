@@ -16,6 +16,7 @@
 @synthesize hpBeenZeroSel;
 @synthesize pauseSelector;
 @synthesize hpChangeEnd;
+@synthesize skillInvalidSel;
 
 // 设置技能
 -(void)setSideSkillsBtn:(PPPixie *)ppixie andSceneString:(NSString *)sceneString
@@ -32,24 +33,50 @@
     NSLog(@"pixieSkills count=%lu", (unsigned long)[ppixie.pixieSkills count]);
     
     // 添加技能槽
-    for (int i = 0; i < [ppixie.pixieSkills count]; i++) {
-        NSDictionary *dictSkill=[ppixie.pixieSkills objectAtIndex:i];
+    for (int i = 0; i < 4; i++) {
         
-        NSString *stringSkillBtn = [dictSkill objectForKey:@"skillbtntexture"];
-        if (stringSkillBtn==nil) {
-            stringSkillBtn = [NSString stringWithFormat:@"%@_none",sceneString];
+        
+         NSDictionary *dictSkill=nil;
+        if ([ppixie.pixieSkills count]>i) {
+            dictSkill=[ppixie.pixieSkills objectAtIndex:i];
         }
         
-        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:stringSkillBtn]
-                                                                andSize:CGSizeMake(50.0f, 50.0f)];
+        
+       
+        NSString *stringSkillStatus = [dictSkill objectForKey:@"skillstatus"];
+
+        NSString *stringSkillBtn = [dictSkill objectForKey:@"skillbtntexture"];
+        PPSpriteButton * passButton = nil;
+        
+        if (![stringSkillStatus isEqualToString:@"valid"]) {
+            stringSkillBtn = [NSString stringWithFormat:@"%@_none",sceneString];
+            passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:stringSkillBtn]
+                                                   andSize:CGSizeMake(50.0f, 50.0f)];
+            [passButton setLabelWithText:@"不可用" andFont:[UIFont boldSystemFontOfSize:14.0f] withColor:[UIColor whiteColor]];
+        
+            passButton.userInteractionEnabled = NO;
+            [passButton addTarget:self selector:@selector(skillInvalidClick:)
+                       withObject:passButton forControlEvent:PPButtonControlEventTouchUp];
+            
+        }else
+        {
+            passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:stringSkillBtn]
+                                                   andSize:CGSizeMake(50.0f, 50.0f)];
+            [passButton addTarget:self selector:@selector(skillSideClick:)
+                       withObject:passButton forControlEvent:PPButtonControlEventTouchUp];
+            
+            
+        }
+        
+        
+        passButton.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         passButton.position = CGPointMake(65*i - 112.0f, 0.0f);
-        passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
-        [passButton addTarget:self selector:@selector(skillSideClick:)
-                   withObject:passButton forControlEvent:PPButtonControlEventTouchUp];
+
         [self addChild:passButton];
         
         
         if ([ppixie.pixieSkills count]>i) {
+            
             PPBasicLabelNode *skillName = [[PPBasicLabelNode alloc] init];
             skillName.fontSize = 12;
             [skillName setText:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"]];
@@ -57,18 +84,9 @@
             [self addChild:skillName];
         }
         
-        
-        /*
-         PPSpriteButton *  passButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(50.0f, 50.0f)];
-         PPSpriteButton *  skillCdButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(60, 15)];
-         [skillCdButton setLabelWithText:[NSString stringWithFormat:@"cd:%@",[[skillsArray objectAtIndex:i] objectForKey:@"skillcdrounds"]] andFont:[UIFont systemFontOfSize:15] withColor:nil];
-         skillCdButton.position = CGPointMake(passButton.position.x, passButton.position.y+15);
-         [skillCdButton setColor:[UIColor blackColor]];
-         skillCdButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
-         [skillCdButton addTarget:self selector:@selector(skillClick:) withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-         [self addChild:skillCdButton];
-         */
+       
     }
+    
     
     //暂停按钮
     PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_footer_pause",sceneString]]
@@ -194,16 +212,17 @@
             [self addChild:passButton];
         
     }
-    for (int i = 0; i < [currentPPPixieEnemy.pixieBuffs count]; i++)
+    for (int i = [currentPPPixie.pixieBuffs count]-1; i >= 0; i--)
     {
         // 添加怪物buff槽
         PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixieEnemy.pixieElement],i+1]]
                                                                 andSize:CGSizeMake(25.0f, 25.0f)];
-        passButton.position = CGPointMake(30*i -30.0f+enemyPlayerHP.position.x, -20.0f);
+        passButton.position = CGPointMake(30*(3-i) -55.0f+enemyPlayerHP.position.x, -20.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
         [passButton addTarget:self selector:@selector(buffBtnClick:)
                    withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:passButton];
+        
         
     }
     
@@ -260,12 +279,23 @@
 }
 -(void)buffBtnClick:(NSString *)senderName
 {
-
+     
 
     
     
 }
-
+-(void)skillInvalidClick:(PPSpriteButton *)sender
+{
+    
+    NSDictionary *skillChoosed = [self.currentPPPixie.pixieSkills objectAtIndex:[sender.name intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
+    
+    if (self.target!=nil && self.skillInvalidSel!=nil && [self.target respondsToSelector:self.skillInvalidSel])
+    {
+        [self.target performSelectorInBackground:self.skillInvalidSel withObject:skillChoosed];
+        
+    }
+    
+}
 -(void)skillSideClick:(PPSpriteButton *)sender
 {
     
