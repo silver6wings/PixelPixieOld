@@ -259,7 +259,8 @@
 {
     if (sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy ) < kBallAccelerateMin) return;
         
-    double rotaion = atan(velocity.dy/velocity.dx);
+    double rotation = atan(velocity.dy/velocity.dx);
+    rotation = velocity.dx > 0 ? rotation : rotation + 3.1415926;
     
     // 这里还需要优化
     if (self.comboBallSprite != nil) {
@@ -269,7 +270,7 @@
     
     self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(100.0f, 100.0f);
-    self.comboBallSprite.zRotation = rotaion;
+    self.comboBallSprite.zRotation = rotation;
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     
