@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "435769253.928009"
+            timestampString = "435860177.688593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2230"
-            endingLineNumber = "2230">
+            startingLineNumber = "2275"
+            endingLineNumber = "2275">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -66,11 +66,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixePixie/Scenes/PPBallBattleScene.m"
-            timestampString = "435769253.928009"
+            timestampString = "435860177.688593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1942"
-            endingLineNumber = "1942">
+            startingLineNumber = "1987"
+            endingLineNumber = "1987">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -86,22 +86,6 @@
             startingLineNumber = "90"
             endingLineNumber = "90"
             landmarkName = "-setCurrentHurdle:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PixePixie/Nodes/PPBattleInfoLayer.m"
-            timestampString = "435769930.842273"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "-enemyskillClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

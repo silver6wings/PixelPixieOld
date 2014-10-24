@@ -40,13 +40,13 @@
 					<key>animatetexturecount</key>
 					<integer>20</integer>
 					<key>skillhpchange</key>
-					<integer>156</integer>
+					<integer>-356</integer>
 					<key>skillmpchange</key>
 					<integer>-109</integer>
 					<key>skilltype</key>
 					<integer>0</integer>
 					<key>skillobject</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>skillname</key>
 					<string>敌人弹幕冲击</string>
 					<key>skillcdrounds</key>

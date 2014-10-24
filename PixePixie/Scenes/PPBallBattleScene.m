@@ -1097,17 +1097,32 @@ int velocityValue (int x, int y) {
 
 -(void)changeBallsRoundsEnd
 {
-    for (int i = 0; i < [self.ballsElement count]; i++) {
-        
-        PPBall * tBall = [self.ballsElement objectAtIndex:i];
+    
+    NSLog(@"ballsElement count=%d",(int)[self.ballsElement count]);
+    
+    [self enumerateChildNodesWithName:PP_BALL_TYPE_PET_ELEMENT_NAME usingBlock:^(SKNode *node,BOOL *stop){
+        PPBall *tBall=(PPBall *)node;
         tBall.sustainRounds--;
         [tBall setRoundsLabel:tBall.sustainRounds];
         
         if (tBall.sustainRounds <= 0) {
+            [self.ballsElement removeObject:tBall];
             [tBall startRemoveAnimation:self.ballsElement andScene:self];
         }
         
-    }
+    }];
+    
+    [self enumerateChildNodesWithName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME usingBlock:^(SKNode *node,BOOL *stop){
+        PPBall *tBall=(PPBall *)node;
+        tBall.sustainRounds--;
+        [tBall setRoundsLabel:tBall.sustainRounds];
+        
+        if (tBall.sustainRounds <= 0) {
+            [self.ballsElement removeObject:tBall];
+            [tBall startRemoveAnimation:self.ballsElement andScene:self];
+        }
+        
+    }];
     
     [self.ballEnemy changeBuffRound];
     

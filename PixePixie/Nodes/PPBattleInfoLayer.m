@@ -36,24 +36,24 @@
     for (int i = 0; i < 4; i++) {
         
         
-         NSDictionary *dictSkill=nil;
+        NSDictionary *dictSkill=nil;
         if ([ppixie.pixieSkills count]>i) {
             dictSkill=[ppixie.pixieSkills objectAtIndex:i];
         }
         
         
-       
+        
         NSString *stringSkillStatus = [dictSkill objectForKey:@"skillstatus"];
-
+        
         NSString *stringSkillBtn = [dictSkill objectForKey:@"skillbtntexture"];
         PPSpriteButton * passButton = nil;
         
         if (![stringSkillStatus isEqualToString:@"valid"]) {
-            stringSkillBtn = [NSString stringWithFormat:@"%@_none",sceneString];
+            stringSkillBtn = [NSString stringWithFormat:@"%@_none",kElementTypeString[ppixie.pixieElement]];
             passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:stringSkillBtn]
                                                    andSize:CGSizeMake(50.0f, 50.0f)];
-            [passButton setLabelWithText:@"不可用" andFont:[UIFont boldSystemFontOfSize:14.0f] withColor:[UIColor whiteColor]];
-        
+            //            [passButton setLabelWithText:@"不可用" andFont:[UIFont boldSystemFontOfSize:14.0f] withColor:[UIColor whiteColor]];
+            
             passButton.userInteractionEnabled = NO;
             [passButton addTarget:self selector:@selector(skillInvalidClick:)
                        withObject:passButton forControlEvent:PPButtonControlEventTouchUp];
@@ -71,11 +71,11 @@
         
         passButton.name = [NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i];
         passButton.position = CGPointMake(65*i - 112.0f, 0.0f);
-
+        
         [self addChild:passButton];
         
         
-        if ([ppixie.pixieSkills count]>i) {
+        if ([ppixie.pixieSkills count]>i&&[stringSkillStatus isEqualToString:@"valid"]) {
             
             PPBasicLabelNode *skillName = [[PPBasicLabelNode alloc] init];
             skillName.fontSize = 12;
@@ -84,7 +84,7 @@
             [self addChild:skillName];
         }
         
-       
+        
     }
     
     
@@ -105,7 +105,7 @@
     self.currentPPPixie = petppixie;
     self.currentPPPixieEnemy = enemyppixie;
     isHaveDead = NO;
-
+    
     // 添加上方背景图片
     SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_back",sceneString]]];
     bgSprite.size = CGSizeMake(320.0f, 80.0f);
@@ -115,7 +115,7 @@
     
     // 己方头像
     ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
-                                                             andSize:CGSizeMake(32.5f, 32.5f)];
+                                             andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
     ppixiePetBtn.xScale = 1.0f;
@@ -182,7 +182,7 @@
     
     // 敌方头像
     ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
-                                                                andSize:CGSizeMake(32.5f, 32.5f)];
+                                               andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
     ppixieEnemyBtn.xScale = -1.0f;
@@ -203,16 +203,16 @@
     for (int i = 0; i < [currentPPPixie.pixieBuffs count]; i++)
     {
         // 添加宠物buff槽
-            PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixie.pixieElement],i+1]]
-                                                                    andSize:CGSizeMake(25.0f, 25.0f)];
-            passButton.position = CGPointMake(30*i - 90.0f, -20.0f);
-            passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
-            [passButton addTarget:self selector:@selector(buffBtnClick:)
-                       withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-            [self addChild:passButton];
+        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixie.pixieElement],i+1]]
+                                                                andSize:CGSizeMake(25.0f, 25.0f)];
+        passButton.position = CGPointMake(30*i - 90.0f, -20.0f);
+        passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
+        [passButton addTarget:self selector:@selector(buffBtnClick:)
+                   withObject:passButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+        [self addChild:passButton];
         
     }
-    for (int i = [currentPPPixie.pixieBuffs count]-1; i >= 0; i--)
+    for (int i = (int)[currentPPPixie.pixieBuffs count]-1; i >= 0; i--)
     {
         // 添加怪物buff槽
         PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixieEnemy.pixieElement],i+1]]
@@ -279,8 +279,8 @@
 }
 -(void)buffBtnClick:(NSString *)senderName
 {
-     
-
+    
+    
     
     
 }
@@ -300,7 +300,7 @@
 {
     
     NSDictionary *skillChoosed = [self.currentPPPixie.pixieSkills objectAtIndex:[sender.name intValue] - PP_SKILLS_CHOOSE_BTN_TAG];
-
+    
     
     if (self.target!=nil && self.skillSelector!=nil && [self.target respondsToSelector:self.skillSelector])
     {
@@ -342,7 +342,7 @@
 }
 -(void)setBufferBar:(NSArray *)buffs
 {
-
+    
 }
 -(void)animatePetMPEnd:(NSNumber *)currentMp
 {
@@ -362,10 +362,10 @@
                 [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_PET_PLAYER_SIDE_NODE_NAME];
             }
         }
-
+        
     }else{
         isHaveDead = NO;
-
+        
         if (self.target != nil && self.hpChangeEnd != nil && [self.target respondsToSelector:self.hpChangeEnd]) {
             [self.target performSelectorInBackground:self.hpChangeEnd withObject:PP_PET_PLAYER_SIDE_NODE_NAME];
         }
@@ -376,15 +376,15 @@
 {
     if (enemyPlayerHP->currentValue <= 0.0f) {
         if (!isHaveDead) {
-
-        if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
-            isHaveDead = YES;
-            [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_ENEMY_SIDE_NODE_NAME];
-        }
+            
+            if (self.target != nil && self.hpBeenZeroSel != nil && [self.target respondsToSelector:self.hpBeenZeroSel]) {
+                isHaveDead = YES;
+                [self.target performSelectorInBackground:self.hpBeenZeroSel withObject:PP_ENEMY_SIDE_NODE_NAME];
+            }
         }
     } else {
         isHaveDead = NO;
-
+        
         if (self.target != nil && self.hpChangeEnd != nil && [self.target respondsToSelector:self.hpChangeEnd]) {
             [self.target performSelectorInBackground:self.hpChangeEnd withObject:PP_ENEMY_SIDE_NODE_NAME];
         }
@@ -393,15 +393,50 @@
 
 -(void)changePetHPValue:(CGFloat)HPValue
 {
+    
+    SKSpriteNode * additonLabel = [self getNumber:fabsf(HPValue) AndColor:@"white"];
+    //    additonLabel.name  = @"hpchange";
+    //    additonLabel.fontColor = [UIColor redColor];
+    additonLabel.position = ppixiePetBtn.position;
+    
+    [self addChild:additonLabel];
+    
+    SKAction *actionScale = [SKAction scaleBy:1.5 duration:0.2];
+    SKAction *actionFade = [SKAction fadeAlphaTo:0.0f duration:0.3];
+    SKAction *showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale, actionFade, nil]];
+    
+    [additonLabel runAction:showAction completion:^{
+        [additonLabel removeFromParent];
+    }];
+    
     self.currentPPPixie.currentHP = [petPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
 }
 -(void)changeEnemyHPValue:(CGFloat)HPValue
 {
+    
+    SKSpriteNode * additonLabel = [self getNumber:fabsf(HPValue) AndColor:@"white"];
+    //    additonLabel.name  = @"hpchange";
+    //    additonLabel.fontColor = [UIColor redColor];
+    additonLabel.position = ppixieEnemyBtn.position;
+    [self addChild:additonLabel];
+    
+    SKAction *actionScale = [SKAction scaleBy:1.5 duration:0.2];
+    SKAction *actionFade = [SKAction fadeAlphaTo:0.0f duration:0.3];
+    SKAction *showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale, actionFade, nil]];
+    
+    [additonLabel runAction:showAction completion:^{
+        [additonLabel removeFromParent];
+    }];
+    
     self.currentPPPixieEnemy.currentHP =  [enemyPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
 }
 -(void)shakeHeadPortrait:(NSString *)stringSide andCompletion:(PPBallBattleScene *)sceneBattle
 {
     if ([stringSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
+        
+        
+        
+        
         
         SKAction *actionLeft=[SKAction moveByX:-10 y:0.0f duration:0.1];
         SKAction *actionRight=[SKAction moveByX:20 y:0.0f duration:0.1];
@@ -409,12 +444,14 @@
         SKAction *actionTotal=[SKAction sequence:[NSArray arrayWithObjects:actionLeft,actionRight,actionOrigin,nil]];
         
         [ppixieEnemyBtn runAction:actionTotal completion:^{
-          
+            
             [sceneBattle physicsAttackAnimationEnd:stringSide];
-        
+            
         }];
         
-
+        
+        
+        
         
     }else
     {
@@ -426,7 +463,7 @@
         [ppixiePetBtn runAction:actionTotal completion:^{
             
             [sceneBattle physicsAttackAnimationEnd:stringSide];
-
+            
         }];
     }
     
@@ -448,6 +485,37 @@
 
 -(void)changeHPValue:(CGFloat)HPValue
 {
+}
+
+-(SKSpriteNode *)getNumber:(int)number AndColor:(NSString *)color {
+    
+    NSLog(@"color=%@ number=%d",color,number);
+    
+    SKSpriteNode * tNode = [[SKSpriteNode alloc] init];
+    if (number < 1 || color == nil) return tNode;
+    
+    float width = 13.0f;
+    
+    // 拼接数字图片
+    int i = 0;
+    while (number > 0) {
+        i++;
+        int tNum = number % 10;
+        number /= 10;
+        
+        NSString * tNumName = [NSString stringWithFormat:@"%@_%d.png", color, tNum];
+        SKSpriteNode * tNumNode = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_number] textureNamed:tNumName]];
+        tNumNode.position = CGPointMake(-width * i, 0);
+        tNumNode.xScale = 0.5;
+        tNumNode.yScale = 0.5;
+        [tNode addChild:tNumNode];
+    }
+    
+    // 调整位置居中
+    for (SKSpriteNode * numNode in [tNode children]) {
+        numNode.position = CGPointMake(numNode.position.x + (i+1) * width / 2, numNode.position.y);
+    }
+    return tNode;
 }
 
 @end
