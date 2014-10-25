@@ -1598,14 +1598,14 @@ int velocityValue (int x, int y) {
                         //                    [tBall runAction:[SKAction moveTo:CGPointMake(tBall.position.x-10, tBall.position.y-20) duration:2]];
                         
                         [tBall runAction:[SKAction moveBy:CGVectorMake((self.ballPlayer.position.x - tBall.position.x)/2.0f,
-                                                                       (self.ballPlayer.position.y - tBall.position.y)/2.0f)
+                                                                    (self.ballPlayer.position.y - tBall.position.y)/2.0f)
                                                  duration:2]];
                     }
                 }
                 
             }
-            
-            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+            isNotSkillRun=NO;
+//            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
             
         }
             break;
