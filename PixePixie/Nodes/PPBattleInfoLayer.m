@@ -322,7 +322,7 @@
 
 -(void)setSideSkillButtonDisable
 {
-    [self setColor:[UIColor grayColor]];
+    [self setAlpha:0.5];
     
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
         PPSpriteButton *ppixieSkillBtn  =(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
@@ -335,9 +335,8 @@
 
 -(void)setSideSkillButtonEnable
 {
-    [self setColor:[UIColor orangeColor]];
+    [self setAlpha:1.0];
 
-    self.colorBlendFactor = 0.0;
 
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++)
     {
