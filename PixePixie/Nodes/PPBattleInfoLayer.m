@@ -322,10 +322,10 @@
 
 -(void)setSideSkillButtonDisable
 {
-    [self setAlpha:0.5];
     
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
         PPSpriteButton *ppixieSkillBtn  =(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
+        [ppixieSkillBtn setAlpha:0.5];
         [ppixieSkillBtn setColor:[UIColor redColor]];
         ppixieSkillBtn.userInteractionEnabled = NO;
     }
@@ -335,12 +335,12 @@
 
 -(void)setSideSkillButtonEnable
 {
-    [self setAlpha:1.0];
 
 
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++)
     {
         PPSpriteButton * ppixieSkillBtn  = (PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
+        [ppixieSkillBtn setAlpha:1.0];
         [ppixieSkillBtn setColor:[UIColor orangeColor]];
         ppixieSkillBtn.userInteractionEnabled = YES;
     }
