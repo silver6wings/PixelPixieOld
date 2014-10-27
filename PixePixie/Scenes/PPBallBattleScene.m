@@ -3,8 +3,8 @@
 #import "PPBattleInfoLayer.h"
 
 #define SPACE_BOTTOM 80
-#define BALL_RANDOM_X kBallSize / 2 + arc4random() % (int)(320 - kBallSize)
-#define BALL_RANDOM_Y kBallSize / 2 + arc4random() % (int)(320 - kBallSize)+SPACE_BOTTOM
+#define BALL_RANDOM_X (kBallSize / 2 + arc4random() % (int)(320 - kBallSize))
+#define BALL_RANDOM_Y (kBallSize / 2 + arc4random() % (int)(320 - kBallSize) + SPACE_BOTTOM)
 
 // 物理实体类型
 typedef NS_OPTIONS (int, EntityCategory)
