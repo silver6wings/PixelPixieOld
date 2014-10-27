@@ -264,6 +264,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark SKPhysicsContactDelegate
+
 // 碰撞事件
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
@@ -397,6 +398,7 @@ int velocityValue (int x, int y) {
         }
     } else return;
 }
+
 //// 碰撞事件
 //-(void)didBeginContact:(SKPhysicsContact *)contact
 //{
