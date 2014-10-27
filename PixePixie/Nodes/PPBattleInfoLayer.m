@@ -391,40 +391,46 @@
 -(void)changePetHPValue:(CGFloat)HPValue
 {
     
-    SKSpriteNode * additonLabel = [self getNumber:fabsf(HPValue) AndColor:@"white"];
-    //    additonLabel.name  = @"hpchange";
-    //    additonLabel.fontColor = [UIColor redColor];
-    additonLabel.position = ppixiePetBtn.position;
+    if (HPValue<0.0f) {
+        SKSpriteNode * additonLabel = [self getNumber:fabsf(HPValue) AndColor:@"white"];
+        //    additonLabel.name  = @"hpchange";
+        //    additonLabel.fontColor = [UIColor redColor];
+        additonLabel.position = ppixiePetBtn.position;
+        
+        [self addChild:additonLabel];
+        
+        SKAction *actionScale = [SKAction scaleBy:1.5 duration:0.2];
+        SKAction *actionFade = [SKAction fadeAlphaTo:0.0f duration:0.3];
+        SKAction *showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale, actionFade, nil]];
+        
+        [additonLabel runAction:showAction completion:^{
+            [additonLabel removeFromParent];
+        }];
+    }
     
-    [self addChild:additonLabel];
-    
-    SKAction *actionScale = [SKAction scaleBy:1.5 duration:0.2];
-    SKAction *actionFade = [SKAction fadeAlphaTo:0.0f duration:0.3];
-    SKAction *showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale, actionFade, nil]];
-    
-    [additonLabel runAction:showAction completion:^{
-        [additonLabel removeFromParent];
-    }];
+
     
     self.currentPPPixie.currentHP = [petPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
 }
 
 -(void)changeEnemyHPValue:(CGFloat)HPValue
 {
+    if (HPValue<0.0f) {
+        SKSpriteNode * additonLabel = [self getNumber:fabsf(HPValue) AndColor:@"white"];
+        //    additonLabel.name  = @"hpchange";
+        //    additonLabel.fontColor = [UIColor redColor];
+        additonLabel.position = ppixieEnemyBtn.position;
+        [self addChild:additonLabel];
+        
+        SKAction * actionScale = [SKAction scaleBy:1.5 duration:0.2];
+        SKAction * actionFade = [SKAction fadeAlphaTo:0.0f duration:0.3];
+        SKAction * showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale, actionFade, nil]];
+        
+        [additonLabel runAction:showAction completion:^{
+            [additonLabel removeFromParent];
+        }];
+    }
     
-    SKSpriteNode * additonLabel = [self getNumber:fabsf(HPValue) AndColor:@"white"];
-    //    additonLabel.name  = @"hpchange";
-    //    additonLabel.fontColor = [UIColor redColor];
-    additonLabel.position = ppixieEnemyBtn.position;
-    [self addChild:additonLabel];
-    
-    SKAction * actionScale = [SKAction scaleBy:1.5 duration:0.2];
-    SKAction * actionFade = [SKAction fadeAlphaTo:0.0f duration:0.3];
-    SKAction * showAction = [SKAction sequence:[NSArray arrayWithObjects:actionScale, actionFade, nil]];
-    
-    [additonLabel runAction:showAction completion:^{
-        [additonLabel removeFromParent];
-    }];
     
     self.currentPPPixieEnemy.currentHP =  [enemyPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
 }

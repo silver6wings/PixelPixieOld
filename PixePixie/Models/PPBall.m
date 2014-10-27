@@ -152,7 +152,8 @@
         case 1:
         {
             self.physicsBody.PPBallSkillStatus=0;
-            [self startPlantrootAppearOrDisappear:NO];
+            [self startPlantrootAppearOrDisappear:NO andScene:(PPBasicScene *)self.parent];
+            self.physicsBody.density = 1.0f;
             self.physicsBody.dynamic = YES;
         }
             break;
@@ -247,11 +248,13 @@
 //    [battleScene addChild:self.comboBallSprite];
 //    [self removeFromParent];
     
+    
     [ballArray removeObject:self];
     [self runAction:[SKAction animateWithTextures:textureArray timePerFrame:0.05]
                          completion:^{
                              [self removeFromParent];
-                         }];
+    }];
+    
 }
 
 // 添加效果
@@ -348,6 +351,8 @@
     
     [self runAction:[[TextureManager ball_magic] getAnimation:@"magic_ball"]
                          completion:^{
+                             
+                             self.size = CGSizeMake(1.0f, 1.0f);
                              [self.comboBallSprite removeFromParent];
                              [self addStatusBall:@"plant"];
 
@@ -369,38 +374,38 @@
     
 }
 // 创建被缠绕动画
--(void)startPlantrootAppearOrDisappear:(BOOL)appearOrDisappear
+-(void)startPlantrootAppearOrDisappear:(BOOL)appearOrDisappear andScene:(PPBasicScene *)sceneBattle;
 {
     
-    if (self.comboBallSprite != nil) {
-        [self.comboBallSprite removeFromParent];
-        self.comboBallSprite = nil;
-    }
-
+    if (self.comboBallSprite != nil&&!appearOrDisappear) {
+        SKAction *action= [[TextureManager ball_buff] getAnimation:@"plant_root_disappear"];
+        [self.comboBallSprite runAction:action
+                             completion:^{
+                                 [self.comboBallSprite removeFromParent];
+                                 self.comboBallSprite = nil;
+                             }];
+    }else
+    {
+        
+        if (self.comboBallSprite != nil)
+        {
+            [self.comboBallSprite removeFromParent];
+            self.comboBallSprite = nil;
+        }
+        
         self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
         self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
         [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+
         [self addChild:self.comboBallSprite];
-        
-        SKAction *action=nil;
-        
-        //yes为appear动画
-        if (appearOrDisappear) {
-            action= [[TextureManager ball_buff] getAnimation:@"plant_root_appear"];
-            [self.comboBallSprite runAction:action
-                                 completion:^{
-                                 }];
-        }else
-        {
-            action= [[TextureManager ball_buff] getAnimation:@"plant_root_disappear"];
-            [self.comboBallSprite runAction:action
-                                 completion:^{
-                                     [self.comboBallSprite removeFromParent];
-                                     self.comboBallSprite = nil;
-                                 }];
-        }
-    
-   
+
+        SKAction *   action= [[TextureManager ball_buff] getAnimation:@"plant_root_appear"];
+        [self.comboBallSprite runAction:action
+                             completion:^{
+                    
+        }];
+    }
+
 }
 
 -(void)startElementBirthAnimation

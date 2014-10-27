@@ -364,12 +364,12 @@ int velocityValue (int x, int y) {
             switch ([elementBallSkillStatus intValue]) {
                 case 1:
                 {
-                    self.ballEnemy.physicsBody.dynamic = NO;
-
+//                    self.ballEnemy.physicsBody.dynamic = NO;
+                    self.ballEnemy.physicsBody.density =10000.0f;
                     
                     //森林瞬起
                     enemyAssimDiffEleNum ++;
-                    [self.ballEnemy startPlantrootAppearOrDisappear:YES];
+                    [self.ballEnemy startPlantrootAppearOrDisappear:YES andScene:self];
                     self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
                     self.ballEnemy.physicsBody.PPBallSkillStatus = @1;
                     [self.ballEnemy addBuffWithName:@"snare" andRoundNum:1];
@@ -638,11 +638,11 @@ int velocityValue (int x, int y) {
                 
                 if (self.playerAndEnemySide.currentPPPixieEnemy.currentHP >= 0.0f) {
                     
-                    [self.playerAndEnemySide changeEnemyHPValue:-200];
+                    [self.playerAndEnemySide changeEnemyHPValue:-100];
   
                     enemyAssimDiffEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
-                    [self addValueChangeLabel:200 position:self.ballEnemy.position andColor:@"red"];
+                    [self addValueChangeLabel:100 position:self.ballEnemy.position andColor:@"red"];
 
                     
                 }else
@@ -922,6 +922,8 @@ int velocityValue (int x, int y) {
 // 结算combo添加元素球
 -(void)creatCombosTotal
 {
+    
+    
     [self addRandomBalls:petCombos
              withElement:self.pixiePlayer.pixieBall.ballElementType
              andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
@@ -933,9 +935,8 @@ int velocityValue (int x, int y) {
      self.pixieEnemy.pixieBall.ballElementType,
      enemyCombos);
      */
-    
+
     [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
-    
     enemyCombos = 0;
     petCombos = 0;
     
@@ -1106,6 +1107,10 @@ int velocityValue (int x, int y) {
             [self.ballsElement removeObject:tBall];
             [tBall startRemoveAnimation:self.ballsElement andScene:self];
         }
+//        
+//        if ([tBall.physicsBody.PPBallSkillStatus intValue]==1) {
+//            [tBall startMagicballAnimation];
+//        }
         
     }];
     
@@ -1119,6 +1124,7 @@ int velocityValue (int x, int y) {
             [tBall startRemoveAnimation:self.ballsElement andScene:self];
         }
         
+ 
     }];
     
     [self.ballEnemy changeBuffRound];
@@ -1189,7 +1195,8 @@ int velocityValue (int x, int y) {
 -(void)roundRotateBegin
 {
     roundActionNum = 0;
-    [self startBattle:@"回合开始"];
+    roundIndex += 1;
+    [self setRoundNumberLabel:@"回合开始" begin:YES];
 }
 
 -(void)roundRotateMoved:(NSString *)nodeName
@@ -1218,61 +1225,19 @@ int velocityValue (int x, int y) {
 -(void)roundRotateEnd
 {
     roundActionNum = 0;
-    roundIndex += 1;
     
-    [self setRoundEndNumberLabel:[NSString stringWithFormat:@"%d回合结束",roundIndex]];
+    
+    [self setRoundNumberLabel:@"回合结束" begin:NO];
+    
     [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:3];
 }
 
 #pragma mark Battle Procceed
 
--(void)startBattle:(NSString *)text
-{
-    
-    PPBasicLabelNode *labelNode = (PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
-    if (labelNode) {
-        [labelNode removeFromParent];
-    }
-    
-    PPBasicLabelNode * additonLabel= [[PPBasicLabelNode alloc] init];
-    additonLabel.name  = @"RoundLabel";
-    additonLabel.fontColor = [UIColor yellowColor];
-    additonLabel.position = CGPointMake(160.0f, 200.0f);
-    [additonLabel setText:text];
-    [self addChild:additonLabel];
-    
-    SKAction * actionScale = [SKAction scaleBy:2.0 duration:1];
-    [additonLabel runAction:actionScale completion:^{
-        [additonLabel removeFromParent];
-        
-        //判断敌方和我方谁先发动攻击
-        //        if (arc4random()%200==0) {
-        //
-        //            [self setPlayerSideRoundEndState];
-        //
-        //        }else
-        //        {
-        
-        [self enemyAttackDecision];
-        
-        
-        //                 [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-        //                    if (arc4random()%2==0) {
-        //                                    [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-        //                    }else
-        //                    {
-        //
-        //                    }
-        //        }
-    }];
-    
-    [self changeBallsRoundsEnd];
-    [self setPhysicsTagValue];
-    
-}
 
 -(void)enemyAttackDecision
 {
+    
     int decision = arc4random() % 2;
     [self setPlayerSideRoundRunState];
     
@@ -1375,19 +1340,116 @@ int velocityValue (int x, int y) {
     }];
 }
 
--(void)setRoundEndNumberLabel:(NSString *)text
+-(void)setRoundNumberLabel:(NSString *)text begin:(BOOL)isBegin
 {
-    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
-    additonLabel.name  = @"RoundLabel";
-    additonLabel.fontColor = [UIColor redColor];
-    additonLabel.position = CGPointMake(160.0f, 200.0f);
-    [additonLabel setText:text];
-    [self addChild:additonLabel];
     
-    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
-    [additonLabel runAction:actionScale completion:^{
-        [additonLabel removeFromParent];
-    }];
+//    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+//    additonLabel.name  = @"RoundLabel";
+//    additonLabel.fontColor = [UIColor redColor];
+//    additonLabel.position = CGPointMake(160.0f, 200.0f);
+//    [additonLabel setText:text];
+//    [self addChild:additonLabel];
+//    
+//    SKAction *actionScale = [SKAction scaleBy:2.0 duration:1];
+//    [additonLabel runAction:actionScale completion:^{
+//        [additonLabel removeFromParent];
+//    }];
+    
+    if (isBegin) {
+        
+        PPBasicSpriteNode *roundLabelContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(320, 240)];
+        [roundLabelContent setPosition:CGPointMake(160.0f, 300)];
+        [self addChild:roundLabelContent];
+        roundLabelContent.alpha = 0.0f;
+
+
+        
+        SKSpriteNode *numberNode=[self getNumber:roundIndex AndColor:@"blue"];
+        numberNode.size = CGSizeMake(50.0f, 50.0f);
+        numberNode.xScale = 1.0f;
+        numberNode.yScale = 1.0f;
+        numberNode.position = CGPointMake(-30.0f, 0);
+        [roundLabelContent addChild:numberNode];
+
+        
+        PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+        additonLabel.name  = @"RoundLabel";
+        additonLabel.fontColor = [UIColor redColor];
+        additonLabel.position = CGPointMake(numberNode.position.x+numberNode.size.width/2.0f+10.0f, -6.0f);
+        [additonLabel setFontSize:15];
+        [additonLabel setText:text];
+        [roundLabelContent addChild:additonLabel];
+        
+        
+        SKAction *actionScale1 = [SKAction scaleBy:2.0 duration:0.5];
+        SKAction *actionFade1 = [SKAction fadeAlphaTo:1.0 duration:0.5];
+        SKAction *actionFirst = [SKAction group:[NSArray arrayWithObjects:actionScale1,actionFade1, nil]];
+        
+        SKAction *actionScale2 = [SKAction fadeAlphaTo:1.0 duration:1];
+        
+        
+        SKAction *actionFade2 = [SKAction fadeAlphaTo:0.0 duration:1.0f];
+        
+        
+        SKAction *actionResult = [SKAction sequence:[NSArray arrayWithObjects:actionFirst,actionScale2,actionFade2,nil]];
+        
+        
+        [roundLabelContent runAction:actionResult completion:^{
+            [roundLabelContent removeFromParent];
+            [self enemyAttackDecision];
+        }];
+        
+        
+        [self changeBallsRoundsEnd];
+        [self setPhysicsTagValue];
+        
+        
+    }else
+    {
+        PPBasicSpriteNode *roundLabelContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(320, 240)];
+        [roundLabelContent setPosition:CGPointMake(160.0f, 300)];
+        [self addChild:roundLabelContent];
+        roundLabelContent.alpha = 0.0f;
+        
+        SKSpriteNode *numberNode=[self getNumber:roundIndex AndColor:@"blue"];
+        numberNode.size = CGSizeMake(50.0f, 50.0f);
+        numberNode.xScale = 1.0f;
+        numberNode.yScale = 1.0f;
+        numberNode.position = CGPointMake(-30.0f, 0);
+        [roundLabelContent addChild:numberNode];
+        
+        
+        PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+        additonLabel.name  = @"RoundLabel";
+        additonLabel.fontColor = [UIColor redColor];
+        additonLabel.position = CGPointMake(numberNode.position.x+numberNode.size.width/2.0f+10.0f, -6.0f);
+        [additonLabel setFontSize:15];
+        [additonLabel setText:text];
+        [roundLabelContent addChild:additonLabel];
+        
+        
+        SKAction *actionScale1 = [SKAction scaleBy:2.0 duration:0.5];
+        SKAction *actionFade1 = [SKAction fadeAlphaTo:1.0 duration:0.5];
+        SKAction *actionFirst = [SKAction group:[NSArray arrayWithObjects:actionScale1,actionFade1, nil]];
+        
+        SKAction *actionScale2 = [SKAction fadeAlphaTo:1.0 duration:1];
+        
+        
+        SKAction *actionFade2 = [SKAction fadeAlphaTo:0.0 duration:1.0f];
+        
+        
+        SKAction *actionResult = [SKAction sequence:[NSArray arrayWithObjects:actionFirst,actionScale2,actionFade2,nil]];
+        
+        
+        
+       [roundLabelContent runAction:actionResult completion:^{
+            [roundLabelContent removeFromParent];
+        }];
+        
+        
+    }
+    
+
     
 }
 
