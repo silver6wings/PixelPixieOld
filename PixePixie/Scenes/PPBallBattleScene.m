@@ -181,13 +181,8 @@ int velocityValue (int x, int y) {
 // 每帧处理程序开始
 -(void)update:(NSTimeInterval)currentTime
 {
-    
     frameFlag++;
     frameFlag %= 30;
-    
-
-    
-    
 }
 
 -(void)didSimulatePhysics
