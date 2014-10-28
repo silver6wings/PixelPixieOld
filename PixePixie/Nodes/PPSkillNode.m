@@ -8,7 +8,7 @@
 -(void)showSkillAnimate:(NSDictionary *)skillInfo andElement:(PPElementType) element;
 {
     
-    self.skill=[[PPSkill alloc] init];
+    self.skill = [[PPSkill alloc] init];
     
     SKLabelNode *skillNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     skillNameLabel.fontColor = [UIColor blueColor];
@@ -22,7 +22,7 @@
     self.skill.skillObject = [[skillInfo objectForKey:@"skillobject"] floatValue];
     
     
-    SKSpriteNode *skillAnimate = [SKSpriteNode spriteNodeWithImageNamed:@"fire_blade_cast_0000"];
+    SKSpriteNode * skillAnimate = [SKSpriteNode spriteNodeWithImageNamed:@"fire_blade_cast_0000"];
     skillAnimate.size = CGSizeMake(self.frame.size.width, 150.0f);
     skillAnimate.position = CGPointMake(0.0f,0.0f);
     [self addChild:skillAnimate];
@@ -41,17 +41,6 @@
         [textureArray addObject:textureCombo];
     }
     
-    
-//    NSMutableArray *textureNameArray=[[NSMutableArray alloc] init];
-//    @synchronized(textureNameArray)
-//    {
-//        for (int i=0; i <24; i++) {
-//            NSString *textureName = [NSString stringWithFormat:@"fire_blade_cast_00%02d.png", i];
-//            SKTexture * temp = [SKTexture textureWithImageNamed:textureName];
-//            [textureNameArray addObject:temp];
-//            
-//        }
-//    }
     self.skill.animateTextures =[NSMutableArray arrayWithArray:textureArray];
     
     [skillAnimate runAction:[SKAction animateWithTextures:self.skill.animateTextures timePerFrame:0.05f]

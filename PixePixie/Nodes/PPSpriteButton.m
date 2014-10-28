@@ -1,17 +1,10 @@
-//
-//  PPSpriteButton.m
-//  PixelPixie
-//
-//  Created by xiefei on 14-7-7.
-//  Copyright (c) 2014年 XieFei. All rights reserved.
-//
 
 #import "PPSpriteButton.h"
 
 @implementation PPSpriteButton
 {
-    UITouch *currentTouch;
-    NSMutableArray *marrSelectors;
+    UITouch * currentTouch;
+    NSMutableArray * marrSelectors;
 }
 
 #pragma mark - CLASS METHODS FOR INIT
