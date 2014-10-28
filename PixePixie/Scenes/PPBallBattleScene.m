@@ -572,6 +572,9 @@ int velocityValue (int x, int y) {
 // 是否所有的球都停止了滚动
 -(BOOL)isAllStopRolling{
     
+    [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"stop"];
+    [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"stop"];
+    
     if (vectorLength(self.ballPlayer.physicsBody.velocity) > kStopThreshold ) {
         return NO;
     } else {

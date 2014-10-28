@@ -233,28 +233,36 @@
 // 处理加速效果
 -(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSString *)pose
 {
-    if (sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy ) < kBallAccelerateMin) return;
+    // 速度过低则移除
+    if (sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy ) < kBallAccelerateMin) {
+        if (self.comboBallSprite != nil) {
+            [self.comboBallSprite removeFromParent];
+            self.comboBallSprite = nil;
+        }
+        return;
+    };
     
-    double rotation = atan(velocity.dy/velocity.dx);
-    rotation = velocity.dx > 0 ? rotation : rotation + 3.1415926;
-    
-    // 这里还需要优化
-    if (self.comboBallSprite != nil) {
-        [self.comboBallSprite removeFromParent];
-        self.comboBallSprite = nil;
+    // 如果变撞击加速效果则移除当前效果
+    if (self.comboBallSprite != nil && [pose isEqualToString:@"run"]){
+            [self.comboBallSprite removeFromParent];
+            self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[SKSpriteNode alloc] init];
-    self.comboBallSprite.size = CGSizeMake(100.0f, 100.0f);
-    self.comboBallSprite.zRotation = rotation;
-    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
-    [self addChild:self.comboBallSprite];
+    // 如果特效不在则创建
+    if (self.comboBallSprite == nil && ([pose isEqualToString:@"run"] || [pose isEqualToString:@"step"])) {
+        self.comboBallSprite = [[SKSpriteNode alloc] init];
+        self.comboBallSprite.size = CGSizeMake(100, 100);
+        [self.comboBallSprite setPosition:CGPointMake(0, 0)];
+        [self addChild:self.comboBallSprite];
+        NSString * tName = [NSString stringWithFormat:@"%@_%@", kElementTypeString[self.ballElementType], pose];
+        SKAction * tAction = [SKAction repeatActionForever:[[PPAtlasManager ball_elements] getAnimation:tName]];
+        [self.comboBallSprite runAction:tAction];
+    }
     
-    [self.comboBallSprite runAction:[[PPAtlasManager ball_elements] getAnimation:
-                                     [NSString stringWithFormat:@"%@_%@", kElementTypeString[self.ballElementType], pose]]
-                         completion:^{
-                             [self.comboBallSprite removeFromParent];
-                         }];
+    // 调整方向
+    double rotation = atan(velocity.dy/velocity.dx);
+    rotation = velocity.dx > 0 ? rotation : rotation + 3.1415926;
+    self.comboBallSprite.zRotation = rotation;
 }
 
 // 治疗动画
