@@ -16,8 +16,8 @@
     if (self) {
         self.backgroundColor = [UIColor blueColor];
         
-        PPMainScene* mainScene=[[PPMainScene alloc] initWithSize:self.bounds.size];
-        mainScene.scaleMode=SKSceneScaleModeFill;
+        PPMainScene * mainScene = [[PPMainScene alloc] initWithSize:self.bounds.size];
+        mainScene.scaleMode = SKSceneScaleModeFill;
         [self presentScene:mainScene];
         // Initialization code
     }

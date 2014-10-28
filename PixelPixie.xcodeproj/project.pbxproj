@@ -216,7 +216,6 @@
 		D44D9EA91976D0AA00C69C15 /* PPSkillButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D44D9EA81976D0AA00C69C15 /* PPSkillButtonNode.m */; };
 		D457012D194F430700C2EFCE /* EnemyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D457012C194F430700C2EFCE /* EnemyInfo.plist */; };
 		D45C3F83196A975F00A78E88 /* PPSpriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D45C3F82196A975F00A78E88 /* PPSpriteButton.m */; };
-		D4693703197D45C1006EC83E /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = D4693700197D45C1006EC83E /* ConfigData.m */; };
 		D4767AB8196D7E79000B5B9C /* PPActivityDetailScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4767AB7196D7E79000B5B9C /* PPActivityDetailScene.m */; };
 		D4767ABC196D8780000B5B9C /* PPCommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D4767ABB196D8780000B5B9C /* PPCommonTool.m */; };
 		D486A1B3196AD6FC0006206B /* PPScheduleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D486A1B2196AD6FC0006206B /* PPScheduleScene.m */; };
@@ -502,8 +501,6 @@
 		D457012C194F430700C2EFCE /* EnemyInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnemyInfo.plist; sourceTree = "<group>"; };
 		D45C3F81196A975F00A78E88 /* PPSpriteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPSpriteButton.h; path = PixePixie/Nodes/PPSpriteButton.h; sourceTree = SOURCE_ROOT; };
 		D45C3F82196A975F00A78E88 /* PPSpriteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSpriteButton.m; path = PixePixie/Nodes/PPSpriteButton.m; sourceTree = SOURCE_ROOT; };
-		D46936FF197D45C1006EC83E /* ConfigData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigData.h; sourceTree = "<group>"; };
-		D4693700197D45C1006EC83E /* ConfigData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigData.m; sourceTree = "<group>"; };
 		D4693701197D45C1006EC83E /* ConstantData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantData.h; sourceTree = "<group>"; };
 		D4767AB6196D7E79000B5B9C /* PPActivityDetailScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPActivityDetailScene.h; sourceTree = "<group>"; };
 		D4767AB7196D7E79000B5B9C /* PPActivityDetailScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPActivityDetailScene.m; sourceTree = "<group>"; };
@@ -710,9 +707,9 @@
 				193DC48419686054007308C7 /* PPBasic.h */,
 				193DC48519686054007308C7 /* PPControllers.h */,
 				193DC48919686054007308C7 /* PPViews.h */,
+				193DC48819686054007308C7 /* PPScenes.h */,
 				193DC48619686054007308C7 /* PPModels.h */,
 				193DC48719686054007308C7 /* PPNodes.h */,
-				193DC48819686054007308C7 /* PPScenes.h */,
 			);
 			name = Header;
 			path = ..;
@@ -1108,8 +1105,6 @@
 			isa = PBXGroup;
 			children = (
 				D4693701197D45C1006EC83E /* ConstantData.h */,
-				D46936FF197D45C1006EC83E /* ConfigData.h */,
-				D4693700197D45C1006EC83E /* ConfigData.m */,
 				196738B919DA5A2D002C5172 /* TextureManager.h */,
 				196738BA19DA5A2D002C5172 /* TextureManager.m */,
 			);
@@ -1433,7 +1428,6 @@
 				D4767ABC196D8780000B5B9C /* PPCommonTool.m in Sources */,
 				D4AE4CAE196ED01E00FC24EF /* PPChoosePetScrollView.m in Sources */,
 				192F744B1969124D006C6586 /* PPBallBattleScene.m in Sources */,
-				D4693703197D45C1006EC83E /* ConfigData.m in Sources */,
 				D486A1B6196AD8770006206B /* PPMenuThemeScene.m in Sources */,
 				D4AE4CC9196EED6400FC24EF /* PPOptionsScene.m in Sources */,
 			);

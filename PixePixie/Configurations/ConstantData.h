@@ -1,5 +1,5 @@
 
-// 物理属性汇总
+
 static const int kWallThick = 1;                    // 墙的厚度
 static const int kBallNumberMax = 15;               // 球的最大数量
 static const int kBallSize = 40;                    // 默认球的直径
@@ -19,8 +19,8 @@ static const float kBallAccelerateMin = 15.0f;      // 速度发光最小的阈�
 
 static const float kFrameInterval = 0.04f;          // FPS默认25
 
-// 最大元素类型个数
-static const int kElementTypeMax = 10;
+static const int kSkillCountMax = 10;       // 每个宠物拥有技能个数
+static const int kElementTypeMax = 10;      // 最大元素类型个数
 
 // 元素对应字符串
 static  NSString * kElementTypeString[kElementTypeMax+1] = {
@@ -35,6 +35,15 @@ static  NSString * kElementTypeString[kElementTypeMax+1] = {
     @"ice",
     @"blaze",
     @"stone"
+};
+
+// 技能对应英文名（可用于图片）
+static NSString * kSkillEnglishName[kElementTypeMax+1][kSkillCountMax+1] = {
+    {@"",@"",@"",@"",@"",@"",@"",@"",@"",@""},
+    {@"",@"",@"",@"",@"",@"",@"",@"",@"",@""},
+    {@"grow",@"huge",@"root",@"",@"",@"",@"",@"",@"",@""},
+    {@"",@"",@"",@"",@"",@"",@"",@"",@"",@""},
+    {@"arrow",@"blade",@"burn",@"dance",@"purgatory",@"shield",@"smoke",@"spout",@"suppression",@"swear"}
 };
 
 // 属性相克数值策划表
@@ -91,14 +100,6 @@ typedef NS_ENUM(NSInteger, PPElementType)
     PPElementTypeWind         // 风
 };
 
-/*
-typedef NS_ENUM(NSInteger, PPPhysicsBodyStatus)
-{
-    PPPhysicsBodyStatusNone = 0,
-    PPPhysicsBodyStatusRoot
-};
-*/
-
 // 血条显示
 typedef enum {
     PP_HPTYPE,
@@ -132,4 +133,6 @@ typedef NS_ENUM(NSInteger, PPBuffUniversalType)
 {
     PPBuffTypeAttackAddition = 0,              // 伤害加成
 };
+
+
 

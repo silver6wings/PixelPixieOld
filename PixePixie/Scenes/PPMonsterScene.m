@@ -28,11 +28,6 @@ static NSString *monsterBtnTitle[]={
         showMonsterBtn.position = CGPointMake(22.0f,180.0f);
         [showMonsterBtn addTarget:self selector:@selector(showMonsterBtnClick:) withObject:showMonsterBtn forControlEvent:PPButtonControlEventTouchUpInside];
         [self addChild:showMonsterBtn];
-        
-        
-        
- 
-        
     }
     return self;
 }

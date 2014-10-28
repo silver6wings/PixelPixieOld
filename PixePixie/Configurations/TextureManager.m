@@ -3,7 +3,6 @@
 
 @implementation TextureManager
 
-
 +(SKTextureAtlas *)ball_buff
 {
     __strong static SKTextureAtlas * tAtlas = nil;
