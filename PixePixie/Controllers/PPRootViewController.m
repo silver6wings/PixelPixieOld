@@ -1,6 +1,6 @@
 
 #import "PPRootViewController.h"
-
+#import "PPCommonTool.h"
 @interface PPRootViewController ()
 {
     int menuAnimationTag;
@@ -78,6 +78,19 @@ NSString * menu[] = {
         [self.view addSubview:contentView];
     }
     
+    // 添加上下两个条
+    if (CurrentDeviceRealSize.height > 500) {
+        UIImageView * upBlackBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ui_fit_top.png"]];
+        upBlackBar.frame = CGRectMake(0, 0, 320, 44);
+        [upBlackBar setBackgroundColor:[UIColor blackColor]];
+        [self.view addSubview:upBlackBar];
+        
+        UIImageView * downBlackBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ui_fit_bottom.png"]];
+        downBlackBar.frame = CGRectMake(0, self.view.frame.size.height-44, 320, 44);
+        [downBlackBar setBackgroundColor:[UIColor blackColor]];
+        [self.view addSubview:downBlackBar];
+    }
+    
 
 }
 
@@ -89,9 +102,10 @@ NSString * menu[] = {
         [contentView removeFromSuperview];
     }
     
-    UIView * viewContent = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, 400)];
+    UIView * viewContent = [[UIView alloc] initWithFrame:CGRectMake(0, 20+PP_FIT_TOP_SIZE, 320, 400)];
     viewContent.tag = PP_CHOOSE_PET_CONTENT_TAG;
     [viewContent setBackgroundColor:[UIColor magentaColor]];
+    
     
     NSDictionary * dictUserPets=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PetsChooseInfo" ofType:@"plist"]];
     

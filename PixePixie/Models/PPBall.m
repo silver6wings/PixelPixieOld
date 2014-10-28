@@ -1,7 +1,7 @@
 
 #import "PPPixie.h"
-
-
+#import "ConstantData.h"
+#import "PPAtlasManager.h"
 
 @interface PPBall ()
 @property (nonatomic) SKTexture * defaultTexture;
@@ -10,7 +10,7 @@
 
 
 @implementation PPBall
-@synthesize sustainRounds,pixie, ballElementType, pixieEnemy, ballStatus, comboBallTexture, comboBallSprite,ballBuffs;
+@synthesize sustainRounds,pixie, ballElementType, pixieEnemy, ballStatus, comboBallTexture, comboBallSprite,ballBuffs,plantrootAnimationNode;
 
 #pragma mark Factory Method
 
@@ -55,7 +55,7 @@
 }
 
 // 创建元素球
-+(PPBall *)ballWithElement:(PPElementType) elementType{
++(PPBall *)ballWithElement:(PPElementType)elementType{
     
     NSString * imageName = [NSString stringWithFormat:@"%@_ball.png", kElementTypeString[elementType]];
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
@@ -169,20 +169,6 @@
 
 -(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed andScene:(PPBasicScene *)battleScene
 {
-    // 创建元素撞击动画
-    //    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
-    //    for (int i = 0; i >= 0; i--) {
-    //        SKTexture * textureCombo = [[PPAtlasManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_00%02d",i]];
-    //
-    //        [textureArray addObject:textureCombo];
-    //    }
-    //    for (int i = 0; i < 10; i++) {
-    //        SKTexture * textureCombo = [[PPAtlasManager ball_elements] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]];
-    //        NSLog(@"textureName=%@",[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]);
-    //
-    //        [textureArray addObject:textureCombo];
-    //    }
-    //    self.comboBallTexture = textureArray;
     
     SKAction * actionHit = [[PPAtlasManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_hit",kElementTypeString[self.ballElementType]]];
     
@@ -230,7 +216,7 @@
          }];
 }
 
-// 处理加速效果
+
 -(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSString *)pose
 {
     // 速度过低则移除
@@ -351,33 +337,35 @@
 }
 
 // 创建被缠绕动画
--(void)startPlantrootAppearOrDisappear:(BOOL)appearOrDisappear andScene:(PPBasicScene *)sceneBattle;
+-(void)startPlantrootAppearOrDisappear:(BOOL)isAppear andScene:(PPBasicScene *)sceneBattle;
 {
     
-    if (self.comboBallSprite != nil&&!appearOrDisappear) {
-        SKAction *action= [[PPAtlasManager ball_buff] getAnimation:@"plant_root_disappear"];
-        [self.comboBallSprite runAction:action
-                             completion:^{
-                                 [self.comboBallSprite removeFromParent];
-                                 self.comboBallSprite = nil;
-                             }];
-    } else {
-        if (self.comboBallSprite != nil)
+    if (isAppear) {
+ 
+        if (self.plantrootAnimationNode != nil)
         {
-            [self.comboBallSprite removeFromParent];
-            self.comboBallSprite = nil;
+            [self.plantrootAnimationNode removeFromParent];
+            self.plantrootAnimationNode = nil;
         }
         
-        self.comboBallSprite =[[SKSpriteNode alloc] init];
-        self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
-        [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
+        self.plantrootAnimationNode =[[SKSpriteNode alloc] init];
+        self.plantrootAnimationNode.size = CGSizeMake(50.0f, 50.0f);
+        [self.plantrootAnimationNode setPosition:CGPointMake(0.0f, 0.0f)];
         
-        [self addChild:self.comboBallSprite];
+        [self addChild:self.plantrootAnimationNode];
         
         SKAction *   action= [[PPAtlasManager ball_buff] getAnimation:@"plant_root_appear"];
-        [self.comboBallSprite runAction:action
+        [self.plantrootAnimationNode runAction:action
                              completion:^{
                                  
+                            }];
+        
+    } else {
+        SKAction *action= [[PPAtlasManager ball_buff] getAnimation:@"plant_root_disappear"];
+        [self.plantrootAnimationNode runAction:action
+                             completion:^{
+                                 [self.plantrootAnimationNode removeFromParent];
+                                 self.plantrootAnimationNode = nil;
                              }];
     }
     

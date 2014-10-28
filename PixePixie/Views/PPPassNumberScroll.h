@@ -2,8 +2,8 @@
 
 @interface PPPassNumberScroll : UIView
 
-@property (strong, nonatomic)SKScene *scene;
-@property (weak, nonatomic) UIView *view;
+@property (retain, nonatomic)SKScene *scene;
+@property (retain, nonatomic) UIView *view;
 
 @property(nonatomic,assign) id target; // 回调对象
 @property(nonatomic,assign) SEL selector; // 回调方法

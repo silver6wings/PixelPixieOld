@@ -76,15 +76,16 @@ static const int kElementMix[kElementTypeMax + 1][kElementTypeMax + 1] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 };
 
+
 // 元素类型定义
-typedef NS_ENUM(NSInteger, PPElementType)
+typedef NS_ENUM(int, PPElementType)
 {
     PPElementTypeNone = 0,    // 无
     
-    PPElementTypeMetal,       // 金
-    PPElementTypePlant,       // 木
-    PPElementTypeWater,       // 水
-    PPElementTypeFire,        // 火
+    PPElementTypeMetal = 1,       // 金
+    PPElementTypePlant = 2,       // 木
+    PPElementTypeWater = 3,       // 水
+    PPElementTypeFire = 4,        // 火
     PPElementTypeEarth,       // 土
     
     PPElementTypeSteel,       // 钢

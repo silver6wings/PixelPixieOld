@@ -1,5 +1,6 @@
 
 #import "PPSkillNode.h"
+#import "ConstantData.h"
 
 @implementation PPSkillNode
 @synthesize skill;

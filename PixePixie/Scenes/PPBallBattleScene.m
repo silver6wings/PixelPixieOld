@@ -1,7 +1,8 @@
 
 #import "PPBallBattleScene.h"
 #import "PPBattleInfoLayer.h"
-
+#import "ConstantData.h"
+#import "PPAtlasManager.h"
 #define SPACE_BOTTOM 80
 #define BALL_RANDOM_X (kBallSize / 2 + arc4random() % (int)(320 - kBallSizePixie))
 #define BALL_RANDOM_Y (kBallSize / 2 + arc4random() % (int)(320 - kBallSizePixie) + SPACE_BOTTOM)
@@ -154,7 +155,7 @@ int velocityValue (int x, int y) {
     return self;
 }
 
-#pragma mark SKScene
+#pragma mark SKScene delegate
 
 -(void)didMoveToView:(SKView *)view
 {
@@ -248,7 +249,7 @@ int velocityValue (int x, int y) {
 
 #pragma mark SKPhysicsContactDelegate
 
-// 碰撞事件
+// 开始碰撞事件监测
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
     if (!_isBallRolling) return;
@@ -381,7 +382,7 @@ int velocityValue (int x, int y) {
         }
     } else return;
 }
-
+// 碰撞事件结束监测
 - (void)didEndContact:(SKPhysicsContact *)contact{
     
     BOOL needPlayerRun = NO;
@@ -431,7 +432,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark Deal ball contact
-
+//处理人物球与元素球碰撞
 -(NSNumber *)dealPixieBallAndElementBall:(SKPhysicsContact *)contact andPetBall:(PPBall *)pixieball
 {
     NSNumber * elementBodyStatus = nil;
@@ -510,6 +511,7 @@ int velocityValue (int x, int y) {
     return elementBodyStatus;
 }
 
+//处理弹珠台技能
 -(NSNumber *)dealPallMoveSkillStatus:(SKPhysicsContact *)contact andPetBall:(PPBall *)pixieball
 {
     NSNumber *skillStatus = nil;
@@ -526,7 +528,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark BackAlert
-
+//返回按钮
 -(void)backButtonClick:(NSString *)backName
 {
     
@@ -543,7 +545,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark PauseButton
-
+//暂停游戏按钮点击事件
 -(void)pauseBtnClick:(NSString *)stringName
 {
     
@@ -609,6 +611,7 @@ int velocityValue (int x, int y) {
     return YES;
 }
 
+//检查球体是否都停止了
 -(void)checkingBallsMove
 {
     // 如果球都停止了
@@ -655,6 +658,8 @@ int velocityValue (int x, int y) {
     }
 }
 
+//设置战斗对象
+
 -(void)setEnemyAtIndex:(int)index
 {
     currentEnemyIndex = index;
@@ -699,6 +704,7 @@ int velocityValue (int x, int y) {
     }
 }
 
+//进入下一怪物遭遇动画
 -(void)goNextEnemy
 {
     [self.hurdleReady setCurrentHurdle:currentEnemyIndex];
@@ -717,14 +723,6 @@ int velocityValue (int x, int y) {
         [self.ballEnemy removeFromParent];
         self.ballEnemy = nil;
     }
-    
-    //    NSDictionary * dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
-    //                                [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-    //
-    //    NSArray *enemys = [[NSArray alloc] initWithArray:[dictEnemy objectForKey:@"EnemysInfo"]];
-    //    NSDictionary *chooseEnemyDict = [NSDictionary dictionaryWithDictionary:[enemys objectAtIndex:currentEnemyIndex]];
-    //    PPPixie *eneplayerPixie = [PPPixie birthEnemyPixieWithPetsInfo:chooseEnemyDict];
-    
     
     // 添加 Ball of Enemey
     self.ballEnemy = self.pixieEnemy.pixieBall;
@@ -948,7 +946,7 @@ int velocityValue (int x, int y) {
         }
     }
 }
-
+//改变元素球持续回合数
 -(void)changeBallsRoundsEnd
 {
     
@@ -989,6 +987,7 @@ int velocityValue (int x, int y) {
     
 }
 
+//设置元素球标记值
 -(void)setPhysicsTagValue
 {
     
@@ -1003,18 +1002,7 @@ int velocityValue (int x, int y) {
     }
     
 }
-
-//-(void)removeBallsForRoundsEnd
-//{
-//    for (int i = 0; i < [self.ballsElement count]; i++) {
-//        PPBall * tBall = [self.ballsElement objectAtIndex:i];
-//        if (tBall.sustainRounds <= 0) {
-//            [tBall removeFromParent];
-//            [self.ballsElement removeObject:tBall];
-//        }
-//    }
-//}
-
+//获取图片拼接node
 -(SKSpriteNode *)getNumber:(int)number AndColor:(NSString *)color {
     
     NSLog(@"color=%@ number=%d",color,number);
@@ -1047,14 +1035,14 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark Rounds and Turns
-
+//回合开始
 -(void)roundRotateBegin
 {
     roundActionNum = 0;
     roundIndex += 1;
     [self setRoundNumberLabel:@"回合开始" begin:YES];
 }
-
+//回合推进
 -(void)roundRotateMoved:(NSString *)nodeName
 {
     [self setPlayerSideRoundRunState];
@@ -1077,7 +1065,7 @@ int velocityValue (int x, int y) {
     }
     
 }
-
+//回合结束
 -(void)roundRotateEnd
 {
     roundActionNum = 0;
@@ -1089,8 +1077,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark Battle Procceed
-
-
+//敌方攻击方式AI
 -(void)enemyAttackDecision
 {
     
@@ -1119,7 +1106,7 @@ int velocityValue (int x, int y) {
                     break;
                 case 1:
                 {
-                    [self skllEnemyBegain:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
+                    [self showEnemySkillEventBegin:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
                 }
                     break;
                 default:
@@ -1131,7 +1118,7 @@ int velocityValue (int x, int y) {
             break;
     }
 }
-
+//敌方武力攻击
 -(void)enemyDoPhysicsAttack
 {
     currentPhysicsAttack = 2;
@@ -1143,7 +1130,7 @@ int velocityValue (int x, int y) {
     [self setPlayerSideRoundRunState];
     _isBallRolling = YES;
 }
-
+//增加连击数显示
 -(void)addComboValueChangeCombos:(int)value position:(CGPoint)labelPosition
 {
     SKSpriteNode *contentSprite= [[SKSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(30, 30)];
@@ -1171,7 +1158,7 @@ int velocityValue (int x, int y) {
         [contentSprite removeFromParent];
     }];
 }
-
+//增加血量变化显示
 -(void)addValueChangeLabel:(int)value position:(CGPoint)labelPosition andColor:(NSString *)string
 {
     
@@ -1191,6 +1178,8 @@ int velocityValue (int x, int y) {
     }];
 }
 
+
+//设置回合数显示    isBegin YES：回合开始    NO：回合结束
 -(void)setRoundNumberLabel:(NSString *)text begin:(BOOL)isBegin
 {
     
@@ -1266,43 +1255,29 @@ int velocityValue (int x, int y) {
         }];
     }
 }
-
+//回合进行状态 玩家不能操作技能及弹球
 -(void)setPlayerSideRoundRunState
 {
     isNotSkillRun = YES;
     [self.playerSkillSide setSideSkillButtonDisable];
 }
-
+//回合结束状态 玩家可进行操作
 -(void)setPlayerSideRoundEndState
 {
     isNotSkillRun = NO;
     [self.playerSkillSide setSideSkillButtonEnable];
 }
 
+//物理攻击开始提示
 -(void)physicsAttackBegin:(NSString *)nodeName
 {
     NSLog(@"nodeName=%@",nodeName);
     
     if ([nodeName isEqual:PP_PET_PLAYER_SIDE_NODE_NAME]) {
-        /*
-         CGFloat hpchangresult = [PPDamageCaculate
-         bloodChangeForPhysicalAttack:self.playerSide.currentPPPixie.currentAP
-         andAddition:self.playerSide.currentPPPixie.pixieBuffs.attackAddition
-         andOppositeDefense:self.playerAndEnemySide.currentPPPixieEnemy.currentDP
-         andOppositeDefAddition:self.playerAndEnemySide.currentPPPixieEnemy.pixieBuffs.defenseAddition
-         andDexterity:self.playerAndEnemySide.currentPPPixieEnemy.currentDEX];
-         */
+ 
     } else {
-        /*
-         CGFloat hpchangresult = [PPDamageCaculate
-         bloodChangeForPhysicalAttack:self.playerAndEnemySide.currentPPPixieEnemy.currentAP
-         andAddition:self.playerAndEnemySide.currentPPPixieEnemy.pixieBuffs.attackAddition
-         andOppositeDefense:self.playerSide.currentPPPixie.currentDP
-         andOppositeDefAddition:self.playerSide.currentPPPixie.pixieBuffs.defenseAddition
-         andDexterity:self.playerSide.currentPPPixie.currentDEX];
-         */
-        
-        
+
+
         SKLabelNode * labelNode=(SKLabelNode *)[self childNodeWithName:@"EnemyPhysics"];
         if (labelNode) [labelNode removeFromParent];
         
@@ -1320,6 +1295,7 @@ int velocityValue (int x, int y) {
     }
 }
 
+//物理攻击技术（暂废弃）
 -(void)ballAttackEnd:(NSInteger)ballsCount
 {
     [self physicsAttackBegin:PP_PET_PLAYER_SIDE_NODE_NAME];
@@ -1343,6 +1319,7 @@ int velocityValue (int x, int y) {
     [ballsLabel runAction:action];
 }
 
+//技能不可用按钮点击
 -(void)skillInvalidBtnClick:(NSDictionary *)skillInfo
 {
     SKLabelNode * labelNode = (SKLabelNode *)[self childNodeWithName:@"mpisnotenough"];
@@ -1363,6 +1340,7 @@ int velocityValue (int x, int y) {
     }];
 }
 
+//技能动画展示开始
 -(void)skillPlayerShowBegin:(NSDictionary *)skillInfo
 {
     CGFloat mpToConsume = [[skillInfo objectForKey:@"skillmpchange"] floatValue];
@@ -1392,8 +1370,8 @@ int velocityValue (int x, int y) {
         [self.playerAndEnemySide changePetMPValue:mpToConsume];
     }
     
-    
-    if (isNotSkillShowTime) return;
+//    
+//    if (isNotSkillShowTime) return;
     
     NSLog(@"skillInfo=%@",skillInfo);
     
@@ -1408,7 +1386,8 @@ int velocityValue (int x, int y) {
         case 1:
         {
             isNotSkillShowTime = YES;
-            
+            isNotSkillRun = NO;
+
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"森林瞬起"]) {
                 
                 //                NSMutableArray *animanArryay = [[NSMutableArray alloc] init];
@@ -1441,7 +1420,7 @@ int velocityValue (int x, int y) {
                     }
                 }
             }
-            isNotSkillRun = NO;
+            
             //            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
             
         }
@@ -1463,12 +1442,7 @@ int velocityValue (int x, int y) {
             break;
     }
 }
-
--(void)skllEnemyBegain:(NSDictionary *)skillInfo
-{
-    [self showEnemySkillEventBegin:skillInfo];
-}
-
+//血条动画结束
 -(void)hpChangeEndAnimate:(NSString *)battlesideName
 {
     NSLog(@"battlesideName=%@",battlesideName);
@@ -1476,11 +1450,13 @@ int velocityValue (int x, int y) {
 
 #pragma mark Physics Attack show
 
+//计算物理伤害
 -(int)physicsAttackHPChangeValueCalculate
 {
     return 300;
 }
 
+//物理攻击结束（废弃）
 -(void)physicsAttackAnimationEnd:(NSString *)stringSide
 {
     if ([stringSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
@@ -1492,6 +1468,7 @@ int velocityValue (int x, int y) {
     }
 }
 
+//展示物理攻击动画  头像晃动
 -(void)showPhysicsAttackAnimation:(NSString *)attackSide
 {
     
@@ -1503,7 +1480,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark SkillBeginAnimateDelegate
-
+//敌方技能动画
 -(void)showEnemySkillEventBegin:(NSDictionary *)skillInfo
 {
     [self setPlayerSideRoundRunState];
@@ -1516,7 +1493,7 @@ int velocityValue (int x, int y) {
     
     [skillNode showSkillAnimate:skillInfo andElement:PPElementTypeFire];
 }
-
+//我方技能动画
 -(void)showSkillEventBegin:(NSDictionary *)skillInfo
 {
     isNotSkillShowTime = YES;
@@ -1532,7 +1509,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark SkillEndAnimateDelegate
-
+//技能动画播放结束
 -(void)skillEndEvent:(PPSkill *)skillInfo withSelfName:(NSString *)nodeName
 {
     isNotSkillShowTime = NO;
