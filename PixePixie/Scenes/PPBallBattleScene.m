@@ -384,48 +384,49 @@ int velocityValue (int x, int y) {
 
 - (void)didEndContact:(SKPhysicsContact *)contact{
     
-    // 处理速度特效
+    BOOL needPlayerRun = NO;
+    BOOL needPlayerStep = NO;
+    BOOL needEnemyRun = NO;
+    BOOL needEnemyStep = NO;
+    
+    // 判断是否需要处理速度特效
     if((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
         //如果我方人物球撞击到物体
     {
         if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
         {
-            if (currentPhysicsAttack == 1) {
-                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
-                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-                [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"run"];
-                return;
-            }
-            
-            if(currentPhysicsAttack == 2) {
-                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
-                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
-                [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"run"];
-                return;
-            }
-        } else {
-            [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"step"];
-            return;
-        }
+            if (currentPhysicsAttack == 1) needPlayerRun = YES;
+            if (currentPhysicsAttack == 2) needEnemyRun = YES;
+        } else needPlayerStep = YES;
     } else if ((contact.bodyA == self.ballEnemy.physicsBody || contact.bodyB == self.ballEnemy.physicsBody))
         //如果敌方人物球撞击到物体
     {
         if ((contact.bodyA == self.ballPlayer.physicsBody || contact.bodyB == self.ballPlayer.physicsBody))
         {
-            if (currentPhysicsAttack == 1) {
-                self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
-                                                                    self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
-                return;
-            }
-            if(currentPhysicsAttack == 2) {
-                self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
-                                                                   self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
-                return;
-            }
-        } else {
-            [self.ballEnemy startPixieAccelerateAnimation:self.ballEnemy.physicsBody.velocity andType:@"step"];
-            return;
-        }
+            if (currentPhysicsAttack == 1) needPlayerRun = YES;
+            if (currentPhysicsAttack == 2) needEnemyRun = YES;
+        } else needEnemyStep = YES;
+    }
+    
+    if (needPlayerStep) {
+        [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"step"];
+        return;
+    }
+    if (needPlayerRun) {
+        [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"run"];
+        self.ballPlayer.physicsBody.velocity = CGVectorMake(self.ballPlayer.physicsBody.velocity.dx * kVelocityAddition,
+                                                            self.ballPlayer.physicsBody.velocity.dy * kVelocityAddition);
+        return;
+    }
+    if (needEnemyStep) {
+        [self.ballEnemy startPixieAccelerateAnimation:self.ballEnemy.physicsBody.velocity andType:@"step"];
+        return;
+    }
+    if (needEnemyRun) {
+        [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"run"];
+        self.ballEnemy.physicsBody.velocity = CGVectorMake(self.ballEnemy.physicsBody.velocity.dx * kVelocityAddition,
+                                                           self.ballEnemy.physicsBody.velocity.dy * kVelocityAddition);
+        return;
     }
 }
 
@@ -1122,13 +1123,10 @@ int velocityValue (int x, int y) {
                 {
                 }
             }
-            
-            
+        
         }
             break;
     }
-    
-    
 }
 
 -(void)enemyDoPhysicsAttack
@@ -1344,8 +1342,7 @@ int velocityValue (int x, int y) {
 
 -(void)skillInvalidBtnClick:(NSDictionary *)skillInfo
 {
-    
-    SKLabelNode * labelNode=(SKLabelNode *)[self childNodeWithName:@"mpisnotenough"];
+    SKLabelNode * labelNode = (SKLabelNode *)[self childNodeWithName:@"mpisnotenough"];
     if (labelNode) [labelNode removeFromParent];
     
     SKLabelNode * additonLabel= [[SKLabelNode alloc] init];
@@ -1374,7 +1371,7 @@ int velocityValue (int x, int y) {
         SKLabelNode * labelNode = (SKLabelNode *)[self childNodeWithName:@"mpisnotenough"];
         if (labelNode) [labelNode removeFromParent];
         
-        SKLabelNode * additonLabel= [[SKLabelNode alloc] init];
+        SKLabelNode * additonLabel = [[SKLabelNode alloc] init];
         additonLabel.name  = @"mpisnotenough";
         additonLabel.fontColor = [UIColor redColor];
         additonLabel.position = CGPointMake(160.0f, 200.0f);
@@ -1393,10 +1390,7 @@ int velocityValue (int x, int y) {
     }
     
     
-    if (isNotSkillShowTime) {
-        return;
-    }
-    
+    if (isNotSkillShowTime) return;
     
     NSLog(@"skillInfo=%@",skillInfo);
     
@@ -1424,16 +1418,13 @@ int velocityValue (int x, int y) {
                 
                 for (PPBall * tBall in self.ballsElement) {
                     if (tBall.ballElementType == PPElementTypePlant) {
-                        if ([ tBall.physicsBody.PPBallSkillStatus intValue]!=1) {
-                            tBall.physicsBody.PPBallSkillStatus= @1;
+                        if ([tBall.physicsBody.PPBallSkillStatus intValue] != 1) {
+                            tBall.physicsBody.PPBallSkillStatus = @1;
                             [tBall startMagicballAnimation];
-                            
                         }
                     }
                 }
-                
             }
-            
             
             if ([[skillInfo objectForKey:@"skillname"] isEqualToString:@"木系掌控"]) {
                 for (PPBall * tBall in self.ballsElement) {
@@ -1447,7 +1438,7 @@ int velocityValue (int x, int y) {
                     }
                 }
             }
-            isNotSkillRun=NO;
+            isNotSkillRun = NO;
             //            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
             
         }
@@ -1504,9 +1495,7 @@ int velocityValue (int x, int y) {
     [self.playerAndEnemySide shakeHeadPortrait:attackSide andCompletion:self];
     
     if ([attackSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
-        
     } else {
-        
     }
 }
 
@@ -1516,7 +1505,7 @@ int velocityValue (int x, int y) {
 {
     [self setPlayerSideRoundRunState];
     
-    PPSkillNode *skillNode = [PPSkillNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(self.size.width, 300)];
+    PPSkillNode * skillNode = [PPSkillNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(self.size.width, 300)];
     skillNode.name = PP_ENEMY_SKILL_SHOW_NODE_NAME;
     skillNode.delegate = self;
     skillNode.position = CGPointMake(self.size.width/2.0f, 250.0f+PP_FIT_TOP_SIZE);
@@ -1552,15 +1541,12 @@ int velocityValue (int x, int y) {
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         }
         [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
-        
     } else {
-        
-        if (skillInfo.skillObject ==1) {
+        if (skillInfo.skillObject == 1) {
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         } else {
             [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];
         }
-        
         [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
     }
 }

@@ -41,9 +41,9 @@
     NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
                             kElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration];
     PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
- 
+    
     tBall.ballBuffs = [[NSMutableArray alloc] init];
-
+    
     if (tBall){
         tBall.ballType = PPBallTypeEnemy;
         tBall.ballElementType = pixieEnemy.pixieElement;
@@ -93,7 +93,7 @@
     NSString * imageName = @"combo_ball.png";
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
-     
+    
     if (tBall)
     {
         tBall.ballType = PPBallTypeCombo;
@@ -133,7 +133,7 @@
 }
 -(void)changeBuffRound
 {
-
+    
     for (int i=0;i<[self.ballBuffs count]; i++) {
         PPBuff *buff = [self.ballBuffs objectAtIndex:i];
         buff.continueRound--;
@@ -163,35 +163,33 @@
     }
     
     [self.ballBuffs removeObject:buff];
-
+    
 }
 #pragma mark Animation  球体各种动画
 
 -(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed andScene:(PPBasicScene *)battleScene
 {
-    
     // 创建元素撞击动画
-//    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
-//    for (int i = 0; i >= 0; i--) {
-//        SKTexture * textureCombo = [[PPAtlasManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_00%02d",i]];
-//
-//        [textureArray addObject:textureCombo];
-//    }
-//    for (int i = 0; i < 10; i++) {
-//        SKTexture * textureCombo = [[PPAtlasManager ball_elements] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]];
-//        NSLog(@"textureName=%@",[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]);
-//        
-//        [textureArray addObject:textureCombo];
-//    }
-//    self.comboBallTexture = textureArray;
+    //    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
+    //    for (int i = 0; i >= 0; i--) {
+    //        SKTexture * textureCombo = [[PPAtlasManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_00%02d",i]];
+    //
+    //        [textureArray addObject:textureCombo];
+    //    }
+    //    for (int i = 0; i < 10; i++) {
+    //        SKTexture * textureCombo = [[PPAtlasManager ball_elements] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]];
+    //        NSLog(@"textureName=%@",[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]);
+    //
+    //        [textureArray addObject:textureCombo];
+    //    }
+    //    self.comboBallTexture = textureArray;
     
-    SKAction *actionHit=[[PPAtlasManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_hit",kElementTypeString[self.ballElementType]]];
+    SKAction * actionHit = [[PPAtlasManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_hit",kElementTypeString[self.ballElementType]]];
     
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
         self.comboBallSprite = nil;
     }
-    
     
     self.comboBallSprite = [[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
@@ -201,34 +199,23 @@
         [battleScene addChild:self.comboBallSprite];
         [self removeFromParent];
         [ballArray removeObject:self];
-
-        
-    }else
-    {
+    } else {
         [self addChild:self.comboBallSprite];
-
     }
     
     [self.comboBallSprite runAction:actionHit
                          completion:^{
                              if (isNeed) {
-                                 
                                  [self.comboBallSprite removeFromParent];
-
-                             }else
-                             {
+                             } else {
                                  [self startAuraAnimation];
-
                              }
-
-    }];
-    
-    
+                         }];
 }
+
 -(void)startRemoveAnimation:(NSMutableArray *)ballArray  andScene:(PPBasicScene *)battleScene
 {
-    
-      NSMutableArray * textureArray = [[NSMutableArray alloc] init];
+    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 23; i >= 0; i--) {
         
         SKTexture * textureCombo = [[PPAtlasManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_%04d",i]];
@@ -236,32 +223,18 @@
         
     }
     
-//    if (self.comboBallSprite != nil) {
-//        [self.comboBallSprite removeFromParent];
-//        self.comboBallSprite = nil;
-//    }
-//    
-//    self.comboBallSprite =[[SKSpriteNode alloc] init];
-//    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
-//    
-//    [self.comboBallSprite setPosition:self.position];
-//    [battleScene addChild:self.comboBallSprite];
-//    [self removeFromParent];
-    
-    
     [ballArray removeObject:self];
     [self runAction:[SKAction animateWithTextures:textureArray timePerFrame:0.05]
-                         completion:^{
-                             [self removeFromParent];
-    }];
-    
+         completion:^{
+             [self removeFromParent];
+         }];
 }
 
-// 添加效果
+// 处理加速效果
 -(void)startPixieAccelerateAnimation:(CGVector)velocity andType:(NSString *)pose
 {
     if (sqrt(velocity.dx * velocity.dx + velocity.dy * velocity.dy ) < kBallAccelerateMin) return;
-        
+    
     double rotation = atan(velocity.dy/velocity.dx);
     rotation = velocity.dx > 0 ? rotation : rotation + 3.1415926;
     
@@ -332,7 +305,6 @@
 // 变身陷阱动画
 -(void)startMagicballAnimation
 {
-    
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
         self.comboBallSprite = nil;
@@ -343,22 +315,17 @@
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     
-    
-//    [self.comboBallSprite runAction:[[PPAtlasManager ball_magic] getAnimation:@"magic_ball"]
-//                         completion:^{[self.comboBallSprite removeFromParent];}];
-    
-    
+    //    [self.comboBallSprite runAction:[[PPAtlasManager ball_magic] getAnimation:@"magic_ball"]
+    //                         completion:^{[self.comboBallSprite removeFromParent];}];
     
     [self runAction:[[PPAtlasManager ball_magic] getAnimation:@"magic_ball"]
-                         completion:^{
-                             
-                             self.size = CGSizeMake(1.0f, 1.0f);
-                             [self.comboBallSprite removeFromParent];
-                             [self addStatusBall:@"plant"];
-
-      }];
-    
+         completion:^{
+             self.size = CGSizeMake(1.0f, 1.0f);
+             [self.comboBallSprite removeFromParent];
+             [self addStatusBall:@"plant"];
+         }];
 }
+
 -(void)addStatusBall:(NSString *)type
 {
     
@@ -371,8 +338,8 @@
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
-    
 }
+
 // 创建被缠绕动画
 -(void)startPlantrootAppearOrDisappear:(BOOL)appearOrDisappear andScene:(PPBasicScene *)sceneBattle;
 {
@@ -384,9 +351,7 @@
                                  [self.comboBallSprite removeFromParent];
                                  self.comboBallSprite = nil;
                              }];
-    }else
-    {
-        
+    } else {
         if (self.comboBallSprite != nil)
         {
             [self.comboBallSprite removeFromParent];
@@ -396,16 +361,16 @@
         self.comboBallSprite =[[SKSpriteNode alloc] init];
         self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
         [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
-
+        
         [self addChild:self.comboBallSprite];
-
+        
         SKAction *   action= [[PPAtlasManager ball_buff] getAnimation:@"plant_root_appear"];
         [self.comboBallSprite runAction:action
                              completion:^{
-                    
-        }];
+                                 
+                             }];
     }
-
+    
 }
 
 -(void)startElementBirthAnimation
@@ -428,8 +393,9 @@
                              [self startAuraAnimation];
                              
                              
-    }];
+                         }];
 }
+
 -(void)startAuraAnimation
 {
     
@@ -452,17 +418,11 @@
     SKAction *actionAuraContray = [[PPAtlasManager ball_elements] getAnimationContrary:[NSString stringWithFormat:@"%@_aura",kElementTypeString[self.ballElementType]]];
     NSArray *arrayAnimation = [NSArray arrayWithObjects:actionAura,actionAuraContray, nil];
     SKAction *actionSqueues=[SKAction sequence:arrayAnimation];
-  
-    
-    
     
     [self.comboBallSprite runAction:[SKAction repeatActionForever:actionSqueues]
                          completion:^{
-                             
                              [self.comboBallSprite removeFromParent];
-                             
-    }];
-    
+                         }];
 }
 
 // 默认的球的物理属性
