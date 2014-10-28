@@ -193,7 +193,7 @@
     }
     
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite = [[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     if (isNeed) {
@@ -241,7 +241,7 @@
 //        self.comboBallSprite = nil;
 //    }
 //    
-//    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+//    self.comboBallSprite =[[SKSpriteNode alloc] init];
 //    self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
 //    
 //    [self.comboBallSprite setPosition:self.position];
@@ -271,7 +271,7 @@
         self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite =[[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(100.0f, 100.0f);
     self.comboBallSprite.zRotation = rotation;
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
@@ -300,7 +300,7 @@
         self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite =[[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
@@ -319,7 +319,7 @@
         self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite =[[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
@@ -338,7 +338,7 @@
         self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite =[[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
@@ -367,7 +367,7 @@
         self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] initWithTexture:[[TextureManager ball_magic] textureNamed:@"plant_root"]];
+    self.comboBallSprite =[[SKSpriteNode alloc] initWithTexture:[[TextureManager ball_magic] textureNamed:@"plant_root"]];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
@@ -393,7 +393,7 @@
             self.comboBallSprite = nil;
         }
         
-        self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+        self.comboBallSprite =[[SKSpriteNode alloc] init];
         self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
         [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
 
@@ -416,7 +416,7 @@
         self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite =[[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
@@ -438,13 +438,13 @@
         self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[PPBasicSpriteNode alloc] init];
+    self.comboBallSprite =[[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     
     
-    PPBasicSpriteNode *textureNode=[PPBasicSpriteNode spriteNodeWithTexture:self.texture];
+    SKSpriteNode *textureNode=[SKSpriteNode spriteNodeWithTexture:self.texture];
     textureNode.size= CGSizeMake(kBallSize, kBallSize);
     [self.comboBallSprite addChild:textureNode];
     

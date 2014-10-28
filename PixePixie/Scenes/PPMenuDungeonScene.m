@@ -23,7 +23,7 @@
 
 -(void)introduceInfoLabel:(NSString *)text
 {
-    PPBasicSpriteNode * enemyDeadContent = [[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 350)];
+    SKSpriteNode * enemyDeadContent = [[SKSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 350)];
     [enemyDeadContent setPosition:CGPointMake(160, 200)];
     [self addChild:enemyDeadContent];
     
@@ -52,7 +52,7 @@
     [enemyDeadContent addChild:confirmButton];
 }
 
--(void)confirmBtnClick:(PPBasicSpriteNode *)contentNode
+-(void)confirmBtnClick:(SKSpriteNode *)contentNode
 {
     if (contentNode != nil) {
         [contentNode removeFromParent];

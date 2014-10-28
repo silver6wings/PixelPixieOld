@@ -51,13 +51,11 @@
 
 -(void)monsterTeamButtonClick:(NSString *)stringName
 {
-    SKSpriteNode *spriteContent=(SKSpriteNode *)[self childNodeWithName:@"contentMonsterBox"];
-    if (spriteContent!=nil) {
-        [spriteContent removeFromParent];
-    }
+    SKSpriteNode * spriteContent = (SKSpriteNode *)[self childNodeWithName:@"contentMonsterBox"];
+    if (spriteContent != nil) [spriteContent removeFromParent];
     
-    PPBasicSpriteNode *contentSpriteNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor blueColor] size:CGSizeMake(280, 200)];
-    contentSpriteNode.position=CGPointMake(160.0f, 150);
+    SKSpriteNode *contentSpriteNode = [[SKSpriteNode alloc] initWithColor:[UIColor blueColor] size:CGSizeMake(280, 200)];
+    contentSpriteNode.position = CGPointMake(160, 150);
     contentSpriteNode.name = @"contentMonsterBox";
     
     
@@ -104,12 +102,10 @@
 }
 
 -(void)monsterBoxButtonClick:(NSString *)stringName
-{
-}
+{}
 
 -(void)monsterBoxAddClick:(NSString *)stringName
-{
-}
+{}
 
 -(void)backButtonClick:(NSString *)backName
 {

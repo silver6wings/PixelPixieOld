@@ -1,6 +1,0 @@
-
-/*
-@interface PPBasicViewController : UIViewController
-
-@end
-*/

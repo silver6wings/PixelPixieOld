@@ -63,14 +63,14 @@
     
     currentEnemyIndex = currentIndex;
     
-//    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(CurrentDeviceRealSize.width, 480.0f)];
-    PPBasicSpriteNode *hurdleReadyContentNode=[[PPBasicSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@_encounter.png",kElementTypeString[chooseSceneType]]]];
+//    SKSpriteNode *hurdleReadyContentNode=[[SKSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(CurrentDeviceRealSize.width, 480.0f)];
+    SKSpriteNode *hurdleReadyContentNode=[[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@_encounter.png",kElementTypeString[chooseSceneType]]]];
     hurdleReadyContentNode.name = PP_HURDLE_READY_CONTENT_NAME;
     [hurdleReadyContentNode setPosition:CGPointMake(160.0f, 240)];
     [self addChild:hurdleReadyContentNode];
     
-//    PPBasicSpriteNode *forwardSprite=[[PPBasicSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_forward_0000.png",kElementTypeString[chooseSceneType]]]]];
-    PPBasicSpriteNode *forwardSprite=[[PPBasicSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@_forward_0000.png",kElementTypeString[chooseSceneType]]]];
+//    SKSpriteNode *forwardSprite=[[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_forward_0000.png",kElementTypeString[chooseSceneType]]]]];
+    SKSpriteNode *forwardSprite=[[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@_forward_0000.png",kElementTypeString[chooseSceneType]]]];
     forwardSprite.position = CGPointMake(0.0f, 0.0f);
     [hurdleReadyContentNode addChild:forwardSprite];
     
@@ -122,7 +122,7 @@
     
 
 }
--(void)addChangeStatus:(PPBasicSpriteNode *)contentSprite
+-(void)addChangeStatus:(SKSpriteNode *)contentSprite
 {
     
     // 添加己方精灵
@@ -157,7 +157,7 @@
 
 -(void)setPetsChooseContent
 {
-    PPBasicSpriteNode *enemyNode = [[PPBasicSpriteNode alloc] init];
+    SKSpriteNode *enemyNode = [[SKSpriteNode alloc] init];
     [enemyNode setSize:CGSizeMake(125.0f, 125.0f)];
     [enemyNode setPosition:CGPointMake(self.size.width/2.0f, self.size.height/2.0f)];
     [enemyNode setTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@3_encounter",kElementTypeString[chooseSceneType]]]];
@@ -223,7 +223,7 @@
 -(void)sceneChooseClick:(PPSpriteButton *)btn
 {
     
-    PPBasicSpriteNode * contentSprite= (PPBasicSpriteNode *)[self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
+    SKSpriteNode * contentSprite= (SKSpriteNode *)[self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
     
     for (int i = 0; i < 5; i++) {
         PPSpriteButton * btnObj = (PPSpriteButton *)[contentSprite childNodeWithName:[NSString stringWithFormat:@"%d",i]];

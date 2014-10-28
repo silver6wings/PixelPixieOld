@@ -19,9 +19,7 @@
     [invo setTarget:self];
     [invo setSelector:aSelector];
     if (anArgument != nil) {
-        
         [invo setArgument:&anArgument atIndex:2];
-
     }
     [invo retainArguments];
     
@@ -50,5 +48,7 @@
     SEL backBtnSel;
     SKScene *previousScene;
 }
+
 -(void)setBackTitleText:(NSString *)title andPositionY:(CGFloat)yValue;
+
 @end

@@ -1,6 +1,6 @@
 
 
-@interface PPCustomAlertNode : PPBasicSpriteNode
+@interface PPCustomAlertNode : SKSpriteNode
 {
     @public
     id target;

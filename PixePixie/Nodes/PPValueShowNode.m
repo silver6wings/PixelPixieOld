@@ -2,7 +2,7 @@
 
 @interface PPValueShowNode()
 {
-    PPBasicSpriteNode * valueShowNode;
+    SKSpriteNode * valueShowNode;
     PPBasicLabelNode * valueShowLabel;
     SKSpriteNode * maskValueNode;
 }
@@ -21,7 +21,7 @@
     
     if (showType == PP_HPTYPE) {
         // 血条
-        valueShowNode = [PPBasicSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:
+        valueShowNode = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:
                                                                   [NSString stringWithFormat:@"%@_header_hpbar",typeString]]];
         valueShowNode.size = CGSizeMake(100, 20);
         valueShowNode.position = CGPointMake(0, 0);
@@ -58,7 +58,7 @@
         
     } else {
         // 能量条
-        valueShowNode = [PPBasicSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpbar",typeString]]];
+        valueShowNode = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_mpbar",typeString]]];
         valueShowNode.size = CGSizeMake(100, 10);
         valueShowNode.position = CGPointMake(0, 0);
         //        valueShowNode.zPosition = 1;
@@ -104,10 +104,10 @@
 //
 //
 //    if (showType == PP_HPTYPE) {
-//        valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(100.0f, 20.0f)];
+//        valueShowNode = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(100.0f, 20.0f)];
 //
 //    } else {
-//        valueShowNode = [PPBasicSpriteNode spriteNodeWithColor:[UIColor orangeColor] size:CGSizeMake(100.0f, 10.0f)];
+//        valueShowNode = [SKSpriteNode spriteNodeWithColor:[UIColor orangeColor] size:CGSizeMake(100.0f, 10.0f)];
 //
 //    }
 //    valueShowNode.anchorPoint = anchorPoint;

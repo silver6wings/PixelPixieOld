@@ -15,7 +15,7 @@
 
 -(void)creatTreeWith:(PPElementType)elementType{
     
-    PPBasicSpriteNode * backTree = [[PPBasicSpriteNode alloc] initWithTexture:[[TextureManager ui_talent] textureNamed:[NSString stringWithFormat:@"%@_tree", kElementTypeString[elementType]]]];
+    SKSpriteNode * backTree = [[SKSpriteNode alloc] initWithTexture:[[TextureManager ui_talent] textureNamed:[NSString stringWithFormat:@"%@_tree", kElementTypeString[elementType]]]];
     backTree.position = CGPointMake(self.size.width/2.0f, self.size.height/2.0f);
     backTree.size = CGSizeMake(290, 223*290/195);
     [self addChild:backTree];

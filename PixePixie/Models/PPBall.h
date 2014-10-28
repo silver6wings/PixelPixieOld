@@ -55,7 +55,7 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
 @property (nonatomic) PPPixie * pixieEnemy;
 
 @property (nonatomic,retain) NSArray * comboBallTexture;
-@property (nonatomic,retain) PPBasicSpriteNode * comboBallSprite;
+@property (nonatomic,retain) SKSpriteNode * comboBallSprite;
 
 +(PPBall *)ballWithPixie:(PPPixie *)pixie;
 +(PPBall *)ballWithPixieEnemy:(PPPixie *)pixieEnemy;

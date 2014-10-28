@@ -2,7 +2,7 @@
 
 @class PPValueShowNode;
 
-@interface PPBattleInfoLayer : PPBasicSpriteNode
+@interface PPBattleInfoLayer : SKSpriteNode
 {
     PPValueShowNode *petPlayerHP;
     PPValueShowNode *enemyPlayerHP;

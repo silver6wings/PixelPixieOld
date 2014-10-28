@@ -1,5 +1,5 @@
 
-@interface PPValueShowNode : PPBasicSpriteNode
+@interface PPValueShowNode : SKSpriteNode
 {
 @public
     CGFloat maxValue;

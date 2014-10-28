@@ -1,5 +1,6 @@
 
 #import "ConstantData.h"
+#import "PPCommonTool.h"
 #import "TextureManager.h"
 
 #define CurrentDeviceRealSize   [UIScreen mainScreen].bounds.size

@@ -1,29 +1,24 @@
-//
-//  PPSellMonsterScene.m
-//  PixelPixie
-//
-//  Created by xiefei on 7/7/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
 
 #import "PPSellMonsterScene.h"
-static NSString *monsterBtnTitle[]={
+
+static NSString *monsterBtnTitle[] = {
     @"Clear",
     @"Acquire coins",
     @"Drop box",
     @"Sell monster"
 };
+
 @implementation PPSellMonsterScene
 - (id)initWithSize:(CGSize)size
 {
-    if (self=[super initWithSize:size]) {
+    if (self = [super initWithSize:size]) {
         self.backgroundColor = [UIColor yellowColor];
         [self setBackTitleText:@"SellMonster" andPositionY:360.0f];
 
-        PPBasicSpriteNode *contentSpriteNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor blueColor] size:CGSizeMake(280, 200)];
-        contentSpriteNode.position=CGPointMake(160.0f, 230);
+        SKSpriteNode *contentSpriteNode = [[SKSpriteNode alloc] initWithColor:[UIColor blueColor] size:CGSizeMake(280, 200)];
+        contentSpriteNode.position = CGPointMake(160.0f, 230);
         contentSpriteNode.name = @"contentMonsterBox";
-        SKTexture *boxTexture=nil;
+        SKTexture * boxTexture = nil;
         switch (0) {
             case 0:
             {
@@ -46,44 +41,39 @@ static NSString *monsterBtnTitle[]={
                 break;
         }
         
-        for (int i=0; i<15; i++) {
+        for (int i = 0; i < 15; i++) {
             PPSpriteButton *monsterButton = [PPSpriteButton buttonWithTexture:boxTexture andSize:CGSizeMake(40.0f, 40.0f)];
             monsterButton.position = CGPointMake((i%5)*55-110.0f,(i/5)*60-50.0f);
             monsterButton.name = [NSString stringWithFormat:@"%d",i];
-            [monsterButton addTarget:self selector:@selector(monsterBoxButtonClick:) withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+            [monsterButton addTarget:self selector:@selector(monsterBoxButtonClick:)
+                          withObject:monsterButton.name forControlEvent:PPButtonControlEventTouchUpInside];
             [contentSpriteNode addChild:monsterButton];
         }
         [self addChild:contentSpriteNode];
         
         
-        
-        
-        for (int i=0; i<4; i++) {
+        for (int i = 0; i < 4; i++) {
             PPSpriteButton *handleButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(70.0f, 40.0f)];
             [handleButton setLabelWithText:monsterBtnTitle[i] andFont:[UIFont systemFontOfSize:11] withColor:nil];
             switch (i) {
                 case 0:
                 {
                     handleButton.position = CGPointMake(50.0f,40.0f);
-
                 }
                     break;
                 case 1:
                 {
                     handleButton.position = CGPointMake(160.0f,90.0f);
-
                 }
                     break;
                 case 2:
                 {
                     handleButton.position = CGPointMake(160.0f,30.0f);
-
                 }
                     break;
                 case 3:
                 {
                     handleButton.position = CGPointMake(260.0f,40.0f);
-
                 }
                     break;
                     
@@ -101,20 +91,14 @@ static NSString *monsterBtnTitle[]={
 }
 
 -(void)handleButtonClick:(NSString *)stringName
-{
-    
-}
+{}
 
 -(void)monsterBoxButtonClick:(NSString *)stringName
-{
-    
-}
+{}
 
 -(void)backButtonClick:(NSString *)backName
 {
-    
     [self.view presentScene:previousScene transition:[SKTransition doorwayWithDuration:1.0]];
-    
-    
 }
+
 @end

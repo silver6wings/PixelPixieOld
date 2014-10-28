@@ -674,7 +674,7 @@ int velocityValue (int x, int y) {
 {
     if ([battlesideName isEqualToString:PP_ENEMY_SIDE_NODE_NAME])
     {
-        PPBasicSpriteNode *enemyDeadContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
+        SKSpriteNode *enemyDeadContent=[[SKSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 240)];
         [enemyDeadContent setPosition:CGPointMake(160.0f, 300)];
         [self addChild:enemyDeadContent];
         
@@ -1157,10 +1157,10 @@ int velocityValue (int x, int y) {
 }
 -(void)addComboValueChangeCombos:(int)value position:(CGPoint)labelPosition
 {
-    PPBasicSpriteNode *contentSprite= [[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(30, 30)];
+    SKSpriteNode *contentSprite= [[SKSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(30, 30)];
     contentSprite.position = labelPosition;
     
-    PPBasicSpriteNode *xSpriteNode=[PPBasicSpriteNode spriteNodeWithTexture:[[TextureManager ui_number] textureNamed:@"orange_x"]];
+    SKSpriteNode *xSpriteNode=[SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_number] textureNamed:@"orange_x"]];
     xSpriteNode.position = CGPointMake(-7.5, 0.0f);
     xSpriteNode.size = CGSizeMake(14.0f, 13.0f);
     
@@ -1222,7 +1222,7 @@ int velocityValue (int x, int y) {
     
     if (isBegin) {
         
-        PPBasicSpriteNode *roundLabelContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(320, 240)];
+        SKSpriteNode *roundLabelContent=[[SKSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(320, 240)];
         [roundLabelContent setPosition:CGPointMake(160.0f, 300)];
         [self addChild:roundLabelContent];
         roundLabelContent.alpha = 0.0f;
@@ -1271,7 +1271,7 @@ int velocityValue (int x, int y) {
         
     }else
     {
-        PPBasicSpriteNode *roundLabelContent=[[PPBasicSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(320, 240)];
+        SKSpriteNode *roundLabelContent=[[SKSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(320, 240)];
         [roundLabelContent setPosition:CGPointMake(160.0f, 300)];
         [self addChild:roundLabelContent];
         roundLabelContent.alpha = 0.0f;

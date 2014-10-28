@@ -1,7 +1,6 @@
 
 #import "PPTableView.h"
 #import "PPChoosePetScrollView.h"
-#import "PPCommonTool.h"
 
 #import "PPMonsterMainView.h"
 

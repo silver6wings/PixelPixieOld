@@ -1,27 +1,22 @@
-//
-//  PPCookingScene.m
-//  PixelPixie
-//
-//  Created by xiefei on 7/8/14.
-//  Copyright (c) 2014 Psyches. All rights reserved.
-//
 
 #import "PPCookingScene.h"
+
 static NSString *monsterBtnTitle[]={
     @"Clear",
     @"Cooking Box",
     @"Cook"
 };
+
 @implementation PPCookingScene
+
 - (id)initWithSize:(CGSize)size
 {
     if (self=[super initWithSize:size]) {
         self.backgroundColor = [UIColor cyanColor];
         [self setBackTitleText:@"Cooking" andPositionY:360.0f];
         
-        
-        PPBasicSpriteNode *contentSpriteNode=[[PPBasicSpriteNode alloc] initWithColor:[UIColor blueColor] size:CGSizeMake(280, 200)];
-        contentSpriteNode.position=CGPointMake(160.0f, 220);
+        SKSpriteNode *contentSpriteNode = [[SKSpriteNode alloc] initWithColor:[UIColor blueColor] size:CGSizeMake(280, 200)];
+        contentSpriteNode.position = CGPointMake(160.0f, 220);
         contentSpriteNode.name = @"contentMonsterBox";
         SKTexture *boxTexture=nil;
         switch (0) {
