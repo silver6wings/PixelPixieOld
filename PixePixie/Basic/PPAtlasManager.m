@@ -1,7 +1,7 @@
 
-#import "TextureManager.h"
+#import "PPAtlasManager.h"
 
-@implementation TextureManager
+@implementation PPAtlasManager
 
 +(SKTextureAtlas *)ball_buff
 {

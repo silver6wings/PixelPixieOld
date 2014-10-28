@@ -21,23 +21,24 @@
     return self;
 }
 
+//
 -(void)introduceInfoLabel:(NSString *)text
 {
     SKSpriteNode * enemyDeadContent = [[SKSpriteNode alloc] initWithColor:[UIColor orangeColor] size:CGSizeMake(320, 350)];
     [enemyDeadContent setPosition:CGPointMake(160, 200)];
     [self addChild:enemyDeadContent];
     
-    PPBasicLabelNode * labelNode = (PPBasicLabelNode *)[self childNodeWithName:@"RoundLabel"];
+    SKLabelNode * labelNode = (SKLabelNode *)[self childNodeWithName:@"RoundLabel"];
     if (labelNode) [labelNode removeFromParent];
     
-    PPBasicLabelNode * additonLabel = [[PPBasicLabelNode alloc] init];
+    SKLabelNode * additonLabel = [[SKLabelNode alloc] init];
     additonLabel.name  = @"titleLabel";
     additonLabel.fontColor = [UIColor redColor];
     additonLabel.position = CGPointMake(0, 100);
     [additonLabel setText:text];
     [enemyDeadContent addChild:additonLabel];
     
-    PPBasicLabelNode * infoContentLabel = [[PPBasicLabelNode alloc] init];
+    SKLabelNode * infoContentLabel = [[SKLabelNode alloc] init];
     infoContentLabel.name  = @"contentLabel";
     infoContentLabel.fontColor = [UIColor redColor];
     infoContentLabel.position = CGPointMake(0, 0);
@@ -52,6 +53,7 @@
     [enemyDeadContent addChild:confirmButton];
 }
 
+//
 -(void)confirmBtnClick:(SKSpriteNode *)contentNode
 {
     if (contentNode != nil) {
@@ -60,6 +62,7 @@
     }
 }
 
+//
 -(void)addPassChoose
 {
     for (int i = 0; i < 5; i++) {
@@ -83,11 +86,13 @@
     }
 }
 
+//
 -(void)menuDungeonGoForward:(NSString *)stringName
 {
     [self enterHurdleReady];
 }
 
+//
 -(void)enterHurdleReady
 {
     SKNode * spriteNode = [self childNodeWithName:PP_GOFORWARD_MENU_DUNGEON_FIGHTING];
@@ -95,12 +100,6 @@
     
     NSDictionary * dictEnemy = [NSDictionary dictionaryWithContentsOfFile:
                                 [[NSBundle mainBundle]pathForResource:@"EnemyInfo" ofType:@"plist"]];
-    
-//    PPHurdleReadyScene * battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
-//    battleScene.allEnemys = dictEnemy;
-//    battleScene->previousScene = self;
-//    [battleScene setEnemysArray];
-//    [battleScene setCurrentHurdle:0];
 
     PPHurdleReadyScene * battleScene = [[PPHurdleReadyScene alloc] initWithSize:self.view.bounds.size];
     battleScene.allEnemys = dictEnemy;

@@ -15,7 +15,7 @@
 
 -(void)creatTreeWith:(PPElementType)elementType{
     
-    SKSpriteNode * backTree = [[SKSpriteNode alloc] initWithTexture:[[TextureManager ui_talent] textureNamed:[NSString stringWithFormat:@"%@_tree", kElementTypeString[elementType]]]];
+    SKSpriteNode * backTree = [[SKSpriteNode alloc] initWithTexture:[[PPAtlasManager ui_talent] textureNamed:[NSString stringWithFormat:@"%@_tree", kElementTypeString[elementType]]]];
     backTree.position = CGPointMake(self.size.width/2.0f, self.size.height/2.0f);
     backTree.size = CGSizeMake(290, 223*290/195);
     [self addChild:backTree];
@@ -23,7 +23,7 @@
     for (int i = 0; i < 10; i++) {
         NSString * textureName = [NSString stringWithFormat:@"%@_tree_%@",
                                   kElementTypeString[elementType], kSkillEnglishName[elementType][i]];
-        PPSpriteButton * monstersButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_talent] textureNamed:textureName]];
+        PPSpriteButton * monstersButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_talent] textureNamed:textureName]];
         monstersButton.position = CGPointMake(80*(i%3)-50,60*(i/3)-80);
         monstersButton.size = CGSizeMake(monstersButton.size.width/2.0f, monstersButton.size.height/2.0f);
         monstersButton.name = [NSString stringWithFormat:@"%d",i];

@@ -7,7 +7,6 @@
 }
 @end
 
-
 @implementation PPBasicScene
 
 - (id)initWithSize:(CGSize)size

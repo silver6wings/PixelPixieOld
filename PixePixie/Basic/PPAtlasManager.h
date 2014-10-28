@@ -40,7 +40,7 @@
 @end
 
 
-@interface TextureManager : NSObject
+@interface PPAtlasManager : NSObject
 
 +(SKTextureAtlas *)ball_buff;
 +(SKTextureAtlas *)ball_elements;

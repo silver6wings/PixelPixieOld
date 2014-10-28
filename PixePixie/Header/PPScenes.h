@@ -14,7 +14,6 @@
 #import "PPMenuDungeonScene.h"
 #import "PPHurdleReadyScene.h"
 #import "PPBallBattleScene.h"
-#import "PPPassNumberScene.h"
 
 #import "PPScheduleScene.h"
 #import "PPActivityDetailScene.h"

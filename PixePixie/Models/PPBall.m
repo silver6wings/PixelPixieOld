@@ -74,7 +74,7 @@
         
     }
     
-    PPBasicLabelNode * roundsLabel = [[PPBasicLabelNode alloc] init];
+    SKLabelNode * roundsLabel = [[SKLabelNode alloc] init];
     roundsLabel.name = @"roundsLabel";
     roundsLabel.fontColor = [UIColor redColor];
     roundsLabel.position = CGPointMake(10, 10);
@@ -110,7 +110,7 @@
 // 设置元素球的持续回合
 -(void)setRoundsLabel:(int)rounds
 {
-    PPBasicLabelNode * roundsLabel = (PPBasicLabelNode *)[self childNodeWithName:@"roundsLabel"];
+    SKLabelNode * roundsLabel = (SKLabelNode *)[self childNodeWithName:@"roundsLabel"];
     [roundsLabel setText:[NSString stringWithFormat:@"%d",rounds]];
 }
 
@@ -173,19 +173,19 @@
     // 创建元素撞击动画
 //    NSMutableArray * textureArray = [[NSMutableArray alloc] init];
 //    for (int i = 0; i >= 0; i--) {
-//        SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_00%02d",i]];
+//        SKTexture * textureCombo = [[PPAtlasManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_00%02d",i]];
 //
 //        [textureArray addObject:textureCombo];
 //    }
 //    for (int i = 0; i < 10; i++) {
-//        SKTexture * textureCombo = [[TextureManager ball_elements] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]];
+//        SKTexture * textureCombo = [[PPAtlasManager ball_elements] textureNamed:[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]];
 //        NSLog(@"textureName=%@",[NSString stringWithFormat:@"%@_hit_00%02d",kElementTypeString[self.ballElementType],i]);
 //        
 //        [textureArray addObject:textureCombo];
 //    }
 //    self.comboBallTexture = textureArray;
     
-    SKAction *actionHit=[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_hit",kElementTypeString[self.ballElementType]]];
+    SKAction *actionHit=[[PPAtlasManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_hit",kElementTypeString[self.ballElementType]]];
     
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
@@ -231,7 +231,7 @@
       NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 23; i >= 0; i--) {
         
-        SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_00%02d",i]];
+        SKTexture * textureCombo = [[PPAtlasManager ball_table] textureNamed:[NSString stringWithFormat:@"element_birth_%04d",i]];
         [textureArray addObject:textureCombo];
         
     }
@@ -277,7 +277,7 @@
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     
-    [self.comboBallSprite runAction:[[TextureManager ball_elements] getAnimation:
+    [self.comboBallSprite runAction:[[PPAtlasManager ball_elements] getAnimation:
                                      [NSString stringWithFormat:@"%@_%@", kElementTypeString[self.ballElementType], pose]]
                          completion:^{
                              [self.comboBallSprite removeFromParent];
@@ -289,7 +289,7 @@
 {
     NSMutableArray * textureArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 15; i++) {
-        SKTexture * textureCombo = [[TextureManager ball_table] textureNamed:[NSString stringWithFormat:@"pixie_heal_00%02d",i]];
+        SKTexture * textureCombo = [[PPAtlasManager ball_table] textureNamed:[NSString stringWithFormat:@"pixie_heal_%04d",i]];
         [textureArray addObject:textureCombo];
     }
     self.comboBallTexture = textureArray;
@@ -324,7 +324,7 @@
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     
-    [self.comboBallSprite runAction:[[TextureManager ball_table] getAnimation:@"combo_ball"]
+    [self.comboBallSprite runAction:[[PPAtlasManager ball_table] getAnimation:@"combo_ball"]
                          completion:^{[self.comboBallSprite removeFromParent];}];
 }
 
@@ -344,12 +344,12 @@
     [self addChild:self.comboBallSprite];
     
     
-//    [self.comboBallSprite runAction:[[TextureManager ball_magic] getAnimation:@"magic_ball"]
+//    [self.comboBallSprite runAction:[[PPAtlasManager ball_magic] getAnimation:@"magic_ball"]
 //                         completion:^{[self.comboBallSprite removeFromParent];}];
     
     
     
-    [self runAction:[[TextureManager ball_magic] getAnimation:@"magic_ball"]
+    [self runAction:[[PPAtlasManager ball_magic] getAnimation:@"magic_ball"]
                          completion:^{
                              
                              self.size = CGSizeMake(1.0f, 1.0f);
@@ -367,7 +367,7 @@
         self.comboBallSprite = nil;
     }
     
-    self.comboBallSprite =[[SKSpriteNode alloc] initWithTexture:[[TextureManager ball_magic] textureNamed:@"plant_root"]];
+    self.comboBallSprite =[[SKSpriteNode alloc] initWithTexture:[[PPAtlasManager ball_magic] textureNamed:@"plant_root"]];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
     [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
@@ -378,7 +378,7 @@
 {
     
     if (self.comboBallSprite != nil&&!appearOrDisappear) {
-        SKAction *action= [[TextureManager ball_buff] getAnimation:@"plant_root_disappear"];
+        SKAction *action= [[PPAtlasManager ball_buff] getAnimation:@"plant_root_disappear"];
         [self.comboBallSprite runAction:action
                              completion:^{
                                  [self.comboBallSprite removeFromParent];
@@ -399,7 +399,7 @@
 
         [self addChild:self.comboBallSprite];
 
-        SKAction *   action= [[TextureManager ball_buff] getAnimation:@"plant_root_appear"];
+        SKAction *   action= [[PPAtlasManager ball_buff] getAnimation:@"plant_root_appear"];
         [self.comboBallSprite runAction:action
                              completion:^{
                     
@@ -422,7 +422,7 @@
     [self addChild:self.comboBallSprite];
     
     
-    [self.comboBallSprite runAction:[[TextureManager ball_table] getAnimation:@"element_birth"]
+    [self.comboBallSprite runAction:[[PPAtlasManager ball_table] getAnimation:@"element_birth"]
                          completion:^{
                              [self.comboBallSprite removeFromParent];
                              [self startAuraAnimation];
@@ -448,8 +448,8 @@
     textureNode.size= CGSizeMake(kBallSize, kBallSize);
     [self.comboBallSprite addChild:textureNode];
     
-    SKAction *actionAura=[[TextureManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_aura",kElementTypeString[self.ballElementType]]];
-    SKAction *actionAuraContray = [[TextureManager ball_elements] getAnimationContrary:[NSString stringWithFormat:@"%@_aura",kElementTypeString[self.ballElementType]]];
+    SKAction *actionAura=[[PPAtlasManager ball_elements] getAnimation:[NSString stringWithFormat:@"%@_aura",kElementTypeString[self.ballElementType]]];
+    SKAction *actionAuraContray = [[PPAtlasManager ball_elements] getAnimationContrary:[NSString stringWithFormat:@"%@_aura",kElementTypeString[self.ballElementType]]];
     NSArray *arrayAnimation = [NSArray arrayWithObjects:actionAura,actionAuraContray, nil];
     SKAction *actionSqueues=[SKAction sequence:arrayAnimation];
   

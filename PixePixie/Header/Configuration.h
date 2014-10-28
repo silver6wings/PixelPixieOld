@@ -1,8 +1,4 @@
 
-#import "ConstantData.h"
-#import "PPCommonTool.h"
-#import "TextureManager.h"
-
 #define CurrentDeviceRealSize   [UIScreen mainScreen].bounds.size
 #define CustomAlertFrame        CGRectMake(160.0f, 300.0f, 320.0f, 200.0f)
 
@@ -23,9 +19,9 @@
 #define PP_BALL_TYPE_COMBO_NAME         @"comboballname"
 #define PP_BALL_TYPE_PET_ELEMENT_NAME   @"petelementball"
 #define PP_BALL_TYPE_ENEMY_ELEMENT_NAME @"enemyelementball"
+
 #define PP_PET_COMBOS_NAME      @"petcombos"
 #define PP_ENEMY_COMBOS_NAME    @"enemycombos"
-
 
 #define PP_BACK_BUTTON_ZPOSITION 100
 
@@ -41,6 +37,3 @@
 #define PP_CHOOSE_PET_CONTENT_TAG 700
 #define PP_ELEMENT_NAME_TAG 700
 #define PP_MAP_SCROLL_VIEW_TAG 800
-
-
-

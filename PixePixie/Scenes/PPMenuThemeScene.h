@@ -1,6 +1,6 @@
 
 
-@interface PPMenuThemeScene : PPBasicScene
+@interface PPMenuThemeScene : PPBasicScene <UIScrollViewDelegate>
 {
     @public
     UIButton *  backButton;

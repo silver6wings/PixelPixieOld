@@ -22,7 +22,7 @@
 -(void)setSideSkillsBtn:(PPPixie *)ppixie andSceneString:(NSString *)sceneString
 {
     // 添加下方背景图片
-    SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_footer_back",sceneString]]];
+    SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_footer_back",sceneString]]];
     bgSprite.size = CGSizeMake(320.0f, 80.0f);
     bgSprite.position = CGPointMake(0.0f,0.0f);
     [self addChild:bgSprite];
@@ -46,7 +46,7 @@
         
         if (![stringSkillStatus isEqualToString:@"valid"]) {
             stringSkillBtn = [NSString stringWithFormat:@"%@_none",kElementTypeString[ppixie.pixieElement]];
-            passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:stringSkillBtn]
+            passButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager skill_icon] textureNamed:stringSkillBtn]
                                                    andSize:CGSizeMake(50.0f, 50.0f)];
             //            [passButton setLabelWithText:@"不可用" andFont:[UIFont boldSystemFontOfSize:14.0f] withColor:[UIColor whiteColor]];
             
@@ -55,7 +55,7 @@
                        withObject:passButton forControlEvent:PPButtonControlEventTouchUp];
             
         } else {
-            passButton = [PPSpriteButton buttonWithTexture:[[TextureManager skill_icon] textureNamed:stringSkillBtn]
+            passButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager skill_icon] textureNamed:stringSkillBtn]
                                                    andSize:CGSizeMake(50.0f, 50.0f)];
             [passButton addTarget:self selector:@selector(skillSideClick:)
                        withObject:passButton forControlEvent:PPButtonControlEventTouchUp];
@@ -69,7 +69,7 @@
         
         if ([ppixie.pixieSkills count] > i && [stringSkillStatus isEqualToString:@"valid"]) {
             
-            PPBasicLabelNode * skillName = [[PPBasicLabelNode alloc] init];
+            SKLabelNode * skillName = [[SKLabelNode alloc] init];
             skillName.fontSize = 12;
             [skillName setText:[[ppixie.pixieSkills objectAtIndex:i] objectForKey:@"skillname"]];
             [skillName setPosition:CGPointMake(passButton.position.x,
@@ -79,7 +79,7 @@
     }
     
     //暂停按钮
-    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_footer_pause",sceneString]]
+    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_footer_pause",sceneString]]
                                                           andSize:CGSizeMake(32.5, 32.5)];
     stopBtn.position = CGPointMake(130.0f, 0.0f);
     stopBtn.name = @"stopBtn";
@@ -97,14 +97,14 @@
     isHaveDead = NO;
     
     // 添加上方背景图片
-    SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_back",sceneString]]];
+    SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_back",sceneString]]];
     bgSprite.size = CGSizeMake(320.0f, 80.0f);
     bgSprite.position = CGPointMake(0.0f,0.0f);
     [self addChild:bgSprite];
     
     
     // 己方头像
-    ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
+    ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
                                              andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
@@ -114,7 +114,7 @@
     
     
     // 己方连击数
-    PPBasicLabelNode *ppixiePetBtnLabel = [[PPBasicLabelNode alloc] init];
+    SKLabelNode *ppixiePetBtnLabel = [[SKLabelNode alloc] init];
     ppixiePetBtnLabel.fontSize = 10;
     ppixiePetBtnLabel.name = PP_PET_COMBOS_NAME;
     [ppixiePetBtnLabel setColor:[SKColor redColor]];
@@ -171,7 +171,7 @@
     
     
     // 敌方头像
-    ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[TextureManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
+    ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
                                                andSize:CGSizeMake(32.5f, 32.5f)];
     [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
     ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
@@ -180,7 +180,7 @@
     
     
     // 敌方连击数
-    PPBasicLabelNode *ppixieBtnLabel = [[PPBasicLabelNode alloc] init];
+    SKLabelNode *ppixieBtnLabel = [[SKLabelNode alloc] init];
     ppixieBtnLabel.fontSize = 10;
     ppixieBtnLabel.name = PP_ENEMY_COMBOS_NAME;
     NSLog(@"pixieName=%@",enemyppixie.pixieName);
@@ -193,7 +193,7 @@
     for (int i = 0; i < [currentPPPixie.pixieBuffs count]; i++)
     {
         // 添加宠物buff槽
-        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixie.pixieElement],i+1]]
+        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixie.pixieElement],i+1]]
                                                                 andSize:CGSizeMake(25.0f, 25.0f)];
         passButton.position = CGPointMake(30*i - 90.0f, -20.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
@@ -205,7 +205,7 @@
     for (int i = (int)[currentPPPixie.pixieBuffs count]-1; i >= 0; i--)
     {
         // 添加怪物buff槽
-        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[TextureManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixieEnemy.pixieElement],i+1]]
+        PPSpriteButton * passButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixieEnemy.pixieElement],i+1]]
                                                                 andSize:CGSizeMake(25.0f, 25.0f)];
         passButton.position = CGPointMake(30*(3-i) -55.0f+enemyPlayerHP.position.x, -20.0f);
         passButton.name =[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG + i];
@@ -216,7 +216,7 @@
         
     }
     
-    //    PPBasicLabelNode *ppixiePetNameLabel=[[PPBasicLabelNode alloc] init];
+    //    SKLabelNode *ppixiePetNameLabel=[[SKLabelNode alloc] init];
     //    ppixiePetNameLabel.fontSize=12;
     //    [ppixiePetNameLabel setColor:[SKColor blueColor]];
     //    NSLog(@"pixieName=%@",petppixie.pixieName);
@@ -231,7 +231,7 @@
     //    [stopBtn addTarget:self selector:@selector(stopBtnClick:) withObject:stopBtn.name forControlEvent:PPButtonControlEventTouchUpInside];
     //    [self addChild:stopBtn];
     
-    //    PPBasicLabelNode *ppixieNameLabel=[[PPBasicLabelNode alloc] init];
+    //    SKLabelNode *ppixieNameLabel=[[SKLabelNode alloc] init];
     //    ppixieNameLabel.fontSize=12;
     //    [ppixieNameLabel setColor:[SKColor redColor]];
     //    NSLog(@"pixieName=%@",enemyppixie.pixieName);
@@ -244,8 +244,8 @@
 {
     NSLog(@"combos:%d,%d",petCombos,enemyCombos);
     
-    PPBasicLabelNode *petCombosLabel = (PPBasicLabelNode *)[self childNodeWithName:PP_PET_COMBOS_NAME];
-    PPBasicLabelNode *enemyCombosLabel = (PPBasicLabelNode *)[self childNodeWithName:PP_ENEMY_COMBOS_NAME];
+    SKLabelNode *petCombosLabel = (SKLabelNode *)[self childNodeWithName:PP_PET_COMBOS_NAME];
+    SKLabelNode *enemyCombosLabel = (SKLabelNode *)[self childNodeWithName:PP_ENEMY_COMBOS_NAME];
     
     [petCombosLabel setText:[NSString stringWithFormat:@"连击:%d", petCombos]];
     [enemyCombosLabel setText:[NSString stringWithFormat:@"连击:%d", enemyCombos]];
@@ -496,7 +496,7 @@
         number /= 10;
         
         NSString * tNumName = [NSString stringWithFormat:@"%@_%d.png", color, tNum];
-        SKSpriteNode * tNumNode = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_number] textureNamed:tNumName]];
+        SKSpriteNode * tNumNode = [SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager ui_number] textureNamed:tNumName]];
         tNumNode.position = CGPointMake(-width * i, 0);
         tNumNode.xScale = 0.5;
         tNumNode.yScale = 0.5;

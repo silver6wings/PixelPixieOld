@@ -3,8 +3,8 @@
 #import "PPBattleInfoLayer.h"
 
 #define SPACE_BOTTOM 80
-#define BALL_RANDOM_X (kBallSize / 2 + arc4random() % (int)(320 - kBallSize))
-#define BALL_RANDOM_Y (kBallSize / 2 + arc4random() % (int)(320 - kBallSize) + SPACE_BOTTOM)
+#define BALL_RANDOM_X (kBallSize / 2 + arc4random() % (int)(320 - kBallSizePixie))
+#define BALL_RANDOM_Y (kBallSize / 2 + arc4random() % (int)(320 - kBallSizePixie) + SPACE_BOTTOM)
 
 // 物理实体类型
 typedef NS_OPTIONS (int, EntityCategory)
@@ -73,8 +73,6 @@ int velocityValue (int x, int y) {
         
         // 帧数间隔计数
         frameFlag = 0;
-        
-        
     
         // 处理参数
         self.pixiePlayer = pixieA;
@@ -102,14 +100,14 @@ int velocityValue (int x, int y) {
         
         // 添加背景图片
         SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@_wall_back.png",sceneTypeString]];
-        bg.size = CGSizeMake(320.0f, 320.0f);
-        bg.position = CGPointMake(CGRectGetMidX(self.frame), 160.0f + SPACE_BOTTOM + PP_FIT_TOP_SIZE);
+        bg.size = CGSizeMake(320, 320);
+        bg.position = CGPointMake(CGRectGetMidX(self.frame), 160 + SPACE_BOTTOM + PP_FIT_TOP_SIZE);
         [self addChild:bg];
         
         // 添加状态条
         self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
-        self.playerSkillSide.position= CGPointMake(self.size.width/2.0f, 40 + PP_FIT_TOP_SIZE);
-        self.playerSkillSide.size =  CGSizeMake(self.size.width, 80.0f);
+        self.playerSkillSide.position = CGPointMake(self.size.width/2, 40 + PP_FIT_TOP_SIZE);
+        self.playerSkillSide.size =  CGSizeMake(self.size.width, 80);
         self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
         self.playerSkillSide.target = self;
         self.playerSkillSide.skillSelector = @selector(skillPlayerShowBegin:);
@@ -131,19 +129,11 @@ int velocityValue (int x, int y) {
         self.ballPlayer = pixieA.pixieBall;
         self.ballPlayer.name = @"ball_player";
         self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
-        
-        self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
-        if (self.ballPlayer.position.x>=290) {
-            self.ballPlayer.position = CGPointMake(290.0f, self.ballPlayer.position.y);
-        }
-        if (fabsf(self.ballPlayer.position.y)>380) {
-            self.ballPlayer.position = CGPointMake(self.ballPlayer.position.x, 380);
-            
-        }
+        self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
         
         self.ballPlayer.physicsBody.categoryBitMask = EntityCategoryBall;
         self.ballPlayer.physicsBody.contactTestBitMask = EntityCategoryBall;
-        self.ballPlayer.physicsBody.density=1.0f;
+        self.ballPlayer.physicsBody.density = 1.0f;
         [self addChild:self.ballPlayer];
         
         // 添加连击球
@@ -154,9 +144,9 @@ int velocityValue (int x, int y) {
             PPBall * comboBall = [PPBall ballWithCombo];
             comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
             comboBall.name = PP_BALL_TYPE_COMBO_NAME;
+            comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
             comboBall.physicsBody.contactTestBitMask = EntityCategoryBall;
             comboBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:i];
-            comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
             [self addChild:comboBall];
             [self.ballsCombos addObject:comboBall];
         }
@@ -174,8 +164,6 @@ int velocityValue (int x, int y) {
 
 -(void)willMoveFromView:(SKView *)view
 {
- 
-
 }
 
 // 每帧处理程序开始
@@ -678,7 +666,7 @@ int velocityValue (int x, int y) {
         [enemyDeadContent setPosition:CGPointMake(160.0f, 300)];
         [self addChild:enemyDeadContent];
         
-        NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"怪物%d号 死了",currentEnemyIndex],@"context":@"请干下一个怪物"};
+        NSDictionary *alertInfo = @{@"title":[NSString stringWithFormat:@"打倒怪物%d号",currentEnemyIndex], @"context":@"下一个怪物"};
         
         SKLabelNode * titleNameLabel=[[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
         titleNameLabel.fontSize = 13;
@@ -699,7 +687,7 @@ int velocityValue (int x, int y) {
         
     } else {
         
-        NSDictionary * dict = @{@"title":@"宠物死了",@"context":@"你太sb了"};
+        NSDictionary * dict = @{@"title":@"您的宠物已被打倒", @"context":@"请选择其他宠物出战"};
         PPCustomAlertNode * alertCustom=[[PPCustomAlertNode alloc] initWithFrame:CustomAlertFrame];
         [alertCustom showCustomAlertWithInfo:dict];
         [self addChild:alertCustom];
@@ -1041,7 +1029,7 @@ int velocityValue (int x, int y) {
         number /= 10;
         
         NSString * tNumName = [NSString stringWithFormat:@"%@_%d.png", color, tNum];
-        SKSpriteNode * tNumNode = [SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_number] textureNamed:tNumName]];
+        SKSpriteNode * tNumNode = [SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager ui_number] textureNamed:tNumName]];
         tNumNode.position = CGPointMake(-width * i, 0);
         tNumNode.xScale = 0.5;
         tNumNode.yScale = 0.5;
@@ -1160,7 +1148,7 @@ int velocityValue (int x, int y) {
     SKSpriteNode *contentSprite= [[SKSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(30, 30)];
     contentSprite.position = labelPosition;
     
-    SKSpriteNode *xSpriteNode=[SKSpriteNode spriteNodeWithTexture:[[TextureManager ui_number] textureNamed:@"orange_x"]];
+    SKSpriteNode *xSpriteNode=[SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager ui_number] textureNamed:@"orange_x"]];
     xSpriteNode.position = CGPointMake(-7.5, 0.0f);
     xSpriteNode.size = CGSizeMake(14.0f, 13.0f);
     
@@ -1189,7 +1177,7 @@ int velocityValue (int x, int y) {
 -(void)addValueChangeLabel:(int)value position:(CGPoint)labelPosition andColor:(NSString *)string
 {
     
-//    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+//    SKLabelNode *additonLabel= [[SKLabelNode alloc] init];
    SKSpriteNode * additonLabel = [self getNumber:value AndColor:string];
     additonLabel.name  = @"hpchange";
 //    additonLabel.fontColor = [UIColor redColor];
@@ -1208,7 +1196,7 @@ int velocityValue (int x, int y) {
 -(void)setRoundNumberLabel:(NSString *)text begin:(BOOL)isBegin
 {
     
-//    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+//    SKLabelNode *additonLabel= [[SKLabelNode alloc] init];
 //    additonLabel.name  = @"RoundLabel";
 //    additonLabel.fontColor = [UIColor redColor];
 //    additonLabel.position = CGPointMake(160.0f, 200.0f);
@@ -1237,7 +1225,7 @@ int velocityValue (int x, int y) {
         [roundLabelContent addChild:numberNode];
 
         
-        PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+        SKLabelNode *additonLabel= [[SKLabelNode alloc] init];
         additonLabel.name  = @"RoundLabel";
         additonLabel.fontColor = [UIColor redColor];
         additonLabel.position = CGPointMake(numberNode.position.x+numberNode.size.width/2.0f+10.0f, -6.0f);
@@ -1284,7 +1272,7 @@ int velocityValue (int x, int y) {
         [roundLabelContent addChild:numberNode];
         
         
-        PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+        SKLabelNode *additonLabel= [[SKLabelNode alloc] init];
         additonLabel.name  = @"RoundLabel";
         additonLabel.fontColor = [UIColor redColor];
         additonLabel.position = CGPointMake(numberNode.position.x+numberNode.size.width/2.0f+10.0f, -6.0f);
@@ -1356,11 +1344,11 @@ int velocityValue (int x, int y) {
          */
         
         
-        PPBasicLabelNode * labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"EnemyPhysics"];
+        SKLabelNode * labelNode=(SKLabelNode *)[self childNodeWithName:@"EnemyPhysics"];
         if (labelNode) [labelNode removeFromParent];
         
         
-        PPBasicLabelNode * additonLabel= [[PPBasicLabelNode alloc] init];
+        SKLabelNode * additonLabel= [[SKLabelNode alloc] init];
         additonLabel.name  = @"EnemyPhysics";
         additonLabel.position = CGPointMake(160.0f, 200.0f);
         [additonLabel setText:@"怪物弹球攻击"];
@@ -1405,12 +1393,12 @@ int velocityValue (int x, int y) {
 -(void)skillInvalidBtnClick:(NSDictionary *)skillInfo
 {
     
-    PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"mpisnotenough"];
+    SKLabelNode *labelNode=(SKLabelNode *)[self childNodeWithName:@"mpisnotenough"];
     if (labelNode) {
         [labelNode removeFromParent];
     }
     
-    PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+    SKLabelNode *additonLabel= [[SKLabelNode alloc] init];
     additonLabel.name  = @"mpisnotenough";
     additonLabel.fontColor = [UIColor redColor];
     additonLabel.position = CGPointMake(160.0f, 200.0f);
@@ -1441,12 +1429,12 @@ int velocityValue (int x, int y) {
     
     if (self.playerAndEnemySide.currentPPPixie.currentMP<fabsf(mpToConsume)) {
         
-        PPBasicLabelNode *labelNode=(PPBasicLabelNode *)[self childNodeWithName:@"mpisnotenough"];
+        SKLabelNode *labelNode=(SKLabelNode *)[self childNodeWithName:@"mpisnotenough"];
         if (labelNode) {
             [labelNode removeFromParent];
         }
         
-        PPBasicLabelNode *additonLabel= [[PPBasicLabelNode alloc] init];
+        SKLabelNode *additonLabel= [[SKLabelNode alloc] init];
         additonLabel.name  = @"mpisnotenough";
         additonLabel.fontColor = [UIColor redColor];
         additonLabel.position = CGPointMake(160.0f, 200.0f);
@@ -1497,7 +1485,7 @@ int velocityValue (int x, int y) {
                 //                NSMutableArray *animanArryay = [[NSMutableArray alloc] init];
                 //
                 //                for (int i=0; i <10; i++) {
-                //                    SKTexture * temp = [[TextureManager ball_magic] textureNamed:[NSString stringWithFormat:@"magic_ball_00%02d",i]];
+                //                    SKTexture * temp = [[PPAtlasManager ball_magic] textureNamed:[NSString stringWithFormat:@"magic_ball_00%02d",i]];
                 //                    [animanArryay addObject:temp];
                 //                }
                 

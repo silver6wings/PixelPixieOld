@@ -33,13 +33,13 @@ static NSString * joinTitle[] = {
             SKSpriteNode * activityBarContent = [[SKSpriteNode alloc] initWithColor:[UIColor brownColor] size:CGSizeMake(280.0f, 50)];
             activityBarContent.position = CGPointMake(160.0f, 30+70.0f*i);
             
-            PPBasicLabelNode * labalTitle = [[PPBasicLabelNode alloc] init];
+            SKLabelNode * labalTitle = [[SKLabelNode alloc] init];
             labalTitle.fontSize = 12;
             [labalTitle setText:activityTitle[i]];
             [labalTitle setPosition:CGPointMake(-100.0f, 0.0)];
             [activityBarContent addChild:labalTitle];
             
-            PPBasicLabelNode * labalContent = [[PPBasicLabelNode alloc] init];
+            SKLabelNode * labalContent = [[SKLabelNode alloc] init];
             labalContent.fontSize = 12;
             [labalContent setText:@"活动信息"];
             [labalContent setPosition:CGPointMake(0.0f, 0.0)];
