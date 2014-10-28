@@ -260,9 +260,11 @@
     }
     
     // 调整方向
-    double rotation = atan(velocity.dy/velocity.dx);
-    rotation = velocity.dx > 0 ? rotation : rotation + 3.1415926;
-    self.comboBallSprite.zRotation = rotation;
+    if (self.comboBallSprite != nil){
+        double rotation = atan(velocity.dy/velocity.dx);
+        rotation = velocity.dx > 0 ? rotation : rotation + 3.1415926;
+        self.comboBallSprite.zRotation = rotation;
+    }
 }
 
 // 治疗动画
