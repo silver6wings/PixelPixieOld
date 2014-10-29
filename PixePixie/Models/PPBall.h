@@ -36,13 +36,14 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
 }
 
 @end
-
+@class PPBallBattleScene;
 @interface PPBall : SKSpriteNode
 {
     
     @public
     id target;
     SEL animationEndSel;
+    PPBallBattleScene *battleCurrentScene;
     
 }
 
@@ -132,12 +133,11 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyK
 /**
 * @brief 陷阱缠绕动画
 * @param isAppear 是缠绕出现  YES代表缠绕动画   NO代表缠绕消失动画
-* @param sceneBattle 战斗scene。
 * @attention
 * @warning
 * @return
 */
--(void)startPlantrootAppearOrDisappear:(BOOL)isAppear andScene:(PPBasicScene *)sceneBattle;
+-(void)startPlantrootAppearOrDisappear:(BOOL)isAppear;
 
 
 @end

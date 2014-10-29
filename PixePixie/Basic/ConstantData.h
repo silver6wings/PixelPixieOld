@@ -21,6 +21,7 @@ static const float kFrameInterval = 0.04f;          // FPS默认25
 
 static const int kSkillCountMax = 10;       // 每个宠物拥有技能个数
 static const int kElementTypeMax = 10;      // 最大元素类型个数
+static const int kHurtBasicValue = 200.0f;      // 物理攻击基础伤害值
 
 // 元素对应字符串
 static  NSString * kElementTypeString[kElementTypeMax+1] = {
@@ -34,6 +35,14 @@ static  NSString * kElementTypeString[kElementTypeMax+1] = {
     @"posion",
     @"ice",
     @"blaze",
+    @"stone"
+};
+
+// buff名称对照列表
+static  NSString * kBuffNameList[10] = {
+    @"none",
+    @"fire_burn",  //buffid  1为灼烧
+    @"plant_root", //buffid  2为缠绕
     @"stone"
 };
 

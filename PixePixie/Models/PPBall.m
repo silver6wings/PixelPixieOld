@@ -126,7 +126,7 @@
     PPBuff *buff=[[PPBuff alloc] init];
     buff.buffName = buffName;
     buff.continueRound = continueRound;
-    buff.buffId = @"1";
+    buff.buffId = @"2";
     
     [self.ballBuffs addObject:buff];
     
@@ -149,12 +149,15 @@
 -(void)removeBuff:(PPBuff *)buff
 {
     switch ([buff.buffId intValue]) {
-        case 1:
+        case 2:
         {
+            
             self.physicsBody.PPBallSkillStatus=0;
-            [self startPlantrootAppearOrDisappear:NO andScene:(PPBasicScene *)self.parent];
+            [self startPlantrootAppearOrDisappear:NO];
             self.physicsBody.density = 1.0f;
             self.physicsBody.dynamic = YES;
+            
+            [battleCurrentScene removeBuff:buff andSide:PP_ENEMY_SIDE_NODE_NAME];
         }
             break;
             
@@ -165,6 +168,7 @@
     [self.ballBuffs removeObject:buff];
     
 }
+
 #pragma mark Animation  球体各种动画
 
 -(void)startElementBallHitAnimation:(NSMutableArray *)ballArray isNeedRemove:(BOOL)isNeed andScene:(PPBasicScene *)battleScene
@@ -337,7 +341,7 @@
 }
 
 // 创建被缠绕动画
--(void)startPlantrootAppearOrDisappear:(BOOL)isAppear andScene:(PPBasicScene *)sceneBattle;
+-(void)startPlantrootAppearOrDisappear:(BOOL)isAppear
 {
     
     if (isAppear) {

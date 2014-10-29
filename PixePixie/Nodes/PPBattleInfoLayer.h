@@ -6,10 +6,11 @@
 {
     PPValueShowNode *petPlayerHP;
     PPValueShowNode *enemyPlayerHP;
-    
     PPValueShowNode *petPlayerMP;
     PPValueShowNode *enemyPlayerMP;
     BOOL isHaveDead;
+    
+    
 }
 //回调对象
 @property(nonatomic, assign) id target;
@@ -49,5 +50,9 @@
 -(void)setBufferBar:(NSArray *)buffs;
 
 -(void)shakeHeadPortrait:(NSString *)stringSide andCompletion:(PPBallBattleScene *)sceneBattle;
+-(void)addBuffShow:(PPBuff *)buffShow andSide:(NSString *)stringSide;
+
+-(void)removeBuffShow:(PPBuff *)buffShow andSide:(NSString *)stringSide;
+
 
 @end

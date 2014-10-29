@@ -250,18 +250,18 @@ NSString * menu[] = {
     
     [self changeMenuState:0];
 
-    // 添加上下两个条
-    if (CurrentDeviceRealSize.height > 500) {
-        UIImageView * upBlackBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ui_fit_top.png"]];
-        upBlackBar.frame = CGRectMake(0, 0, 320, 44);
-        [upBlackBar setBackgroundColor:[UIColor blackColor]];
-        [self.view addSubview:upBlackBar];
-        
-        UIImageView * downBlackBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ui_fit_bottom.png"]];
-        downBlackBar.frame = CGRectMake(0, self.view.frame.size.height-44, 320, 44);
-        [downBlackBar setBackgroundColor:[UIColor blackColor]];
-        [self.view addSubview:downBlackBar];
-    }
+//    // 添加上下两个条
+//    if (CurrentDeviceRealSize.height > 500) {
+//        UIImageView * upBlackBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ui_fit_top.png"]];
+//        upBlackBar.frame = CGRectMake(0, 0, 320, 44);
+//        [upBlackBar setBackgroundColor:[UIColor blackColor]];
+//        [self.view addSubview:upBlackBar];
+//        
+//        UIImageView * downBlackBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ui_fit_bottom.png"]];
+//        downBlackBar.frame = CGRectMake(0, self.view.frame.size.height-44, 320, 44);
+//        [downBlackBar setBackgroundColor:[UIColor blackColor]];
+//        [self.view addSubview:downBlackBar];
+//    }
 }
 
 -(void)counterpartEnter:(id)obj

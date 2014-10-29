@@ -306,7 +306,7 @@
 					<key>skillbtntexture</key>
 					<string>fire_burn</string>
 					<key>skillhpchange</key>
-					<integer>-800</integer>
+					<integer>-200</integer>
 					<key>skillmpchange</key>
 					<integer>-200</integer>
 					<key>skilltype</key>

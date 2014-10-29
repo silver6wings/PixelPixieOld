@@ -131,7 +131,7 @@ int velocityValue (int x, int y) {
         self.ballPlayer.name = @"ball_player";
         self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
         self.ballPlayer.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
-        
+        self.ballPlayer->battleCurrentScene = self;
         self.ballPlayer.physicsBody.categoryBitMask = EntityCategoryBall;
         self.ballPlayer.physicsBody.contactTestBitMask = EntityCategoryBall;
         self.ballPlayer.physicsBody.density = 1.0f;
@@ -358,11 +358,13 @@ int velocityValue (int x, int y) {
                     
                     //森林瞬起
                     enemyAssimDiffEleNum ++;
-                    [self.ballEnemy startPlantrootAppearOrDisappear:YES andScene:self];
+                    [self.ballEnemy startPlantrootAppearOrDisappear:YES];
                     self.ballEnemy.physicsBody.velocity = CGVectorMake(0.0f, 0.0f);
                     self.ballEnemy.physicsBody.PPBallSkillStatus = @1;
                     [self.ballEnemy addBuffWithName:@"snare" andRoundNum:1];
                     
+                    [self.playerAndEnemySide addBuffShow:[self getBuff:@"2"] andSide:PP_ENEMY_SIDE_NODE_NAME];
+
                     if (self.ballEnemy.physicsBody == contact.bodyA) {
                         [contact.bodyB.node removeFromParent];
                     } else {
@@ -725,6 +727,7 @@ int velocityValue (int x, int y) {
     // 添加 Ball of Enemey
     self.ballEnemy = self.pixieEnemy.pixieBall;
     self.ballEnemy.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
+    self.ballEnemy->battleCurrentScene = self;
     if (fabsf(self.ballEnemy.position.x)>=290) {
         self.ballEnemy.position = CGPointMake(290.0f, self.ballPlayer.position.y);
     }
@@ -976,6 +979,11 @@ int velocityValue (int x, int y) {
         PPBall * tBall = [self.ballsElement objectAtIndex:i];
         tBall.physicsBody.PPBallPhysicsBodyStatus=[NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+i];
     }
+}
+-(PPBuff *)getBuff:(NSString *)buffId{
+    PPBuff *buffTmp=[[PPBuff alloc] init];
+    buffTmp.buffId = buffId;
+    return buffTmp;
 }
 
 //获取图片拼接node
@@ -1426,23 +1434,40 @@ int velocityValue (int x, int y) {
 {
     NSLog(@"battlesideName=%@",battlesideName);
 }
-
+-(void)removeBuff:(PPBuff *)buffToRemove andSide:(NSString *)stringSide
+{
+    
+    [self.playerAndEnemySide removeBuffShow:buffToRemove andSide:stringSide];
+    
+}
 #pragma mark Physics Attack show
 
 //计算物理伤害
--(int)physicsAttackHPChangeValueCalculate
+-(int)physicsAttackHPChangeValueCalculate:(NSString *)stringSide
 {
-    return 300;
+    float hpChange = 0.0f;
+    if ([stringSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
+        hpChange = kHurtBasicValue*(1.0f+petCombos*petCombos/100.0f);
+
+    }else
+    {
+        hpChange = kHurtBasicValue*(1.0f+enemyCombos*enemyCombos/100.0f);
+
+    }
+    NSLog(@"hpChange=%f petCombos=%d  enemyCombos=%d",hpChange,petCombos,enemyCombos);
+    
+    
+    return (int)hpChange;
 }
 
-//物理攻击结束（废弃）
+//物理攻击结束
 -(void)physicsAttackAnimationEnd:(NSString *)stringSide
 {
     if ([stringSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
-        [self.playerAndEnemySide changeEnemyHPValue:-[self physicsAttackHPChangeValueCalculate]];
+        [self.playerAndEnemySide changeEnemyHPValue:-[self physicsAttackHPChangeValueCalculate:stringSide]];
         [self roundRotateMoved:stringSide];
     } else {
-        [self.playerAndEnemySide changePetHPValue:-[self physicsAttackHPChangeValueCalculate]];
+        [self.playerAndEnemySide changePetHPValue:-[self physicsAttackHPChangeValueCalculate:stringSide]];
         [self roundRotateMoved:stringSide];
     }
 }
@@ -1497,11 +1522,15 @@ int velocityValue (int x, int y) {
         if (skillInfo.skillObject == 1) {
             [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];
         } else {
+            
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         }
         [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
     } else {
         if (skillInfo.skillObject == 1) {
+            if ([skillInfo.skillName isEqualToString:@"狼焰斩"]) {
+                [self.playerAndEnemySide addBuffShow:[self getBuff:@"1"] andSide:PP_ENEMY_SIDE_NODE_NAME];
+            }
             [self.playerAndEnemySide changeEnemyHPValue:skillInfo.HPChangeValue];
         } else {
             [self.playerAndEnemySide changePetHPValue:skillInfo.HPChangeValue];

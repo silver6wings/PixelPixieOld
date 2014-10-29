@@ -19,7 +19,6 @@
     int currentPhysicsAttack;   // 当前攻击方的标记 1：玩家攻击 2：敌方攻击
     
     CGFloat interCoefficient;   // 宠物与对手之间属性克制关系
-    
 @public
     int currentEnemyIndex;
 }
@@ -33,4 +32,6 @@
 
 -(void)setEnemyAtIndex:(int)index;
 -(void)physicsAttackAnimationEnd:(NSString *)stringSide;
+-(void)removeBuff:(PPBuff *)buffToRemove andSide:(NSString *)stringSide;
+
 @end

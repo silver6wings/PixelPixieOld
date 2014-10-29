@@ -536,7 +536,7 @@
 					<key>animatetexturecount</key>
 					<integer>20</integer>
 					<key>skillhpchange</key>
-					<integer>-800</integer>
+					<integer>-200</integer>
 					<key>skillmpchange</key>
 					<integer>-889</integer>
 					<key>skilltype</key>
