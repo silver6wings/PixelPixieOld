@@ -110,7 +110,7 @@ static NSString * stringMenuTheme[3] = {@"fire",@"metal",@"plant"};
     NSArray * passArray = [[NSArray alloc] initWithArray:[dictPassInfo objectForKey:@"transcriptinfo"]];
     
     NSInteger passCount = [passArray count];
-    NSInteger index = passBtn.tag;
+    PPElementType index = (PPElementType)passBtn.tag;
     
     NSDictionary * passDictInfo = nil;
     if (passCount > index) {

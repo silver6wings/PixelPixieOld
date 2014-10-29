@@ -382,6 +382,7 @@ int velocityValue (int x, int y) {
         }
     } else return;
 }
+
 // 碰撞事件结束监测
 - (void)didEndContact:(SKPhysicsContact *)contact{
     
@@ -432,6 +433,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark Deal ball contact
+
 //处理人物球与元素球碰撞
 -(NSNumber *)dealPixieBallAndElementBall:(SKPhysicsContact *)contact andPetBall:(PPBall *)pixieball
 {
@@ -487,10 +489,8 @@ int velocityValue (int x, int y) {
                 }else
                 {
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO andScene:self];
-                    
                 }
             } else {
-                
                 if (self.playerAndEnemySide.currentPPPixieEnemy.currentHP >= 0.0f) {
                     
                     [self.playerAndEnemySide changeEnemyHPValue:-100];
@@ -498,10 +498,7 @@ int velocityValue (int x, int y) {
                     enemyAssimDiffEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                     [self addValueChangeLabel:100 position:self.ballEnemy.position andColor:@"red"];
-                    
-                    
-                }else
-                {
+                } else {
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
                 }
             }
@@ -545,18 +542,19 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark PauseButton
+
 //暂停游戏按钮点击事件
 -(void)pauseBtnClick:(NSString *)stringName
 {
     
-    PPCustomAlertNode *alertNode = [[PPCustomAlertNode alloc] initWithFrame:CGRectMake(self.size.width/2.0f,
-                                                                                       self.size.height/2.0f,
+    PPCustomAlertNode *alertNode = [[PPCustomAlertNode alloc] initWithFrame:CGRectMake(self.size.width / 2,
+                                                                                       self.size.height / 2,
                                                                                        self.size.width, self.size.height)];
     alertNode->target = self;
     alertNode->btnClickSel = @selector(pauseMenuBtnClick:);
     [alertNode setColor:[UIColor yellowColor]];
-    alertNode.zPosition =10;
-    [alertNode showPauseMenuAlertWithTitle:@"游戏暂停了" andMessage:nil];
+    alertNode.zPosition = 10;
+    [alertNode showPauseMenuAlertWithTitle:@"游戏暂停" andMessage:nil];
     [self addChild:alertNode];
 }
 
@@ -574,6 +572,7 @@ int velocityValue (int x, int y) {
 // 是否所有的球都停止了滚动
 -(BOOL)isAllStopRolling{
     
+    // 首先检查是否该停止特效
     [self.ballPlayer startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"stop"];
     [self.ballEnemy startPixieAccelerateAnimation:self.ballPlayer.physicsBody.velocity andType:@"stop"];
     
@@ -659,7 +658,6 @@ int velocityValue (int x, int y) {
 }
 
 //设置战斗对象
-
 -(void)setEnemyAtIndex:(int)index
 {
     currentEnemyIndex = index;
@@ -753,7 +751,6 @@ int velocityValue (int x, int y) {
     [self addChild:self.playerAndEnemySide];
     
     currentEnemyIndex += 1;
-    
 }
 
 
@@ -776,8 +773,6 @@ int velocityValue (int x, int y) {
 // 结算combo添加元素球
 -(void)creatCombosTotal
 {
-    
-    
     [self addRandomBalls:petCombos
              withElement:self.pixiePlayer.pixieBall.ballElementType
              andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
@@ -805,18 +800,14 @@ int velocityValue (int x, int y) {
     int countToGenerate=number/kBallSustainRounds;
     int lastBallSustainRounds = number%kBallSustainRounds;
     
-    if (countToGenerate == 0 && lastBallSustainRounds!=0) {
-        
+    if (countToGenerate == 0 && lastBallSustainRounds != 0) {
         
         PPBall * tBall = [PPBall ballWithElement:element];
         tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
-        if (tBall.position.x>=290) {
-            tBall.position = CGPointMake(290.0f, tBall.position.y);
-        }
-        if (fabsf(tBall.position.y)>380) {
-            tBall.position = CGPointMake(tBall.position.x, 380);
+        
+        if (tBall.position.x >= 290) tBall.position = CGPointMake(290.0f, tBall.position.y);
+        if (fabsf(tBall.position.y) > 380) tBall.position = CGPointMake(tBall.position.x, 380);
             
-        }
         tBall.ballElementType = element;
         tBall.physicsBody.node.name = nodeName;
         tBall.name =nodeName;
@@ -844,7 +835,7 @@ int velocityValue (int x, int y) {
         lastBallSustainRounds = kBallSustainRounds;
     }
     
-    if (lastBallSustainRounds!=0) {
+    if (lastBallSustainRounds != 0) {
         
         for (int i = 0; i < countToGenerate; i++) {
             
@@ -878,8 +869,7 @@ int velocityValue (int x, int y) {
                 
                 [self.ballsElement addObject:tBall];
                 
-            }else
-            {
+            } else {
                 
                 PPBall * tBall = [PPBall ballWithElement:element];
                 tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
@@ -909,11 +899,8 @@ int velocityValue (int x, int y) {
                 
             }
         }
-    }else
-    {
-        
+    } else {
         for (int i = 0; i < countToGenerate; i++) {
-            
             
             PPBall * tBall = [PPBall ballWithElement:element];
             tBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y+PP_FIT_TOP_SIZE);
@@ -940,16 +927,14 @@ int velocityValue (int x, int y) {
             [self addChild:tBall];
             [tBall startElementBirthAnimation];
             
-            
             [self.ballsElement addObject:tBall];
-            
         }
     }
 }
+
 //改变元素球持续回合数
 -(void)changeBallsRoundsEnd
 {
-    
     NSLog(@"ballsElement count=%d",(int)[self.ballsElement count]);
     
     [self enumerateChildNodesWithName:PP_BALL_TYPE_PET_ELEMENT_NAME usingBlock:^(SKNode *node,BOOL *stop){
@@ -969,7 +954,7 @@ int velocityValue (int x, int y) {
     }];
     
     [self enumerateChildNodesWithName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME usingBlock:^(SKNode *node,BOOL *stop){
-        PPBall *tBall=(PPBall *)node;
+        PPBall *tBall = (PPBall *)node;
         tBall.sustainRounds--;
         [tBall setRoundsLabel:tBall.sustainRounds];
         
@@ -977,14 +962,10 @@ int velocityValue (int x, int y) {
             [self.ballsElement removeObject:tBall];
             [tBall startRemoveAnimation:self.ballsElement andScene:self];
         }
-        
-        
     }];
     
     [self.ballEnemy changeBuffRound];
-    
     [self creatCombosTotal];
-    
 }
 
 //设置元素球标记值
@@ -992,16 +973,11 @@ int velocityValue (int x, int y) {
 {
     
     for (int i = 0; i < [self.ballsElement count]; i++) {
-        
         PPBall * tBall = [self.ballsElement objectAtIndex:i];
-        
-        
         tBall.physicsBody.PPBallPhysicsBodyStatus=[NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+i];
-        
-        
     }
-    
 }
+
 //获取图片拼接node
 -(SKSpriteNode *)getNumber:(int)number AndColor:(NSString *)color {
     
@@ -1035,6 +1011,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark Rounds and Turns
+
 //回合开始
 -(void)roundRotateBegin
 {
@@ -1042,6 +1019,7 @@ int velocityValue (int x, int y) {
     roundIndex += 1;
     [self setRoundNumberLabel:@"回合开始" begin:YES];
 }
+
 //回合推进
 -(void)roundRotateMoved:(NSString *)nodeName
 {
@@ -1063,8 +1041,8 @@ int velocityValue (int x, int y) {
     {
         [self roundRotateEnd];
     }
-    
 }
+
 //回合结束
 -(void)roundRotateEnd
 {
@@ -1118,11 +1096,11 @@ int velocityValue (int x, int y) {
             break;
     }
 }
-//敌方武力攻击
+
+//敌方弹球攻击
 -(void)enemyDoPhysicsAttack
 {
     currentPhysicsAttack = 2;
-    
     float randomX = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
     float randomY = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
     [self.ballEnemy.physicsBody applyImpulse:CGVectorMake(randomX, randomY)];
@@ -1130,6 +1108,7 @@ int velocityValue (int x, int y) {
     [self setPlayerSideRoundRunState];
     _isBallRolling = YES;
 }
+
 //增加连击数显示
 -(void)addComboValueChangeCombos:(int)value position:(CGPoint)labelPosition
 {
