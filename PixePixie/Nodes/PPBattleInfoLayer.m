@@ -468,14 +468,14 @@
 {
     return 300;
 }
--(void)changePetMPValue:(CGFloat)HPValue
+-(void)changePetMPValue:(CGFloat)MPValue
 {
-    self.currentPPPixie.currentMP = [petPlayerMP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+    self.currentPPPixie.currentMP = [petPlayerMP valueShowChangeMaxValue:0 andCurrentValue:MPValue];
 }
 
--(void)changeEnemyMPValue:(CGFloat)HPValue
+-(void)changeEnemyMPValue:(CGFloat)MPValue
 {
-    self.currentPPPixieEnemy.currentMP =  [enemyPlayerMP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
+    self.currentPPPixieEnemy.currentMP =  [enemyPlayerMP valueShowChangeMaxValue:0 andCurrentValue:MPValue];
 }
 
 -(void)changeHPValue:(CGFloat)HPValue

@@ -1456,7 +1456,6 @@ int velocityValue (int x, int y) {
     }
     NSLog(@"hpChange=%f petCombos=%d  enemyCombos=%d",hpChange,petCombos,enemyCombos);
     
-    
     return (int)hpChange;
 }
 
