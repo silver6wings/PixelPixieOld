@@ -2,14 +2,14 @@
 #import "PPMainScene.h"
 
 @implementation PPMainScene
-@synthesize chooseCouterpartSel=_chooseCouterpartSel;
-@synthesize chooseTarget=_chooseTarget;
+@synthesize chooseCouterpartSel = _chooseCouterpartSel;
+@synthesize chooseTarget = _chooseTarget;
 
-CGPoint couterpartPosition[]={
+CGPoint couterpartPosition[] = {
     {150.0f,300.0f}
 };
 
-NSString * couterpartName[]={
+NSString * couterpartName[] = {
     @"有朋友给你的宠物喂食了!",
     @"world boss"
 };
@@ -50,7 +50,8 @@ NSString * couterpartName[]={
 
 -(void)choosePassNumber
 {
-    if (self.chooseTarget != nil && self.chooseCouterpartSel != nil && [self.chooseTarget respondsToSelector:self.chooseCouterpartSel])
+    if (self.chooseTarget != nil && self.chooseCouterpartSel != nil &&
+        [self.chooseTarget respondsToSelector:self.chooseCouterpartSel])
     {
         [self.chooseTarget performSelectorInBackground:self.chooseCouterpartSel withObject:nil];
     }

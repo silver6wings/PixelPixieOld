@@ -3,7 +3,7 @@
 
 @class PPHurdleReadyScene;
 
-@interface PPBallBattleScene : PPBasicScene <SkillShowEndDelegate>
+@interface PPBallBattleScene : PPBasicScene < SkillShowEndDelegate >
 {
     int roundIndex;
     int roundActionNum;
