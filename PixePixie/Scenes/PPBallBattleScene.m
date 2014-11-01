@@ -831,13 +831,10 @@ int velocityValue (int x, int y) {
         tBall->animationEndSel = @selector(elementBallAnimationEnd:);
         tBall.physicsBody.categoryBitMask = EntityCategoryBall;
         tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
-        [tBall setRoundsLabel:tBall.sustainRounds];
+        tBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:PP_ELEMENT_NAME_TAG + 1];
         
-<<<<<<< HEAD
-=======
-        tBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+1];
->>>>>>> FETCH_HEAD
         [self addChild:tBall];
+        [tBall setRoundsLabel:tBall.sustainRounds];
         [tBall startElementBirthAnimation];
         [self.ballsElement addObject:tBall];
         return;
