@@ -441,10 +441,14 @@ int velocityValue (int x, int y) {
     if (contact.bodyA == pixieball.physicsBody) {
         elementBodyStatus = contact.bodyB.PPBallPhysicsBodyStatus;
         elementBallTmp = (PPBall *)contact.bodyB.node ;
+        
     } else {
-        elementBallTmp = (PPBall *)contact.bodyA.node ;
+        
         elementBodyStatus = contact.bodyA.PPBallPhysicsBodyStatus;
+        elementBallTmp = (PPBall *)contact.bodyA.node ;
+        
     }
+    NSLog(@"elementBodyStatus=%@",elementBodyStatus);
     
     if ([elementBodyStatus intValue] >= PP_ELEMENT_NAME_TAG) {
         
@@ -459,6 +463,7 @@ int velocityValue (int x, int y) {
                     
                     petAssimSameEleNum ++;
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:YES andScene:self];
+                    
                 } else {
                     [elementBallTmp startElementBallHitAnimation:self.ballsElement isNeedRemove:NO andScene:self];
                 }
@@ -772,11 +777,24 @@ int velocityValue (int x, int y) {
 }
 
 // 结算combo添加元素球
--(void)creatCombosTotal
+-(void)creatCombosTotal:(NSString *)stringSide
 {
-    [self addRandomBalls:petCombos
-             withElement:self.pixiePlayer.pixieBall.ballElementType
-             andNodeName:PP_BALL_TYPE_PET_ELEMENT_NAME];
+    
+    if ([stringSide isEqualToString:PP_BALL_TYPE_PET_ELEMENT_NAME]) {
+        [self addRandomBalls:petCombos
+                 withElement:self.pixiePlayer.pixieBall.ballElementType
+                 andNodeName:stringSide];
+        petCombos = 0;
+
+    }else
+    {
+        
+         [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:stringSide];
+        enemyCombos = 0;
+
+    }
+    
+
     
     /*
      NSLog(@"pet element=%ld combos=%d  enemy element=%ld combos=%d",
@@ -786,9 +804,7 @@ int velocityValue (int x, int y) {
      enemyCombos);
      */
     
-    [self addRandomBalls:enemyCombos withElement:self.pixieEnemy.pixieBall.ballElementType andNodeName:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
-    enemyCombos = 0;
-    petCombos = 0;
+   
     
     [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
 }
@@ -808,7 +824,6 @@ int velocityValue (int x, int y) {
         
         if (tBall.position.x >= 290) tBall.position = CGPointMake(290.0f, tBall.position.y);
         if (fabsf(tBall.position.y) > 380) tBall.position = CGPointMake(tBall.position.x, 380);
-            
         tBall.ballElementType = element;
         tBall.name = nodeName;
         tBall.sustainRounds = lastBallSustainRounds;
@@ -818,6 +833,10 @@ int velocityValue (int x, int y) {
         tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
         [tBall setRoundsLabel:tBall.sustainRounds];
         
+<<<<<<< HEAD
+=======
+        tBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+1];
+>>>>>>> FETCH_HEAD
         [self addChild:tBall];
         [tBall startElementBirthAnimation];
         [self.ballsElement addObject:tBall];
@@ -860,7 +879,7 @@ int velocityValue (int x, int y) {
                 [tBall setRoundsLabel:tBall.sustainRounds];
                 
                 tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
-                
+                tBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+1];
                 [self addChild:tBall];
                 [tBall startElementBirthAnimation];
                 
@@ -890,12 +909,17 @@ int velocityValue (int x, int y) {
                 NSLog(@"lastBallSustainRounds = %d",lastBallSustainRounds);
                 
                 [tBall setRoundsLabel:tBall.sustainRounds];
-                [self addChild:tBall];
-                [tBall startElementBirthAnimation];
+                tBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+1];
                 
+                [self addChild:tBall];
                 [self.ballsElement addObject:tBall];
                 
+                [tBall startElementBirthAnimation];
+                
+               
+                
             }
+            
         }
     } else {
         for (int i = 0; i < countToGenerate; i++) {
@@ -921,7 +945,8 @@ int velocityValue (int x, int y) {
             [tBall setRoundsLabel:tBall.sustainRounds];
             
             tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
-            
+            tBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:PP_ELEMENT_NAME_TAG+1];
+
             [self addChild:tBall];
             [tBall startElementBirthAnimation];
             
@@ -963,7 +988,6 @@ int velocityValue (int x, int y) {
     }];
     
     [self.ballEnemy changeBuffRound];
-    [self creatCombosTotal];
 }
 
 //设置元素球标记值
@@ -1038,7 +1062,11 @@ int velocityValue (int x, int y) {
             [self enemyAttackDecision];
         }else
         {
+            
             [self setPlayerSideRoundEndState];
+            [self creatCombosTotal:PP_BALL_TYPE_PET_ELEMENT_NAME];
+
+
         }
     }else
     {
@@ -1078,29 +1106,37 @@ int velocityValue (int x, int y) {
         default:
         {
             
+            [self creatCombosTotal:PP_BALL_TYPE_ENEMY_ELEMENT_NAME];
+
+            [self performSelector:@selector(executeEnemyRoundAction:) withObject:[NSNumber numberWithInt:decision] afterDelay:1];
             
-            switch (decision) {
-                case 0:
-                {
-                    
-                    [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
-                }
-                    break;
-                case 1:
-                {
-                    [self showEnemySkillEventBegin:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
-                }
-                    break;
-                default:
-                {
-                }
-            }
-        
         }
             break;
     }
 }
 
+//进行敌方攻击
+-(void)executeEnemyRoundAction:(NSNumber *)decision
+{
+    
+    switch ([decision intValue]) {
+        case 0:
+        {
+            
+            [self physicsAttackBegin:PP_ENEMY_SIDE_NODE_NAME];
+        }
+            break;
+        case 1:
+        {
+            [self showEnemySkillEventBegin:[self.playerAndEnemySide.currentPPPixieEnemy.pixieSkills objectAtIndex:0]];
+        }
+            break;
+        default:
+        {
+        }
+    }
+
+}
 //敌方弹球攻击
 -(void)enemyDoPhysicsAttack
 {
@@ -1202,7 +1238,6 @@ int velocityValue (int x, int y) {
         }];
         
         [self changeBallsRoundsEnd];
-        [self setPhysicsTagValue];
 
     } else {
         SKSpriteNode *roundLabelContent=[[SKSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(320, 240)];
