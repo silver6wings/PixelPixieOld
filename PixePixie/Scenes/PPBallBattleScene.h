@@ -24,14 +24,27 @@
 }
 
 @property(strong) PPHurdleReadyScene *hurdleReady;
-
+/**
+ * @brief 初始化场景
+ * @param pixieA 我方战斗宠物
+ * @param pixieB 敌方战斗宠物
+ * @param sceneType 战斗场景类型
+ */
 -(id)initWithSize:(CGSize)size
       PixiePlayer:(PPPixie *)pixieA
        PixieEnemy:(PPPixie *)pixieB
      andSceneType:(PPElementType)sceneType;
-
+/**
+ * @brief 设置本次战斗怪物。
+ */
 -(void)setEnemyAtIndex:(int)index;
+
 -(void)physicsAttackAnimationEnd:(NSString *)stringSide;
+/**
+ * @brief 移除buff显示
+ * @param buffToRemove 需要移除的buff
+ * @param stringSide 标记哪一方的buff 敌方或者我方
+ */
 -(void)removeBuff:(PPBuff *)buffToRemove andSide:(NSString *)stringSide;
 
 @end

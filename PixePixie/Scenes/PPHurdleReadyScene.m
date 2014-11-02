@@ -38,7 +38,7 @@
     self.enemysArray = [[NSArray alloc] initWithArray:[self.allEnemys objectForKey:@"EnemysInfo"]];
 }
 
-//
+
 -(void)setCurrentHurdle:(int)currentIndex
 {
     SKNode *contentNode = [self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
@@ -50,7 +50,7 @@
     if (contentPetChooseNode != nil) {
         [contentPetChooseNode removeFromParent];
     }
-    
+    //战斗结束
     if ([self.enemysArray count] <= currentIndex)
     {
         NSLog(@"战斗结束，结算奖励");
@@ -96,10 +96,10 @@
         [self addChangeStatus:hurdleReadyContentNode];
     }];
 }
-
+//添加己方精灵
 -(void)addChangeStatus:(SKSpriteNode *)contentSprite
 {
-    // 添加己方精灵
+
     _playerPixie = [SKSpriteNode spriteNodeWithImageNamed:@"fire_shield_cast_0000.png"];
     _playerPixie.position = CGPointMake(0.0f,0.0f);
     _playerPixie.size = CGSizeMake(320.0f, 150.0f);
@@ -129,7 +129,7 @@
 }
 
 #pragma mark - add a pet choose node
-
+//设置 选择己方战斗宠物
 -(void)setPetsChooseContent
 {
     SKSpriteNode *enemyNode = [[SKSpriteNode alloc] init];
@@ -180,7 +180,7 @@
     SKAction * actionMove=[SKAction moveTo:CGPointMake(160.0, 50) duration:0.5];
     [spriteContent runAction:actionMove];
 }
-
+/*
 -(void)sceneChooseClick:(PPSpriteButton *)btn
 {
     SKSpriteNode * contentSprite = (SKSpriteNode *)[self childNodeWithName:PP_HURDLE_PETCHOOSE_CONTENT_NAME];
@@ -210,7 +210,9 @@
             break;
     }
 }
+*/
 
+//选择宠物之后 开始战斗
 -(void)spriteChooseClick:(NSString *)spriteName
 {
     NSDictionary * petsChoosedInfo = [self.petsArray objectAtIndex:[spriteName integerValue]-PP_PETS_CHOOSE_BTN_TAG];
