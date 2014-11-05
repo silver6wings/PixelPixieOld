@@ -179,7 +179,8 @@
 		D4877A43196C42E9009509E5 /* PPCookingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4877A42196C42E9009509E5 /* PPCookingScene.m */; };
 		D4877A46196C479A009509E5 /* PPMonsterInfoNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4877A45196C479A009509E5 /* PPMonsterInfoNode.m */; };
 		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
-		D49983911A09112A0086C591 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D499838F1A09112A0086C591 /* UserInfo.xcdatamodeld */; };
+		D498442D1A0A14EA008A2175 /* UserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D498442C1A0A14EA008A2175 /* UserBasicInfo.m */; };
+		D49844301A0A1527008A2175 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D498442E1A0A1527008A2175 /* UserInfo.xcdatamodeld */; };
 		D4AE4CAE196ED01E00FC24EF /* PPChoosePetScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CAD196ED01E00FC24EF /* PPChoosePetScrollView.m */; };
 		D4AE4CB0196ED1D100FC24EF /* PetsChooseInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4AE4CAF196ED1D100FC24EF /* PetsChooseInfo.plist */; };
 		D4AE4CC3196EED0400FC24EF /* PPNewsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AE4CC2196EED0400FC24EF /* PPNewsScene.m */; };
@@ -422,7 +423,9 @@
 		D4877A44196C479A009509E5 /* PPMonsterInfoNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMonsterInfoNode.h; path = PixePixie/Nodes/PPMonsterInfoNode.h; sourceTree = SOURCE_ROOT; };
 		D4877A45196C479A009509E5 /* PPMonsterInfoNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPMonsterInfoNode.m; path = PixePixie/Nodes/PPMonsterInfoNode.m; sourceTree = SOURCE_ROOT; };
 		D4916A16193F636C00662F88 /* PassInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassInfo.plist; sourceTree = "<group>"; };
-		D49983901A09112A0086C591 /* UserInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfo.xcdatamodel; sourceTree = "<group>"; };
+		D498442B1A0A14EA008A2175 /* UserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBasicInfo.h; sourceTree = "<group>"; };
+		D498442C1A0A14EA008A2175 /* UserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBasicInfo.m; sourceTree = "<group>"; };
+		D498442F1A0A1527008A2175 /* UserInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfo.xcdatamodel; sourceTree = "<group>"; };
 		D4AE4CAC196ED01E00FC24EF /* PPChoosePetScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPChoosePetScrollView.h; path = PixePixie/Views/PPChoosePetScrollView.h; sourceTree = SOURCE_ROOT; };
 		D4AE4CAD196ED01E00FC24EF /* PPChoosePetScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPChoosePetScrollView.m; path = PixePixie/Views/PPChoosePetScrollView.m; sourceTree = SOURCE_ROOT; };
 		D4AE4CAF196ED1D100FC24EF /* PetsChooseInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PetsChooseInfo.plist; sourceTree = "<group>"; };
@@ -957,7 +960,9 @@
 		D499838E1A0910EC0086C591 /* CoreDataFile */ = {
 			isa = PBXGroup;
 			children = (
-				D499838F1A09112A0086C591 /* UserInfo.xcdatamodeld */,
+				D498442E1A0A1527008A2175 /* UserInfo.xcdatamodeld */,
+				D498442B1A0A14EA008A2175 /* UserBasicInfo.h */,
+				D498442C1A0A14EA008A2175 /* UserBasicInfo.m */,
 			);
 			name = CoreDataFile;
 			path = Resource/CoreDataFile;
@@ -1179,7 +1184,6 @@
 				D44D9EA91976D0AA00C69C15 /* PPSkillButtonNode.m in Sources */,
 				19F28E2D1969181B0006ABFF /* PPCustomButton.m in Sources */,
 				193DC49B1968608B007308C7 /* PPSceneManager.m in Sources */,
-				D49983911A09112A0086C591 /* UserInfo.xcdatamodeld in Sources */,
 				193DC4B7196861D5007308C7 /* PPCustomAlertNode.m in Sources */,
 				19DA800219FF749F0034A6C9 /* PPCommonTool.m in Sources */,
 				192F743819691241006C6586 /* PPMonsterMainView.m in Sources */,
@@ -1191,6 +1195,7 @@
 				D4877A46196C479A009509E5 /* PPMonsterInfoNode.m in Sources */,
 				1917DFF718C8551300E54F02 /* PPElement.m in Sources */,
 				D43F421B1947548F00B19F2F /* PPMainScene.m in Sources */,
+				D49844301A0A1527008A2175 /* UserInfo.xcdatamodeld in Sources */,
 				D486A1CB196AF6450006206B /* PPTalentTreeScene.m in Sources */,
 				D486A1C2196AF5D10006206B /* PPMonsterBoxScene.m in Sources */,
 				D486A1C8196AF60D0006206B /* PPSellMonsterScene.m in Sources */,
@@ -1207,6 +1212,7 @@
 				193DC4971968608B007308C7 /* PPBasicScene.m in Sources */,
 				D4767AB8196D7E79000B5B9C /* PPActivityDetailScene.m in Sources */,
 				193DC49E196860FE007308C7 /* PPRootViewController.m in Sources */,
+				D498442D1A0A14EA008A2175 /* UserBasicInfo.m in Sources */,
 				19CBA8C31907C77600A249AB /* PPBall.m in Sources */,
 				193DC4A71968610F007308C7 /* PPTableView.m in Sources */,
 				D4AE4CAE196ED01E00FC24EF /* PPChoosePetScrollView.m in Sources */,
@@ -1368,12 +1374,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D499838F1A09112A0086C591 /* UserInfo.xcdatamodeld */ = {
+		D498442E1A0A1527008A2175 /* UserInfo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D49983901A09112A0086C591 /* UserInfo.xcdatamodel */,
+				D498442F1A0A1527008A2175 /* UserInfo.xcdatamodel */,
 			);
-			currentVersion = D49983901A09112A0086C591 /* UserInfo.xcdatamodel */;
+			currentVersion = D498442F1A0A1527008A2175 /* UserInfo.xcdatamodel */;
 			path = UserInfo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
