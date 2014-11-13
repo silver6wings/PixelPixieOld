@@ -4,7 +4,6 @@
 
 @synthesize pixieName;
 @synthesize pixieStatus;
-@synthesize pixieSatiation;
 @synthesize pixieIntimate;
 @synthesize pixieGP;
 

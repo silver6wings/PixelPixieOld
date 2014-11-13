@@ -8,7 +8,6 @@
 @synthesize MPChangeValue;
 @synthesize skillType;
 @synthesize skillObject;
-@synthesize usageLeft,usageMax;
 
 -(id)init
 {

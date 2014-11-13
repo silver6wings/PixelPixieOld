@@ -10,8 +10,8 @@
 
 // Implementation
 
-static void * MyObjectMyCustomPorpertyKey = (void *)@"MyObjectMyCustomPorpertyKey";
-static void * MyObjectMyCustomPorpertyKey1 = (void *)@"MyObjectMyCustomPorpertyKey1";
+static void * MyObjectMyCustomPorpertyKey = (void *) @"MyObjectMyCustomPorpertyKey";
+static void * MyObjectMyCustomPorpertyKey1 = (void *) @"MyObjectMyCustomPorpertyKey1";
 
 @implementation NSObject (ExtendedProperties)
 
