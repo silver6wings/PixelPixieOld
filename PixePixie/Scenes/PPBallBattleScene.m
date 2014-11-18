@@ -143,7 +143,9 @@ int velocityValue (int x, int y) {
             comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
             comboBall.name = PP_BALL_TYPE_COMBO_NAME;
             comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
-            comboBall.physicsBody.contactTestBitMask = EntityCategoryBall;
+            comboBall.physicsBody.contactTestBitMask = EntityCategoryBall|EntityCategoryWall;
+            comboBall.physicsBody.collisionBitMask = EntityCategoryBall|EntityCategoryWall;
+            
             comboBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:i];
             [self addChild:comboBall];
             [self.ballsCombos addObject:comboBall];
@@ -185,30 +187,17 @@ int velocityValue (int x, int y) {
     
     UITouch * touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
-    SKSpriteNode * touchedNode = (SKSpriteNode *)[self nodeAtPoint:location];
+//    SKSpriteNode * touchedNode = (SKSpriteNode *)[self nodeAtPoint:location];
     
-    // 点击自己的球
-    if ([[touchedNode name] isEqualToString:@"ball_player"])
-    {
-        _isBallDragging = YES;
-        _ballShadow = [PPBall ballWithPixie:self.pixiePlayer];
-        _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
-        _ballShadow.position = location;
-        _ballShadow.alpha = 0.5f;
-        _ballShadow.physicsBody = nil;
-        [self addChild:_ballShadow];
-    }
+    _isBallDragging = YES;
+    _ballShadow = [PPBall ballWithPixie:self.pixiePlayer];
+    _ballShadow.size = CGSizeMake(kBallSize, kBallSize);
+    _ballShadow.position = location;
+    _ballShadow.alpha = 0.5f;
+    _ballShadow.physicsBody = nil;
+    [self addChild:_ballShadow];
     
-    // 点击技能按钮
-    if ([[touchedNode name] isEqualToString:@"bt_skill"])
-    {
-        _isTrapEnable = YES;
-        for (PPBall * tBall in self.ballsElement) {
-            if ([tBall.name isEqualToString:@"ball_plant"]) {
-                [tBall runAction:[SKAction animateWithTextures:_trapFrames timePerFrame:0.05f]];
-            }
-        }
-    }
+
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -830,7 +819,8 @@ int velocityValue (int x, int y) {
         tBall->target = self;
         tBall->animationEndSel = @selector(elementBallAnimationEnd:);
         tBall.physicsBody.categoryBitMask = EntityCategoryBall;
-        tBall.physicsBody.contactTestBitMask = EntityCategoryBall;
+        tBall.physicsBody.contactTestBitMask = EntityCategoryBall|EntityCategoryWall;
+         tBall.physicsBody.collisionBitMask = EntityCategoryBall|EntityCategoryWall;
         tBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:PP_ELEMENT_NAME_TAG + 1];
         
         [self addChild:tBall];
@@ -870,6 +860,8 @@ int velocityValue (int x, int y) {
                 tBall->target = self;
                 tBall->animationEndSel = @selector(elementBallAnimationEnd:);
                 tBall.physicsBody.categoryBitMask = EntityCategoryBall;
+                tBall.physicsBody.contactTestBitMask = EntityCategoryBall|EntityCategoryWall;
+                tBall.physicsBody.collisionBitMask = EntityCategoryBall|EntityCategoryWall;
                 tBall.sustainRounds = kBallSustainRounds;
                 NSLog(@"kBallSustainRounds = %d",kBallSustainRounds);
                 
@@ -899,6 +891,8 @@ int velocityValue (int x, int y) {
                 tBall.physicsBody.node.name = nodeName;
                 tBall.name = nodeName;
                 tBall.physicsBody.categoryBitMask = EntityCategoryBall;
+                tBall.physicsBody.contactTestBitMask = EntityCategoryBall|EntityCategoryWall;
+                tBall.physicsBody.collisionBitMask = EntityCategoryBall|EntityCategoryWall;
                 tBall->target = self;
                 tBall->animationEndSel = @selector(elementBallAnimationEnd:);
                 tBall.sustainRounds = lastBallSustainRounds;
@@ -936,6 +930,8 @@ int velocityValue (int x, int y) {
             tBall->target = self;
             tBall->animationEndSel = @selector(elementBallAnimationEnd:);
             tBall.physicsBody.categoryBitMask = EntityCategoryBall;
+            tBall.physicsBody.contactTestBitMask = EntityCategoryBall|EntityCategoryWall;
+            tBall.physicsBody.collisionBitMask = EntityCategoryBall|EntityCategoryWall;
             tBall.sustainRounds = kBallSustainRounds;
             NSLog(@"kBallSustainRounds = %d",kBallSustainRounds);
             
