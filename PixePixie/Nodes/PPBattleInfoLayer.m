@@ -1,10 +1,11 @@
 
 #import "PPBattleInfoLayer.h"
 #import "PPAtlasManager.h"
+#import "PPBasic.h"
 @interface PPBattleInfoLayer()
 {
-    PPSpriteButton * ppixiePetBtn;
-    PPSpriteButton * ppixieEnemyBtn;
+    SKSpriteNode * ppixiePetBtn;
+    SKSpriteNode * ppixieEnemyBtn;
 }
 @end
 @implementation PPBattleInfoLayer
@@ -105,12 +106,21 @@
     
     
     // 己方头像
-    ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
-                                             andSize:CGSizeMake(32.5f, 32.5f)];
-    [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
-    ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
-    ppixiePetBtn.xScale = 1.0f;
+    ppixiePetBtn = [[SKSpriteNode alloc] init];
+    ppixiePetBtn.size = CGSizeMake(50.0f, 50.0f);
+    [ppixiePetBtn setPosition: CGPointMake(-121.5f, 20.0f)];
     [self addChild:ppixiePetBtn];
+    [ppixiePetBtn runAction:[SKAction repeatActionForever:[[PPAtlasManager ball_action] getAnimation:[NSString stringWithFormat:@"%@3stop",kElementTypeString[enemyppixie.pixieElement]]]]];
+    NSLog(@"plantname=%@",[NSString stringWithFormat:@"%@3stop",kElementTypeString[enemyppixie.pixieElement]]);
+
+    
+    //[NSString stringWithFormat:@"%@3stop",kElementTypeString[petppixie.pixieElement]
+    //    ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
+    //                                             andSize:CGSizeMake(32.5f, 32.5f)];
+    //    [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
+    //    ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
+    //    ppixiePetBtn.xScale = 1.0f;
+    //    [self addChild:ppixiePetBtn];
     
     
     
@@ -172,12 +182,21 @@
     
     
     // 敌方头像
-    ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
-                                               andSize:CGSizeMake(32.5f, 32.5f)];
-    [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
-    ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
-    ppixieEnemyBtn.xScale = -1.0f;
+    ppixieEnemyBtn = [[SKSpriteNode alloc] init];
+    ppixieEnemyBtn.size = CGSizeMake(50.0f, 50.0f);
+    [ppixieEnemyBtn setPosition:CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y)];
     [self addChild:ppixieEnemyBtn];
+    [ppixieEnemyBtn runAction:[SKAction repeatActionForever:[[PPAtlasManager ball_action] getAnimation:[NSString stringWithFormat:@"%@3stop",kElementTypeString[enemyppixie.pixieElement]]]]];
+    
+    
+    //    ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
+    //                                               andSize:CGSizeMake(32.5f, 32.5f)];
+    //    [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
+    //    ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
+    //    ppixieEnemyBtn.xScale = -1.0f;
+    //    [self addChild:ppixieEnemyBtn];
+    
+    
     
     
     // 敌方连击数
@@ -318,8 +337,8 @@
     
     for (int i = 0; i < [currentPPPixie.pixieSkills count]; i++) {
         PPSpriteButton * ppixieSkillBtn  = (PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
-
-//        ppixieSkillBtn.alpha = 0.5;
+        
+        //        ppixieSkillBtn.alpha = 0.5;
         ppixieSkillBtn.color = [UIColor blackColor];
         ppixieSkillBtn.colorBlendFactor = 0.6;
         ppixieSkillBtn.userInteractionEnabled = NO;
@@ -332,7 +351,7 @@
     {
         PPSpriteButton * ppixieSkillBtn  = (PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_SKILLS_CHOOSE_BTN_TAG+i]];
         
-//        ppixieSkillBtn.alpha = 1.0;
+        //        ppixieSkillBtn.alpha = 1.0;
         ppixieSkillBtn.color = [UIColor orangeColor];
         ppixieSkillBtn.colorBlendFactor = 0.0;
         ppixieSkillBtn.userInteractionEnabled = YES;
@@ -411,7 +430,7 @@
         }];
     }
     
-
+    
     
     self.currentPPPixie.currentHP = [petPlayerHP valueShowChangeMaxValue:0 andCurrentValue:HPValue];
 }
@@ -535,7 +554,7 @@
             {
                 continue;
             }
-
+            
         }
         
         [buffBtnFirstEmpty runAction:[SKAction setTexture:[[PPAtlasManager skill_buff] textureNamed:kBuffNameList[[buffShow.buffId intValue]]]]];
@@ -544,26 +563,26 @@
     }else
     {
         PPSpriteButton *buffBtnFirstEmpty=nil;
-         for (int i=0; i<3; i++) {
-             
-             PPSpriteButton *enemyBuffBtn=(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_BUFF_SHOW_BTN_TAG + i +10]];
-             if ([enemyBuffBtn.PPBallSkillStatus isEqualToString:buffShow.buffId]) {
-                 return;
-             }else if([enemyBuffBtn.PPBallSkillStatus isEqualToString:@"0"])
-             {
-                 
-                 if (buffBtnFirstEmpty==nil) {
-                     buffBtnFirstEmpty = enemyBuffBtn;
-
-                 }
-                 break;
-             }else
-             {
-                 continue;
-             }
-         }
+        for (int i=0; i<3; i++) {
+            
+            PPSpriteButton *enemyBuffBtn=(PPSpriteButton *)[self childNodeWithName:[NSString stringWithFormat:@"%d",PP_BUFF_SHOW_BTN_TAG + i +10]];
+            if ([enemyBuffBtn.PPBallSkillStatus isEqualToString:buffShow.buffId]) {
+                return;
+            }else if([enemyBuffBtn.PPBallSkillStatus isEqualToString:@"0"])
+            {
+                
+                if (buffBtnFirstEmpty==nil) {
+                    buffBtnFirstEmpty = enemyBuffBtn;
+                    
+                }
+                break;
+            }else
+            {
+                continue;
+            }
+        }
         
-//        [buffBtnFirstEmpty addChild:[SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager skill_buff] textureNamed:kBuffNameList[[buffShow.buffId intValue]]]]];
+        //        [buffBtnFirstEmpty addChild:[SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager skill_buff] textureNamed:kBuffNameList[[buffShow.buffId intValue]]]]];
         
         [buffBtnFirstEmpty runAction:[SKAction setTexture:[[PPAtlasManager skill_buff] textureNamed:kBuffNameList[[buffShow.buffId intValue]]]]];
         buffBtnFirstEmpty.PPBallSkillStatus = buffShow.buffId;
@@ -609,14 +628,14 @@
                     [enemyBuffBtn runAction:[SKAction setTexture:defaultTexture]];
                     enemyBuffBtn.PPBallSkillStatus = @"0";
                 }
-              
+                
                 
                 return;
             }
         }
         
         
-      
+        
         
     }
     

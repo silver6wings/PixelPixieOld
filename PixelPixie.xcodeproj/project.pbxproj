@@ -178,6 +178,7 @@
 		D4877A40196C314E009509E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4877A3F196C314E009509E5 /* Images.xcassets */; };
 		D4877A43196C42E9009509E5 /* PPCookingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4877A42196C42E9009509E5 /* PPCookingScene.m */; };
 		D4877A46196C479A009509E5 /* PPMonsterInfoNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4877A45196C479A009509E5 /* PPMonsterInfoNode.m */; };
+		D48C1B001A2467EC00566DF6 /* pixie_action.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D48C1AFF1A2467EC00566DF6 /* pixie_action.atlas */; };
 		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
 		D498442D1A0A14EA008A2175 /* UserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D498442C1A0A14EA008A2175 /* UserBasicInfo.m */; };
 		D49844301A0A1527008A2175 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D498442E1A0A1527008A2175 /* UserInfo.xcdatamodeld */; };
@@ -423,6 +424,7 @@
 		D4877A42196C42E9009509E5 /* PPCookingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPCookingScene.m; sourceTree = "<group>"; };
 		D4877A44196C479A009509E5 /* PPMonsterInfoNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPMonsterInfoNode.h; path = PixePixie/Nodes/PPMonsterInfoNode.h; sourceTree = SOURCE_ROOT; };
 		D4877A45196C479A009509E5 /* PPMonsterInfoNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPMonsterInfoNode.m; path = PixePixie/Nodes/PPMonsterInfoNode.m; sourceTree = SOURCE_ROOT; };
+		D48C1AFF1A2467EC00566DF6 /* pixie_action.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = pixie_action.atlas; path = Resource/Images/pixie_action.atlas; sourceTree = "<group>"; };
 		D4916A16193F636C00662F88 /* PassInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassInfo.plist; sourceTree = "<group>"; };
 		D498442B1A0A14EA008A2175 /* UserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBasicInfo.h; sourceTree = "<group>"; };
 		D498442C1A0A14EA008A2175 /* UserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBasicInfo.m; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 				1999ABA519EE64D500B25ED2 /* const_encounter */,
 				1999ABD019EE64D500B25ED2 /* const_map */,
 				1999ABDD19EE64D500B25ED2 /* const_skill */,
+				D48C1AFF1A2467EC00566DF6 /* pixie_action.atlas */,
 				1992B3F319E926FB00BFE51E /* ball_buff.atlas */,
 				D4BF767119E6928D003CFFAB /* ball_elements.atlas */,
 				D4BF767219E6928D003CFFAB /* ball_magic.atlas */,
@@ -1094,6 +1097,7 @@
 				1999AC3719EE64D500B25ED2 /* plant_forward_0016.png in Resources */,
 				1999AC6119EE64D500B25ED2 /* fire_shield_cast_0002.png in Resources */,
 				1999AC4F19EE64D500B25ED2 /* fire_blade_cast_0008.png in Resources */,
+				D48C1B001A2467EC00566DF6 /* pixie_action.atlas in Resources */,
 				1999AC7619EE64D500B25ED2 /* fire_shield_cast_0023.png in Resources */,
 				1999AC6F19EE64D500B25ED2 /* fire_shield_cast_0016.png in Resources */,
 				1999AC3C19EE64D500B25ED2 /* map_all_01.png in Resources */,

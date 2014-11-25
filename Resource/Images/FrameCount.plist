@@ -44,5 +44,21 @@
 	<integer>24</integer>
 	<key>fire_shield_cast</key>
 	<integer>27</integer>
+	<key>____const_action____</key>
+	<string></string>
+	<key>New item</key>
+	<string></string>
+	<key>fire3move</key>
+	<integer>4</integer>
+	<key>fire3stop</key>
+	<integer>4</integer>
+	<key>fire3attack</key>
+	<integer>4</integer>
+	<key>fire3beated</key>
+	<integer>4</integer>
+	<key>plant3move</key>
+	<integer>4</integer>
+	<key>plant3stop</key>
+	<integer>4</integer>
 </dict>
 </plist>

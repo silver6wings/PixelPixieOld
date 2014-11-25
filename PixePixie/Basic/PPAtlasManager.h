@@ -46,6 +46,7 @@
 +(SKTextureAtlas *)ball_elements;
 +(SKTextureAtlas *)ball_magic;
 +(SKTextureAtlas *)ball_table;
++(SKTextureAtlas *)ball_action;
 
 +(SKTextureAtlas *)pixie_info;
 

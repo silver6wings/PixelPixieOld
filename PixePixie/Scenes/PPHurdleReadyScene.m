@@ -41,6 +41,7 @@
 
 -(void)setCurrentHurdle:(int)currentIndex
 {
+    
     SKNode *contentNode = [self childNodeWithName:PP_HURDLE_READY_CONTENT_NAME];
     if (contentNode != nil) {
         [contentNode removeFromParent];
