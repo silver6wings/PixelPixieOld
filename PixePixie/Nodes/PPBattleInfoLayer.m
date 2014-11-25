@@ -633,14 +633,33 @@
                 return;
             }
         }
+    }    
+}
+-(void)startAttackAnimation:(BOOL)isPetAttack
+{
+    if (isPetAttack) {
+        SKAction *action1=[SKAction moveByX:200 y:0.0f duration:1];
+        SKAction *action11=[[PPAtlasManager ball_action] getAnimation:[NSString stringWithFormat:@"%@3attack",kElementTypeString[currentPPPixie.pixieElement]]];
+        SKAction *action111=[SKAction moveByX:-200 y:0.0f duration:1];
+        SKAction *action1Result=[SKAction sequence:[NSArray arrayWithObjects:action1,action111, nil]];
         
         
+//        SKAction *action2=[[PPAtlasManager  ball_action] getAnimation:[NSString stringWithFormat:@"%@3move",kElementTypeString[currentPPPixie.pixieElement]]];
+//        SKAction *action3=[SKAction repeatActionForever:action2];
+        
+//        SKAction *result=[SKAction group:[NSArray arrayWithObjects:action1Result,action2, nil]];
+        
+        [ppixiePetBtn runAction:action1Result];
         
         
+    }else
+    {
+//        SKAction *action1=[SKAction moveToX:200.0f duration:3];
+//        SKAction *action2=[[PPAtlasManager  ball_action] getAnimation:[NSString stringWithFormat:@"%@3move",kElementTypeString[currentPPPixieEnemy.pixieElement]]];
+//        SKAction *action3=[SKAction repeatActionForever:action2];
+//        SKAction *result=[SKAction group:[NSArray arrayWithObjects:action1,action3, nil]];
+//        [ppixieEnemyBtn runAction:result];
     }
-    
-    
-    
 }
 
 @end

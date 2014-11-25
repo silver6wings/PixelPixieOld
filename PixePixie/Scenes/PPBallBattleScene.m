@@ -265,7 +265,7 @@ int velocityValue (int x, int y) {
             
             petCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
-            
+            [self.playerAndEnemySide startAttackAnimation:YES];
             [self dealPixieBallContactComboBall:contact andPetBall:self.ballPlayer];
             
             [self addComboValueChangeCombos:petCombos position:self.ballPlayer.position];
@@ -292,6 +292,8 @@ int velocityValue (int x, int y) {
             enemyCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
             [self dealPixieBallContactComboBall:contact andPetBall:self.ballEnemy];
+            [self.playerAndEnemySide startAttackAnimation:NO];
+
             [self addComboValueChangeCombos:enemyCombos position:self.ballEnemy.position];
             
             
