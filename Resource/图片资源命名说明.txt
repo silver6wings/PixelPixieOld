@@ -1,37 +1,23 @@
 ball：球类的图片资源
 	elements：元素
-
-
 		fire：火系
-
 		plant：木系
 
 	magic：陷阱球
-
-
 		root：被缠绕陷阱球
 	
 	table：弹珠台
-
-
 		combo：连击球
-
 		energy out：散出能量特效
 
 
 skill：技能相关的图
-
 	icon：技能图标
-
 	screen：大屏幕特效
 
-	
 		fire_blade_casr：狼焰斩施法过程特效
 
-
 pixie：精灵
-
-
 	info：模型相关信息
 
 ui：界面框架的图
