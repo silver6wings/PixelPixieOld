@@ -35,6 +35,7 @@ int velocityValue (int x, int y) {
     BOOL isNotSkillRun;
     NSString * sceneTypeString;
     BOOL isNotSkillShowTime;
+    SKSpriteNode *spriteArrow;
 }
 
 @property (nonatomic, retain) PPPixie * pixiePlayer;
@@ -190,6 +191,21 @@ int velocityValue (int x, int y) {
     UITouch * touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
     //    SKSpriteNode * touchedNode = (SKSpriteNode *)[self nodeAtPoint:location];
+    origtinTouchPoint = location;
+    
+    if (spriteArrow != nil) {
+        [spriteArrow removeFromParent];
+        spriteArrow = nil;
+    }
+    
+    
+    spriteArrow = [[SKSpriteNode alloc] initWithImageNamed:@"arrow"];
+    spriteArrow.size = CGSizeMake(spriteArrow.size.width/2.0f, spriteArrow.size.height/2.0f);
+    spriteArrow.xScale = 0.2;
+    spriteArrow.yScale = 0.2;
+    spriteArrow.position = self.ballPlayer.position;
+    [self addChild:spriteArrow];
+    
     
     _isBallDragging = YES;
     _ballShadow = [PPBall ballWithPixie:self.pixiePlayer];
@@ -210,6 +226,19 @@ int velocityValue (int x, int y) {
         UITouch * touch = [touches anyObject];
         CGPoint location = [touch locationInNode:self];
         _ballShadow.position = location;
+        CGVector angleVector=CGVectorMake((origtinTouchPoint.x - _ballShadow.position.x) * kBounceReduce,
+                                          (origtinTouchPoint.y - _ballShadow.position.y) * kBounceReduce);
+        
+        double rotation = atan(angleVector.dy/angleVector.dx);
+        rotation = angleVector.dx > 0 ? rotation : rotation + 3.1415926;
+        spriteArrow.zRotation = rotation-3.1415926/2.0;
+        
+        double scaleFactor = sqrt(angleVector.dx * angleVector.dx + angleVector.dy * angleVector.dy );
+        float scaleChange = scaleFactor/20;
+        spriteArrow.xScale = scaleChange;
+        spriteArrow.yScale = scaleChange;
+        NSLog(@"scaleFactor=%f",scaleFactor);
+        
     }
     
 }
@@ -221,12 +250,13 @@ int velocityValue (int x, int y) {
     if (_isBallDragging && !_isBallRolling) {
         
         _isBallDragging = NO;
+        [spriteArrow removeFromParent];
         [self.ballPlayer.physicsBody applyImpulse:
-         CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
-                      (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce)];
+         CGVectorMake((origtinTouchPoint.x - _ballShadow.position.x) * kBounceReduce,
+                      (origtinTouchPoint.y - _ballShadow.position.y) * kBounceReduce)];
         [self.ballPlayer startPixieAccelerateAnimation:
-         CGVectorMake((self.ballPlayer.position.x - _ballShadow.position.x) * kBounceReduce,
-                      (self.ballPlayer.position.y - _ballShadow.position.y) * kBounceReduce) andType:@"step"];
+         CGVectorMake((origtinTouchPoint.x - _ballShadow.position.x) * kBounceReduce,
+                      (origtinTouchPoint.y - _ballShadow.position.y) * kBounceReduce) andType:@"step"];
         currentPhysicsAttack = 1;
         _ballShadow.position = self.ballPlayer.position;
         
@@ -371,12 +401,12 @@ int velocityValue (int x, int y) {
     
     
     if (self.ballPlayer == pixieball) {
+        [self.playerAndEnemySide changeEnemyHPValue:-50];
         [self.playerAndEnemySide changePetMPValue:200];
-        [self.playerAndEnemySide changeEnemyHPValue:-200];
         
     } else {
         
-        [self.playerAndEnemySide changePetHPValue:-200];
+        [self.playerAndEnemySide changePetHPValue:-50];
         [self.playerAndEnemySide changeEnemyMPValue:200];
         
     }

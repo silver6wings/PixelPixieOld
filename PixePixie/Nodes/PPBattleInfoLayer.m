@@ -110,6 +110,8 @@
     ppixiePetBtn.size = CGSizeMake(50.0f, 50.0f);
     [ppixiePetBtn setPosition: CGPointMake(-121.5f, 20.0f)];
     [self addChild:ppixiePetBtn];
+    
+    
     [ppixiePetBtn runAction:[SKAction repeatActionForever:[[PPAtlasManager ball_action] getAnimation:[NSString stringWithFormat:@"%@3stop",kElementTypeString[enemyppixie.pixieElement]]]]];
     NSLog(@"plantname=%@",[NSString stringWithFormat:@"%@3stop",kElementTypeString[enemyppixie.pixieElement]]);
 

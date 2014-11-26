@@ -17,7 +17,7 @@
     int enemyAssimSameEleNum;   // 怪物吸收怪物方元素球个数
     int enemyAssimDiffEleNum;   // 怪物吸收宠物方元素球个数
     int currentPhysicsAttack;   // 当前攻击方的标记 1：玩家攻击 2：敌方攻击
-    
+    CGPoint origtinTouchPoint;
     CGFloat interCoefficient;   // 宠物与对手之间属性克制关系
 @public
     int currentEnemyIndex;
