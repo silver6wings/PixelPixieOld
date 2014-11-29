@@ -613,16 +613,20 @@ int velocityValue (int x, int y) {
         if(currentPhysicsAttack == 1)
         {
             
-            [self  showPhysicsAttackAnimation:PP_PET_PLAYER_SIDE_NODE_NAME];
+            [self roundRotateMoved:PP_PET_PLAYER_SIDE_NODE_NAME];
+
+//            [self  showPhysicsAttackAnimation:PP_PET_PLAYER_SIDE_NODE_NAME];
             
         }else
         {
-            [self  showPhysicsAttackAnimation:PP_ENEMY_SIDE_NODE_NAME];
+            [self roundRotateMoved:PP_ENEMY_SIDE_NODE_NAME];
+
+//            [self  showPhysicsAttackAnimation:PP_ENEMY_SIDE_NODE_NAME];
             
         }
         
     }else
-        //
+        //速度小于临界点 停止
     {
         if (velocityValue((int)self.ballPlayer.physicsBody.velocity.dx,
                           (int)self.ballPlayer.physicsBody.velocity.dy) < kStopThreshold) {
@@ -1476,7 +1480,7 @@ int velocityValue (int x, int y) {
     return (int)hpChange;
 }
 
-//物理攻击结束
+//物理 头像晃动结束
 -(void)physicsAttackAnimationEnd:(NSString *)stringSide
 {
     if ([stringSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
