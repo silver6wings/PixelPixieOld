@@ -1,7 +1,7 @@
 
 #import "PPBallBattleScene.h"
 
-#define SPACE_BOTTOM 80
+#define SPACE_BOTTOM 0
 #define BALL_RANDOM_X (kBallSize / 2 + arc4random() % (int)(320 - kBallSizePixie))
 #define BALL_RANDOM_Y (kBallSize / 2 + arc4random() % (int)(320 - kBallSizePixie) + SPACE_BOTTOM)
 
@@ -87,6 +87,7 @@ int velocityValue (int x, int y) {
         enemyAssimSameEleNum = 0;
         currentPhysicsAttack = 0;
         
+        
         // 设置敌我元素属性
         PPElementType petElement = pixieA.pixieBall.ballElementType;
         PPElementType enemyElement = pixieB.pixieBall.ballElementType;
@@ -97,25 +98,28 @@ int velocityValue (int x, int y) {
         self.physicsWorld.contactDelegate = self;
         
         
+        
         // 添加背景图片
         SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@_wall_back.png",sceneTypeString]];
         bg.size = CGSizeMake(320, 320);
         bg.position = CGPointMake(CGRectGetMidX(self.frame), 160 + SPACE_BOTTOM + PP_FIT_TOP_SIZE);
         [self addChild:bg];
         
+        
+        
         // 添加状态条
-        self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
-        self.playerSkillSide.position = CGPointMake(self.size.width/2, 40 + PP_FIT_TOP_SIZE);
-        self.playerSkillSide.size =  CGSizeMake(self.size.width, 80);
-        self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
-        self.playerSkillSide.target = self;
-        self.playerSkillSide.skillSelector = @selector(skillPlayerShowBegin:);
-        self.playerSkillSide.pauseSelector = @selector(pauseBtnClick:);
-        self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
-        self.playerSkillSide.skillInvalidSel = @selector(skillInvalidBtnClick:);
-        [self.playerSkillSide setColor:[UIColor grayColor]];
-        [self.playerSkillSide setSideSkillsBtn:pixieA andSceneString:sceneTypeString];
-        [self addChild:self.playerSkillSide];
+//        self.playerSkillSide = [[PPBattleInfoLayer alloc] init];
+//        self.playerSkillSide.position = CGPointMake(self.size.width/2, 40 + PP_FIT_TOP_SIZE);
+//        self.playerSkillSide.size =  CGSizeMake(self.size.width, 80);
+//        self.playerSkillSide.name = PP_PET_PLAYER_SIDE_NODE_NAME;
+//        self.playerSkillSide.target = self;
+//        self.playerSkillSide.skillSelector = @selector(skillPlayerShowBegin:);
+//        self.playerSkillSide.pauseSelector = @selector(pauseBtnClick:);
+//        self.playerSkillSide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
+//        self.playerSkillSide.skillInvalidSel = @selector(skillInvalidBtnClick:);
+//        [self.playerSkillSide setColor:[UIColor grayColor]];
+//        [self.playerSkillSide setSideSkillsBtn:pixieA andSceneString:sceneTypeString];
+//        [self addChild:self.playerSkillSide];
         
         
         // 添加围墙
@@ -136,6 +140,7 @@ int velocityValue (int x, int y) {
         self.ballPlayer.physicsBody.contactTestBitMask = EntityCategoryBall;
         self.ballPlayer.physicsBody.density = 1.0f;
         [self addChild:self.ballPlayer];
+        
         
         // 添加连击球
         self.ballsElement = [[NSMutableArray alloc] init];
@@ -730,9 +735,9 @@ int velocityValue (int x, int y) {
     
     self.playerAndEnemySide = [[PPBattleInfoLayer alloc] init];
     [self.playerAndEnemySide setColor:[UIColor purpleColor]];
-    self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-40-direct);
+    self.playerAndEnemySide.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height-80-direct);
     self.playerAndEnemySide.name = PP_ENEMY_SIDE_NODE_NAME;
-    self.playerAndEnemySide.size = CGSizeMake(self.size.width, 80.0f);
+    self.playerAndEnemySide.size = CGSizeMake(self.size.width, 160.0f);
     self.playerAndEnemySide.target = self;
     self.playerAndEnemySide.hpBeenZeroSel = @selector(hpBeenZeroMethod:);
     self.playerAndEnemySide.hpChangeEnd = @selector(hpChangeEndAnimate:);
@@ -1268,14 +1273,14 @@ int velocityValue (int x, int y) {
 -(void)setPlayerSideRoundRunState
 {
     isNotSkillRun = YES;
-    [self.playerSkillSide setSideSkillButtonDisable];
+//    [self.playerSkillSide setSideSkillButtonDisable];
 }
 
 //回合结束状态 玩家可进行操作
 -(void)setPlayerSideRoundEndState
 {
     isNotSkillRun = NO;
-    [self.playerSkillSide setSideSkillButtonEnable];
+//    [self.playerSkillSide setSideSkillButtonEnable];
 }
 
 //物理攻击开始提示

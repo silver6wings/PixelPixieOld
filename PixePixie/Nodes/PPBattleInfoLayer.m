@@ -100,10 +100,9 @@
     
     // 添加上方背景图片
     SKSpriteNode * bgSprite = [SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_back",sceneString]]];
-    bgSprite.size = CGSizeMake(320.0f, 80.0f);
+    bgSprite.size = CGSizeMake(320.0f, 160.0f);
     bgSprite.position = CGPointMake(0.0f,0.0f);
     [self addChild:bgSprite];
-    
     
     // 己方头像
     ppixiePetBtn = [[SKSpriteNode alloc] init];
@@ -144,7 +143,7 @@
     petPlayerHP->target = self;
     petPlayerHP->animateEnd = @selector(animatePetHPEnd:);
     petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
-    petPlayerHP.position = CGPointMake(-52.5,20.0);
+    petPlayerHP.position = CGPointMake(-52.5,-20.0);
     [self addChild:petPlayerHP];
     
     // 己方能量条
@@ -217,7 +216,7 @@
         // 添加宠物buff槽
         PPSpriteButton * buffButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixie.pixieElement],i+1]]
                                                                 andSize:CGSizeMake(25.0f, 25.0f)];
-        buffButton.position = CGPointMake(30*i - 90.0f, -20.0f);
+        buffButton.position = CGPointMake(30*i - 90.0f, petPlayerHP.position.y-40.0f);
         buffButton.name =[NSString stringWithFormat:@"%d",PP_BUFF_SHOW_BTN_TAG + i];
         buffButton.PPBallSkillStatus = @"0";
         [buffButton addTarget:self selector:@selector(buffBtnClick:)
@@ -230,7 +229,7 @@
         // 添加怪物buff槽
         PPSpriteButton * buffButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixieEnemy.pixieElement],i+1]]
                                                                 andSize:CGSizeMake(25.0f, 25.0f)];
-        buffButton.position = CGPointMake(30*(3-i) -55.0f+enemyPlayerHP.position.x, -20.0f);
+        buffButton.position = CGPointMake(30*(3-i) -55.0f+enemyPlayerHP.position.x, petPlayerHP.position.y-40.0f);
         buffButton.name =[NSString stringWithFormat:@"%d",PP_BUFF_SHOW_BTN_TAG + i + 10];
         buffButton.PPBallSkillStatus = @"0";
         [buffButton addTarget:self selector:@selector(buffBtnClick:)
