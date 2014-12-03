@@ -1,5 +1,7 @@
 
 #import "PPSkillNode.h"
+#import "PPPixie.h"
+#import "PPBuff.h"
 
 @class PPHurdleReadyScene;
 

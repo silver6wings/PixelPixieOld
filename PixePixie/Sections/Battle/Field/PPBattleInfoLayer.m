@@ -1,7 +1,8 @@
 
 #import "PPBattleInfoLayer.h"
 #import "PPAtlasManager.h"
-#import "PPBasic.h"
+
+
 @interface PPBattleInfoLayer()
 {
     SKSpriteNode * ppixiePetBtn;
@@ -640,7 +641,7 @@
 {
     if (isPetAttack) {
         SKAction *action1=[SKAction moveByX:200 y:0.0f duration:1];
-        SKAction *action11=[[PPAtlasManager ball_action] getAnimation:[NSString stringWithFormat:@"%@3attack",kElementTypeString[currentPPPixie.pixieElement]]];
+//        SKAction *action11=[[PPAtlasManager ball_action] getAnimation:[NSString stringWithFormat:@"%@3attack",kElementTypeString[currentPPPixie.pixieElement]]];
         SKAction *action111=[SKAction moveByX:-200 y:0.0f duration:1];
         SKAction *action1Result=[SKAction sequence:[NSArray arrayWithObjects:action1,action111, nil]];
         
