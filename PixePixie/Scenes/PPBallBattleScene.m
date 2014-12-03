@@ -153,7 +153,7 @@ int velocityValue (int x, int y) {
             comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
             comboBall.physicsBody.contactTestBitMask = EntityCategoryBall|EntityCategoryWall;
             comboBall.physicsBody.collisionBitMask = EntityCategoryBall|EntityCategoryWall;
-            
+            comboBall.physicsBody.dynamic = NO;
             comboBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:i];
             [self addChild:comboBall];
             [self.ballsCombos addObject:comboBall];
@@ -254,6 +254,9 @@ int velocityValue (int x, int y) {
     
     if (_isBallDragging && !_isBallRolling) {
         
+        [self changeBallStatus:PP_PET_PLAYER_SIDE_NODE_NAME];
+
+        
         _isBallDragging = NO;
         [spriteArrow removeFromParent];
         [self.ballPlayer.physicsBody applyImpulse:
@@ -270,10 +273,27 @@ int velocityValue (int x, int y) {
             [_ballShadow removeFromParent];
         }];
         _isBallRolling = YES;
+        
+        
+        
     }
     
 }
+-(void)changeBallStatus:(NSString *)stringSide
+{
+    if ([stringSide isEqualToString:PP_PET_PLAYER_SIDE_NODE_NAME]) {
+        
+        self.ballEnemy.physicsBody.dynamic = NO;
+        self.ballPlayer.physicsBody.dynamic = YES;
 
+    }else
+    {
+        self.ballPlayer.physicsBody.dynamic = NO;
+        self.ballEnemy.physicsBody.dynamic = YES;
+
+    }
+    
+}
 #pragma mark SKPhysicsContactDelegate
 
 // 开始碰撞事件监测
@@ -1074,6 +1094,7 @@ int velocityValue (int x, int y) {
     roundActionNum = 0;
     
     
+    
     [self setRoundNumberLabel:@"回合结束" begin:NO];
     
     [self performSelectorOnMainThread:@selector(roundRotateBegin) withObject:nil afterDelay:3];
@@ -1134,6 +1155,10 @@ int velocityValue (int x, int y) {
 //敌方弹球攻击
 -(void)enemyDoPhysicsAttack
 {
+    
+    [self changeBallStatus:PP_ENEMY_SIDE_NODE_NAME];
+
+    
     currentPhysicsAttack = 2;
     float randomX = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
     float randomY = arc4random() % (int)(kAutoAttackMax * 2) - kAutoAttackMax;
@@ -1141,6 +1166,9 @@ int velocityValue (int x, int y) {
     [self.ballEnemy startPixieAccelerateAnimation:CGVectorMake(randomX, randomY) andType:@"step"];
     [self setPlayerSideRoundRunState];
     _isBallRolling = YES;
+    
+    
+
 }
 
 //增加连击数显示
@@ -1273,6 +1301,7 @@ int velocityValue (int x, int y) {
 -(void)setPlayerSideRoundRunState
 {
     isNotSkillRun = YES;
+
 //    [self.playerSkillSide setSideSkillButtonDisable];
 }
 

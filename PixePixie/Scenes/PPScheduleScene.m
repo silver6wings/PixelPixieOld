@@ -39,11 +39,13 @@ static NSString * joinTitle[] = {
             [labalTitle setPosition:CGPointMake(-100.0f, 0.0)];
             [activityBarContent addChild:labalTitle];
             
+            
             SKLabelNode * labalContent = [[SKLabelNode alloc] init];
             labalContent.fontSize = 12;
             [labalContent setText:@"活动信息"];
             [labalContent setPosition:CGPointMake(0.0f, 0.0)];
             [activityBarContent addChild:labalContent];
+            
             
             PPSpriteButton *joinButton = [PPSpriteButton buttonWithColor:[UIColor orangeColor] andSize:CGSizeMake(40.0f, 40.0f)];
             [joinButton setLabelWithText:joinTitle[i] andFont:[UIFont systemFontOfSize:15] withColor:nil];
@@ -54,6 +56,7 @@ static NSString * joinTitle[] = {
             [activityBarContent addChild:joinButton];
             
             [self addChild:activityBarContent];
+            
         }
     }
     return self;
