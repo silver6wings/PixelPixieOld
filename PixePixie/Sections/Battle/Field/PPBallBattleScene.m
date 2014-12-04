@@ -204,7 +204,7 @@ int velocityValue (int x, int y) {
     }
     
     
-    spriteArrow = [[SKSpriteNode alloc] initWithImageNamed:@"arrow"];
+    spriteArrow = [[SKSpriteNode alloc] initWithImageNamed:@"table_arrow"];
     spriteArrow.size = CGSizeMake(spriteArrow.size.width/2.0f, spriteArrow.size.height/2.0f);
     spriteArrow.xScale = 0.2;
     spriteArrow.yScale = 0.2;
@@ -236,7 +236,8 @@ int velocityValue (int x, int y) {
         
         double rotation = atan(angleVector.dy/angleVector.dx);
         rotation = angleVector.dx > 0 ? rotation : rotation + 3.1415926;
-        spriteArrow.zRotation = rotation-3.1415926/2.0;
+//        spriteArrow.zRotation = rotation-3.1415926/2.0;
+        spriteArrow.zRotation = rotation;
         
         double scaleFactor = sqrt(angleVector.dx * angleVector.dx + angleVector.dy * angleVector.dy );
         float scaleChange = scaleFactor/20;

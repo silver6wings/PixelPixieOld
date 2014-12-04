@@ -112,4 +112,51 @@
     return tAtlas;
 }
 
++(SKTextureAtlas *)battle_field_ball
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"battle_field_ball"];
+    });
+    return tAtlas;
+}
+
++(SKTextureAtlas *)battle_field_ui
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"battle_field_ui"];
+    });
+    return tAtlas;
+}
++(SKTextureAtlas *)pixie_battle_action
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"pixie_battle_action"];
+    });
+    return tAtlas;
+}
++(SKTextureAtlas *)pixie_battle_effect
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"pixie_battle_effect"];
+    });
+    return tAtlas;
+}
++(SKTextureAtlas *)pixie_battle_skill
+{
+    __strong static SKTextureAtlas * tAtlas = nil;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        tAtlas = [SKTextureAtlas atlasNamed:@"pixie_battle_skill"];
+    });
+    return tAtlas;
+}
+
 @end

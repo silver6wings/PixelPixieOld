@@ -44,21 +44,47 @@
 	<integer>24</integer>
 	<key>fire_shield_cast</key>
 	<integer>27</integer>
-	<key>____const_action____</key>
+	<key>____pixie_battle_action____</key>
 	<string></string>
-	<key>New item</key>
+	<key>fire3_beated</key>
 	<string></string>
-	<key>fire3move</key>
+	<key>fire3_hit</key>
 	<integer>4</integer>
-	<key>fire3stop</key>
+	<key>fire3_move</key>
 	<integer>4</integer>
+	<key>fire3_stop</key>
+	<integer>4</integer>
+	<key>plant3_stop</key>
+	<integer>4</integer>
+	<key>plant3_move</key>
+	<integer>4</integer>
+	<key>plant3_hit</key>
+	<integer>4</integer>
+	<key>plant3_beated</key>
+	<integer>4</integer>
+	<key>___battle_field_ball____</key>
+	<string>0</string>
+	<key>ball_pixie_active</key>
+	<integer>14</integer>
+	<key>ball_pixie_choose</key>
+	<integer>4</integer>
+	<key>ball_pixie_hit</key>
+	<integer>5</integer>
+	<key>ball_pixie_start</key>
+	<integer>3</integer>
+	<key>___pixie_battle_effect____ </key>
+	<string>0</string>
+	<key>defend</key>
+	<integer>7</integer>
 	<key>fire3attack</key>
+	<integer>5</integer>
+	<key>plant3_attack</key>
 	<integer>4</integer>
-	<key>fire3beated</key>
-	<integer>4</integer>
-	<key>plant3move</key>
-	<integer>4</integer>
-	<key>plant3stop</key>
-	<integer>4</integer>
+	<key>fire3_bash</key>
+	<integer>6</integer>
+	<key>plant3_bash</key>
+	<integer>5</integer>
+	<key>shield_break</key>
+	<integer>2</integer>
 </dict>
 </plist>
