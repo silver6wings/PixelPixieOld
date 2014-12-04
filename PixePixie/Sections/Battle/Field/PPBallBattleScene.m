@@ -1,6 +1,8 @@
 
 #import "PPBallBattleScene.h"
 
+#include"stdio.h"
+
 #define SPACE_BOTTOM 0
 #define BALL_RANDOM_X (kBallSize / 2 + arc4random() % (int)(320 - kBallSizePixie))
 #define BALL_RANDOM_Y (kBallSize / 2 + arc4random() % (int)(320 - kBallSizePixie) + SPACE_BOTTOM)
@@ -100,11 +102,12 @@ int velocityValue (int x, int y) {
         
         
         // 添加背景图片
-        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@_wall_back.png",sceneTypeString]];
+//        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:[NSString stringWithFormat:@"%@_wall_back.png",sceneTypeString]];
+        SKSpriteNode * bg = [SKSpriteNode spriteNodeWithImageNamed:@"table_back"];
+
         bg.size = CGSizeMake(320, 320);
         bg.position = CGPointMake(CGRectGetMidX(self.frame), 160 + SPACE_BOTTOM + PP_FIT_TOP_SIZE);
         [self addChild:bg];
-        
         
         
         // 添加状态条
@@ -146,10 +149,38 @@ int velocityValue (int x, int y) {
         self.ballsElement = [[NSMutableArray alloc] init];
         self.ballsCombos = [[NSMutableArray alloc] init];
         
+//        NSMutableArray *arrayPositionArray=[[NSMutableArray alloc] init];
+        
+        
         for (int i = 0; i < 5; i++) {
+            
+            BOOL isRequred;
             PPBall * comboBall = [PPBall ballWithCombo];
-            comboBall.position = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
+           JUMP:{
+               
+               isRequred=YES;
+
+            CGPoint pointCombo = CGPointMake(BALL_RANDOM_X, BALL_RANDOM_Y + PP_FIT_TOP_SIZE);
+               
+            for (PPBall *ballAdded in self.ballsCombos) {
+                
+                CGFloat distanceValue = distanceBetweenPoints(ballAdded.position,pointCombo);
+                if (distanceValue<=30) {
+                    isRequred = NO;
+                    break;
+                }
+                
+            }
+            comboBall.position = pointCombo;
+
+           }
+            
+            if (!isRequred)
+            goto JUMP;
+
+            
             comboBall.name = PP_BALL_TYPE_COMBO_NAME;
+            comboBall.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:25];
             comboBall.physicsBody.categoryBitMask = EntityCategoryBall;
             comboBall.physicsBody.contactTestBitMask = EntityCategoryBall|EntityCategoryWall;
             comboBall.physicsBody.collisionBitMask = EntityCategoryBall|EntityCategoryWall;
@@ -157,6 +188,7 @@ int velocityValue (int x, int y) {
             comboBall.physicsBody.PPBallPhysicsBodyStatus = [NSNumber numberWithInt:i];
             [self addChild:comboBall];
             [self.ballsCombos addObject:comboBall];
+            
         }
     }
     return self;
@@ -317,9 +349,11 @@ int velocityValue (int x, int y) {
         {
             
             if (contact.bodyA == self.ballPlayer.physicsBody) {
-                [[self.ballsCombos objectAtIndex:[contact.bodyB.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
+                PPBall *ballCombo=[self.ballsCombos objectAtIndex:[contact.bodyB.PPBallPhysicsBodyStatus intValue]];
+                [ballCombo startComboAnimation:CGVectorMake(self.ballPlayer.position.x-ballCombo.position.x,self.ballPlayer.position.y-ballCombo.position.y)];
             } else {
-                [[self.ballsCombos objectAtIndex:[contact.bodyA.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
+                PPBall *ballCombo=[self.ballsCombos objectAtIndex:[contact.bodyA.PPBallPhysicsBodyStatus intValue]];
+                [ballCombo startComboAnimation:CGVectorMake(self.ballPlayer.position.x-ballCombo.position.x,self.ballPlayer.position.y-ballCombo.position.y)];
                 
             }
             
@@ -345,9 +379,11 @@ int velocityValue (int x, int y) {
             NSLog(@"bodyStatus=%d",[contact.bodyB.PPBallPhysicsBodyStatus intValue]);
             
             if (contact.bodyA == self.ballEnemy.physicsBody) {
-                [[self.ballsCombos objectAtIndex:[contact.bodyB.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
+                PPBall *ballCombo=[self.ballsCombos objectAtIndex:[contact.bodyB.PPBallPhysicsBodyStatus intValue]];
+                [ballCombo startComboAnimation:CGVectorMake(self.ballEnemy.position.x-ballCombo.position.x,self.ballEnemy.position.y-ballCombo.position.y)];
             } else {
-                [[self.ballsCombos objectAtIndex:[contact.bodyA.PPBallPhysicsBodyStatus intValue]] startComboAnimation];
+                PPBall *ballCombo=[self.ballsCombos objectAtIndex:[contact.bodyA.PPBallPhysicsBodyStatus intValue]];
+                [ballCombo startComboAnimation:CGVectorMake(self.ballEnemy.position.x-ballCombo.position.x,self.ballEnemy.position.y-ballCombo.position.y)];
             }
             enemyCombos++;
             [self.playerAndEnemySide setComboLabelText:petCombos withEnemy:enemyCombos];
@@ -412,7 +448,7 @@ int velocityValue (int x, int y) {
 }
 
 #pragma mark Deal ball contact
-//处理人物球与元素球碰撞
+//处理人物球与连击球碰撞
 -(NSNumber *)dealPixieBallContactComboBall:(SKPhysicsContact *)contact andPetBall:(PPBall *)pixieball
 {
     NSNumber * elementBodyStatus = nil;

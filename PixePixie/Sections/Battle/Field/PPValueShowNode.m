@@ -23,7 +23,7 @@
         // 血条
         valueShowNode = [SKSpriteNode spriteNodeWithTexture:[[PPAtlasManager ui_fighting] textureNamed:
                                                                   [NSString stringWithFormat:@"%@_header_hpbar",typeString]]];
-        valueShowNode.size = CGSizeMake(100, 20);
+        valueShowNode.size = CGSizeMake(50, 10);
         valueShowNode.position = CGPointMake(0, 0);
         //        valueShowNode.zPosition = 1.0f;
         [self addChild:valueShowNode];
@@ -35,21 +35,21 @@
         SKSpriteNode * spriteHpBar = [SKSpriteNode spriteNodeWithImageNamed:
                                       [NSString stringWithFormat:@"%@_header_hpfull.png",typeString]];
         
-        spriteHpBar.size = CGSizeMake(92, 10);
+        spriteHpBar.size = CGSizeMake(46, 5);
         NSLog(@"self.size.width=%f,height=%f",self.size.width,self.size.height);
         
         if (anchorPoint.x == 0.0f) {
-            spriteHpBar.position = CGPointMake(46, 1);
-            crop.position = CGPointMake(-46, 0);
+            spriteHpBar.position = CGPointMake(23, 1);
+            crop.position = CGPointMake(-23, 0);
         } else if (anchorPoint.x == 1.0f) {
-            spriteHpBar.position = CGPointMake(-46, 1);
-            crop.position = CGPointMake(46, 0);
+            spriteHpBar.position = CGPointMake(-23, 1);
+            crop.position = CGPointMake(23, 0);
         }
         [crop addChild:spriteHpBar];
         
         maskValueNode = [SKSpriteNode spriteNodeWithTexture:
                          [[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_hpfull",typeString]]];
-        maskValueNode.size = CGSizeMake(92, 11);
+        maskValueNode.size = CGSizeMake(46, 5);
         maskValueNode.position = CGPointMake(0, 1);
         maskValueNode.anchorPoint = anchorPoint;
         crop.maskNode = maskValueNode;

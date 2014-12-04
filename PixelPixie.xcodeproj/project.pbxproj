@@ -187,7 +187,6 @@
 		D413CB611945FF62004B4FDE /* PPSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = D413CB601945FF62004B4FDE /* PPSkill.m */; };
 		D44935C41948B52E00F3B5B9 /* UserPetInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */; };
 		D457012D194F430700C2EFCE /* EnemyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D457012C194F430700C2EFCE /* EnemyInfo.plist */; };
-		D45B6EFF1A2621DF00814706 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D45B6EFE1A2621DF00814706 /* arrow.png */; };
 		D4877A40196C314E009509E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4877A3F196C314E009509E5 /* Images.xcassets */; };
 		D48C1B001A2467EC00566DF6 /* pixie_action.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D48C1AFF1A2467EC00566DF6 /* pixie_action.atlas */; };
 		D4916A17193F636C00662F88 /* PassInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4916A16193F636C00662F88 /* PassInfo.plist */; };
@@ -439,7 +438,6 @@
 		D413CB601945FF62004B4FDE /* PPSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPSkill.m; path = Models/PPSkill.m; sourceTree = "<group>"; };
 		D44935C31948B52E00F3B5B9 /* UserPetInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPetInfo.plist; sourceTree = "<group>"; };
 		D457012C194F430700C2EFCE /* EnemyInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnemyInfo.plist; sourceTree = "<group>"; };
-		D45B6EFE1A2621DF00814706 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = Resource/Images/arrow.png; sourceTree = "<group>"; };
 		D4877A3F196C314E009509E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D48C1AFF1A2467EC00566DF6 /* pixie_action.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = pixie_action.atlas; path = Resource/Images/pixie_action.atlas; sourceTree = "<group>"; };
 		D4916A16193F636C00662F88 /* PassInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassInfo.plist; sourceTree = "<group>"; };
@@ -678,7 +676,6 @@
 		196738BC19DA5BD2002C5172 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D45B6EFE1A2621DF00814706 /* arrow.png */,
 				1999AC7A19EE6CCF00B25ED2 /* skill_plant.png */,
 				1992B3ED19E9269B00BFE51E /* FrameCount.plist */,
 				1999ABA519EE64D500B25ED2 /* const_encounter */,
@@ -1135,7 +1132,6 @@
 				1999AC3519EE64D500B25ED2 /* plant_forward_0014.png in Resources */,
 				1999AC6619EE64D500B25ED2 /* fire_shield_cast_0007.png in Resources */,
 				1999AC7319EE64D500B25ED2 /* fire_shield_cast_0020.png in Resources */,
-				D45B6EFF1A2621DF00814706 /* arrow.png in Resources */,
 				1999AC7419EE64D500B25ED2 /* fire_shield_cast_0021.png in Resources */,
 				1999AC7719EE64D500B25ED2 /* fire_shield_cast_0024.png in Resources */,
 				1999AC5919EE64D500B25ED2 /* fire_blade_cast_0018.png in Resources */,
