@@ -172,6 +172,7 @@ int velocityValue (int x, int y) {
 
 -(void)willMoveFromView:(SKView *)view
 {
+    
 }
 
 // 每帧处理程序开始
@@ -241,6 +242,9 @@ int velocityValue (int x, int y) {
         
         double scaleFactor = sqrt(angleVector.dx * angleVector.dx + angleVector.dy * angleVector.dy );
         float scaleChange = scaleFactor/20;
+        if (scaleChange >=2) {
+            scaleChange = 2;
+        }
         spriteArrow.xScale = scaleChange;
         spriteArrow.yScale = scaleChange;
         NSLog(@"scaleFactor=%f",scaleFactor);

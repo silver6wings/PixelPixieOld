@@ -104,7 +104,7 @@
     bgSprite.size = CGSizeMake(320.0f, 160.0f);
     bgSprite.position = CGPointMake(0.0f,0.0f);
     [self addChild:bgSprite];
-    
+
     // 己方头像
     ppixiePetBtn = [[SKSpriteNode alloc] init];
     ppixiePetBtn.size = CGSizeMake(50.0f, 50.0f);
@@ -112,17 +112,10 @@
     [self addChild:ppixiePetBtn];
     
     
-    [ppixiePetBtn runAction:[SKAction repeatActionForever:[[PPAtlasManager ball_action] getAnimation:[NSString stringWithFormat:@"%@3stop",kElementTypeString[enemyppixie.pixieElement]]]]];
-    NSLog(@"plantname=%@",[NSString stringWithFormat:@"%@3stop",kElementTypeString[enemyppixie.pixieElement]]);
+    [ppixiePetBtn runAction:[SKAction repeatActionForever:[[PPAtlasManager pixie_battle_action] getAnimation:[NSString stringWithFormat:@"%@3_stop",kElementTypeString[enemyppixie.pixieElement]]]]];
+    NSLog(@"plantname=%@",[NSString stringWithFormat:@"%@3_stop",kElementTypeString[enemyppixie.pixieElement]]);
 
-    
-    //[NSString stringWithFormat:@"%@3stop",kElementTypeString[petppixie.pixieElement]
-    //    ppixiePetBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[petppixie.pixieElement],petppixie.pixieGeneration]]
-    //                                             andSize:CGSizeMake(32.5f, 32.5f)];
-    //    [ppixiePetBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
-    //    ppixiePetBtn.position = CGPointMake(-121.5f, 20.0f);
-    //    ppixiePetBtn.xScale = 1.0f;
-    //    [self addChild:ppixiePetBtn];
+
     
     
     
@@ -135,7 +128,7 @@
     [ppixiePetBtnLabel setText:@"连击:0"];
     ppixiePetBtnLabel.position = CGPointMake(ppixiePetBtn.position.x,ppixiePetBtn.position.y - 40);
     [self addChild:ppixiePetBtnLabel];
-    
+
     // 己方生命条
     petPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(100.0f, 20)];
     [petPlayerHP setMaxValue:petppixie.pixieHPmax andCurrentValue:petppixie.currentHP
@@ -146,7 +139,7 @@
     petPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
     petPlayerHP.position = CGPointMake(-52.5,-20.0);
     [self addChild:petPlayerHP];
-    
+
     // 己方能量条
     petPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(100, 10)];
     [petPlayerMP setMaxValue:petppixie.pixieMPmax andCurrentValue:petppixie.currentMP
@@ -158,7 +151,7 @@
     petPlayerMP.position = CGPointMake(petPlayerHP.position.x,ppixiePetBtn.position.y-20);
     [self addChild:petPlayerMP];
     
-    // 敌方生命条
+//    // 敌方生命条
     enemyPlayerHP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor]
                                                     size:CGSizeMake(petPlayerHP.size.width, petPlayerHP.size.height)];
     [enemyPlayerHP setMaxValue:enemyppixie.pixieHPmax andCurrentValue:enemyppixie.currentHP
@@ -168,7 +161,7 @@
     enemyPlayerHP.anchorPoint = CGPointMake(0.5, 0.5);
     enemyPlayerHP.position = CGPointMake(52.5,petPlayerHP.position.y);
     [self addChild:enemyPlayerHP];
-    
+
     
     // 敌方能量条
     enemyPlayerMP = [PPValueShowNode spriteNodeWithColor:[UIColor clearColor]
@@ -180,7 +173,7 @@
     enemyPlayerMP.anchorPoint = CGPointMake(0.5, 0.5);
     enemyPlayerMP.position = CGPointMake(enemyPlayerHP.position.x,petPlayerMP.position.y);
     [self addChild:enemyPlayerMP];
-    
+
     
     
     // 敌方头像
@@ -188,17 +181,8 @@
     ppixieEnemyBtn.size = CGSizeMake(50.0f, 50.0f);
     [ppixieEnemyBtn setPosition:CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y)];
     [self addChild:ppixieEnemyBtn];
-    [ppixieEnemyBtn runAction:[SKAction repeatActionForever:[[PPAtlasManager ball_action] getAnimation:[NSString stringWithFormat:@"%@3stop",kElementTypeString[enemyppixie.pixieElement]]]]];
-    
-    
-    //    ppixieEnemyBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager pixie_info] textureNamed:[NSString stringWithFormat:@"%@%d_portrait",kElementTypeString[enemyppixie.pixieElement],enemyppixie.pixieGeneration]]
-    //                                               andSize:CGSizeMake(32.5f, 32.5f)];
-    //    [ppixieEnemyBtn addTarget:self selector:@selector(physicsAttackClick:) withObject:@"" forControlEvent:PPButtonControlEventTouchUp];
-    //    ppixieEnemyBtn.position = CGPointMake(enemyPlayerHP.position.x + enemyPlayerHP.size.width/2.0f + 20.0f,ppixiePetBtn.position.y);
-    //    ppixieEnemyBtn.xScale = -1.0f;
-    //    [self addChild:ppixieEnemyBtn];
-    
-    
+    [ppixieEnemyBtn runAction:[SKAction repeatActionForever:[[PPAtlasManager pixie_battle_action] getAnimation:[NSString stringWithFormat:@"%@3_stop",kElementTypeString[enemyppixie.pixieElement]]]]];
+
     
     
     // 敌方连击数
@@ -211,34 +195,44 @@
     [self addChild:ppixieBtnLabel];
     
     
+    //暂停按钮
+    PPSpriteButton *  stopBtn = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_footer_pause",sceneString]]
+                                                          andSize:CGSizeMake(32.5, 32.5)];
+    stopBtn.position = CGPointMake(-130.0f, 60.0f);
+    stopBtn.name = @"stopBtn";
+    [stopBtn addTarget:self selector:@selector(stopBtnClick:)
+            withObject:stopBtn.name forControlEvent:PPButtonControlEventTouchUpInside];
+    [self addChild:stopBtn];
     
-    for (int i = 0; i < [currentPPPixie.pixieBuffs count]; i++)
-    {
-        // 添加宠物buff槽
-        PPSpriteButton * buffButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixie.pixieElement],i+1]]
-                                                                andSize:CGSizeMake(25.0f, 25.0f)];
-        buffButton.position = CGPointMake(30*i - 90.0f, petPlayerHP.position.y-40.0f);
-        buffButton.name =[NSString stringWithFormat:@"%d",PP_BUFF_SHOW_BTN_TAG + i];
-        buffButton.PPBallSkillStatus = @"0";
-        [buffButton addTarget:self selector:@selector(buffBtnClick:)
-                   withObject:buffButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-        [self addChild:buffButton];
-        
-    }
-    for (int i = (int)[currentPPPixie.pixieBuffs count]-1; i >= 0; i--)
-    {
-        // 添加怪物buff槽
-        PPSpriteButton * buffButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixieEnemy.pixieElement],i+1]]
-                                                                andSize:CGSizeMake(25.0f, 25.0f)];
-        buffButton.position = CGPointMake(30*(3-i) -55.0f+enemyPlayerHP.position.x, petPlayerHP.position.y-40.0f);
-        buffButton.name =[NSString stringWithFormat:@"%d",PP_BUFF_SHOW_BTN_TAG + i + 10];
-        buffButton.PPBallSkillStatus = @"0";
-        [buffButton addTarget:self selector:@selector(buffBtnClick:)
-                   withObject:buffButton.name forControlEvent:PPButtonControlEventTouchUpInside];
-        [self addChild:buffButton];
-        
-        
-    }
+    
+    
+//    for (int i = 0; i < [currentPPPixie.pixieBuffs count]; i++)
+//    {
+//        // 添加宠物buff槽
+//        PPSpriteButton * buffButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixie.pixieElement],i+1]]
+//                                                                andSize:CGSizeMake(25.0f, 25.0f)];
+//        buffButton.position = CGPointMake(30*i - 90.0f, petPlayerHP.position.y-40.0f);
+//        buffButton.name =[NSString stringWithFormat:@"%d",PP_BUFF_SHOW_BTN_TAG + i];
+//        buffButton.PPBallSkillStatus = @"0";
+//        [buffButton addTarget:self selector:@selector(buffBtnClick:)
+//                   withObject:buffButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+//        [self addChild:buffButton];
+//        
+//    }
+//    for (int i = (int)[currentPPPixie.pixieBuffs count]-1; i >= 0; i--)
+//    {
+//        // 添加怪物buff槽
+//        PPSpriteButton * buffButton = [PPSpriteButton buttonWithTexture:[[PPAtlasManager ui_fighting] textureNamed:[NSString stringWithFormat:@"%@_header_buffbar%d",kElementTypeString[currentPPPixieEnemy.pixieElement],i+1]]
+//                                                                andSize:CGSizeMake(25.0f, 25.0f)];
+//        buffButton.position = CGPointMake(30*(3-i) -55.0f+enemyPlayerHP.position.x, petPlayerHP.position.y-40.0f);
+//        buffButton.name =[NSString stringWithFormat:@"%d",PP_BUFF_SHOW_BTN_TAG + i + 10];
+//        buffButton.PPBallSkillStatus = @"0";
+//        [buffButton addTarget:self selector:@selector(buffBtnClick:)
+//                   withObject:buffButton.name forControlEvent:PPButtonControlEventTouchUpInside];
+//        [self addChild:buffButton];
+//        
+//        
+//    }
     
     //    SKLabelNode *ppixiePetNameLabel=[[SKLabelNode alloc] init];
     //    ppixiePetNameLabel.fontSize=12;
