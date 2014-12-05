@@ -17,6 +17,13 @@
 #import <SpriteKit/SpriteKit.h>
 
 #import "Configuration.h"
-#import "Importation.h"
+
+#import "PPBasic.h"
+#import "PPControllers.h"
+#import "PPViews.h"
+#import "PPModels.h"
+#import "PPScenes.h"
+#import "PPNodes.h"
+
 
 #endif

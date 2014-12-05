@@ -97,7 +97,7 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *) @"MyObjectMyCustomPorperty
 /**
  * @brief 创建连击球碰撞动画
  */
--(void)startComboAnimation:(CGVector)vectorValue;
+-(void)startComboAnimation;
 /**
  * @brief 创建治疗动画
  */
@@ -130,7 +130,6 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *) @"MyObjectMyCustomPorperty
  * @brief 元素球变身陷阱动画
 */
 -(void)startMagicballAnimation;
-
 /**
 * @brief 陷阱缠绕动画
 * @param isAppear 是缠绕出现  YES代表缠绕动画   NO代表缠绕消失动画
@@ -138,7 +137,6 @@ static void * MyObjectMyCustomPorpertyKey1 = (void *) @"MyObjectMyCustomPorperty
 * @warning
 * @return
 */
-
 -(void)startPlantrootAppearOrDisappear:(BOOL)isAppear;
 
 

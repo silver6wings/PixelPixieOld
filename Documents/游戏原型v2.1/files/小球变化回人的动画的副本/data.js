@@ -1,0 +1,199 @@
+﻿$axure.loadCurrentPage({
+  "url":"小球变化回人的动画的副本.html",
+  "generationDate":new Date(1406724397567),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable"],
+  "page":{
+    "packageId":"5e7f4041938944ba8b69947f3c4a658a",
+    "type":"Axure:Page",
+    "name":"小球变化回人的动画的副本",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"应用字体",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"115f907faf3a4212818328ef4fb9e44d",
+          "label":"手机",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "size":{
+              "width":754,
+              "height":1478}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"49442bda98ed4a828c6bd7f705c8addd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "size":{
+                  "width":754,
+                  "height":1478}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/手机_u0.png"}},
+{
+          "id":"3b9ae53e6009491eab900f8758cfb377",
+          "label":"",
+          "type":"flowShape",
+          "styleType":"flowShape",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":60,
+              "y":259},
+            "size":{
+              "width":640,
+              "height":960}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"3233af94cb1d4e6c97e36b18dc1264e8",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":60,
+                  "y":259},
+                "size":{
+                  "width":640,
+                  "height":960}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open 推进动画 in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"推进动画_1.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/人物转变成球动画/u2.png"}},
+{
+          "id":"f412c8960470425ca6104da07541027e",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":490,
+              "y":420},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"b24bac7c25e84d9a8b61b3e002c9fddd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":490,
+                  "y":420},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/feed5_u124.png"}},
+{
+          "id":"0e53b0a460c4422fb40befa43a5b5622",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "fontName":"'应用字体 Regular', '应用字体'",
+            "location":{
+              "x":190,
+              "y":960},
+            "size":{
+              "width":60,
+              "height":60}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"d8c1df6b10e9405bb005461a5eb7043e",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'应用字体 Regular', '应用字体'",
+                "location":{
+                  "x":190,
+                  "y":960},
+                "size":{
+                  "width":60,
+                  "height":60}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/home/feed3_u120.png"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "115f907faf3a4212818328ef4fb9e44d":{
+      "scriptId":"u0"},
+    "49442bda98ed4a828c6bd7f705c8addd":{
+      "scriptId":"u1"},
+    "3b9ae53e6009491eab900f8758cfb377":{
+      "scriptId":"u2"},
+    "3233af94cb1d4e6c97e36b18dc1264e8":{
+      "scriptId":"u3"},
+    "f412c8960470425ca6104da07541027e":{
+      "scriptId":"u4"},
+    "b24bac7c25e84d9a8b61b3e002c9fddd":{
+      "scriptId":"u5"},
+    "0e53b0a460c4422fb40befa43a5b5622":{
+      "scriptId":"u6"},
+    "d8c1df6b10e9405bb005461a5eb7043e":{
+      "scriptId":"u7"}}});

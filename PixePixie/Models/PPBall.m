@@ -18,30 +18,9 @@
 +(PPBall *)ballWithPixie:(PPPixie *)pixie
 {
     if (pixie == nil) return nil;
-//    NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
-//                            kElementTypeString[pixie.pixieElement],pixie.pixieGeneration];
-    
-    
-//    PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
-    PPBall * tBall = [PPBall spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(50.0f, 50.0f)];
-    
-    
-    
-    SKTexture *comboBallBack = [[PPAtlasManager battle_field_ball] textureNamed:@"ball_all"];
-    SKSpriteNode *nodeBack=[SKSpriteNode spriteNodeWithTexture:comboBallBack];
-    nodeBack.size = CGSizeMake(50.0f, 50.0f);
-    [tBall addChild:nodeBack];
-    
-    
-    SKSpriteNode *showSpriteNode = [[SKSpriteNode alloc] init];
-    showSpriteNode.size = CGSizeMake(50.0f, 50.0f);
-    [showSpriteNode setPosition: CGPointMake(0.0f, 10.0f)];
-    [tBall addChild:showSpriteNode];
-    
-    
-    [showSpriteNode runAction:[SKAction repeatActionForever:[[PPAtlasManager pixie_battle_action] getAnimation:[NSString stringWithFormat:@"%@3_stop",kElementTypeString[pixie.pixieElement]]]]];
-    NSLog(@"plantname=%@",[NSString stringWithFormat:@"%@3_stop",kElementTypeString[pixie.pixieElement]]);
-    
+    NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
+                            kElementTypeString[pixie.pixieElement],pixie.pixieGeneration];
+    PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
     
     if (tBall){
         tBall.ballType = PPBallTypePlayer;
@@ -58,28 +37,10 @@
 // 创建敌人宠物的球
 +(PPBall *)ballWithPixieEnemy:(PPPixie *)pixieEnemy;
 {
-    
     if (pixieEnemy == nil) return nil;
-//    NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
-//                            kElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration];
-//    PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
-    PPBall * tBall = [PPBall spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(50.0f, 50.0f)];
-
-    SKTexture *comboBallBack = [[PPAtlasManager battle_field_ball] textureNamed:@"ball_all"];
-    SKSpriteNode *nodeBack=[SKSpriteNode spriteNodeWithTexture:comboBallBack];
-    nodeBack.size = CGSizeMake(50.0f, 50.0f);
-    [tBall addChild:nodeBack];
-    
-    
-    SKSpriteNode *showSpriteNode = [[SKSpriteNode alloc] init];
-    showSpriteNode.size = CGSizeMake(50.0f, 50.0f);
-    [showSpriteNode setPosition: CGPointMake(5.0f, 5.0f)];
-    [tBall addChild:showSpriteNode];
-    
-    
-    [showSpriteNode runAction:[SKAction repeatActionForever:[[PPAtlasManager pixie_battle_action] getAnimation:[NSString stringWithFormat:@"%@3_stop",kElementTypeString[pixieEnemy.pixieElement]]]]];
-    NSLog(@"plantname=%@",[NSString stringWithFormat:@"%@3_stop",kElementTypeString[pixieEnemy.pixieElement]]);
-
+    NSString * imageName = [NSString stringWithFormat:@"%@%d_ball.png",
+                            kElementTypeString[pixieEnemy.pixieElement],pixieEnemy.pixieGeneration];
+    PPBall * tBall = [PPBall spriteNodeWithTexture:[SKTexture textureWithImageNamed:imageName]];
     
     tBall.ballBuffs = [[NSMutableArray alloc] init];
     
@@ -129,14 +90,9 @@
 // 创建连击球
 +(PPBall *)ballWithCombo
 {
-    NSString * imageName = @"ball_combo.png";
+    NSString * imageName = @"combo_ball.png";
     SKTexture * tTexture = [SKTexture textureWithImageNamed:imageName];
     PPBall * tBall = [PPBall spriteNodeWithTexture:tTexture];
-    
-    SKTexture *comboBallBack = [[PPAtlasManager battle_field_ball] textureNamed:@"ball_all"];
-    SKSpriteNode *nodeBack=[SKSpriteNode spriteNodeWithTexture:comboBallBack];
-    nodeBack.size = CGSizeMake(50.0f, 50.0f);
-    [tBall addChild:nodeBack];
     
     if (tBall)
     {
@@ -329,7 +285,7 @@
 }
 
 // 连击能量动画
--(void)startComboAnimation:(CGVector)vectorValue
+-(void)startComboAnimation
 {
     if (self.comboBallSprite != nil) {
         [self.comboBallSprite removeFromParent];
@@ -338,10 +294,10 @@
     
     self.comboBallSprite =[[SKSpriteNode alloc] init];
     self.comboBallSprite.size = CGSizeMake(50.0f, 50.0f);
-    [self.comboBallSprite setPosition:CGPointMake(vectorValue.dx/2.0f, vectorValue.dy/2.0f)];
+    [self.comboBallSprite setPosition:CGPointMake(0.0f, 0.0f)];
     [self addChild:self.comboBallSprite];
     
-    [self.comboBallSprite runAction:[[PPAtlasManager battle_field_ball] getAnimation:@"ball_pixie_hit"]
+    [self.comboBallSprite runAction:[[PPAtlasManager ball_table] getAnimation:@"combo_ball"]
                          completion:^{[self.comboBallSprite removeFromParent];}];
 }
 
